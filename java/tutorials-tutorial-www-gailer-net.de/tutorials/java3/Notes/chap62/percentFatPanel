@@ -1,0 +1,78 @@
+import java.awt.* ;
+import java.awt.event.*;
+import javax.swing.*;
+  
+public class percentFatPanel extends JFrame implements ActionListener
+{
+  JLabel title      = new JLabel("Percent of Calories from Fat");
+  JLabel fatLabel   = new JLabel("Enter grams of fat:   ");
+  JLabel calLabel   = new JLabel("Enter total calories: ");
+  JLabel perLabel   = new JLabel("Percent calories from fat: ");
+   
+  JTextField inFat  = new JTextField( 7 );
+  JTextField inCal  = new JTextField( 7 );
+  JTextField outPer = new JTextField( 7 );
+   
+  JButton    doit   = new JButton("Do It!");
+  
+  JPanel fatPanel   = new JPanel();
+  JPanel calPanel   = new JPanel();
+  JPanel perPanel   = new JPanel();
+   
+  fatPanel.add( fatLabel );
+  fatPanel.add( inFat );
+  calPanel.add( calLabel );
+  calPanel.add( inCal );
+  perPanel.add( perLabel );
+  perPanel.add( outPer );
+  
+  getContentPane().setLayout(
+      new BoxLayout( getContentPane(), Y_AXIS ); 
+   
+  getContentPane().add( title );
+  getContentPane().add( fatPanel );
+  getContentPane().add( calPanel );
+  getContentPane().add( perPanel );
+  getContentPane().add( doit );   doit.addActionListener( this );
+  }
+  
+  // The application
+  public void calcPercent( ) 
+  {
+    percent = ( (fatGrams * 9.0) / calories ) * 100.0 ;
+  }
+  
+  public void actionPerformed( ActionEvent evt) 
+  {
+    String userIn ;
+    userIn    = inFat.getText()  ;
+    fatGrams  = Integer.parseInt( userIn ) ;
+  
+    userIn    = inCal.getText()  ;
+    calories  = Integer.parseInt( userIn ) ;
+  
+    calcPercent() ;
+  
+    outPer.setText( (percent+" ").substring(0,6) );
+    repaint();                 
+  }
+  
+  public static void main ( String[] args )
+  {
+    percentFat fatApp  = new percentFat() ;
+  
+    WindowQuitter wquit = new WindowQuitter();
+    fatApp.addWindowListener( wquit );
+   
+    fatApp.setSize( 280, 200 );    
+    fatApp.setVisible( true );        
+  }
+}
+   
+class  WindowQuitter  extends WindowAdapter
+{
+  public void windowClosing( WindowEvent e )
+  {
+    System.exit( 0 );  
+  }
+}

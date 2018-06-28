@@ -1,0 +1,35 @@
+body{
+ font-family:arial,helvetica,sans-serif;
+ background-color:#FFFFCC;
+ color:black;
+ margin:10px;
+}
+
+h1,h2,h3,h4{
+ font-family:arial,sans-serif;
+}
+
+h1{
+ text-align:center;
+}
+
+table,td{
+ font-family:arial,sans-serif;
+ border:none;/*solid red 1px;*/
+}
+
+td{
+ vertical-align:top;
+ padding:5px;
+}
+
+#intro p:first-letter{font-size:1.3em;}
+
+.blue  {color:blue;}
+.red   {color:red;}
+.green {color:green;}
+
+a:link     { color:blue; }
+a:visited  { color:#A02000; }
+a:active   { color:red; }
+a:hover    { color:red; }

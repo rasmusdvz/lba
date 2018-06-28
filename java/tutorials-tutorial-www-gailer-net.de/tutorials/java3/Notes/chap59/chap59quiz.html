@@ -1,0 +1,486 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css" />
+<!-- FILL in the Quiz Name between <title> and </title> -->
+<title>
+Quiz on Buttons and Action Events
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+</head>
+
+<script language="JavaScript">
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+ 
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;   
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else 
+    reportForm.letter.value = "hmm.."
+    
+}
+</script>
+
+<body>
+
+
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+Quiz on Buttons and Action Events
+ <!-- end of Quiz Name -->
+</h1></center> 
+
+
+<img src="quizArt.gif" align=left hspace=15 vspace=5
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br clear="all">
+
+<hr/>
+<form name="question1">
+<p>
+<p>
+1.
+<!-- FILL in Question 1-->
+What method (of a frame) returns a reference to its
+<em>content pane</em>? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+getContentPane() 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+contentPane()
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+framePane() 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+getPane() 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+What type of object determines where GUI components go in
+the content pane? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+The layer organizer. 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+The layabout programmer.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+The layout manager.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+The frame hanger. 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+What method determines the size of the frame on the screen? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+setSize() 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+setDimensions()
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+showSize() 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+setRectangle() 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+What <u>interface</u> must a button listener implement? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+ActionListener 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+ButtonListener
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+ClickListener 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+DeviceListener 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+What <u>method</u> must a button listener implement? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+buttonAction() 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+eventAction()
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+actionMethod() 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+actionPerformed() 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+What method of a frame's content pane is used to set the layout manager?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+setLayout() 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+setLayoutManager()
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+addLayout 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+setManager() 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+What method of class <code>JButton</code> sets the command string for a button? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+setActionCommand(String command) 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+setCommand(String command) 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+setCommandString(String command) 
+ <!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+setButtonCommand(String command) 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+What class of events do button clicks create? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+ActionEvent 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+ButtonEvent
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+ClickEvent 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+DemoEvent 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+What method extracts the command string from an event object? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+getCommand() 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+getActionCommand()
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+getCommandString() 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+getButtonText() 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="B"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+
+<hr/>
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+How should a command string
+be compared with a literal string? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>==</code> 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+<code>=</code> 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+equals() 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+equalsIgnoreCase() 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</center>
+<p>
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size=5>
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size=5>
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size=5>
+</form>
+
+<table>
+<tr>
+<td>
+<A HREF="../../cs151java.html#59">
+<img src="../contents.gif" alt="Click here" align="center"> </A> 
+</td>
+<td>
+(If you have just returned here from another page, 
+or have re-loaded this page, you will need to click again on 
+each of your choices for the grading program to work correctly.
+You may want to press the "shift key" while clicking on reload to clear
+the old answers.)
+</td>
+</tr>
+</table>
+
+<hr/>
+
+
+</body>
+</html>

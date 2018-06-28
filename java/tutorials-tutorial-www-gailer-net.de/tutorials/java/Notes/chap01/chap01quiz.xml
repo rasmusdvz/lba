@@ -1,0 +1,265 @@
+<QUIZ>
+
+<QHEAD>
+<QCREATION>Created 12/12/98; revised 02/19/00 </QCREATION>
+<QAUTHOR>B. P. Kjell</QAUTHOR>
+<QEMAIL>kjell@ieee.org</QEMAIL>
+<QCOPYRIGHT>2002</QCOPYRIGHT>
+<QCSSFILE>../QUIZstyle.css</QCSSFILE>
+<QRETURNTO>../../cs151java.html#01</QRETURNTO>
+<QRETURNIMAGE>../contents.gif</QRETURNIMAGE>
+</QHEAD>
+
+<QTITLE>
+<img src="quizPencil.gif"/>
+ on Computer Systems
+</QTITLE>
+
+<QTOP>
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br clear="all"/>
+</QTOP>
+
+<QUESTION>
+<QTEXT>
+What is the difference between <em>hardware</em> and <em>software</em>? 
+</QTEXT>
+
+<QRIGHT>
+Hardware is tangible, but software is intangible. 
+</QRIGHT>   
+
+<QWRONG>
+Hardware is metal, software is plastic.
+</QWRONG>   
+ 
+<QWRONG>
+Hardware is permanent, software is temporary. 
+</QWRONG>   
+ 
+<QWRONG>
+Hardware is reliable, software is unreliable. 
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+What hardware components (of a typical desktop computer) are
+usually found inside of the <em>systems</em> unit? 
+</QTEXT>
+
+<QWRONG>
+The processor, main memory, and monitor.
+</QWRONG>   
+
+<QRIGHT>
+The processor, main memory, and secondary memory
+</QRIGHT>   
+
+<QWRONG>
+First, second, and third memory. 
+</QWRONG>   
+ 
+<QWRONG>
+The keyboard, the disks, and the audio blaster. 
+</QWRONG>   
+</QUESTION>   
+ 
+<QUESTION>
+<QTEXT>
+Which component is the "brains" of a computer system?
+</QTEXT>
+
+<QWRONG>
+The main memory. 
+</QWRONG>   
+
+<QWRONG>
+The secondary memory.
+</QWRONG>   
+ 
+<QRIGHT>
+The processor chip. 
+</QRIGHT>   
+ 
+<QWRONG>
+The power supply. 
+</QWRONG>   
+</QUESTION>   
+ 
+<QUESTION>
+<QTEXT>
+Which type of memory is most closely connected to the processor? 
+</QTEXT>
+
+<QRIGHT>
+Main memory. 
+</QRIGHT>   
+
+
+<QWRONG>
+Secondary memory.
+</QWRONG>   
+ 
+<QWRONG>
+Disk memory. 
+</QWRONG>   
+ 
+<QWRONG>
+Tape memory. 
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Where are programs and data kept while the processor is using them? 
+</QTEXT>
+
+<QRIGHT>
+Main memory 
+</QRIGHT>   
+
+<QWRONG>
+Secondary memory
+</QWRONG>   
+ 
+<QWRONG>
+Disk memory 
+</QWRONG>   
+ 
+<QWRONG>
+Program memory 
+</QWRONG>   
+</QUESTION>   
+ 
+<QUESTION>
+<QTEXT>
+What is an <em>embedded system?</em> 
+</QTEXT>
+
+<QWRONG>
+A program that comes shink-wrapped in a box. 
+</QWRONG>   
+
+<QWRONG>
+A program that is permanently part of a computer.
+</QWRONG>   
+ 
+<QWRONG>
+A computer that is part of a larger computer. 
+</QWRONG>   
+ 
+<QRIGHT>
+A computer and software system that controls a machine or appliance. 
+</QRIGHT>   
+</QUESTION>   
+ 
+
+<QUESTION>
+<QTEXT>
+How is it possible that both <em>programs</em> and <em>data</em> can
+be stored on the same floppy disk? 
+</QTEXT>
+
+<QWRONG>
+A floppy disk has two sides, one for data and one for programs. 
+</QWRONG>   
+
+<QRIGHT>
+Programs and data are both software, and both can be stored on any
+memory device.
+</QRIGHT>   
+ 
+<QWRONG>
+A floppy disk has to be formatted for one or for the other. 
+</QWRONG>   
+ 
+<QWRONG>
+Floppy disks can only store data, not programs. 
+</QWRONG>   
+</QUESTION>   
+ 
+<QUESTION>
+<QTEXT>
+What are the two general types of programs?
+</QTEXT>
+
+<QWRONG>
+Entertainment and Productivity. 
+</QWRONG>   
+
+<QWRONG>
+Wordprocessors and Databases.
+</QWRONG>   
+ 
+<QWRONG>
+Microsoft and IBM. 
+</QWRONG>   
+ 
+<QRIGHT>
+System software and Application software. 
+</QRIGHT>   
+</QUESTION>   
+ 
+<QUESTION>
+<QTEXT>
+What is an <em>operating system</em>?
+</QTEXT>
+
+<QWRONG>
+The part of the <I>hardware</I> that operates input and output devices. 
+</QWRONG>   
+
+<QWRONG>
+The part of the <I>hardware</I> that operates the mouse
+and the windows on the monitor.
+</QWRONG>   
+ 
+<QRIGHT>
+Systems <em>software</em> that coordinates the hardware and software
+components of a computer system. 
+</QRIGHT>   
+ 
+<QWRONG>
+A section of <em>software</em> that must be part of every program.
+</QWRONG>   
+</QUESTION>   
+ 
+<QUESTION>
+<QTEXT>
+What is a <em>computer network</em>? 
+</QTEXT>
+
+<QRIGHT>
+Two or more computers connected together to exchange data and programs. 
+</QRIGHT>   
+
+<QWRONG>
+A computer that can run many programs from its hard disk.
+</QWRONG>   
+ 
+<QWRONG>
+A group of computers that share the same power supply. 
+</QWRONG>   
+ 
+<QWRONG>
+A computer that is used by many different human users. 
+</QWRONG>   
+</QUESTION>  
+
+</QUIZ> 
+ 

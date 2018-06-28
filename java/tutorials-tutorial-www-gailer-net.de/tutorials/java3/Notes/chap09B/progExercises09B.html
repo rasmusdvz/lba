@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css" />
+</head>
+<body>
+<hr />
+<small>erstellt 30.07.99; &uuml;bersetzt 01.03.03; &uuml;berarbeitet 12.11.03, 21.04.04, 11.04.05, 29.09.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<center><h1><font color="blue">
+Kapitel 9b  Programmieraufgaben</font></h1></center>
+
+<p>
+<b>Allgemeine Hinweise:</b>
+Schreiben Sie jedes Programm wie angegeben.
+Keines dieser Programme erwartet die Eingabe von Daten durch den Anwender.
+Die Werte, die von den Programmen verwendet werden, sind durch Deklaration und Zuweisungsanweisungen  fest vorgegeben.
+Das ist normalerweise eine schlechte Form der Programmierung.
+Die Eingabe von Daten wird in den n&auml;chsten zwei Kapiteln behandelt.
+Sobald Sie diese Kapitel gelesen haben, k&ouml;nnen Sie zur&uuml;ckkommen und eine bessere Version dieser Programme schreiben.
+
+</p>
+
+<p>
+<b>Hinweis:</b>
+Jede Aufgabe verlangt das Programm mehrmals mit verschiedenen Werten ausf&uuml;hren zu lassen.
+Das ist ein wichtiger Bestandteil der Aufgabe!
+Experimentieren Sie mit Ihren Programmen. Nur so bekommen Sie ein vitales Verst&auml;ndnis und ein Gef&uuml;hl f&uuml;r das Programmieren.
+</p>
+
+<h2>Aufgabe 1 &#8212 Durchschnittliche Niederschlagsmenge</h2>
+<p>
+Schreiben Sie ein Programm, das die durchschnittliche Niederschlagsmenge f&uuml;r die drei Monate April, Mai und Juni berechnet.
+Deklarieren und initialisieren Sie eine Variable f&uuml;r jeden Monat.
+Berechnen Sie den Durchschnitt und geben Sie das Ergebnis in folgender Form aus:
+<blockquote>
+<pre>
+Niederschlag im April:    12
+Niederschlag im Mai  :    14
+Niederschlag im Juni :    8
+Durchschnitt:             11.333333333333334
+</pre>
+</blockquote>
+Verwenden Sie das Tabulatorzeichen '\t' um die Zahlen auszurichten.
+&Uuml;berpr&uuml;fen Sie ob Ihr Programm das richtige Ergebnis ausgibt.
+Welcher Anf&auml;ngerfehler kann bei dieser Aufgabe gemacht werden?
+Erkennen Sie ihn?
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#09B">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 2 &#8212 Trigonometrie</h2>
+<p>
+Um den Sinus eines Gleitpunktwerts mit doppelter
+Genauigkeit zu berechnen, verwenden Sie diese Methode:
+<blockquote>
+<pre>
+Math.sin( zahl )
+</pre>
+</blockquote>
+Der <em>Wert</em> wird in Bogenma&szlig; angegeben (nicht in Grad.)
+Der <em>Cosinus</em> wird mit
+<blockquote>
+<pre>
+Math.cos( zahl )
+</pre>
+</blockquote>
+berechnet. Noch einmal, der <em>Wert</em> ist in Bogenma&szlig;.
+Schreiben Sie ein Programm, das folgendes berechnet:
+<OL>
+<LI>Den Sinus von 0.5235 Bogenma&szlig;. Das Ergebnis wird in einer Variablen <code>sinx</code> gespeichert.
+<LI>Den Cosinus von 0.5235 Bogenma&szlig;. Das Ergebnis wird in einer Variablen <code>cosx</code> gespeichert.
+<LI>Die Summe des Quadrats von jedem dieser Werte (verwenden Sie die Variablen).
+    Das Ergebnis wird in einer dritten Variablen <code>ergebnis</code> gespeichert.
+<LI>Geben Sie die drei Variablen aus.
+</OL>
+Die Ausgabe sollte in etwa sein:
+<blockquote>
+<pre>
+System.out.println("Sinus: " + sinx + " Cosinus: " + cosx + " Ergebnis: " + ergebnis );
+</pre>
+</blockquote>
+Testen Sie neben 0.5235 ein paar andere Werte.
+</p>
+
+ <p>Zur&uuml;ck zum <a href="../../java-toc.html#09B">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 3 &#8212 Grad in Bogenma&szlig;</h2>
+<p>
+Es ist manchmal schwierig in Bogenma&szlig; zu denken;
+wir w&uuml;rden lieber Grad verwenden.
+Erinnern Sie sich (an jene dunklen Klassentage mit Trigonometrie),
+dass es PI Bogenma&szlig; je 180 Grad gibt.
+Also um einen Winkel, gegeben in Grad, in Bogenma&szlig; umzurechnen, tun Sie das:
+<blockquote>
+<pre>
+bogenmass = grad * Math.PI/180
+</pre>
+</blockquote>
+Math.PI gibt Ihnen den genauen Wert von PI.
+</p>
+
+<p>
+Editieren Sie das vorherige Programm, so dass es die gleichen Dinge tut.
+Aber jetzt ist der Winkel 30 Grad (den Sie in Bogenma&szlig; konvertieren werden).
+</p>
+
+ <p>Zur&uuml;ck zum <a href="../../java-toc.html#09B">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<p>Ende  der Aufgaben</p>
+
+</body>
+</html>

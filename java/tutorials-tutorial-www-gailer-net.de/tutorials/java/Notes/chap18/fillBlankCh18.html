@@ -1,0 +1,297 @@
+<HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta  http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>F&uuml;llen Sie die L&uuml;cken aus</title>
+
+<meta name="copyright" content="2000,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2003, Heinrich Gailer">
+
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css">
+</head>
+
+<body>
+<p class="revisions">erstellt 08.08.99; &uuml;berarbeitet 23.08.2010; &uuml;bersetzt 31.03.03; &uuml;berarbeitet 27.11.03, 09.05.05, 03.10.06, 24.11.10; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+<hr>
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+F&uuml;llen Sie die L&uuml;cken aus
+<!-- end of Quiz Name -->
+</h1></center>
+
+<p>
+<b>Hinweise:</b> &nbsp;
+Das ist eine unbewertete L&uuml;cken&uuml;bung.
+Jede Frage besteht aus einem Satz, bei dem ein oder zwei W&ouml;rter fehlen.
+Jede Schaltfl&auml;che repr&auml;sentiert das fehlende Wort bzw. die fehlenden W&ouml;rter.
+&Uuml;berlegen Sie welches Wort bzw. welche W&ouml;rter fehlen. Klicken Sie dann auf die Schaltfl&auml;che, um zu sehen ob Sie recht haben. Es wird keine Note f&uuml;r diese &Uuml;bung ermittelt.
+</p>
+<hr>
+
+
+<!-- ------------------------start of  question ------------------------------ -->
+<blockquote>
+<b>Regel f&uuml;r zusammengeh&ouml;rende <code>if</code>- und <code>else</code>-Anweisungen:</b>
+ &nbsp;
+<em>Innerhalb eines Paares zusammengeh&ouml;render geschweifter Klammern</em>
+beginnen Sie mit dem ersten <code>if</code> und arbeiten sich abw&auml;rts.
+Jedes <code>else</code> geh&ouml;rt zu dem ersten vorangehenden <code>if</code>, das kein <code>else</code> hat.
+
+Ein <code>if</code> geh&ouml;rt genau zu einem <code>else</code> und ein <code>else</code> geh&ouml;rt genau zu einem <code>if</code>.
+</blockquote>
+
+<form>
+<b>1.</b> &nbsp; Klicken Sie auf das <code>else</code>, das zu dem blauen <code><span class="blue" style="font-weight:bold;font-size:1.5em">if</span></code> in
+Fettdruck geh&ouml;rt.
+<br><br>
+<center>
+<table cellpadding=10 width=75% border>
+<tr valign="top">
+<td>
+<pre>
+<span class="blue" style="font-weight:bold;font-size:1.5em">if</span> ( zahl == 34 )
+     summe = summe + zahl;
+<input type="button"
+value="else  "
+name="button1"
+onClick="alert('RICHTIG')">
+    summe = summe - zahl;
+
+if ( summe &lt; limit )
+     flag = true;
+<input type="button"
+value="else  "
+name="button1"
+onClick="alert('falsch')">
+     flag = false;
+</pre>
+</td>
+<td>
+<pre>
+<span class="blue" style="font-weight:bold;font-size:1.5em">if</span> ( zahl == 34 )
+    if ( summe &lt; limit )
+         summe = summe + zahl;
+    <input type="button"
+value="else  "
+name="button1"
+onClick="alert('falsch')">
+        summe = summe - zahl;
+<input type="button"
+value="else  "
+name="button1"
+onClick="alert('RICHTIG')">
+    summe = summe + 1;
+</pre>
+</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre>
+if ( zahl == 34 )
+     summe = summe + zahl;
+<input type="button"
+value="else  "
+name="button1"
+onClick="alert('falsch')">
+    summe = summe - zahl;
+
+<span class="blue" style="font-weight:bold;font-size:1.5em">if</span> ( summe &lt; limit )
+     flag = true;
+<input type="button"
+value="else  "
+name="button1"
+onClick="alert('RICHTIG')">
+     flag = false;
+</pre>
+</td>
+<td>
+<pre>
+if ( zahl == 34 )
+    <span class="blue" style="font-weight:bold;font-size:1.5em">if</span> ( summe &lt; limit )
+         summe = summe + zahl;
+    <input type="button"
+value="else  "
+name="button1"
+onClick="alert('RICHTIG')">
+        summe = summe - zahl;
+<input type="button"
+value="else  "
+name="button1"
+onClick="alert('falsch')">
+    summe = summe + 1;
+</pre>
+</td>
+</tr>
+</table>
+</center>
+</form>
+<hr>
+
+<!-- ------------------------end of  question --------------------------------- -->
+
+
+<form>
+<b>2.</b> &nbsp; &nbsp; Klicken Sie auf das <code>else</code>, das zu dem blauen <code><span class="blue" style="font-weight:bold;font-size:1.5em">if</span></code> in
+Fettdruck geh&ouml;rt.
+<br><br>
+<center>
+<table cellpadding=10 width=75% border>
+<tr valign="top">
+<td>
+<pre>
+<span class="blue" style="font-weight:bold;font-size:1.5em">if</span> ( zahl == 34 )
+{
+     summe = summe + zahl;
+     zahl  = 0;
+     zahl2 = 5;
+}
+<input type="button"
+value="else  "
+name="button1"
+onClick="alert('RICHTIG')">
+{
+    summe = summe - zahl;
+
+    if ( summe &lt; limit )
+         flag = true;
+    <input type="button"
+value="else  "
+name="button1"
+onClick="alert('falsch')">
+         flag = false;
+}
+</pre>
+</td>
+<td>
+<pre>
+<span class="blue" style="font-weight:bold;font-size:1.5em">if</span> ( zahl == 34 )
+{
+    if ( summe &lt; limit )
+         summe = summe + zahl;
+    <input type="button" value="else  " name="button1" onClick="alert('falsch')">
+         summe = 0;
+}
+<input type="button"
+value="else  "
+name="button1"
+onClick="alert('RICHTIG')">
+{
+    summe = summe - zahl;
+    zahl  = summe + 1;
+}
+</pre>
+</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre>
+if ( zahl == 34 )
+{
+     summe = summe + zahl;
+     zahl  = 0;
+     zahl2 = 5;
+}
+<input type="button"
+value="else  "
+name="button1"
+onClick="alert('falsch')">
+{
+    summe = summe - zahl;
+
+    <span class="blue" style="font-weight:bold;font-size:1.5em">if</span> ( summe &lt; limit )
+         flag = true;
+    <input type="button"
+value="else  "
+name="button1"
+onClick="alert('RICHTIG')">
+         flag = false;
+}
+</pre>
+</td>
+<td>
+<pre>
+<span class="blue" style="font-weight:bold;font-size:1.5em">if</span> ( zahl == 34 )
+{
+    if ( summe &lt; limit )
+         summe = summe + zahl;
+    if ( zahl &gt;= limit )
+         zahl = summe - limit;
+    <input type="button"
+value="else  "
+name="button1"
+onClick="alert('falsch')">
+         zahl = 0;
+}
+<input type="button"
+value="else  "
+name="button1"
+onClick="alert('RICHTIG')">
+    if ( zahl = -12 )
+        summe = 0;
+    <input type="button"
+value="else  "
+name="button1"
+onClick="alert('falsch')">
+        limit = 88;
+</pre>
+</td>
+</tr>
+
+</table>
+</center>
+</form>
+<hr>
+
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>3.</b> &nbsp; Das Konzept eine Schleife mittels einer
+<input type="button"
+value="_________________"
+name="button1"
+onClick="value=' &Uuml;berwachung '">
+zu steuern, besteht darin einen speziellen Wert zu nehmen, der die Schleife beendet.
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>4.</b> &nbsp; Der spezielle &Uuml;berwachungswert darf kein Wert sein, der  als
+<input type="button"
+value="_________"
+name="button1"
+onClick="value=' Datenwert '">  in der Schleife vorkommen k&ouml;nnte.
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>5.</b> &nbsp; Vervollst&auml;ndigen Sie das folgende Fragment, so dass wenn <code>data</code>  "Hello" enth&auml;lt
+"World" ausgegeben wird.
+<blockquote><pre>
+if ( data.<input type="button"
+value="_________"
+name="button1"
+onClick="value=' equals '"> ( "Hello" )
+    System.out.println("World");
+</blockquote></pre>
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->
+
+<hr>
+<p>Ende des Tests.  Wenn Sie ihn wiederholen m&ouml;chten, laden Sie die Seite in Ihrem Browser neu.</p>
+
+<p>Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." href="../../index.html#18">Inhaltsverzeichnis</a>.
+
+</body>
+</html>

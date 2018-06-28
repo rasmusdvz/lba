@@ -1,0 +1,1585 @@
+<!--  05/05/03 small changes -->
+<!--  07/12/02 css and xml -->
+<!--  05/04/02 expansion, and better poems-->
+<!--  01/20/02 INDEX  --->
+<!--  06/12/00 replaced word perfect pictures with Illustrator  --->
+<!--  09/05/99 small changes -->
+<!--  01/19/99 revised chapter numbering; previously chapter 17e -->
+<!--  11/13/98 a few slight edits  -->
+<!--  06/15/98 creation   -->
+
+<!--  requires:
+                  makingGarbage.gif
+                  notGarbage.gif
+                  stringConcat.gif
+-->
+<CHAPTER>
+<COPYRIGHTDATE>2002</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>Bradley Kjell kjell@ieee.org </AUTHORNAME>
+<GERMANTRANSLATION>Copyright 2003 Heinrich Gailer heinrich@gailer-net.de</GERMANTRANSLATION>
+
+<CAI>Kapitel 29 &#8212; Strings und Objektreferenzen
+
+<p>
+<small>erstellt 15.06.98; &uuml;berarbeitet 05.09.99, 12.06.00, 04.05.02; &uuml;bersetzt 31.07.03; &copy; Copyright 2003 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+
+<LESSON>
+
+<p>
+In den vorherigen Kapiteln
+wurden Methoden mit Parametern aufgerufen,
+die von einem primitiven Datentyp waren.
+Zum Beispiel sind in dem folgendem die Parameter von <code>move()</code> <code>int</code>:
+</p>
+
+<pre class="code">
+Point pt = new Point();
+pt.move( 14, 22 );
+</pre>
+
+<p>
+Dieses Kapitel bespricht wie Objektreferenzen
+als Parameter verwendet werden.
+Die Klasse <code>String</code> wird in vielen Beispielen verwendet.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li><em>Stringliterale.</em>
+<li><em>Der <code>null</code>-Wert.</em>
+<li><em>Mehr &uuml;ber Garbage.</em>
+<li><em>Die <code>String</code>-Klasse.</em>
+<li><em>Stringverkettung.</em>
+<li><em>Strings sind unver&auml;nderbar.</em>
+<li><em>Eine Stringmethoden.</em>
+<li><em>Kaskadierende Methoden.</em>
+</ul>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Welche ZWEI Dinge macht die folgende Anweisung?
+</p>
+
+<pre class="code">
+String zeta = new String( "The last rose of summer." );
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Einfache M&ouml;glichkeit Strings zu konstruieren
+(R&uuml;ckblick:) Welche ZWEI Dinge macht die folgende Anweisung?
+</p>
+
+<pre class="code">
+String zeta = new String("The last rose of summer." );
+</pre>
+
+
+<ANSWER>
+
+<ol>
+<li>Ein neues Stringobjekt wird mit den angegebenen Zeichen erzeugt.</li>
+<li>Eine Referenz auf das Objekt wird in der Variablen <code>zeta</code> gespeichert.</li>
+</ol>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>String, Konstruktion</INDEX>
+<p>
+Stringobjekte sind sehr n&uuml;tzlich und werden h&auml;ufig verwendet.
+Um das Leben des Programmierers zu erleichtern,
+hat Java eine Kurzform f&uuml;r die Erzeugung
+eines Stringobjekts:
+</p>
+
+<pre class="code">
+String zeta = "The last rose of summer." ;
+</pre>
+
+
+<INDEX>Stringliterale</INDEX>
+<p>
+Dies erzeugt genauso wie zuvor ein Stringobjekt,
+das die Zeichen zwischen den Anf&uuml;hrungszeichen enth&auml;lt.
+Java macht auch etwas um die Leistung zu optimieren,
+aber ignorieren Sie das f&uuml;rs Erste.
+Ein String, der in dieser Kurzform erzeugt wird,
+wird als <em>Stringliteral</em> bezeichnet.
+Die meisten Klassen haben keine Kurzform wie diese.
+Die meisten anderen Objekte werden konstruiert,
+indem das Schl&uuml;sselwort <code>new</code> verwendet wird.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Kann ein <code>String</code> ein Parameter f&uuml;r eine Methode sein?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Stringreferenzen als Parameter
+<p>
+Kann ein <code>String</code> ein Parameter f&uuml;r eine Methode sein?
+</p>
+
+<ANSWER>
+<p>
+Ja, eine <em>Stringreferenz</u> ist oft ein Parameter.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Einige Methoden brauchen einen Parameter, der eine Referenz auf ein Stringobjekt ist.
+Zum Beispiel,
+</p>
+
+<pre class="program">
+String stringA = "Random Jottings";
+String stringB = "Lyrical Ballads";
+
+if ( stringA.equals( stringB ) )
+  System.out.println("Sie sind gleich.");
+else
+  System.out.println("Sie sind verschieden.");
+</pre>
+
+<p>
+Der String, der durch <code>stringA</code> referenziert wird, hat eine
+<code>equals()</code> Methode.
+Diese Methode wird mit einem Parameter aufgerufen,
+einer Referenz auf <code>stringB</code>.
+Die Methode &uuml;berpr&uuml;ft, ob beide Strings
+die gleichen Zeichen enth&auml;lt und wenn ja,
+ergibt sie wahr (gibt <code>true</code> zur&uuml;ck).
+</p>
+
+<p>
+<b>Vorsicht:</b> &nbsp;
+Die Aussage des vorherigen Absatzes ist korrekt, aber ung&uuml;nstig.
+Leute sagen oft <em>"String"</em>, wenn Sie eigentlich <em>"Referenz auf einen  String"</em> meinen.
+Das ist OK.
+Denken Sie aber daran, dass eine Variable wie <code>stringA</code>
+kein Objekt ist, sondern eine Referenz auf ein Objekt.
+Dies mag pingelig scheinen, aber es gibt nichts pingeligeres als einen Computer.
+Ich (der Autor) sehe h&auml;ufig Studenten, die nicht sorgf&auml;ltig damit sind und
+sp&auml;ter Probleme haben.
+</p>
+
+<table border="border" bordercolor="brown" bgcolor="white" cellpadding="5">
+<tr bgcolor="pink"><th>Was gew&ouml;hnlich gesagt wird</th>
+    <th>Tats&auml;chliche Bedeutung</th>
+</tr>
+
+<tr><td>Die <code>equals()</code> Methode von <code>stringA</code>
+        wird mit <code>stringB</code> aufgerufen.</td>
+    <td>Die <code>equals()</code> Methode des Strings, <em>der durch</em>
+          <code>stringA</code> <em>referenziert wird,
+        wird mit einer Referenz auf</em> <code>stringB</code> aufgerufen.</td>
+</tr>
+</table>
+
+<br clear="all" />
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Pr&uuml;fen Sie das folgende Codeschnipsel.
+Beantworten Sie die Fragen, indem Sie die Worte sorgf&auml;ltig w&auml;hlen
+(so wie in oben rechts).
+</p>
+
+<pre>
+String a;
+Point  b;
+</pre>
+
+
+<ul>
+<li>Welches ist der Datentyp der Variablen <code>a</code>?</li>
+<li>Welches ist der Datentyp der Variablen <code>b</code>?</li>
+<li>Wie viele Objekte gibt es (bis jetzt)?</li>
+</ul>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Der null-Wert
+
+<pre class="code">
+String a;
+Point  b;
+</pre>
+
+<ANSWER>
+
+<ul>
+<li>Welches ist der Datentyp der Variablen <code>a</code>?
+<ul><li><span class="blue"><code>a</code> ist eine <em>Referenz</em> auf ein Stringobjekt.</span></li></ul></li>
+<li>Welches ist der Datentyp der Variablen <code>b</code>?
+<ul><li><span class="blue"><code>b</code> ist eine <em>Referenz</em> auf ein <code>Point</code>-Objekt.</span></li></ul></li>
+<li>Wie viele Objekte gibt es (bis jetzt)?
+<ul><li><span class="blue">Bis jetzt gibt es keine Objekte,
+nur Variable, die verwendet werden k&ouml;nnen um Objekte im Auge zu behalten,
+sobald es welche gibt.</span></li></ul></li>
+</ul>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Eine Referenzvariable enth&auml;lt Angaben &uuml;ber den Ort eines Objekts.
+Sie enth&auml;lt nicht das Objekt selbst.
+Dieser Code...
+</p>
+
+<pre class="code">
+String a;
+Point  b;
+</pre>
+
+<p>
+... deklariert zwei Referenzvariablen, aber konstruiert keinerlei Objekte.
+Das folgende  konstruiert Objekte und stellt die Referenzen in die Variablen:
+</p>
+
+<pre class="code">
+a = "Elaine the fair." ;
+b = new Point( 23, 491 );
+</pre>
+
+<INDEX>null</INDEX>
+<p>
+Ein spezieller Wert <code>null</code>
+wird einer Objektreferenzvariablen zugewiesen,
+wenn sie auf kein Objekt verweist.
+</p>
+
+<blockquote>
+Der Wert <code>null</code> ist ein spezieller Wert mit der Bedeutung
+"kein Objekt".
+Eine Referenzvariable wird auf <code>null</code> gesetzt, wenn sie auf kein Objekt verweist.
+</blockquote>
+
+
+</LESSON>
+
+<QUESTION>
+<form>
+<p>
+(Denkfrage:) Denken Sie, dass <code>null</code>
+Referenzvariablen <em>jeden Typs</em> zugewiesen werden kann?
+Klicken Sie hier f&uuml;r einen <input type="button" value="Hinweis"
+onClick="alert('M&ouml;chten Sie einen speziellen Wert &quot;kein-Objekt&quot; f&uuml;r jede Klasse?')" />.
+</p>
+</form>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Jeder Referenzvariablen kann null zugewiesen werden
+<p>
+Kann <code>null</code> Referenzvariablen <em>jeden Typs</em> zugewiesen werden?
+</p>
+
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Es w&auml;re schrecklich wenn jede Klasse ihren eigenen speziellen
+Wert h&auml;tte um zu zeigen, dass kein Objekt dieser Klasse da ist.
+Wir brauchen einen allgemein g&uuml;ltigen Wert, der bedeutet &quot;nichts hier&quot;.
+Der Wert <code>null</code> kann jeder Referenzvariablen zugewiesen werden.
+</p>
+
+<p>
+In den meisten Programmen kommen und gehen Objekte,
+je nach Daten und Art der Berechnung.
+(Denken Sie an ein Computerspiel, wo Monster auftauchen
+und Monster zerst&ouml;rt werden.)
+Eine Referenzvariable verweist manchmal auf ein Objekt
+und manchmal nicht.
+Sie brauchen eine M&ouml;glichkeit einer Variablen mitzuteilen, das
+sie jetzt auf kein Objekt verweist.
+Sie tun dies, indem Sie der Variablen <code>null</code> zuweisen.
+</p>
+
+<p>
+Kontrollieren Sie den untenstehenden Code.
+Die Variablen <code>a</code> und <code>c</code> sind
+mit Objektreferenzen initialisiert.
+Die Variable <code>b</code> ist mit<code>null</code> initialisiert.
+</p>
+
+<pre class="program">
+class NullDemo1
+{
+  public static void main (String[] arg)
+  {
+    String a = "Random Jottings";
+    String b = <b>null</b>;
+    String c = "";
+
+    if ( a != <b>null</b> )
+      System.out.println(  a );
+
+    if ( b != <b>null</b> )
+      System.out.println(  b );
+
+    if ( c != <b>null</b> )
+      System.out.println(  c );
+  }
+}
+</pre>
+<br clear="all" />
+
+</LESSON>
+
+<QUESTION>
+<form>
+<p>
+Womit genau ist die Variable <code>c</code> initialisiert?
+Klicken Sie hier f&uuml;r einen <input type="button" value="Hinweis"
+onClick="alert('Betrachten Sie den Unterschied zwischen einem nicht vorhandenen Blatt Papier und einem leeren Blatt Papier')">.
+</p>
+</form>
+
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Der Leerstring
+
+<ANSWER>
+<p>
+<code>c</code> ist mit <span class="blue">einer Referenz</span>
+auf ein Stringobjekt initialisiert, das keine Zeichen enth&auml;lt.
+Das ist ohne jeden Zweifel ein anderer Wert als <code>null</code>.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Leerstring</INDEX>
+<INDEX>String, leerer</INDEX>
+
+<p>
+Ein Stringobjekt, das keine Zeichen enth&auml;lt, ist immer noch ein Objekt.
+Ein solches Objekt wird manchmal <em>Leerstring</em> genannt.
+Das ist &auml;hnlich wie ein Blatt Papier zu haben im Vergleich
+dazu &uuml;berhaupt kein Papier zu haben.
+Das &Uuml;bersehen dieser Unterscheidung ist eine der klassischen
+Verwechselungen in der Programmierung.
+Es wird Ihnen passieren.
+Es passiert mir noch immer.
+Um sich vor zuk&uuml;nftigen Verwechselungen zu wappnen,
+studieren Sie das Programm, Schritt f&uuml;r Schritt:
+</p>
+
+<pre class="program">
+class NullDemo1
+{
+  public static void main (String[] arg)
+  {
+    String a = "Random Jottings";   // 1.  ein Objekt wird erzeugt;
+                                    //     die Variable a verweist auf es
+    String b = null;                // 2.  die Variable b verweist auf kein Objekt
+    String c = "";                  // 3.  ein Objekt wird erzeugt
+                                    //     (es enth&auml;lt keine Zeichen);
+                                    //     die Variable c verweist auf es
+
+    if ( a != null )                // 4.  ( a != null ) ist <span class="green">true</span>, also
+       System.out.println( a );     // 5.  wird println( a ) <span class="green">ausgef&uuml;hrt.</span>.
+
+    if ( b != null )                // 6.  ( b != null ) ist <span class="red">false</span>, also
+       System.out.println( b );     // 7.  wird println( b ) <span class="red">ausgelassen.</span>
+
+    if ( c != null )                // 8.  ( c != null ) ist <span class="green">true</span>, also
+       System.out.println( c );     // 9.  wird println( c ) <span class="green">ausgef&uuml;hrt.</span>.
+                                    //     (Aber es gibt keine Zeichen zum Ausgeben.)
+  }
+}
+</pre>
+
+
+<p>
+Die <code>System.out.println()</code> Methode
+erwartet eine Referenz auf ein Stringobjekt als <code>Parameter</code>.
+Das Beispielprogramm &uuml;berpr&uuml;ft, ob jede Variable eine Stringreferenz enth&auml;lt
+bevor es die <code>println()</code> Methode mit ihr aufruft.
+(Tats&auml;chlich wird die <code>println()</code> Methode nicht abst&uuml;rzen,
+wenn sie ein <code>null</code> bekommt.
+Aber manche Methoden werden es tun.
+&Uuml;blicherweise sollten Sie sicherstellen, dass Methoden die Daten bekommen, die sie erwarten.)
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Pr&uuml;fen Sie das folgende Codeschnipsel:
+</p>
+
+<pre class="code">
+String alpha = "Dempster Dumpster";
+
+alpha = null;
+
+. . .
+</pre>
+
+
+<ol>
+<li>Wo wird ein Objekt konstruiert?</li>
+<li>Was wird aus diesem Objekt?</li>
+</ol>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Datenausschuss (Garbage)
+<ANSWER>
+
+<pre class="code">
+String alpha = "Dempster Dumpster";
+
+alpha = null;
+
+. . .
+</pre>
+
+<ol>
+<li>Wo wird ein Objekt konstruiert?
+    <ul><li><span class="blue">In der ersten Anweisung.</span></li></ul></li>
+<li>Was wird aus dem Objekt?
+    <ul><li><span class="blue">Es wurde in der zweiten Anweisung Ausschuss.</span></li></ul></li>
+</ol>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Garbage</INDEX>
+<INDEX>Speicherbereinigung</INDEX>
+<img src="makingGarbage.gif" align="left" hspace="10" vspace="15" />
+
+<p>
+Die erste Anweisung macht zwei Dinge:
+(1) ein Stringobjekt mit den Zeichen &quot;Dempster Dumpster&quot; wird erzeugt.
+Dann (2) wird eine Referenz auf dieses Objekt
+in der Referenzvariablen <code>alpha</code> gespeichert.
+</p>
+
+<p>
+Die zweite Anweisung weist <code>alpha</code> den Wert
+<code>null</code> zu.
+Wenn das passiert, ist die Referenz auf das Objekt verloren.
+Da es nirgends mehr eine Referenz auf das Objekt gibt,
+ist es jetzt Ausschuss.
+</p>
+
+<p>
+Die durchgezogene Linie in der Box der zweiten Anweisung
+symbolisiert den <code>null</code>-Wert.
+Das Objekt existiert noch im Speicher.
+Der Speicher aus dem es besteht wird irgendwann
+vom <em>Garbage Collector</em> bereinigt und
+f&uuml;r neue Objekte verf&uuml;gbar gemacht.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Pr&uuml;fen Sie dieses (leicht ge&auml;nderte) Codeschnipsel:
+</p>
+
+<pre class="code">
+String alpha = "Dempster Dumpster";
+<span class="blue">String beta  = alpha;</span>
+alpha = null;
+
+. . .
+</pre>
+
+<ol>
+<li>Wann wurde ein Objekt erzeugt?</li>
+<li>Was passierte in der zweiten Anweisung?</li>
+<li>Was wird aus diesem Objekt?</li>
+</ol>
+
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Kein Datenausschuss
+<ANSWER>
+
+
+<pre>
+String alpha = "Dempster Dumpster";
+<span class="blue">String beta  = alpha;</span>
+alpha = null;
+</pre>
+
+
+<ol>
+<li>Wann wurde ein Objekt erzeugt?
+&nbsp; &nbsp; &nbsp; <span class="blue">In der ersten Anweisung.</span></li>
+<li>Was passierte in der zweiten Anweisung?
+&nbsp; &nbsp; &nbsp; <span class="blue">Die Referenz auf das Objekt wurde nach <code>beta</code></span> kopiert.</li>
+<li>Was wird aus diesem Objekt?
+&nbsp; &nbsp; &nbsp; <span class="blue">Es bleibt "bestehen", da es noch eine Referenz auf es gibt.</span></li>
+</ol>
+
+
+</ANSWER>
+
+<LESSON>
+<img src="notGarbage.gif" align="left" hspace="10" vspace="15">
+
+<p>
+Dieses Mal wird das Objekt kein Datenausschuss.
+Der Grund daf&uuml;r ist die zweite Anweisung, in der eine Referenz auf das Objekt
+in einer zweiten Variablen, <code>beta</code>, gespeichert wird.
+Wenn jetzt in der dritten Anweisung <code>alpha</code> auf <code>null</code> gesetzt wird,
+gibt es immer noch eine Referenz auf das Objekt.
+</p>
+
+<p>
+Es kann viele Kopien einer Objektreferenz geben.
+Nur dann, wenn es nirgends mehr eine Referenz auf ein Objekt gibt,
+wird das Objekt Ausschuss.
+</p>
+
+<br clear="all" />
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Wie k&ouml;nnen Sie ermitteln, was ein Objekt einer bestimmten Klasse tun kann?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Klasse <code>String</code>
+<p>
+(R&uuml;ckblick:) Wie k&ouml;nnen Sie ermitteln, was ein Objekt einer bestimmten Klasse tun kann?
+</p>
+<ANSWER>
+<p>
+Die Variablen und Methoden der Klasse werden irgendwo dokumentiert sein.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>String, Dokumentation</INDEX>
+<p>
+Bei einer Java Entwicklungsumgebung wie
+Borland JBuilder oder Symantec Caf&eacute;
+ist die Dokumentation integriert
+(setzen Sie im Editor den Cursor in einen Klassennamen und dr&uuml;cken Sie F1).
+Wenn Sie Java von Sun Microsystems haben,
+schauen Sie auf Ihrer Festplatte nach,
+in Ordnern wie C:\jdk1.3\docs\index.html.
+Hier ist eine Kurzversion der Dokumentation f&uuml;r <code>String</code>.
+</p>
+
+<pre class="program">
+    // Konstruktoren
+    public String();
+    public String(String  value);
+
+    // Methoden
+    public char charAt(int  index);
+    public String concat(String  str);
+    public boolean endsWith(String  suffix);
+    public boolean equals(Object  anObject);
+    public boolean equalsIgnoreCase(String  anotherString);
+    public int indexOf(int  ch);
+    public int indexOf(String  str);
+
+    public int length();
+    public boolean startsWith(String  prefix);
+    public String substring(int  beginIndex, int endIndex);
+    public String toLowerCase();
+    public String toUpperCase();
+    public String trim();
+</pre>
+
+<p>
+Die Dokumentation f&uuml;hrt zuerst die Konstruktoren auf.
+Danach beschreibt sie die Methoden.
+Zum Beispiel,
+</p>
+
+<pre class="code">
+public String concat(String  str);
+--+--- --+---  --+--  ----+----
+  |      |       |        |
+  |      |       |        |
+  |      |       |        +---- besagt, dass es eine
+  |      |       |              Stringreferenz als Parameter geben muss
+  |      |       |
+  |      |       +----- der Name der Methode
+  |      |
+  |      +----- die Methode gibt eine Referenz
+  |             auf ein neues Stringobjekt zur&uuml;ck
+  |
+  +----- &uuml;berall wo Sie ein Stringobjekt haben,
+         k&ouml;nnen Sie diese Methode verwenden
+</pre>
+
+<br clear="all" />
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist der folgende Code korrekt?
+</p>
+
+
+<pre class="code">
+String first = "Dempster " ;
+String last  = "Dumpster" ;
+String name  = first.concat( last );
+</pre>
+
+
+<p>
+Sie m&uuml;ssen (noch) nicht wissen, was dieses tut;
+betrachten Sie die Dokumentation und schauen Sie, ob alle Typen korrekt sind.
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die concat() Methode
+
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>Stringverkettung
+<p>
+Die Anweisungen stimmen mit der Dokumentation korrekt &uuml;berein:
+</p>
+
+<pre class="code">
+String name = first.concat( last );
+ ----+----    --+-- --+--  --+--
+     |          |     |      |
+     |          |     |      |
+     |          |     |      +---- eine Stringreferenz als Parameter
+     |          |     |
+     |          |     +----- der Name der Methode
+     |          |
+     |          +----- Punktnotation wird verwendet um die Methode eines aufzurufen
+     |
+     +----- die Methode gibt eine Referenz auf ein neues Stringobjekt zur&uuml;ck
+</pre>
+
+<INDEX>Stringverkettung</INDEX>
+<p>
+Die <code>concat()</code> Methode f&uuml;hrt eine Stringverkettung durch.
+Ein neuer String wird konstruiert,
+indem die Daten zweier anderer Strings verwendet werden.
+In dem Beispiel
+liefern die ersten zwei Strings
+(referenziert durch <code>first</code> und <code>last</code>)
+die Daten, die von <code>concat()</code> verwendet werden um
+einen dritten String
+(referenziert durch <code>name</code>) zu erzeugen.
+</p>
+
+<pre class="code">
+String first = "Dempster " ;
+String last  = "Dumpster" ;
+String name  = first.concat( last );
+</pre>
+
+<p>
+Die ersten zwei Strings werden von der Aktion der <code>concat()</code> Methode NICHT ge&auml;ndert.
+Ein neuer String wird konstruiert, der wie gew&uuml;nscht das Ergebnis
+der Aktion enth&auml;lt.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Haben Sie schon zuvor Stringverkettung gesehen?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>+ Operator
+<ANSWER>
+<p>
+Ja: In Ausgabeanweisungen wie dieser:
+</p>
+
+<pre>
+System.out.println( "Result is:" + result );
+</pre>
+
+<p>
+Der "<code>+</code>" -Operator ist eine Abk&uuml;rzung um eine Verkettung anzufordern.
+(Wenn <code>result</code> eine Zahl ist, wird sie in Zeichen konvertiert
+bevor die Verkettung durchgef&uuml;hrt wird.)
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Stringverkettung, Kurznotation</INDEX>
+
+<img src="stringConcat.gif" align="right" hspace="20" />
+
+<pre class="code">
+String first = "Dempster " ;
+String last  = "Dumpster" ;
+String name  = first + last ;
+</pre>
+
+<p>
+Dies macht das gleiche wie die erste Version
+(plus einiger Optimierungen, die wir f&uuml;rs erste ignorieren).
+Nur Strings haben diese Kurzform.
+</p>
+
+<p>
+Stringverkettungen durch
+<code>concat()</code> oder durch <code>+</code>
+konstruieren immer ein <em>neues</em> Objekt,
+basierend auf den Daten anderer Objekte.
+Jene Objekte werden in keinem Fall ge&auml;ndert.
+</p>
+
+<INDEX>&uuml;berladen</INDEX>
+<p>
+Wenn ein Operator wie <b><big>+</big></b>
+die Bedeutung je nach dem welche Argumente er hat &auml;ndert,
+wird er als <strong>&uuml;berladen</strong> bezeichnet.
+</p>
+
+<br clear="all" />
+<br />
+</LESSON>
+
+<QUESTION>
+<p>
+Angenommen die folgende Anweisung wird nach den anderen hinzugef&uuml;gt:
+</p>
+
+<pre class="code">
+String reversed = last + first;
+</pre>
+
+<p>
+&Auml;ndert sie <code>first</code>, <code>last</code> oder <code>name</code>?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Strings sind f&uuml;r immer
+
+<pre>
+String reversed = last + first;
+</pre>
+
+<ANSWER>
+<p>
+Nein. Sie verwendet die Daten
+in <code>last</code> und in <code>first</code>
+um ein neues Objekt zu konstruieren.
+Die anderen Objekte werden nicht ge&auml;ndert.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>unver&auml;nderbare Objekte</INDEX>
+<p>
+Java wurde konzipiert,
+nachdem Programmierer 15 Jahre Erfahrung
+mit objektorientierter Programmierung hatten.
+Eine der in diesen Jahren gelernten Lektionen war,
+dass es sicherer ist ein neues Objekt zu konstruieren
+als ein bestehendes zu modifizieren.
+(Der Grund daf&uuml;r ist, dass das Programm an vielen Stellen
+auf das bestehende Objekt verweisen k&ouml;nnte und, dass
+es schwer ist sicher zu sein, dass sie alle mit der &Auml;nderung umgehen k&ouml;nnen.)
+
+</p>
+
+<p>
+Objekte mancher Java Klassen
+k&ouml;nnen nach der Konstruktion <em>nicht</em> ge&auml;ndert werden.
+Die Klasse <code>String</code> ist eine davon.
+</p>
+
+<blockquote>
+Stringobjekte sind <strong>unver&auml;nderbar</strong>.
+Das bedeutet, dass sie nach der Konstruktion nicht mehr ge&auml;ndert werden k&ouml;nnen.
+</blockquote>
+
+<p>
+Manchmal werden <em>unver&auml;nderbare</em> Objekte auch <em>write-once</em> Objekte genannt.
+Sobald ein Stringobjekt konstruiert wurde,
+werden die Zeichen, die es enth&auml;lt immer dieselben bleiben.
+Keine ihrer Methoden wird diese Zeichen &auml;ndern,
+und es gibt keine andere M&ouml;glichkeit sie zu &auml;ndern.
+Die Zeichen k&ouml;nnen f&uuml;r verschiedene Zwecke <em>verwendet</em>
+werden (so wie neue Stringobjekte erzeugen)
+und sie k&ouml;nnen untersucht werden.
+Aber sie k&ouml;nnen niemals ge&auml;ndert werden.
+</p>
+
+<p>
+<span style="color:red">Alarm: Verwechselungsgefahr!!</span> Dies ist die Stelle
+an der es wichtig ist zwischen Referenzvariablen und deren Objekten
+zu unterscheiden.
+Eine <em>Referenzvariable</em> die auf einen <code>String</code> verweist
+kann ge&auml;ndert werden (sie kann ge&auml;ndert werden um auf ein anderes
+Stringobjekt zu verweisen).
+Das  <code>String</code>-Objekt, auf das sie verweist,
+kann NICHT ge&auml;ndert werden.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Pr&uuml;fen Sie den folgenden Code:
+</p>
+
+<pre class="code">
+String ring = "One ring to rule them all, "
+String find = "One ring to find them."
+
+ring = ring + find;
+</pre>
+
+<p>
+Verletzt die letzte Anweisung die Regel,
+dass <code>String</code>-Objekte unver&auml;nderbar sind?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code>trim()</code>
+
+<pre class="code">
+String ring = "One ring to rule them all, "
+String find = "One ring to find them."
+
+ring = ring + find;
+</pre>
+
+<ANSWER>
+<p>
+Nein. Das <code>String</code>-Objekt &auml;ndert sich nicht.
+Die Referenzvariable <code>ring</code> wurde mit der
+dritten Anweisung ge&auml;ndert um auf einen anderen <code>String</code>
+als den urspr&uuml;nglichen zu verweisen.
+(Ihr urspr&uuml;nglicher <code>String</code> wurde Ausschuss,
+der vom Speicherbereinigungsdienst eingesammelt wird.
+Wenn er keine Referenzen hat, ist er au&szlig;erhalb der Sichtbarkeit des
+Programms und wird recycelt.)
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist eine Zeile der Dokumentation f&uuml;r die
+<GOTO>String, Dokumentation</GOTO> <code>String</code>-Klasse.
+</p>
+
+<pre class="code">
+public String trim();
+</pre>
+
+
+<p>
+Die <code>trim()</code> Methode eines <code>String</code>-Objekts
+erzeugt einen neuen <code>String</code>, der der gleiche ist
+wie der urspr&uuml;ngliche au&szlig;er, dass f&uuml;hrende oder nachfolgende Leerzeichen getrimmt
+(entfernt) wurden.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Pr&uuml;fen Sie den folgenden Code:
+</p>
+
+
+<pre class="code">
+String userData = "     745   ";
+String fixed;
+
+fixed = userData.trim();
+</pre>
+
+
+<p>
+Wurde die  <code>trim()</code> Methode korrekt verwendet?
+Wie viele Objekte wurden erzeugt?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die <code>trim()</code> Methode
+<p>
+Pr&uuml;fen Sie den folgenden Code:
+</p>
+
+<pre class="code">
+String userData = "     745   ";
+String fixed;
+
+fixed = userData.trim();
+</pre>
+
+<ANSWER>
+
+<ul>
+Wurde die  <code>trim()</code> Methode korrekt verwendet? &nbsp; &nbsp; <span class="blue">Ja</span>
+<li>Wie viele Objekte wurden erzeugt? &nbsp; &nbsp; <span class="blue">2</span>
+</ul>
+
+
+</ANSWER>
+
+<LESSON>
+<INDEX>trim()</INDEX>
+<INDEX>Whitespace</INDEX>
+
+<p>
+Die <code>trim()</code> Methode
+erzeugt einen neuen String.
+Der neue String enth&auml;lt die gleichen
+Zeichen wie der alte, aber
+entfernt beliebige <em>Whitespace</em>-Zeichen
+(Leerzeichen, Tabs und verschiedene nicht druckbare Zeichen)
+am Anfang und am Ende (aber nicht in der Mitte).
+So wird zum Beispiel nach der letzten Anweisung. . .
+</p>
+
+
+<pre class="code">
+String userData = "     745   ";
+String fixed;
+
+fixed = userData.trim();
+</pre>
+
+<p>
+. . .der neue String, der durch <code>fixed</code> referenziert wird,
+die Zeichen "745" enthalten, aber ohne die umgebenden Leerzeichen.
+</p>
+
+<p>
+(Verwendungshinweis:) Diese Methode ist sehr n&uuml;tzlich.
+Irrelevante Leerzeichen am Anfang und Ende einer Benutzereingabe
+sind ein h&auml;ufiges Problem.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Betrachten Sie das folgende:
+</p>
+
+
+<pre class="code">
+String dryden = "   None but the brave deserves the fair.   " ;
+System.out.println( dryden.trim() );
+</pre>
+
+<p>
+Was wird ausgegeben?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Steuerzeichen innerhalb von Stringobjekten
+
+<pre class="code">
+String dryden = "   None but the brave deserves the fair.   " ;
+System.out.println( dryden.trim() );
+</pre>
+
+<ANSWER>
+<p>
+None but the brave deserves the fair.
+</p>
+
+<p>
+(Es werden auf beiden Seiten des oben stehenden keine Leerzeichen ausgeben.
+Die inneren Leerzeichen bleiben.)
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Die Zeichen, die ein Stringobjekt enth&auml;lt,
+k&ouml;nnen Steuerzeichen beinhalten.
+Betrachten Sie zum Beispiel
+den folgenden Code:
+</p>
+
+<pre class="program">
+class BeautyShock
+{
+  public static void main (String[] arg)
+  {
+    String line1 = "Only to the wanderer comes\n";
+    String line2 = "Ever new this shock of beauty\n";
+
+    String poem  = line1 + line2;
+
+    System.out.print( poem );
+  }
+}
+</pre>
+
+<p>
+Die Sequenz  <big><code>\n</code></big> repr&auml;sentiert das
+Steuerzeichen &quot;Neue Zeile&quot;
+(<em>new line</em>).
+Diese Steuerzeichen sind Teil der Daten des Objekts, das
+durch <code>poem</code> referenziert ist.
+Das Programm gibt auf den Bildschirm aus:
+</p>
+
+<pre>
+Only to the wanderer comes
+Ever new this shock of beauty
+</pre>
+
+
+<p>
+Obwohl Sie sie nicht ausgegeben sehen,
+sind die Steuerzeichen Teil der Daten des Strings.
+Hier ist ein weitere Methode der <code>String</code> Klasse:
+</p>
+
+
+<pre class="code">
+public String toLowerCase();
+</pre>
+
+
+<p>
+Dies Methode
+konstruiert ein neues Stringobjekt, das nur Kleinbuchstaben enth&auml;lt.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Hier sind einige Codezeilen.
+Welche sind korrekt?
+</p>
+
+<center>
+<table border cellpadding="7" bgcolor="white" bordercolor="blue">
+<tr bgcolor="lightblue"><th>Codezeile:</th> <th>OK</th> <th>Nicht OK</th> </tr>
+<tr><td>String line  =  "The Sky was like a WaterDrop" ;</td><td> &nbsp; </td><td> &nbsp; </td></tr>
+<tr><td>String a     =  line.toLowerCase();</td><td> &nbsp; </td><td> &nbsp; </td></tr>
+<tr><td>String b     =  toLowerCase( line );</td><td> &nbsp; </td><td> &nbsp; </td></tr>
+<tr><td>String c     =  toLowerCase( "IN THE SHADOW OF A THORN");</td><td> &nbsp; </td><td> &nbsp; </td></tr>
+<tr><td>String d     =  "Clear, Tranquil, Beautiful".toLowerCase();</td><td> &nbsp; </td><td> &nbsp; </td></tr>
+<tr><td>System.out.println( "Dark, forlorn...".toLowerCase() );</td><td> &nbsp; </td><td> &nbsp; </td></tr>
+</table>
+</center>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Tempor&auml;re Objekte
+<ANSWER>
+
+<center>
+<table border cellpadding="7" bgcolor="white" bordercolor="blue">
+<tr bgcolor="lightblue"><th>Codezeile:</th> <th>OK</th> <th>Nicht OK</th> </tr>
+<tr><td>String line  =  "The Sky was like a WaterDrop" ;</td><td> &nbsp;X </td><td> &nbsp; </td></tr>
+<tr><td>String a     =  line.toLowerCase();</td><td> &nbsp;X </td><td> &nbsp; </td></tr>
+<tr><td>String b     =  toLowerCase( line );</td><td> &nbsp; </td><td> &nbsp;X </td></tr>
+<tr><td>String c     =  toLowerCase( "IN THE SHADOW OF A THORN");</td><td> &nbsp; </td><td> &nbsp;X </td></tr>
+<tr><td>String d     =  "Clear, Tranquil, Beautiful".toLowerCase();</td><td> &nbsp;X </td><td> &nbsp; </td></tr>
+<tr><td>System.out.println( "Dark, forlorn...".toLowerCase() );</td><td> &nbsp;X </td><td> &nbsp; </td></tr>
+</table>
+</center>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Die "OK" Antwort f&uuml;r die letzten zwei Zeilen k&ouml;nnten Sie &uuml;berrascht haben,
+aber diese Zeilen <em>sind</em> korrekt
+(wenn auch vielleicht nicht allzu sinnvoll).
+Hier ist warum:
+</p>
+
+<pre>
+String d     =  "Clear, Tranquil, Beautiful".toLowerCase();
+                 ---------------+-----------     ---+---
+   |                            |                   |
+   |                            |                   |
+   |             Zuerst: ein temporäres             |
+   |                     Stringobjekt wird erzeugt, |
+   |                     das diese Zeichen enthält. |
+   |                                                |
+   |                                               Danach: die toLowerCase() Methode des
+   |                                                    temporären Objekts wird aufgerufen.
+Letztlich: die Referenz auf das zweite                   Sie erzeugt ein zweites Objekt
+          Objekt wird der Referenzvariablen             mit lauter Kleinbuchstaben.
+          d zugewiesen.
+</pre>
+
+<p>
+Das tempor&auml;re Objekt
+(unter Verwendung der nur f&uuml;r Strings g&uuml;ltigen Kurznotation)
+wird als Basis f&uuml;r das zweite Objekt verwendet.
+Die Referenz auf das zweite Objekt wird <code>d</code> zugewiesen.
+</p>
+
+<p>
+Betrachten Sie jetzt die letzte Anweisung:
+</p>
+
+<pre>
+System.out.println( "Dark, forlorn...".toLowerCase() );
+</pre>
+
+
+<p>
+Ein String wird konstruiert (unter Verwendung der nur f&uuml;r Strings g&uuml;ltigen Kurznotation).
+Dann wird ein zweiter String konstruiert (durch die <code>toLowerCase()</code> Methode).
+Der zweite String wird als ein Parameter f&uuml;r <code>println()</code> verwendet.
+Beide Stringobjekte sind tempor&auml;r.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+R&uuml;ckblick:
+</p>
+
+<ul>
+<li>Kann eine Objektreferenzvariable existieren, ohne auf ein Objekt zu verweisen?
+</li>
+<li>Kann ein Objekt existieren, ohne dass eine Objektreferenzvariable auf es verweist?</li>
+</ul>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die startsWith() Methode
+<ANSWER>
+<ul>
+<li>Kann eine Objektreferenzvariable existieren, ohne auf ein Objekt zu verweisen?
+    <ul><li><span class="green">Ja, eine Referenzvariable kann ohne Initialisierung deklariert werden: <br /><code>String myString;</code></li>
+        <li> Ebenfalls kann eine Referenz
+            auf <code>null</code> gesetzt werden.</span></li></ul></li>
+<li>Kann ein Objekt existieren, ohne dass eine Objektreferenzvariable auf es verweist?
+    <ul><li> <span class="green">Ja, wie in dem vorherigen Beispiel gesehen.
+    Solche Objekte sind tempor&auml;r.</span></li></ul></li>
+</ul>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>startsWith()</INDEX>
+<p>
+Hier ist eine weitere Methode der Stringklasse:
+</p>
+
+<pre class="code">
+    public boolean startsWith(String  prefix);
+</pre>
+
+<p>
+Die <code>startsWith()</code> Methode &uuml;berpr&uuml;ft, ob
+ein String der Anfang eines anderen Strings ist.
+Dies wird h&auml;ufig in Programmen gebraucht.
+(Obwohl das folgende Beispiel wie gew&ouml;hnlich
+zu kurz ist um eine reale Situation zu zeigen.)
+Vertrauen Sie mir. Diese Methode ist eine, die Sie kennen m&uuml;ssen.)
+</p>
+
+<pre class="program">
+class prefixTest
+{
+  public static void main ( String args[] )
+  {
+     String burns = "My love is like a red, red rose.";
+
+     if ( burns.startsWith( "My love" ) )
+       System.out.println( "Praefix 1 stimmt ueberein." );
+     else
+       System.out.println( "Praefix 1 stimmt nicht ueberein." );
+
+     if ( burns.startsWith( "my love" ) )
+       System.out.println( "Praefix 2 stimmt ueberein." );
+     else
+       System.out.println( "Praefix 2 stimmt nicht ueberein." );
+
+     if ( burns.startsWith( "  My love" ) )
+       System.out.println( "Praefix 3 stimmt ueberein." );
+     else
+       System.out.println( "Praefix 3 stimmt nicht ueberein." );
+
+     if ( burns.startsWith( "  My love".trim() ) )
+       System.out.println( "Praefix 4 stimmt ueberein." );
+     else
+       System.out.println( "Praefix 4 stimmt nicht ueberein." );
+  }
+}
+</pre>
+
+<p>
+Beachten Sie, wie <code>trim()</code> in der letzten <code>if</code>-Anweisung verwendet wird.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was gibt das Programm auf den Bildschirm aus?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Kaskadierende Stringoperationen
+<ANSWER>
+<pre>
+Praefix 1 stimmt ueberein.
+Praefix 2 stimmt nicht ueberein.
+Praefix 3 stimmt nicht ueberein.
+Praefix 4 stimmt ueberein.
+</pre>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist wie das letzte <code>if</code> des Programms funktioniert:
+</p>
+
+<pre class="program">
+String burns = "My love is like a red, red rose.";
+
+. . . . . .
+
+if ( burns.startsWith( "  My love".trim() ) )
+ System.out.println( "Prefix 4 matches." );  <span class="red">&lt;-- dieser Zweig wird ausgef&uuml;hrt</span>
+else
+ System.out.println( "Prefix 4 fails." );
+</pre>
+
+<p>
+Der String <code>"  My love"</code> beginnt mit zwei Leerzeichen,
+also stimmt er nicht mit dem Beginn des Strings, der durch <code>burns</code> referenziert wird, &uuml;berein.
+Aber es wird seine <code>trim()</code> Methode aufgerufen,
+die einen neuen String ohne f&uuml;hrende Leerzeichen erzeugt:
+</p>
+
+<pre>
+if ( burns.startsWith( "  My love".trim() ) )
+           -----+----  -----+-----
+                |           |
+                |           |
+                |           +------- 1.  Ein temporäres Stringobjekt
+                |                        wird erzeugt.
+                |                        Dieses temporäre Objekt
+                |                        enthält "  My love"
+                |
+                |                    2.  Die trim() Methode des
+                |                        temporären Objekts wird aufgerufen.
+                |
+                |                    3.  Die trim() Methode gibt
+                |                        eine Referenz auf ein ZWEITES
+                |                        temporäres Stringobjekt,
+                |                        das es konstruiert hat, zurück.
+                |                        Dieses zweite temporäre
+                |                        Objekt enthält "My love"
+                |
+                |                    4.  Die Parameterliste der
+                |                        startsWith() Methode
+                |                        hat jetzt wie gefordert
+                |                        eine Referenz auf einen String.
+                |
+                +---- 5. Die startsWith() Methode des
+                         durch burns referenzierten Objekts
+                         wird aufgerufen.
+
+                      6. Die startsWith() Methode
+                         gibt true zurück.
+
+                      7. Der true-Zweig der if-Anweisung
+                         wird ausgeführt.
+</pre>
+
+<p>
+Gew&ouml;hnlich denken Programmierer nicht
+in solcher Ausf&uuml;hrlichkeit nach was passiert.
+N
+&Uuml;blicherweise denkt ein Programmierer:
+Entferne die Leerzeichen eines Strings und schaue, ob ein anderer damit beginnt."
+Aber manchmal m&uuml;ssen Sie eine Anweisung sorgf&auml;ltig analysieren
+um sicher zu sein, dass Sie das tut, was Sie wollen.
+Betrachten Sie noch mal die obenstehende Anweisung
+und &uuml;berdenken Sie sie in verschiedenen Detailstufen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was macht die <code>toLowerCase()</code> Methode der Klasse <code>String</code>?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die toLowerCase() Methode
+
+<ANSWER>
+<p>
+Sie erzeugt einen neuen String, der die Kleinbuchstabenversion des
+ursp&uuml;nglichen Strings ist.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>toLowerCase()</INDEX>
+<p>
+Betrachten Sie diese Codezeilen:
+</p>
+
+<pre class="program">
+     String burns = "My love is like a red, red rose.";
+
+        . . . . . .
+
+     if ( burns.toLowerCase().startsWith( "  MY LOVE".trim().toLowerCase() ) )
+       System.out.println( "Beide beginnen mit den gleichen Buchstaben." );
+     else
+       System.out.println( "Der Praefix stimmt nicht ueberein." );
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was gibt das obige auf den Bildschirm aus?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+
+<pre class="program">
+     String burns = "My love is like a red, red rose.";
+
+        . . . . . .
+
+     if ( burns.toLowerCase().startsWith( "  MY LOVE".trim().toLowerCase() ) )
+       System.out.println( "Beide beginnen mit den gleichen Buchstaben." );
+     else
+       System.out.println( "Der Praefix stimmt nicht ueberein." );
+</pre>
+
+<p>
+Was gibt das obige auf den Bildschirm aus?
+</p>
+<ANSWER>
+<pre>
+Beide beginnen mit den gleichen Buchstaben.
+</pre>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Das war eine komplizierte Frage.
+Ich hoffe Sie waren ihr gewachsen.
+Wenn Sie sie falsch beantwortet haben, &uuml;berdenken Sie das Beispiel noch mal.
+Vielleicht m&ouml;chten Sie das folgende noch mal durchsehen.
+</p>
+
+<ul>
+<li>
+Eine
+<GOTO>String, Konstruktion</GOTO>einfache M&ouml;glichkeit
+einen String zu kosntruieren.
+</li>
+<li>
+Der
+<GOTO>null</GOTO><code>null</code>
+-Wert.
+</li>
+<li>
+Wie ein Objekt
+<GOTO>Garbage</GOTO>Garbage wird.
+</li>
+<li>
+Beschreibung der
+<GOTO>String, Dokumentation</GOTO> <code>String</code>-Klasse.
+</li>
+<li>
+<GOTO>Stringverkettung</GOTO>Stringverkettung.
+</li>
+<li>
+<GOTO>Stringverkettung, Kurznotation</GOTO>Kurznotation
+f&uuml;r Stringverkettung.
+</li>
+<li>
+Strings als
+<GOTO>unver&auml;nderbares Objekt</GOTO> unver&auml;nderbare
+Objekte.
+</li>
+<li>
+Die
+<GOTO>trim()</GOTO><code>trim()</code>
+Methode.
+</li>
+<li>
+Die
+<GOTO>startsWith()</GOTO><code>startsWith()</code>
+Methode.
+</li>
+</ul>
+
+
+
+<hr />
+<br />
+<A HREF="../../default.htm#29">
+<img src="../contents.gif" alt="&Uuml;bersicht" title="Zur &Uuml;bersicht gehen." align="center" /></A>
+&#8212;&#8212;Zur&uuml;ck zur <A HREF="../../default.htm#29">&Uuml;bersicht</a>.
+<br />
+<br />
+
+</LESSON>
+</CAI>
+</CHAPTER>

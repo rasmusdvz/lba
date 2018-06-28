@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+</head>
+
+
+<body BGCOLOR="#e8e8e8"><hr size=5>
+<font size=-1><b>created 05/08/00</b></font>
+<hr size=5>
+<center><h1><font color=blue> Programming Exercises</font></h1></center>
+
+<h2>Exercise 1 --- Stack Trace Practice</h2>
+
+<p>
+Write a testing class <code>TestTrace</code>
+that contains the static main() method,
+and another class <code>CallEg</code> that contains three methods.
+The <code>main()</code> method will create a <code>CallEg</code> object
+and call its <code>methodA()</code>.
+</p>
+
+<blockquote><pre>
+class CallEg
+{
+
+  public void methodA() throws ArithmeticException
+  {
+  }
+
+  public void methodB() throws ArithmeticException
+  {
+  }
+
+  public void methodC() throws ArithmeticException
+  {
+  }
+
+}
+
+public class TestTrace
+{
+
+  public static void main ( String[] args )
+  {
+    CallEg eg = new CallEg();   // use default constructor
+    try
+    {
+      eg.methodA();
+    }
+    catch ( ArithmeticException oops )
+    {
+       oops.printStackTrace();
+    }
+
+  }
+
+}
+</pre></blockquote>
+
+<p>
+The <code>catch{}</code> block in <code>main()</code> 
+prints a stack trace.
+
+<OL>
+<LI>Put a statement in <code>methodA()</code> that divides by zero to
+create an <code>ArithmeticException.</code>.  Observe the output.</LI><br><br>
+
+<LI>Remove the division statement from <code>methodA()</code>.
+    Change the code so that <code>methodA()</code> calls 
+    <code>methodB()</code> which calls <code>methodC()</code>.
+    Put a statement in <code>methodC()</code> that divides by zero to
+    create an <code>ArithmeticException.</code>.  Observe the output.</LI> <br><br>  
+
+<LI>Add to the code so that <code>methodA()</code> calls 
+    <code>methodB()</code> <b>inside a <code>try{}</code> block</b>,
+    and <code>methodB()</code> calls <code>methodC()</code> 
+    <b>inside a <code>try{}</code> block</b>.
+    In <code>methodC()</code> put the divide by zero statement
+    inside a <code>try{}</code> block.
+    After each <code>try{}</code> block put a <code>catch{}</code> block
+    which catches the exception, prints a stack trace, and
+    <b>throws</b> the exception object to its caller.
+    Observe the output.</LI><br><br>
+
+</OL>
+
+<p>
+Notice that the stack trace contains information about which class and
+which method was active at the time of the exception.
+</p>
+
+
+<A HREF="../../cs151java.html#81">Click here</A> to go back to the main menu.
+
+<hr>
+
+<h2>Exercise 2 --- More Practice</h2>
+
+<p>
+Modify the code of the previous exercise so that you have
+a testing class <code>TestTrace</code>
+and <b>three classes</b> <code>CallEgA</code>, <code>CallEgB</code>,
+and <code>CallEgC</code>.
+Class  <code>CallEgA</code> has a method which constructs
+a <code>CallEgB</code> object and calls its method.
+Class  <code>CallEgB</code> has a method which constructs
+a <code>CallEgC</code> object and calls its method.
+The method of <code>CallEgC</code> divides by zero:
+</p>
+
+<blockquote><pre>
+class CallEgA
+{
+}
+
+class CallEgB
+{
+}
+
+class CallEgC
+{
+}
+
+public class TestTrace
+{
+
+  public static void main ( String[] args )
+  {
+    CallEgA eg = new CallEgA();   // use default constructor
+    try
+    {
+      eg.method();
+    }
+    catch ( ArithmeticException oops )
+    {
+       oops.printStackTrace();
+    }
+
+  }
+
+}
+
+</pre></blockquote>
+
+<p>
+Run the program and observe the stack trace.
+</p>
+
+<A HREF="../../cs151java.html#81">Click here</A> to go back to the main menu.
+
+<hr>
+<h2>Exercise 3 --- Only Active Methods on the Stack</h2>
+
+<p>
+Create the following program (or better yet, copy and paste it into your
+editor).
+Run it and observe that the stack trace shows only those methods that
+were active at the time of the exception.
+(In other words, the stack trace does not show a complete history of
+the calls.)
+</p>
+
+<blockquote><pre>
+class Divider
+{
+  public void methodA()
+  {
+     System.out.println("Result: " + 12/4 );
+  }
+
+  public void methodB()
+  {
+     System.out.println("Result: " + 12/3 );
+  }
+
+  public void methodC()
+  {
+     System.out.println("Result: " + 12/0 );
+  }
+}
+
+
+public class TestTrace
+{
+
+  public static void main ( String[] args )
+  {
+    Divider dvdr = new Divider();
+
+    try
+    {
+      dvdr.methodA( );
+      dvdr.methodB( );
+      dvdr.methodC( );
+    }
+
+    catch ( ArithmeticException oops )
+    {
+       oops.printStackTrace();
+    }
+
+  }
+
+}
+</pre></blockquote>
+
+<p>
+Run the program and observe the stack trace.
+</p>
+
+<A HREF="../../cs151java.html#81">Click here</A> to go back to the main menu.
+
+<hr>
+<h2>Exercise 4 --- Insurance Program</h2>
+
+<p>
+Change the <A HREF="ch81_11.html">Insurance Program</A>
+so that it uses only normal programming logic to check the age
+and to calculate the insurance.
+</p>
+
+<p>
+Put in exception handling where it is appropriate: put the
+I/O statements inside a <code>try{}</code> block
+and catch the possible exceptions.
+</p>
+
+<A HREF="../../cs151java.html#81">Click here</A> to go back to the main menu.
+
+<hr>
+<p>
+End of Exercises.
+</p>
+
+</body>
+</html>

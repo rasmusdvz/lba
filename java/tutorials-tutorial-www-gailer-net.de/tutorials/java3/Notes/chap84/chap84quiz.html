@@ -1,0 +1,479 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css" />
+<!-- FILL in the Quiz Name between <title> and </title> -->
+<title>
+Quiz on FileReader and BufferedReader 
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+</head>
+
+<script language="JavaScript">
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+ 
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;   
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else 
+    reportForm.letter.value = "hmm.."
+    
+}
+</script>
+
+<body>
+
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+Quiz on FileReader and BufferedReader 
+<!-- end of Quiz Name -->
+</h1></center> 
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+
+<hr/>
+<form name="question1">
+<p>
+1.
+<!-- FILL in Question 1-->
+What is the ancestor class of all character-oriented input streams?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Reader 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+BufferedReader
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+FileReader 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+WeeklyReader 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+What stream type provides input from a disk file? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+FileReader 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+InputStreamReader
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+StringReader 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+FilterReader
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+What class does <code>readLine()</code> belong to?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+FileReader 
+ 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+InputStreamReader
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Reader 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+BufferedReader 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+What data type does <code>readLine()</code> return?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+char 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+byte[]
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+String 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+int 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+What <u>value</u> does <code>readLine()</code> return upon encountering end-of-file?
+ 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+No value; it throws an exception. 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+The empty string ""
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+null 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+0 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+What happens if  <code>readLine()</code> encounters an error?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nothing; the program must examine the returned value to see if it makes sense. 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+The program immediately halts.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+It throws an IOException. 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+It returns <em>null</em> 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+What method is used to notify the operating system that a file is
+no longer needed? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+quit() 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+exit()
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+flush() 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+close() 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+Should <em>FileReader</em> be used to read a Java bytecode (*.class) file? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+No&#8212;bytecode files can only be executed, never read. 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+No&#8212;the bytes in bytecode files are not intended to be interpretted as characters.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Yes&#8212;any file can be read with  <em>FileReader</em>.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Maybe&#8212;as long as the bytecodes were created on the same computer as
+the program using  <em>FileReader</em>.
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="B"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+Can a  <em>FileReader</em> object be constructed that is
+not connected to any file?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+No&#8212;the constructor must specify a file. 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+No&#8212;a <em>FileReader</em> is always connected to a file,
+but you can switch which file it is connected to.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Yes&#8212;you can use a constructor without any file name argument. 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Yes&#8212;this happens if the file named in the constructor does not exist. 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+
+<hr/>
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+Which of the following is used in a C-style input loop?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>while ( source.readLine()  != null )</code> 
+ 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+<code>while ( (line = source.readLine()) == null )</code> 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<code>while ( (line = source.readLine()) != null )</code> 
+ 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<code>while ( line = (source.readLine() != null) )</code> 
+ 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</center>
+<p>
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size=5>
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size=5>
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size=5>
+</form>
+
+<hr/>
+<a href="../../cs151java.html#83"><img src="../contents.gif"alt="Click here" align="left" hspace="10" vspace="25"> </a> 
+<p>
+If you have returned here from another page,
+or have re-loaded this page, you will need to click again on
+each of your choices for the grading program to work correctly.
+You may want to press the SHIFT KEY while clicking to clear
+the old answers.
+</p>
+
+
+</body>
+</html>

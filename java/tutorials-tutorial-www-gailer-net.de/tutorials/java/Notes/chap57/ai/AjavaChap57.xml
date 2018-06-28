@@ -1,0 +1,1550 @@
+<!-- Jan 26, 2000  bpk   INDEX  -->
+<!-- Feb 07, 2004  bpk   minor edits, improved gif files  -->
+<!-- Jly 17, 2006  bpk   formerly chapter 58; WindowAdapter eliminated  -->
+<!-- Nov 01, 2008  bpk   getContentPane().add() removed. Other big changes.  -->
+<!-- Feb 14, 2011  bpk   minor corrections and changes. Tested with HTML 4.01 Transitional validator  -->
+
+<COPYRIGHTDATE>2011</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER> 
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<HOMEFILE>../../index.html#57</HOMEFILE>
+<STYLESHEET>../CAIstyleRev2.css</STYLESHEET>
+
+<CAI> CHAPTER 57 &#8212;  Buttons and Actions
+
+<p class="revisions">
+created: 3/24/99 (using AWT); 
+major revision: 01/08/02 (using Swing); 
+revised: 02/07/04, 02/13/05, 07/17/06;
+refurbished: 11/01/08
+</p>
+
+
+<LESSON>
+
+<p>
+This chapter discusses how to add a <code>JButton</code>
+to a frame and how to register a
+listener for its events.
+</p>
+
+<h4>Chapter Topics:</h4>
+<ul>
+<li>Adding a button to a frame</li>
+<li>Layout managers</li>
+<li>Action listeners</li>
+<li>Registering a listener with a GUI component</li>
+<li>The <code>actionPerformed()</code> method</li>
+<li>The content pane of a frame</li>
+<li>Changing the background color of a frame</li>
+</ul>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Review: ) What is the name of the Swing class that defines buttons?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Swing Components
+
+<ANSWER>
+<p>
+<code>JButton</code>
+</p>
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="javaHierarchyC.gif" alt="Swing Hierarchy">
+</div>
+
+<p>
+Recall that many Swing classes start with <code><b>J</b></code>.
+Similar AWT classes do not start with <code><b>J</b></code>.
+A frequent error is to forget the <code><b>J</b></code> and get the wrong class.
+Then your program will <u>almost</u> work,
+but not quite,
+and finding the problem can be hard.
+For example, the AWT class <code>Button</code> will not work in place of <code>JButton</code>.
+The picture shows how the class <code>JButton</code>
+fits into the Swing hierarchy.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Is a <code>JButton</code> a kind of container?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Example Program with a Button
+<ANSWER>
+
+<p>
+Yes. This means that a <code>JButton</code> can contain
+other components. 
+This is sometimes used to put a picture on a button.
+Ordinary AWT buttons (class <code>Button</code>) can't do this.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>JButton class</INDEX>
+<INDEX>add()</INDEX>
+
+<div align="center">
+<img src="ButtonDemoPic.gif" alt="JFrame with a JButton">
+</div>
+
+
+<p>
+Here is an  example program
+that adds a button to a frame.
+(Nothing happens when the button is clicked; that will come later.)
+</p>
+
+<pre class="program">
+import java.awt.*; 
+import javax.swing.*;
+
+class ButtonFrame extends JFrame
+{
+  JButton bChange ; // reference to the button object
+
+  <span class="blue">// constructor for ButtonFrame</span>
+  ButtonFrame(String title) 
+  {
+    super( title );                     <span style="color:blue">// invoke the JFrame constructor</span>
+    setLayout( new FlowLayout() );      <span style="color:blue">// set the layout manager</span>
+
+    bChange = new JButton("Click Me!"); <span style="color:blue">// construct a JButton</span>
+    add( bChange );                     <span style="color:blue">// add the button to the JFrame</span>
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );   
+  }
+}
+
+public class ButtonDemo3
+{
+  public static void main ( String[] args )
+  {
+    ButtonFrame frm = new ButtonFrame("Button Demo");
+
+    frm.setSize( 150, 75 );     
+    frm.setVisible( true );   
+  }
+}
+</pre>
+
+
+
+<p>
+<code>new JButton("Click Me!")</code>  
+constructs a button object and puts the words "Click Me!" on it.
+The <code>add()</code> method of the frame puts the 
+<code>JButton</code> into the frame.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+How is the title "Button Demo" of the frame determined?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Running the Program
+
+<ANSWER>
+
+<p>
+The super class constructor sets the title:
+</p>
+
+<pre>
+super( title )
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<img src="ButtonDemoPic.gif"   class="rightimage" alt="Button Demo Picture">
+
+<div class="left">
+<p>
+To run the program, copy, save 
+and compile the program in the usual way.
+Name the source file <tt>ButtonDemo3.java</tt>.
+</p>
+
+<pre class="code">
+C:\> javac ButtonDemo3java
+C:\> java ButtonDemo3
+C:\></pre>
+
+<p>
+The picture shows what the program displays.
+You can move the mouse pointer over the button
+and click on it,
+and the button will appear to move in and out.
+But the program does nothing in response to that event.
+</p>
+</div>
+ 
+</LESSON>
+
+<QUESTION>
+<form action="">
+<p>
+Why does nothing happen when you click the button?&nbsp;&nbsp;
+<input type="button" value="Hint" 
+onClick="alert('If you had been listening you would know the answer.')">&nbsp;
+</p>
+</form>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Layout Manager
+
+<ANSWER>
+<p>
+There is no listener for the button's events.
+If there is no listener for a particular type of event,
+then the program ignores events of that type.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>layout manager</INDEX>
+
+<img src="layoutArtist.gif"  class="rightimage" alt="Layout Artist">
+
+<div class="left">
+<p>
+When you <code>add()</code> buttons (and other components) 
+to a container,
+a <b>layout manager</b> automatically 
+decides what size they will be and where they will go.
+This is convenient,
+because you can add components 
+without worrying about the details.
+The layout
+manager is like a little artist inside the computer. 
+You  say what components you want and 
+the layout manager lays them out in the picture.
+</p>
+
+<p>
+The layout manager sometimes makes odd choices.
+However,
+there are several kinds of layout managers.
+Each layout manager has a different style 
+of positioning components.
+Usually there is a layout manager that will do the job you want.
+If you don't specify otherwise,
+the container will use a default layout manager.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Should the layout manager be specified before or after
+components are added to the frame?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>The <code> FlowLayout </code> Manager
+<ANSWER>
+<p>
+Before.  
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>FlowLayout manager</INDEX>
+
+<div align="center">
+<img src="flowLayout.gif" alt="FlowLayout order">
+</div>
+
+<p>
+Our program uses the <code>FlowLayout</code> manager.
+The <code>FlowLayout</code> manager puts components into the frame 
+row by row in the
+order they are added.
+(Later on we will add more than one component).
+It picks reasonable sizes for components and decides how many
+rows to use.
+</p>
+
+<p>
+The <code>FlowLayout</code> manager
+is part of the <code>java.awt</code> package.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Will the layout of a frame change if you add components to it
+in a different order?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Setting the Layout Manager
+<ANSWER>
+<p>
+Yes.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<pre class="program">
+<span class="blue">import java.awt.*;</span>
+import javax.swing.*;
+ 
+public class ButtonFrame  extends JFrame
+{
+  JButton bChange; 
+
+  ButtonFrame(String title) 
+  {
+    super( title );                      
+    <span style="color:blue">setLayout( new FlowLayout() );      // set the layout manager</span>
+
+    bChange = new JButton("Click Me!");  
+    add( bChange );                      
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );   
+  }
+
+}
+</pre>
+
+<INDEX>setLayout()</INDEX>
+
+<p>
+The program constructs a FlowLayout manager and then sets it 
+using the <code>setLayout()</code>
+method of the frame.
+This is done before any components are added to the frame.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+If there is only one component to place in a frame,
+where do you suppose <code>FlowLayout</code> puts it?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Event Listener Object
+<ANSWER>
+<p>
+Centered near the top of the frame.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+When a GUI program is running,
+the user <b>generates</b> an event by interacting with
+a GUI component.
+Here are some ways to generate an event:
+</p>
+
+<ul>
+<li>Moving the mouse</li>
+<li>Clicking the mouse</li>
+<li>Clicking on a button</li>
+<li>Typing some text into a text area</li>
+</ul>
+
+<INDEX>listener object</INDEX>
+<p>
+For a program to respond to an event there must be an
+<b>event listener object</b> for it.
+A event listener object contains a 
+<b>listener method</b>
+for a specific type of event.
+Programs ignore events
+if there is no listener for them.
+</p> 
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Thought question: ) Could an event listener object
+contain other methods in addition to listener methods?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Event Object
+
+<ANSWER>
+<p>
+Yes.  A "listener object" is an object that has
+listener methods, but it may have other methods.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<img src="buttonClick.gif"  class="rightimage" alt="Event Object sent from button to listener">
+
+<INDEX>event object</INDEX>
+<INDEX>registering a listener</INDEX>
+
+<div class="left">
+<p>
+An <u>event listener</u> is an object that "listens" for events from
+a  GUI component, like a button.
+An <u>event</u>, like a button click, is represented as an object.
+When the user generates an event,
+the system creates an event object
+which is then sent to the
+listener that has been <b>registered</b> for the GUI component.
+Then,
+a method in the listener object is invoked.
+</p>
+
+<p>
+To be able to respond to events,
+a program must:
+</p>
+
+<ol>
+<li><b>Create</b> an event listener object for the type of event.</li>
+<li><b>Register</b>  the listener object with the GUI component
+    that generates the event (or with a component that contains it).</li>
+</ol>
+
+<p>
+In the picture, the component is the button,
+contained in a frame.  
+The user event is a click on that button.
+An <code>Event</code> object is sent to the registered listener.
+This is done by the Java system, which manages the GUI components.
+Now it is the responsibility of the listener to do something in response to the event.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p> (Thought Question: ) Does the Java system create an <code>Event</code> object every time 
+  the user interacts with a component? </p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI> ActionListener
+
+<ANSWER>
+<p>
+Yes. The system does not know which 
+events will be ignored, so it
+creates an <code>Event</code> object for each one.
+</p>
+
+</ANSWER>
+
+
+<LESSON>
+
+<pre class="program">
+import java.awt.*; 
+<span class="blue">import java.awt.event.*;</span>
+import javax.swing.*;
+
+class ButtonFrame2 extends JFrame <span class="blue">implements ActionListener</span>
+{
+  JButton bChange;
+
+  ButtonFrame2()     
+  {
+     . . . . . .
+  }
+
+  <span class="blue">
+  // listener method for the ActionListener interface
+  public void actionPerformed( ActionEvent evt)
+  {
+     . . . . . .
+  }</span>
+
+}
+</pre>
+
+<INDEX>ActionListener</INDEX>
+<INDEX>actionPerformed() method</INDEX>
+
+<p>
+A button listener must
+implement the <code>ActionListener</code> interface.
+<code>ActionListener</code> is an <u>interface</u> (not a class) 
+that contains a
+single method:
+</p>
+
+<pre class="code">
+public void actionPerformed( ActionEvent evt) ;
+</pre>
+
+<p>
+A class that <em>implements</em> the interface must contain an
+<code>actionPerformed()</code> method.
+The <code>ActionEvent</code> parameter  
+is an <code>Event</code> object that represents an event (a button click).
+It contains information about the event. 
+</p>
+
+<p>
+Import the package <code>java.awt.event.*</code>
+if you are dealing with events.
+</p>
+
+<p>
+The listener object could be defined in a class other than the frame class.
+In our example, the class that holds the component is also the listener for its events.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Our revised class   <code>ButtonFrame2 </code> says that it 
+<code>implements ActionListener</code>.
+What does this mean?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Implementing an Interface
+<ANSWER>
+<p>
+<code>ButtonFrame</code> 
+<em>implements</em> the ActionListener interface,
+so it must define each method described in the interface.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+For the <code>ActionListener</code> interface,
+there is only one method: <code>actionPerformed()</code>.
+Here is the program with 
+a start on adding a listener:
+</p>
+
+<form action="">
+<pre class="program">
+class ButtonFrame2 extends JFrame implements <input type="text" size="15" name="textG">
+{
+  JButton bChange ;
+
+  // constructor   
+  public ButtonFrame2(String title) 
+  {
+    super( title );
+    setLayout( new FlowLayout() );  
+
+    bChange = new JButton("Click Me!"); 
+    add( bChange ); 
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );    
+  }
+   
+  // listener method required by the interface
+  public void <input type="text" size="25" name="textH">( ActionEvent evt)
+  {
+     . . . . . .
+  }
+}
+</pre></form>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Fill in the blanks.   (Hint: copy and paste from the first sentence of this page.)
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Blanks filled In
+<ANSWER>
+<p>
+The blanks are filled in below:
+</p>
+
+</ANSWER>
+
+<LESSON>
+<pre class="program">
+class ButtonFrame2 extends JFrame implements <span class="blue">ActionListener</span>
+{
+  JButton bChange ;
+
+  // constructor   
+  public ButtonFrame2(String title) 
+  {
+    super( title );
+    setLayout( new FlowLayout() );  
+
+    bChange = new JButton("Click Me!"); 
+    add( bChange ); 
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );    
+  }
+   
+  // listener method required by the interface
+  public void <span class="blue">actionPerformed</span>( ActionEvent evt)
+  {
+     . . . . . .
+  }
+}
+</pre>
+
+<p>
+In this style of GUI programming,
+one object (the <code>ButtonFrame</code> object) is playing two roles:
+it is the container object that holds a GUI component, 
+and it is also the listener object for that component.
+</p>
+
+<p>
+Implementing <code>ActionListener</code> is not enough.
+The listener must still be registered with the <code>JButton</code>.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Review: ) What does <em>registering</em> a listener do?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Registering the Listener
+<ANSWER>
+<p>
+Registering a listener object establishes a
+channel of communication between the GUI object and the listener.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>registering a listener</INDEX>
+
+<!-- getContentPane() removed from setLayout -->
+
+<pre class="program">
+class ButtonFrame2 extends JFrame implements ActionListener
+{
+  JButton bChange ;
+
+  // constructor   
+  public ButtonFrame2() 
+  {
+    bChange = new JButton("Click Me!"); 
+    setLayout( new FlowLayout() );  
+    <span class="blue">
+    // register the ButtonFrame object as the listener for the JButton.
+    bChange.addActionListener( this ); </span>
+    
+    add( bChange ); 
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );    
+  }
+   
+  // listener method required by the interface
+  public void  actionPerformed( ActionEvent evt)
+  {
+     . . . . . .
+  }
+}
+</pre>
+
+<p>
+In this program, the <code>ButtonFrame2</code> object is registered
+as an <code>ActionListener</code> for its own button.
+Here is how this is done:
+</p>
+
+<ol>
+<li><code>bChange</code> refers to the button.</li>
+<li><code>bChange.addActionListener( this )</code> registers a listener for its events.
+<li>The listener  is the <code>ButtonFrame2</code> object.
+    <ul><li>The word <code>this</code>  refers to the object being constructed,
+    the frame.</li></ul></li>
+<li>The statement tells the button, <code>bChange</code>, to run its method
+    <code>addActionListener()</code> to register the frame (<code>this</code>) 
+    as a listener
+    for button clicks.</li>
+<li>Now the frame is listening  for <code>actionEvents</code> from the button.</li>
+<li>Events will be sent to the <code>actionPerformed()</code> method</li>
+</ol>
+
+<p>
+You might think that the <code>ButtonFrame2</code> frame should
+automatically be registered as the listener for all of the GUI components it
+contains.
+But this would eliminate the flexibility that is needed for more complicated
+GUI applications.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+
+<form action="">
+<p>
+You want the program to do something when the button is clicked.
+Where should the code to "do something" go?
+</p>
+</form>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Changing the Color of a Frame
+<ANSWER>
+<p>
+In the body of the <code>actionPerformed()</code> method.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>setBackground()</INDEX>
+
+<p>
+We will fill in the <code>actionPerformed()</code> body so that clicking the button
+changes the color of the frame.
+To change the color of the frame,
+do this: 
+</p>
+
+<pre class="code">
+getContentPane().setBackground( Color.blue )
+</pre>
+
+<INDEX>content pane</INDEX>
+<INDEX>getContentPane()</INDEX>
+
+<p>
+A <code>JFrame</code> is a complicated object made up of
+many parts.
+The frame's <b>content pane</b> is
+where components added to the frame are displayed.
+The <code>getContentPane()</code> method of the frame
+returns a reference to the content pane.
+The <code>setBackground()</code> method of the pane
+changes its background color.
+</p>
+
+<p>
+Other predefined colors are <code>Color.green</code>, <code>Color.blue</code>,
+<code>Color.yellow</code>, and so on.
+(Look in your Java documentation under the class <code>Color</code> to find more.)
+Here is the interesting part of our program:
+</p>
+
+<form action="">
+<pre class="program">
+class ButtonFrame2 extends JFrame implements ActionListener
+{
+  JButton bChange ;
+
+  // constructor   
+  public ButtonFrame2() 
+  {
+   . . . 
+  }
+   
+  public void actionPerformed( ActionEvent evt)
+  {
+    <input type="text" size="35" name="textK"> ;
+    
+    repaint();  // ask the system to paint the screen.
+  }
+  
+}
+</pre>
+</form>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Fill in the blank so that the program changes the frame to blue
+when the button is clicked.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Complete Program
+<ANSWER>
+<pre>
+getContentPane().setBackground( Color.blue )
+</pre>
+
+</ANSWER>
+
+<LESSON>
+<p>
+The following is a complete program,
+suitable for copying to a file and running.
+</p>
+
+<INDEX>program, one button GUI</INDEX>
+<pre class="program">
+import java.awt.*; 
+import java.awt.event.*;
+import javax.swing.*;
+
+class ButtonFrame2 extends JFrame implements ActionListener
+{
+  JButton bChange ; // reference to the button object
+
+  // constructor for ButtonFrame2
+  ButtonFrame2(String title) 
+  {
+    super( title );                   // invoke the JFrame constructor
+    setLayout( new FlowLayout() );    // set the layout manager
+
+    // construct a Button
+    bChange = new JButton("Click Me!"); 
+    
+    // register the ButtonFrame2 object as the listener for the JButton.
+    bChange.addActionListener( this ); 
+
+    add( bChange );                   // add the button to the JFrame
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );   
+  }
+  
+  public void actionPerformed( ActionEvent evt)
+  {
+    getContentPane().setBackground( Color.blue );     // Change the Frame's background
+    repaint();  // ask the system to paint the screen.
+  }
+}
+
+public class ButtonDemo2
+{
+  public static void main ( String[] args )
+  {
+    ButtonFrame2 frm = new ButtonFrame2("Button Demo Two");
+
+    frm.setSize( 200, 100 );     
+    frm.setVisible( true );   
+  }
+}
+</pre>
+
+<INDEX>repaint()</INDEX>
+
+<p>
+The <code>repaint()</code> method called in  
+<code>actionPerformed()</code>tells the system to repaint
+the screen sometime soon because we have changed something.
+The system will do this when it is ready.
+If you don't call <code>repaint()</code>,
+the frame might not change color until you do something
+that would ordinarily cause the frame to be painted
+such as resizing or moving the frame.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+What will be the result of a second click of the button?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Program's Output
+<ANSWER>
+<p>
+Visually nothing happens. The <code>actionPerformed()</code>
+method is called with a new <code>Event</code> object,
+but it changes nothing.
+If you feel like some fun,
+modify the code so that each click changes the background to a different color.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="thirdButton.gif" alt="clicking a button">
+</div>
+
+
+<p>
+The pictures show  the output of the program.
+The original frame is on the left. 
+On the right is the frame after a button click.
+</p>
+
+<p>
+The Java system automatically
+paints the frame
+when any of several things has happened:
+</p>
+
+<ul>
+<li>The frame has just been created</li>
+<li>The frame has been maximized</li>
+<li>The frame was previously hidden 
+    behind another frame and has just been exposed</li>
+</ul>
+
+<p>
+However, a mere button click does not necessarily mean that a frame should be
+repainted.
+If it does, as it does in this program, call <code>repaint()</code>
+in the <code>actionPerformed()</code> method.
+</p>
+ 
+</LESSON>
+
+<QUESTION>
+<p>
+(Memory Test: ) What is the name of the method that receives
+<code>ActionEvent</code>s when a button is clicked?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>More on <code> actionPerformed() </code>
+
+
+<ANSWER>
+<p>
+<code>actionPerformed(ActionEvent e)</code>
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>actionPerformed()</INDEX>
+<p>
+Here the <code>actionPerformed()</code>  method from the example program:
+</p>
+
+<pre class="program">
+class ButtonFrame2 extends JFrame implements ActionListener
+{
+  . . . .
+     
+  public void actionPerformed( ActionEvent evt)
+  {
+    getContentPane().setBackground( Color.blue );
+    repaint();
+  }
+
+  . . . . 
+}
+</pre>
+
+ 
+<p>
+The parameter <code>evt</code> is a reference to an 
+<code>ActionEvent</code> object.
+When the button is clicked, an event object
+is sent to the method.
+Our method does not use the information in the 
+<code>ActionEvent</code> object it receives,
+but the information is available.
+</p>
+
+<p>
+Usually <code>actionPerformed()</code> does something more significant
+than it does in this program.
+Most useful programs have some application code (as well as additional GUI components
+and event listeners.)
+Often various sections of the application code are activated with
+button clicks.
+In a real application, the method might look something like this:
+</p>
+
+<pre class="program">
+  public void actionPerformed( ActionEvent evt)
+  {
+
+    // look at the information in the ActionEvent
+
+    // invoke one of several methods depending on the information
+
+    // send the results of that method to another GUI component
+  }
+</pre>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Is it clear how
+</p>
+
+<ul>
+<li>The  <code>ButtonFrame2</code> frame,</li>
+<li>the <code>JButton</code> it contains, and </li>
+<li>the <code>ActionListener</code> registered for the button</li>
+</ul>
+
+<p>
+are all related?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Picture of the Relations
+<ANSWER>
+<p>
+Not really.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>program, one button GUI, diagram</INDEX>
+
+<!-- 2/14/11  added "displayed as" arrows.  Not clear if this is an improvement.  -->
+
+<div align="center">
+<img src="relationships.gif" alt="picture of the relations">
+</div>
+
+<p>
+Perhaps a picture is needed.  
+Clouds represent class definitions, 
+solid rectangles
+represent objects,
+and dotted rectangles represent the static part of a class.
+Look back at the
+<GOTO>program, one button GUI</GOTO> example program
+as you study the diagram.
+</p>
+
+<ul>
+<li><code>ButtonFrame2</code> extends the class <code>JFrame</code>.</li>
+<li><code>main()</code>  is a static member of the  <code>ButtonDemo</code> class,
+     not part of any object.</li>
+     
+<li><code>main()</code> contains a reference variable
+    <code>frm</code>, which refers to a <code>ButtonFrame2</code> object.
+        </li>
+<li>The <code>ButtonFrame2</code> frame and its button
+    are displayed on the screen. 
+    </li>
+<li>Events from the button are sent to the <code>ButtonFrame2</code> object.
+    <ul>
+    <li>The <code>ButtonFrame2</code> object is registered as a listener for Action Events.</li>
+    <li>The <code>ButtonFrame2</code> class implements <code>ActionListener</code>.</li>
+    <li>It implements <code>actionPerformed()</code>.</li>
+    </ul></li>
+
+</ul>
+
+<p>
+Don't be discouraged if this is less than perfectly clear!  
+It usually takes some time to get all of these relationships straight.
+A bit more practice would not hurt, either.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Thought question: ) Could the <b>static</b> <code>main()</code> method
+be defined as part of the <code>ButtonFrame2</code> class?
+(So that a separate <code>ButtonDemo2</code> class is not needed.)
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>New Program
+<ANSWER>
+<p>
+Yes. Our new program will do this.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="buttonQuitterPic.gif"   alt="Click here to exit">
+</div>
+
+<p>
+Let us write a new program:
+</p>
+
+<ul>
+<li>The frame contains a button.
+    <ul><li>The frame will be the listener for the button.</li>
+    <li>The frame will implement <code>ActionListener</code>.</li>
+    <li>It will have an <code>actionPerformed()</code> method. 
+    </ul></li>
+<li>Clicking on the button will exit the program.
+    <ul><li>The <code>actionPerformed()</code> method calls <code>System.exit(0)</code>.</li></ul></li>
+<li>The class of the frame contains the <code>static main()</code> method.
+</ul>
+
+<p>
+Often a real application has several ways to quit: the  window's close icon,
+a menu selection, and perhaps a button like this program.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<form action="">
+<p>
+What Swing classes will be used in the program?
+&nbsp;&nbsp;
+<input type="button" value="Hint" 
+onClick="alert('Which ones do you see in the picture?')">&nbsp;
+</p>
+</form>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Picture of the Relationships
+<p>
+What Swing classes will be used in the program?
+</p>
+<ANSWER>
+
+<ul>
+<li><code>JFrame</code> </li>
+<li><code>JButton</code> </li>
+</ul>
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="buttonQuitterRelationsBlank.gif" alt="ButtonQuitter Relationships">
+</div>
+
+<p>
+Here is a picture  of the relationships.
+Unfortunately the boxes and the arrows are not labeled.
+The name of the frame class is <code>ButtonQuitter</code>.
+You will need to fill in the labels.
+Use labels from the following selection:
+</p>
+
+<ul>
+<li>JFrame</li>
+<li>extends</li>
+<li>ButtonQuitter</li>
+<li>ActionListener</li>
+<li>instance of</li>
+<li>implements</li>
+<li>main</li>
+<li>static</li>
+<li>JButton</li>
+<li>Action events</li>
+<li>ButtonQuitter object</li>
+<li>refers to</li>
+</ul>
+
+<p>
+Remember that <code>main()</code> is now a static method of the <code>ButtonQuitter</code> class.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Label the relationship diagram. If you have a printer, print out this
+page and use pencil. Otherwise, do the work mentally.
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Labeled Diagram.
+<ANSWER>
+<p>
+See Below.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Here is the labeled diagram.  If you got a few wrong, come back later and try
+again.
+</p>
+
+<center>
+<img src="buttonQRelationsFilled.gif" alt="completed diagram">
+</center>
+ 
+
+</LESSON>
+
+<QUESTION>
+<p>
+Does the diagram show that the <code>JButton</code> has been <em>added</em> to the
+<code>ButtonQuitter</code> object?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Skeleton of the ButtonQuitter Program
+<ANSWER>
+<p>
+No. The diagram leaves that relationship out.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Here is the program, designed according to the relationship diagram:
+</p>
+
+<form action="">
+<pre class="program">
+import java.awt.*;
+
+import java.awt.<input type="text" size="15" name="textM">.*; 
+
+import <input type="text" size="15" name="textN">.swing.*; 
+
+public class ButtonQuitter extends <input type="text" size="15" name="textO"> implements <input type="text" size="15" name="textP">
+{
+  JButton bQuit = new JButton("Click here to Exit"); 
+
+  public ButtonQuitter()  
+  {
+    super(title);
+    
+    <input type="text" size="15" name="textQ">( new FlowLayout() );
+    
+    bQuit.<input type="text" size="15" name="textR">( this );
+    
+    <input type="text" size="15" name="textS">( bQuit ); 
+  }
+   
+  public void <input type="text" size="15" name="textT">( ActionEvent evt)
+  {
+    System.exit( 0 );
+  }
+
+  public static void main ( String[] args )
+  {
+    ButtonQuitter frame = new ButtonQuitter("Button Quitter");
+    
+    frame.setSize( 200, 100 );  
+    
+    frame.<input type="text" size="15" name="textU">( true );      
+
+  }
+}
+</pre></form>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+There seem to be some blanks.
+How many can you fill in correctly? Copy and paste from the following list:
+</p>
+
+<ul>
+<li>ActionListener</li>
+<li>setLayout</li>
+<li>JFrame</li>
+<li>add</li>
+<li>setVisible</li>
+<li>actionPerformed</li>
+<li>addActionListener</li>
+</ul>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Complete Program
+<ANSWER>
+<p>
+It would not be unusual to miss a blank or two.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+For such a complicated relationship diagram,
+this is a short program.
+</p>
+
+<pre class="program">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*; 
+
+public class ButtonQuitter extends <BLU>JFrame</BLU> implements <BLU>ActionListener</BLU>
+{
+  JButton bQuit = new JButton("Click here to Exit");   
+  
+  public ButtonQuitter(String title) 
+  {
+    super(title);
+    <BLU>setLayout</BLU>( new FlowLayout() );
+    bQuit.<BLU>addActionListener</BLU>( this );
+    <BLU>add</BLU>( bQuit );
+  }
+  
+  public void <BLU>actionPerformed</BLU>( ActionEvent evt)
+  {
+    System.exit( 0 );
+  }   
+  
+  public static void main ( String[] args )
+  {
+    ButtonQuitter frame = new ButtonQuitter("Button Quitter");
+   
+    frame.setSize( 200, 100 );  
+    frame.<BLU>setVisible</BLU>( true );        
+  }
+}
+</pre>
+
+
+<p>
+The program can be copied to a file, compiled and run in the usual way.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+How many times must you click the <code>JButton</code> for the program to exit?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>End of the Chapter
+<ANSWER>
+<p>
+Just once, at least that is how it should be.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+That buttons it up for this chapter.
+If one or two topics have not yet clicked,
+you may wish to review the following.
+</p>
+
+<ul>
+
+<li>
+<GOTO>JButton class</GOTO>JButtons
+</li>
+
+<li>
+The 
+<GOTO>layout manager</GOTO>layout manager
+for a Container.</li>
+
+<li>
+The 
+<GOTO>FlowLayout manager</GOTO>FlowLayout manager
+</li>
+
+
+<li>
+<GOTO>listener object</GOTO>Listener objects.
+</li>
+
+<li>
+The
+<GOTO>ActionListener</GOTO> ActionListener 
+for a JButton.</li>
+
+<li>
+<GOTO>registering a listener</GOTO> Registering
+an ActionListener.</li>
+
+<li>
+The
+<GOTO>repaint()</GOTO>repaint()
+method
+</li>
+
+<li>
+The
+<GOTO>content pane</GOTO> content pane
+of a JFrame.</li>
+
+<li>
+<GOTO>setBackground()</GOTO> Changing the color
+of a JFrame's background. </li>
+
+<li>
+Details of the 
+<GOTO>actionPerformed()</GOTO> actionPerformed()
+method. </li>
+
+</ul>
+
+<p>
+The next chapter will discuss more about GUI components.
+</p>
+
+<p>
+The next chapter is Chapter 59.
+Chapter 58 became obsolete with Java 1.4 and has been removed.
+</p>
+
+</LESSON>
+
+</CAI>
+
+</CHAPTER>

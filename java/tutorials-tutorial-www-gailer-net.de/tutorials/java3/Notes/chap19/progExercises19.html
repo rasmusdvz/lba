@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Kapitel 19  Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="translation" content="Copyright 2003-2006 Deutsche &Uuml;bersetzung heinrich@gailer-net.de" />
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css" />
+</head>
+
+<body>
+<p><small>erstellt 09.08.99; &uuml;bersetzt 01.04.03; &uuml;berarbeitet 04.12.03, 24.05.04, 31.05.05, 03.10.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small></p>
+<hr />
+<center><h1>Kapitel 19  Programmieraufgaben</h1></center>
+
+<br />
+<h2>Aufgabe 1 &#8212;  Ratenzahlung</h2>
+<p>
+Angenommen Sie schulden Ihrer Kreditkartengesellschaft 1000.00$.
+Die Gesellschaft berechnet Ihnen monatlich 1.5% Zinsen f&uuml;r den gew&auml;hrten Kredit.
+Sie entscheiden sich die Kreditkarte nicht mehr zu verwenden und Ihren Kredit monatlich mit einem bestimmten Betrag <code>n</code> zur&uuml;ckzuzahlen.
+Schreiben Sie ein Programm, das nach dem monatlichen R&uuml;ckzahlungsbetrag fragt, dann den Saldo und den Gesamtbetrag der Zahlungen f&uuml;r jeden Monat ausgibt, bis der Saldo Null oder weniger betr&auml;gt.
+<blockquote>
+<pre>
+Geben Sie den monatlichen Betrag ein:
+100
+Monat: 1        Saldo: 915.0  Gesamtbetrag: 100.0
+Monat: 2        Saldo: 828.725        Gesamtbetrag: 200.0
+Monat: 3        Saldo: 741.155875     Gesamtbetrag: 300.0
+Monat: 4        Saldo: 652.273213125  Gesamtbetrag: 400.0
+Monat: 5        Saldo: 562.057311321875       Gesamtbetrag: 500.0
+Monat: 6        Saldo: 470.4881709917031      Gesamtbetrag: 600.0
+Monat: 7        Saldo: 377.54549355657866     Gesamtbetrag: 700.0
+Monat: 8        Saldo: 283.20867595992735     Gesamtbetrag: 800.0
+Monat: 9        Saldo: 187.4568060993263      Gesamtbetrag: 900.0
+Monat: 10       Saldo: 90.26865819081618      Gesamtbetrag: 1000.0
+Monat: 11       Saldo: -8.377311936321576     Gesamtbetrag: 1100.0
+</pre>
+</blockquote>
+<p>
+Berechnen Sie die monatlichen Zinsen auf Grund des Saldos.
+Berechnen Sie dann den neuen Saldo, indem Sie die Zinsen addieren und den zur&uuml;ckgezahlten Betrag subtrahieren.
+</p>
+
+<p>
+<b>Verbessertes Programm:</b> &nbsp; &nbsp;
+Lassen Sie das Programm nach dem Anfangssaldo, dem monatlichen Zinssatz und dem R&uuml;ckzahlungsbetrag fragen. Wenn der Saldo unter dem R&uuml;ckzahlungsbetrag liegt, gibt das Programm die letzte Rate aus, die den Saldo exakt auf 0 bringt.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#19">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+<br />
+<h2>Aufgabe 2 &#8212; Wirkstoffgehalt eines Arzneimittels</h2>
+<p>
+Ein bestimmtes Arzneimittel verliert jeden Monat 4% seines Wirkstoffgehalts.
+Wenn sein Wirkstoffgehalt unter 50% f&auml;llt, muss es ausgemustert werden.
+Schreiben Sie ein Programm, das berechnet wie viele Monate eine Arznei gelagert werden kann.
+<blockquote>
+<pre>
+Monat: 0  Wirkstoffgehalt: 100.0
+Monat: 1  Wirkstoffgehalt: 96.0
+Monat: 2  Wirkstoffgehalt: 92.16
+Monat: 3  Wirkstoffgehalt: 88.47359999999999
+Monat: 4  Wirkstoffgehalt: 84.93465599999999
+Monat: 5  Wirkstoffgehalt: 81.53726975999999
+Monat: 6  Wirkstoffgehalt: 78.27577896959998
+Monat: 7  Wirkstoffgehalt: 75.14474781081599
+Monat: 8  Wirkstoffgehalt: 72.13895789838334
+Monat: 9  Wirkstoffgehalt: 69.253399582448
+Monat: 10  Wirkstoffgehalt: 66.48326359915008
+Monat: 11  Wirkstoffgehalt: 63.82393305518407
+Monat: 12  Wirkstoffgehalt: 61.27097573297671
+Monat: 13  Wirkstoffgehalt: 58.82013670365764
+Monat: 14  Wirkstoffgehalt: 56.46733123551133
+Monat: 15  Wirkstoffgehalt: 54.20863798609088
+Monat: 16  Wirkstoffgehalt: 52.04029246664724
+Monat: 17  Wirkstoffgehalt: 49.95868076798135 ABGELAUFEN
+
+</pre>
+</blockquote>
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#19">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+<!-- ----------------------------------------------------------------------------------  -->
+<!-- ----------------------------------------------------------------------------------  -->
+
+<!-- ----------------------------------------------------------------------------------  -->
+<!-- ----------------------------------------------------------------------------------  -->
+<!--<br />
+<h2>Aufgabe 3 &#8212; e<sup><small>x</small></sup></h2>
+<p>
+Eine der erstaunlichen Sachverhalte der Analysis ist es, dass
+die folgende Summe immer n&auml;her an den Wert e<sup><strong>x</strong></sup>
+herankommt, je mehr Ausdr&uuml;cke addiert werden:
+<blockquote>
+<font size=+1>
+e<sup><font size=+1>x</font></sup> = 1 + x + x<sup><font size=+1>2</font></sup>/2! +
+ x<sup><font size=+1>3</font></sup>/3! +
+ x<sup><font size=+1>4</font></sup>/4! +
+ x<sup><font size=+1>5</font></sup>/5! +
+ x<sup><font size=+1>6</font></sup>/6! + . . . .
+</font>
+</blockquote>
+Denken Sie daran, dass n! n Fakult&auml;t bedeutet, n*(n-1)*(n-2)* ... *1.
+Zum Beispiel, wenn x 2 ist:
+<blockquote>
+<font size=+1>
+e<sup><font size=+1>2</font></sup> = 1 + 2 + 2<sup><font size=+1>2</font></sup>/2! +
+ 2<sup><font size=+1>3</font></sup>/3! +
+ 2<sup><font size=+1>4</font></sup>/4! +
+ 2<sup><font size=+1>5</font></sup>/5!  . . . . <br><br>
+e<sup><font size=+1>2</font></sup> = 1 + 2 + 4/2 + 8/6 + 16/24 + 32/120 + . . . .<br><br>
+e<sup><font size=+1>2</font></sup> ~ 1 + 2 +  2  + 1.3333 + 0.6666 + 0.2666 + . . . .<br><br>
+e<sup><font size=+1>2</font></sup> ~ 7.266<br><br>
+</font>
+</blockquote>
+Exakter: e<sup><font size=+1>2</font></sup> = 7.38907...
+</p>
+<p>
+Schreiben Sie ein Programm,
+das den Anwender auffordert x einzugeben,
+dann den Wert e<sup><font size=+1>x</font></sup> berechnet,
+indem es eine Schleife verwendet, um nacheinander Ausdr&uuml;cke
+zu addieren, bis der gegenw&auml;rtige Ausdruck kleiner ist als 1.0E-12.
+Geben Sie dann zur Kontrolle den Wert von <code>Math.exp( x )</code> aus,
+um zu sehen wie gro&szlig; der Unterschied zu Ihrem Wert ist.
+</p>
+
+<p>
+Um dieses Programm vern&uuml;nftig zu gestalten,
+wird die Schleife bei jeder Iteration einen
+Ausdruck hinzu addieren.
+<blockquote>
+<font size=+1>
+ summe = summe + term;
+</font>
+</blockquote>
+Betrachten sie sorgfältig die erste Gleichung für e<sup><font size=+1>x</font></sup>.
+Notice that each term is:
+<blockquote>
+<font size=+1>
+ x<sup> N</sup>/N!
+</font>
+</blockquote>
+for some N.  This is the same as:
+<blockquote>
+<font size=+1>
+ x<sup><font size=+1>(N-1)</font></sup>/(N-1)! &nbsp; * &nbsp; x/N
+</font>
+</blockquote>
+This is the same as the <u>previous term</u> times x/N.
+So each iteration of the loop merely
+has to multiply the previous term by x/N and add it to
+the accumulating sum.
+</p>
+
+<p>
+Don't let the math scare you away!
+This is actually a fairly easy program,
+and is typical of a type of calculation that computers are often used for.
+</p>
+<blockquote>
+<pre>
+
+Enter x:
+2
+n:1     term: 2.0               sum: 3.0
+n:2     term: 2.0               sum: 5.0
+n:3     term: 1.3333333333333333                sum: 6.333333333333333
+n:4     term: 0.6666666666666666                sum: 7.0
+n:5     term: 0.26666666666666666               sum: 7.266666666666667
+n:6     term: 0.08888888888888889               sum: 7.355555555555555
+n:7     term: 0.025396825396825397              sum: 7.3809523809523805
+n:8     term: 0.006349206349206349              sum: 7.387301587301587
+n:9     term: 0.0014109347442680777             sum: 7.3887125220458545
+n:10    term: 2.8218694885361555E-4             sum: 7.388994708994708
+n:11    term: 5.130671797338464E-5              sum: 7.389046015712681
+n:12    term: 8.551119662230774E-6              sum: 7.3890545668323435
+n:13    term: 1.3155568711124268E-6             sum: 7.389055882389215
+n:14    term: 1.8793669587320383E-7             sum: 7.3890560703259105
+n:15    term: 2.5058226116427178E-8             sum: 7.389056095384136
+n:16    term: 3.1322782645533972E-9             sum: 7.389056098516415
+n:17    term: 3.6850332524157613E-10            sum: 7.389056098884918
+n:18    term: 4.094481391573068E-11             sum: 7.389056098925863
+n:19    term: 4.309980412182177E-12             sum: 7.3890560989301735
+n:20    term: 4.309980412182177E-13             sum: 7.389056098930604
+
+my   e^x: 7.389056098930604
+real e^x: 7.38905609893065
+</pre>
+</blockquote>
+
+<a HREF="../../cs151java.html#part3">Click here </A> to go back to the main menu.
+-->
+
+<!-- ----------------------------------------------------------------------------------  -->
+<!-- ----------------------------------------------------------------------------------  -->
+<p>Ende der Aufgaben.</p>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!doctype html public "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<meta  http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="author" content="kjell at ieee dot org">
+<meta name="copyright" content="2008">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+<meta name="robots" content="index,follow">
+<meta name="robots" content="noindex,nofollow">
+
+<title>Kapitel 8 Programmieraufgaben</title>
+
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css" />
+</head>
+
+<body>
+<p class="revisions">erstellt 29.07.99; &uuml;bersetzt 01.03.03; &uuml;berarbeitet 20.04.04, 29.09.06, 11.10.10; &copy; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+
+<h1>Kapitel 8 Programmieraufgaben</h1>
+
+<hr>
+
+<p>
+Wenn ich ein Student w&auml;re und diese Aufgaben s&auml;he, w&uuml;rde ich argw&ouml;hnen, dass sich jemand damit nicht allzu viel M&uuml;he gegeben hat. Die Art von doofen Aufgaben, die nicht viel mehr tun als den Lernenden zu besch&auml;ftigen.
+
+Obwohl diese Aufgaben einfach und etwas langweilig sind, beabsichtigen sie in Wirklichkeit das Konzept der <em>primitiven Datentypen</em> zu verfestigen, das von entscheidender Bedeutung und aus diesem Grund genau an dieser Stelle ein bisschen der &Uuml;bung wert ist.
+
+Bitte machen Sie die Aufgaben.
+</p>
+
+<hr>
+
+<h2>Aufgabe 1</h2>
+
+<p>Das folgende Programm verwendet den primitiven Datentyp <code>short</code>:</p>
+
+<pre class="program">
+class ShortBsp
+{
+  public static void main ( String[] args )
+  {
+    short zahl = 32;
+    System.out.println("Eine short-Variable: " +  zahl);
+  }
+}
+</pre>
+
+<p>
+Das Wort &quot;zahl&quot; ist in diesem Programm eine <em>Variable</em> &#8212; ein Name f&uuml;r einen Teil des Speichers, der Daten eines bestimmten Datentyps enth&auml;lt.
+In diesem Fall ist &quot;zahl&quot; der Name von 16 Bits des Hauptspeichers, der den Datentyp <code>short</code> verwendet, um einen Integer (eine ganze Zahl) darzustellen.
+(Im weiteren Verlauf dieser Aufzeichnungen wird noch ausf&uuml;hrlicher auf Variablen eingegangen.)
+Das Programm stellt den Wert 32 in die Variable <code>zahl</code>.
+Dann gibt es aus:
+<p>
+
+<pre class="dos">
+Eine short-Variable: 32
+</pre>
+
+<p>
+Mit anderen Worten: Das Programm kontrolliert in der n&auml;chsten Zeile die Variable und gibt den Inhalt der Variablen auf den Bildschirm aus.
+</p>
+
+<p>
+<b>Ihre Aufgabe</b><br>  Erstellen Sie eine Datei mit dem Namen <code>ShortBsp.java</code>. Kompilieren Sie die Datei und f&uuml;hren Sie sie aus.
+&Uuml;berpr&uuml;fen Sie die Bildschirmausgabe.
+Ver&auml;ndern Sie das Programm, so dass anstatt 32 ein andere kleine Zahl, z.B. 356, ausgegeben wird. Kompilieren Sie die Datei und f&uuml;hren Sie sie aus. Es sollte alles okay sein.
+</p>
+
+<p>
+Als n&auml;chstes &auml;ndern Sie die Zahl in 35000 und <em>versuchen</em> die Datei zu kompilieren und auszuf&uuml;hren.
+Diese Zahl ist zu gro&szlig; f&uuml;r den Datentyp <code>short</code>. Mit anderen Worten, sie kann nicht mit dem 16-Bit Datentyp <code>short</code> dargestellt werden.
+Was passiert?
+</p>
+
+<p>
+Ver&auml;ndern Sie jetzt das Programm (lassen Sie die Zahl 35000 unver&auml;ndert), und nehmen Sie den Datentyp <code>int</code>.  Kompilieren und f&uuml;hren Sie die Datei aus.
+Gibt es einen Unterschied?
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#08">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 2</h2>
+
+<p>Das folgende Programm verwendet den primitiven Datentyp <code>double</code>:</p>
+
+<pre class="program">
+class DoubleBsp
+{
+  public static void main ( String[] args )
+  {
+    double zahl = 32;
+    System.out.println("Ein double: " +  zahl);
+  }
+}
+</pre>
+
+<p>
+Kompilieren und f&uuml;hren Sie die Datei aus. Unterscheidet sich die Ausgabe (das, was auf den Bildschirm ausgegeben wird) von der Ausgabe des ersten Programms aus der vorherigen Aufgabe?
+In diesem Programm ist &quot;<code>zahl</code>&quot; der Name von 64 Bits, die den Datentyp <code>double</code> verwenden, um Gleitpunktzahlen darzustellen.
+</p>
+
+<p>
+Es ist absolut OK, den Variablennamen <code>zahl</code> in beiden Programmen zu verwenden.
+Die Verwendung von Namen auf diese Weise ist f&uuml;r uns eine M&ouml;glichkeit zu beschreiben, was der Computer tun soll.
+Die Reservierung eines Teils des Computerspeichers f&uuml;r eine bestimmte Verwendung ist nicht von Dauer und wird mit dem Ende Programms wieder aufgehoben.
+</p>
+
+<p>
+Versuchen Sie jetzt das Programm zum Absturz zu bringen.
+Werfen Sie einen Blick auf die <a href="ch08_6.html">Tabelle der primitiven Datentypen</a> mit ihren Wertebereichen.
+&Auml;ndern Sie die Zahl 32 in einem Wert, der f&uuml;r den Datentyp <code>double</code> zu gro&szlig; ist.
+Sie m&ouml;chten daf&uuml;r vielleicht die wissenschaftliche Darstellung verwenden.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#08">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 3</h2>
+
+<p>Das folgende Programm verwendet ebenfalls den primitiven Datentyp <code>double</code>.
+Das Programm berechnet und gibt den Wert von <code>exp( 32 )</code> aus.
+Das ist die 32. Potenz der Eulerschen Zahl e, also e <sup>32</sup>.
+(Machen Sie sich keine weiteren Gedanken dar&uuml;ber. Worauf es hier ankommt ist nicht die Mathematik, sondern die Gleitpunktzahl.)
+</p>
+
+<pre class="program">
+class DoubleCrash
+{
+  public static void main ( String[] args )
+  {
+    double zahl = 32;
+    System.out.println("e hoch " + zahl + " ergibt: " +  Math.exp(zahl) );
+  }
+}
+</pre>
+
+Kompilieren und f&uuml;hren Sie das Programm aus.
+L&auml;sst es sich kompilieren und korrekt ausf&uuml;hren?
+Ersetzen Sie jetzt die Zahl 32 durch immer gr&ouml;&szlig;ere Zahlen, bis etwas schief geht.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#08">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 4</h2>
+
+<p>Das folgende Programm verwendet den primitiven Datentyp <code>char</code>:</p>
+
+<pre class="program">
+class CharBsp
+{
+  public static void main ( String[] args )
+  {
+    char ch = 'A' ;
+    System.out.println("Ein char: " +  ch );
+  }
+}
+</pre>
+
+<p>Die Variable "ch" repr&auml;sentiert 16-Bit des Hauptspeichers und verwendet ein Schema, um Zeichen (<em>Character</em>) darzustellen.
+Ihr wurde das Zeichen 'A' &uuml;bergeben.
+Die Ausgabe des Programm ist:
+</p>
+
+<pre class="dos">
+Ein char: A
+</pre>
+
+<p>Machen Sie folgendes:</p>
+
+<ul>
+<li>&Auml;ndern Sie <code>'A'</code> in <code>'Z'</code> und  kompilieren  und f&uuml;hren Sie das Programm aus.</li>
+<li>&Auml;ndern Sie <code>'Z'</code> in <code>'AA'</code> und  kompilieren  und f&uuml;hren Sie das Programm aus.</li>
+<li>&Auml;ndern Sie <code>'AA'</code> in <code>' '</code> und  kompilieren  und f&uuml;hren Sie das Programm aus.</li>
+    <ul><li>Hinweis: Zwischen den beiden Hochkommata befindet sich ein Leerzeichen.</li></ul></li>
+<li>&Auml;ndern Sie <code>' '</code> in <code>''</code> und  kompilieren  und f&uuml;hren Sie das Programm aus.
+    <ul><li>Hinweis: Es befindet sich KEIN Zeichen zwischen den beiden Hochkommata.</li></ul></li>
+<li>&Auml;ndern Sie <code>''</code> in <code>"A"</code> und  kompilieren  und f&uuml;hren Sie das Programm aus.
+    <ul><li>Die doppelten Anf&uuml;hrungszeichen &quot; kennzeichnen einen String (Zeichenfolge), das ist etwas anderes als ein <code>char</code>.</li></ul></li>
+</ul>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#08">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+<p>Ende der Aufgaben</p>
+</body>
+</html>

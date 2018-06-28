@@ -1,0 +1,26 @@
+<!-- point, class -->
+<li><a href="ch27_3.html#point, class">point, class</a></li>
+<!-- field -->
+<li><a href="ch27_3.html#field">field</a></li>
+<!-- constructor, overloaded -->
+<li><a href="ch27_4.html#constructor, overloaded">constructor, overloaded</a></li>
+<!-- object reference, picture -->
+<li><a href="ch27_6.html#object reference, picture">object reference, picture</a></li>
+<!-- toString() -->
+<li><a href="ch27_7.html#toString()">toString()</a></li>
+<!-- method, parameter less -->
+<li><a href="ch27_8.html#method, parameter less">method, parameter less</a></li>
+<!-- temporary object -->
+<li><a href="ch27_9.html#temporary object">temporary object</a></li>
+<!-- object, method changes state -->
+<li><a href="ch27_13.html#object, method changes state">object, method changes state</a></li>
+<!-- object, assignment replaces old reference -->
+<li><a href="ch27_14.html#object, assignment replaces old reference">object, assignment replaces old reference</a></li>
+<!-- equals() -->
+<li><a href="ch27_16.html#equals()">equals()</a></li>
+<!-- alias -->
+<li><a href="ch27_19.html#alias">alias</a></li>
+<!-- == operator -->
+<li><a href="ch27_20.html#== operator">== operator</a></li>
+<!-- alias detector -->
+<li><a href="ch27_20.html#alias detector">alias detector</a></li>

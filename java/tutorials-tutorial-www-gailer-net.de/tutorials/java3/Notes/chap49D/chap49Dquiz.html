@@ -1,0 +1,540 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css" />
+
+<title>
+Quiz &uuml;ber StringBuffers und StringTokenizers
+</title>
+
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+
+</head>
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+
+<body>
+<p><small>&uuml;bersetzt 08.07.03; &uuml;berarbeitet 14.02.05; &copy; Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer</small></p>
+<center><h1>
+Quiz &uuml;ber StringBuffers und StringTokenizers
+</h1></center>
+
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+W&auml;hlen Sie f&uuml;r jede Frage die beste Antwort und klicken Sie auf das entsprechende Optionsk&auml;stchen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Wenn das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox nach jeder Frage.
+</p>
+
+<hr />
+<form name="question1">
+
+<p>
+1.
+<!-- FILL in Question 1-->
+Welcher Ausdruck beschreibt ein <code>String</code>-Objekt am besten,
+nachdem es konstruiert wurde?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Ver&auml;nderbar.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nur Schreiben.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Nur Lesen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Unzug&auml;nglich.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+Nachdem ein <code>StringBuffer</code>-Objekt konstruiert wurde,
+wie viele Zeichen k&ouml;nnen dem Objekt hinzugef&uuml;gt werden?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Keines mehr, nachdem es konstruiert wurde.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nur so viele wie in der urspr&uuml;nglichen Kapazit&auml;t vorgesehen wurde.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+So viele wie gebraucht werden; es wird sich vergr&ouml;&szlig;ern, wenn notwendig.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ein neues <code>StringBuffer</code>-Objekt muss konstruiert werden,
+jedes Mal, wenn Zeichen hinzugef&uuml;gt werden.
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+&Uuml;ber welche der folgenden Methoden verf&uuml;gt die Klasse <code>StringBuffer</code> NICHT?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+append( int i )
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+charAt( int index )
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+length()
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+delete( int index )
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+Sie m&ouml;chten den Inhalt zweier <code>StringBuffer</code>-Objekte vergleichen.
+Wie kann dies getan werden?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Durch Verwendung des <code>==</code> -Operators.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Durch Verwendung der <code>equals()</code> Methode von <code>StringBuffer</code>.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Durch die Konstruktion eines <code>String</code>-Objekts
+von jedem <code>StringBuffer</code> und durch die Verwendung
+deren <code>equals()</code> Methode.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Durch einen zeichenweisen Vergleich, in dem <code>charAt()</code> und <code>==</code> verwendet wird.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+Was ist ein Token.
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Ein Token ist jedes Zeichen, das f&uuml;r die Interpunktion verwendet werden kann.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Ein Token ist eine Gruppe von Zeichen, die in einem bestimmten Zusammenhang etwas bedeuten.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ein Token ist eine Art Ausdruck.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ein Token ist eine Gruppe von Ziffern.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+Was ist ein Begrenzer?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Ein Begrenzer ist ein Zeichen, das die Token in einem String trennt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Ein Begrenzer ist jedes Zeichen, das Teil eines Tokens sein kann.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ein Begrenzer ist das letzte Zeichen eines Strings.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ein Begrenzer ist jedes Zeichen, das Teil einer Zahl sein kann.
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+Was gibt dieser Code aus:
+</p>
+
+<blockquote>
+<pre>
+StringTokenizer tok = new StringTokenizer( "abc,def,ghi" );
+System.out.println( tok.nextToken() );
+</pre>
+</blockquote>
+
+<!-- end of question -->
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+abc,def,ghi
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+abc
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+abc,
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+abc def ghi
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+Was gibt dieser Code aus:
+</p>
+
+<blockquote>
+<pre>
+StringTokenizer tok = new StringTokenizer( "abc,def,ghi", "," );
+System.out.println( tok.nextToken() );
+</pre>
+</blockquote>
+
+<!-- end of question -->
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+abc,def,ghi
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+abc
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+abc,
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+,
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+Was gibt dieser Code aus:
+</p>
+
+<blockquote>
+<pre>
+StringTokenizer tok = new StringTokenizer( "abc+def+ghi", "+", true );
+System.out.println( tok.nextToken() );
+System.out.println( tok.nextToken() );
+</pre>
+</blockquote>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<blockquote><pre>
+abc
+</pre></blockquote>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<pre><blockquote>
+abc
++def
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<blockquote><pre>
+abc
+def
+</pre> </blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<blockquote><pre>
+abc
++
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+Was gibt dieser Code aus:
+</p>
+
+<blockquote><pre>
+StringTokenizer tok = new StringTokenizer( "abc def+ghi", "+");
+System.out.println( tok.nextToken() );
+System.out.println( tok.nextToken() );
+</pre></blockquote>
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<blockquote><pre>
+abc
+def
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<blockquote><pre>
+abc def
+ghi
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<blockquote><pre>
+abc def
++
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<blockquote><pre>
+abc def
++ghi
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size=5>
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size=5>
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size=5>
+</form>
+<table>
+<tr>
+<td style="white-space:nowrap">
+<A HREF="../../java-toc.html#49D">
+<img src="../contents.gif" alt="Inhaltsverzeichnis" align="center"></A>
+&#8212;&#8212; Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#49D">Inhaltsverzeichnis</a>.
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+<hr />
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+body
+{
+ background-color:#fafafc;
+ font-family:arial,sans-serif;
+}
+
+p
+{
+ margin-left: 0.5em;
+ margin-right: 0.5em;
+}
+
+p.revisions
+{
+ font-size:0.66em;
+ margin:0.5em 1.5em;
+ padding:0em;
+}
+
+ol,ul
+{
+ margin-left:1.5cm;
+}
+
+
+.blue
+{
+ color:blue;
+}
+
+.red
+{
+ color:red;
+}
+
+.green
+{
+ color:green;
+}
+
+.answer h3
+{
+ color:blue;
+}
+
+h1{ text-align:center; }
+
+h2
+{
+ margin-left: 0.5em;
+}
+
+h1, h2, hr
+{
+ color:#A02000;
+}
+
+code
+{
+ font-family:Lucida Console, Courier New, monospace;
+ font-size:1em;
+}
+
+
+pre, pre.code
+{
+ margin-left:1cm;
+ font-family:Lucida Console, Courier New, Courier, monospace;
+ font-size:1em;
+
+}
+
+pre.program
+{
+ width:auto;
+ margin-left:1cm;
+ margin-right:1cm;
+ padding:0.5cm;
+ border-style:double;
+ border-color:#A02000;
+ background-color:white;
+ font-family:courier-new;
+ font-size:90%;
+}
+
+pre.dos, pre.dos3, pre.dos4, pre.dos5, pre.dos6, pre.dos7
+{
+ padding:5px;
+ margin-left:3em;
+ color:white;
+ background-color:black;
+ border:ridge 6px #8F8F8F;
+ font-size:10px;
+}
+
+pre.dos, pre.dos3
+{
+ width:300px;
+}
+
+pre.dos4
+{
+ width:400px;
+}
+
+pre.dos5
+{
+ width:500px;
+}
+
+pre.dos6
+{
+ width:600px;
+}
+
+pre.dos7
+{
+ width:700px;
+}
+
+table
+{
+ margin-left:1cm;
+ font-family:arial,sans-serif;
+ font-size:90%;
+ text-align:center;
+}
+
+td code
+{
+ font-size:1em;
+}
+
+
+table pre
+{
+margin-left:0.4cm;
+margin-right:0.4cm;
+}
+
+img.rightimage,img.right
+{
+ float:right;
+ margin:0em 4em 2em 2em;
+}
+
+
+img.leftimage,img.left
+{
+ float:left;
+ margin:0px 5px 0px 0px;
+}
+
+a:link     { color:blue; }
+a:visited  { color:#A02000; }
+a:active   { color:red; }
+a:hover    { color:red; }

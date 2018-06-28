@@ -1,0 +1,459 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<!-- FILL in the Quiz Name between <title> and </title> -->
+<title>
+Quiz &uuml;ber Ausdr&uuml;cke
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css" />
+</head>
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+
+<body>
+<small>&uuml;bersetzt 01.03.03; &uuml;berarbeitet 21.04.04, 11.04.05, 29.09.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+<img src="quizBee.gif" />Quiz &uuml;ber Ausdr&uuml;cke
+<!-- end of Quiz Name -->
+</h1></center>
+
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+Entscheiden Sie sich bei jeder Frage f&uuml;r die beste Antwort. Klicken Sie dann auf das entsprechende Optionsk&auml;stchen, um diese Antwort auszuw&auml;hlen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Sobald das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox unterhalb der Frage.
+</p>
+<br clear="all" />
+
+<form name="question1">
+<p>
+<!-- FILL in Question 1-->
+<p>1. Welcher der folgenden ist <b>kein</b> korrekter arithmetischer Ausdruck?</p>
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+alpha
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+(alpha / impuls) - 12.4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+alpha ( / impuls - 12.4 )
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+((alpha / impuls) - 12.4)
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value=""  />
+</form>
+
+<form name="question2">
+<!-- FILL in Question 2-->
+<p>2. Was ist ein Operand?</p>
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+Ein anderer Name f&uuml;r eine Zahl.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+Ein anderer Name f&uuml;r einen Integer.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Einer der arithmetischen Symbole wie *, +, - und /.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+Ein Wert, auf den ein Operator einwirkt.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value=""  />
+</form>
+
+<form name="question3">
+<!-- FILL in Question 3 -->
+<p>3. Folgende Deklarationen vorausgesetzt:</p>
+<blockquote><pre>
+short  a = 12 ;
+int    b = 33 ;
+
+float  x = 2.3 ;
+double y = 3.14 ;
+</pre></blockquote>
+<p>Welche der folgenden Ausdr&uuml;cke wird <strong>nicht</strong>
+als Gleitpunkt-Operation ausgewertet?</p>
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+a + x
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+1.5 + 8.6
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+a + b
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+x / y
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value=""  />
+</form>
+
+<form name="question4">
+<!-- FILL in Question 4-->
+<p>4. Was ist die Ausgabe des folgenden Programms?</p>
+<blockquote><pre>
+class Frage4
+{
+  public static void main ( String[] args )
+  {
+    int gesamtKosten = 6;
+    int anzahl       = 12;
+    System.out.println("Kosten pro Artikel: " + gesamtKosten/anzahl );
+  }
+}
+</pre></blockquote>
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+Kosten pro Artikel: .5
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+Kosten pro Artikel: 0
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Kosten pro Artikel: 1
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+Kosten pro Artikel: +6/12
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value=""  />
+</form>
+
+<form name="question5">
+<!-- FILL in Question 5-->
+<p>5. Was ist das Ergebnis des folgenden Ausdrucks?</p>
+<blockquote><pre>
+( 1/2 + 3.5) * 2.0
+</pre></blockquote>
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+8.0
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+8
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+7.0
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+0
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value=""  />
+</form>
+
+<form name="question6">
+<!-- FILL in Question 6-->
+<p>6. Was ist das Ergebnis des folgenden Ausdrucks?</p>
+<blockquote><pre>
+-32 / 6
+</pre></blockquote>
+
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+-2
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+-5
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+-5.3333
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
++6
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value=""  />
+</form>
+
+<form name="question7">
+<!-- FILL in Question 7-->
+<p>7. Was ist ein Ausdruck?</p>
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+Das gleiche wie eine Anweisung.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+Ein Ausdruck ist eine Reihe von Anweisungen, die ein Programm bilden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Ein Ausdruck ist eine Kombination von Literalen, Operatoren, Variablen und Klammern, die verwendet werden, um einen Wert zu berechnen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+Ein Ausdruck ist eine in Ziffern dargestellte Zahl.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value=""  />
+</form>
+
+<form name="question8">
+<!-- FILL in Question 8-->
+<p>8. Gegeben ist der folgende Ausdruck:</p>
+<blockquote><pre>
+(a - x ) / (13 - z)
+</pre></blockquote>
+Welches der folgenden ist KEIN Unterausdruck.
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+(a - x)
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+(13 - z)
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+a - x
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+x ) / (13
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value=""  />
+</form>
+
+<form name="question9">
+<!-- FILL in Question 9-->
+<p>9. Was ist der Wert von</p>
+<blockquote><pre>
+-32 % 6
+</pre></blockquote>
+
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+5
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+-5
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+2
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+-2
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value=""  />
+</form>
+
+
+<form name="question10">
+<!-- FILL in Question 10-->
+<p>10. Welche der folgenden Deklarationen f&uuml;r die Konstante PI ist korrekt
+(vorausgesetzt, dass der Wert richtig ist)?</p>
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+final PI = 3.14159265358979 ;
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+final double PI = 3.14159265358979 ;
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+constant double PI = 3.14159265358979 ;
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+double PI = 3.14159265358979 ;
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value=""  />
+</form>
+
+<hr />
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)" />
+</center>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5" />
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5" />
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5" />
+</form>
+
+<table border="0">
+<tr>
+<td valign="top">
+<a href="../../java-toc.html#09B">
+<img src="../contents.gif" alt="Inhalt" title="Zur&uuml;ck zum Inhaltsverzeichnis" border="0" /></a>
+</td>
+<td>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</td>
+</tr>
+</table>
+
+<p> Um die alten Antworten zu l&ouml;schen, halten Sie die Umschalt-Taste (beim Internet Explorer Strg + Umschalt-Taste) gedr&uuml;ckt und laden dann die Seite neu.</p>
+<p>Zur&uuml;ck zum  <a href="../../java-toc.html#09B">Inhaltsverzeichnis</a>.</p>
+
+</body>
+</html>

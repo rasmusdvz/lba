@@ -1,0 +1,997 @@
+<!-- Jan. 18, 1999  bpk   chapter re-numbering       -->
+<!-- May  12, 2002  bpk   convert to XHTML and CSS -->
+<!-- Jun  05, 2003  bpk   small format changes -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2002</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>Bradley Kjell kjell@ieee.org </AUTHORNAME>
+<GERMANTRANSLATION>Copyright 2003 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de</GERMANTRANSLATION>
+
+<CAI> Kapitel 3 &#8212; Computerspeicher
+<p>
+<small>&uuml;berarbeitet 18.01.99, 16.01.00; &uuml;bersetzt 08.09.03; &copy; Copyright 2003 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+
+<LESSON>
+<p>
+Erinnern Sie sich aus dem Kapitel 1
+an die wichtigsten Hardwarekomponenten:
+</p>
+
+<ul>
+<li>Prozessor</li>
+<li>Hauptspeicher</li>
+<li>Sekund&auml;re Speichermedien</li>
+<li>Eingabe-/Ausgabeger&auml;te</li>
+</ul>
+
+<p>
+Dieses Kapitel betrachtet Haupt- und Sekund&auml;rspeicher.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Bit und Byte.</li>
+<li>Kilobyte, Megabyte, Gigabyte.</li>
+<li>Hauptspeicher und Adressen.</li>
+<li>Sekund&auml;rspeicher.</li>
+<li>Dateien.</li>
+</ul>
+</LESSON>
+
+<QUESTION>
+<p>
+(Sch&auml;tzung: ) Wenn Sie einen neuen Computer gekauft h&auml;tten,
+wie viel Hauptspeicher w&uuml;rden Sie erwarten, dass er hat: 128 Byte, 64 Kilobyte, 4 Megabyte oder 64 Megabyte?
+(Hinweis: Encarta - eine Multimedia Enzyklop&auml;die - ben&ouml;tigt ein Minimum von 16 Megabyte.)
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Merkmale des Hauptspeichers
+<ANSWER>
+<p>
+Ein neuer PC sollte mindestens 128 Megabyte haben und wenn m&ouml;glich mehr.
+(Vor ein paar Jahren w&auml;re die Antwort 16 Megabyte gewesen.)
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Der Hauptspeicher ist f&uuml;r ein Computersystem genauso entscheidend wie der Prozessorchip.
+Schnelle Computersysteme besitzen sowohl einen schnellen Prozessor als auch einen gro&szlig;en, schnellen Speicher.
+Hier ist eine Liste von einigen Merkmalen des Computerspeichers.
+Manche Merkmale sind f&uuml;r beide Arten von Speicher richtig;
+andere sind nur f&uuml;r eine richtig.
+</p>
+
+<br />
+<form>
+<center>
+<table border cellpadding="5" bgcolor="white" bordercolor="brown">
+<tr bgcolor="tan"><th>Merkmal</th><th>Richtig f&uuml;r <br />Hauptspeicher</th><th>Richtig f&uuml;r <br />Sekund&auml;rspeicher</th></tr>
+<tr><td>Sehr eng mit dem <br /> Prozessor verbunden.</td>
+        <td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td>
+<td align="center"> <input type="button" value="   ?   "  onClick="value=' Nein '" /> </td></tr>
+<tr><td>Enth&auml;lt Programm und Daten,<br />mit denen der Prozessor gerade arbeitet.</td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' Nein '" /> </td></tr>
+<tr><td>Wird f&uuml;r langfristige Speicherung verwendet.</td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' Nein '" /> </td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td></tr>
+<tr><td>Der Prozessor kommuniziert mit ihm <br />Millionen Mal pro Sekunde.</td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' Nein '" /> </td></tr>
+<tr><td>Der Inhalt kann leicht ge&auml;ndert werden.</td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td></tr>
+<tr><td>Relativ geringe Kapazit&auml;t.</td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' Nein '" /> </td></tr>
+<tr><td>Relativ gro&szlig;e Kapazit&auml;t.</td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' Nein '" /> </td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td></tr>
+<tr><td>Schneller Zugriff.</td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' Nein '" /> </td></tr>
+<tr><td>Langsamer Zugriff.</td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' Nein '" /> </td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td></tr>
+<tr><td>Mit dem Hauptspeicher verbunden.</td>
+<td align="center"> <input type="button" value="   ?   " onClick="value='---'" /> </td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td></tr>
+<tr><td>Enth&auml;lt Programme und Daten.</td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td></tr>
+<tr><td>Seine Inhalte sind &uuml;blicherweise<br />in <em>Dateien</em> organisiert.</td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' Nein '" /> </td>
+<td align="center"> <input type="button" value="   ?   " onClick="value=' JA '" /> </td></tr>
+</table>
+</center>
+</form>
+
+<p>
+&#160; <!-- the character formerly known as &#nbsp; -->
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Woran erinnern Sie sich beim Computerspeicher?
+Entscheiden Sie sich in der Tabelle
+daf&uuml;r, was f&uuml;r Hauptspeicher und Sekund&auml;rspeicher richtig ist.
+(Klicken Sie auf eine Schaltfl&auml;che um zu sehen ob Sie recht haben.)
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Bit
+<ANSWER>
+<p>
+Die vervollst&auml;ndigte Tabelle ist unten zu sehen.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>Speicherarten</INDEX>
+<p>Hier ist die Tabelle, die die Merkmale der zwei Arten von Computerspeicher zusammenfasst.
+</p>
+
+<center>
+<table border cellpadding="5" bgcolor="white" bordercolor="brown">
+<tr bgcolor="tan"><th>Merkmal</th><th>Richtig f&uuml;r <br />Hauptspeicher</th><th>Richtig f&uuml;r <br />Sekund&auml;rspeicher</th></tr>
+<tr><td>Sehr eng mit dem <br /> Prozessor verbunden.</td>
+        <td align="center">&nbsp;X</td>
+                <td align="center">&nbsp;</td></tr>
+<tr><td>Enth&auml;lt Programm und Daten,<br />mit denen der Prozessor gerade arbeitet.</td>
+        <td align="center">&nbsp;X</td>
+                <td align="center"> &nbsp;</td></tr>
+<tr><td>Wird f&uuml;r langfristige Speicherung verwendet.</td>
+        <td align="center">&nbsp;</td>
+                <td align="center"> &nbsp;X</td></tr>
+<tr><td>Der Prozessor kommuniziert mit ihm <br />Millionen Mal pro Sekunde.</td>
+        <td align="center">&nbsp;X</td>
+                <td align="center"> &nbsp;</td></tr>
+<tr><td>Der Inhalt kann leicht ge&auml;ndert werden.</td>
+        <td align="center">&nbsp;X</td>
+                <td align="center"> &nbsp;X</td></tr>
+<tr><td>Relativ geringe Kapazit&auml;t.</td>
+        <td align="center">&nbsp;X</td>
+        <td align="center">&nbsp;</td></tr>
+<tr><td>Relativ gro&szlig;e Kapazit&auml;t.</td>
+        <td align="center">&nbsp;</td>
+                <td align="center"> &nbsp;X</td></tr>
+<tr><td>Schneller Zugriff.</td>
+        <td align="center">&nbsp;X</td>
+                <td align="center"> &nbsp;</td></tr>
+<tr><td>Langsamer Zugriff.</td>
+        <td align="center">&nbsp;</td>
+                <td align="center"> &nbsp;X</td></tr>
+<tr><td>Mit dem Hauptspeicher verbunden.</td>
+        <td align="center">&nbsp;</td>
+                <td align="center"> &nbsp;X</td></tr>
+<tr><td>Enth&auml;lt Programme und Daten.</td>
+        <td align="center">&nbsp;X</td>
+                <td align="center">&nbsp;X</td></tr>
+<tr><td>Seine Inhalte sind &uuml;blicherweise<br />in <em>Dateien</em> organisiert.</td>
+        <td align="center">&nbsp;</td>
+                <td align="center">&nbsp;X</td></tr>
+</table>
+</center>
+
+
+<p>
+Sowohl im Hauptspeicher als auch im Sekund&auml;rspeicher
+werden Information als Bitmuster gespeichert.
+Erinnern Sie sich aus dem Kapitel 2 was ein Bit ist:
+</p>
+<INDEX>Bit</INDEX>
+
+<blockquote>
+Ein <b>Bit</b> ist ein einzelner <em>An/Aus</em>-Wert.
+Nur diese Werte sind m&ouml;glich.
+</blockquote>
+
+
+<p>
+Diese zwei Werte haben auch andere Namen wie <em>true/false</em> (wahr/falsch) oder 1/0.
+Es gibt viele M&ouml;glichkeiten wie ein Bit <em>implementiert</em> werden kann.
+Zum Beispiel k&ouml;nnte ein Bit implementiert sein als:
+</p>
+
+<ul>
+<li>Ein mechanischer, elektrischer Schalter (wie ein Lichtschalter).</li>
+<li>Spannung einer Leitung.</li>
+<li>Ein einzelner Transistor (verwendet im Hauptspeicher).</li>
+<li>Ein winziger Teil auf der Oberfl&auml;che einer magnetischen Festplatte.</li>
+<li>Ein winziger Teil auf der Oberfl&auml;che eines magnetischen Bands.</li>
+<li>Ein gestanztes Loch in einer Karte.</li>
+<li>Ein winziger Teil auf der lichtreflektierenden Oberfl&auml;che einer CD.</li>
+<li>Teil eines Funksignals.</li>
+<li>Viele, viele andere M&ouml;glichkeiten</li>
+</ul>
+
+<p>
+Daher ist die jeweilige Implementation von Bits
+im Hauptspeicher und Sekund&auml;rspeicher unterschiedlich,
+aber logisch betrachtet speichern beide Arten von Speicher Bits.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage:) &Auml;ndert sich die <em>Information</em>,
+wenn ein Bit von einem Speichermedium auf ein anderes kopiert wird?
+Zum Beispiel &auml;ndert sich die Information, wenn ein
+durch Spannungsh&ouml;he implementiertes Bit einer Leitung
+auf einen winzigen Teil einer Festplatte kopiert wird?
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Kopierte Information
+<ANSWER>
+<p>
+Nein. Die verschiedenen M&ouml;glichkeiten ein Bit zu speichern
+&auml;ndern nicht die Information, die gespeichert wird.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Information, die in bin&auml;rer Form gespeichert ist,
+&auml;ndert sich nicht, wenn sie von einem Medium (Speichermethode) auf ein anderes kopiert wird,
+und es kann eine unbegrenzte Anzahl solcher Kopien gemacht werden
+(denken Sie an die Vorteile des Bin&auml;ren).
+Dies ist ein &auml;u&szlig;erst m&auml;chtige Kombination.
+Sie m&ouml;gen sich so daran gew&ouml;hnt haben, dass es Ihnen allt&auml;glich erscheint.
+Aber wenn Sie ein Bild aus dem Internet herunterladen,
+werden die Daten Dutzende Mal kopiert,
+unter Verwendung einer Vielzahl von Speicher- und &Uuml;bertragungsmethoden.
+</p>
+<p>
+Es ist zum Beispiel wahrscheinlich, dass die Daten sich von einer
+magnetischen Festplatte aufmachen
+und dann in den Hauptspeicher eines Computers einer Website kopiert werden
+(was ein Spannungssignal zur Folge hat).
+Vom Hauptspeicher werden sie (wieder durch ein Spannungssignal) auf eine Netzkarte kopiert,
+die sie tempor&auml;r in vielen Transistoren h&auml;lt.
+Von dort werden sie als ein elektrisches Signal durch eine Leitung geschickt.
+Den Weg entlang zu Ihrem Computer,
+es kann Dutzende von Computern geben, die die Daten aus einem elektrischen Signal
+in den Hauptspeicher in Transistorform transformieren, dann zur&uuml;ck als
+elektrisches Signal auf ein anderes Kabel.
+Ihre Daten k&ouml;nnten sogar in ein Funksignal transformiert werden,
+zu einem Satelliten (mit seinen eigenen Computern) geschickt werden, und mit einem anderen Funksignal zur Erde zur&uuml;ckgeschickt werden.
+Letztendlich landen die Daten in Ihrer Videokarte (Transistoren), die sie
+in ein TV Signal f&uuml;r Ihren Bildschirm transformiert.
+</p>
+
+<p>
+Der Punkt von allem dem ist, dass sich die tats&auml;chliche Information (in diesem Beispiel das Bild) von einem Medium zum n&auml;chsten nicht &auml;ndert.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+<em>Analoge Daten</em> (sich fortlaufend &auml;ndernde Signale) wie Schallplatten-
+oder Kassettenaufnahmen k&ouml;nnen ebenfalls von Medium zu Medium kopiert werden.
+&Auml;ndert sich die Information analoger Daten, wenn sie auf ein anderes Medium kopiert werden?
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Byte
+<ANSWER>
+<p>
+&Uuml;blicherweise wollen wir das nicht
+(und verwenden f&uuml;r Tondaten "Hi-Fi" Elektronik um die &Auml;nderungen zu minimieren).
+Es geht immer etwas an Information verloren.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>Byte</INDEX>
+<INDEX>Zweier-Potenz, Tabelle</INDEX>
+
+<table border align="right"  bgcolor="white" bordercolor="brown" cellpadding="5">
+<tr bgcolor="tan"><th>    Name</th><th>Anzahl der Bytes</th><th>Hoch 2</th></tr>
+<tr><td>Byte    </th><th>1                  </th><th>2<sup>0 </sup></th></tr>
+<tr><td>Kilobyte</th><th>1024               </th><th>2<sup>10</sup></th></tr>
+<tr><td>Megabyte</th><th>1,048,576          </th><th>2<sup>20</sup></th></tr>
+<tr><td>Gigabyte</th><th>1,073,741,824      </th><th>2<sup>30</sup></th></tr>
+<tr><td>Terabyte</th><th>1,099,511,627,776  </th><th>2<sup>40</sup></th></tr>
+</table>
+
+<p>
+Eine Bit an Information ist so wenig, dass Computerspeicher &uuml;blicherweise
+in Gruppen von acht Bits organisiert ist.
+Jede 8-Bit Gruppe  wird <b>Byte</b> genannt.
+Wenn Daten mehr als 8 Bits brauchen,
+wird eine ganze Anzahl von Bytes verwendet.
+Eine Byte ist ungef&auml;hr genug Speicher um ein einzelnes Zeichen zu enthalten.
+</p>
+
+<p>
+F&uuml;r Daten werden oft sehr viel mehr als acht Bits ben&ouml;tigt
+und es werden Tausende, Millionen oder sogar Milliarden von Bytes gebraucht.
+Diese Mengen haben Namen, wie in der Tabelle angegeben.
+</p>
+
+<p>
+Wenn Sie damit rechnen, dass Sie in Ihrer beruflichen Laufbahn mit Computern zu tun haben,
+w&auml;re es eine gute Idee sich mit dieser Tabelle sehr vertraut zu machen.
+(Von der mittleren Spalte sollten Sie sich merken, dass
+ein Kilobyte 1024 Bytes sind.)
+Ein Kilobyte wird oft ein "K" und a Megabyte wird ein "Meg" genannt.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Einige Hollywoodschauspieler sind nach Speichereinheiten benannt worden,
+zum Beispiel <em>Giga Young</em>.
+Fallen Ihnen noch andere ein?
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Bytes, nicht Bits
+<ANSWER>
+<p>
+<em>Mega Ryan</em> und <em>Tera Garr</em> fallen mir ein.
+Es muss noch weitere geben.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Die vorherige Tabelle hat die Anzahl von <b>Bytes</b>, nicht Bits aufgelistet.
+Also ist ein K Speicher 1024 Bytes, oder <code>1024*8 == 8.192</code> Bits.
+Man ist &uuml;blicherweise nicht besonders an der exakten Anzahl Von Bits interessiert.
+</p>
+
+<INDEX>Exponent, Multiplikation</INDEX>
+<INDEX>Zweier-Potenz, Multiplikation</INDEX>
+
+<p>
+Es wird f&uuml;r Ihre berufliche Laufbahn sehr wertvoll sein,
+wenn Sie sicher wissen wie Zweier-Potenzen zu multiplizieren sind.
+</p>
+
+
+<pre>
+<big>
+2<sup>M</sup> &nbsp;*&nbsp; 2<sup>N</sup> &nbsp;=&nbsp; 2<sup>(M+N)</sup>
+</big>
+</pre>
+
+
+<p>
+In dem oben stehenden bedeutet <code><big>*</big></code> <em>Multiplikation.</em>
+Zum Beispiel:
+</p>
+
+
+<pre>
+<big>
+2<sup>6</sup> &nbsp;*&nbsp; 2<sup>10</sup> &nbsp;=&nbsp; 2<sup>16</sup>
+</big>
+</pre>
+</LESSON>
+
+<QUESTION>
+<p>
+Speicherstellen eines Digitalbildes werden durch eine Zeilen- und Spaltenzahl angegeben.
+(beide sind Integer).
+Angenommen, dass ein bestimmtes Digitalbild 1024 Zeilen und 1024 Spalten hat
+und, dass jede Speicherstelle ein Byte enth&auml;lt.
+Wie viele Megabyte hat das Bild?
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Abbildung eines Hauptspeichers
+
+<ANSWER>
+<p>
+1024&nbsp; * &nbsp;1024&nbsp; = &nbsp; 2<sup>10</sup>&nbsp; * &nbsp; 2<sup>10</sup>
+&nbsp; = &nbsp; 2<sup>(10+10)</sup>&nbsp; = &nbsp; 2<sup>20</sup>&nbsp; = &nbsp;ein Megabyte
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>Hauptspeicher, Organisation</INDEX>
+<img src="Figure3-1.gif" align="right" hspace=15 vspace=5>
+<p>
+Hauptspeicher besteht aus einer langen Liste von Bytes.
+In den meisten modernen Computern besitzt jedes Byte eine
+<em>Adresse</em>, die verwendet wird um es zu lokalisieren.
+Die Abbildung zeigt einen kleinen Teil Hauptspeicher:
+</p>
+
+<p>
+Jede Zelle der Abbildung stellt ein einzelnes Byte dar.
+Jedes Byte hat eine Adresse.
+In dieser Abbildung sind die Adressen die ganzen Zahlen (Integer) links von den Zellen:
+0, 1, 2, 3, 4, ... und so weiter.
+Die Adressen der meisten Computerspeicher beginnen mit 0
+und werden der Reihe nach erh&ouml;ht bis jedes Byte eine Adresse hat.
+</p>
+
+<p>
+Jedes Byte enth&auml;lt ein Muster von acht Bits.
+Wenn der Computer eingeschaltet ist,
+enth&auml;lt jedes Byte das eine oder das andere Muster,
+auch jene Bytes, die nicht gebraucht werden.
+(Denken Sie an das Wesen des Bin&auml;ren: wenn ein bin&auml;res Ger&auml;t arbeitet
+ist es entweder "an" oder "aus", niemals dazwischen.)
+</p>
+
+<p>
+Die Adresse eines Bytes ist nicht Teil seines Inhalts.
+Wenn der Prozessor auf ein Byte an einer bestimmten Adresse zugreifen muss,
+&quot;wei&szlig;&quot; die Elektronik des Computers wie dieses Byte im Speicher zu finden ist.
+</p>
+
+<p>
+&#160; <!-- the character formerly known as &#nbsp; -->
+</p>
+<br clear="all" />
+</LESSON>
+
+<QUESTION>
+<p>
+Entscheiden Sie, welches der folgenden richtig ist:
+</p>
+
+<ul>
+<li>Jedes Byte des Hauptspeichers hat eine eindeutige Adresse.</li>
+<li>Wenn der Hauptspeicher 4 Megabyte gro&szlig; ist, gibt es 4 * 2<sup>20</sup> Adressen.</li>
+</ul>
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Inhalte des Hauptspeichers
+<ANSWER>
+
+<ul>
+<li>Jedes Byte des Hauptspeichers hat eine eindeutige Adresse. &nbsp; <span style="size:+2;color:green">Ja</span></li>
+<li>Wenn der Hauptspeicher 4 Megabyte gro&szlig; ist, gibt es 4 * 2<sup>20</sup> Adressen. &nbsp; <span style="size:+2;color:green">Ja</span></li>
+</ul>
+</ANSWER>
+
+<LESSON>
+<img src="Figure3-2.gif" align="right" hspace=15 vspace=5>
+<p>
+&#160; <!-- the character formerly known as &#nbsp; -->
+</p>
+<p>
+Hauptspeicher (wie jeder Computerspeicher) speichert Bits als Muster.
+Das hei&szlig;t,
+jede Speicherstelle besteht aus acht Bits und
+jedes Bit ist entweder "0" oder "1".
+Zum Beispiel zeigt die Abbildung die ersten paar Speicherbytes.
+</p>
+
+<INDEX>Speicher, Inhalte</INDEX>
+<p>
+Das <em>Einzige</em>, was an einer Speicherstelle gespeichert werden kann,
+sind acht Bits, jedes mit einem Wert von "0" oder "1".
+Die Bits an einer Speicherstelle werden die <em>Inhalte</em> dieser Stelle genannt.
+</p>
+
+<p>
+Manchmal werden Leute sagen, dass jede Speicherstelle eine bin&auml;re 8-Bit Zahl enth&auml;lt.
+Das ist OK,
+solange Sie daran denken, dass die &quot;Zahl&quot; verwendet werden k&ouml;nnte um
+ein Zeichen darzustellen oder irgendetwas anderes.
+</p>
+
+<p>
+Denken Sie daran, dass es vom Zusammenhang abh&auml;ngt, was ein bestimmtes Muster darstellt
+(das hei&szlig;t, wie ein Programm es verwendet).
+Sie k&ouml;nnen kein beliebiges Bitmuster betrachten (wie jenes in der Abbildung)
+und sagen was es darstellt.
+</p>
+
+<p>
+&#160; <!-- the character formerly known as &#nbsp; -->
+</p>
+<br clear="all" />
+</LESSON>
+
+<QUESTION>
+<p>
+Was sind in der Abbildung die Inhalte von:
+</p>
+
+<ul>
+<li>Speicherstelle 0?</li>
+<li>Speicherstelle 4?</li>
+</ul>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Daten lesen und schreiben
+<ANSWER>
+<p>
+Was sind in der Abbildung die Inhalte von:
+</p>
+
+<ul>
+<li>Speicherstelle 0? &#160; <span style="color:blue">0100 1111</span></li>
+<li>Speicherstelle 4? &#160; <span style="color:blue">0000 0000</span></li>
+</ul>
+
+<p>
+(Es ist &uuml;blich Bitmuster mit einem Leerzeichen nach jeden 4 Bits darzustellen.
+Das Leerzeichen ist kein wirklicher Teil des Musters.)
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>Daten, lesen</INDEX>
+<INDEX>Daten, schreiben</INDEX>
+<img src="Figure3-2.gif" align="right" hspace="15" vspace="5" />
+<p>
+Der Prozessor kann zwei fundamentale Dinge im Hauptspeicher tun:
+</p>
+
+<ol>
+<li>Er kann ein Byte an einer gegebenen Speicherstelle <b>schreiben</b>.
+    <ul><li>Das bisherige Bitmuster an dieser Stelle wird zerst&ouml;rt.</li>
+        <li>Das neue Bitmuster wird f&uuml;r zuk&uuml;nftigen Gebrauch gespeichert.</li>
+    </ul></li><br />
+<li>Er kann ein Byte an einer gegebenen Speicherstelle <b>lesen</b>
+    <ul><li>Der Prozessor bekommt das an dieser Stelle gespeicherte Bitmuster.</li>
+    <li>Die Inhalte an dieser Stelle werden NICHT ge&auml;ndert.</li></ul></li>
+</ol>
+
+<p>
+Wenn der Prozessor zum Beispiel ein Byte braucht, das an der Speicherstelle
+5 gespeichert ist, kann er es lesen.
+Er bekommt das Byte "0110 1110" als die Daten, die er braucht
+(aber die Stelle 5 im Speicher &auml;ndert sich nicht).
+</p>
+
+<p>
+Die meisten Prozessoren k&ouml;nnen mehr als ein einzelnes Byte zur gleichen Zeit schreiben
+und lesen.
+Das beschleunigt die Dinge.
+Aber die oben stehenden Operationen sind elementar.
+Sie haben vielleicht etwas &uuml;ber die neuen 64-Bit Prozessoren und 128-Bit Prozessoren geh&ouml;rt. Ein 64-Bit Prozessor kann gleichzeitig 64/8 = 8 Bytes lesen und schreiben.
+</p>
+<br clear="all" />
+</LESSON>
+
+<QUESTION>
+<p>
+Angenommen, dass der Prozessor sp&auml;ter das Byte "1111 1111" speichern muss und
+daf&uuml;r die Speicherstelle 7 nimmt.
+Wie wird sich der Hauptspeicher &auml;ndern?
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Programme und Speicher
+<ANSWER>
+<p>
+Die Antwort finden Sie in der Abbildung unten.
+</p>
+</ANSWER>
+
+<LESSON>
+<img src="Figure3-3.gif" align="right" hspace="25" vspace="5" />
+<p>
+Der Prozessor hat ein Byte von Daten
+an die Stelle 7 geschrieben.
+Die ehemaligen Inhalte an dieser Stelle sind verloren.
+Der Hauptspeicher sieht nun wie in der Abbildung aus.
+</p>
+
+<p>
+Wenn ein Programm l&auml;uft,
+verf&uuml;gt es &uuml;ber einen Speicherabschnitt f&uuml;r die Daten, die es verwendet.
+Die Speicherstellen in diesem Abschnitt k&ouml;nnen so oft ge&auml;ndert werden, wie es das
+Programm ben&ouml;tigt.
+Wenn zum Beispiel ein Programm eine Liste von Zahlen addiert,
+wird die Summe im Hauptspeicher (wahrscheinlich unter Verwendung mehrerer Bytes) gehalten.
+W&auml;hrend der Summe neue Zahlen hinzugef&uuml;gt werden,
+wird sie sich &auml;ndern und der Hauptspeicher wird sich ebenfalls &auml;ndern.
+</p>
+
+<p>
+Andere Bereiche des Hauptspeicher k&ouml;nnten sich &uuml;berhaupt nicht &auml;ndern,
+w&auml;hrend ein Programm ausgef&uuml;hrt wird.
+Zum Beispiel &auml;ndern sich w&auml;hrend der Laufzeit eines Programms die <em>Befehle</em>, die ein Programm ausmachen, (&uuml;blicherweise) nicht.
+Die Befehle eines laufenden Programms  befinden sich im
+Hauptspeicher, also werden diese Stellen nicht ge&auml;ndert.
+</p>
+
+<p>
+Wenn Sie ein Programm in Java (oder in einer der meisten anderen Sprachen) schreiben,
+m&uuml;ssen Sie die Speicherstellen
+und deren Inhalte nicht im Auge behalten.
+Es ist ein Grund f&uuml;r die Verwendung einer Programmiersprache
+diese Dinge automatisch zu tun.
+</p>
+<br clear="all" />
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblickende Frage:) Wo werden Programme und Daten f&uuml;r langfristige Speicherung
+aufbewahrt?
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Festplatten
+<ANSWER>
+<p>
+Im Sekund&auml;rspeicher (&uuml;blicherweise auf der Festplatte des Computersystems).
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>Festplatte</INDEX>
+<img src="Figure3-4.gif" align="left" hspace="25" vspace="5" />
+<p>
+Die Festplatte eines Computersystems zeichnet Bytes auf
+einer magnetischen Oberfl&auml;che auf, vergleichbar mit der Oberfl&auml;che eines Tonbandes.
+Das Aufzeichnen (Schreiben) und Lesen der Daten geschieht mit einem
+<em>Lese-/Schreibkopf</em>, &auml;hnlich dem, der bei einem Tonbandger&auml;t verwendet wird.
+</p>
+
+<p>
+Die Abbildung zeigt eine Platte und einen Lese-/Schreibkopf
+am Ende des beweglichen Arms.
+Der Arm bewegt sich entlang des Radius der Platte auf und ab.
+Da die Platte rotiert, wird er Daten in einer kreisf&ouml;rmigen Spur auf der
+Platte aufzeichnen.
+Sp&auml;ter muss er an die richtige Stelle bewegt werden um die Daten zu lesen,
+dann muss er warten bis die rotierende Platte die Daten in Position gebracht hat.
+Genau wie bei einem Tonband
+k&ouml;nnen Daten gelesen werden ohne sie zu &auml;ndern.
+Wenn er neue Daten aufzeichnet, ersetzt er jedwede Daten, die fr&uuml;her an dieser Stelle
+aufgezeichnet worden waren.
+Im Gegensatz zum Tonband,
+ber&uuml;hrt der Lese-/Schreibkopf nicht wirklich die Platte, sondern fliegt in
+geringer H&ouml;he &uuml;ber sie hinweg.
+</p>
+
+<p>
+Gew&ouml;hnlich enth&auml;lt die Komponente eines Computersystems, die &quot;Festplatte&quot; genannt wird, viele einzelne Platten und Lese-/Schreibk&ouml;pfe.
+Die Platten sind auf beiden Seiten mit einem magnetischen Material &uuml;berzogen
+(daher bekommt jede Platte zwei Lese-/Schreibk&ouml;pfe)
+und die Platten sind miteinander &uuml;ber eine Achse verbunden.
+Alle Platten und K&ouml;pfe sind in einem absolut staubfreien Metallgeh&auml;use
+untergebracht.
+Da der Betrieb einer Festplatte mechanische Bewegung mit sich bringt
+(die sehr viel langsamer ist als elektronische Prozesse),
+ist das Lesen und Schreiben von Daten sehr viel langsamer als im
+Hauptspeicher.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage:) Warum ber&uuml;hren die Lese-/Schreibk&ouml;pfe einer Festplatte nicht die Oberfl&auml;che?
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Dateien
+<ANSWER>
+<p>
+Da die Platte bei eingeschalteten Computer st&auml;ndig rotiert
+w&auml;re sie bald abgenutzt, wenn der Lese-/Schreibkopf Kontakt mit ihr h&auml;tte.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>Datei, Definition</INDEX>
+
+<p>
+Festplatten (und andere sekund&auml;re Speichermedien) werden f&uuml;r die
+langfristige Speicherung von gro&szlig;en Informationsbl&ouml;cken verwendet, so wie
+Programme und Daten-Sets.
+Plattenspeicher wird gew&ouml;hnlich in <b>Dateien</b> organisiert.
+</p>
+
+<blockquote>
+Eine <b>Datei</b> ist eine Sammlung von Informationen,
+f&uuml;r die eine Name vergeben wurde und, die im Sekund&auml;rspeicher gespeichert wird.
+Die Information kann ein Programm oder Daten sein.
+</blockquote>
+
+<p>
+Die Art der Information in einer Datei ist die gleiche
+wie die jeder digitalen Information---sie besteht aus Bits, &uuml;blicherweise
+in 8-Bit Bytes gruppiert.
+Dateien sind h&auml;ufig ganz sch&ouml;n gro&szlig;;
+ihre Gr&ouml;&szlig;e wird in Kilobyte oder Megabyte gemessen.
+</p>
+
+<p>
+Wenn Sie noch nie mit Dateien in einem Computer gearbeitet haben,
+sollten Sie die Dokumentation Ihres Betriebssystems studieren
+oder einen Blick in ein Buch wie <em>Windows NT f&uuml;r Dummies</em> werfen
+(oder was f&uuml;r Ihren Computer angebracht ist).
+</p>
+
+<INDEX>Betriebssystem, Datei I/O</INDEX>
+<p>
+Es ist eine der Aufgaben eines Computerbetriebssystems
+Dateinamen und wo sie sich auf der Festplatte befinden im Auge zu behalten.
+Der Anwender kann zum Beispiel in DOS den Start des Programms HANSE folgenderma&szlig;en anfordern:
+</p>
+
+
+<pre>
+C:\&gt; HANSE.BAT
+</pre>
+
+
+<p>
+Das "C:\&gt;" ist eine Eingabeaufforderung (Prompt); der Anwender hat "HANSE.BAT" eingegeben.
+Das Betriebssystem muss jetzt die Datei mit dem Namen HANSE.BAT
+irgendwo  auf ihrer Festplatte finden.
+Das Programm wird dann in den Hauptspeicher kopiert werden
+und wird zu starten beginnen.
+W&auml;hrend das Programm l&auml;uft verlangt es nach Information,
+die in zus&auml;tzlichen Dateien auf der Festplatte gespeichert sind,
+welche das Betriebssystem finden und in den Hauptspeicher kopieren muss.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Wohin stellt ein Programm &uuml;blicherweise seine Ergebnisse um Sie langfristig zu speichern?
+</p>
+<QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Dateien und das Betriebssystem
+<ANSWER>
+<p>
+&Uuml;blicherweise in eine Datei auf dem Sekund&auml;rspeicher. Wenn die Datei noch nicht existiert,
+wird das Programm das Betriebssystem veranlassen sie zu erzeugen.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Gew&ouml;hnlich sind alle Sammlungen von Daten au&szlig;erhalb des Hauptspeichers
+in Dateien organisiert.
+Es ist die Aufgabe des Betriebssystems alle diese Information auf die Reihe zu kriegen.
+Wenn das Computersystem Teil eines Netzwerks ist, kann die Aufgabe, den &Uuml;berblick &uuml;ber alle
+Dateien auf allen Computern zu behalten, eine ganz sch&ouml;ne Aufgabe sein,
+und ist die gemeinsame Aufgabe aller beteiligten Betriebssysteme.
+</p>
+
+<p>
+Applikationsprogramme (einschlie&szlig;lich der Programme, die Sie schreiben k&ouml;nnten)
+k&ouml;nnen nicht direkt Dateien lesen, schreiben, erzeugen oder l&ouml;schen.
+Da das Betriebssystem alles verfolgen muss,
+fordern es alle anderen Programme auf die Handhabung von Dateiaufgaben zu &uuml;bernehmen.
+Zum Beispiel angenommen ,dass ein Programm gerade eine Reihe von Zahlen berechnet hat
+und sie speichern muss.
+Es k&ouml;nnte das folgende tun:
+</p>
+
+<ol>
+<li><b>Das Programm:</b> fordert das Betriebssystem auf eine Datei mit dem Namen <em>ERGEBNIS.DAT</em> zu erzeugen.</li>
+<li><b>Das Betriebssystem:</b> bekommt die Anforderung; findet einen unbenutzten Abschnitt auf der Platte und erzeugt eine leere Datei. Dem Programm wird mitgeteilt, wenn das erledigt ist.</li>
+<li><b>Das Programm:</b> fordert das Betriebssystem auf die Zahlen in der Datei zu speichern.</li>
+<li><b>Das Betriebssystem:</b> bekommt die Zahlen aus dem Hauptspeicherbereich des Programms und schreibt sie in die Datei. Das Programm bekommt die R&uuml;ckmeldung, wenn das geschehen ist.</li>
+<li><b>Das Programm:</b> setzt seine Arbeit - mit was auch immer - fort.</li>
+</ol>
+
+<p>
+Daher wenn ein Applikationsprogramm l&auml;uft,
+verlangt es st&auml;ndig vom Betriebssystem die Durchf&uuml;hrung von Dateiaufgaben
+(und andere Aufgaben) und wartet darauf, dass sie abgeschlossen werden.
+Wenn ein Programm vom Betriebssystem etwas zu tun verlangt, was das
+Dateisystem besch&auml;digt, wird das Betriebssystem sich weigern es zu tun.
+Moderne Programme sind so geschrieben, dass sie Alternativen haben, wenn eine Anforderung
+verweigert wird.
+&Auml;ltere Programme wurden nicht in dieser Art geschrieben und laufen nicht allzu gut auf modernen Computern.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Bei modernen Computersystemen kann nur das Betriebssystem direkt alles mit
+Dateien auf der Festplatte tun.
+Welche Auswirkungen hat dies auf:
+</p>
+
+<ol>
+<li>die Sicherheit des Systems? </li>
+<li>Computerspiele?</li>
+<li>den Komfort bei der Erstellung von Programmen?</li>
+</ol>
+
+<p>
+(Sie sind sich vielleicht &uuml;ber Ihre Antworten nicht sicher,
+aber denken Sie bitte &uuml;ber die Fragen nach.)
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Dateitypen
+<ANSWER>
+<p>
+Bei modernen Computersystemen kann nur das Betriebssystem direkt alles mit
+Dateien auf der Festplatte tun.
+Welche Auswirkungen hat dies auf:
+</p>
+
+<ol>
+<li>die Sicherheit des Systems?
+    <ul><li>  <span class="blue">Die Sicherheit hat zugenommen, da Programme, die versuchen     gef&auml;hrliche oder dumme Sachen mit Dateien zu tun, es nicht k&ouml;nnen.
+    Sie m&uuml;ssen das Betriebssystem fragen, das nur sichere und vern&uuml;nftige Dinge zul&auml;sst.</span></li></ul></li>
+<li>Computerspiele?
+    <ul><li> <span class="blue">&Auml;ltere Computerspiele haben die Handhabung von Dateien
+    selbst durchgef&uuml;hrt, ohne das Betriebssystem zu fragen.
+    (Das alte DOS war dumm und langsam und viele Applikationsprogramme ignorierten es.)
+    Diese Spiele w&uuml;rden auf modernen Computern nicht mehr laufen.</span></li></ul></li>
+<li>den Komfort bei der Erstellung von Programmen?
+    <ul><li> <span class="blue">Die Programmerstellung ist leichter,
+    da die Arbeit mit Dateien vom Betriebssystem erledigt wird.</span></li></ul></li>
+</ol>
+</ANSWER>
+
+<LESSON>
+<INDEX>Dateitypen</INDEX>
+<p>
+Soweit es die Festplatte betrifft sind alle Dateien gleich.
+Auf der elektronischen Ebene gibt es keinen Unterschied
+zwischen einer Datei, die ein Programm enth&auml;lt und einer Datei, die Daten enth&auml;lt.
+Alle Dateien sind benannte Kollektionen von Bytes.
+Nat&uuml;rlich, f&uuml;r was die Dateien <em>verwendet</em> werden, das ist verschieden.
+Das Betriebssystem kann eine Programmdatei nehmen, sie in den Hauptspeicher kopieren
+und beginnen sie auszuf&uuml;hren.
+Das Betriebssystem kann eine Datendatei nehmen und deren Information einem
+laufenden Programm zur Verf&uuml;gung stellen, wenn es danach verlangt.
+</p>
+
+<INDEX>Datei, ausf&uuml;hrbare</INDEX>
+<INDEX>Datei, Namen</INDEX>
+<p>
+H&auml;ufig zeigt der letzte Teil eines Dateinamens (die <em>Endung</em>)
+f&uuml;r welchen Gebrauch die Datei verwendet wird.
+Zum Beispiel in "meineDaten.txt" bedeutet ".txt", dass es
+erwartet wird die Datei als Kollektion von Text zu verwenden,
+das hei&szlig;t als Sammlung von Zeichen.
+Bei "Netscape.exe" bedeutet ".exe", dass die Datei "ausf&uuml;hrbar" ist,
+das hei&szlig;t ein Programm, dass bereit ist ausgef&uuml;hrt zu werden.
+Bei "Programm1.java" bedeutet ".java", dass die Datei ein Quellprogramm
+in der Sprache Java ist (&uuml;ber Quellprogramme wird es sp&auml;ter in diesen Aufzeichnungen noch mehr geben).
+F&uuml;r die Festplatte ist jede dieser Dateien das gleiche: eine Sammlung von Bytes.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Was passiert, wenn eine Datei f&uuml;r etwas anderes als ihren beabsichtigten Gebrauch verwendet wird?
+Was passiert zum Beispiel, wenn Sie versuchen eine ".EXE" Datei mit einem Textverarbeitungsprogramm zu &ouml;ffnen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<ANSWER>
+<p>
+Etwas wird wahrscheinlich schief gehen.
+Die in der Datei enthaltene Information ist f&uuml;r ein Textverarbeitungsprogramm ungeeignet.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Sie haben das Ende des Kapitels erreicht.
+Wenn Sie Probleme mit Ihrem eigenen Speicher (Ged&auml;chtnis) haben
+und ein Thema noch mal durchsehen m&uuml;ssen,
+klicken Sie unten in der Liste um dahin zu gehen wo es besprochen wurde.
+Um hierher zur&uuml;ckzugehen klicken Sie auf das &quot;Zur&uuml;ck&quot; Symbol Ihres Browsers.
+</p>
+
+<ul>
+<li>
+<GOTO>Speicherarten</GOTO> Arten von Computerspeicher
+und deren Merkmale.</li>
+<li>
+<GOTO>Bit</GOTO> Bit.</li>
+<li>
+<GOTO>Byte</GOTO> Byte, Kilobyte, Megabyte, Gigabyte, Terabyte.</li>
+<li>
+<GOTO>Exponent, Multiplikation</GOTO> Multiplikationsregel
+f&uuml;r Exponenten.</li>
+<li>
+<GOTO>Hauptspeicher, Organisation</GOTO> Abbildung des Hauptspeichers.</li>
+<li>
+<GOTO>Speicher, Inhalte</GOTO> Inhalte des Hauptspeichers.</li>
+<li>
+<GOTO>Daten, lesen</GOTO> Die zwei Dinge,
+die ein Prozessor mit dem Hauptspeicher tun kann.</li>
+<li>
+<GOTO>Festplatte</GOTO> Abbildung einer Festplatte.</li>
+<li>
+<GOTO>Datei, Definition</GOTO> Dateien.</li>
+<li>
+<GOTO>Betriebssystem, Datei I/O</GOTO> Betriebssystem und Datei I/O.</li>
+</ul>
+<hr />
+
+<p><A HREF="../../java-toc.html#03">
+<img src="../contents.gif" alt="&Uuml;bersicht" title="Zur &Uuml;bersicht gehen." align="center" /></A>
+&#8212;&#8212;Zur&uuml;ck zur <A HREF="../../java-toc.html#03">&Uuml;bersicht</a>.</p>
+
+</LESSON>
+</CAI>
+</CHAPTER>

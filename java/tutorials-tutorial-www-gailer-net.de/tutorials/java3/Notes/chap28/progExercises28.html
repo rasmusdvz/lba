@@ -1,0 +1,73 @@
+<!doctype html public "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Kapitel 28  Programmieraufgaben</title>
+<meta name="copyright" content="2004 - 2006 Heinrich Gailer" />
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="index,follow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<small>erstellt 21.06.04, 13.12.04; &uuml;berarbeitet 29.06.04, 11.10.06; &copy; Copyright 2004 - 2006 Heinrich Gailer</small>
+<hr />
+<center>
+<h1>Kapitel 28  Programmieraufgaben</h1>
+</center>
+<h2>Aufgabe 1 &#8212; <code><strong>Point</strong></code>-Objekte zum Zweiten</h2>
+
+<p>Schreiben Sie ein Programm, das zwei <code>Point</code>-Objekte (<code>pt1</code> mit den x- und y-Werten 10, 10 und <code>pt2</code> mit den x- und y-Werten 30, 30) erzeugt.</p>
+
+<p>Die <code>Point</code>-Objekte repr&auml;sentieren die Eckpunkte eines Rechtecks. Berechnen Sie die Fl&auml;che dieses Rechtecks. Verwenden Sie zum Ermitteln der Breite und H&ouml;he die Klassenmethode <code>abs()</code> der Klasse <code>Math</code>.</p>
+
+<p>Die Ausgabe des Programms sieht folgenderma&szlig;en aus.</p>
+
+<blockquote>
+<pre>
+
+Die Flaeche betraegt: 400
+
+</pre>
+</blockquote>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#28">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 2 &#8212; Zwei Referenzen auf <em>dasselbe</em> <code><strong>Point</strong></code>-Objekt</h2>
+
+<p>Kopieren Sie die Referenz von <code>pt1</code> in eine Referenzvariable <code>ptAlias</code>. &Uuml;berpr&uuml;fen Sie anschlie&szlig;end mit dem <code>==</code> -Operator ob die Referenzvariablen <code>pt1</code> und <code>ptAlias</code> auf dasselbe Objekt verweisen.</p>
+
+<ul>
+<li>Geben Sie die x- und y-Werte des <code>Point</code>-Objekts aus, auf das die Referenzvariablen <code>pt1</code> und <code>ptAlias</code> verweisen.
+</li>
+<li>Verdoppeln Sie dann die x- und y-Werte des <code>Point</code>-Objekts auf das <code>ptAlias</code> verweist. Verwenden Sie dazu NICHT die <code>move()</code> Methode.
+</li>
+<li>Geben Sie erneut die x- und y-Werte des <code>Point</code>-Objekts aus, auf das die Referenzvariablen <code>pt1</code> und <code>ptAlias</code> verweisen.
+</li>
+</ul>
+
+
+<p>Die Ausgabe des Programms sieht dann folgenderma&szlig;en aus.</p>
+
+<blockquote>
+<pre>
+
+pt1 und ptAlias verweisen auf dasselbe Objekt!
+
+Point pt1 vorher:      java.awt.Point[x=10,y=10]
+Point ptAlias vorher:  java.awt.Point[x=10,y=10]
+
+Nur von ptAlias wurden die x- und y-Werte verdoppelt!
+
+Point pt1 nachher:      java.awt.Point[x=20,y=20]
+Point ptAlias nachher:  java.awt.Point[x=20,y=20]
+
+</pre>
+</blockquote>
+
+<hr />
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#28">Inhaltsverzeichnis</a>.</p>
+
+</body>
+</html>

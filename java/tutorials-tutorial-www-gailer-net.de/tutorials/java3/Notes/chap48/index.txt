@@ -1,0 +1,7 @@
+<INDEX>Array, als Parameter</INDEX>
+<INDEX>Call-by-Value</INDEX>
+<INDEX>Array, als Parameter (Abbildung)</INDEX>
+<INDEX>Parameter, primitive</INDEX>
+<INDEX>Parameter, Namen</INDEX>
+<INDEX>Fehler pr&uuml;fen</INDEX>
+              

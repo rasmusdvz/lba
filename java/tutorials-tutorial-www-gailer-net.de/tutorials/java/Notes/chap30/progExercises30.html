@@ -1,0 +1,133 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>Kapitel 30  Programmieraufgaben</title>
+<meta name="copyright" content="2010,  Heinrich Gailer">
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css">
+</head>
+
+<body>
+<hr>
+<p class="revisions">erstellt 05.09.99; &uuml;berarbeitet 05.05.03; &uuml;bersetzt 19.07.03; &uuml;berarbeitet 19.01.04, 06.07.04, 10.01.05, 11.10.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr>
+<h1>Kapitel 30  Programmieraufgaben</h1>
+
+
+<h2>Aufgabe 1 </h2>
+<p>
+Ver&auml;ndern Sie das <a href="ch30_7.html">Programm aus Kapitel 30</a>, so dass ein <code>HalloObjekt</code>-Objekt
+eine Mitteilung so oft ausgibt wie die Mitteilung Zeichen hat.
+Die <code>HalloObjekt</code>-Klasse wird einen Konstruktor haben,
+der es der Methode <code>main()</code> erlaubt das Objekt mit unterschiedlichen Mitteilungen zu initialisieren.
+</p>
+
+<pre class="dos">
+D:\JavaNotes\Aufgaben&gt;java HalloTester
+Hallo
+Hallo
+Hallo
+Hallo
+Hallo
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#30">Inhaltsverzeichnis</a>.</p>
+<hr>
+
+<h2>Aufgabe 2 </h2>
+<p>
+&Auml;ndern Sie das Programm, so dass die Klasse <code>HalloObjekt</code> zwei Gru&szlig;mitteilungen ausgibt: einen Morgengru&szlig; und einen Abendgru&szlig;.
+F&uuml;r die Ausgabe wird es zwei Methoden geben, eine f&uuml;r jede Gru&szlig;mitteilung.
+</p>
+
+<pre class="dos">
+D:\JavaNotes\Aufgaben&gt;java HalloTester
+Guten Morgen Welt!
+Guten Abend Welt!
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#30">Inhaltsverzeichnis</a>.</p>
+<hr>
+
+<h2>Aufgabe 3</h2>
+<p>
+Schreiben Sie von <code>HalloObjekt</code> eine Programmversion
+in der die Gru&szlig;mitteilung, die von dem Objekt ausgegeben wird,
+vom Anwender eingegeben wird.
+</p>
+
+<pre class="dos">
+D:\JavaNotes&gt;java HalloTester
+Geben Sie die Mitteilung ein:
+Hallo Mars!
+
+Hallo Mars!
+
+D:\javaNotes\aufgaben&gt;
+</pre>
+
+<p>
+Das ist wirklich ein interessanteres Programm als es scheinen mag, da es eine schwierige Designentscheidung verlangt.
+Wer soll den Anwender nach der Gru&szlig;mitteilung fragen,
+die statische Methode <code>main()</code> von der <code>HalloTester</code> Klasse oder das <code>HalloObjekt</code>?
+Beides wird funktionieren, aber eines (denke ich) ist &quot;logischer&quot; als das andere.
+Wenn Sie sich nicht entscheiden k&ouml;nnen, schreiben Sie beide Versionen und entscheiden sich dann.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#30">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 4 </h2>
+<p>
+F&uuml;gen Sie der Klasse <code>HalloObjekt</code> einen weiteren Konstruktor hinzu,
+der ein <code>HalloObjekt</code>-Objekt als Parameter nimmt:
+</p>
+
+<pre class="">
+HalloObjekt( HalloObjekt einHalloObjekt )
+{
+  // initialisieren Sie die Variable mitteilung des neuen Objekts
+  // mit der Variablen mitteilung des einHalloObjekt-Parameters
+}
+</pre>
+
+<p>
+Der zus&auml;tzliche Konstruktor wird den Parameter (selbstverst&auml;ndlich) nicht &auml;ndern, er wird lediglich dessen Daten verwenden.
+Verwenden Sie die &quot;Punkt-Notation&quot;, um auf den String innerhalb des Parameters zu verweisen.
+</p>
+
+<p>
+Dieses Programm ist (ebenfalls) interessanter als es aussieht.
+Wenn Sie es in der nahe liegenden Weise schreiben,
+wird der zus&auml;tzliche Konstruktor die Variable <code>mitteilung</code>
+mit der Referenz desselben Stringobjekts initialisieren,
+auf die das Parameter-Objekt verweist.
+Das ist OK f&uuml;r dieses Programm, aber manchmal ist es nicht das, was Sie m&ouml;chten.
+
+</p>
+
+<p>
+Ver&auml;ndern Sie den vorhin hinzugef&uuml;gten Konstruktor, so dass er f&uuml;r das neue <code>HalloObjekt</code>, das er konstruiert, ein neues Stringobjekt erstellt.
+Verwenden Sie daf&uuml;r den Konstruktor der Klasse <code>String</code> der wie folgt aussieht:
+</p>
+
+<pre class="">
+public String( String  str ) ;
+</pre>
+
+<p>
+(Weitere Informationen dazu finden Sie in der Java Dokumentation der Klasse <code>String</code>.)
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#30">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<p>
+Ende der Aufgaben
+</p>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>Kapitel 64  Programmieraufgaben</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta name="copyright" content="2010,  Heinrich Gailer">
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css">
+</head>
+
+<body>
+<p class="revisions">&uuml;bersetzt 06.03.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<h1>Kapitel 63 Programmieraufgaben</h1>
+
+
+<hr>
+
+<img src="idealWeightSlide.gif" vspace="20" hspace="50" align="right" alt="slider">
+
+<h2>Aufgabe 1 &#8212; Schreiben Sie einen Idealgewicht-Kalkulator mit einem Slider</h2>
+
+<p>
+Schreiben Sie einen Idealgewicht-Kalkulator,
+so dass die K&ouml;rpergr&ouml;&szlig;e in Zoll &uuml;ber einen Slider eingegeben wird.
+Verwenden Sie die N&auml;herungsformel:
+</p>
+
+<blockquote>
+W = H<sup>2</sup> / 30 , f&uuml;r weiblich<br><br>
+W = H<sup>2</sup> / 28 , f&uuml;r m&auml;nnlich<br><br>
+
+    dabei ist W das Idealgewicht in Pfund,<br>
+    H ist die K&ouml;rpergr&ouml;&szlig;e in Zoll<br>
+</blockquote>
+
+<p>
+Setzen Sie einen Befehlsstring f&uuml;r jeden Radio-Button,
+indem Sie <code>setActionCommand(String)</code> verwenden.
+</p>
+
+<p>
+F&uuml;gen Sie einen <b>Action-Listener</b> f&uuml;r jeden Button hinzu,
+indem Sie <code>addActionListener()</code> verwenden.
+</p>
+
+<p>
+F&uuml;gen Sie einen <b>Change-Listener</b> f&uuml;r den Slider hinzu,
+indem Sie <code>addChangeListener()</code> verwenden.
+</p>
+
+<p>
+Das Idealgewicht sollte in einem Textfeld angezeigt werden,
+wenn der Anwender sowohl einen Radio-Button als auch den Slider
+&auml;ndert.
+</p>
+
+<p>
+W&auml;hlen Sie Anfangseinstellungen f&uuml;r die Buttons und den Slider.
+Wenn das Programm startet, zeigen Sie das Idealgewicht f&uuml;r diese
+Einstellungen an.
+</p>
+
+<br clear="all">
+
+<p>Zur&uuml;ck zum <a href="../../index.html#64">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<!--<h2>Aufgabe 2 &#8212; Cookie Calculator</h2>
+
+<p>
+Schreiben Sie das Programm,
+das den Anwender hilft Geb&auml;ck zu kaufen, aus dem Kapitel 13 um.
+</p>
+
+<pre class="program">
+import java.util.Scanner ;
+class GebaeckEntscheidung
+{
+  public static void main (String[] args)
+  {
+    Scanner scan = new Scanner( System.in );
+    int hunger, aussehen, aroma ;
+
+    System.out.print("Wie hungrig sind Sie            (1-10): ");
+    hunger   = scan.nextInt();
+
+    System.out.print("Wie lecker sieht das Gebaeck aus (1-10): ");
+    aussehen = scan.nextInt();
+
+    System.out.print("Wie gut riecht das Gebaeck (1-10): ");
+    aroma    = scan.nextInt();
+
+    if ( (hunger + aussehen + aroma ) > 15 )
+      System.out.println("Gebaeck kaufen!" );
+
+    System.out.println("Setzen Sie Ihren Einkauf fort.");
+  }
+}
+
+</pre>
+
+<p>
+Verwenden Sie drei Sliders mit einem Bereich von 1 bis 10 f&uuml;r die
+drei Angaben.
+Geben Sie die Entscheidung in einem <code>JTextField</code> aus.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#64">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 3 &#8212; Grillen-Temperatur Kalkulatar</h2>
+
+<p>
+<img src="snowytreecricket_big.jpg" class="right" width="96" height="240" border="0" alt="">
+Die Bl&uuml;tengrille zirpt umso schneller je hei&szlig;er es wird.
+Im Osten der Vereinigten Staaten kann die Temperatur
+in Fahrenheit gesch&auml;tzt werden,
+indem auf die Anzahl der Zirplaute in 13 Sekunden 40 dazu addiert werden.
+Im Westen addieren Sie 38 auf die Anzahl der Zirplaute in 12.5 Sekunden hinzu.
+</p>
+
+<p>
+<a href="http://entnemdept.ufl.edu/walker/buzz/585a.htm">
+Klicken Sie hier</a>
+f&uuml;r eine Seite &uuml;ber Bl&uuml;tengrillen.
+</p>
+
+<p>
+Schreiben Sie ein Programm, das einen Slider f&uuml;r die Anzahl der Zirplaute
+und zwei Radio-Buttons f&uuml;r Ost und West hat.
+Die Anzahl der Zirplaute kann von 0 bis 60 reichen.
+</p>
+
+<p>
+Zeigen Sie die berechnete Temperatur in einem zweiten Slider an.
+Um das zu tun, verwenden Sie diese Slider Methode:
+</p>
+
+<pre>
+public void setValue(int n)
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#64">Inhaltsverzeichnis</a>.</p>
+-->
+</body>
+</html>

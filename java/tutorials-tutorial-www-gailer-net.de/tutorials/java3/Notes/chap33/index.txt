@@ -1,0 +1,6 @@
+<INDEX>private visiblility</INDEX>	private, Sichtbarkeit
+<INDEX>access methods</INDEX>	Zugriffsmethoden
+<INDEX>encapsulation, definition</INDEX>	Kapselung, Definition
+<INDEX>private methods</INDEX>	private Methoden
+<INDEX>public visibility</INDEX>	public, Sichtbarkeit
+<INDEX>default visibility</INDEX>	Standard, Sichtbarkeit

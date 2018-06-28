@@ -1,0 +1,192 @@
+<!doctype html public "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Kapitel 23  Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<p><small>erstellt 13.03.99; &uuml;bersetzt 08.04.03; &uuml;berarbeitet 08.06.04, 06.06.05, 03.10.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small></p>
+<hr />
+<center>
+<h1>Kapitel 23  Programmieraufgaben &#8212; Datei Input</h1>
+</center>
+
+<p><b>Gr&ouml;&szlig;e:</b>  ungef&auml;hr 80 Zeilen, inklusive Leerzeilen und Kommentare</p>
+
+<p><b>Zeit:</b>  ein halber Nachmittag</p>
+
+<p><strong>Problem:</strong>
+Angenommen Sie f&uuml;hren ein Experiment durch, um die Wirkung von ballaststoffreicher Di&auml;t auf den Cholesterinspiegel zu testen.
+Sie haben verschiedene Gruppen von Testpersonen. Zum Beginn des Experiments wird der Cholesterinspiegel jeder Testperson in jeder Gruppe gemessen.
+</p>
+
+<p>
+Das Experiment wird f&uuml;r die Dauer eines Monats durchgef&uuml;hrt. Jede Gruppe verzehrt eine unterschiedliche Menge von Ballaststoffen. Am Ende des Monats m&ouml;chten Sie feststellen, ob es in den Testgruppen eine Verbesserung des Cholesterinspiegel gegeben hat.
+</p>
+
+<p>
+Die Daten f&uuml;r das Experiment befinden sich in einer Textdatei. Jede Zeile der Textdatei enth&auml;lt einen einzeln Integer (in Form von Character-Daten) f&uuml;r die folgenden Informationen.
+</p>
+
+<blockquote>
+<pre>
+Anzahl der Gruppen
+Anzahl der Mitglieder in Gruppe 1
+Gruppe1 Mitglied1 Anfangswert Cholesterin
+Gruppe1 Mitglied1 Endwert Cholesterin
+Gruppe1 Mitglied2 Anfangswert Cholesterin
+Gruppe1 Mitglied2 Endwert Cholesterin
+ . . . . .
+Gruppe1 letztes Mitglied Anfangswert Cholesterin
+Gruppe1 letztes Mitglied Endwert Cholesterin
+
+Anzahl der Mitglieder in Gruppe 2
+Gruppe2 Mitglied1 Anfangswert Cholesterin
+Gruppe2 Mitglied1 Endwert Cholesterin
+ . . . . .
+Gruppe2 letztes Mitglied Anfangswert Cholesterin
+Gruppe2 letztes Mitglied Endwert Cholesterin
+Anzahl der Mitglieder in Gruppe 3
+Gruppe3 Mitglied1 Anfangswert Cholesterin
+Gruppe3 Mitglied1 Endwert Cholesterin
+ . . . . .
+Gruppe3 letztes Mitglied Anfangswert Cholesterin
+Gruppe3 letztes Mitglied Endwert Cholesterin
+Anzahl der Mitglieder in der letzten Gruppe
+letzte Gruppe Mitglied1 Anfangswert Cholesterin
+letzte Gruppe Mitglied1 Endwert Cholesterin
+ . . . . .
+letzte Gruppe letztes Mitglied Anfangswert Cholesterin
+letzte Gruppe letztes Mitglied Endwert Cholesterin
+</pre>
+</blockquote>
+
+<p>
+Die folgende Textdatei ist z.B. f&uuml;r drei Gruppen. Die erste Gruppe hat zwei Mitglieder, die zweite Gruppe hat drei Mitglieder und die letzte Gruppe hat 1 Mitglied:
+</p>
+
+<blockquote>
+<pre>
+3
+2
+200
+190
+212
+210
+3
+240
+220
+204
+208
+256
+230
+1
+202
+185
+</pre>
+</blockquote>
+
+<p>
+Setzen wir voraus, dass die Daten korrekt sind und die Zahlen in der richtigen Reihenfolge stehen.
+Schreiben Sie ein Programm, das jede Anzahl von Gruppen (inklusive 0) und jede Anzahl von Mitgliedern in den Gruppen (inklusive 0) zul&auml;sst.
+</p>
+
+<p>
+Das Programm soll folgendes leisten: F&uuml;r <strong>jede Gruppe</strong> soll
+der Durchschnittswert des Anfangs- und Endwerts des Cholesterinspiegels und der &Auml;nderungswert berechnet und ausgegeben werden. Zum Beispiel mit den obenstehenden Daten soll das Programm in etwa folgendes ausgeben:
+</p>
+
+<blockquote>
+<pre>
+Gruppe 1  2 Mitglied(er)
+  Durchschnittswert Anfangswert Cholesterinspiegel:  206
+  Durchschnittswert Endwert Cholesterinspiegel:      200
+  Änderung Cholesterinspiegel:                        -6
+Gruppe 2  3 Mitglied(er)
+  Durchschnittswert Anfangswert Cholesterinspiegel:  233
+  Durchschnittswert Endwert Cholesterinspiegel:      219
+  Änderung Cholesterinspiegel:                       -14
+Gruppe 3  1 Mitglied(er)
+  Durchschnittswert Anfangswert Cholesterinspiegel:  202
+  Durchschnittswert Endwert Cholesterinspiegel:      185
+  Änderung Cholesterinspiegel:                       -17
+Fertig mit der Datenverarbeitung.
+</pre>
+</blockquote>
+
+<p><strong>Hinweise:</strong>
+Verwenden Sie durchweg Integer-Arithmetik. Wenn eine Gruppe aus 0 Mitgliedern besteht, geben Sie diesen Tatbestand aus, aber Sie berechnen in diesem Fall weder den Durchschnitt bzw. die &Auml;nderung, noch geben Sie etwas aus.
+Es w&auml;re sehr hilfreich bevor Sie mit dem Programmieren anfangen, sich das Programm  mit einem Programmablaufplan klar zu machen.
+Der Hauptteil des Programms besteht aus zwei ineinandergeschachtelten Z&auml;hlschleifen.
+</font></p>
+
+<p>
+Verwenden Sie wohl durchdachte Kommentare, um zu zeigen wie Ihr Programm organisiert ist.
+Strukturieren Sie Ihr Programm ebenfalls durch entsprechende Einr&uuml;ckungen. Ein schlechtes Einr&uuml;cken hat einen massiven Punkteverlust zur Folge.
+</font></p>
+<p>Nehmen Sie als Ausgangspunkt f&uuml;r Ihr Programm das <code>AddiereAusDatei</code>-Programm aus <a href="../chap22/ch22_13.html">Kapitel 22</a>.</p>
+
+<p>
+Hier ist ein weiteres Beispiel f&uuml;r eine Input-Datei und deren Output:
+</font></p>
+
+<center>
+<table border="1">
+<tr valign="TOP">
+<td>
+<pre>
+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5
+230
+210
+230
+215
+230
+220
+230
+225
+230
+230
+3
+210
+200
+210
+200
+210
+200
+0
+2
+200
+190
+210
+200
+</pre>
+</td>
+<td>
+<pre>
+Gruppe 1  5 Mitglied(er)
+  Durchschnittswert Anfangswert Cholesterinspiegel:  230
+  Durchschnittswert Endwert Cholesterinspiegel:      220
+  Änderung Cholesterinspiegel:                       -10
+Gruppe 2  3 Mitglied(er)
+  Durchschnittswert Anfangswert Cholesterinspiegel:  210
+  Durchschnittswert Endwert Cholesterinspiegel:      200
+  Änderung Cholesterinspiegel:                       -10
+Gruppe 3  0 Mitglied(er)
+Gruppe 4  2 Mitglied(er)
+  Durchschnittswert Anfangswert Cholesterinspiegel:  205
+  Durchschnittswert Endwert Cholesterinspiegel:      195
+  Änderung Cholesterinspiegel:                       -10
+Fertig mit der Datenverarbeitung.
+</pre>
+</td></tr></table>
+</center>
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#23">Inhaltsverzeichnis</a>.</p>
+</body>
+</html>

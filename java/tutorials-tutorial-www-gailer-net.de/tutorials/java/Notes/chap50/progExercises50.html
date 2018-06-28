@@ -1,0 +1,103 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>Kapitel 50  Programmieraufgaben</title>
+<meta name="copyright" content="2010,  Heinrich Gailer">
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css">
+</head>
+
+<body>
+<p class="revisions">erstellt 28.02.04; &uuml;berarbeitet 15.03.04, 22.02.05, 17.07.06, 28.07.09, 25.01.11;</p>
+<hr>
+
+<h1>Kapitel 50  Programmieraufgaben</h1>
+
+
+<h2>Aufgabe 1 &#8212; Old Scotch</h2>
+<p>
+Erstellen Sie eine Klasse <code>Artikel</code> mit den Instanzvariablen <code>artikelNr</code>, <code>bezeichnung</code>, <code>einkaufspreis</code> und <code>lagerzeit</code> (Monate). Deklarieren Sie zwei Konstanten:
+</p>
+
+<blockquote>
+<pre>
+final double  HANDELSSPANNE = 0.6  ; // 60 Prozent des Einkaufspreises
+final double  MWST          = 0.19 ; // 19 Prozent
+</pre>
+</blockquote>
+
+<p>
+Erstellen Sie einen Konstruktor, der die Artikelobjekte initialisiert (alle Instanzvariablen).
+</p>
+
+<p>
+Schreiben Sie eine &ouml;ffentliche <code>anzeigen()</code> Methode, die die Artikelinformationen ausgibt und eine &ouml;ffentliche Methode zum Berechnen des Verkaufspreises:
+</p>
+
+<blockquote>
+<pre>
+public int berechneVerkaufspreis()
+</pre>
+</blockquote>
+
+<p>
+Der Verkaufspreis ergibt sich aus der Summe von Einkaufspreis und Handelsspanne zuz&uuml;glich Mehrwertsteuer. Das Ergebnis wird auf eine ganze Zahl abgerundet.
+</p>
+
+<p>
+Erzeugen Sie in der Klasse <code>ArtikelTester</code> zwei Artikelobjekte und testen Sie die Methoden.
+</p>
+
+<p>
+Die Ausgabe des Programms sieht dann z.B. folgenderma&szlig;en aus:
+</p>
+
+<pre class="dos5">
+SC123-F "DUFFY MALT Whisky" EK: 10.0 VK: 19 Euro Lagerzeit: 3 Monate
+SC347-A "GLEN MORANGIE MALT Whisky" EK: 55.0 VK: 104 Euro Lagerzeit: 15 Monate
+</pre>
+
+<p>
+<p>Zur&uuml;ck zum <a href="../../index.html#50">Inhaltsverzeichnis</a>.</p>
+</p>
+
+<hr>
+
+<h2>Aufgabe 2 &#8212; Sonderposten</h2>
+<p>
+Leiten Sie eine Klasse <code>Sonderposten</code> von der Klasse <code>Artikel</code> ab. Die Subklasse erweitert die Superklasse, um die Instanzvariable <code>rabatt</code>.
+</p>
+<p>
+Erstellen Sie unter Verwendung des Konstruktors der Superklasse einen Konstruktor, der die Objekte der Subklasse initialisiert. Die Initialisierung der Instanzvariablen <code>rabatt</code> wird vom Konstruktor je nach Lagerzeit &uuml;bernommen. Bei einer Lagerzeit gr&ouml;&szlig;er 12 Monate wird ein Rabatt auf dem Verkaufspreis von 30 Prozent gew&auml;hrt. Andernfalls betr&auml;gt der Rabatt 10 Prozent.
+<p>
+
+<p>
+Schreiben Sie eine Methode <code>anzeigen()</code> f&uuml;r die Subklasse, die die <code>anzeigen()</code> Methode der Superklasse &uuml;berschreibt.
+</p>
+
+<p>
+Schreiben Sie eine Methode <code>berechneVerkaufspreis()</code>, die ebenfalls die Methode der Superklasse &uuml;berschreibt.</p>
+
+<p>Die Ausgabe des Programms sieht dann z.B. ungef&auml;hr wie folgt aus:</p>
+
+<pre class="dos5">
+SC123-F "DUFFY MALT Whisky" EK: 10.0 VK: 19 Euro Lagerzeit: 3 Monate
+
+Sonderposten:
+SC123-F "DUFFY MALT Whisky" EK: 10.0 VK: 17 Euro Lagerzeit: 3 Monate
+(VK &lt;alt&gt;: 19 Euro; Rabatt: 10%)
+
+Sonderposten:
+SC347-A "GLEN MORANGIE MALT Whiskey" EK: 55.0 VK: 72 Euro Lagerzeit: 15 Monate
+(VK &lt;alt&gt;: 104 Euro; Rabatt: 30%)
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#50">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+<p>Ende der Aufgaben</p>
+
+</body>
+</html>

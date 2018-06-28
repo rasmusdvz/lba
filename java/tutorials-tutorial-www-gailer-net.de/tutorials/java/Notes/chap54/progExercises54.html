@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+
+<head>
+<title>Programmieraufgaben</title>
+<meta name="copyright" content="2004 - 2006 Heinrich Gailer" />
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="index, follow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<small>erstellt 22.03.04; &uuml;berarbeitet 28.06.04, 22.02.05, 28.07.06; &copy; Copyright 2004 - 2006 Heinrich Gailer</small>
+<hr />
+<center><h1><span class="blue">
+Kapitel 54  Programmieraufgaben</span></h1></center>
+
+<h2>Aufgabe 1 &#8212; Besseres Telefonbuch-Beispiel</h2>
+
+<p>
+Die folgenden Aufgaben bauen auf dem <a href="ch54_23.html">Telefonbuch-Beispiel</a> in diesem Kapitel auf.
+</p>
+
+<p>Ver&auml;ndern Sie die <code>equals()</code> Methode, so dass der Anwender die gesuchten Namen auch in Klein- oder in Gro&szlig;buchstaben eingeben kann.</p>
+
+<p>Testen Sie das Programm in einer Klasse <code>TelefonbuchTester</code>.</p>
+
+<p>
+<A HREF="../../java-toc.html#54">Zur&uuml;ck</A> zur &Uuml;bersicht.
+</p>
+
+<hr />
+
+<h2>Aufgabe 2 &#8212; Neue <code><strong>Telefonbuch</strong></code>-Klasse</h2>
+
+<p>
+Leiten Sie eine Klasse <code>Telefonbuch</code> von der Klasse <code>Vector</code> ab.
+</p>
+
+<p>
+Erstellen Sie die folgenden Konstruktoren:
+</p>
+
+<ul>
+  <li><code>public Telefonbuch()</code>
+    <ul type="square">
+      <li>Der parameterlose Konstruktor konstruiert ein <code>Vector</code>-Objekt mit
+          einer Anfangskapazit&auml;t von 10 und einer Inkrementgr&ouml;&szlig;e von 5
+          Elementen. Danach f&uuml;gt er dem <code>Vector</code>-Objekt die f&uuml;nf
+          Elemente aus Aufgabe 1 hinzu (Nat&uuml;rlich w&uuml;rden in einer richtigen Applikation
+          der Vektor auf andere Weise gef&uuml;llt werden).
+      </li>
+    </ul>
+  <li><code>public Telefonbuch( int kap )</code>
+    <ul type="square">
+      <li>Konstruiert ein leeres <code>Vector</code>-Objekt mit einer Anfangskapazit&auml;t von
+          <code>kap</code> Elementen.
+      </li>
+    </ul>
+  <li><code>public Telefonbuch( int kap, int inkrement )</code>
+    <ul type="square">
+      <li>Konstruiert ein leeres <code>Vector</code>-Objekt mit einer Anfangskapazit&auml;t von
+          <code>kap</code> und einer Inkrementgr&ouml;&szlig;e von <code>inkrement</code> Elementen.
+      </li>
+    </ul>
+
+</ul>
+
+<p>Erstellen Sie in der Klasse <code>Telefonbuch</code> eine Methode <code>menu()</code>, die die zur Verf&uuml;gung stehenden Auswahlm&ouml;glichkeiten ausgibt:</p>
+
+<blockquote>
+<pre>
+---Telefonbuch-Applikation---
+Treffen Sie Ihre Auswahl
+&lt;1&gt;  Alle Eintraege anzeigen
+&lt;2&gt;  Eintrag suchen
+&lt;3&gt;  Eintrag bearbeiten
+&lt;4&gt;  Eintrag hinzufügen
+&lt;5&gt;  Eintrag loeschen
+&lt;6&gt;  Anzahl Eintraege
+&lt;-1&gt; Ende
+</pre>
+</blockquote>
+
+
+<p>Implementieren Sie in der Klasse <code>Telefonbuch</code> f&uuml;r "Alle Eintraege anzeigen" die Methode <code><nobr>alleAnzeigen()</nobr></code>. Verwenden Sie f&uuml;r diese Methode ein <code>Enumeration</code>-Objekt.</p>
+<p></p>
+
+<p>Testen Sie das Programm in einer Klasse <code>TelefonbuchTester2</code>. Die Ausgabe sieht dann ungef&auml;hr wie diese aus:</p>
+
+<blockquote>
+<pre>
+---Telefonbuch-Applikation---
+Treffen Sie Ihre Auswahl
+&lt;1&gt;  Alle Eintraege anzeigen
+&lt;2&gt;  Eintrag suchen
+&lt;3&gt;  Eintrag bearbeiten
+&lt;4&gt;  Eintrag hinzufügen
+&lt;5&gt;  Eintrag loeschen
+&lt;6&gt;  Anzahl Eintraege
+&lt;-1&gt; Ende
+1
+
+Name: Amy Nummer: 123-4567
+Name: Bob Nummer: 123-6780
+Name: Hal Nummer: 789-1234
+Name: Deb Nummer: 789-4457
+Name: Zoe Nummer: 446-0210
+
+
+---Telefonbuch-Applikation---
+Treffen Sie Ihre Auswahl
+&lt;1&gt;  Alle Eintraege anzeigen
+&lt;2&gt;  Eintrag suchen
+&lt;3&gt;  Eintrag bearbeiten
+&lt;4&gt;  Eintrag hinzufügen
+&lt;5&gt;  Eintrag loeschen
+&lt;6&gt;  Anzahl Eintraege
+&lt;-1&gt; Ende
+
+</pre>
+</blockquote>
+
+<p>Implementieren Sie in der Klasse <code>Telefonbuch</code> f&uuml;r "Eintrag suchen" die Methode <code><nobr>eintragSuchen()</nobr></code>. Verwenden Sie dazu die <code>indexOf()</code> Methode der Klasse <code>Vector</code>, um die eingebaute Suchmethode von <code>Vector</code> nutzen zu k&ouml;nnen. </p>
+
+<p>Testen Sie das Programm. Die Ausgabe sieht dann ungef&auml;hr wie diese aus:</p>
+
+<blockquote>
+<pre>
+---Telefonbuch-Applikation---
+Treffen Sie Ihre Auswahl
+&lt;1&gt;  Alle Eintraege anzeigen
+&lt;2&gt;  Eintrag suchen
+&lt;3&gt;  Eintrag bearbeiten
+&lt;4&gt;  Eintrag hinzufuegen
+&lt;5&gt;  Eintrag loeschen
+&lt;6&gt;  Anzahl Eintraege
+&lt;-1&gt; Ende
+2
+
++++Namen suchen+++
+Zurueck zum Menue mit &lt;M&gt;
+Namen eingeben --&gt;
+bob
+Name: Bob Nummer: 123-6780
+
++++Namen suchen+++
+Zurueck zum Menue mit &lt;M&gt;
+Namen eingeben --&gt;
+
+</pre>
+</blockquote>
+
+<p>Implementieren Sie in der Klasse <code>Telefonbuch</code> f&uuml;r "Eintrag bearbeiten" die Methode <code><nobr>eintragBearbeiten()</nobr></code>. Erzeugen Sie dazu ein neues <code>Eintrag</code>-Objekt mit dem eingegebenen Namen und &uuml;bergeben Sie es der  <code>indexOf()</code> Methode der Klasse <code>Vector</code>, um den Index des zu bearbeitenden Eintrags zu ermitteln. Verwenden Sie dann die <code>setElementAt()</code> Methode, um dem <code>Telefonbuch</code>-Objekt ein neues <code>Eintrag</code>-Objekt hinzuf&uuml;gen.</p>
+
+<p>Testen Sie das Programm. Die Ausgabe sieht dann ungef&auml;hr wie diese aus:</p>
+
+<blockquote>
+<pre>
+---Telefonbuch-Applikation---
+Treffen Sie Ihre Auswahl
+&lt;1&gt;  Alle Eintraege anzeigen
+&lt;2&gt;  Eintrag suchen
+&lt;3&gt;  Eintrag bearbeiten
+&lt;4&gt;  Eintrag hinzufuegen
+&lt;5&gt;  Eintrag loeschen
+&lt;6&gt;  Anzahl Eintraege
+&lt;-1&gt; Ende
+3
+
++++Eintrag bearbeiten+++
+Zurueck zum Menue mit &lt;M&gt;
+Namen eingeben --&gt;
+bob
+Name: Bob Nummer: 123-6780
+Neuer Name fuer --&gt; Bob
+Sam
+Neue Telefonnummer --&gt;
+222-4444
+
+Name: Amy Nummer: 123-4567
+Name: Sam Nummer: 222-4444
+Name: Hal Nummer: 789-1234
+Name: Deb Nummer: 789-4457
+Name: Zoe Nummer: 446-0210
+
++++Eintrag bearbeiten+++
+Zurueck zum Menue mit &lt;M&gt;
+Namen eingeben --&gt;
+
+</pre>
+</blockquote>
+
+<p>Implementieren Sie in der Klasse <code>Telefonbuch</code> die verbleibenden Methoden. Verwenden Sie dazu die Methoden <code>addElement()</code>, <code>removeElementAt()</code> und <code>size()</code> der Klasse <code>Vector</code>.</p>
+
+<p>
+<A HREF="../../java-toc.html#54">Zur&uuml;ck</A> zur &Uuml;bersicht.
+</p>
+
+<hr />
+
+<h2>Aufgabe 3 &#8212; Eintr&auml;ge sortieren</h2>
+
+<p>F&uuml;gen Sie im parameterlosen Konstruktor der <code>Telefonbuch</code>-Klasse am Ende den folgenden Eintrag hinzu (dient nur f&uuml;r die anschlie&szlig;ende Sortierung):</p>
+
+<blockquote>
+<pre>
+addElement( new Eintrag( "Abe", "123-4567") ) ;
+</pre>
+</blockquote>
+
+<p>Die Klasse <code>Collections</code> stellt eine statische Methode <code>sort()</code> zur Verf&uuml;gung mit der ein <code>Vector</code>-Objekt sortiert werden kann.</p>
+
+<blockquote>
+<pre>
+public static void sort(List list, Comparator c)
+</pre>
+</blockquote>
+
+<p>Da <code>Vector</code> eine Subklasse von <code>List</code> ist, kann die Methode f&uuml;r <code>Vector</code>-Objekte eingesetzt werden. Als zweiten Parameter erwartet die Methode ein Objekt einer Klasse, die die Schnittstelle <code>Comparator</code> implementiert hat. Die Methode, die implementiert werden muss ist:</p>
+
+<blockquote>
+<pre>
+int compare(Object o1, Object o2)
+</pre>
+</blockquote>
+
+<p>Erstellen Sie eine Klasse <code>MeinComparator</code> und implementieren Sie die Methode <code>compare()</code>. Vergleichen Sie in der Methode den Namen zweier <code>Eintrag</code>-Objekte. Verwenden Sie daf&uuml;r die Instanzmethode <code>compareTo()</code> der Klasse <code>String</code>. Der Aufruf der Methode in der Testklasse sieht dann folgenderma&szlig;en aus:</p>
+
+<blockquote>
+<pre>
+Collections.sort( meinVector, new MeinComparator() ) ;
+</pre>
+</blockquote>
+
+<p>Es ist sinnvoller die Sortierung &uuml;ber eine Methode zu realisieren. Implementieren Sie daher die Methode <code>alleAnzeigenAsc()</code>, die zuerst die statische Methode <code>sort()</code> der Klasse <code>Collections</code> und danach die Methode <code>alleAnzeigen()</code> aufruft. &Auml;ndern Sie den ersten Men&uuml;punkt:</p>
+
+<pre>
+---Telefonbuch-Applikation---
+Treffen Sie Ihre Auswahl
+&lt;1&gt;  Alle Eintraege anzeigen (aufsteigend)
+</pre>
+
+
+<p>Testen Sie das Programm.</p>
+
+<p>
+<A HREF="../../java-toc.html#54">Zur&uuml;ck</A> zur &Uuml;bersicht.
+</p>
+
+
+<h2>Aufgabe 4 &#8212; Eintr&auml;ge absteigend sortieren</h2>
+
+<p>Erweitern Sie das Men&uuml; der <code>Telefonbuch</code>-Klasse um den Men&uuml;punkt "Absteigend sortieren". Erstellen Sie eine weitere Klasse <code>MeinComparatorDesc</code> und implementieren Sie die <code>compareTo()</code>-Methode, so dass sie die Eintr&auml;ge absteigend sortiert ausgibt. Der Aufruf der Methode <code>sort()</code> der Klasse <code>Collections</code> erfolgt dann &uuml;ber eine Methode <code>alleAnzeigenDesc()</code></p>
+
+<p>Testen Sie das Programm. Die Ausgabe sieht dann ungef&auml;hr wie folgt aus:</p>
+
+<blockquote>
+<pre>
+---Telefonbuch2-Applikation---
+Treffen Sie Ihre Auswahl
+&lt;1&gt;  Alle Eintraege anzeigen (aufsteigend)
+&lt;2&gt;  Eintrag suchen
+&lt;3&gt;  Eintrag bearbeiten
+&lt;4&gt;  Eintrag hinzufuegen
+&lt;5&gt;  Eintrag loeschen
+&lt;6&gt;  Anzahl Eintraege
+&lt;7&gt;  Alle Eintraege anzeigen (absteigend)
+&lt;-1&gt; Ende
+1
+
++++Aufsteigend sortiert+++
+Name: Abe Nummer: 123-4567
+Name: Amy Nummer: 123-4567
+Name: Bob Nummer: 123-6780
+Name: Deb Nummer: 789-4457
+Name: Hal Nummer: 789-1234
+Name: Zoe Nummer: 446-0210
+
+
+---Telefonbuch2-Applikation---
+Treffen Sie Ihre Auswahl
+&lt;1&gt;  Alle Eintraege anzeigen (aufsteigend)
+&lt;2&gt;  Eintrag suchen
+&lt;3&gt;  Eintrag bearbeiten
+&lt;4&gt;  Eintrag hinzufuegen
+&lt;5&gt;  Eintrag loeschen
+&lt;6&gt;  Anzahl Eintraege
+&lt;7&gt;  Alle Eintraege anzeigen (absteigend)
+&lt;-1&gt; Ende
+7
+
++++Absteigend sortiert+++
+Name: Zoe Nummer: 446-0210
+Name: Hal Nummer: 789-1234
+Name: Deb Nummer: 789-4457
+Name: Bob Nummer: 123-6780
+Name: Amy Nummer: 123-4567
+Name: Abe Nummer: 123-4567
+
+
+---Telefonbuch2-Applikation---
+Treffen Sie Ihre Auswahl
+&lt;1&gt;  Alle Eintraege anzeigen
+&lt;2&gt;  Eintrag suchen
+&lt;3&gt;  Eintrag bearbeiten
+&lt;4&gt;  Eintrag hinzufuegen
+&lt;5&gt;  Eintrag loeschen
+&lt;6&gt;  Anzahl Eintraege
+&lt;7&gt;  Absteigend sortieren
+&lt;-1&gt; Ende
+
+</pre>
+</blockquote>
+<p>Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#54">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+
+</body>
+</html>

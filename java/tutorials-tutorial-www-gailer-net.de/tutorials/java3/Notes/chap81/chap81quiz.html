@@ -1,0 +1,564 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css" />
+<!-- FILL in the Quiz Name between <title> and </title> -->
+<title>
+Quiz on Exceptions
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+</head>
+
+<script language="JavaScript">
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+ 
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;   
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else 
+    reportForm.letter.value = "hmm.."
+    
+}
+</script>
+
+<body>
+
+
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+Quiz on Exceptions
+
+<!-- end of Quiz Name -->
+</h1></center> 
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+
+<hr/>
+<form name="question1">
+<p>
+1.
+<!-- FILL in Question 1-->
+What method of an <code>Exception</code> object prints a list
+of methods that were called before the exception was thrown?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>printErrors()</code>
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+<code>getMessage()</code>
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<code>printStackTrace()</code>
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<code>traceStack()</code>
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+What method of an <code>Exception</code> object
+returns a message string?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>getError()</code>
+
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+<code>getMessage()</code>
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<code>printMessage()</code>
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<code>traceMessage()</code>
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="B"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+What happens during execution if an negative value is used
+for an array index?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+An <code>IndexOutOfBoundsException</code> is thrown.
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+A <code>NumberFormatException</code> is thrown.
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+The first slot of the array is used.
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+This is an <code>Error</code>, so the program immediately terminates
+no matter what.
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+A method must do either of two things with a checked exception.
+What are those two things?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+(1) Ignore the exception, or (2) check the exception.
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+(1) Handle the exception in a <code>catch{}</code> block, or (2) return the
+exception to the sender.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+(1) Handle the exception in a <code>catch{}</code> block, or (2) throw the
+exception to the method that called this method.
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+(1) Handle the exception in a <code>catch{}</code> block, or (2)  
+handle the exception in a <code>try{}</code> block,
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+What is the only type of exception that is NOT checked?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Class <code>Exception</code>.
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+Class <code>RunTimeException</code> and its subclasses.
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Class <code>IOException</code> and its subclasses.
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Class <code>ArithmeticException</code> only.
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="B"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+Say that methodA calls methodB, and methodB calls methodC.
+MethodC might throw a <code>NumberFormatException</code>.
+Can the program be written so that methodA handles the exception?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+No, the exception must be handled by methodC or its caller, methodB.
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+No, methodC must handle the exception.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Yes, if the header for methodC says <code>...throws NumberFormatException</code>
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Yes, if the headers for methodC and methodB say <code>...throws NumberFormatException</code>
+ 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+Which of the following is a correct outline of a method that
+throws an exception when it finds a problem?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<blockquote><pre>
+public void someMethod ()
+{
+  ...
+  if ( problem )
+    throw new Exception("Useful Message");
+  ...
+}
+</pre></blockquote>
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+<blockquote><pre>
+public void someMethod () throws Exception
+{
+  ...
+  if ( problem )
+    Exception("Useful Message");
+  ...
+}
+</pre></blockquote>
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<blockquote><pre>
+public void someMethod () throws Exception
+{
+  ...
+  if ( problem )
+    throw( new Exception("Useful Message") );
+  ...
+}
+</pre></blockquote>
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<blockquote><pre>
+public void someMethod () throws Exception
+{
+  ...
+  if ( problem )
+    throw new Exception("Useful Message");
+  ...
+}
+</pre></blockquote>
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+MethodX might encounter an <code>IOException</code> or an <code>AWTException</code>,
+but handles neither.
+How should the header for methodX be written?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<pre>
+... methodX(...) throws IOException, AWTException
+</pre>
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+<pre>
+... methodX(...) throws IOException or AWTException
+</pre>
+
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<pre>
+... methodX(...) throws IOException throws AWTException
+</pre>
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<pre>
+... methodX(...) throws (IOException, AWTException)
+</pre>
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr/>
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+You are writing a program to check people into a hotel.
+People over 65 get a 10% discount.
+How would you write the program?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Use an if statement to test for age 65 or greater.
+If one is detected, throw an exception.
+A <code>catch{}</code> block will apply the discount.
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+Normal if-else programming logic will be used.
+<!-- end of answer -->   
+</td></tr> 
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Subtract 65 from the person's age and divide the bill by the
+result.
+If an <code>ArithmeticException</code> exception is thrown,
+apply the 10% discount in the exception handler.
+<!-- end of answer -->   
+</td></tr> 
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Create an array with 120 elements, one element for each possible hotel guest age.
+Each element contains the discount rate for that age.
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="B"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+
+<hr/>
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+Say that a method catches an <code>IOException</code> in a <code>catch{}</code> block.
+Is it possible for that block to do some processing and then <code>throw</code>
+the same exception to the caller?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+No&#8212;when an exception is caught the <code>Exception</code> object is destroyed.
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b> 
+<!-- FILL in answer B -->
+No&#8212;an exception may be caught only once.
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Yes&#8212;as long as the method also has a <code>throws</code> clause for that exception.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Yes&#8212;but the <code>catch{}</code> block must construct a new <code>Exception</code>
+object.
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Correct Answer Is:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</center>
+<p>
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size=5>
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size=5>
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size=5>
+</form>
+
+
+<table>
+<tr>
+<td>
+<A HREF="../../cs151java.html#81">
+<img src="../contents.gif" alt="Click here" align="center"> </A> 
+</td>
+<td>
+(If you have just returned here from another page, 
+or have re-loaded this page, you will need to click again on 
+each of your choices for the grading program to work correctly.
+You may want to press the "shift key" while clicking on reload to clear
+the old answers.)
+</td>
+</tr>
+</table>
+
+<hr/>
+
+</body>
+</html>

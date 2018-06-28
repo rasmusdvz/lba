@@ -1,0 +1,48 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 //EN">
+<html>
+<head>
+<title></title>
+<meta name="author" content="">
+<meta name="generator" content="Ulli Meybohms HTML EDITOR">
+<link rel="stylesheet" type="text/css" href="../CAIstyle.css"
+</head>
+<body >
+<div style="width:62%;">
+<pre class="program" style="font-size:8pt;">
+class ObjektPrinter
+{
+  public void ausgeben( String st )
+    <span class="blue">// 3. Der Objektreferenzparameter st
+    // bezieht sich auf das eine Objekt.</span>
+  {
+    System.out.println("Wert des Parameters: " + st );
+  }   <span class="blue">// 4. Die Objektreferenz in st
+      // kann wie &uuml;blich verwendet werden.</span>
+}
+
+
+
+class OPTester
+{
+  public static void main ( String[] args )
+  {
+    String mitteilung = "Nur ein Objekt" ;
+      <span class="blue">// 1. Die Objektreferenzvariable
+      // mitteilung verweist auf das Objekt.</span>
+
+    ObjektPrinter op = new ObjektPrinter();
+
+    System.out.println
+      ("Erster  Wert von mitteilung: " + mitteilung );
+    op.ausgeben( mitteilung );
+      <span class="blue">// 2. Beim Aufruf der Methode wird die
+      // Objektreferenz  als Parameterwert &uuml;bergeben.</span>
+
+    System.out.println
+      ("Zweiter Wert von mitteilung: " + mitteilung );
+  }
+}
+</pre>
+</div>
+</body>
+</html>

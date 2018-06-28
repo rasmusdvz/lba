@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>Java unter Windows Anleitung von CVStudent.de</title>
+<meta http-equiv="distribution" content="global">
+<meta http-equiv="expires" content="0">
+<meta name="title" content="CVStudent.de - Die Online Ressource f&uuml;r Computervisualistik Studenten">
+<meta name="robots" content="no index, follow">
+<meta name="author" content="Lennart Nacke">
+<meta name="publisher" content="Nacke">
+<meta name="copyright" content="Lenny">
+<meta name="revisit" content="after 14 days">
+<meta name="language" content="german">
+<meta name="page-topic" content="privat">
+<meta name="page-type" content="infos">
+<meta name="description" content="cvstudent.de - Die Online Ressource f&uuml;r Computervisualistik Studenten">
+<meta name="audience" content="all">
+<meta name="keywords" content="cv, computervisualistik, nacke, lenny, lennart, studenten, student, uni, magdeburg, computational visualistics, computer, informatik, fin, visuell, bildlich, visual, perception">
+<meta name="date" content="may 2000">
+<link rel="stylesheet" href="../cv.css">
+<script language="JavaScript">
+function click()
+	{
+	if (event.button==2)
+		{
+		alert('(c) by CVSTUDENT.DE');
+		}
+	}
+	document.onmousedown=click
+</script>
+</head>
+<body bgcolor="#ffffff" leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr bgcolor="#006699">
+				<td class="thead" height="16">&nbsp;<b>Kleine Anleitung Java Installation unter Windows</b></td>
+			</tr>
+		</table>
+		<div align="right"><a href="javascript:window.print();">AUSDRUCKEN</a></div>
+		<table cellpadding="4" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td align="center"><p align="left"><b>Java installieren:</b></p></td>
+		</tr>
+		<tr>
+			<td><img src="../images/space.gif" alt="space" width="1" height="6" border="0"></td>
+		</tr>
+		<tr>
+			<td><p><b>1.) Grundsätzliches:</b>
+			<ul type="square">
+			<li>Lade dir einen Editor aus meiner Software Liste (unter &quot;Erstis&quot; &gt; &quot;EAD&quot;)
+			herunter. Ich empfehle derzeit den <a href="http://www.jcreator.com/" target="_blank" style="font-size:12px;"><b>JCreator</b></a>,
+			weil der realtiv leicht	zu bedienen ist. Aber ein Editor ist immer eure
+			Gewöhnungssache.</li><br><br>
+			<li>Außerdem brauchst du das <a href="http://java.sun.com/j2se/1.3/" target="_blank" style="font-size:12px;"><b>JDK</b></a>,
+			deine Entwicklungsumgebung, ohne die Java nicht läuft. Die Exe Datei führt dich durch eine Setup
+			Routine, wichtig ist hier nur, dass du dir den JDK Ordner (in den du installierst) merkst!</li><br><br>
+			<li>Nach der Installation des JDK und deines Editors mußt du die Pfadvariable für <tt>javac</tt> (den Java Compiler) setzen,
+			um auch außerhalb des <tt>&quot;bin&quot;</tt> compilieren zu können. Dieser Vorgang unterscheidet sich je nach Betriebssystem etwas.</li>
+			</ul></p>
+			<p><b>2a.) Installation unter Windows 95/98:</b>
+			<ul type="square">
+			<li>Normalerweise geht es folgendermaßen: Windows besitzt eine Datei namens <tt>autoexec.bat</tt>,
+			welche sich mit einem Texteditor (z.B. Notepad) öffnen läßt.</li><br><br>
+			<li>Rechtsklick auf <tt>autoexec.bat</tt>, dann kannst du sicherheitshalber eine Kopie davon
+			in einem Selbstangelegten <tt>backup</tt> Verzeichnis speichern, z.B. unter dem Namen <tt>autoexec.bk</tt>.
+			(Diesen Schritt kannst du nach deinem eigenen Ermessen überspringen).</li><br><br>
+			<li>Nach dem Öffnen der <tt>autoexec.bat</tt> solltest du dort nach der Zeile
+			<tt>PATH=C:\WINDOWS;[...]</tt> (die [...] steht für evtl. weitere Pfadregistrierungen auf deinem
+			System) suchen. Dies ist die Pfadvariable deines Betriebssystems.</li><br><br>
+			<li>Dieser Pfadvariablen fügst du jetzt den Pfad zu deinem <tt>JDK bin</tt> Verzeichnis hinzu.
+			Das ganze sollte dann von den anderen Pfaden mit einem Semikolon getrennt werden. Sieht dann
+			in etwa so aus: <tt>PATH=C:\WINDOWS;C:\JDK1.3\bin;[...]</tt> (vorausgesetzt, dass <tt>C:\JDK1.3\bin</tt>
+			das Verzeichnis ist, welches ihr für JDK Installation angelegt habt.)</li><br><br>
+			<li>So, jetzt alles speichern und schließen, am besten Windows neu starten und fertig seid ihr!</li>
+			</ul></p>
+			<p><b>2b.) Installation unter Windows NT/2000:</b>
+			<ul type="square">
+			<li>Startmenü > Einstellungen > Systemsteuerung > System (Icon doppelklicken). Unter <b>Windows NT</b> den
+			Karteireiter "Umgebung" auswählen, unter <b>Windows 2000</b> den Reiter "Erweitert" wählen.</li><br><br>
+			<li>Dort jetzt unter Nutzer- und Systemvariablen nachschauen. Du suchst auch hier nach <tt>PATH</tt>.
+			Falls du nicht sicher bist, welchen Pfad du nehmen sollst, dann füge unter "Nutzervariablen" am rechten Ende hinter
+			einem Semikolon (falls andere Pfade bereits stehen) deine Pfadvariable hinzu <tt>C:\JDK1.3\bin</tt>
+			(vorausgesetzt, dass <tt>C:\JDK1.3\bin</tt> das Verzeichnis ist, welches ihr für
+			JDK Installation angelegt habt.) Es sollte desweiteren auch nur eine Angabe zu einem JDK in eurem
+			<tt>PATH</tt> stehen.</li><br><br>
+			<li>Auf "OK" oder "Übernehmen" klicken.</li><br><br>
+			<li>Falls Kommandozeilenfenster geöffnet waren, diese schließen und erneut öffnen! Jetzt seid ihr fertig.</li>
+			</ul></p>
+			<p><b>2c.) Installation unter Windows ME:</b>
+			<ul type="square">
+			<li>Startmenü > Programme > Zubehör > Systemprogramme > Systeminformationen (oder Startmenü >
+			Ausführen und in die Zeile <tt>msinfo32</tt> eintippen. Das Fenster, dass sich öffnet sollte
+			den Titel "Microsoft Hilfe und Support" haben.</li><br><br>
+			<li>"Werkzeuge" Menü auswählen und dort das System Konfigurations Dienstprogramm starten.</li><br><br>
+			<li>Den Reiter "Umgebung" auswählen, dort <tt>PATH</tt> auswählen und auf "Ändern" klicken.</li><br><br>
+			<li>Dieser Pfadvariablen fügst du jetzt den Pfad zu deinem <tt>JDK bin</tt> Verzeichnis hinzu.
+			Das ganze sollte dann von den anderen Pfaden mit einem Semikolon getrennt werden. Sieht dann
+			in etwa so aus: <tt>C:\JDK1.3\bin;[...]</tt> (vorausgesetzt, dass <tt>C:\JDK1.3\bin</tt>
+			das Verzeichnis ist, welches ihr für JDK Installation angelegt habt.)</li><br><br>
+			<li>Die Änderungen speichern und den Neustart bestätigen.</li>
+			</ul></p>
+			<p><b>2d.) Installation unter Windows XP:</b>
+			<ul type="square">
+			<li>Startmenü > Einstellungen > Systemsteuerung > System (Icon doppelklicken). Den Reiter
+			"Erweitert" wählen, dort links unten auf "Umgebungsvariablen" klicken.</li><br><br>
+			<li><tt>path</tt> auswählen und auf "Bearbeiten" klicken.</li><br><br>
+			<li>Am rechten Ende hinter einem Semikolon (falls andere Pfade bereits gesetzt sind)
+			deine Pfadvariable hinzufügen <tt>C:\JDK1.3\bin</tt>
+			(vorausgesetzt, dass <tt>C:\JDK1.3\bin</tt> das Verzeichnis ist, welches ihr für
+			JDK Installation angelegt habt.) Es sollte desweiteren auch nur eine Angabe zu einem JDK bin in eurem
+			<tt>PATH</tt> stehen.</li><br><br>
+			<li>So, jetzt alles speichern und schließen, am besten Windows neu starten und fertig seid ihr!</li>
+			</ul></p>
+			<p><b>3.) Probleme:</b>
+			<ul type="square">
+			<li>Manchmal gibt's den Fehler:<br><tt>Exception in thread "main" java.lang.NoClassDefFoundError: HalloWelt</tt></li><br><br>
+			<li>Normalerweise geht es folgendermaßen: Windows besitzt eine Datei namens <tt>autoexec.bat</tt>,
+			welche sich mit einem Texteditor (z.B. Notepad) öffnen läßt.</li><br><br>
+			<li>Evtl. liegt's an eurem Programm Aufruf (z.B. unter Unix), also, dass ihr
+			<tt>java HelloWorld.class</tt> eintippt. Achtet darauf, dass dort keine Endung
+			stehen darf, also: <tt>java HelloWorld</tt></li><br><br>
+			<li>Rechtsklick auf <tt>autoexec.bat</tt>, dann kannst du sicherheitshalber eine Kopie davon
+			in einem Selbstangelegten <tt>backup</tt> Verzeichnis speichern, z.B. unter dem Namen <tt>autoexec.bk</tt>.
+			(Diesen Schritt kannst du nach deinem eigenen Ermessen überspringen).</li><br><br>
+			<li>Füge die Zeile <tt>set CLASSPATH=.;Pfad(in welchem jar und zip Dateien sind);Pfad(wo du deine Java Programme speicherst)</tt>
+			ein</li><br><br>
+			<li>So, jetzt alles speichern und schließen, am besten Windows neu starten und fertig seid ihr!</li>
+			</ul></p>
+			<p>Hoffentlich hilft euch das über die Anfangsschwierigkeiten mit Java hinweg!</p>
+			</td>
+		</tr>
+		</table>
+<div align="left"><a href="javascript:self.close();">close me</a></div><br>
+</body>
+</html>

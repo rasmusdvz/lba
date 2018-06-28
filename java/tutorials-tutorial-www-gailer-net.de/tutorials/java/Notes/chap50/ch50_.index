@@ -1,0 +1,28 @@
+<!-- parent class -->
+<li><a href="ch50_3.html#parent class">parent class</a></li>
+<!-- base class -->
+<li><a href="ch50_3.html#base class">base class</a></li>
+<!-- base class -->
+<li><a href="ch50_3.html#base class">base class</a></li>
+<!-- single inheritance -->
+<li><a href="ch50_3.html#single inheritance">single inheritance</a></li>
+<!-- multiple inheritance -->
+<li><a href="ch50_3.html#multiple inheritance">multiple inheritance</a></li>
+<!-- is-a relationship -->
+<li><a href="ch50_5.html#is-a relationship">is-a relationship</a></li>
+<!-- hierarchy -->
+<li><a href="ch50_7.html#hierarchy">hierarchy</a></li>
+<!-- root of a hierarchy -->
+<li><a href="ch50_7.html#root of a hierarchy">root of a hierarchy</a></li>
+<!-- is-a link -->
+<li><a href="ch50_7.html#is-a link">is-a link</a></li>
+<!-- program, video tape rental -->
+<li><a href="ch50_9.html#program, video tape rental">program, video tape rental</a></li>
+<!-- super -->
+<li><a href="ch50_11.html#super">super</a></li>
+<!-- overriding a method -->
+<li><a href="ch50_15.html#overriding a method">overriding a method</a></li>
+<!-- super, in child method -->
+<li><a href="ch50_16.html#super, in child method">super, in child method</a></li>
+<!-- object -->
+<li><a href="ch50_22.html#object">object</a></li>

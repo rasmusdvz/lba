@@ -1,0 +1,862 @@
+<!-- Jan. 26, 2000  bpk   INDEX  --->
+<!-- Jan. 06, 2002  bpk   Conversion to Swing  --->
+<!-- Feb. 03, 2004  bpk   Small edits, improved gif's  --->
+
+<COPYRIGHTDATE>2008</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2010, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#56</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+
+<CAI> Kapitel 56 &#8212; JFrame
+<p class="revisions">erstellt: 24.03.99 (mit AWT), grundlegende &Uuml;berarbeitung: 06.01.02 (mit Swing), kleinere &Auml;nderungen: 03.02.04, 12.02.05, 17.07.06; versch&ouml;nert 01.11.08; &uuml;bersetzt 04.02.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p> </p>
+
+
+<LESSON>
+
+<p>
+Ein <code>JFrame</code> repr&auml;sentiert das Fenster eines GUI Applikationsprogramms.
+Es kann Komponenten und Methoden enthalten, die Ihre Applikation braucht.
+Dieses Kapitel ist eine Einf&uuml;hrung in dieses Konzept.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>The <code>JFrame</code>-Klasse</li>
+
+<li>Methoden:
+   <ul>
+     <li>Die <code>setSize()</code> Methode</li>
+     <li>Die <code>setBounds()</code> Methode</li>
+     <li>die <code>setVisible()</code> Methode</li>
+
+     <li>Die <code>setDefaultCloseOperation()</code> Methode</li>
+   </ul>
+</li>
+<li>Die <code>JFrame</code>-Klasse erweitern</li>
+<li>Die <code>JLabel</code>-Klasse</li>
+
+</ul>
+
+<p>
+Es mag hilfreich sein manchmal zu den Hierarchiediagrammen des
+vorherigen Kapitels zur&uuml;ckzukehren.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick: ) Ist JFrame ein Teil von Swing?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Frames
+
+<ANSWER>
+<p>
+Ja. Seien Sie vorsichtig und vergessen Sie das &quot;J&quot; in <code>JFrame</code> nicht,
+sonst bekommen Sie die &auml;ltere AWT Komponente. </p>
+
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Grafische Komponenten m&uuml;ssen innerhalb eines Containers platziert werden.
+Ein Container entspricht einer rechteckigen Fl&auml;che auf dem Bildschirm
+und die Komponenten, die er enth&auml;lt, entsprechen kleineren Fl&auml;chen in ihm.
+</p>
+
+<INDEX>frame</INDEX>
+<p>
+In Java ist ein <b>Frame</b> ein Fenster mit h&uuml;bschen Rahmen, mit verschiedenen Buttons
+unterhalb des oberen Rahmens und mit anderen Merkmalen.
+Was Sie &uuml;blicherweise ein &quot;Fenster&quot; nennen,
+hei&szlig;t in Java &quot;Frame&quot;.
+Ein Frame ist ein Containerobjekt, also
+k&ouml;nnen GUI Komponenten darin platziert werden.
+</p>
+
+<p>
+Wie bei allen Softwareobjekten ist ein Frameobjekt ein Abschnitt Hauptspeicher,
+der die Informationen und die Methoden enth&auml;lt.
+Mit Hilfe des Betriebssystems und der Grafikkarte
+zeichnet Java ein Bild auf den Computerbildschirm,
+das den Frame repr&auml;sentiert.
+Menschen sprechen oft so, als w&auml;re der Frame das tats&auml;chliche Bild.
+Tats&auml;chlich ist das, was Sie auf dem Bildschirm sehen,
+nur eine grafische Repr&auml;sentation des Frames.
+</p>
+
+<p>
+GUI Applikationsprogramme sind &uuml;blicherweise um einen oder mehrere Frames herum organisiert.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick: ) Wie importieren Sie alle Klassen des <code>java.awt</code> und des <code>javax.swing</code> Pakets?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ein kleines GUI Programm
+<ANSWER>
+<pre>
+<code>import java.awt.*</code>
+<code>import javax.swing.*</code>
+</pre>
+
+<p>
+Der <code>*</code> bedeutet alle Klassen eines Pakets zu importieren.
+Es ist OK (und &uuml;blich) das zu tun, auch wenn Sie nur ein paar Klassen verwenden wollen.
+</p>
+
+
+</ANSWER>
+
+<LESSON>
+
+<center>
+<img src="TestFrame1.gif" alt="empty frame">
+</center>
+
+<p>
+Unser erstes GUI Programm hat weder eine Listener-Methode
+noch Applikationscode und
+ist kein n&uuml;tzliches Programm.
+Aber es wird uns auf den Weg bringen.
+Hier ist das komplette Programm:
+</p>
+
+<pre class="program">
+import java.awt.*;
+import javax.swing.*;
+
+public class TestFrame1
+{
+  public static void main ( String[] args )
+  {
+    JFrame frame = new JFrame("Test Frame 1");
+    frame.setSize(200,100);
+    frame.setVisible( true );
+    frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+}
+</pre>
+
+<INDEX>setSize()</INDEX>
+<INDEX>setVisible()</INDEX>
+<INDEX>setDefaultCloseOperation()</INDEX>
+<INDEX>JFrame</INDEX>
+
+<p>
+Zuerst wird ein <code>JFrame</code> erzeugt, indem sein Konstruktor aufgerufen wird.
+Das Argument des Konstruktors setzt den Titel des Frames.
+</p>
+
+<p>
+Die <nobr><code>setSize(200,100)</code></nobr>
+Methode erstellt eine rechteckige Fl&auml;che mit einer Breite von
+200 und einer H&ouml;he von 100 Pixeln.
+Die Defaultgr&ouml;&szlig;e eines Frames  ist 0 x 0 Pixel.
+</p>
+
+<p>
+Die <nobr><code>setVisible(true)</code></nobr>
+Methode zeigt den Frame auf dem Bildschirm an.
+Wenn Sie vergessen das zu tun, wird das Frameobjekt
+als ein Objekt im Speicher existieren,
+aber es wird nicht auf dem Bildschirm angezeigt werden.
+Ein Aufruf von <nobr><code>setVisible(false)</code></nobr>
+macht den Frame unsichtbar,
+aber zerst&ouml;rt nicht das Softwareobjekt.
+</p>
+
+<p>
+Es ist leicht <nobr><code>setVisible(true)</code></nobr> zu vergessen.
+Wenn Sie ein GUI Programm ausf&uuml;hren und nichts passiert,
+&uuml;berpr&uuml;fen Sie, ob Sie diese Methode aufgerufen haben.
+</p>
+
+<a name="close button"></a>
+
+<p>
+Die <nobr><code>setDefaultCloseOperation()</code></nobr> Methode
+w&auml;hlt die durchzuf&uuml;hrende Aktion aus, wenn der "Schlie&szlig;en"-Button
+des Frames angeklickt wird.
+Das ist der kleine x-Button des Frames oben rechts.
+Wenn Sie vergessen diese Methode mit der passenden Konstanten aufzurufen,
+wird ein Klick auf den "Schlie&szlig;en"-Button den Frame unsichtbar machen, aber das Programm nicht beenden.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Kann <code>setSize(x,y)</code> die Gr&ouml;&szlig;e eines Frames zur Laufzeit &auml;ndern?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Das GUI Programm ausf&uuml;hren
+<ANSWER>
+<p>
+Ja. W&auml;hrend ein Programm l&auml;uft, kann es Komponenten hinzuf&uuml;gen, Komponenten entfernen und die Gr&ouml;&szlig;e des Frames entsprechend anpassen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Das  Programm ist eine Applikation, also
+hat es eine <code>main()</code> Methode, wo es zu starten beginnt.
+Auch wenn es nicht viel tut,
+f&uuml;hren Sie das Programm aus und experimentieren Sie damit.
+Um das Programm auszuf&uuml;hren,
+Kopieren-Einf&uuml;gen-Speichern Sie zuerst das Programm in eine Datei
+mit dem Namen
+<code>TestFrame1.java</code>.
+Dann kompilieren und f&uuml;hren Sie es aus, wie gewohnt:
+</p>
+
+<pre class="dos">
+D:\JavaNotes\examples\&gt; javac TestFrame1.java
+D:\JavaNotes\examples\&gt; java  TestFrame1
+</pre>
+
+<p><em>Das Programm l&auml;uft und zeigt den Frame an.</em></p>
+
+<p>
+Das Programm zeigt einen leeren Frame an.
+W&auml;hrend das Programm l&auml;uft, k&ouml;nnen Sie auf den Frame klicken und ihn verschieben,
+Sie k&ouml;nnen ihn minimieren und seine Gr&ouml;&szlig;e &auml;ndern und so weiter.
+All dies ist in der <code>JFrame</code>-Klasse eingebaut.
+Ihr Programm bekommt alle diese Merkmale wenn es ein <code>JFrame</code>-Objekt konstruiert.
+</p>
+
+<p>
+Der Frame bleibt "am Leben", auch wenn es in dem Programm nichts gibt, was es explizit am Laufen h&auml;lt.
+Klicken Sie auf den &quot;Schlie&szlig;en&quot;-Button, um das Programm zu beenden.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was glauben Sie tut diese Programmzeile?
+</p>
+
+<pre>
+JFrame frame = new JFrame("Test Frame 1");
+</pre>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Das Programm erkl&auml;rt
+<ANSWER>
+<p>
+Es erzeugt ein Objekt der Klasse <code>JFrame</code> und
+gibt dem Frame einen Titel.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Wenn Sie ein <code>JFrame</code>-Objekt erzeugen, wird es nicht automatisch angezeigt.
+Eine gr&ouml;&szlig;ere Applikation k&ouml;nnte mehrere <code>JFrame</code>-Objekte erzeugen,
+aber w&uuml;rde nur eines auf einmal anzeigen.
+Hier ist das Programm noch einmal:
+</p>
+
+<pre class="program">
+import java.awt.*;    <span class="blue">// 1. importiere das Application Windowing Toolkit</span>
+import javax.swing.*; <span class="blue">// 2. importiere die Swingklassen. Beachten Sie das "x" bei javax.</span>
+
+public class TestFrame1
+{
+  <span class="blue">// die &uuml;bliche main() Methode </span>
+  public static void main ( String[] args )
+  {
+    JFrame frame                        <span class="blue">// 4. Eine Referenz auf das Objekt</span>
+        = new JFrame("Test Frame 1");   <span class="blue">// 3. konstruiert ein JFrame-Objekt</span>
+    frame.setSize(200,100);             <span class="blue">// 5. setzt es auf eine Breite von 200
+                                        //    und eine H&ouml;he von 100 Pixeln</span>
+
+    frame.setVisible( true );           <span class="blue">// 6. macht es auf dem Bildschirm sichtbar</span>
+    frame.setDefaultCloseOperation
+        ( JFrame.EXIT_ON_CLOSE );       <span class="blue">// 7. sagt, was der Schlie&szlig;en-Button tun soll</span>
+  }
+}
+</pre>
+
+<p>
+Hier ist eine Erkl&auml;rung des Programms:
+</p>
+
+<ol>
+
+<li>Das AWT ist wichtig, da es viele Klassen definiert, die von GUIs verwendet werden.</li>
+    <ul>
+    <li>F&uuml;r die meisten Programme m&uuml;ssen Sie das tun.</li>
+    </ul>
+
+<li>Das Swingpaket ist wichtig, da hier <code>JFrame</code> definiert ist.</li>
+    <ul>
+    <li>Beachten Sie das 'x' in <b>javax</b>.</li>
+
+    </ul>
+
+<li>Ein <code>JFrame</code>-Objekt wird konstruiert.</li>
+
+<li>Die Referenzvariable <code>frame</code> verweist auf das <code>JFrame</code>-Objekt.</li>
+
+<li>Die Frame Methode <code>setSize()</code> setzt die Gr&ouml;&szlig;e.</li>
+
+<li>Die Frame Methode <code>setVisible()</code> l&auml;&szlig;t den Frame auf dem Bildschirm erscheinen.</li>
+
+<li>Die Frame Methode <code>setDefaultCloseOperation()</code> bestimmt, was der "Schlie&szlig;en"-Button tut.</li>
+
+</ol>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wenn das Programm l&auml;uft:
+</p>
+
+<ul>
+<li>Wieviele Objekte gibt es?</li>
+<li>Wo ist die <code>main()</code> Methode?</li>
+</ul>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Abbildung des Frames
+<ANSWER>
+
+<ul>
+<li>Wie viele Objekte gibt es? <span style="color:blue">Eins.</span></li>
+<li>Wo ist die <code>main()</code> Methode?
+    <span style="color:blue">Sie ist eine <code>static</code> Methode der
+   Klasse <code>TestFrame1</code>.</span></li>
+</ul>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Die <code>TestFrame1</code> Klasse ist definiert,
+damit es einen Platz f&uuml;r die <nobr><code>main()</code></nobr> Methode gibt.
+Da <nobr><code>main()</code></nobr> eine Klassenmethode ist,
+ist sie kein Teil irgendeines Objekts.
+Klassenmethoden werden ausgef&uuml;hrt, ohne ein Teil eines Objekts zu sein.
+Wenn das unklar ist, sehen Sie noch einmal das Kapitel 25 &uuml;ber Objekte durch.
+Hier ist eine Abbildung von dem was vor sich geht:
+</p>
+
+<center>
+
+<img src="TestFrame1diagram.gif" alt="abbildung des Frames">
+</center>
+
+
+<p>
+Wenn die <code>main()</code> Methode ausgef&uuml;hrt wird,
+fordert sie das System auf ein <code>JFrame</code>-Objekt zu erzeugen (mit <code>new</code>).
+Die Variable <code>frame</code> verweist auf dieses Objekt,
+so dass die Methoden des Objekts aufgerufen werden k&ouml;nnen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wenn Sie <code>frame.setSize(200, 100)</code> in
+<code>frame.setSize(300, 100)</code> &auml;ndern,
+wie wird dann der Frame aussehen?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Dimensionen eines Frames
+<p>
+Wenn Sie <code>frame.setSize(200, 100)</code> in
+<code>frame.setSize(300, 100)</code> &auml;ndern,
+wie wird dann der Frame aussehen?
+</p>
+
+<ANSWER>
+<p>
+Der Frame wird 300 Pixel breit und 100 Pixel hoch sein.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Die <code>setSize()</code> Methode von <code>JFrame</code> &auml;ndert
+die Gr&ouml;&szlig;e des Frames auf dem Bildschirm.
+Die Gr&ouml;&szlig;e kann zur Laufzeit des Programms ge&auml;ndert werden.
+Das folgende Programm macht das z.B. in einer Schleife:
+</p>
+
+</p>
+
+<pre class="program">
+import java.awt.*;
+import javax.swing.*;
+
+public class TestFrameErweitert
+{
+  public static void main ( String[] args )
+  {
+    int breite=200, hoehe=100;
+    JFrame frame = new JFrame("Test Frame Extra");
+
+    frame.setVisible( true );
+    frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+
+    for ( int extra=0; extra&lt;500; extra+=1 )
+      frame.setSize( breite+extra, hoehe+extra );
+  }
+}
+</pre>
+
+<p>
+Der Frame beginnt mit einer Gr&ouml;&szlig;e von 200 x 100 und wird dann gr&ouml;&szlig;er.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+W&auml;re es sinnvoll sagen zu k&ouml;nnen, wo auf dem Bildschirm der Frame erscheinen soll?
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die <code>setBounds()</code> Methode
+
+<ANSWER>
+<p>Ja.</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>setBounds()</INDEX>
+
+<p>
+Die <code>setBounds()</code> Methode kann nicht nur die Gr&ouml;&szlig;e
+eines Frames angeben, sondern auch die Position der linken oberen Ecke:
+</p>
+
+<pre>public void setBounds(int x, int y, int width, int height)
+</pre>
+
+<p>
+Das setzt die linke obere Ecke auf die Position <code>(x, y)</code>.
+Wobei <code>x</code> die Anzahl der Pixel vom linken und
+<code>y</code> die Anzahl der Pixel vom oberen Bildschirmrand ist.
+Danach folgen die Angaben f&uuml;r die Breite und die H&ouml;he.
+</p>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+M&ouml;chten Sie immer das Progrmm beenden, wenn Sie auf den Schlie&szlig;en-Button klicken?
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>setDefaultCloseOperation()
+
+<ANSWER>
+<p>
+Nein. In einem komplexen Programm mit vielen Frames m&ouml;chten Sie vielleicht nur den aktuellen Frame schlie&szlig;en
+und die Applikation weiterlaufen lassen.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>setDefaultCloseOperation()</INDEX>
+
+<p>
+Die <code>setDefaultCloseOperation()</code> Methode wird verwendet,
+um eine von mehreren Optionen f&uuml;r den Schlie&szlig;en-Button zu bestimmen.
+Verwenden Sie eine der folgenden Konstanten, um Ihre Wahl zu treffen:
+</p>
+
+<ul>
+<li>JFrame.EXIT_ON_CLOSE — Beendet die Applikation.</li>
+<li>JFrame.HIDE_ON_CLOSE — Frame wird nicht angezeigt, aber die Applikation l&auml;uft weiter.</li>
+
+<li>JFrame.DISPOSE_ON_CLOSE — Das Frameobjekt wird entsorgt, aber die Applikation l&auml;uft weiter.</li>
+<li>JFrame.DO_NOTHING_ON_CLOSE — Ignoriere den Klick.</li>
+</ul>
+
+<p>
+Wenn Sie vergessen <code>setDefaultCloseOperation()</code> aufzurufen,
+wird standardm&auml;&szlig;ig <code>JFrame.HIDE_ON_CLOSE</code> ausgef&uuml;hrt.
+Das kann frustrierend sein,
+da es so aussieht als ob Sie das Programm abgeschossen haben
+und es trotzdem weiterl&auml;uft, ohne das Sie einen Frame sehen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+K&ouml;nnen verschiedene Frames unterschiedliche Schlie&szlig;en-Operationen verwenden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Programm mit zwei Frames
+
+<ANSWER>
+Sicher.
+</ANSWER>
+
+<LESSON>
+
+<p>
+Dieses Programm erzeugt zwei Frames und zeigt sie an.
+Der eine Frame ist der "Master" Frame.
+Wird sein Schlie&szlig;en-Button geklickt, dann wird das Programm beendet.
+Der andere Frame ist tempor&auml;r.
+Sein Schlie&szlig;en-Button schlie&szlig;t nur ihn selbst.
+</p>
+
+<pre class="program">
+import java.awt.*;
+import javax.swing.*;
+
+public class ZweiTestFrames
+{
+  public static void main ( String[] args )
+  {
+    JFrame master = new JFrame("Klicken Sie, um alles zu beenden");
+    JFrame temp = new JFrame("Klicken Sie, um NUR diesen Frame zu beenden");
+
+    master.setVisible( true );
+    master.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    master.setSize( 400, 300 );
+
+    temp.setVisible( true );
+    temp.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE  );
+    temp.setSize( 300, 200 );
+
+  }
+}
+</pre>
+
+<p>
+In einem richtigen Programm w&uuml;rden die Frames nat&uuml;rlich etwas mehr tun,
+als nur sich selbst anzuzeigen. Dahin  werden wir nach ein paar weiteren Kapiteln kommen.
+</p>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist es m&ouml;glich eine Klasse zu definieren, die <code>JFrame</code> als Basisklasse verwendet?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die <code>JFrame</code> Klasse erweitern
+
+<ANSWER>
+<p>
+Sicher. Wie die meisten Klassen kann die <code>JFrame</code> Klasse erweitert werden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>JFrame, extending</INDEX>
+
+<center>
+<img src="TestFrame2.gif" alt="a Myframe object">
+</center>
+
+<p>
+Um eine GUI Applikation zu schreiben, erweitern Sie die <code>JFrame</code> Klasse.
+Dann f&uuml;gen Sie GUI Komponenten hinzu, um die Klasse zu erweitern.
+Hier ist ein Programm, dass das tut.
+</p>
+
+
+<pre class="program">
+import java.awt.*;
+import javax.swing.*;
+
+class MeinFrame extends JFrame
+{
+  JPanel panel;
+  JLabel label;
+
+  <span style="color: blue;">// Konstruktor</span>
+  MeinFrame( String title )
+  {
+    super( title );                      <span style="color: blue;">// den Konstruktor von JFrame aufrufen</span>
+    setSize( 150, 100 );
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+
+    setLayout( new FlowLayout() );       <span style="color: blue;">// den Layoutmanager setzen</span>
+
+    label = new JLabel("Hello Swing!");  <span style="color: blue;">// ein JLabel konstruieren</span>
+    add( label );                        <span style="color: blue;">// das Label dem JFrame hinzuf&uuml;gen</span>
+  }
+
+}
+
+public class TestFrame2
+{
+  public static void main ( String[] args )
+  {
+    MeinFrame frame = new MeinFrame("Hello"); <span style="color: blue;">// ein MyFrame-Objekt konstruieren</span>
+    frame.setVisible( true );             <span style="color: blue;">// es auffordern sichtbar zu werden</span>
+  }
+}
+
+</pre>
+
+<p>
+Die neue Klasse wird <code>MeinFrame</code> genannt und basiert auf
+der Klasse <code>JFrame</code>.
+Ein <b>Layoutmanager</b> bestimmt, wie ein Container seine Komponenten anordnet.
+Der Layoutmanager f&uuml;r diesen Frame wird auf <code><b>FlowLayout</b></code> gesetzt,
+indem die <code>setLayout()</code> Methode verwendet wird.
+(Dar&uuml;ber werden Sie in den n&auml;chsten Kapiteln mehr erfahren.)
+
+</p>
+
+<p>
+Der Frame enth&auml;lt eine GUI Komponente,  ein <code>JLabel</code>,
+das die Worte "Hello Swing!" anzeigt.
+Das <code>JLabel</code> wird dem Frame mit der <code>add()</code> Methode hinzugef&uuml;gt.
+</p>
+
+<p>
+Die <code>main()</code> Methode in dieser Applikation tut nicht mehr als
+ein <code>MeinFrame</code>-Objekt zu konstruieren und es sichtbar zu machen.
+</p>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Wo muss <code>super( title )</code> im Konstruktor stehen.
+</QUESTION>
+</CAI>
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Container halten Referenzen auf Komponenten
+
+<ANSWER>
+<p>
+Der Aufruf des Konstruktors der Superklasse muss die erste Anweisung im Konstruktor von <code>MeinFrame</code> sein.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX></INDEX>
+
+<p>
+<code>MeinFrame</code> ist ein <code>Container</code>,
+da er von <code>JFrame</code> erbt.
+Also k&ouml;nnen ihm GUI Komponenten hinzugef&uuml;gt werden.
+Wenn einem Container eine Komponente hinzugef&uuml;gt wird,
+wird eine Referenz auf diese Komponente der Komponentenliste des Containers hinzugef&uuml;gt.
+</p>
+
+<p>
+Grafisch erscheinen die einem Container hinzugef&uuml;gten Komponenten
+in dem Rechteck auf dem Bildschirm, das dem Container zugeteilt ist.
+In dem Beispielprogramm f&uuml;gt der Code dem Frame ein <code>JLabel</code> hinzu
+und es erscheint innerhalb dieses Bereichs.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+K&ouml;nnten <code>MeinFrame</code> weitere <code>JLabel</code>-Referenzen hinzugef&uuml;gt werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Abbildung von MeinFrame
+<ANSWER>
+<p>
+Ja. Vielleicht m&ouml;chten Sie das Programm kopieren und es ausprobieren.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Die Abbildung dieses Programms zeigt
+die Klasse <code>TestFrame2</code> mit der Klassenmethode <code>main()</code>,
+die das Programm startet.
+Dann wird ein <code>MeinFrame</code>-Objekt konstruiert,
+indem die Klassendefinition verwendet wird.
+Die Variable <code>frame</code> verweist auf dieses Objekt.
+
+</p>
+
+
+<center>
+<img src="TestFrame2Diagram.gif">
+</center>
+
+<p>
+Sobald das <code>MyFrame</code>-Objekt konstruiert ist,
+wird ein <code>JLabel</code>-Objekt konstruiert und dem Frame hinzugef&uuml;gt.
+</p>
+
+<p>
+Nachdem alles konstruiert und &uuml;ber Referenzenzen verkn&uuml;pft ist,
+&uuml;bernimmt das Grafiksystem und zeichnet die visuelle Version aller Komponenten.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Kann <code>MeinFrame</code> auf dem Bildschirm angeklickt, verschoben und die Gr&ouml;&szlig;e ge&auml;ndert werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<ANSWER>
+<p>
+Ja. Er erbt dieses ganze Verhalten von <code>JFrame</code>. Sie m&uuml;ssen nichts schreiben, um dieses Verhalten zu bekommen.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<p>
+Sie haben das Ende des Kapitels erreicht.
+Sie m&ouml;chten vielleicht Ihr Wissen &uuml;berpr&uuml;fen, indem Sie das Folgende nochmals pr&uuml;fen.
+</p>
+
+<ul>
+<li>
+<GOTO>frame</GOTO>Frames in Java.
+</li>
+
+<li>
+<GOTO>setSize()</GOTO>Die <code>setSize()</code> Methode von <code>JFrame</code>
+</li>
+
+<li>
+<GOTO>setDefaultCloseOperation()</GOTO> Die <code>setDefaultCloseOperation()</code> Methode von <code>JFrame</code>.
+</li>
+
+<li>
+<GOTO>setBounds()</GOTO> Die <code>setBounds()</code> Method.</a>
+</li>
+
+
+<li>
+<GOTO>JFrame, extending</GOTO>Die <code>JFrame</code> Klasse erweitern.
+</li>
+
+</ul>
+
+<p>
+Dasn&auml;chste Kapitel wird besprechen, wie einem Frame Listener_Methoden hinzugef&uuml;gt werden k&ouml;nnen.
+</p>
+
+
+</LESSON>
+</CAI>
+</CHAPTER>

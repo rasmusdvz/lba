@@ -1,0 +1,106 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>Kapitel 60  Programmieraufgaben</title>
+<meta name="copyright" content="2010,  Heinrich Gailer">
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css">
+</head>
+
+<body>
+<p class="revisions">erstellt 29.06.99; &uuml;bersetzt 07.02.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+
+<h1>Kapitel 60 Programmieraufgaben</h1>
+
+<p>
+Alle diese Aufgaben k&ouml;nnen durch sinnvolle Modifizierung
+des Beispielprogramms aus diesem Kapitel gel&ouml;st werden.
+</p>
+
+<hr>
+
+<h2>Aufgabe 1 &#8212; Ratespiel</h2>
+<p>
+Passen Sie das <code>Wiederholer</code>-Programm an,
+so dass der Anwender ein geheimes Wort in das obere Feld
+eingeben muss.
+Nach jedem Eintrag sagt das untere Feld entweder
+"korrekt" oder "falsch"
+Nach drei Fehlversuchen wird das Programm beendet.
+</p>
+
+<p>
+Sie werden die <code>equals()</code> Methode der Klasse <code>String</code> brauchen.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#60">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 2 &#8212; Fehlermeldung</h2>
+
+<p>
+Modifizieren Sie das <code>Wiederholer</code>-Programm,
+so dass wenn der Anwender Text in das untere Textfeld eingibt und
+die Eingabetaste bet&auml;tigt, der Text durch die Fehlermeldung
+"Geben Sie Text im oberen Feld ein!" ersetzt wird.
+</p>
+
+<p>
+Sie werden die <code>actionPerformed( ActionEvent evt )</code> Methode
+anpassen m&uuml;ssen, so dass sie bestimmt welches Textfeld die Aktion
+erzeugt hat.
+Das kann durch die Verwendung der <code>evt.getActionCommand()</code> Methode
+getan werden, die den <code>String</code> ermittelt, den der Anwender gerade eingegeben hat
+(dabei spielt es keine Rolle in welchem Feld er eingegeben wurde).</p>
+
+<p>Verwenden Sie jetzt <code>getText()</code> f&uuml;r die obere Box,
+um zu sehen, ob der String in diesem Feld der gleiche ist, wie der Befehlsstring in
+<code>ActionEvent</code>.
+Wenn ja, kopieren Sie den String in die untere Box.
+Wenn nein, geben Sie die Fehlermeldung aus.
+Vergewissern Sie sich, dass Sie einen <code>ActionListener</code> f&uuml;r jedes <code>JTextField</code>
+registrieren.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#60">Inhaltsverzeichnis</a>.</p>
+
+
+<hr>
+<h2>Aufgabe 3 &#8212; Echo f&uuml;r beide Felder</h2>
+<p>
+Modifzieren Sie das <code>Wiederholer</code>-Programm,
+so dass der Anwender Text sowohl in das obere als
+auch in das untere Feld eingeben kann.
+Der Text wird in dem jeweils anderen Feld wiederholt
+und ersetzt den vorhandenen Text.
+Um das zu tun, werden Sie <code>getActionCommand()</code>
+wie in der Aufgabe 2 verwenden m&uuml;ssen.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#60">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+<h2>Aufgabe 4 &#8212; Texttausch</h2>
+<p>
+F&uuml;gen Sie der GUI einen <code>JButton</code> hinzu.
+&Auml;ndern Sie das Programm, so dass, wenn der Button
+angeklickt wird, die Strings in den beiden Textfeldern ausgetauscht
+werden;
+d.h. das obere Textfeld bekommt den Text des unteren und
+das untere Textfeld bekommt den Text des oberen.
+Die <code>actionPerformed()</code> Methode
+wird den  Button auf ein Ereignis abh&ouml;ren
+und wird, wenn sie eines empf&auml;ngt, den Text
+in den beiden Feldern austauschen.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#60">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+</body>
+</html>

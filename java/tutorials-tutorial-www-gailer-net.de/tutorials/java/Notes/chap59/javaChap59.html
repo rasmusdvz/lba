@@ -1,0 +1,1056 @@
+<!-- Jan. 26, 2000  bpk   INDEX  --->
+<!-- Feb. 06, 2004  bpk   revision, better gifs  --->
+
+<COPYRIGHTDATE>2008</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2010, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#59</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+
+<CAI> Kapitel 59 &#8212; Buttons und Action-Ereignisse
+<p class="revisions">erstellt: 26.6.99 (mit AWT), grundlegende &Uuml;berarbeitung: 26.01.00, 09.01.02 (mit Swing);  versch&ouml;nert: 19.07.08 &uuml;bersetzt 06.02.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<LESSON>
+
+<p>
+Kapitel 58 ist in den Vorruhestand getreten.
+</p>
+
+<p>
+Wir haben uns mit ereignisgesteuerter Programmierung besch&auml;ftigt.
+Ein GUI Programm besteht aus drei Arten von Software:
+</p>
+
+<ol>
+<li><b>Komponenten</b>, die die grafische Benutzeroberfl&auml;che ausmachen. <span class="blue"> <tt><b>&lt;&#8212;&#8212;</b></tt> das haben wir getan; dieses Kapitel wird noch mehr tun.</span></li>
+<li><b>Listener-Methoden</b>, die die Ereignisse empfangen und auf sie reagieren. <span class="blue"> <tt><b>&lt;&#8212;&#8212;</b></tt> das haben wir getan; dieses Kapitel wird noch mehr tun.</span></li>
+<li><b>Applikationsmethoden</b>, die f&uuml;r den Anwender die n&uuml;tzliche Arbeit tun. <span class="red"> <tt><b>&lt;&#8212;&#8212;</b></tt> das haben wir noch nicht getan.</span></li>
+</ol>
+
+<p>
+Wir werden in K&uuml;rze zum dritten Schritt kommen und
+Sie werden eine vollst&auml;ndige GUI Applikation schreiben!
+Aber noch nicht jetzt.
+Dieses Kapitel f&uuml;hrt die Besprechung fort, wie Button Komponenten einem Frame hinzugef&uuml;gt werden k&ouml;nnen
+und, wie die <nobr><code>actionPerformed()</code></nobr> Methode erfahren kann welcher Button geklickt wurde.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Die <code>setActionCommand()</code> Methode eines Buttons</li>
+
+<li>Die <code>getActionCommand()</code> Methode eines Action-Events</li>
+<li>Die <code>actionPerformed()</code> Methode mit mehreren Buttons</li>
+</ul>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wie hei&szlig;t die Methode, die die Action-Events erh&auml;lt, wenn ein Button angeklickt wird?
+</p>
+
+</QUESTION>
+
+
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>R&uuml;ckblick auf <code> actionPerformed() </code>
+
+<ANSWER>
+<p>
+<code>actionPerformed()</code>
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>actionPerformed()</INDEX>
+
+<p>
+Der Parameter f&uuml;r  <code>actionPerformed()</code>
+ist eine Referenz auf ein <code>ActionEvent</code>-Objekt,
+einer Subklasse von <code>AWTEvent</code>.
+
+Wenn ein Button angeklickt wird,
+wird <code>actionPerformed()</code> mit einem neuen <code>ActionEvent</code> Parameter aufgerufen.
+
+Bis jetzt haben wir noch nichts mit
+dem <code>ActionEvent</code>-Objekt getan.
+
+Wir werden das in K&uuml;rze tun.
+Hier ist eine Abbildung:
+</p>
+
+<center>
+<img src="actionEvent.gif" alt="ActionEvent">
+</center>
+
+
+<p>
+Der registrierte  <code>ActionListener</code> kann das Objekt sein,
+das den Button enth&auml;lt. F&uuml;r kleine Applikationen ist das ein Objekt
+vom Typ einer Subklasse von <code>JFrame</code>.
+
+(Mit anderen Worten, Sie definieren eine Klasse, die auf
+<code>JFrame</code> basiert.) Die Klasse enth&auml;lt den Button
+und implementiert gleicherma&szlig;en die Schnittstelle <code>ActionListener</code>.
+</p>
+
+<p>
+In gr&ouml;&szlig;eren Applikationen kann der Listener in einer
+eigenen Klasse oder in einem anderen Container sein.
+Dazu mehr in den folgenden Kapiteln.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Kann ein Frame zwei Buttons enthalten?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Zwei Buttons in einem Frame
+
+<ANSWER>
+
+<p>
+Sicher. Ein Frame kann viele GUI Komponenten enthalten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>twoButtonSpecs</INDEX>
+
+<div align="center">
+<img src="twoButtonsScreen.gif" alt="two buttons in a green frame">
+</div>
+
+<p>
+Lassen Sie uns ein neues Programm entwickeln:
+</p>
+
+<ul>
+<li>Ein Frame wird zwei Buttons enthalten, der eine mit der Beschriftung "Red" und der andere mit  "Green."</li>
+<li>Der <code>FlowLayout</code> Layoutmanager wird die Buttons in dem Frame platzieren.</li>
+<li>Wenn der Button mit der Beschriftung  "Red" angeklickt wird, wird der Hintergrund rot werden.</li>
+<li>Wenn der Button mit der Beschriftung  "Green" angeklickt wird, wird der Hintergrund gr&uuml;n werden.</li>
+<li>Der Ereignis-Listener wird die Klicks der beiden Buttons abh&ouml;ren.</li>
+<li>Wenn das "Schlie&szlig;en"-Symbol des Frames angeklickt wird, dann wird die Applikation beendet.</li>
+
+</ul>
+
+
+<p>
+Das ist &auml;hnlich wie unser vorheriges Beispiel.
+Es w&auml;re vern&uuml;nftig diese Datei als Ausgangsbasis einer neuen Applikation zu nehmen.
+Jedoch, als ein R&uuml;ckblick auf die einigerma&szlig;en verwirrenden Details
+einer GUI Implementation,
+lassen Sie uns von vorne beginnen.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Lesen Sie die Beschreibung noch einmal und entscheiden
+Sie das Folgende:
+</p>
+
+<ol>
+<li>Wie viele Frames gibt es?</li>
+<li>Welche GUI Komponenten wird sie enthalten?</li>
+<li>Welche Objekte erzeugen Ereignisse?</li>
+<li>Welche Objekte empfangen Ereignisse?</li>
+</ol>
+</QUESTION>
+
+</CAI>
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Der Frame
+
+<ANSWER>
+<ol>
+<li>Wie viele Frames gibt es?
+    <ul><li><span class="blue">Nur einen.</span></li></ul></li>
+
+<li>Welche GUI Komponenten wird er enthalten?
+    <ul><li><span class="blue">Den "Red"- und den "Green"-Button.</span></li></ul></li>
+<li>Welche Objekte erzeugen Ereignisse?
+    <ul><li><span class="blue">Die zwei Buttons.</span></li></ul></li>
+<li>Welche Objekte empfangen Ereignisse?
+    <ul>
+        <li><span class="blue">Der Listener f&uuml;r die Button-Ereignisse ist der Frame, der die Buttons enth&auml;lt.</span></li></ul></li>
+</ol>
+
+<p>
+Tats&auml;chlich gibt es viele Ereignisse, die von der GUI Anwendung erzeugt werden k&ouml;nnten,
+aber bis auf die Buttonklicks werden die meisten dieser Ereignisse ignoriert.
+Es gibt andere Ereignisse, wie das Klicken auf das Schlie&szlig;en-Symbol, das nicht ignoriert wir,
+sondern vom Frame behandelt wird.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Sie h&auml;tten sagen k&ouml;nnen, dass jeder Button seinen eigenen Listener
+ben&ouml;tigt. Das w&uuml;rde funktionieren, aber wir k&ouml;nnen auch nur einen verwenden.
+Schreiben Sie zuerst eine Klassendefinition f&uuml;r den Container Frame.
+Hier ist ein Grundger&uuml;st:
+</p>
+
+<form>
+<pre class="program">
+import java.awt.*;
+import java.awt.<input type="text" size="15" name="blankA">.*;
+import javax.swing.*;
+
+public class TwoButtons extends  <input type="text" size="15" name="blankB"> implements  <input type="text" size="15" name="blankC">
+{
+
+
+  . . . . hier kommt mehr Code . . . .
+
+  public static void main ( String[] args )
+  {
+    TwoButtons demo  = <input type="text" size="30" name="blankD"> ;
+
+    demo.demo.setSize( 200, 150 );
+    demo.setVisible( true );
+
+  }
+}
+
+</pre></form>
+
+<p>
+Beachten Sie, dass dieses Programm die <code>main()</code> Methode innerhalb der Klasse <code>TwoButtons</code> enth&auml;lt.
+</p>
+
+<p>
+Entscheiden Sie im ersten Schritt welche Klasse erweitert
+und welche Schnittstelle implementiert wird.
+F&uuml;llen Sie dann den Konstruktor in der <code>main()</code> aus.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<form>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus.
+
+<input type="button" value="Hinweis"
+onClick="alert('Diese Klasse wird sowohl ein Listener f&uuml;r Action-Events als auch der Frame selbst sein.')">
+&nbsp; &nbsp;
+<input type="button" value="Noch ein Hinweis"
+onClick="alert('Ereignisse werden ben&ouml;tigt.')">
+</p>
+</form>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Zwei Buttons
+
+<ANSWER>
+<p>
+Die getane Arbeit ist unten zu sehen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Jetzt werden die zwei Buttons der Klasse hinzugef&uuml;gt.
+Nennen Sie den einen Button <code>redButton</code> und den anderen <code>grnButton</code>.
+</p>
+
+<pre class="program">
+import java.awt.*;
+import java.awt.<span class="blue">event</span>.*;
+import javax.swing.*;
+
+public class TwoButtons extends  <span class="blue">JFrame</span> implements  <span class="blue">ActionListener</span>
+{
+
+  . . . . hier kommt mehr Code . . . .
+
+  public static void main ( String[] args )
+  {
+    TwoButtons demo  = <span class="blue">new TwoButtons( "Click a Button" )</span> ;
+
+    demo.setSize( 200, 150 );
+    demo.setVisible( true );
+
+  }
+}
+
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Entscheiden Sie wo in den Programm die Definitionen f&uuml;r die Buttons und
+des Konstruktors stehen sollen.
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Buttons hinzuf&uuml;gen
+
+<ANSWER>
+<p>
+Die zwei Buttons sind definiert (siehe unten).
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Ein Grundger&uuml;st f&uuml;r den Konstruktor wurde dem Programm hinzugef&uuml;gt.
+</p>
+
+<pre class="program">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TwoButtons extends JFrame implements ActionListener
+{
+<span class="blue">
+  JButton redButton;
+  JButton grnButton;
+
+</span>
+
+  // constructor for TwoButtons
+  public TwoButtons( String title )
+  {
+<span class="blue">
+    super( title );
+    redButton = new JButton("Red");
+    grnButton = new JButton("Green");
+
+    . . . . hier kommt mehr Code . . . .
+
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+</span>
+  }
+
+  . . . . hier kommt mehr Code . . . .
+
+  public static void main ( String[] args )
+  {
+    TwoButtons demo  = new TwoButtons( "Click a Button") ;
+
+    demo.setSize( 200, 150 );
+    demo.setVisible( true );
+  }
+}
+</pre>
+
+<p>
+Jetzt denken Sie darin, dass GUI Komponenten dem Container hinzugef&uuml;gt werden m&uuml;ssen.
+</p>
+
+
+
+</LESSON>
+
+<QUESTION>
+<form>
+<p>
+Entscheiden Sie, wo die <code>add()</code> Methode verwendet wird,
+um die Buttons hinzuf&uuml;gen.
+
+<input type="button" value="Hinweis"
+onClick="alert('Komponenten werden einem Container hinzugef&uuml;gt, wenn der Container konstruiert wird.')">
+
+</p>
+</form>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Layout
+
+<ANSWER>
+<p>
+Siehe unten.
+</p>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+Der Konstruktor wird ben&ouml;tigt, so dass die <code>TwoButtons</code>-Objekte
+erzeugt werden, wenn der Frame konstruiert wird.
+Die <nobr><code>add()</code></nobr> Methode wird verwendet, um die GUI Komponenten
+in den Kontainer zu stellen.
+</p>
+
+<pre class="program">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TwoButtons extends JFrame implements ActionListener
+{
+  JButton redButton ;
+  JButton grnButton ;
+
+  // constructor for TwoButtons
+  public TwoButtons( String title )
+  {
+    super( title );
+
+    redButton = new JButton("Red");
+    grnButton = new JButton("Green");
+<span class="blue">
+    add( redButton );
+    add( grnButton );
+</span>
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+
+  . . . . hier kommt mehr Code . . . .
+
+  public static void main ( String[] args )
+  {
+    TwoButtons demo  = new TwoButtons( "Click a Button") ;
+
+    demo.setSize( 200, 150 );
+    demo.setVisible( true );
+
+  }
+}
+</pre>
+
+
+<p>
+Ein Layoutmanager muss diesem Container zugeordnet werden.
+Verwenden Sie <nobr><code>setLayout()</code></nobr> mit dem <nobr><code>FlowLayout()</code></nobr> Manager.
+
+</p>
+
+</LESSON>
+
+<QUESTION>
+<form>
+<p>
+F&uuml;gen Sie das dem Programm hinzu.
+<input type="button" value="Hinweis"
+onClick="alert('Es w&auml;re sch&ouml;n den Layoutmanager zu haben, wenn die Buttons hinzugef&uuml;gt werden.')">
+&nbsp; &nbsp;
+ </p>
+</form>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Den Layoutmanager setzen
+
+<ANSWER>
+<p>
+Der Layoutmanager wurde hinzugef&uuml;gt.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+<code>FlowLayout()</code> wird die zwei Buttons innerhalb
+der Fl&auml;che des Frames nett anordnen.
+</p>
+
+<pre class="program">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TwoButtons extends JFrame implements ActionListener
+{
+  JButton redButton ;
+  JButton grnButton ;
+
+  // constructor for TwoButtons
+  public TwoButtons( String title )
+  {
+    super( title );
+
+    redButton = new JButton("Red");
+    grnButton = new JButton("Green");
+<span class="blue">
+
+    // choose the layout manager
+    setLayout( new FlowLayout() );
+</span>
+    add( redButton );
+    add( grnButton );
+
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+
+  . . . . hier kommt mehr Code . . . .
+
+  public static void main ( String[] args )
+  {
+    TwoButtons demo  = new TwoButtons( "Click a Button") ;
+
+    demo.setSize( 200, 150 );
+    demo.setVisible( true );
+
+  }
+}
+</pre>
+
+<p>
+Ein Action-Listener muss f&uuml;r die zwei Buttons registriert werden.
+Es gibt verschiedene M&ouml;glichkeiten wie das getan werden k&ouml;nnte,
+aber lassen Sie uns nur <em>einen</em> Listener verwenden,
+der <i>beide</i> Buttons abh&ouml;rt.
+Das Listener-Objekt wird dasselbe Objekt sein wie der Container,
+das Objekt vom Typ <code>TwoButtons</code>.
+
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wie hei&szlig;t die Methode,
+die ein Action-Listener implementieren muss?
+Wo sollte sie in dem obigen Programm stehen?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ein nicht ganz korrektes Programm
+
+<ANSWER>
+<p>
+<code>actionPerformed()</code>
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist das Programm mit einer an der richtigen Stelle hinzugef&uuml;gten <code>actionPerformed()</code> Methode.
+Das Programm ist vollst&auml;ndig und kann kompiliert und ausgef&uuml;hrt werden.
+<i>Jedoch etwas ist falsch.</i>
+Sie m&ouml;chten es vielleicht kompilieren und ausf&uuml;hren,
+um zu sehen  was falsch ist.
+</p>
+
+<pre class="program">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TwoButtons extends JFrame implements ActionListener
+{
+  JButton redButton ;
+  JButton grnButton ;
+
+  // Konstruktor f&uuml;r TwoButtons
+  public TwoButtons( String title )
+  {
+    super( title );
+
+    redButton = new JButton("Red");
+    grnButton = new JButton("Green");
+
+    // den Layoutmanager setzen
+    setLayout( new FlowLayout() );
+    add( redButton );
+    add( grnButton );
+<span class="blue">
+    // den demo Frame (this) als Listener
+    // f&uuml;r beide JButtons registrieren
+    redButton.addActionListener( this );
+    grnButton.addActionListener( this ); </span>
+
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+  <span class="blue">
+  public void actionPerformed( ActionEvent evt)
+  {
+    getContentPane().setBackground( Color.blue );
+    repaint();
+  }</span>
+
+  public static void main ( String[] args )
+  {
+    TwoButtons demo  = new TwoButtons( "Click a Button") ;
+
+    demo.setSize( 200, 150 );
+    demo.setVisible( true );
+
+  }
+}
+
+</pre>
+
+<p>
+Gehen Sie zur&uuml;ck auf die Seite mit der
+<GOTO>twoButtonSpecs</GOTO> Beschreibung
+, was die Aufgabe des Programms ist und
+stellen Sie den Fehler dieser Programmversion fest.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>Was ist falsch mit dem Programm?</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Abbildung des Problems
+
+<ANSWER>
+<p>
+Buttonklick-Ereignisse werden an die <code>actionPerformed()</code> Methode
+&uuml;bergeben, aber sie tut immer das Gleiche,
+egal welcher Button angeklickt wird.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Irgendwie m&uuml;ssen wir <code>actionPerformed()</code> so schreiben,
+dass sie f&uuml;r jeden Button etwas anderes macht.
+Betrachten Sie noch einmal die Methode:
+</p>
+
+<pre class="code">
+
+  public void actionPerformed( ActionEvent evt)
+  {
+    getContentPane().setBackground( Color.blue );
+    repaint();
+  }
+</pre>
+
+<p>
+Die Abbildung zeigt die gegenw&auml;rtige Situation.
+Ereignisobjekte der beiden Butttons werden an dieselbe
+Methode geliefert, die den Hintergrund auf Blau setzt,
+egal welches Ereignis sie empf&auml;ngt.
+</p>
+
+<center>
+<img src="twoButtonsClick.gif" alt="red and green buttons">
+</center>
+
+<INDEX>setActionCommand()</INDEX>
+
+<p>
+Wir m&ouml;chten, dass uns das <code>ActionEvent</code>-Objekt,
+das an <nobr><code>actionPerformed()</code></nobr> &uuml;bergeben wird,
+sagt was getan werden soll.
+Um das zu tun, k&ouml;nnen Sie jedem Button unterschiedliche Befehle zuordnen,
+indem Sie
+</p>
+
+<pre class="code">
+setActionCommand(String command)
+</pre>
+
+<p>
+verwenden. Jetzt sendet jeder Button seinen Befehl (einen String) als Teil
+des <code>ActionEvent</code>-Objets, wenn er angeklickt wird.
+Die <nobr><code>actionPerformed()</code></nobr> Methode verwendet den Befehl,
+um zu sehen, was zu tun ist.
+</p>
+
+<p>
+Wenn Sie <nobr><code>setActionCommand()</code></nobr> nicht verwenden,
+um einen Button einen Befehlsstring zuzuordnen,
+dann enth&auml;lt der Befehl die gleichen Worte, die als Beschriftung f&uuml;r den Button verwendet werden.
+Das ist &uuml;blicherweise OK, ist aber bei gro&szlig;en Projekten umst&auml;ndlich.
+Sie m&ouml;chten in der Lage sein die Beschriftung von Buttons &auml;ndern zu k&ouml;nnen,
+ohne das Sie den Rest des Codes &auml;ndern m&uuml;ssen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Welche Objekte haben eine <code>setActionCommand()</code> Methode?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code>JButton</code> Befehle setzen
+
+<ANSWER>
+<p>
+Jedes <code>JButton</code>-Objekt hat diese Methode,
+um den Befehl zu &auml;ndern, den es sendet.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist das Programm soweit, aber mit ein paar neuen L&uuml;cken.
+</p>
+
+<form>
+
+<pre class="program">
+public class TwoButtons extends JFrame implements ActionListener
+{
+  JButton redButton ;
+  JButton grnButton ;
+
+  // Konstruktor f&uuml;r TwoButtons
+  public TwoButtons()
+  {
+    super( title );
+
+    redButton = new JButton("Red");
+    grnButton = new JButton("Green");
+
+    <input type="text" size="40" name="blankM"> ;
+
+    <input type="text" size="40" name="blankP"> ;
+
+    // den demo Frame (this) als Listener
+    // f&uuml;r beide JButtons registrieren
+    redButton.addActionListener( this );
+    grnButton.addActionListener( this );
+
+    setLayout( new FlowLayout() );
+    add( redButton );
+    add( grnButton );
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+
+  <b>. . . .</b>
+}
+</pre></form>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus?
+</p>
+
+<ol>
+<li>F&uuml;r jeden Button muss ein Befehl gesetzt werden.</li>
+<li>Der Befehl ist ein <code>String</code>.</li>
+
+<li>Die Befehle m&uuml;ssen eindeutig sein.</li>
+</ol>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ferige <code> actionPerformed() </code> Methode
+
+
+<ANSWER>
+<p>
+Die ausgef&uuml;llten L&uuml;cken sind unten.
+Jeder Button muss einen eindeutigen Befehl haben,
+aber es k&ouml;nnen andere sein, als diese hier.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>getActionCommand()</INDEX>
+
+<p>
+Wir m&uuml;ssen etwas Logik hinzuf&uuml;gen,
+so dass f&uuml;r jeden Button eine unterschiedliche
+Aktion ausgef&uuml;hrt wird.
+Ein <code>ActionEvent</code>-Objekt enth&auml;lt seine Buttonbefehle.
+Um sie zu bekommen, verwenden Sie die <code>getActionCommand()</code> Methode.
+Zum Beispiel, wenn <code>evt</code> auf einen <code>ActionEvent</code> verweist,
+dann gibt <code>evt.getActionCommand()</code> den Befehl zur&uuml;ck.
+</p>
+
+<p>
+Da der Befehl ein String ist, verwenden Sie <code>equals( String )</code>,
+um den Befehl mit einem anderen String zu vergleichen.
+</p>
+
+<form>
+<pre class="program">
+public class TwoButtons extends JFrame implements ActionListener
+{
+  JButton redButton ;
+  JButton grnButton ;
+
+  // Konstruktor f&uuml;r TwoButtons
+  public TwoButtons()
+  {
+    . . . . . . . .
+
+     <span class="blue">redButton.setActionCommand( "red" )</span> ;
+     <span class="blue">grnButton.setActionCommand( "green" )</span> ;
+
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+
+
+  public void actionPerformed( ActionEvent evt)
+  {
+    if ( <input type="text" size="45" name="blankR">  )
+
+      <input type="text" size="45" name="blankS"> ;
+
+    else
+
+      <input type="text" size="45" name="blankS"> ;
+
+    repaint();
+  }
+
+  . . . . . . . .
+
+}
+
+</pre></form>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus.
+</p>
+
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Fertige <code> actionPerformed() </code> Methode
+
+<ANSWER>
+<p>
+Der Listener muss die Aktionen der Buttons koordinieren.
+Kopieren Sie dieses Programm und f&uuml;hren Sie es aus.
+Es ist die Grundlage f&uuml;r viele der Programmieraufgaben in diesem Kapitel.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>program, two button GUI</INDEX>
+
+<p>
+Hier ist das komplettte Programm:
+</p>
+
+<pre class="program">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TwoButtons extends JFrame implements ActionListener
+{
+  JButton redButton ;
+  JButton grnButton ;
+
+  // Konstruktor f&uuml;r TwoButtons
+  public TwoButtons(String title)
+  {
+    super( title );
+
+    redButton = new JButton("Red");
+    grnButton = new JButton("Green");
+    redButton.setActionCommand( "red" );   // Befehl setzen
+    grnButton.setActionCommand( "green" ); // Befehl setzen
+
+    // register the buttonDemo frame
+    // as the listener for both Buttons.
+    redButton.addActionListener( this );
+    grnButton.addActionListener( this );
+
+    setLayout( new FlowLayout() );
+    add( redButton );
+    add( grnButton );
+
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+
+  public void actionPerformed( ActionEvent evt)
+  {
+    // check which command has been sent
+    if ( <span class="blue">evt.getActionCommand().equals( "red" )</span> )
+      <span class="blue">getContentPane().setBackground(  Color.red  )</span> ;
+    else
+      <span class="blue">getContentPane().setBackground( Color.green )</span> ;
+
+    repaint();
+  }
+
+  public static void main ( String[] args )
+  {
+    TwoButtons demo  = new TwoButtons( "Click a Button" ) ;
+
+    demo.setSize( 200, 150 );
+    demo.setVisible( true );
+  }
+}
+
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Stellen Sie sich vor Sie m&ouml;chten anstelle der Beschriftung lieber ein Icon auf Ihren Buttons haben.
+Wird das f&uuml;r <code>actionPerformed()</code> ein Problem verursachen?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<ANSWER>
+<p>
+Nein. Die <code>actionPerformed()</code> Methode
+ist nicht vom Buttontext abh&auml;ngig.
+Das ist der Vorteil von <code>setActionCommand()</code>.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Das ist alles an Action in diesem Kapitel.
+Wenn es bei dem einen oder anderen Thema bei Ihnen nicht geklickt hat,
+m&ouml;chten Sie vielleicht das Folgende noch einmal durchsehen.
+</p>
+
+
+
+<ul>
+
+<li>
+<GOTO>actionPerformed()</GOTO> Die <code>actionPerformed()</code> Methode.
+</li>
+
+<li>
+<GOTO>setActionCommand()</GOTO> Die <code>setActionCommand()</code> Methode.
+</li>
+
+<li>
+<GOTO>getActionCommand()</GOTO> Die <code>getActionCommand()</code> Methode.
+</li>
+
+<li>Eine <code>actionPerformed()</code> Methode f&uuml;r
+<GOTO>program, two button GUI</GOTO> zwei Buttons
+verwenden.
+</li>
+
+</ul>
+
+<p>
+Das n&auml;chste Kapitel bespricht,
+wie eine vollst&auml;ndige GUI Applikation zu schreiben ist,
+mit vollst&auml;ndigem Applikationscode.
+</p>
+
+</LESSON>
+</CAI>
+</CHAPTER>

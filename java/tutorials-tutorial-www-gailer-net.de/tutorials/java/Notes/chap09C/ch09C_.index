@@ -1,0 +1,54 @@
+<!-- object, short description -->
+<li><a href="ch09C_2.html#object, short description">object, short description</a></li>
+<!-- object, picture -->
+<li><a href="ch09C_3.html#object, picture">object, picture</a></li>
+<!-- object -->
+<li><a href="ch09C_3.html#object">object</a></li>
+<!-- class -->
+<li><a href="ch09C_3.html#class">class</a></li>
+<!-- object, creation -->
+<li><a href="ch09C_4.html#object, creation">object, creation</a></li>
+<!-- reference, object -->
+<li><a href="ch09C_6.html#reference, object">reference, object</a></li>
+<!-- constructor -->
+<li><a href="ch09C_6.html#constructor">constructor</a></li>
+<!-- method, running -->
+<li><a href="ch09C_8.html#method, running">method, running</a></li>
+<!-- calling a method -->
+<li><a href="ch09C_8.html#calling a method">calling a method</a></li>
+<!-- method call -->
+<li><a href="ch09C_8.html#method call">method call</a></li>
+<!-- length(), method of String -->
+<li><a href="ch09C_8.html#length(), method of String">length(), method of String</a></li>
+<!-- invoking a method -->
+<li><a href="ch09C_8.html#invoking a method">invoking a method</a></li>
+<!-- dot notation -->
+<li><a href="ch09C_9.html#dot notation">dot notation</a></li>
+<!-- members -->
+<li><a href="ch09C_9.html#members">members</a></li>
+<!-- syntax, reference variable declaration -->
+<li><a href="ch09C_10.html#syntax, reference variable declaration">syntax, reference variable declaration</a></li>
+<!-- reference variable declaration -->
+<li><a href="ch09C_10.html#reference variable declaration">reference variable declaration</a></li>
+<!-- methods that create objects -->
+<li><a href="ch09C_11.html#methods that create objects">methods that create objects</a></li>
+<!-- substring(), method of String -->
+<li><a href="ch09C_11.html#substring(), method of String">substring(), method of String</a></li>
+<!-- package -->
+<li><a href="ch09C_15.html#package">package</a></li>
+<!-- CLASSPATH -->
+<li><a href="ch09C_15.html#CLASSPATH">CLASSPATH</a></li>
+<!-- import -->
+<li><a href="ch09C_16.html#import">import</a></li>
+<!-- type wrapper -->
+<li><a href="ch09C_18.html#type wrapper">type wrapper</a></li>
+<!-- wrapper class -->
+<li><a href="ch09C_18.html#wrapper class">wrapper class</a></li>
+<!-- Byte -->
+<li><a href="ch09C_18.html#Byte">Byte</a></li>
+<!-- Integer -->
+<li><a href="ch09C_18.html#Integer">Integer</a></li>
+<!-- Float -->
+<li><a href="ch09C_18.html#Float">Float</a></li>
+<!-- Double -->
+<li><a href="ch09C_18.html#Double">Double</a></li>

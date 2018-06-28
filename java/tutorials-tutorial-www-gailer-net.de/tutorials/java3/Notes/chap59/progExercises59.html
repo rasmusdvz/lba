@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+</head>
+
+
+<body BGCOLOR="#e8e8e8"><hr size=5>
+<font size=-1><b>created 06/25/99</b></font>
+<hr size=5>
+
+<center><h1><font color=blue> 
+Chapter 59  Programming Exercises</font></h1></center>
+<h2>Exercise 1 -- Four Buttons</h2>
+
+<p>
+Modify the <em>TwoButtons</em> program so that
+it has four buttons: one for red, one for green, one for blue,
+and one for gray.
+Clicking on a button changes the frame to the corresponding color.
+The GUI will look like this after the green button has been clicked:
+</p>
+
+<center>
+<img src="fourButtonsPic.gif">
+</center>
+
+<p>
+A sensible way to do this is to copy the chapter's example program and
+modify it.
+For a real challenge, try to do it from scratch.
+</p>
+
+<A HREF="../../cs151java.html#59">Click here </A> to go back to the main menu.
+
+<hr>
+<h2>Exercise 2 --- Color Cycle</h2>
+
+<p>
+Write a program that has only one button in the frame.
+Clicking on the button cycles through the colors: red --&gt; green --&gt; blue
+--&gt; gray --&gt; red --&gt; and so on, one color change per click.
+In addition to the <code>setBackground( Color.color )</code> method we have been
+using, you will need the <code>Color getBackground()</code> method to get
+the current color.
+</p>
+
+<p>
+Another way to do this (a somewhat cruder way) is to use an
+instance variable (of type Color) in the frame to hold the current color.
+</p>
+<A HREF="../../cs151java.html#59">Click here </A> to go back to the main menu.
+
+<hr>
+<h2>Exercise 3 -- Three Button Monty</h2>
+<p>
+Write a program implements a game:
+</p>
+
+<blockquote>
+There are three buttons in the frame.
+Two of the buttons will cause the program to quit
+using <code>System.exit(0)</code>; the remaining button will change the
+frame to green (a win!)
+The winning button is different each time the game is played.
+</blockquote>
+
+
+<p>
+The easy way to do this (although it seems like cheating)
+is to treat each button the same way.
+The <code>ActionPerformed()</code> method will not even check which
+button was clicked.
+It will pick a random integer from 0 to 2 and if the integer 
+happens to be 0 perform the "winning" action.
+Otherwise, it will perform the "loosing" action.
+This is similar to some electronic gambling devices in casinos,
+where it appears to the user that there are "winning moves" but
+in fact the machine actually ignores what the user has done and just
+declares a "win" every now and then,
+according to pre-assigned odds.
+You will need to use the <code>Random</code> class:
+</p>
+
+<blockquote>
+<pre>
+Random randNum = new Random(); // create a Random number object
+
+. . .
+
+int someInt = Math.abs( randNum.nextInt() )%3   // someInt gets a number from 0 to 2
+</pre>
+</blockquote>
+You may recall seeing Random in a previous chapter.
+</p>
+<A HREF="../../cs151java.html#59">Click here </A> to go back to the main menu.
+
+<hr>
+<h2>Exercise 4 --- Winning Streak</h2>
+<p>
+Modify the program of Exercise 3 so that only one button exits the program.
+If the user clicks on any of the other two buttons, the frame just changes color.
+The user keeps clicking until the "loosing button" is clicked.
+The user's goal is to click as many times as possible.
+</p>
+<A HREF="../../cs151java.html#59">Click here </A> to go back to the main menu.
+
+<hr>
+<h2>Exercise 5 --- Comination Lock</h2>
+<p>
+Create a frame with ten buttons, labeled 0 through 9.
+To exit the program, the user must click on the correct three buttons
+in order, something like 7-3-5.
+If the wrong combination is used, the frame turns red.
+</p>
+<A HREF="../../cs151java.html#59">Click here </A> to go back to the main menu.
+<hr>
+
+<hr>
+<h2>Exercise 6 --- Expand and Shrink Buttons</h2>
+<p>
+Create a frame with two buttons, called <em>Expand</em>
+and <em>Shrink</em>.
+When the <em>Expand</em> button is clicked, the frame expands by 10 percent.
+When the <em>Shrink</em> button is clicked, the frame shrinks by 10 percent.
+Do this in the <code>actionPerformed()</code> method by using <code>setSize()</code>.
+Keep track of the current size of the frame with two instance variables
+of type int.
+When you increase them or decrease them by 10 percent, 
+you will have to use integer arithmetic or use a type cast.
+</p>
+<A HREF="../../cs151java.html#59">Click here </A> to go back to the main menu.
+<hr>
+
+</body>
+</html>

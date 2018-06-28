@@ -1,0 +1,202 @@
+<html>
+<head>
+<title>Programmieraufgaben</title>
+<meta name="copyright" content="2003,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+<body>
+<hr>
+<small>erstellt 05.09.99; &uuml;berarbeitet 12.06.00; &uuml;bersetzt 31.07.03, 13.01.04; &uuml;berarbeitet 19.01.04, 29.06.04, 06.07.04, 11.10.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr>
+<center><h1><font color=blue>
+Kapitel 29  Programmieraufgaben</font></h1></center>
+
+<h2>Aufgabe 1 &#8212 Anrede vergeben</h2>
+<p>
+Schreiben Sie ein Programm, das den Anwender nach seinem Namen fragt und dann den Namen zusammen entweder mit
+"Ms." oder "Mr." ausgibt, je nachdem ob der Name weiblich oder m&auml;nnlich ist.
+Angenommen, dass die einzigen weiblichen Namen
+</p>
+<ul>
+<li>Amy</li>
+<li>Buffy</li>
+<li>Cathy</li>
+</ul>
+<p>
+und, dass die einzigen m&auml;nnlichen Namen
+</p>
+<ul>
+<li>Elroy</li>
+<li>Fred</li>
+<li>Graham</li>
+</ul>
+<p>
+sind. Alle anderen Namen werden ohne Anrede ausgegeben.
+Das Programm setzt seine Schleifendurchl&auml;ufe solange fort,
+bis der Anwender die Eingabe-Taste dr&uuml;ckt, ohne zuerst etwas einzugeben.
+</p>
+<blockquote><pre>
+C:\&gt;java Anrede
+Geben Sie einen Namen ein:
+Amy Johnson
+Ms. Amy Johnson
+
+Geben Sie einen Namen ein:
+Fred Smith
+Mr. Fred Smith
+
+Geben Sie einen Namen ein:
+Zoltan Jones
+Zoltan Jones
+
+Geben Sie einen Namen ein:
+
+C:\&gt;
+</blockquote></pre>
+<p>Nehmen Sie das Beispielprogramm aus Kapitel 18 als <a href="../chap18/ch18_17.html">Ausgangsbasis</a>.</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#29">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+<h2>Aufgabe 2 &#8212 Dokumentation drucken</h2>
+<p>
+Schreiben Sie ein Programm, das Zeilen einliest und nur die Zeilen ausgibt die mit "//" beginnen.
+Wenn eine Java Quelldatei als Input verwendet wird, gibt das Programm die Zeilen aus, die das Programm beschreiben.
+</p>
+<blockquote><pre>
+C:\&gt;java Stripper &lt; Hello.java
+
+// Hello World Programm
+// geschrieben von Elmer
+
+// Hier steht die main Methode:
+
+C:\&gt;
+
+</blockquote></pre>
+
+<p>
+Betrachten Sie das <a href="../chap22/ch22_2.html">Kapitel Datei-Input</a>, wenn Sie nicht mehr wissen, was die Kommandozeile macht.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#29">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+
+<h2>Aufgabe 3 &#8212 Eine bessere Dokumentationsausgabe</h2>
+<p>
+Schreiben Sie ein Programm, das Zeilen einliest und nur die folgenden
+Zeilen ausgibt:
+
+</p>
+
+<ol>
+<li>Zeilen, die mit "//" anfangen sind Output.
+<li>Zeilen, die mit "/*" anfangen sind Output.
+<li>Zeilen, die mit "*/" anfangen sind Output.
+<li>Alle Zeilen zwischen denen, die mit "/*" und "*/" anfangen sind Output.
+</ol>
+
+<p>
+Verwenden Sie daf&uuml;r eine boolesche Variable, die auf
+<code>true</code> gesetzt wird, wenn "/*" angetroffen wird und auf <code>false</code> gesetzt wird, wenn "*/" angetroffen wird.
+Geben Sie die Zeilen aus, wenn die Variable <code>true</code> ist.
+</p>
+
+<p>
+<b>Hinweis</b>: Dieses Programm hat ein gro&szlig;es Problem, da
+legale Kommentare &uuml;berall in der Zeile mit "/*" beginnen
+und &uuml;berall in einer Zeile mit "*/" enden k&ouml;nnen.
+Ein Quellprogramm k&ouml;nnte einen Kommentar haben, der mit "/*" am Anfang einer
+Zeile beginnt und mit "*/" am Ende einer Zeile schlie&szlig;t.
+Unser Programm ( wie beschrieben) wird dieses Ende des Kommentars nicht finden
+und fortfahren Zeilen auszugeben.
+Ein besseres Programm (wesentlich schwieriger zu schreiben)
+w&uuml;rde die Kommentare in der Quelldatei finden, ganz egal wo sie beginnen oder enden.
+Wenn Sie sich entschlie&szlig;en das zu tun,
+werden Sie Stringmethoden brauchen, die in diesem Kapitel nicht besprochen wurden.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#29">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 4 &#8212 Echo Namen</h2>
+<p>
+Schreiben Sie ein Programm, das den Anwender nach dem Vornamen und Nachnamen fragt. Dann den Vornamen, so wie er eingegeben wurde, ausgibt und den Nachnamen in
+Gro&szlig;buchstaben ausgibt.
+</p>
+<blockquote><pre>
+
+C:\&gt;java NameEcho
+Geben Sie Ihren Namen ein:
+Sherlock Holmes
+
+Sherlock HOLMES
+
+C:\&gt;
+</blockquote></pre>
+
+<p>
+Dazu m&uuml;ssen Sie die <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html">Dokumentation</a> der Stringklasse betrachten und Methoden verwenden, die in diesen Aufzeichnungen nicht behandelt wurden:
+</p>
+
+<ul>
+<li>public char charAt(int index)</li>
+<li>public String substring( int startIndex ) bzw. </li>
+<li>public String substring( int startIndex, int endIndex )</li>
+</ul>
+
+<p>
+Da diese Methoden eine Ausnahme ausl&ouml;sen,
+muss Ihre <code>main()</code> Methode mit
+</p>
+
+<p>
+<blockquote><pre>
+public static void main ( String[] args )
+                               throws IOException, StringIndexOutOfBoundsException
+</blockquote></pre>
+
+beginnen.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#29">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+
+<h2>Aufgabe 5 &#8212 <code>charAt()</code></h2>
+<p>
+Schreiben Sie ein Programm in dem der Anwender einen String eingibt
+und das Programm ihn ein Zeichen pro Zeile auf den Bildschirm ausgibt:
+<blockquote><pre>
+
+C:\&gt;java EinZeichenProZeile
+Geben Sie einen String ein:
+Octopus
+
+O
+c
+t
+o
+p
+u
+s
+</blockquote></pre>
+</p>
+
+<p>
+Sie werden daf&uuml;r die folgenden Methoden der Klasse <code>String</code> brauchen:
+<blockquote><pre>
+public char charAt( int index ) throws  StringIndexOutOfBoundsException
+</blockquote></pre>
+Diese Methode gibt das Zeichen zur&uuml;ck, das sich an der Stelle <code>index</code> des Strings befindet.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#29">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+</body>
+</html>

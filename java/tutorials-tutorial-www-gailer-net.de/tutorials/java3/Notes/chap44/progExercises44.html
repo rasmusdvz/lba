@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+<p>
+<small>created 05/27/03</small>
+</p>
+<hr />
+
+<center><h1> 
+Chapter 44  Programming Exercises</h1></center>
+
+<hr />
+<h2>Exercise 1 --- Input File Prompt</h2>
+
+<p>
+Write a class with a <code>main()</code> method that
+asks the user for the name of the input file
+to be read by the program.
+In a practical program, the name would then be
+used to access a disk file
+(see Part 10 of these notes.)
+But for this program just gather the file name.
+</p>
+
+<p>
+The file name
+  must be in the correct format.
+  File names consist of two parts, a
+  <em>name</em> and an <em>extension</em>.
+  The name must not contain spaces.
+  The extension must be ".dat" (for "data").
+  The user is repeatedly asked for
+  a file name until it meets the
+  requirement.
+</p>
+
+<pre>
+C:\&gt;java filePrompt
+input file: glarch
+&gt;&gt;&gt;file name must end with .dat&lt;&lt;&lt;
+input file: my file.dat
+&gt;&gt;&gt;file name must not contain spaces&lt;&lt;&lt;
+input file:  .dat
+&gt;&gt;&gt;file name missing&lt;&lt;&lt;
+input file: myData.dat
+OK
+
+C:\&gt;
+</pre>
+
+<p>
+Use methods of the String class to
+manipulate the user's input.
+Another approach is the use the
+class <code>StringTokenizer</code>,
+  a subject of a future chapter.
+</p>
+
+
+<p>
+<A HREF="../../cs151java.html#44">Click here </A> to go back to the main menu.
+</p>
+
+<hr />
+
+
+<h2>Exercise 2 --- Improved Square Root Program</h2>
+
+<p>
+Improve the first version of the square root program of the chapter by
+repeatedly prompting the user until the number that
+is entered is positive.
+</p>
+
+<p>
+Do this by inserting a nested 
+<code>do/while</code> 
+inside the
+loop body of the
+<code>do/while</code> 
+that asks if the user wishes to continue.
+</p>
+
+<p>
+Improve program 
+so that the user must respond exactly with
+"yes" or "no".
+</p>
+
+<pre>
+C:\&gt;java squareRoot
+Enter a number--&gt; -3
+&gt;&gt;&gt;number must be positive&lt;&lt;&lt;
+Enter a number--&gt; 3
+Square root of 3.0 is 1.7320508075688772
+Do you wish to continue (yes or no)? na
+&gt;&gt;&gt;Please respond with (yes or no)&lt;&lt;&lt;
+Do you wish to continue (yes or no)? no
+Bye
+C:\&gt;
+</pre>
+
+<p>
+In this program the main purpose,
+  computing and printing the square root,
+    is easily done in a few statements.
+However, the user interaction calls for some
+fairly complicated logic.
+This imbalance is typical of user friendly programs.
+</p>
+
+<p>
+<A HREF="../../cs151java.html#44">Click here </A> to go back to the main menu.
+</p>
+
+
+<hr>
+</body>
+</html>

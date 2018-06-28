@@ -1,0 +1,1336 @@
+<!-- Feb 24, 2002  bpk  slight additions  -->
+<!-- Jly 25, 2002, bpk css and xml -->
+<!-- Feb 18, 2005, bpk small changes -->
+<!-- Jly 18, 2006, bpk small changes -->
+<!-- Nov 10, 2008, bpk many big changes -->
+<!-- Feb 19, 2011, bpk some small changes, passed HTML validation -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2011</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2011, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#62</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+<CAI> Kapitel 62 &#8212; JPanel und BoxLayout
+
+<p class="revisions">
+erstellt: 12.01.02; &uuml;berarbeitet: 18.07.06; versch&ouml;nert 09.11.08, 19.02.11; &uuml;bersetzt 04.03.11; Deutsche &Uuml;bersetzung Heinrich Gailer
+</p>
+
+
+<LESSON>
+
+<p>
+Die grafischen Benutzerschnittstellen der vorherigen Kapitel
+hatten ein Problem:
+Wenn der Anwender die Gr&ouml;&szlig;e des Frames &auml;ndert, &auml;ndert sich das Layout der
+Kompomenten drastisch.
+<code>FlowLayout</code> h&auml;lt zusammengeh&ouml;rende Elemente nicht zusammen.
+Es stellt sie in eine Zeile, eine nach der anderen, wie sie hinzugef&uuml;gt werden.
+Ein Label und die dazugeh&ouml;rende Komponente k&ouml;nnen so auf zwei
+verschiedene Zeilen verteilt werden.
+Dieses Kapitel bespricht, wie das Layout besser kontrolliert werden kann.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Die  <code>setResizable()</code> Methode</li>
+<li>Komponenten in einem <code>JPanel</code> anordnen</li>
+<li>Verschachtelte <code>JPanel</code>s </li>
+<li>Der <code>BoxLayout</code> Layoutmanager</li>
+</ul>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Konnte der Anwender die Gr&ouml;&szlig;e der GUIs
+der vorherigen Kapitel ver&auml;ndern?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+
+<CAI><code> setResizable() </code>
+<ANSWER>
+<p>
+Ja. Die Gr&ouml;&szlig;e von <code>JFrame</code> Objekten kann standardm&auml;&szlig;ig ge&auml;ndert werden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>setResizable()</INDEX>
+
+<p>
+Eine Methode, die sicher stellt, dass ein
+grafisches Interface so aussieht, wie Sie
+es beabsichtigen, ist es den Anwender daran
+zu hindern die Gr&ouml;&szlig;e zu &auml;ndern,
+indem Sie diese Methode von <code>JFrame</code> verwenden:
+</p>
+
+<pre class="code">
+public void setResizable(boolean resizable)
+</pre>
+
+<p>
+Wenn der Parameter <code>false</code> ist,
+dann kann der Anwender die Gr&ouml;&szlig;e nicht &auml;ndern.
+Aber das l&ouml;st nicht alle Probleme.
+Wenn der Frame mehrere logisch zusammengeh&ouml;rende
+Gruppen von Elementen enth&auml;lt,
+kann es schwierig sein sie richtig anzuordnen,
+indem nur ein einziger Layoutmanager verwendet wird.
+Sie m&ouml;chten lieber zusammengeh&ouml;rende Komponenten
+zusammen gruppieren und dann die Gruppen in dem
+Frame anordnen.
+Das ist es wof&uuml;r Grundfl&auml;chen (<b>Panels</b>) n&uuml;tzlich sind.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Kann ein Label und die Komponente zu der es geh&ouml;rt zusammen gruppiert werden?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI> <code> JPanel </code>
+
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>JPanel</INDEX>
+<INDEX>panel</INDEX>
+
+<p>
+Ein <code><b>JPanel</b></code> ist ein Container,
+der verwendet wird, um Komponenten zusammen zu gruppieren.
+Ein Panel entspricht einem rechteckigen Bereich
+auf dem Bildschirm.
+Aber, Panels haben keine sichtbaren R&auml;nder.
+Um Komponenten unter der Verwendung von <code>JPanel</code>s anzuordnen:
+</p>
+
+<ol>
+<li>Entscheiden Sie, wie Sie den Frame in Panels aufteilen.</li>
+<li>F&uuml;gen Sie dem Panel GUI Komponenten hinzu.</li>
+<li>F&uuml;gen Sie die Panels dem Frame hinzu.</li>
+</ol>
+
+<p>
+Jedes Panel hat seinen eigenen Layoutmanager.
+Der Standard Layoutmanager von <code>JPanel</code>s ist
+<code>FlowLayout</code>, der oft der richtige ist,
+aber Sie k&ouml;nnen, falls besser geeignet,  einen anderen Layoutmanager verwenden.
+</p>
+
+<p>
+Wenn die Panels dem Frame hinzugef&uuml;gt werden,
+ordnet der Layoutmanager des Frames die Panels an,
+als w&auml;re jedes Panel eine einzelne Komponente.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Hat der Layoutmanager des Frames Auswirkungen auf die
+Anordnung der Komponenten eines Panels?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Beispiel Panels
+<ANSWER>
+<p>
+Nein.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist ein Beispiel aus einem vorherigen Kapitel:
+</p>
+
+<pre class="program">
+public class percentFat extends JFrame implements ActionListener
+{
+  JLabel title     = new JLabel("Percent of Calories from Fat");
+  JLabel fatLabel  = new JLabel("Enter grams of fat:   ");
+  JLabel calLabel  = new JLabel("Enter total calories: ");
+  JLabel perLabel  = new JLabel("Percent calories from fat: ");
+
+  JTextField inFat  = new JTextField( 7 );
+  JTextField inCal  = new JTextField( 7 );
+  JTextField outPer = new JTextField( 7 );
+
+  JButton    doit   = new JButton("Do It!");
+
+   . . . . .
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Schlagen Sie eine Gruppierung der Komponenten in Panels vor.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code> JPanel</code>s Komponenten hinzuf&uuml;gen
+
+<ANSWER>
+<pre class="code">
+JLabel fatLabel    <em>mit</em>    JTextField inFat
+
+JLabel calLabel    <em>mit</em>    JTextField inCal
+
+JLabel perLabel    <em>mit</em>    JTextField outPer
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+
+<div align="center">
+<img src="panelGUI.gif" alt="GUI mit Panels">
+</div>
+
+<INDEX>adding components to a JPanel</INDEX>
+
+<p>
+Die Idee ist es f&uuml;nf Panels zu haben,
+eines f&uuml;r jedes Paar Label und Textfeld
+und ein Panel f&uuml;r die &Uuml;berschrift und f&uuml;r den Button.
+Die Abbildung zeigt diese Gruppierung.
+(Die Linien um die Panels erscheinen nicht in der tatsachlichen GUI.)
+</p>
+
+
+<INDEX>add(), for JPanel</INDEX>
+<p>
+Verwenden Sie <b><code>add()</code></b>,
+um Komponenten einem Panel hinzuf&uuml;gen.
+<code>FlowLayout</code> ist der Standard Layoutmanager f&uuml;r <code>JPanel</code>.
+Verwenden Sie <code>setLayout()</code> nur, wenn Sie einen anderen Layoutmanager
+wollen.
+</p>
+
+<form action="">
+<pre class="program">
+public class percentFatPan extends JFrame implements ActionListener
+{
+  JLabel heading  = new JLabel("Percent of Calories from Fat");
+  JLabel fatLabel = new JLabel("Enter grams of fat:   ");
+  JLabel calLabel = new JLabel("Enter total calories: ");
+  JLabel perLabel = new JLabel("Percent calories from fat: ");
+
+  JTextField inFat  = new JTextField( 7 );
+  JTextField inCal  = new JTextField( 7 );
+  JTextField outPer = new JTextField( 7 );
+
+  JButton doit = new JButton("Do It!");
+
+  <span class="blue">// Neu: f&uuml;nf Panels</span>
+
+  JPanel hedPanel = new JPanel();
+  JPanel fatPanel = new JPanel();
+  JPanel calPanel = new JPanel();
+  JPanel perPanel = new JPanel();
+  JPanel butPanel = new JPanel();
+
+  public percentFatPanel()
+  {
+    setTitle( "Calories from Fat" );
+    outPer.setEditable( false );
+    setLayout( new FlowLayout() );   // den Layoutmanager f&uuml;r den JFrame setzen
+
+    <span class="blue">// Neu: jedem Panel Komponenten hinzuf&uuml;gen</span>
+
+    hedPanel.add( heading );
+
+    fatPanel.add( <input type="button" value="_______" name="but1" onClick="but1.value='fatLabel'"> );
+    fatPanel.add( <input type="button" value="_______" name="but2" onClick="but2.value='inFat '"> );
+
+    calPanel.add( <input type="button" value="_______" name="but3" onClick="but3.value='calLabel '"> );
+    calPanel.add( <input type="button" value="_______" name="but4" onClick="but4.value='inCal '"> );
+
+    perPanel.add( <input type="button" value="_______" name="but5" onClick="but5.value='perLabel '"> );
+    perPanel.add( <input type="button" value="_______" name="but6" onClick="but6.value='outPer '"> );
+
+    butPanel.add( doit );
+
+   . . . . .
+
+ }
+</pre>
+</form>
+
+
+
+</LESSON>
+
+<QUESTION>
+
+<p>
+Entscheiden Sie welche Komponenten welchem Panel hinzugef&uuml;gt werden sollten.
+Klicken Sie dann auf den Button, um zu sehen, ob Sie richtig lagen.
+</p>
+
+<p>
+Bis jetzt wurden die Labels, die Textfelder  und der Button den f&uuml;nf Panels hinzugef&uuml;gt,
+aber die Panels wurden noch nicht dem Frame hinzugef&uuml;gt.
+</p>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI> Panels dem Frame hinzuf&uuml;gen
+
+<ANSWER>
+<pre class="code">
+  JPanel hedPanel = new JPanel();
+  JPanel fatPanel = new JPanel();
+  JPanel calPanel = new JPanel();
+  JPanel perPanel = new JPanel();
+  JPanel butPanel = new JPanel();
+
+  public percentFatPanel()
+  {
+    setTitle( "Calories from Fat" );
+    outPer.setEditable( false );
+    setLayout( new FlowLayout() );    // den Layoutmanager f&uuml;r den JFrame setzen
+
+    hedPanel.add( <span style="color:blue">heading</span> );
+    fatPanel.add( <span style="color:blue">fatLabel</span> );
+    fatPanel.add( <span style="color:blue">inFat</span> );
+    calPanel.add( <span style="color:blue">calLabel</span> );
+    calPanel.add( <span style="color:blue">inCal</span> );
+    perPanel.add( <span style="color:blue">perLabel</span> );
+    perPanel.add( <span style="color:blue">outPer</span> );
+    butPanel.add( <span style="color:blue">doit</span> );
+    . . . .
+  }
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+
+<p>
+F&uuml;gen Sie jetzt die Panels dem Frame hinzu.
+Das wird im Konstruktor des <code>JFrame</code>s getan,
+so dass <code>add()</code> bedeutet,
+verwende die Methode des Frames.
+</p>
+
+<form action="">
+<pre class="program">
+
+  . . . . .
+
+  JPanel hedPanel   = new JPanel();
+  JPanel fatPanel   = new JPanel();
+  JPanel calPanel   = new JPanel();
+  JPanel perPanel   = new JPanel();
+  JPanel butPanel   = new JPanel();
+
+  public percentFatPanel()
+  {
+    setTitle( "Calories from Fat" );
+    outPer.setEditable( false );
+    setLayout( new FlowLayout() );    // den Layoutmanager f&uuml;r den JFrame setzen
+
+    hedPanel.add( heading );          // dieses "add()" f&uuml;gt "hedPanel" eine Komponente hinzu
+    fatPanel.add( fatLabel );
+    fatPanel.add( inFat );
+    calPanel.add( calLabel );
+    calPanel.add( inCal );
+    perPanel.add( perLabel );
+    perPanel.add( outPer );
+    butPanel.add( doit );
+
+    add( <input type="button" value="_______" name="but1" onClick="but1.value=' hedPanel '"> );  // dieses "add()" f&uuml;gt dem JFrame ein Panel hinzu
+    add( <input type="button" value="_______" name="but2" onClick="but2.value=' fatPanel '"> );
+    add( <input type="button" value="_______" name="but3" onClick="but3.value=' calPanel '"> );
+    add( <input type="button" value="_______" name="but4" onClick="but4.value=' perPanel '"> );
+    add( <input type="button" value="_______" name="but5" onClick="but5.value=' butPanel '"> );
+
+    . . . . . .
+  }
+</pre>
+</form>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;gen Sie dem Frame die Komponenten von oben nach unten hinzu.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndiges Programm
+
+<ANSWER>
+<p>
+Siehe unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist eine neue Version des Fett-Kalkulators
+Sie k&ouml;nnen es in einen Editor kopieren, speichern und ausf&uuml;hren.
+Wenn Sie es ausf&uuml;hren,
+versuchen Sie die Gr&ouml;&szlig;e des Frames zu &auml;ndern.
+Die <code>main()</code> Methode verhindert das.
+&Auml;ndern Sie das, wenn Sie m&ouml;chten und beobachten
+Sie die Auswirkungen.
+</p>
+
+<pre class="program">
+import java.awt.* ;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class PercentFatPanel extends JFrame implements ActionListener
+{
+  JLabel heading    = new JLabel("Percent of Calories from Fat");
+  JLabel fatLabel   = new JLabel("Enter grams of fat:   ");
+  JLabel calLabel   = new JLabel("Enter total calories: ");
+  JLabel perLabel   = new JLabel("Percent calories from fat: ");
+
+  JTextField inFat  = new JTextField( 7 );
+  JTextField inCal  = new JTextField( 7 );
+  JTextField outPer = new JTextField( 7 );
+
+  JButton    doit   = new JButton("Do It!");
+
+  JPanel hedPanel   = new JPanel();
+  JPanel fatPanel   = new JPanel();
+  JPanel calPanel   = new JPanel();
+  JPanel perPanel   = new JPanel();
+  JPanel butPanel   = new JPanel();
+
+  int calories ;  // Input: Kalorien gesamt je Packung
+  int fatGrams ;  // Input: Gramm Fett je Packung
+  double percent; // Ergebnis: Prozent der Kalorien durch Fett
+
+  public PercentFatPanel()
+  {
+    setTitle( "Calories from Fat" );
+    outPer.setEditable( false );
+    setLayout( new FlowLayout() );     // den Layoutmanager f&uuml;r den JFrame setzen
+
+    // den Panels Komponenten hinzuf&uuml;gen
+    hedPanel.add( heading );
+    fatPanel.add( fatLabel );
+    fatPanel.add( inFat );
+    calPanel.add( calLabel );
+    calPanel.add( inCal );
+    perPanel.add( perLabel );
+    perPanel.add( outPer );
+    butPanel.add( doit );
+
+    // dem Frame Panels hinzuf&uuml;gen
+    add( hedPanel );
+    add( heading );
+    add( fatPanel );
+    add( calPanel );
+    add( perPanel );
+    add( doit );
+    add( butPanel );
+
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    doit.addActionListener( this );
+  }
+
+  // Die Application
+  public void calcPercent( )
+  {
+    percent = ( (fatGrams * 9.0) / calories ) * 100.0 ;
+  }
+
+  public void actionPerformed( ActionEvent evt)
+  {
+    String userIn ;
+    userIn    = inFat.getText()  ;
+    fatGrams  = Integer.parseInt( userIn ) ;
+
+    userIn    = inCal.getText()  ;
+    calories  = Integer.parseInt( userIn ) ;
+    calcPercent() ;
+
+    outPer.setText( percent+" " );
+    repaint();
+  }
+
+  public static void main ( String[] args )
+  {
+    PercentFatPanel fatApp  = new PercentFatPanel() ;
+    fatApp.setSize( 300, 225 );
+    fatApp.setResizable( false );
+    fatApp.setVisible( true );
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wenn Sie  <code>fatApp.setResizable( false )</code> in <code>true</code> &auml;ndern,
+bleiben dann die Labels und Textfelder nebeneinander, wenn Sie die Gr&ouml;&szlig;e des Frames &auml;ndern?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ein weiteres Beispiel
+
+<ANSWER>
+<p>
+Ja, auch wenn die Anordnung nicht gut aussieht,
+wenn Sie den Frame zu gro&szlig; machen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="LayoutEg1.gif"  alt="Frame mit drei Textfeldern">
+</div>
+
+<p>
+&nbsp;
+</p>
+
+
+<p>
+Oben steht ein Beispiel einer Benutzerschnittstelle.
+Nehmen Sie an, dass die Labels mit den Textfeldern verbunden wurden.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Schlagen Sie vor, wie Panels verwendet wurden, um diese GUI zu erzeugen.
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Drei Panels
+
+<ANSWER>
+<p>
+Drei Panels, eines f&uuml;r jedes Paar Label und Textfeld.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+
+<p>
+Das Beispiel war &auml;hnlich, wie das des vorherigen Programms.
+Hier ist der relevante Teil des Programms:
+</p>
+
+<pre class="program">
+public class LayoutEg1 extends JFrame
+{
+  JLabel     lData1  = new JLabel("Data Item 1");
+  JTextField txData1 = new JTextField( 7 );
+  JPanel     panel1  = new JPanel();
+
+  JLabel     lData2  = new JLabel("Data Item 2");
+  JTextField txData2 = new JTextField( 7 );
+  JPanel     panel2  = new JPanel();
+
+  JLabel     lData3  = new JLabel("Data Item 3");
+  JTextField txData3 = new JTextField( 7 );
+  JPanel     panel3  = new JPanel();
+
+  public LayoutEg1()
+  {
+    panel1.add( lData1 ); panel1.add( txData1 );
+    panel2.add( lData2 ); panel2.add( txData2 );
+    panel3.add( lData3 ); panel3.add( txData3 );
+
+    setLayout( new FlowLayout() );
+    add( panel1 );
+    add( panel2 );
+    add( panel3 );
+
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+      . . . . . .
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+K&ouml;nnte ein <code>JPanel</code> einem <code>JPanel</code> hinzugef&uuml;gt werden?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Verschachtelte Panels
+
+<ANSWER>
+<p>
+Yes.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>nested panels</INDEX>
+
+<div align="center">
+<img src="LayoutEg2.gif"  alt="Frame mit 6 Textfeldern">
+</div>
+
+<p>
+<code>JPanel</code>s sind sowohl Komponenten als auch Container.
+Als eine Komponente k&ouml;nnen sie in einen Container gestellt werden (so wie <code>JPanel</code>))
+und als Container k&ouml;nnen sie andere <code>JPanel</code>s enthalten.
+Jedes Panel hat seinen eigenen Layoutmanager.
+Dieses Beispiel verwendet <code>FlowLayout</code> f&uuml;r alle Panels.
+</p>
+
+<div align="center">
+<img src="LayoutEg2Expl.gif" alt="verschachtelte Panels">
+</div>
+
+<p>
+Die Abbildung zeigt, wie die entsprechenden Labels und Textfelder
+in den Panels (dargestellt mit gepunkteten Linien) platziert wurden
+und wie diese Panels in zwei andere Panels (dargestellt mit ganzen Linien)
+platziert wurden.
+Dann wurden die zwei Panels dem Frame hinzugef&uuml;gt.
+Die Gr&ouml;&szlig;e des Frames ist so gesetzt, dass das Layout gut aussieht.
+</p>
+
+<QUESTION>
+<p>
+War es f&uuml;r dieses Layout notwendig zwei Panels zu verwenden,
+die die kleineren Panels enthalten?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Code
+<ANSWER>
+
+<p>
+Nein. Es w&uuml;rde auch funktionieren
+die einzelnen Panels dem Frame direkt hinzuf&uuml;gen.
+Aber oft f&uuml;hrt es zu einem bessereen Layout,
+Wenn Panels einem anderen Panel hinzugef&uuml;gt werden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist der Code der vorherigen GUI.
+Er hat keine Applikationscode und keine Listener.
+</p>
+
+<pre class="program">
+import java.awt.* ;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class LayoutEg2 extends JFrame
+{
+  <span class="blue">// kleine Panels erzeugen, die Paare von Labels und Textfeldern enthalten</span>
+  JLabel     lData1  = new JLabel("Data Item 1");
+  JTextField txData1 = new JTextField( 7 );
+  JPanel     panel1  = new JPanel();
+
+  JLabel     lData2  = new JLabel("Data Item 2");
+  JTextField txData2 = new JTextField( 7 );
+  JPanel     panel2  = new JPanel();
+
+  JLabel     lData3  = new JLabel("Data Item 3");
+  JTextField txData3 = new JTextField( 7 );
+  JPanel     panel3  = new JPanel();
+
+  JLabel     lData4  = new JLabel("Data Item 4");
+  JTextField txData4 = new JTextField( 7 );
+  JPanel     panel4  = new JPanel();
+
+  JLabel     lData5  = new JLabel("Data Item 5");
+  JTextField txData5 = new JTextField( 7 );
+  JPanel     panel5  = new JPanel();
+
+  JLabel     lData6  = new JLabel("Data Item 6");
+  JTextField txData6 = new JTextField( 7 );
+  JPanel     panel6  = new JPanel();
+
+  <span class="blue">// das obere und untere Panel erzeugen, die die kleineren Panels enthalten werden</span>
+  JPanel     pnTop  = new JPanel();
+  JPanel     pnBot  = new JPanel();
+
+  public LayoutEg2()
+  {
+    setTitle( "LayoutEg2" );
+
+    <span class="blue">// Label und Text Paare den kleineren Panels hinzuf&uuml;gen</span>
+    panel1.add( lData1 ); panel1.add( txData1 );
+    panel2.add( lData2 ); panel2.add( txData2 );
+    panel3.add( lData3 ); panel3.add( txData3 );
+    panel4.add( lData4 ); panel4.add( txData4 );
+    panel5.add( lData5 ); panel5.add( txData5 );
+    panel6.add( lData6 ); panel6.add( txData6 );
+
+    <span class="blue">// die kleineren Panels dem oberen und unteren Panel hinzuf&uuml;gen</span>
+    pnTop.add ( panel1 ); pnTop.add( panel2 );
+    pnTop.add ( panel3 );
+
+    pnBot.add( panel4); pnBot.add( panel5);
+    pnBot.add( panel6);
+
+    <span class="blue">// das obere und untere Panel dem Frame hinzuf&uuml;gen</span>
+    setLayout( new FlowLayout() );
+    add( pnTop  );
+    add( pnBot );
+
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+
+  public static void main ( String[] args )
+  {
+    LayoutEg2 leg  = new LayoutEg2() ;
+    leg.setSize( 525, 150 );
+    leg.setVisible( true );
+  }
+}
+
+</pre>
+
+</LESSON>
+
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) In welcher Reihenfolge f&uuml;gt <code>FlowLayout</code> einem Container Komponenten hinzu?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code>BoxLayout</code>
+<ANSWER>
+
+<p>
+<code>FlowLayout</code> f&uuml;gt Komponenten in Rasterordnung hinzu,
+von links nach rechts und von oben nach unten.
+</p>
+
+</ANSWER>
+
+
+<LESSON>
+
+<INDEX>BoxLayout</INDEX>
+<p>
+Manchmal m&ouml;chten Sie, dass Komponenten grunds&auml;tzlich
+vertikal (oder grunds&auml;tzlich horizontal) ausgerichtet werden.
+Das kann mit einem <code>BoxLayout</code> Layoutmanager getan werden.
+Hier ist ein Konstruktor f&uuml;r ihn:
+</p>
+
+<pre>
+BoxLayout(Container contain, int axis)
+
+    contain: der Container für diesen Layoutmanager
+
+    axis: BoxLayout.X_AXIS  --- für von links nach rechts Ausrichtung
+          BoxLayout.Y_AXIS  --- für von oben nach unten Ausrichtung
+</pre>
+
+<p>
+Der Konstruktor braucht eine Referenz auf den Container, den er managen soll.
+Um den Layoutmanager eines <code>JPanel</code> auf <code>BoxLayout</code>
+mit vertikaler Ausrichtung zu setzen,
+tun Sie das:
+</p>
+
+<pre>
+JPanel panel = new JPanel();
+
+panel.setLayout( new BoxLayout( panel, BoxLayout.Y_AXIS) );
+                                // Beachten Sie, dass das zweite "panel"
+                                // eine Referenz auf den Container ist,
+                                // den BoxLayout managt.
+</pre>
+
+<p>
+Hier ist ein anderes GUI Beispiel.
+Betrachten Sie es und entscheiden Sie, wo ein vertikales Layout verwendet wurde.
+</p>
+
+<div align="center">
+<img src="LayoutEg3.gif"  alt="vertikale Ausrichtung verwendet in einigen Panels">
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wo wurde <code>BoxLayout</code> mit vertikaler Ausrichtung verwendet?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Linke und rechte Panels
+<ANSWER>
+
+<p>
+Die kleinen Panels (die die Labels und Textfelder enthalten) wurden
+dem linken und rechten Panel, das  <code>BoxLayout</code> mit vertikaler
+Ausrichtung verwendet, hinzugef&uuml;gt.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="LayoutEg3Expl.gif" alt="verschachtelte Panels">
+</div>
+
+<p>
+Die Abbildung zeigt das linke und rechte Panel
+(das  <code>BoxLayout</code> mit vertikaler
+Ausrichtung verwendet).
+Die kleinen Panels werden nicht gezeigt.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist es unbedingt notwendig in diesem Beispiel verschachtelte Panels zu verwenden?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Code
+<ANSWER>
+
+<p>
+Nein. Sie k&ouml;nnten die kleinen Panels dem Frame hinzuf&uuml;gen, indem Sie <code>FlowLayout</code>
+verwenden und solange Sie sie in der Reihenfolge hinzuf&uuml;gen,
+die sie dahin stellen, wo Sie sie haben m&ouml;chten
+(Tats&auml;chlich k&ouml;nnten Sie die einzelnen Komponenten dem Frame direkt hinzuf&uuml;gen,
+aber Sie h&auml;tten sehr viel weniger Kontrolle dar&uuml;ber, wo sie erscheinen.)
+</p>
+
+<ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist der relevante Teil des Codes f&uuml;r das Beispiel:
+</p>
+
+<pre class="program">
+  public LayoutEg3()
+  {
+    setTitle( "LayoutEg3 Box Alignment" );
+
+    // Komponeten den kleinen Panels hinzuf&uuml;gen
+    panel1.add( lData1 ); panel1.add( txData1 );
+    panel2.add( lData2 ); panel2.add( txData2 );
+    panel3.add( lData3 ); panel3.add( txData3 );
+    panel4.add( lData4 ); panel4.add( txData4 );
+    panel5.add( lData5 ); panel5.add( txData5 );
+    panel6.add( lData6 ); panel6.add( txData6 );
+
+    // den Layoutmanager f&uuml;r das linke Panel setzen, ihm drei kleine Panels hinzuf&uuml;gen
+    <span class="blue">pnLeft.setLayout( new BoxLayout( pnLeft, BoxLayout.Y_AXIS ) );</span>
+    pnLeft.add ( panel1 ); pnLeft.add( panel2 );
+    pnLeft.add ( panel3 );
+
+    // den Layoutmanager f&uuml;r das rechte Panel setzen, ihm drei kleine Panels hinzuf&uuml;gen
+    <span class="blue">pnRight.setLayout( new BoxLayout( pnRight, BoxLayout.Y_AXIS ) );</span>
+    pnRight.add( panel4); pnRight.add( panel5);
+    pnRight.add( panel6);
+
+    // das linke und rechte Panel dem Frame hinzuf&uuml;gen
+    setLayout( new FlowLayout() );
+    add( pnLeft  );
+    add( pnRight );
+
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+</pre>
+
+</LESSON>
+
+
+<QUESTION>
+<p>
+K&ouml;nnen Buttons einem Panel hinzugef&uuml;gt werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Buttons in einem Panel
+<ANSWER>
+<p>
+Ja. <code>JButton</code>s sind Komponenten
+und jede Komponente kann einem <code>JPanel</code> hinzugef&uuml;gt werden
+</p>
+
+
+</ANSWER>
+
+<LESSON>
+
+
+<div align="center">
+<img src="MorningNoonNight.gif"  alt="Morning Noon and Night">
+</div>
+
+
+<p>
+Hier ist ein weiteres Beispiel.
+Labels und Textfelder sind in kleinen Panels gruppiert, wie bisher.
+Diese kleinen Panels sind dann in drei mittleren Panels gruppiert.
+Die drei Buttons unten sind zusammen in einem Panel gruppiert.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage:)
+Kann ein <code>JPanel</code>, das <code>JPanel</code>s enth&auml;lt, einem
+anderen <code>JPanel</code> hinzugef&uuml;gt werden?
+(Anders gesagt, k&ouml;nnen <code>JPanel</code>s drei Ebenen tief verschachtelt werden?)
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Panel in einem Panel in einem Panel
+
+<ANSWER>
+<p>
+Yes.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="MorningNoonNightExpl.gif" alt="Morning Noon and Night">
+</div>
+
+<p>
+Die drei Panels, die die Label Textfeld Paare enthalten
+sind einem anderen Panel (<code>dataPanel</code> im Code genannt)
+hinzugef&uuml;gt worden, unter Verwendung von <code>Boxlayout</code> mit vertikaler Ausrichtung.
+Die Buttons sind ihrem eigenen Panel hinzugef&uuml;gt worden.
+Dann sind <code>dataPanel</code> und das Button Panel dem Frame hinzugef&uuml;gt worden.
+Die Abbildung zeigt, wie das funktioniert.
+</p>
+
+<p>
+Das Konzept verschachtelter Panels ist ein m&auml;chtiges.
+Es mag kompliziert und umst&auml;ndlich aussehen,
+aber es ist viel einfacher als das Design auf einem
+Millimeterpapier zu konzipieren und die genaue Gr&ouml;&szlig;e
+und die genaue Position f&uuml;r alle Komponenten anzugeben.
+Ein solches Design besitzt keine Flexibilit&auml;t.
+Was passiert, wenn Sie eine Komponente hinzuf&uuml;gen oder
+entfernen m&ouml;chten?
+Alles muss ge&auml;ndert werden.
+Mit Javas Layoutmanagern wird alles dynamisch neu angeordnet.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage:)
+Glauben Sie, dass es in Java eine M&ouml;glichkeit gibt,
+die es dem Programmierer erlaubt
+die exakte Gr&ouml;&szlig;e und Position von Komponenten anzugeben?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndiger GUI Code
+
+<ANSWER>
+<p>
+Ja. Aber das wird in diesen Aufzeichnungen nicht besprochen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+
+<p>
+Hier ist der Code f&uuml;r die Benutzeroberfl&auml;che des Beispiels.
+Es gibt keinen Applikationscode:
+</p>
+
+
+<pre class="program">
+import java.awt.* ;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class MorningNoonNight extends JFrame implements ActionListener
+{
+  JLabel     lData1  = new JLabel("Monday");
+  JTextField txData1 = new JTextField( 7 );
+  JPanel     Panel1  = new JPanel();
+
+  JLabel     lData2  = new JLabel("Tuesday");
+  JTextField txData2 = new JTextField( 7 );
+  JPanel     Panel2  = new JPanel();
+
+  JLabel     lData3  = new JLabel("Wednesday");
+  JTextField txData3 = new JTextField( 7 );
+  JPanel     Panel3  = new JPanel();
+
+  JLabel     lData4  = new JLabel("Thursday");
+  JTextField txData4 = new JTextField( 7 );
+  JPanel     Panel4  = new JPanel();
+
+  JLabel     lData5  = new JLabel("Friday");
+  JTextField txData5 = new JTextField( 7 );
+  JPanel     Panel5  = new JPanel();
+
+  JLabel     lData6  = new JLabel("Saturday");
+  JTextField txData6 = new JTextField( 7 );
+  JPanel     Panel6  = new JPanel();
+
+  JLabel     lData7  = new JLabel("Sunday");
+  JTextField txData7 = new JTextField( 7 );
+  JPanel     Panel7  = new JPanel();
+
+  JPanel     dataPanel = new JPanel();
+
+  JButton    butMorn = new JButton("Morning");
+  JButton    butNoon = new JButton("Noon");
+  JButton    butNite = new JButton("Night");
+
+  JPanel     MTWPanel  = new JPanel();
+  JPanel     RFSPanel  = new JPanel();
+  JPanel     SunPanel  = new JPanel();
+  JPanel     butPanel  = new JPanel();
+
+  public MorningNoonNight()
+  {
+    setTitle( "Morning Noon Night" );
+
+    Panel1.add( lData1 ); Panel1.add( txData1 );
+    Panel2.add( lData2 ); Panel2.add( txData2 );
+    Panel3.add( lData3 ); Panel3.add( txData3 );
+    Panel4.add( lData4 ); Panel4.add( txData4 );
+    Panel5.add( lData5 ); Panel5.add( txData5 );
+    Panel6.add( lData6 ); Panel6.add( txData6 );
+    Panel7.add( lData7 ); Panel7.add( txData7 );
+
+    MTWPanel.add( Panel1 );
+    MTWPanel.add( Panel2 );
+    MTWPanel.add( Panel3 );
+
+    RFSPanel.add( Panel4 );
+    RFSPanel.add( Panel5 );
+    RFSPanel.add( Panel6 );
+
+    SunPanel.add( Panel7 );
+
+    butPanel.add( butMorn );
+    butPanel.add( butNoon );
+    butPanel.add( butNite );
+
+    dataPanel.setLayout( new BoxLayout( dataPanel, BoxLayout.Y_AXIS ) );
+    dataPanel.add( MTWPanel );
+    dataPanel.add( RFSPanel );
+    dataPanel.add( SunPanel );
+
+    setLayout( new FlowLayout()  );
+    add( dataPanel );
+    add( butPanel );
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+
+  }
+
+  public void actionPerformed( ActionEvent evt)
+  {
+    repaint();
+  }
+
+  public static void main ( String[] args )
+  {
+    MorningNoonNight mnn  = new MorningNoonNight() ;
+
+    mnn.setSize( 500, 225 );
+    mnn.setResizable( false );
+    mnn.setVisible( true );
+  }
+}
+</pre>
+
+
+<br clear="all">
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Welches sind die zwei Layoutmanager,
+die Sie bis jetzt in diesen Aufzeichnungen gesehen haben?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code>BoxLayout</code> f&uuml;r einen <code>JFrame</code> setzen
+
+<ANSWER>
+<p>
+<code>FlowLayout</code> und
+<code>Boxlayout</code>
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>BoxLayout for a frame</INDEX>
+
+<p>
+Denken Sie daran, um einen Layoutmanager eines Containers
+auf <code>BoxLayout</code> zu setzen,
+m&uuml;ssen Sie eine Referenz auf diesen Container an den
+Konstruktor &uuml;bergeben:
+</p>
+
+<pre>
+BoxLayout(Container contain, int axis)
+
+    contain: der Container für diesen Layoutmanager
+
+    axis: BoxLayout.X_AXIS  ---- für Ausrichtung von links nach rechts
+          BoxLayout.Y_AXIS  ---- für Ausrichtung von oben nach unten
+</pre>
+
+<p>
+Ein Problem, das mit einem <code>JFrame</code> zu tun, ist, das
+der Container, der die GUI Komponenten enth&auml;lt, der Inhaltsbereich (content pane) des Frames ist.
+(<code>JFrame</code>s bestehen aus mehreren Teilen, um die Sie sich gew&ouml;hnlicherweise nicht k&uuml;mmern
+m&uuml;ssen.)
+Um eine Referenz auf den Inhaltsbereich zu bekommen,
+verwenden Sie die <code>getContentPane()</code> Methode des Frames.
+Hier ist, wie Sie den Layoutmanager des Frames des vorherigen Beispiels
+&auml;ndern k&ouml;nnen:
+
+</p>
+
+<pre>
+    setLayout( new BoxLayout( getContentPane(), BoxLayout.Y_AXIS );
+    add( dataPanel );
+    add( butPanel );
+</pre>
+
+<p>
+Das w&uuml;rde keine sichtbaren Auswirkungen auf das Beispielprogramm haben,
+es sei denn der Frame w&auml;re um sehr viel breiter.
+Ein breiter Frame, der <code>FlowLayout</code> verwendet,
+w&uuml;rde <code>dataPanel</code> und <code>butPanel</code> horizontal anordnen.
+Ein breiter Frame, der <code>BoxLayout</code> verwendet,
+w&uuml;rde <ode>dataPanel</code> und <code>butPanel</code> vertikal anordnen.
+</p>
+
+
+<QUESTION>
+<p>
+Hat GUI Progtrammierung etwas "Versuch und Irrtum" zu tun?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+
+<ANSWER>
+<p>
+Ja. Sie m&uuml;ssen experimentieren, um genau zu sehen,
+welches Layout Ihr aktuelles Programm Ihnen gibt.
+Dann &auml;ndern Sie es, um hoffentlich das zu bekommen,
+was Sie m&ouml;chten.
+Es gibt viel mehr GUI Komponenten zum Ausprobieren,
+als in diesen Aufzeichnungen beschrieben werden.
+
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Sie haben das Ende des Kapitels erreicht.
+Klicken Sie auf ein Thema, das Sie interessiert,
+um dahin zu gehen, wo es besprochen wurde.
+</p>
+
+<ul>
+<li>
+Die
+<GOTO>setResizable()</GOTO> setResizable()
+Methode.
+</li>
+
+<li>
+Die Klasse
+<GOTO>JPanel</GOTO>JPanel
+</li>
+
+<li>
+<GOTO>adding components to a JPanel</GOTO> Komponenten
+einem JPanel hinzuf&uuml;gen
+</li>
+
+<li>
+<GOTO>nested panels</GOTO> Verschachtelte Panels
+</li>
+
+<li>
+Der
+<GOTO>BoxLayout</GOTO>BoxLayout
+Layoutmanager.
+</li>
+
+<li>
+<GOTO>BoxLayout for a frame</GOTO>BoxLayout f&uuml;r einen Frame
+setzen.
+</li>
+
+</ul>
+
+</LESSON>
+
+</CAI>
+
+</CHAPTER>

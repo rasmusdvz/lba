@@ -1,0 +1,1235 @@
+<?xml version="1.0" standalone="yes" ?>
+
+<!-- Feb. 14, 1999  creation  -->
+<!-- Feb. 25, 1999  important corrections about what objects in the hierarchy a reference -->
+<!--                variable can hold.  Most books are very unclear about this  -->
+<!-- Jan. 20, 2000  INDEX  -->
+<!-- July 22, 2002  css and xml -->
+<!-- June 05, 2003  small format changes -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2002</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>Bradley Kjell kjell@ieee.org </AUTHORNAME>
+<GERMANTRANSLATION>Copyright 2004 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de</GERMANTRANSLATION>
+
+<CAI> Kapitel 51 &#8212; Abstrakte Klassen und Polymorphie
+<p>
+<small>erstellt: 14.02.99; &uuml;berarbeitet: 25.02.99, 17.07.99, 24.01.00, 28.07.02, 05.06.03; &uuml;bersetzt 23.02.04; &copy; Copyright 2004 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+
+<LESSON>
+<p>
+Klassen sind innerhalb einer Hierarchie durch eine &#171;Ist ein-&#187; Beziehung miteinander verwandt.
+Zum Beispiel, ein Nissan &#171;Ist ein-&#187; <code>Automobile</code> und ein Sentra &#171;Ist ein-&#187; Nissan.
+Dieses Kapitel bespricht wie Referenzvariablen
+f&uuml;r Objekte aus verschiedenen Klassen innerhalb einer Hierarchie verwendet werden.
+Ein weiteres Thema ist das Konzept der <b>abstrakten Klasse</b> &#8212; eine Klasse,
+die nicht instanziiert werden kann, aber die die Superklasse von anderen Klassen sein kann.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Abstrakte Klassen.</li>
+<li>Abstrakte Methoden.</li>
+<li>Polymorphie.</li>
+</ul>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wie viele Karten haben Sie dieses Jahr zu Valentin bekommen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Gru&szlig;karten-Hierarchie
+<ANSWER>
+<p>
+So viele wie Sie geschrieben haben.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+<img src="cards.gif" align="right" vspace="25" hspace="25" />
+Das Beispiel dieses Kapitels ist eine Hierarchie verschiedener Arten von Gru&szlig;karten.
+Die Superklasse ist <code>Karte</code>
+und ihre Subklassen sind <code>Valentin</code>, <code>Feiertag</code> und <code>Geburtstag</code>.
+</p>
+
+<p>
+Ein Kartenobjekt wird eine <code>gruss()</code> Methode haben, die einen Gru&szlig; ausgibt.
+Jeder Kartentyp enth&auml;lt einen passenden Gru&szlig;.
+
+Die Feiertagskarte sagt "frohe Feiertage."
+Die Geburtstagskarte sagt "alles Gute zum Geburtstag."
+Die Valentinskarte sagt "herzliche Gruesse und Kuesse."
+</p>
+
+<p>
+In diesem Beispiel muss ein Objekt  eine Instanz einer der drei
+Subtypen sein:
+<code>Valentin</code>, <code>Feiertag</code> oder <code>Geburtstag</code>.
+Es wird kein Objekt geben, das blo&szlig; eine "Karte" ist.
+Die Klasse <code>Karte</code> repr&auml;sentiert das abstrakte Konzept einer "Karte."
+Alle tats&auml;chlichen Kartenobjekte m&uuml;ssen  spezieller sein.
+</p>
+<br clear />
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wenn Sie einen Schuhkarton voll mit Gru&szlig;karten h&auml;tten, die sie &uuml;ber  Jahre hinweg
+gekommen haben &#8212; Valentinskarten, Geburtstagskarten, Feiertagskarten und so weiter &#8212;
+was w&auml;re eine gute Beschriftung f&uuml;r den Karton?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Abstrakte Klassen
+<ANSWER>
+<p>
+"Karten" &#8212;  obwohl alles in dem Karton von einem bestimmten Kartentyp ist, w&uuml;rde
+der Karton mit dem allgemeinen Begriff "Karten" beschriftet werden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+In diesem Beispiel sind alle Kartenobjekte
+von einem der drei Typen
+(<code>Valentin</code>, <code>Feiertag</code> oder <code>Geburtstag</code>).
+Die Superklasse <code>Karte</code> wird nur dazu verwendet
+sie hierarchisch zu gruppieren.
+Es wird niemals ein Objekt geben, das einfach eine Karte ist.
+Das zu tun ist sinnvoll,
+genauso wie in einem Laden unterschiedliche Gru&szlig;karten
+in einem Schaufenster ausgestellt und in mehreren Kategorien  angeordnet sind.
+</p>
+
+<INDEX>abstrakte Klasse</INDEX>
+
+<blockquote>
+Eine <b>abstrakte Klasse</b> ist in Java eine Klasse,
+die niemals instantiiert wird.
+Ihr Zweck besteht darin die Superklasse verwandter Klassen zu sein.
+Die Subklassen erben von der abstrakten Superklasse.
+</blockquote>
+
+
+<p>
+In Hierarchiediagrammen (so wie auf der vorherigen Seite)
+werden abstrakte Klassen mit gepunkteten Linien dargestellt.
+Eine abstrakte Klasse wird wie folgt definiert:
+</p>
+
+<pre class="program">
+<span class="blue">abstract</span> class KlassenName
+{
+
+   . . . . .  // Definition von Methoden und Variablen
+
+}
+</pre>
+
+<p>
+Zugriffsmodifizierer, so wie <code>public</code>,
+k&ouml;nnen vor <code>abstract</code> gestellt werden.
+Obwohl sie nicht instantiiert werden kann,
+kann eine abstrakte Klasse Methoden und Variablen definieren,
+die die Subklassen erben.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Welche der Kartentypen haben eine <code>gruss()</code> Methode?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Abstrakte Methoden
+<ANSWER>
+<p>
+Alle von ihnen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+In diesem Beispiel hat jede Kartenklasse ihre eigene Version der
+<code>gruss()</code> Methode,
+aber jede ist anders implementiert.
+Es ist sinnvoll eine abstrakte <code>gruss()</code> Methode in the Superklasse zu haben.
+Das besagt, dass jede Subklasse das "Konzept" <code>gruss()</code> erbt,
+aber die jeweilige Implementation untrschiedlich ist.
+Hier ist die Klassendefinition der abstrakten Klasse <code>Karte</code>:
+</p>
+
+<pre class="program">
+abstract class Karte
+{
+  String empfaenger;             // Name des Empf&auml;ngers
+  public abstract void gruss();  // abstrakte gruss() Methode
+}
+</pre>
+
+
+<p>
+Das ist die vollst&auml;ndige Definition dieser abstrakten Klasse.
+Beachten Sie die <b>abstrakte Methode</b>.
+Abstrakte Klassen k&ouml;nnen (aber m&uuml;ssen nicht) abstrakte Methoden enthalten.
+Ebenso kann eine abstrakte Klasse nicht-abstrakte Methoden enthalten,
+die von den Subklassen geerbt werden.
+</p>
+
+<INDEX>abstrakte Methode</INDEX>
+<blockquote>
+Eine <b>abstrakte Methode</b> hat keinen K&ouml;rper.
+(Sie besitzt keine Anweisungen.)
+Sie deklariert Zugriffsmodifizierer, R&uuml;ckgabetyp
+und Methodensignatur gefolgt von einem Semikolon.
+Eine nicht-abstrakte Subklasse erbt die abstrakte Methode und muss
+eine nicht-abstrakte Methode definieren, die mit der abstrakten Methode &uuml;bereinstimmt.
+</blockquote>
+
+<p>
+Eine <code>abstrakte</code> Subklasse einer <code>abstrakten</code> Superklasse
+ist nicht verpflichtet die geerbten abstrakten Methoden zu implementieren.
+Das hei&szlig;t, dass es mehrere Schritte geben kann von einer abstrakten Basisklasse
+bis zu einer Subklasse, die vollst&auml;ndig nicht-abstrakt ist.
+</p>
+
+<p>
+Da in der Klasse <code>Karte</code> kein Konstruktor definiert ist,
+wird automatisch der argumentenlose Standardkonstruktor vom Compiler
+zur Verf&uuml;gung gestellt.
+Aber, dieser Konstruktor kann nicht direkt verwendet werden, da
+kein <code>Karte</code>-Objekt konstruiert werden kann.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;hlen Sie sich in diesem Moment etwas abstrakt?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Feiertag
+<ANSWER>
+Das ist nicht &uuml;berraschend. Sie m&uuml;ssen das von Ihren abstrakten Eltern mitbekommen haben.
+</ANSWER>
+
+<LESSON>
+
+<p>
+Dieser Stoff bedarf der &Uuml;berlegung und &Uuml;bung.
+Es hat Jahre gedauert bis sich Informatiker
+&uuml;ber dieses Konzept geeinigt haben und sie haben
+nicht aufgeh&ouml;rt dar&uuml;ber zu diskutieren.
+</p>
+
+<p>
+Abstrakte Klassen werden verwendet um das "Konzept"
+von Etwas zu organisieren, das &uuml;ber verschiedene Versionen
+von Subklassen verf&uuml;gt.
+Die abstrakte Klasse kann abstrakte und nicht-abstrakte Methoden enthalten.
+</p>
+
+<p>
+Hier ist eine Klassendefinition f&uuml;r die Klasse <code>Feiertag</code>.
+Es ist eine nicht-abstrakte Subklasse einer abstrakten Superklasse:
+</p>
+
+<pre class="program">
+class Feiertag extends Karte
+{
+  public Feiertag( String e )
+  {
+    empfaenger = e;
+  }
+
+  public void gruss()
+  {
+    System.out.println("Dear " + empfaenger + ",\n");
+    System.out.println("frohe Feiertage!\n\n");
+  }
+}
+</pre>
+
+
+<p>
+Die Klasse <code>Feiertag</code> ist keine abstrakte Klasse.
+Es k&ouml;nnen Objekte von ihr instantiiert werden.
+Ihr Konstruktor ruft implizit den argumentenlosen
+Konstruktor in ihrer Superklasse  <code>Karte</code> auf,
+der wiederum den Konstruktor in <code>Object</code> aufruft.
+Obwohl sie eine abstrakte Superklasse haben, sind
+<code>Feiertag</code>-Objekte genauso Objekte wie all die anderen.
+</p>
+
+<ul>
+<li><code>Feiertag</code> erbt die abstrakte Methode <code>gruss()</code>
+    von ihrer Superklasse.</li>
+<li><code>Feiertag</code> muss eine <code>gruss()</code> Methode definieren, die einen Methodenk&ouml;rper enth&auml;lt (Anweisungen zwischen geschweiften Klammern).</li>
+<li>Die Definition von <code>gruss()</code> muss mit der in der Superklasse gegebenen Signatur &uuml;bereinstimmen.</li>
+<li>Wenn <code>Feiertag</code> keine <code>gruss()</code> Methode definiert, dann m&uuml;&szlig;te <code>Feiertag</code> als eine abstrakte Klasse deklariert werden.
+    <ul>
+    <li>Das w&uuml;rde sie zu einer abstrakten Subklasse einer abstrakten Superklasse machen.</li>
+    </ul>
+    </li>
+</ul>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wird jede der Klassen, die von <code>Karte</code> erbt, eine
+<code>gruss()</code> Methode haben?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Nicht alles in einer abstrakten Klasse ist abstrakt
+<ANSWER>
+<p>
+Ja &#8212; durch die Verwendung einer abstrakten Klasse kann ein Programmierer
+erreichen, dass alle Subklassen dieser Klasse
+sich in wichtigen Teilen gleichen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>abstrakte Klasse, Notwendigkeit</INDEX>
+
+<p>
+Nicht alles was in einer abstrakten Klasse definiert ist muss abstrakt sein.
+Die Variable <code>empfaenger</code> ist in der Klasse <code>Karte</code> definiert
+und wird in der &uuml;blichen Weise geerbt.
+Aber sobald eine Klasse auch nur eine abstrakte Methode besitzt, dann
+muss die Klasse selbst als abstrakt deklariert werden.
+Hier ist ein Programm um die zwei Klassen zu testen.
+</p>
+
+<pre class="program">
+abstract class Karte
+{
+  String empfaenger;
+  public abstract void gruss();
+}
+
+class Feiertag extends Karte
+{
+  public Feiertag( String e )
+  {
+    empfaenger = e;
+  }
+
+  public void gruss()
+  {
+    System.out.println("Dear " + empfaenger + ",\n");
+    System.out.println("frohe Feiertage!\n\n");
+  }
+}
+
+public class KarteTester
+{
+  public static void main ( String[] args )
+  {
+    Feiertag feiern = new Feiertag("Santa");
+    feiern.gruss();
+  }
+}
+</pre>
+
+<p>
+Das ist ein vollst&auml;ndiges, ausf&uuml;hrbares Programm.
+Der Wunsch es nach NotePad zu kopieren und es laufen zu lassen
+muss unwiderstehlich sein.
+Denken Sie daran die Datei "KarteTester.java" zu nennen.
+<br clear="all" />
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+K&ouml;nnten Sie dieses Programm schreiben ohne eine abstrakte Klasse zu verwenden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vorteil abstrakter Klassen
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<img src="holiday.gif" vspace="25" hspace="25" align="right" />
+<p>
+Abstrakte Klassen sind eine M&ouml;glichkeit ein Programm zu organisieren.
+Sie k&ouml;nnen das gleiche auch ohne die Verwendung von abstrakten Klassen erreichen.
+Das ist eine Frage des Programmdesigns und nicht leicht zu entscheiden.
+</p>
+
+<p>
+Hier ist ein Testlauf des Programms:
+</p>
+
+<pre>
+Dear Santa,
+
+frohe Feiertage!
+</pre>
+
+<INDEX>abstrakte Klasse, Vorteil</INDEX>
+<p>
+Der Vorteil in der Verwendung einer abstrakter Klasse ist,
+dass Sie mehrere verwandte Klassen als Geschwister gruppieren
+k&ouml;nnen.
+Das Gruppieren von Klassen ist wichtig um ein Programm
+zu organinisieren und es verst&auml;ndlich zu halten.
+Die Abbildung zeigt dieses Programm nachdem es das Objekt konstruiert hat.
+</p>
+
+<p>
+Es w&auml;re sch&ouml;n noch ein paar andere Karten auszugeben.
+Hier ist das Grundger&uuml;st der <code>Geburtstag</code>-Klasse:
+</p>
+
+<pre class="program">
+class Geburtstag extends <span class="blue">______________</span>
+{
+  int alter;
+
+  public <span class="blue">______________</span> ( String e, int jahre )
+  {
+    empfaenger = e;
+    alter = jahre;
+  }
+
+  public void gruss()
+  {
+    System.out.println("Dear " + empfaenger + ",\n");
+    System.out.println("alles Gute zum " + <span class="blue">_______</span> + ". Geburtstag.\n\n");
+  }
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Erg&auml;nzen Sie die fehlenden Teile.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><span class="red">Valentinskarte</span>
+<ANSWER>
+<p>
+Die fehlenden Teile wurden erg&auml;nzt, siehe unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist die vollst&auml;ndige Geburtstagskarte:
+</p>
+
+<pre class="program">
+class Geburtstag extends <span class="blue">Karte</span>
+{
+  int alter;
+
+  public <span class="blue">Geburtstag</span> ( String e, int jahre )
+  {
+    empfaenger = e;
+    alter = jahre;
+  }
+
+  public void gruss()
+  {
+    System.out.println("Dear " + empfaenger + ",\n");
+    System.out.println("alles Gute zum " + <span class="blue">alter</span> + ". Geburtstag.\n\n");
+  }
+}
+</pre>
+
+<p>
+Die <code>Valentin</code>-Klasse ist sehr &auml;hnlich bis auf die hinzugef&uuml;gten K&uuml;sse.
+</p>
+
+<pre class="program">
+class Valentin extends <span class="blue">Karte</span>
+{
+  int kuesse;
+
+  public <span class="blue">Valentin</span> ( String e, int k )
+  {
+    empfaenger = e;
+    kuesse     = k;
+  }
+
+  public void gruss()
+  {
+    System.out.println("Dear " + empfaenger + ",\n");
+    System.out.println("herzliche Gruesse und Kuesse,\n");
+    for ( int j = 0; j &lt; kuesse; j++ )
+      System.out.print("X");
+    System.out.println("\n\n");
+  }
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Die jeweiligen <code>gruss()</code> Methoden der Geschwisterklassen
+sind unterschiedlich.
+Erf&uuml;llt jede die Anforderungen der abstrakten Superklasse <code>Karte</code>?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndiges Programm
+<ANSWER>
+<p>
+Ja.  Alles, was <code>Karte</code> verlangt hat war:
+</p>
+
+<pre>
+public abstract void gruss();
+</pre>
+
+<p>
+Jede Geschwisterklasse hat das auf ihre eigene Weise getan.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist das vollst&auml;ndige Programm mit allen drei Kartenklassen
+und ihren jeweiligen Objekten.
+Wenn Sie in diesem Jahr knapp an Gru&szlig;karten sind,
+m&ouml;chten Sie vielleicht das Programm nach NotePad kopieren und
+es ein paar Mal laufen lassen.
+</p>
+
+
+<pre class="program">
+import java.io.*;
+
+abstract class Karte
+{
+  String empfaenger;
+  public abstract void gruss();
+}
+
+class Feiertag extends Karte
+{
+  public Feiertag( String e )
+  {
+    empfaenger = e;
+  }
+
+  public void gruss()
+  {
+    System.out.println("Dear " + empfaenger + ",\n");
+    System.out.println("frohe Feiertage!\n\n");
+  }
+}
+
+class Geburtstag extends Karte
+{
+  int alter;
+
+  public Geburtstag ( String e, int jahre )
+  {
+    empfaenger = e;
+    alter = jahre;
+  }
+
+  public void gruss()
+  {
+    System.out.println("Dear " + empfaenger + ",\n");
+    System.out.println("alles Gute zum " + alter + ". Geburtstag.\n\n");
+  }
+}
+
+class Valentin extends Karte
+{
+  int kuesse;
+
+  public Valentin ( String e, int k )
+  {
+    empfaenger = e;
+    kuesse     = k;
+  }
+
+  public void gruss()
+  {
+    System.out.println("Dear " + empfaenger + ",\n");
+    System.out.println("herzliche Gruesse und Kuesse,\n");
+    for ( int j = 0; j &lt; kuesse; j++ )
+      System.out.print("X");
+    System.out.println("\n\n");
+  }
+}
+
+public class KarteTester
+{
+  public static void main ( String[] args ) throws IOException
+  {
+    String name;
+    BufferedReader input = new BufferedReader( new InputStreamReader(System.in) );
+    System.out.println("Ihr Name");
+    name = input.readLine();
+
+    Feiertag   feiern = new Feiertag( name );
+    feiern.gruss();
+
+    Geburtstag  geb  = new Geburtstag( name, 21 );
+    geb.gruss();
+
+    Valentin val = new Valentin( name, 7 );
+    val.gruss();
+
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Das ist ein ziemlich langes Programm &#8213; 80 Zeilen!
+Glauben Sie, dass Sie ohne gro&szlig;e Probleme ein paar mehr Kartenklassen entwerfen k&ouml;nnten?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Objekte von jeder Klasse
+<ANSWER>
+<p>
+Ja. Die abstrakte Klasse <code>Karte</code> kann als Modell daf&uuml;r
+verwendet werden wie jeder neuer Kartentyp aussehen sollte.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<img src="cardObjs.gif" align="right"  vspace="25" hspace="25" />
+<p>
+Durch hierarchische Organisation und Vererbung
+ist es leicht viele weitere Kartenklassen hinzuzuf&uuml;gen
+und ein gut organisiertes Programm zu erstellen.
+Das war vor noch nicht allzu vielen Jahren undenkbar.
+Hier ist ein Probelauf dieses Programms:
+</p>
+
+<pre>
+Ihr Name
+Sue
+Dear Sue,
+
+frohe Feiertage!
+
+Dear Sue,
+
+alles Gute zum 21. Geburtstag.
+
+Dear Sue,
+
+herzliche Gruesse und Kuesse,
+
+XXXXXXX
+</pre>
+
+
+<p>
+Nachdem die <code>main()</code> Methode die drei Objekte konstruiert hat,
+ist die Situation wie in der Abbildung dargestellt.
+Es gibt drei Klassen, die intantiiert werden k&ouml;nnen, und
+es wurde ein Objekt von jeder Klasse instantiiert.
+Es k&ouml;nnen nat&uuml;rlich so viele Objekte wie Sie brauchen von jedem Typ (au&szlig;er <code>Karte</code>) instantiiert werden.
+<br clear="all" />
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Es gibt 4 Klassen. Warum k&ouml;nnen nur 3 instantiiert werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Abstrakte Klassen k&ouml;nnen nicht instantiiert werden
+
+<ANSWER>
+<p>
+Die Superklasse <code>Karte</code> ist eine abstrakte Klasse und
+kann deshalb nicht instantiiert werdene.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>abstrakte Klasse, Instantiierung</INDEX>
+
+<p>
+Das folgende k&ouml;nnen sie nicht tun:
+</p>
+
+<pre class="code">
+   . . . .
+
+  public static void main ( String[] args ) throws IOException
+  {
+     . . . .
+
+    Karte karte = new Karte() ;        <span class="red">// abstrakte Klassen k&ouml;nnen nicht instantiiert werden</span>
+    karte.gruss() ;
+
+     . . . .
+  }
+</pre>
+
+<p>
+Da <code>Karte</code> eine abstrakte Klasse ist,
+wird der Compiler das als Syntaxfehler markieren.
+<code>Karte</code> hat einen Konstruktor, der
+(implizit) durch ihre Subklassen aufgerufen wird, aber er
+kann nicht direkt aufgerufen werden.
+Jedoch, das folgende <em>ist</em> OK:
+</p>
+
+<pre class="code">
+   . . . .
+
+  public static void main ( String[] args ) throws IOException
+  {
+     . . . .
+
+    Karte karte = new Valentin( "Joe", 14 ) ;      <span class="blue">// ein Valentin &#171;Ist eine-&#187; Karte</span>
+    karte.gruss() ;
+
+     . . . .
+  }
+</pre>
+
+<p>
+Es ist OK eine Referenz auf ein <code>Valentin</code>-Objekt in einer
+Referenzvariable vom Typ <code>Karte</code> zu speichern,
+denn <code>Valentin</code> <b>&#171;Ist eine-&#187;</b> <code>Karte</code>.
+Sie k&ouml;nnen sich die Referenzvariable <code>Karte</code> als einen
+Kartenhalter vorstellen, der dazu bestimmt ist jeden Typ von <code>Karte</code>
+zu halten.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Glauben Sie, dass es OK sein w&uuml;rde das folgende zu tun?
+</p>
+
+<pre class="code">
+Karte karte2 = new Feiertag( "Bob" ) ;
+Karte karte3 = new Geburtstag( "Emily" ) ;
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Referenzvariablen der Superklasse verwenden
+<ANSWER>
+<pre class="code">
+Karte karte2 = new Feiertag( "Bob" ) ;
+Karte karte3 = new Geburtstag( "Emily" ) ;
+</pre>
+<p>
+Ja, beide sind korrekt, denn <code>Feiertag</code> &#171;Ist eine-&#187; <code>Karte</code>
+und <code>Geburtstag</code> &#171;Ist eine-&#187; <code>Karte</code>.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Superklasse, eine Variable verwenden der</INDEX>
+<p>
+Eine Referenzvariable der Klasse "C" kann von jedem Objekt,
+das durch Vererbung mit der Klasse "C" verwandt ist, verwendet
+werden.
+Zum Beispiel,
+eine <code>Karte</code>-Referenzvariable <code>karte2</code>
+kann eine Referenz auf ein <code>Feiertag</code>-Objekt,
+ein <code>Valentin</code>-Objekt oder ein <code>Geburtstag</code>-Objekt
+enthalten.
+&Uuml;blicherweise werden Referenzen auf eine Superklasse verwendet um
+Objekte ihrer Subklassen zu enthalten.
+</p>
+
+<p>
+<b>Wichtiger Punkt:</b>
+</p>
+
+<blockquote>
+Wenn eine Methode aufgerufen wird, ist es die Klasse des <b>Objekts</b>
+(nicht die der Variablen), die bestimmt welche Methode ausgef&uuml;hrt wird.
+</blockquote>
+
+<p>
+Genau das ist es, was Sie erwarten w&uuml;rden.
+Die ausgef&uuml;hrte Methode ist Teil des Objekts.
+<!--(at least conceptually).-->
+Zum Beispiel:
+</p>
+
+<pre class="code">
+Karte karte = new Valentin( "Joe", 14 ) ;
+karte.gruss();
+
+Karte karte2 = new Feiertag( "Bob" ) ;
+karte2.gruss();
+
+Karte karte3 = new Geburtstag( "Emily", 12 ) ;
+karte3.gruss();
+</pre>
+
+<p>
+Das wird die <code>gruss()</code> Methode f&uuml;r ein <code>Valentin</code>-Objekt ausf&uuml;hren,
+dann wird die <code>gruss()</code> Methode f&uuml;r ein <code>Feiertag</code>-Objekt ausgef&uuml;hrt und dann wird die <code>gruss()</code> Methode f&uuml;r ein <code>Geburtstag</code>-Objekt ausgef&uuml;hrt.
+Der Typ des Objekts bestimmt in jedem Fall welche Version der Methode ausgef&uuml;hrt wird.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist es notwendig drei verschiedene Variablen f&uuml;r dieses Programmfragment zu verwenden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Polymorphie
+<ANSWER>
+<p>
+Nein. Es k&ouml;nnte nur eine nacheinander f&uuml;r jedes Objekt verwendet werden
+(vorausgesetzt, dass das Programm nicht mehr macht wie in diesem Beispiel.)
+Siehe unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Polymorphie</INDEX>
+<p>
+<b>Polymorphie</b> bedeutet "Vielgestaltigkeit."
+In Java bedeutet es, dass eine einzelne Variable f&uuml;r verschiedene Objekte
+verwandter Klassen (zu verschiedenen Zeitpunkten) in einem Programm verwendet werden kann.
+Wenn die Variable mit der Punktnotation <code>variable.methode()</code> verwendet wird um eine Methode aufzurufen,
+h&auml;ngt es vom <strong>Objekt</strong> ab, auf das die Variable gegenw&auml;rtig verweist,
+welche Methode genau ausgef&uuml;hrt wird.
+Hier ist ein Beispiel:
+</p>
+
+<pre class="program">
+ . . . .                           // Klassendefinitionen wie vorher
+
+public class KarteTester
+{
+  public static void main ( String[] args ) throws IOException
+  {
+
+    Karte karte = new Feiertag( "Amy" );
+    karte.gruss();                      <span class="blue">//Feiertag gruss() aufrufen</span>
+
+    karte = new Valentin( "Bob", 3 );
+    karte.gruss();                      <span class="blue">//Valentin gruss() aufrufen</span>
+
+    karte = new Geburtstag( "Cindy", 17 );
+    karte.gruss();                      <span class="blue">//Geburtstag gruss() aufrufen</span>
+
+  }
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was wird das Programm ausgeben?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Referenzen halten ohne sie zu verwenden
+<ANSWER>
+
+
+<pre>
+Dear Amy,
+
+frohe Feiertage!
+
+Dear Bob,
+
+herzliche Gruesse und Kuesse,
+
+XXX
+
+Dear Cindy,
+
+alles Gute zum 17. Geburtstag.
+</pre>
+
+
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Abstammungsregel</INDEX>
+<p>
+Auf welche Objekttypen eine Referenzvariable verweisen kann:
+</p>
+
+<blockquote>
+Eine Variable kann eine Referenz auf ein Objekt halten,
+dessen Klasse ein Nackkomme der Klasse der Variablen ist.
+</blockquote>
+
+
+<p>
+Die Klasse des Objekts muss von der Klasse der Variablen,
+die eine Referenz auf das Objekt h&auml;lt, abstammen.
+Ein <b>Nachkomme</b> einer Klasse ist eine Subklasse dieser Klasse
+oder eine Subklasse einer Subklasse dieser Klasse und so weiter.
+Geschwisterklassen stammen nicht von einander ab
+(Sie erben nichts von Ihrer Schwester oder Ihrem Bruder.)
+</p>
+
+<pre>
+Karte       k;
+Valentin    v;
+Geburtstag  g;
+Feiertag    f;
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Welche der folgenden sind korrekt?
+</p>
+
+<pre>
+k = new Valentin("Debby", 8);
+g = new Valentin("Elroy", 3);
+v = new Valentin("Fiona", 3);
+f = new Geburtstag ("Greg",  35);
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Eine weitere Hierarchie
+
+<ANSWER>
+
+<pre class="code">
+Karte       k;
+Valentin    v;
+Geburtstag  g;
+Feiertag    f;
+
+k = new Valentin("Debby", 8);     <span class="blue">//OK</span>
+g = new Valentin("Elroy", 3);     <span class="red">//FALSCH</span>
+v = new Valentin("Fiona", 3);     <span class="blue">//OK</span>
+f = new Geburtstag("Greg", 35);   <span class="red">//FALSCH</span>
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<img src="rodents.gif" align="right" vspace="25" hspace="25" />
+<p>
+Hier ist die Abbildung einer anderen Hierarchie:
+In dieser Hierarchie gibt es keine abstrakten Klassen,
+also kann jede Klasse instantiiert werden.
+Wie wir berreits gesehen haben ist das folgende OK:
+</p>
+
+<pre>
+superklasseReferenz = subklasseReferenz
+</pre>
+
+<p>
+Die Referenzvariable einer Superklasse kann die Referenz auf ein Objekt
+einer ihrer eigenen Subklassen (oder deren Subklassen und so weiter) enthalten.
+Aber, die umgekehrte Richtung
+</p>
+
+<pre>
+// tun Sie das nicht
+subklasseReferenz = superklasseReferenz
+</pre>
+
+<p>
+geht nicht, es sei denn
+die <em>superklasseReferenz</em> verweist tats&auml;chlich auf ein Objekt der Subklasse
+(dieser Fall ist selten.)
+</p>
+
+<p>
+Hier sind einige Variablen:
+</p>
+
+<pre>
+Nager    nager;
+Ratte    ratte;
+Maus     maus;
+</pre>
+
+<p>
+Betrachten Sie die Tabelle und entscheiden Sie f&uuml;r jeden Codeabschnitt ob er korrekt ist oder nicht.
+</p>
+
+<blockquote>
+<table border="border" bordercolor="brown" cellpadding="5" bgcolor="white">
+<tr bgcolor="tan"><th>Codeabschnitt</th><th>OK oder Nicht?</th><th>Codeabschnitt</th><th>OK oder Nicht?</th></tr>
+
+<tr>
+<td>
+<pre>
+nager = new Ratte();
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('OK')" /></form></td>
+<td>
+<pre>
+nager = new Feldmaus();
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('OK')" /></form></td>
+</tr>
+
+<tr>
+<td>
+<pre>
+maus = new Ratte();
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('FALSCH!!')" /></form></td>
+<td>
+<pre>
+maus = new Nager();
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('FALSCH!!')" /></form></td>
+</tr>
+
+<tr>
+<td>
+<pre>
+ratte = new Nager();
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('WRONG!!')" /></form></td>
+<td>
+<pre>
+ratte = new Flussratte();
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('OK')" /></form></td>
+</tr>
+
+<tr>
+<td>
+<pre>
+ratte = new Feldmaus();
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('FALSCH!!')" /></form></td>
+<td>
+<pre>
+ratte = new Maus();
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('WRONG!!')" /></form></td>
+</tr>
+
+</table>
+</blockquote>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was glauben Sie, gibt es noch viel mehr &uuml;ber Vererbung und Polymorphie zu lernen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<ANSWER>
+<p>
+Unsinn!
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Sie m&ouml;chten vielleicht das folgende noch einmal durchsehen.
+Klicken Sie auf ein Thema, das Sie interessiert um dahin zu gehen, wo es
+besprochen wurde.
+</p>
+
+<ul>
+<li>
+<GOTO>abstrakte Klasse</GOTO> Abstrakte Klasse.
+</li>
+
+<li>
+<GOTO>abstrakte Methode</GOTO> Abstrakte Methode.
+</li>
+
+<li>
+<GOTO>abstrakte Klasse, Notwendigkeit</GOTO> Wann eine Klasse als abstrakt deklariert werden muss.
+</li>
+
+<li>
+<GOTO>abstrakte Klasse, Vorteil</GOTO> Vorteil bei der Verwendung einer abstrakten Klasse.
+</li>
+
+<li>
+<GOTO>abstrakte Klasse, Instantiierung</GOTO> Eine abstrakte Klasse kann nicht instantiiert werden.
+</li>
+
+<li>
+<GOTO>Superklasse, eine Variable verwenden der</GOTO> Eine Variable vom Typ einer Superklasse verwenden.
+</li>
+
+<li>
+<GOTO>Polymorphie</GOTO> Polymorphie.
+</li>
+
+<li>
+<GOTO>Abstammungsregel</GOTO> Auf welche Objekttypen eine Variable verweisen kann.
+</li>
+
+</ul>
+
+<p>
+Das n&auml;chste Kapitel wird Polymorphie weiter vertiefen.
+</p>
+
+<hr />
+<br />
+<A HREF="../../java-toc.html#51">
+<img src="../contents.gif" alt="&Uuml;bersicht" titel="Zur &Uuml;bersicht gehen." align="center" /></A>
+&#8212;&#8212;Zur&uuml;ck zur <A HREF="../../java-toc.html#51">&Uuml;bersicht</a>.
+<br />
+<br />
+
+
+</CAI>
+</CHAPTER>

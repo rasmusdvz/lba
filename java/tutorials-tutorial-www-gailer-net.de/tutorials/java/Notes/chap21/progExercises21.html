@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Kapitel 21  Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<p><small>erstellt 13.08.99; &uuml;bersetzt 07.04.03; &uuml;berarbeitet 03.12.03, 08.06.04, 06.06.05, 03.10.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small></p>
+<hr />
+<center><h1>Kapitel 21  Programmieraufgaben</h1></center>
+
+<h2>Aufgabe 1 &#8212; Steuerzeichen</h2>
+<p>
+Schreiben Sie ein Programm, das zehnmal das Zeichen &quot;x&quot; auf den Bildschirm ausgibt.
+Modifizieren Sie dazu das Programm <code><a href="ch21_9.html">HelloWorld.java</a></code>.
+Verwenden Sie eine Dateiumlenkung, um den Output des Programms in eine Textdatei zu leiten.
+Verwenden Sie den <code>dir</code>-Befehl f&uuml;r DOS bzw. den Befehl <code>ls -l</code> f&uuml;r UNIX/Linux, um zu sehen wie viele Bytes die Datei hat.
+Je nachdem wie das Betriebssystem das EOF-Zeichen (<em>End Of Line</em>) umsetzt, werden Sie mehr als 10 Zeichen sehen. (Es w&auml;re eine sehr gute Idee sicher zu gehen, dass Sie keine <strong>Endlosschleife</strong> haben bevor Sie den Output in eine Datei umlenken ;-).)
+</p>
+
+<blockquote><pre>
+
+C:\daten\JavaNotes&gt;java Hello &gt; output.txt
+
+C:\daten\JavaNotes&gt;dir output.txt
+
+OUTPUT   TXT            12  08.06.04  12:46 output.txt
+         1 Datei(en)                    12 Bytes
+         0 Verzeichnis(se)          203,84 MB frei
+
+</blockquote></pre>
+
+<p>
+Die zus&auml;tzlichen Zeichen sind Steuerzeichen.
+</p>
+
+<p>Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#21">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+
+<h2>Aufgabe 2 &#8212; Mehr Steuerzeichen</h2>
+<p>
+&Auml;ndern Sie das Programm, so dass es 10 Zeilen von je 10 &quot;x&quot; ausgibt.
+F&uuml;hren Sie es aus, lenken Sie den Output in eine Datei um und betrachten Sie dann die Datei.
+</p>
+
+<blockquote><pre>
+
+C:\daten\JavaNotes&gt;java Hello &gt; output.txt
+
+C:\daten\JavaNotes&gt;dir output.txt
+
+OUTPUT   TXT            120  08.06.04  12:46 output.txt
+         1 Datei(en)                     120 Bytes
+         0 Verzeichnis(se)           203,84  MB frei
+
+</blockquote></pre>
+
+<p>
+Beachten Sie, dass die vorherige Datei durch eine neue Datei mit dem gleichen Namen ersetzt wurde.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#21">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+<h2>Aufgabe 3 &#8212; An eine bestehende Datei anh&auml;ngen</h2>
+<p>
+Starten Sie das urspr&uuml;ngliche Programm aus Aufgabe 1 (eine Zeile mit 10 &quot;x&quot;).
+Mit dem ersten Ausf&uuml;hren erzeugen Sie eine neue Textdatei (und ersetzen damit die alte Datei mit dem gleichen Namen).
+H&auml;ngen Sie mit jedem weiteren Ausf&uuml;hren des Programm den Output an die erste Datei an.
+&Uuml;berpr&uuml;fen Sie ob die Datei genau so gro&szlig; ist, wie die aus Aufgabe 2:
+</p>
+
+<blockquote><pre>
+C:\daten\JavaNotes&gt;java Hello &gt; output.txt
+C:\daten\JavaNotes&gt;java Hello &gt;&gt; output.txt
+  . . . . . . . . . . .
+C:\daten\JavaNotes&gt;java Hello &gt;&gt; output.txt
+
+C:\daten\JavaNotes&gt;dir output.txt
+
+OUTPUT   TXT            600  08.06.04  12:46 output.txt
+         1 Datei(en)                     600 Bytes
+         0 Verzeichnis(se)           203,84  MB frei
+</blockquote></pre>
+
+<p>
+Beachten Sie, dass die vorherige Datei durch eine neue Datei mit dem gleichen Namen ersetzt wurde.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#21">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+<h2>Aufgabe 4 &#8212; Eine wirklich kleine Datei</h2>
+<p>
+&Auml;ndern Sie Ihr Programm, so dass es <strong>keine Zeichen</strong> ausgibt.
+Lenken Sie dann den Output in eine Datei.
+Wird eine Datei erzeugt (auch wenn sie keine Daten enth&auml;lt)?
+Welche Gr&ouml;&szlig;e hat sie?
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#21">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+<h2>Aufgabe 5 &#8212; Text Editor</h2>
+<p>
+Schreiben Sie ein Programm, das den Anwender auffordert zeilenweise Text einzugeben.
+Nach jeder eingegebenen Zeile, gibt das Programm die Zeile als Bildschirmecho wieder aus.
+Das Programm wird beendet, sobald eine Zeile die Zeichen <nobr><code>//fertig</code></nobr> enth&auml;lt.
+(Verwenden Sie eine &uuml;berwachte Schleife und die <a href="../chap18/ch18_15.html"><code>equals()</code>-Methode</a> der Klasse <code>String</code>.)
+Sobald das Programm korrekt l&auml;uft, lenken Sie den Output in eine Datei um.
+</p>
+
+<p>
+Versuchen Sie eine kleine Java Quelldatei
+(wie <code>Hello.java</code>) zu schreiben, indem Sie das Programm starten und das Programm eingeben.
+Sie k&ouml;nnen Fehler w&auml;hrend der Eingabe korrigieren, so lange Sie nicht die Eingabe-Taste dr&uuml;cken. Sobald die Eingabe-Taste gedr&uuml;ckt wurde, werden die Daten an das Programm &uuml;bergeben.
+</p>
+
+<blockquote><pre>
+C:\daten\JavaNotes&gt; java TextEditor &gt; Hello.java
+class Hello
+{
+  public static void main( String[] a )
+  {
+    System.out.println("Hallo neue Datei!");
+  }
+}
+//fertig
+
+C:\daten\JavaNotes&gt; javac Hello.java
+
+C:\daten\JavaNotes&gt; java Hello
+
+Hallo neue Datei!
+
+</blockquote></pre>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#21">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+
+</body>
+</html>

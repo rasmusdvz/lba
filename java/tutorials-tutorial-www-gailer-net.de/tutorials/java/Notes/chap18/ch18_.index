@@ -1,0 +1,14 @@
+<!-- loop, sentinel coltrolled -->
+<li><a href="ch18_2.html#loop, sentinel coltrolled">loop, sentinel coltrolled</a></li>
+<!-- sentinel, loop -->
+<li><a href="ch18_2.html#sentinel, loop">sentinel, loop</a></li>
+<!-- if, nested -->
+<li><a href="ch18_8.html#if, nested">if, nested</a></li>
+<!-- if, matching else -->
+<li><a href="ch18_12.html#if, matching else">if, matching else</a></li>
+<!-- program, adding integers -->
+<li><a href="ch18_13.html#program, adding integers">program, adding integers</a></li>
+<!-- string, used as sentinel -->
+<li><a href="ch18_15.html#string, used as sentinel">string, used as sentinel</a></li>
+<!-- program, polynomial evaluation -->
+<li><a href="ch18_20.html#program, polynomial evaluation">program, polynomial evaluation</a></li>

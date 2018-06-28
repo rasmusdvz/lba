@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<!-- FILL in the Quiz Name between <title> and </title> -->
+<title>
+F&uuml;llen Sie die L&uuml;cken aus
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="robots" content="noindex,nofollow">
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css" />
+</head>
+
+<body>
+<small>erstellt: 23.09.99; &uuml;bersetzt: 19.05.03; &uuml;berarbeitet 26.01.04, 12.07.04, 18.01.05; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+F&uuml;llen Sie die L&uuml;cken aus
+<!-- end of Quiz Name -->
+</h1></center>
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<img src="Box.gif" align="left" hspace="15" />
+<p>
+1. &nbsp; &nbsp; &nbsp;
+<b>Entwurf der Box-Klasse</b>. &nbsp; &nbsp;
+Objekte von dieser Klasse werden eine <em>Box</em> repr&auml;sentieren (wie einen Karton.)
+Die Seiten der Box sind Rechtecke.
+Eine <em>Box</em> hat drei wesentliche Merkmale: Breite, H&ouml;he und L&auml;nge.
+Ausgehend von diesen Merkmalen k&ouml;nnen andere Werte berechnet werden: Volumen und Gesamtoberfl&auml;che.
+</p>
+<br clear="all" />
+
+<p>
+F&uuml;llen Sie in dem folgenden Klassenentwurf die L&uuml;cken aus:
+<blockquote><pre>
+<font size=+3><b>class</font></b> <input type="button" value="___________" name="button1" onClick="value='Box'" />
+
+Eine Klasse, die einen Karton modelliert.
+
+<b><font size=+3>Konstruktoren</font></b>
+
+Box ( double <input type="button" value="___________" name="button2" onClick="value='breite'" />,
+      double <input type="button" value="___________" name="button3" onClick="value='hoehe'" />,
+      double <input type="button" value="___________" name="button4" onClick="value='laenge';alert('Die  Parameter können in beliebiger Reihenfolge verwendet werden, solange  Sie diese Reihenfolge einheitlich in Ihrem Code verwenden.')">  )
+</pre>
+
+Der Konstruktor sollte Volumen und Fl&auml;che nicht als Parameter beinhalten,
+da diese Werte von <code>breite</code>, <code>hoehe</code> und <code>laenge</code> der Box berechnet werden k&ouml;nnen.
+Der Einfachheit halber nehmen wir einen Konstruktor auf, der verwendet wird, wenn alle Seiten der Box gleich gro&szlig; sind (wenn die Box ein W&uuml;rfel ist):
+</p>
+<p>
+Box ( double <input type="button" value="___________" name="button5" onClick="value='seite'" /> )
+</p>
+<pre>
+<b><font size=+3>Methoden</font></b>
+
+// Das Volumen der Box berechnen
+double  <input type="button" value="___________________" name="button6" onClick="value='berechneVolumen( )'" />
+
+// Die Gesamtoberfläche der Box berechnen.
+double  <input type="button" value="___________________" name="button7" onClick="value='berechneFlaeche( )'" />
+</blockquote></pre>
+</form>
+<p>
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>
+2. &nbsp; &nbsp; &nbsp;<b>&Uuml;berpr&uuml;fung des Designs</b>. &nbsp; &nbsp;Schreiben Sie ein kleines Programm, das die Klasse verwendet, um das Design zu &uuml;berpr&uuml;fen.
+Schreiben Sie ein Programm, das ein Box-Objekt mit
+den Seiten 2.5, 5.0, und 6.0 Zoll erzeugt.
+Geben Sie die Oberfl&auml;che und das Volumen aus.
+
+<blockquote><pre>
+
+class BoxTester
+{
+
+  public static void main ( String[] args )
+  {
+     Box box = new  <input type="button" value="________( ____, ____, ____)" name="button1" onClick="value=' Box( 2.5, 5.0, 6.0 )  '" /> ;
+
+     System.out.println( "Flaeche: "    + box.<input type="button" value="_____________________" name="button2" onClick="value=' berechneFlaeche() '" /> +
+                         "  Volumen: " + box.<input type="button" value="_____________________" name="button3" onClick="value=' berechneVolumen() '" /> );
+
+  }
+}
+</blockquote></pre>
+</p>
+</form>
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>3. &nbsp; &nbsp; &nbsp;<b>Grundger&uuml;st der Klasse</b>. &nbsp; &nbsp;F&uuml;llen Sie die L&uuml;cken aus, um das Grundger&uuml;st der Klasse anzugeben.
+<blockquote><pre>
+class Box
+{
+  // <input type="button" value="________________" name="button1" onClick="value='Instanzvariablen  '" />
+
+  // <input type="button" value="________________" name="button2" onClick="value='Konstruktoren        '" />
+
+  // <input type="button" value="________________" name="button3" onClick="value='Methoden             '" />
+
+}
+</blockquote></pre>
+</p>
+</form>
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>4. &nbsp; &nbsp; &nbsp;<b>F&uuml;llen Sie die Instanzvariablen aus</b>. &nbsp; &nbsp;F&uuml;llen Sie
+den Datentyp f&uuml;r jede Instanzvariable aus.
+<blockquote><pre>
+class Box
+{
+  // Instanzvariablen
+  <input type="button" value="________________" name="button1" onClick="value='double  '" /> laenge;
+  <input type="button" value="________________" name="button2" onClick="value='double  '" /> breite;
+  <input type="button" value="________________" name="button3" onClick="value='double  '" /> hoehe;
+
+  // Konstruktoren
+
+  // Methoden
+
+}
+</blockquote></pre>
+</p>
+</form>
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>5. &nbsp; &nbsp; &nbsp;<b>Vervollst&auml;ndigen Sie den Konstruktor</b>. &nbsp; &nbsp;Der Konstruktor
+wird die Instanzvariablen der zu konstruierenden Objekte initialisieren.
+<blockquote><pre>
+class Box
+{
+  // Instanzvariablen
+  double laenge;
+  double breite;
+  double hoehe;
+
+  // Konstruktoren
+  <input type="button" value="___________" name="button1" onClick="value='Box'" />( double <input type="button" value="_________" name="button2" onClick="value='breite'" />, double <input type="button" value="__________" name="button3" onClick="value='hoehe'" />, double <input type="button" value="__________" name="button4" onClick="value='laenge'" />  )
+  {
+    this.breite   = <input type="button" value="____________" name="button5" onClick="value='breite'" />  ;
+    this.hoehe  = <input type="button" value="____________" name="button6" onClick="value='hoehe'" /> ;
+    this.laenge  = <input type="button" value="____________" name="button7" onClick="value='laenge'" /> ;
+  }
+
+  // alle Seiten mit dem gleichen Wert initialisieren
+  <input type="button" value="___________" name="button8" onClick="value='Box'" />( double <input type="button" value="_________" name="button9" onClick="value='seite'" /> )
+  {
+    breite   = <input type="button" value="____________" name="button10" onClick="value='seite'" /> ;
+    hoehe  = <input type="button" value="____________" name="button11" onClick="value='seite'" /> ;
+    laenge  = <input type="button" value="____________" name="button12" onClick="value='seite'" /> ;
+  }
+
+
+  // Methoden
+
+}
+</blockquote></pre>
+</p>
+</form>
+<p>
+Wenn eine Instanzvariable und ein Parameter den gleichen Bezeichner verwendet,
+geben Sie die Instanzvariable des Objekts an, in dem Sie "this.bezeichner" verwenden, wie in dem obenstehenden Beispiel.
+</p><hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>6. &nbsp; &nbsp; &nbsp;<b>Vervollst&auml;ndigen Sie die Methode</b>. &nbsp; &nbsp; Die Dokumentation f&uuml;r die <code>berechneVolumen()</code> Methode besagt, dass sie folgenderma&szlig;en aussieht:
+<blockquote><pre>
+// Volumenberechnung der Box
+double  berechneVolumen()
+</blockquote></pre>
+Die zu verwendende Formel ist: Volumen = Produkt aller drei Seiten
+
+<blockquote><pre>
+class Box
+{
+  // Instanzvariablen
+  double laenge;
+  double breite;
+  double hoehe;
+
+
+  // Konstruktoren
+  Box ( double breite, double hoehe, double laenge )
+  {
+    this.breite  = breite;
+    this.hoehe   = hoehe;
+    this.laenge  = laenge;
+  }
+
+  Box ( double seite )
+  {
+    breite  = seite;
+    hoehe   = seite;
+    laenge  = seite;
+  }
+
+  // Methoden
+  double berechneVolumen()
+  {
+    return <input type="button" value="____________" name="button1" onClick="value='breite'" /> * <input type="button" value="_____________" name="button2" onClick="value='hoehe'" /> * <input type="button" value="_____________" name="button3" onClick="value='laenge'" />;
+  }
+
+}
+</blockquote></pre>
+</p></form>
+<p>
+(Nat&uuml;rlich k&ouml;nnen die drei Instanzvariablen in dem arithmetischen Ausdruck in beliebiger Reihenfolge verwendet werden.)
+</p>
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>7. &nbsp; &nbsp; &nbsp;<b>Vervollst&auml;ndigen Sie die n&auml;chste Methode</b>. &nbsp; &nbsp; Die Dokumentation f&uuml;r
+die <code>berechneFlaeche()</code> Methode  besagt, dass sie folgenderma&szlig;en aussieht:
+<code>
+double&nbsp;berechneFlaeche()
+</code>.
+Es gibt f&uuml;r eine Box drei Paare von Seiten.
+Gegen&uuml;berliegende Seiten haben die gleiche Fl&auml;che, also sieht die Berechnung wie folgt aus:
+<blockquote><pre>
+2 * (Summe der Fläche aller eindeutigen Seiten)
+</blockquote></pre>
+<blockquote><pre>
+class Box
+{
+  // Instanzvariablen
+  double laenge;
+  double breite;
+  double hoehe;
+
+
+  // Konstruktoren
+  Box ( double breite, double hoehe, double laenge )
+  {
+    this.breite  = breite;
+    this.hoehe   = hoehe;
+    this.laenge  = laenge;
+  }
+
+  Box ( double seite )
+  {
+    breite  = seite;
+    hoehe   = seite;
+    laenge  = seite;
+  }
+
+  // Methoden
+  double berechneVolumen()
+  {
+    return breite * hoehe * laenge;
+  }
+
+  double berechneFlaeche()
+  {
+    return 2 * ( <input type="button" value="_________" name="button1" onClick="value='breite'" /> * <input type="button" value="__________" name="button2" onClick="value='hoehe'" /> +
+                 <input type="button" value="_________" name="button3" onClick="value='breite'" /> * <input type="button" value="__________" name="button4" onClick="value='laenge'" /> +
+                 <input type="button" value="_________" name="button5" onClick="value='hoehe'" /> * <input type="button" value="__________" name="button6" onClick="value='laenge'" /> ) ;
+  }
+
+}
+</blockquote></pre>
+</p></form>
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>8. &nbsp; &nbsp; &nbsp;An dieser Stelle ist das Kodieren der <code>Box</code>-Klassendefinition fertig.
+Angenommen das kleine Testprogramm (Klasse <code>BoxTester</code>) befindet sich in einer  Datei mit dem Namen <code>BoxTester.java</code> und die komplette Definition der
+<code>Box</code>-Klasse in einer Datei mit dem Namen <code>Box.java</code>.
+&nbsp;
+<blockquote><pre>
+class BoxTester
+{
+
+  public static void main ( String[] args )
+  {
+
+     // eine Box mit den Seiten 2.5, 3.0 und 5.0 erzeugen
+
+     Box box1 = new  Box( 2.5, 3.0, 5.0 );
+
+     System.out.println( "Box1 Flaeche: "    + box1.berechneFlaeche() +
+                         "  Volumen: " + box1.berechneVolumen()  );
+
+     // eine Box mit gleichen Seiten von 3.0 erzeugen
+
+     Box box2 =  <input type="button" value="________" name="button2" onClick="value='new'" /> Box ( <input type="button" value="________" name="button3" onClick="value='  3.0  '" /> );
+
+     System.out.println( "Box2 Flaeche: "    + box2.berechneFlaeche() +
+                         "  Volumen: " + box2.berechneVolumen()  );
+
+
+  }
+}
+</blockquote></pre>
+</p></form>
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>9. &nbsp; &nbsp; &nbsp;<b>Kompilieren Sie die Dateien</b>. &nbsp; &nbsp; Jede der zwei Dateien muss kompiliert werden:
+<blockquote><pre>
+C:\javaNotes\beispiele&gt;javac  <input type="button" value="______________" name="button2" onClick="value='Box.java'" />
+
+C:\javaNotes\beispiele&gt;javac  <input type="button" value="________________" name="button3" onClick="value='BoxTester.java'" />
+</blockquote></pre>
+</p></form>
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>10. &nbsp; &nbsp; &nbsp;<b>Starten Sie das Programm</b>. &nbsp; &nbsp; Der Java Bytecode-Interpreter muss mit der *.class Datei gestartet werden, die die <code>main()</code>-Methode enth&auml;lt:
+
+<blockquote><pre>
+C:\javaNotes\beispiele&gt;java  <input type="button" value="________________" name="button2" onClick="value='BoxTester'" />
+</blockquote></pre>
+</p>
+</form>
+
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------end of review --------------------------------- -->
+<!-- ------------------------end of review --------------------------------- -->
+<!-- ------------------------end of review --------------------------------- -->
+<hr />
+<p>Ende des Tests.  Wenn Sie ihn wiederholen m&ouml;chten, klicken Sie in Ihrem Browser auf &quot;Aktualisieren&quot;.<br /><br />
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#32">Inhaltsverzeichnis</a>.</p>
+</p>
+</body>
+</html>

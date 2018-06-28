@@ -1,0 +1,134 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" >
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee  dot org ">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2003, Heinrich Gailer">
+
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css">
+<meta name="robots" content="noindex,nofollow">
+<head>
+<title>Programmieraufgaben</title>
+</head>
+
+<body>
+<p class="revisions">erstellt 09.07.99; &uuml;bersetzt 03.03.03; &uuml;berarbeitet 12.03.03, 26.04.04, 20.09.2004, 29.09.06, 19.04.10; &copy; Deutsche &Uuml;bersetzung Heinrich Gailer
+</p>
+
+<hr>
+
+<h1>Kapitel 10  Programmieraufgaben</h1>
+
+<p>
+<b>Allgemeine Hinweise:</b> &nbsp; Jedes dieser Programme verlangt die Eingabe von Ganzzahldaten &uuml;ber die Tastatur. Verwenden Sie die <code>nextInt()</code> Methode der <code>Scanner</code>-Klasse, um die Character-Daten in Ganzzahlen zu konvertieren. Sobald Sie eine Ganzzahl haben, ist es OK mit ihr Gleitpunktarithmetik durchzuf&uuml;hren. Versichern Sie sich, dass Sie nicht zuf&auml;llig eine <em>Ganzzahloperation</em> durchf&uuml;hren, wenn Sie keine wollen.
+</p>
+
+<h2>Aufgabe 1 &#8212; Fl&auml;che eines Kreises</h2>
+
+<p>
+Schreiben Sie ein Programm, das die Fl&auml;che eines Kreises aus dem Radius berechnet.
+</p>
+
+<form>
+<input type=button value="Hinweis"
+onclick="alert('Die Formel f&uuml;r die Kreisberechnung lautet: radius * radius * PI.')">
+</form>
+
+<p>Der Radius ist ein <code>int</code>-Wert und wird &uuml;ber die Tastatur eingelesen.
+Der Dialog mit dem Anwender sieht folgenderma&szlig;en aus:</p>
+
+<pre class="dos">
+D:\daten\JavaNotes&gt;java  KreisFlaeche
+Geben Sie den Radius ein:
+3
+Der Radius ist: 3 Die Flaeche betr&auml;gt: 28.274333882308138
+</pre>
+
+<p>Sie werden die Konstante <code>PI</code> ben&ouml;tigen, die Sie bekommen, indem Sie <code>Math.PI</code> verwenden.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#10">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 2 &#8212; Cent zu Dollar</h2>
+
+<p>Schreiben Sie ein Programm, das eine Zahl in Cent einliest. Das Programm soll die Anzahl von Dollar und Cent wie folgt ausgeben:</p>
+
+<pre class="dos">
+D:\daten\JavaNotes&gt;java  Dollar
+Geben Sie die Cent ein:
+324
+Das ergibt 3 Dollar und 24 Cent.
+</pre>
+
+Verwenden Sie f&uuml;r dieses Programm <em>Ganzzahlarithmetik</em> und <strong>vermeiden</strong> Sie <em>Gleitpunktarithmetik</em>. Wenn Sie nicht wissen wie Sie vorgehen sollen, arbeiten Sie noch einmal das Kapitel mit dem <a href="../chap09B/ch09B_11.html">Modulo-Operator</a> durch.
+
+<p>Zur&uuml;ck zum <a href="../../index.html#10">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 3 &#8212; Wechselgeld</h2>
+
+<p>Wenn Sie in einem Gesch&auml;ft an der Kasse Ihr Wechselgeld bekommen, gibt Ihnen der Kassenmitarbeiter zuerst Dollar, dann Quarter (25 Cent), dann Dime (10 Cent), dann Nickel (5 Cent) und schlie&szlig;lich Cent zur&uuml;ck. Zum Beispiel Sie bekommen 163 Cent zur&uuml;ck:
+</p>
+
+<ul>
+<li>Ein Dollar passt in 163, Rest 63 Cent.</li>
+<li>Zwei Quarter passen in 63 Cent, Rest 13 Cent.</li>
+<li>Ein Dime passt in 13 Cent, Rest 3 Cent.</li>
+<li>Es wird kein Nickel gebraucht.</li>
+<li>Drei Cent bleiben &uuml;brig.</li>
+</ul>
+
+<p>Die Ausgabe des Programms sieht dann ungef&auml;hr folgenderma&szlig;en aus:</p>
+
+<pre class="dos5">
+Geben Sie das Wechselgeld ein:
+Das Wechselgeld ist 1 Dollar, 2 Quarter, 1 Dime, 0 Nickel und 3 Cent.
+</pre>
+
+
+<p>
+Schreiben Sie ein Programm, das Wechselgeld in Cent einliest und die Anzahl der Dollar, Quarter, Dime, Nickel und Cent ausgibt. Alle Variablen und alle mathematischen Operationen sind vom Typ Ganzzahl. Wenn Sie nicht mehr weiterwissen, hilft es das Problem an einem Beispiel mit Papier und Stift zu l&ouml;sen.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#10">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 4 &#8212; Das Ohm'sche Gesetz</h2>
+
+<p>
+Das Ohm'sche Gesetz beschreibt den Zusammenhang zwischen Stromst&auml;rke und Spannung. Dabei ist die Stromst&auml;rke I in einem Leiter direkt proportional zur Spannung U. Das Gesetz lautet:
+<p>
+
+<pre class="code">
+I = U/R
+</pre>
+
+<p>
+Dabei ist U die Spannung (gemessen in Volt), I die Stromst&auml;rke (gemessen in Ampere)
+und R ist der Widerstand (gemessen in Ohm.) Schreiben Sie ein Programm, das den Anwender nach der Spannung und dem Widerstand eines Ger&auml;ts fragt. Das Programm wird dann die Stromst&auml;rke, die durch ein Ger&auml;t flie&szlig;t,  ausgeben. Verwenden Sie <em>Gleitpunktmathematik</em>.
+</p>
+
+<p>
+Da U und R Ganzzahlen sind (konvertiert vom Input des Anwenders) m&uuml;ssen Sie einen Trick anwenden, um Gleitpunktdivision durchzuf&uuml;hren. &Auml;ndern Sie die Gleichung in:
+</p>
+
+<pre class="code">
+i = (u + 0.0)/r
+</pre>
+
+<p>
+Die Berechnung innerhalb der Klammern wird zuerst durchgef&uuml;hrt. Also wird u + 0.0 zuerst ausgef&uuml;hrt und, da 0.0 eine Gleitpunktzahl ist, wird es das Ergebnis ebenfalls sein.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#10">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+<p>Ende der Aufgaben.</p>

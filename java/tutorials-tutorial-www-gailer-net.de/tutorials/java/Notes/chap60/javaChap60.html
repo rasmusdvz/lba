@@ -1,0 +1,1229 @@
+<!-- Jan. 26, 2000  bpk   INDEX  --->
+<!-- Feb. 06, 2004  bpk   revision, better gifs  --->
+
+<COPYRIGHTDATE>2008</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2010, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#60</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+
+<CAI> Kapitel 59 &#8212; Swing Text- und Bezeichnungsfelder
+<p class="revisions">erstellt: 28.6.99; &uuml;berarbeitet 27.01.00 (mit AWT), grundlegende &Uuml;berarbeitung: 10.01.02 (mit Swing);  versch&ouml;nert: 11.02.08 &uuml;bersetzt 14.02.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<LESSON>
+<p>
+Dieses Kapitel f&uuml;hrt in Swing Textfelder und Bezeichnungsfelder (Labels) ein
+und verwendet sie in einem einfachen Swing Programm.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Die <code>JTextField</code> Swingkomponente</li>
+
+<li>Die <code>setText()</code> und <code>getText()</code> Methoden von <code>JTextField</code></li>
+<li>Die <code>JLabel</code> GUI Komponente</li>
+<li><code>ActionListener</code> f&uuml;r Ereignisse eines <code>JTextField</code>es verwenden</li>
+
+<li>Beispielprogramm: Text-Echo Programm</li>
+<li>Die <code>setEditable()</code> Methode von <code>JTextField</code></li>
+</ul>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick: ) Angenommen Sie haben gerade eine Swing Applikation fetiggestellt.
+Sie kompilieren und starten sie.
+Sie klicken auf den Button..... nichts passiert.
+Wo k&ouml;nnte der Fehler liegen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die Swingkomponete: <code><b> JTextField </b></code>
+
+<ANSWER>
+
+<p>
+Sie k&ouml;nnten vergessen haben einen Listener f&uuml;r den Button zu <em>registrieren</em>.
+Ohne einen Listener werden Eeignisse ignoriert.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>JTextField class</INDEX>
+
+<p>
+Ein <code>JTextField</code> ist eine box,
+die eine Zeile Text enth&auml;lt.
+Der Anwender kann den Text in die Box eingeben
+Das Programm kann den Text bekommen und ihn verwenden.
+Das Programm kann auch das Ergebnis einer Berechnung in ein <code>JTextField</code> schreiben.
+Hier ist ein Label und ein Textfeld (beide innerhalb eines Applets):
+</p>
+
+<table>
+<tr><td>
+<applet code="TextFieldApplet.class" width="300" height="50">
+Um dieses Applet zu sehen, muss Ihr Browser Java aktiviert haben.
+</applet>
+</td></tr>
+</table>
+
+<INDEX>focus</INDEX>
+<INDEX>keyboard focus</INDEX>
+
+<p>
+Um Text in das Feld eingeben zu k&ouml;nnen,
+m&uuml;ssen Sie zuerst mit der Maus hineinklicken.
+Das gibt dem Feld den <b>Tastaturfokus</b>
+(&uuml;blicherweise nur <em>Focus</em> genannt).
+
+Wenn eine Komponente den Fokus hat,
+werden Zeichen von der Tastatur
+zu dieser Komponente dirigiert.
+
+Eine Komponente kann den Fokus auf
+verschiedene Weise bekommen.
+Der Anwender kann sie anklicken
+oder das Programm kann ihr den Fokus geben.
+</p>
+
+<p>
+Geben Sie etwas Text ein.
+Editieren Sie ihn mit der R&uuml;cktaste und l&ouml;schen Sie.
+<!--Kopieren Sie etwas Text von der Webseite und fügen Sie es
+in dem Feld ein.-->
+Alles das funktioniert.
+Aber das Feld ist mit keiner Applikation verbunden,
+so dass nichts mit dem Text getan wird.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick: ) Wo ist die Klassendefinition von <code>JTextField</code>?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die <code> JTextField </code> Klassenhierarchie
+
+<ANSWER>
+<p>
+In <code>javax.swing.*</code>
+</p>
+</ANSWER>
+
+<LESSON>
+
+
+<p>
+Das <code> JTextField </code> ist Teil des Swingpakets,
+also ist es in <code>javax.swing</code> definiert.
+Hier ist wie es in die Klassenhierarchie passt.
+Die Wolken in Lavendelfarbe sind Teil von Swing.
+</p>
+
+<center>
+<img src="textHierarchy.gif" alt="Swing Hierarchy">
+</center>
+
+<p>
+<code>JTextField</code> ist von <code>javax.swing.JTextComponent</code> abgeleitet.
+Es ist eine Komponmente mit vielen Merkmalen,
+die fast die gesamte Funktionalit&auml;t eines Texteditors unterst&uuml;tzt.
+Der Anwender kann den eingegebenen Text &auml;ndern , indem
+er die R&uuml;cktaste verwendet, er kann ihn l&ouml;schen und die Pfeiltasten verwenden.
+Er kann Text ziehen und fallen lassen und mit der Zwischenablage arbeiten.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Um alle Leistungsmerkmale von <code>JTextComponent</code> zu ermitteln,
+wo sollten Sie nachsehen?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Applikation mit einem Texteld
+
+<ANSWER>
+<p>
+Die Java Dokumentation von Oracle ist die beste Stelle.
+</p>
+
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="TextEg1.gif" alt="GUI of the application">
+</div>
+
+<p>
+Sie haben diese Dokumentation vielleicht schon auf Ihrem
+Computer. Wenn nicht, k&ouml;nnen Sie sie von Oracle herunterladen.
+&Uuml;berpr&uuml;fen Sie sie, um zu sehen, wie diese Aufzeichnungen mit der offiziellen
+Dokumentation &uuml;bereinstimmen.
+Der Ziel dieser Aufzeichnungen ist es einen &Uuml;berblick &uuml;ber das Swingpaket
+zu vermitteln.
+Betrachten Sie die Dokumentation als die vollst&auml;ndige Referenz.
+</p>
+
+<p>
+Hier ist einer (von mehreren) Konstruktoren von <code>JTextField</code>.
+Der Parameter bestimmt die Breite des Textfeldes (in Zeichen).
+</p>
+
+<pre class="code">
+<code>JTextField( int numChars )</code> </pre>
+
+
+<p>
+Beachten Sie, dass der Parameter die Anzahl der Zeichen bestimmt
+und nicht Pixel oder eine andere Ma&szlig;einheit bedeutet.
+Dieses Programm zeigt ein Frame mit einem Textfeld an.
+</p>
+
+<form>
+<pre class="program">
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TextEg1 extends <input type="text" size="20" name="textA">
+{
+
+  <input type="text" size="20" name="textB"> text;
+
+  // constructor for TextEg1
+  public TextEg1()
+  {
+    super( title );
+
+    text = new <input type="text" size="20" name="textC"> ;
+
+    setLayout( new FlowLayout() );
+    add( text );
+    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+
+  public static void main ( String[] args )
+  {
+    TextEg1 teg  = new TextEg1( "TextField" ) ;
+    teg.setSize   ( 300, 100 );
+    teg.setVisible( true );
+  }
+
+}
+</pre></form>
+
+
+
+
+</LESSON>
+
+<QUESTION>
+
+<p>
+F&uuml;llen Sie die L&uuml;cken aus, so dass das Feld 15 Zeichen breit ist.
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ausf&uuml;hrbares Programm
+
+<ANSWER>
+<p>
+Siehe unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Das Feld ist 15 Zeichen breit.
+Das bedeutet, dass 15 Zeichen angezeigt werden k&ouml;nnen.
+Das Textfeld kann mehr als diese 15 Zeichen aufnehmen,
+aber der Anwender muss die Pfeiltasten benutzen,
+um sie zu sehen.
+</p>
+
+<pre class="program">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TextEg1 extends <span class="blue">JFrame</span>
+
+{
+  JTextField text;
+
+  public TextEg1( String title )
+  {
+     super( title );
+     text = new <span class="blue">JTextField( 15 )</span>;
+     setLayout( new FlowLayout() );
+     add( text );
+     setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+
+  public static void main ( String[] args )
+  {
+    TextEg1 teg  = new TextEg1( "TextField" ) ;
+    teg.setSize( 300, 100 );
+    teg.setVisible( true );
+  }
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Es w&auml;re sch&ouml;n, wenn der Frame ein paar Worte
+neben dem Textfeld zeigen w&uuml;rde,
+um den Zweck des Feldes zu beschreiben.
+Wie hei&szlig;t die Swingklasse f&uuml;r Bezeichnungsfelder?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die <code> JLabel</code>-Klasse
+
+<ANSWER>
+<p>
+<code>JLabel</code>
+
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>JLabel class</INDEX>
+
+<p>
+Hier ist der Konstruktor von <code>JLabel</code>:
+</p>
+
+<pre class="code">
+<code>JLabel(</code> <em>"ein paar Worte"</em> )</code></pre>
+
+<p>
+Er konstruiert ein Objekt,
+das dem Frame hinzugef&uuml;gt werden kann.
+Seine Gr&ouml;&szlig;e und Position werden vom Layoutmanager gemanagt.
+Hier ist unser Beispielprogramm:
+</p>
+
+<form>
+<pre class="program">
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TextEg2 extends JFrame
+{
+
+  JTextField text;
+  <input type="text" size="20" name="textA"> lbl ;
+
+  public TextEg2( String title )
+  {
+     super( title );
+     text = new JTextField( 15 ) ;
+
+     lbl  = new <input type="text" size="20" name="textB"> ( <input type="text" size="20" name="textC"> );
+
+     setLayout( new FlowLayout() );
+
+     add( <input type="text" size="20" name="textD"> );
+     add( <input type="text" size="20" name="textE"> );
+
+     setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+
+  public static void main ( String[] args )
+  {
+    .  .  .  .  .
+  }
+}
+</pre>
+</form>
+
+
+<p>
+Mit <code>FlowLayout</code> werden die Komponenten
+von links nach rechts und von oben nach unten
+in dem  Frame postitioniert,
+in der Reihenfolge in der sie hinzugef&uuml;gt wurden.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken,
+so dass das Label "Enter Your Name"
+<i>links</i> von dem Textfeld platziert wird.
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Raster-Ordnung
+
+<ANSWER>
+<p>
+Siehe unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="TextEg2.gif" alt="GUI of the program">
+</div>
+
+<p>
+Oben steht der Frame des Programms.
+Betrachten Sie, wie die Komponenten angeordnet wurden.
+</p>
+
+<p>
+<code>FlowLayout</code> ist wie ein Feuerwehrschlauch,
+der die Komponenten, in der Reihenfolge, in der sie hinzugef&uuml;gt wurden,
+auf den Frame spritzt.
+Er beginnt links oben, geht &uuml;ber den Frame bis zur rechten Ecke,
+startet dann erneut von links nach rechts, aber tief genug,
+um die erste Reihe der Komponenten zu vermeiden. Das wird Raster-Ordnung
+genannt.
+Ebenfalls zentriert er die Kompononten in ihren Reihen.
+</p>
+
+<pre class="program">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TextEg2 extends JFrame
+{
+  JTextField text;
+  <span class="blue">JLabel</span> lbl;
+
+  public TextEg2( String title )
+  {
+     super( title );
+     text = new JTextField( 15 );
+     lbl = new <span class="blue">JLabel</span> ( <span class="blue">"Enter Your Name:"</span> );
+     setLayout( new FlowLayout() );
+     add( <span class="blue">lbl</span> );
+     add( <span class="blue">text</span> );
+     setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  }
+
+  public static void main ( String[] args )
+  {
+    TextEg2 teg  = new TextEg2( "Label and TextField" ) ;
+    teg.setSize   ( 300, 100 );
+    teg.setVisible( true );
+  }
+}
+
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Experiment:) Was passiert, wenn der Anwender den Frame so verkleinert,
+dass es nicht mehr genug Platz f&uuml;r das Label und das Textfeld gibt?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Listener f&uuml;r <code> JTextField </code>
+
+<ANSWER>
+<div align="center">
+
+<img src="squashedWindow.gif" width="195" height="181" alt="Squashed Window">
+</div>
+
+<p>
+<code>FlowLayout</code> macht das Beste, was es kann und
+stellt die Komponenten untereinander.
+Wenn der Frame nicht breit genug ist,
+wird das Textfeld abgeschnitten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+
+<p>
+Ein <code>JTextField</code> ist eine Swingkomponente,
+also muss es daf&uuml;r ein Listener-Objekt geben,
+damit es f&uuml;r das Programm n&uuml;tzlich ist.
+Nachdem der Text eingeben wurde,
+dr&uuml;ckt der Anwender die Eingabetaste.
+Das erzeugt einen  <code>ActionEvent</code>,
+genauso wie beim Klicken auf einen Button.
+Der Listener muss den Text bekommen
+und etwas damit tun.
+</p>
+
+<INDEX>getText()</INDEX>
+<INDEX>setText()</INDEX>
+
+<p>
+Um Text von einem Textfeld zu bekommen,
+verwenden Sie die <nobr><code>String getText()</code></nobr> Methode.
+</p>
+
+<p>
+Um Text in ein Textfeld zu stellen,
+verwenden Sie die <nobr><code>setText(String stuff)</code></nobr> Methode.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Welcher Typ von Listener wird f&uuml;r einen <code>ActionEvent</code> ben&ouml;tigt?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Eingabe wiederholen
+
+<ANSWER>
+<p>
+Ein Objekt, das <code>ActionListener</code> implementiert.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist eine Applikation,
+die zwei <code>JTextField</code>er hat.
+Der Anwender gibt etwas in das eine Feld ein
+und dr&uuml;ckt die Eingabetaste.
+Die Applikation kopiert dann den Text
+von diesem Feld in das andere.
+</p>
+
+<INDEX>program, GUI echo</INDEX>
+
+<center>
+<img src="Repeater.gif" vspace="10" alt="GUI of the application">
+</center>
+
+<p>
+In der Abbildung gibt der Anwender "Sherlock" ein
+und dr&uuml;ckt dann die Eingabetaste.
+Hier ist ein Applet,
+das so ziemlich das Gleiche tut.
+Swingkomponenten funktionieren in Applets genauso, wie in Applikationen.
+</p>
+
+<center>
+<table border="1" bordercolor="brown">
+<tr><td>
+<applet code="TextRepeaterApplet.class" width="300" height="75">
+</applet>
+
+</td></tr>
+</table>
+</center>
+
+<p>
+Geben Sie Ihren Namen in der ersten Textbox ein
+und sehen Sie, wie der Text in der zweiten wiederholt wird.
+Der Code f&uuml;r das Applet ist fast der gleiche,
+wie der f&uuml;r die Applikation.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<ul>
+<li>Wie viele Komponenten enth&auml;lt der Frame?</li>
+<li>Welche ben&ouml;tigt einen Listener?</li>
+</ul>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code>Repeater</code>
+
+<ANSWER>
+<ul>
+<li>Wie viele Komponenten enth&auml;lt der Frame? <span class="blue">Vier:
+        <ul><li>Das Label "Enter Your Name:"</li>
+
+            <li>Das folgende Textfeld.</li>
+            <li>Das Label "Here is Your Name:".</li>
+            <li>Das folgende Textfeld.</li></ul></span></li>
+<li>Welche ben&ouml;tigt einen Listener? <span class="blue">Nur das textfeld, in dem der Anwendere etwas eingibt.</span></li>
+</ul>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Das Label braucht keinen Listener, da es keine Aktionen erzeugt.
+Das untere Textfeld hat keinen Listener, da der Text vom Programm
+gesetzt wird (das ist kein Ereignis).
+Hier ist die Applikation.
+Entscheiden Sie, was anstelle der Buttons kommen sollte:
+</p>
+
+<form>
+<pre class="program">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Repeater extends JFrame implements ActionListener
+{
+
+   JLabel inLabel     = new <input type="button" value="________" name="but1" onClick="but1.value='JLabel'"> (" <input type="button" value="_______________" name="but2" onClick="but2.value='Enter Your Name :'">" ) ;
+
+   JTextField inText  = new JTextField( 15 );
+
+   JLabel outLabel     = new <input type="button" value="________" name="but3" onClick="but3.value='JLabel'"> (" <input type="button" value="_______________" name="but4" onClick="but4.value='Here is Your Name :'">" ) ;
+
+   JTextField outText = new JTextField( 15 );
+
+   Repeater( String title )  // Konstruktor
+   {
+      super( title );
+      setLayout( new FlowLayout() );
+
+      add(  <input type="button" value="________" name="but5" onClick="but5.value='inLabel'"> ) ;
+
+      add(  <input type="button" value="________" name="but6" onClick="but6.value='inText'"> ) ;
+
+      add(  <input type="button" value="________" name="but7" onClick="but7.value='outLabel'"> ) ;
+
+      add(  <input type="button" value="________" name="but8" onClick="but8.value='outText'"> ) ;
+
+      inText.addActionListener(<input type="button" value="________" name="but9" onClick="but9.value='this'"> ) ;
+
+      setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+   }
+
+  public void actionPerformed( ActionEvent evt)
+  {
+    String name = inText.getText();
+
+    outText.<input type="button" value="________" name="but10" onClick="but10.value='setText'">( name );
+
+    repaint();
+  }
+
+  public static void main ( String[] args )
+  {
+    . . . . . .
+  }
+}
+
+</pre>
+</form>
+
+<p>
+In diesem Programm werden die Labels und Textfelder au&szlig;erhalb des
+Konstruktors der <code>Repeater</code>-Klasse konstruiert.
+(In den bisherigen Programmen wurden die Komponenten innerhalb
+des Konstruktors erzeugt. Beide Stile funktionieren gut.)
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Entscheiden Sie, was in die L&uuml;cken kommen soll.
+F&uuml;llen Sie die L&uuml;cken aus,
+indem Sie auf die Buttons klicken.
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ausf&uuml;hrbare <code>Repeater</code>-Applikation
+
+<ANSWER>
+<p>
+Das vollst&auml;ndige Programm steht unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+
+<p>
+Vergewissern Sie sich, dass die Komponenten in der richtigen Reihenfolge
+hinzugef&uuml;gt werden. Andernfalls wird die GUI nicht korrekt funktionieren.
+Beachten Sie auch, dass nur ein <code>ActionListener</code> f&uuml;r das Textfeld,
+in das der Anwender etwas eingibt, registriert wird.
+(Der Anwender kann in das andere Textfeld etwas eingeben und Ereignisse
+erzeugen, indem er Eingabetaste dr&uuml;ckt, aber diese Ereignisse werden ignoriert.)
+</p>
+
+<pre class="program">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Repeater extends JFrame implements ActionListener
+{
+
+   JLabel inLabel    = new <span class="blue">JLabel( "Enter Your Name:  " )</span> ;
+   TextField inText  = new TextField( 15 );
+
+   JLabel outLabel   = new <span class="blue">JLabel( "Here is Your Name :" )</span> ;
+   TextField outText = new TextField( 15 );
+
+   public Repeater( String title )      // Konstruktor
+   {
+      super( title );
+      setLayout( new FlowLayout() );
+      add( <span class="blue">inLabel</span>  ) ;
+      add( <span class="blue">inText </span>  ) ;
+      add( <span class="blue">outLabel</span> ) ;
+      add( <span class="blue">outText </span> ) ;
+
+      inText.addActionListener( <span class="blue">this</span> );
+      setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+   }
+
+  public void actionPerformed( ActionEvent evt)
+  {
+    String name = inText.getText();
+    outText.<span class="blue">setText</span>( name );
+    repaint();
+  }
+
+  public static void main ( String[] args )
+  {
+    Repeater echo  = new Repeater( "Repeater" ) ;
+
+    echo.setSize( 300, 100 );
+    echo.setVisible( true );
+  }
+}
+
+</pre>
+
+<p>
+Dieses Programm enth&auml;lt alle drei Teile einer GUI Applikation:
+Komponenten in einem Container, einen Listener und Applikationscode.
+Der Applikationscode ist da,
+auch wenn er nur aus ein paar Anweisungen besteht.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>Welche Anweisungen in dem Programm z&auml;hlen als Applikationscode?</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Applicationscode in einer eigenen Methode
+
+<ANSWER>
+<p>
+Diese zwei Zeilen (k&ouml;nnten) als Applikationscode z&auml;hlen:
+</p>
+
+<pre class="code">
+    String name = inText.getText();
+    outText.setText( name );</pre>
+
+<p>
+(Auch wenn argumentiert werden k&ouml;nnte, dass es keinen Applikationscode gibt,
+da der gesamte Code mit der GUI zu tun.)
+</p>
+
+
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+In einer typischen Applikation mit einer grafischen Benutzeroberfl&auml;che,
+werden ungef&auml;hr 40% des Codes f&uuml;r das Managen der Benutzeroberfl&auml;che
+verwendet.
+Der Rest des Codes ist f&uuml;r die Applikation &#8212; der Grund warum das
+Progamm geschrieben wurde.
+&Uuml;blicherweise wird der Applikationscode von dem Code getrennt,
+der das Interface managt.
+In einer gro&szlig;en Applikation w&auml;re es verwirrend die beiden zusammenzumixen.
+Hier ist eine sehr kleine Applikation mit einer separaten Methode
+f&uuml;r den Applikationscode:
+</p>
+
+<pre class="program">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Repeater extends JFrame implements ActionListener
+{
+
+   JLabel inLabel    = new JLabel( "Enter Your Name:  " ) ;
+   TextField inText  = new TextField( 15 );
+
+   JLabel outLabel   = new JLabel( "Here is Your Name :" ) ;
+   TextField outText = new TextField( 15 );
+
+   public Repeater( String title)      // constructor
+   {
+      super( title );
+      setLayout( new FlowLayout() );
+      add( inLabel  ) ;
+      add( inText   ) ;
+      add( outLabel ) ;
+      add( outText  ) ;
+
+      inText.addActionListener( this );
+      setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+   }
+
+  <span class="blue">// The application code.
+  void copyText()
+  {
+    String name = inText.getText();
+    outText.setText( name );
+  }</span>
+
+  public void actionPerformed( ActionEvent evt)
+  {
+    copyText();
+    repaint();
+  }
+
+  public static void main ( String[] args )
+  {
+    Repeater echo  = new Repeater( "Repeater" ) ;
+    echo.setSize( 300, 100 );
+    echo.setVisible( true );
+  }
+}
+</pre>
+
+
+<p>
+In einer gro&szlig;en Applikation wird der Applikations- und
+GUI-Code in verschiedenen Dateien gehalten.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wenn Sie in das obere Textfeld Text eingeben und die Eingabetaste dr&uuml;cken,
+wird der Text in das untere Textfeld kopiert.
+Was passiert, wenn Sie in das untere Textfeld Text eingeben und die Eingabetaste dr&uuml;cken,
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die <code>  setEditable() </code> Methode
+
+<ANSWER>
+<p>
+Der Anwender kann in die untere Box Text eingeben und ihn editieren.
+Aber wenn der Anwender die Eingabetaste bet&auml;tigt, passiert nichts.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>setEditable()</INDEX>
+
+
+<div align="center">
+<img src="RepeaterNonEdit.gif" alt="GUI">
+
+</div>
+
+<p>
+Es passiert nichts, da das untere Textfeld keinen Listener registriert hat.
+Sie <i>k&ouml;nnten</i> das Programm modifizieren, so dass es einen Listener hat,
+aber das w&uuml;rde nicht dem urspr&uuml;nglichen Programmdesign entsprechen.
+Eine bessere Idee (f&uuml;r dieses Programm) ist es den Anwender davon abzuhalten
+Text in das falsche Textfeld einzugeben.
+Das kann mit der <code>setEditable()</code> Methode getan werden:
+</p>
+
+
+<pre class="code">
+text.setEditable( false );
+</pre>
+
+
+<p>
+Hier ist <code>outText</code> eine Variable, die auf ein <code>JTextField</code> verweist.
+Die <code>setEditable()</code> Methode hat einen Boole'schen Parameter.
+Wenn der Parameter <code>false</code> ist,
+dann kann das Feld nicht durch den Anwender ge&auml;ndert werden.
+(Die <code>setText()</code> Methode funktioniert trotzdem immer noch.)
+Hier ist ein Auszug aus dem Programm:
+</p>
+
+<pre class="program">
+
+public class Repeater extends JFrame implements ActionListener
+{
+
+   JLabel inLabel    = new JLabel( "Enter Your Name:  " ) ;
+   TextField inText  = new TextField( 15 );
+
+   JLabel outLabel   = new JLabel( "Here is Your Name :" ) ;
+   TextField outText = new TextField( 15 );
+
+   public Repeater( String title)      // constructor
+   {
+      super( title );
+      setLayout( new FlowLayout() );
+
+      add( inLabel  ) ;
+      add( inText   ) ;
+      add( outLabel ) ;
+      add( outText  ) ;
+
+      inText.addActionListener( this );
+      setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+   }
+
+   .....
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Schlagen Sie eine Stelle f&uuml;r die <code>setEditable()</code> Methode vor.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die <code>setEditable()</code> Methode
+
+<ANSWER>
+<p>Siehe unten.</p>
+</ANSWER>
+
+<LESSON>
+
+<p>
+Jede Stelle in dem Konstruktor w&uuml;rde funktionieren.
+</p>
+
+<pre class="program">
+   public Repeater( String title)      // Konstruktor
+   {
+      super( title );
+      setLayout( new FlowLayout() );
+      <span class="blue">outText.setEditable( false );</span>
+
+      add( inLabel  ) ;
+      add( inText   ) ;
+      add( outLabel ) ;
+      add( outText  ) ;
+
+      inText.addActionListener( this );
+      setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+   }
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Kann eine GUI Komponente mit einem <code>JApplet</code> verwendet werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Repeater Applet
+
+<ANSWER>
+<p>
+Ja. (Wenn Sie bis jetzt noch kein Applet gesehen haben,
+dann k&ouml;nnen Sie diesen Teil bis zum Ende des Kapitels &uuml;berspringen.)
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Die GUI Komponenten von Swing k&ouml;nnen f&uuml;r Applets verwendet werden.
+Hier ist eine <code>JApplet</code> Version der
+Text-Echo Applikation:
+</p>
+
+<center>
+
+<applet code="TextRepeaterApplet.class" width="300" height="100">
+</applet>
+</center>
+
+<p>
+Hier ist das HTML, dass dieses Applet auf der Webseite platziert:
+</p>
+
+<pre>
+
+&lt;center&gt;
+&lt;applet code="TextRepeaterApplet.class" width="300" height="100"&gt;
+&lt;/applet&gt;
+&lt;/center&gt;
+
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wenn der Anwender etwas in das obere Feld eingibt und die Eingabetaste dr&uuml;ckt,
+welcher Typ von Ereignis wird erzeugt?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Applet Code
+
+<ANSWER>
+<p>
+Ein <code>ActionEvent</code>, das Gleiche, wie f&uuml;r eine Applikation.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist der Code, der f&uuml;r die Datei <code>TextRepeaterApplet.class</code>
+kompiliert wurde.
+Das meiste sollte vertraut aussehen.
+</p>
+
+<pre class="program">
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class TextRepeaterApplet extends JApplet implements ActionListener
+{
+  JTextField source, destination;
+
+  public void init()
+  {
+    source = new JTextField("", 15);
+    destination = new JTextField("", 15);
+
+    setLayout(new FlowLayout() );
+    add( new JLabel("Enter Your Name:") );
+    add(source);
+    add( new JLabel("Here is Your Name:") );
+    add(destination);
+
+    source.addActionListener( this );
+    this.setBackground(Color.white);
+  }
+
+  public void actionPerformed( ActionEvent evt )
+  {
+    destination.setText( source.getText() );
+    repaint();
+  }
+
+}
+</pre>
+
+<p>
+Der Code ist k&uuml;rzer als bei einer Applikation,
+da keine <code>main()</code> Methode gebraucht wird.
+</p>
+
+<p>
+Auch ist der Code, der bei der Applikation im Konstruktor war,
+jetzt in die <code>init()</code> Methode gestellt worden.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was muss getan werden, um das Applet auszuf&uuml;hren?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<ANSWER>
+<p>
+Um das Applet auszuf&uuml;hren, m&uuml;ssen Sie den Applet Code kompilieren.
+Dann m&uuml;ssen Sie eine HTML Datei erzeugen,
+die die Tags f&uuml;r das Applet (solche wie auf der vorherigen Seite) enth&auml;lt
+und es mit einem Webbrowser oder einem Appletviewer ansehen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Sie haben das Ende des Kapitels erreicht.
+Sie m&ouml;chten vielleicht das Folgende noch einmal durchsehen.
+Klicken Sie auf ein Thema, das Sie interessiert,
+um dahin zu gehen, wo es besprochen wurde.
+</p>
+
+<ul>
+<li>
+<GOTO>JTextField class</GOTO> Die <code>TextField</code>-Klasse.
+</li>
+
+<li>
+<GOTO>JLabel class</GOTO> Die <code>JLabel</code>-Klasse.
+</li>
+
+<li>
+<GOTO>getText()</GOTO> Die <code>getText()</code> und <code>setText()</code> Methoden.
+</li>
+
+<li>
+<GOTO>setEditable()</GOTO> Die <code>setEditable()</code> Methode.
+</li>
+
+</ul>
+
+<p>
+Das n&auml;chste Kapitel wird eine gr&ouml;&szlig;ere GUI Applikation zeigen.
+</p>
+
+</LESSON>
+</CAI>
+</CHAPTER>

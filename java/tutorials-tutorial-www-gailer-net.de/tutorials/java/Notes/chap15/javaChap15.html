@@ -1,0 +1,1006 @@
+<!-- 10/01/98 bpk  Slight changes  -->
+<!-- Jan   18, 1999  bpk   chapter re-numbering. Previously chapter 12 -->
+<!-- Jan   20, 2000  bpk   INDEX  -->
+<!-- Mar   20, 2000  bpk   new table "varieties of while"  -->
+<!-- Jly   12, 2002  bpk   cascading style sheets  -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2009</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2010, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#15</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+<CAI>Kapitel 15 &#8212; Schleifen
+<p class="revisions">&uuml;berarbeitet 01.10.98, 04.08.99, 20.01.00, 30.03.00, 12.07.02, 05.03.06; &uuml;bersetzt 03.11.03; &uuml;berarbeitet 03.05.04, 02.05.05, 29.09.06, 17.05.10; &copy; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+
+<LESSON>
+<INDEX>cycles, usefulness</INDEX>
+<p>
+Die meisten modernen Maschinen arbeiten, indem sie die gleichen Bewegungen unaufh&ouml;rlich wiederholen. Der Motor in Ihrem Auto wiederholt immer wieder die gleichen Bewegungen,
+w&auml;hrend er Benzin verbrennt, um Energie zur Verf&uuml;gung zu stellen.
+Elektrische Motoren sind &auml;hnlich. Sie wandeln elektrische Leistung in Drehbewegung um.
+Diese Maschinen sind n&uuml;tzlich, weil sie ununterbrochen und solange wie wir es w&uuml;nschen arbeiten.
+</p>
+
+<p>
+Computerprogramme k&ouml;nnen ebenfalls Zyklen enthalten.
+In der Programmierung wird ein Zyklus <b>Schleife</b> genannt.
+Wenn ein Programm eine Schleife enth&auml;lt,
+werden einige Anweisungen immer wieder durchgef&uuml;hrt,
+solange es n&ouml;tig ist, um eine erforderliche Arbeit zu erledigen.
+Die meisten Computerprogramme f&uuml;hren
+jedes Mal, wenn sie ausgef&uuml;hrt werden,
+Millionen von Programmanweisungen durch.
+&Uuml;blicherweise werden dieselben Anweisungen viele Male ausgef&uuml;hrt.
+Dieses Kapitel bespricht verschiedene Arten der Programmierung von Schleifen.
+</p>
+
+
+<h4>Themen:</h4>
+<ul>
+<li>Die <code>while</code>-Anweisung</li>
+<li>Syntax und Semantik der <code>while</code>-Anweisung</li>
+<li>Der Schleifenk&ouml;rper</li>
+<li>Drei Dinge, die koordiniert werden m&uuml;ssen</li>
+<li>Z&auml;hlschleifen und die Schleifenkontrollvariable</li>
+</ul>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Denken Sie an einige Maschinen (mechanische oder andere),
+die Zyklen verwenden.
+</p>
+</QUESTION>
+
+</CAI>
+
+<CAI>Die <code><strong>while</strong></code>-Anweisung
+<ANSWER>
+
+<h3>Einige Maschinen, die Zyklen verwenden</h3>
+
+<ul>
+<li>Fahrrad &#8212; ihre Beine bewegen die Pedale,
+    die mit einem Zahnrad verbunden sind, das sich dreht.</li>
+<li>CD-Player &#8212; die CD dreht sich, w&auml;hrend sich der Laser dar&uuml;ber bewegt.</li>
+<li>TV-Ger&auml;t &#8212; Bilder werden auf den Bildschirm ausgegeben, eines nach dem anderen,        solange das Ger&auml;t an ist.</li>
+<li>Wasserpumpe &#8212; ein Kolben bewegt sich wiederholt in einem Zylinder auf und ab.</li>
+<li>W&auml;schetrockner &#8212; eine rotierende Trommel.</li>
+<li>Uhr &#8212; zeigt jeden Tag die gleiche Zeit. Wenn die Uhr mechanisch ist,
+    besteht ihr Inneres aus Zahnr&auml;dern und Federn mit vielen mechanischen Zyklen. Wenn
+    die Uhr elektronisch ist, gibt es auch Zyklen, auch wenn sie schwieriger zu sehen
+    sind.</li>
+<li>Sonne und Erde &#8212; endlos kreisend, Jahreszeiten folgen flie&szlig;end aufeinander.</li>
+</ul>
+
+<p>
+M&ouml;glicherweise ist das ultimative Beispiel f&uuml;r die N&uuml;tzlichkeit
+von Zyklen die ultimative Maschine &#8212; das Rad.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<img src="while.gif" width="360" height="524" border="0" class="rightimage" alt="while-Schleife">
+
+<p>
+Hier ist ein  Programm mit einer Schleife:
+</p>
+
+<pre class="code">
+// Beispiel einer while-Schleife
+class BeispielSchleife
+{
+  public static void main (String[] args )
+  {
+    int zaehler = 1;                    // zaehler mit eins initialisieren
+    while ( zaehler &lt;= 3 )              // mache solange zaehler &lt;= 3
+    {
+      System.out.println( "Zaehler ist:" + zaehler );
+      zaehler = zaehler + 1;            // zaehler um eins erh&ouml;hen
+    }
+    System.out.println( "Schleife beendet" );
+  }
+}
+</pre>
+
+<p>
+&#160;
+</p>
+
+<p>
+Das Ablaufdiagramm zeigt, wie das Programm funktioniert.
+Zuerst wird <code>zaehler</code> auf 1 gesetzt.
+Dann wird <code>zaehler</code> getestet, um zu sehen, ob er kleiner oder gleich 3 ist.
+</p>
+
+<p>
+Wenn der Test <em>wahr</em> ergibt, werden die Anweisungen in dem Block, der auf <code>while</code> folgt, ausgef&uuml;hrt.
+Die Anweisung <code>zaehler = zaehler + 1</code> erh&ouml;ht den Wert, der in der Variablen <code>zaehler</code> gespeichert ist, um 1. Die <strong>Ausf&uuml;hrung</strong> kehrt zur&uuml;ck zur <code>while</code>-Anweisung, und der Vorgang wird wiederholt.
+</p>
+
+<p>
+Wenn der Test <em>falsch</em> ergibt, geht die Ausf&uuml;hrung zur Anweisung &quot;Schleife beendet&quot;. Danach ist das Programm beendet.
+</p>
+
+<p>
+Kopieren Sie dieses Programm in eine Datei und f&uuml;hren Sie es aus.
+Hacken Sie ein bi&szlig;chen herum. Sehen Sie, ob das &Auml;ndern einiger Dinge, das tut, was Sie erwarten.
+</p>
+
+
+<div class="clearfloats">  <!-- divs need something inside of them --> </div>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was macht diese Anweisung:
+</p>
+
+<pre class="code">
+zaehler = zaehler + 1;
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Live Loop
+
+<pre class="code">
+zaehler = zaehler + 1;
+</pre>
+
+<ANSWER>
+<p>
+Sie erh&ouml;ht <code>zaehler</code> um eins.
+</p>
+
+<p>
+Wenn dieses nicht klar ist, denken Sie an
+die zwei Schritte der Zuweisungsanweisung:
+<em>erstens</em> Auswerten des Ausdrucks rechts vom
+Gleichheitszeichen,
+<em>zweitens</em> &Uuml;berstellen des Werts in welche Variable auch immer
+auf der linken Seite.
+Angenommen <code>zaehler</code> ist 5.
+Wenn die oben stehende Anweisung ausgef&uuml;hrt wird,
+wird <em>erstens</em> der Ausdruck ausgewertet, ergibt 6.
+<em>Zweitens</em>  wird die 6 in
+<code>zaehler</code> hineingestellt.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX></INDEX>
+
+<script language="JavaScript">
+<!-- Hide from old browsers
+function loopExample( inputForm )
+{
+    var zaehler = 1                                   // zaehler mit eins initialisieren
+    var retVal = ""
+    while ( zaehler <= 3 )                            // mache solange zaehler  <= 3
+    {
+      retVal =  retVal + "Zaehler ist: " + zaehler + "\n"
+      zaehler = zaehler + 1                           // zaehler um eins erhöhen
+    }
+    retVal = retVal + "Schleife beendet\n"
+    inputForm.loopText.value = retVal
+}
+
+function clearExample( inputForm )
+{
+    inputForm.loopText.value = ""
+}
+// finish hiding -->
+</script>
+
+<img src="while.gif" width="270" height="393" class="rightimage" alt="while-Schleife">
+
+<p>
+&#160;
+</p>
+
+<p>
+Hier ist eine Simulation (die JavaScript verwendet) der Schleife.
+Klicken Sie auf den Button &quot;Programm ausf&uuml;hren&quot;, um den Output der Schleife zu sehen. Pr&uuml;fen Sie das Ablaufdiagramm, um zu sehen, wie die Schleife funktioniert.
+</p>
+
+<hr>
+
+
+<form name="loopExampleOne">
+<center>
+<textarea name="loopText" rows="7" cols="20"></textarea><br/><br/>
+<input type="button" value="Programm ausf&uuml;hren" onClick="loopExample( this.form )">
+<input type="button" value="Output l&ouml;schen" onClick="clearExample( this.form )">
+</center>
+</form>
+
+<hr>
+<p>
+Wenn Sie den Quelltext dieser Seite betrachten, indem Sie in Ihrem
+Browser den Men&uuml;punkt &quot;Quelltext anzeigen&quot; verwenden,
+werden Sie das JavaScript Programm  sehen, das f&uuml;r das oben stehende verantwortlich ist.
+JavaScript hat &Auml;hnlichkeiten mit Java, aber auch gro&szlig;e Unterschiede.
+Seien Sie also vorsichtig, damit Sie nicht durcheinander kommen.
+
+</p>
+
+<div><br clear="all"> </div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wenn die &quot;3&quot; in eine &quot;10&quot; ge&auml;ndert wird, wie viele Male wird die Schleife ausgef&uuml;hrt?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+
+<CAI>Mehr &uuml;ber die <code><strong>while</strong></code>-Schleife
+
+<ANSWER>
+<p>
+10 Mal.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist der Teil des Programms, der f&uuml;r die Schleife verantwortlich ist:
+</p>
+
+<pre class="code">
+int zaehler = 1;                                  // zaehler mit eins initialisieren
+while ( zaehler &lt;= 3 )                            // mache solange zaehler  &lt;= 3
+{
+  System.out.println( "Zaehler ist:" + zaehler );
+  zaehler = zaehler + 1;                          // zaehler um eins erh&ouml;hen
+}
+System.out.println( "Schleife beendet" );
+</pre>
+
+<p>
+Hier ist wie es funktioniert:
+</p>
+
+<ol>
+<li>Der Variablen <code>zaehler</code> wird 1 zugewiesen.</li>
+<li>Die Bedingung <code>( zaehler &lt;= 3 ) </code> wird als <em>wahr</em> ausgewertet.</li>
+<li>Da die Bedingung <em>wahr</em> ist, wird die Blockanweisung,
+    die auf <code>while</code> folgt, ausgewertet.
+   <ul>
+   <li>Der gegenw&auml;rtige Wert von <code>zaehler</code> wird ausgegeben:
+       &nbsp;&nbsp;&nbsp;Zaehler ist 1</li>
+   <li><code>zaehler</code> wird um eins auf 2 erh&ouml;ht.</li>
+   </ul></li>
+<br>
+<li>Die Bedingung <code>( zaehler &lt;= 3 ) </code> wird als <em>wahr</em> ausgewertet.</li>
+<li>Da die Bedingung <em>wahr</em> ist, wird die Blockanweisung,
+    die auf <code>while</code> folgt, ausgewertet.
+   <ul>
+   <li>Der gegenw&auml;rtige Wert von <code>zaehler</code> wird ausgegeben:
+       &nbsp;&nbsp;&nbsp;Zaehler ist 2</li>
+   <li><code>zaehler</code> wird um eins auf 3 erh&ouml;ht.</li>
+   </ul></li>
+<br>
+<li>Die Bedingung <code>( zaehler &lt;= 3 ) </code> wird als <em>wahr</em> ausgewertet.</li>
+<li>Da die Bedingung <em>wahr</em> ist, wird die Blockanweisung,
+    die auf <code>while</code> folgt, ausgewertet.
+   <ul>
+   <li>Der gegenw&auml;rtige Wert von <code>zaehler</code> wird ausgegeben:
+       &nbsp;&nbsp;&nbsp;Zaehler ist 3</li>
+   <li><code>zaehler</code> wird um eins auf 4 erh&ouml;ht.</li>
+   </ul></li>
+<br>
+<li>Die Bedingung <code>( zaehler &lt;= 3 ) </code> wird als <em>FALSCH</em> ausgewertet.</li>
+<li>Da die Bedingung <em>FALSCH</em> ist, wird die auf <code>while</code> folgende
+    Blockanweisung &Uuml;BERSPRUNGEN.</li>
+<br>
+<li>Die Anweisung nach der gesamten <code>while</code>-Struktur wird ausgef&uuml;hrt.
+   <ul>
+   <li>System.out.println( "Schleife beendet" );</li>
+   </ul></li>
+</ol>
+</LESSON>
+
+<QUESTION>
+
+<ol>
+<li>Wie viele Male war die <em>Bedingung</em> wahr?</li>
+<li>Wie viele Male wurde die auf <code>while</code> folgende Blockanweisung
+ausgef&uuml;hrt?</li>
+</ol>
+
+</QUESTION>
+
+</CAI>
+
+<CAI>Syntax der <code><strong>while</strong></code>-Anweisung
+<ANSWER>
+
+<ol>
+<li>Wie viele Male war die <em>Bedingung</em> wahr? <span class="red">3</span></li>
+<li>Wie viele Male wurde die auf <code>while</code> folgende Blockanweisung
+ausgef&uuml;hrt? <span class="red">3</span></li>
+</ol>
+
+</ANSWER>
+
+<LESSON>
+<p>
+<INDEX>while statement, syntax</INDEX>
+Hier ist die Syntax der <code>while</code>-Anweisung:
+</p>
+
+<pre class="code">
+while ( <em>Bedingung</em> )
+    <em>Anweisung</em>
+</pre>
+
+<p>
+Einige Anmerkungen zur Syntax:
+</p>
+
+<ul>
+<li>Die <em>Bedingung</em> ist ein Boolescher Ausdruck; d.h. etwas,
+    das <em>wahr</em> oder <em>falsch</em> ergibt.</li>
+<li>Die <em>Bedingung</em> kann sehr kompliziert sein, mit relationalen und
+    logischen Operatoren.</li>
+<li>Die <em>Anweisung</em> ist eine einzelne Anweisung.
+    Aber Sie kann (und ist gew&ouml;hnlich) eine <em>Blockanweisung</em>,
+    die mehrere andere Anweisungen enth&auml;lt.</li>
+<li>Die <em>Anweisung</em> wird manchmal <em>Schleifenk&ouml;rper</em> genannt.</li>
+</ul>
+
+<p>
+Da die <em>Anweisung</em> eine einzelne Anweisung oder
+eine <em>Blockanweisung</em> sein kann,
+kann eine <code>while</code>-Anweisung wie folgt aussehen:
+</p>
+
+<table border bordercolor="brown" cellpadding="10" align="center">
+<tr><th colspan="2" bgcolor="#b0ffff">Varianten der <code>while</code>-Anweisung</th></tr>
+
+<tr valign="top" bgcolor="#ffffff">
+<td>
+<pre><code>
+<b>while</b> ( <em>Bedingung</em> )
+    <em>Anweisung;</em>
+</code></pre>
+</td>
+
+<td>
+<pre><code>
+<b>while</b> ( <em>Bedingung</em> )
+{
+    <em>eine oder mehrere Anweisungen</em>
+}
+</code></pre>
+</td>
+</tr>
+</table>
+
+<p>
+Der hier gezeigte Stil des Einr&uuml;ckens f&uuml;hrt zu
+weniger Fehlern als andere Stile.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist der <em>Boolesche Ausdruck</em> immer von Klammern umgeben?
+</p>
+</QUESTION>
+
+</CAI>
+
+<CAI>Semantik der <code><strong>while</strong></code>-Anweisung
+<ANSWER>
+<p>
+Ja.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>while statement, semantics</INDEX>
+<p>
+Hier ist noch einmal die <code>while</code>-Anweisung:
+</p>
+
+<pre class="code">
+while ( <em>Bedingung</em> )
+    <em>Schleifenk&ouml;rper</em>            // eine Anweisung oder Blockanweisung
+
+<em>Anweisung nach der Schleife</em>
+</pre>
+
+<p>
+Einige Hinweise zur Semantik:
+</p>
+
+<ul>
+<li>Wenn die Ausf&uuml;hrung <code>while</code> erreicht, bestimmt die Bedingung, ob der Schleifenk&ouml;rper ausgef&uuml;hrt wird.</li>
+
+<li>Wenn die <em>Bedingung</em> <em>wahr</em> ist, wird der <em>Schleifenk&ouml;rper</em> ausgef&uuml;hrt. Nachdem der Schleifenk&ouml;rper ausgef&uuml;hrt wurde, wird die Ausf&uuml;hrung zum <code>while</code> zur&uuml;ckgeschickt und die <em>Bedingung</em> wird erneut ausgewertet.</li>
+
+<li>Wenn die <em>Bedingung</em> <em>falsch</em> ist, wird der  <em>Schleifenk&ouml;rper</em> &uuml;bersprungen. Die Ausf&uuml;hrung wird zu der Anweisung geschickt, die auf den Schleifenk&ouml;rper folgt.</li>
+
+<li>Sobald die Ausf&uuml;hrung zu der <em>Anweisung nach der Schleife</em> gekommen ist,
+ist die <code>while</code>-Anweisung beendet, zumindest f&uuml;r jetzt.</li>
+
+<li>Wenn die <em>Bedingung</em> schon beim ersten mal <em>falsch</em> ist, wird der <em>Schleifenk&ouml;rper</em> kein einziges Mal ausgef&uuml;hrt.</li>
+</ul>
+
+<p>
+Hier ist die <code>while</code>-Schleife des Beispielprogramms:
+</p>
+
+<pre class="code">
+int zaehler = 1;                                  // zaehler mit eins initialisieren
+while ( zaehler &lt;= 3)                             // mache solange zaehler  &lt;= 3
+{
+  System.out.println( "Zaehler ist:" + zaehler );
+  zaehler = zaehler + 1;                          // zaehler um eins erh&ouml;hen
+}
+System.out.println( "Schleife beendet" );         // Anweisung nach der Schleife
+
+</pre>
+
+
+<p>
+Diese Schleife verwendet die Variable <code>zaehler</code>.
+Sie beginnt mit 1 und wird dann um eins erh&ouml;ht bis die Bedingung falsch ist.
+Danach wird die Anweisung nach der Schleife ausgef&uuml;hrt.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Drei verschiedene Dinge werden mit der Variablen <code>zaehler</code> getan:
+sie wird <em>initialisiert</em>, <em>getestet</em> und <em>ge&auml;ndert</em>.
+Wo finden in dem Programm jede dieser Ma&szlig;nahmen statt?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Drei Dinge zu koordinieren
+<ANSWER>
+<pre class="code">
+int zaehler = 1;              <span class="blue">// zaehler wird initialisiert</span>
+while ( zaehler &lt;= 3 )        <span class="blue">// zaehler wird getestet</span>
+{
+  System.out.println( "Zaehler ist:" + zaehler );
+  zaehler = zaehler + 1;        <span class="blue">// zaehler wird ge&auml;ndert</span>
+}
+System.out.println( "Schleife beendet" );
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<INDEX>loops, coordinating three things</INDEX>
+<p>
+Es gibt drei Dinge zu koordinieren, wenn Ihr Programm eine Schleife hat:
+</p>
+
+<ol>
+<li>Der Anfangswert muss richtig gesetzt werden.</li>
+<li>Die <em>Bedingung</em> in der <code>while</code>-Anweisung muss richtig sein.</li>
+<li>Die Variable(n) muss richtig ge&auml;ndert werden.</li>
+</ol>
+
+<p>
+Zum Beispiel wollten wir in dem oben stehenden Programm die Integer "1, 2, 3 "
+ausgegeben haben.
+Drei Teile des Programms mussten koordiniert werden, damit das korrekt funktioniert.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was wird das Programm ausgeben, wenn die Initialisierung wie folgt ge&auml;ndert wird:
+</p>
+
+<pre class="code">
+int zaehler = <span class="red">0</span>;               <span class="blue">// zaehler wird initialisiert</span>
+while ( zaehler &lt;= 3 )         <span class="blue">// zaehler wird getestet</span>
+{
+  System.out.println( "Zaehler ist:" + zaehler );
+  zaehler = zaehler + 1;         <span class="blue">// zaehler wird ge&auml;ndert</span>
+}
+System.out.println( "Schleife beendet" );
+</pre>
+
+
+</p>
+</QUESTION>
+
+</CAI>
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Bedingungsgrenzen
+<p>
+Was wird das Programm ausgeben, wenn die Initialisierung ge&auml;ndert wird in:
+</p>
+
+<pre class="code">
+int zaehler = 0;
+</pre>
+
+<ANSWER>
+
+<pre class="code">
+zaehler ist 0
+zaehler ist 1
+zaehler ist 2
+zaehler ist 3
+Schleife beendet
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+Um festzustellen, was eine Schleife tut, betrachten Sie das Folgende:
+</p>
+
+<ul>
+<li>Betrachten Sie die Initialisierung.</li>
+<li>Betrachten Sie die Bedingung, um zu bestimmen, wann die Schleife endet.</li>
+<li>Betrachten Sie welche &Auml;nderung jedes Mal vorgenommen wird, wenn der Schleifenk&ouml;rper ausgef&uuml;hrt wird.</li>
+</ul>
+
+
+Here is another version of the example fragment:
+
+
+<p>
+Hier ist eine andere Version des Beispielfragments:
+</p>
+
+<pre class="code">
+int zaehler = 1;
+while ( <span class="red">zaehler &lt; 4</span> )           // das ist anders
+{
+  System.out.println( "Zaehler ist:" + zaehler );
+  zaehler = zaehler + 1;
+}
+System.out.println( "Schleife beendet" );
+</pre>
+
+<p>
+Beachten Sie die &Auml;nderung gegen&uuml;ber dem vorherigen Programm in der Schleifenbedingung.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was gibt das Programm aus?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Relationale Operatoren sind verzwickt
+<ANSWER>
+
+<pre class="code">
+zaehler ist 1
+zaehler ist 2
+zaehler ist 3
+Schleife beendet
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist das Programmfragment:
+</p>
+
+
+<pre class="code">
+int zaehler = 1;
+while ( <span class="red">zaehler &lt; 4</span> )           // das ist anders
+{
+  System.out.println( "Zaehler ist:" + zaehler );
+  zaehler = zaehler + 1;
+}
+System.out.println( "Schleife beendet" );
+</pre>
+
+
+<p>
+Der relationale Operator ist anders als zuvor (jetzt ist es "&lt;",
+vorher war es "&lt;=") und er testet mit 4 (vorher mit 3).
+Sie k&ouml;nnen herausbekommen was diese Schleife macht, indem
+Sie das Folgende betrachten:
+</p>
+
+<ul>
+<li>Der <code>zaehler</code> beginnt mit 1.</li>
+<li>Der letzte als <em>true</em> gepr&uuml;fte Wert in der Bedingung ist 3.</li>
+<li>Der <code>zaehler</code> erh&ouml;ht sich jedes Mal um 1.</li>
+</ul>
+
+<p>
+.... also m&uuml;ssen die Werte, die ausgegeben werden: 1, 2 und 3 sein.
+</p>
+
+<p>
+Der Grenzwert von 4 wird mit dem relationalen Operator "&lt;" koordiniert,
+um die Schleife zu kontrollieren.
+Hier ist eine weitere &Auml;nderung des Programms:
+</p>
+
+<pre class="code">
+int zaehler = 0;
+int limit = 5;
+while ( <span class="red">zaehler &lt; limit</span> )           // hier gibt es &Auml;nderungen
+{
+  System.out.println( "Zaehler ist:" + zaehler );
+  zaehler = zaehler + 1;
+}
+System.out.println( "Schleife beendet" );
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was gibt das oben stehende Programm aus?
+</p>
+</QUESTION>
+
+</CAI>
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndiges Programm
+
+<ANSWER>
+
+<pre class="code">
+zaehler ist 0
+zaehler ist 1
+zaehler ist 2
+zaehler ist 3
+zaehler ist 4
+Schleife beendet
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist ein vollst&auml;ndiges Programm, das den Anwender den Anfangs- und den
+Endwert w&auml;hlen l&auml;sst:
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+// Anwender w&auml;hlt den Anfangs- und Endwert
+class BeispielSchleife
+{
+  public static void main (String[] args )
+  {
+    Scanner scan = new Scanner( System.in );
+    int zaehler, limit;
+
+    System.out.println( "Geben Sie den Anfangswert ein:" );
+    zaehler     = scan.nextInt();
+
+    System.out.println( "Geben Sie den Endwert ein:" );
+    limit     = scan.nextInt();
+
+    while ( zaehler &lt;= limit )   // kleiner-oder-gleich-Operator
+    {
+      System.out.println( "Zaehler ist:" + zaehler );
+      zaehler = zaehler + 1;
+    }
+    System.out.println( "Schleife beendet" );
+  }
+}
+</pre>
+
+<p>
+Nat&uuml;rlich wollen Sie es nach Notepad kopieren und auf die &uuml;bliche Weise ausf&uuml;hren.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wenn der Anwender den Anfangswert auf -2 und den Endwert auf 1 setzt, welche
+Werte werden ausgegeben?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Web-Version des Programms
+<p>
+Wenn der Anwender den Anfangswert auf -2 und den Endwert auf 1 setzt, welche
+Werte werden ausgegeben?
+</p>
+<ANSWER>
+
+<pre class="code">
+Zaehler ist: -2
+Zaehler ist: -1
+Zaehler ist: 0
+Zaehler ist: 1
+</pre>
+
+<p>
+Die 0 wird in die Liste der Werte aufgenommen!
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Vielleicht gef&auml;llt es Ihnen eine JavaScript Version
+dieses Programms auszuprobieren.
+Testen Sie ein paar Anfangs- und Endwerte.
+Wenn die Ausgabe nicht in das Textfeld passt, verwenden Sie die rechte Bildlaufleiste,
+um sich in der Ausgabe hinauf und hinunter zu bewegen.
+Die Schleife in diesem Programm ist:
+</p>
+
+<hr>
+
+<script language="JavaScript">
+<!-- hide from old browsers
+function loopExample2( inputForm )
+{
+    var retVal = ""
+    var count = parseInt( inputForm.Count.value )
+    var limit = parseInt( inputForm.Limit.value )
+
+    if ( limit-count+1 > 1000 )
+    {
+      alert("Wählen Sie für limit und zaehler Werte, die näher zusammenliegen.");
+      return;
+    }
+
+    while ( count <= limit )
+    {
+      retVal =  retVal + "Zaehler ist: " + count + "\n"
+      count = count + 1
+    }
+    retVal = retVal + "Schleife beendet\n"
+    inputForm.loopText.value = retVal
+}
+
+function clearExample2( inputForm )
+{
+    inputForm.loopText.value = ""
+}
+// stop hiding -->
+</script>
+
+
+<form name="loopExampleOne">
+<center>
+<table border="1" bordercolor="brown" cellpadding="10">
+<tbody><tr>
+
+<td>
+<div align="left">
+<pre>zaehler = <input class="in" name="Count" size="10" type="text"> ;
+
+limit = <input  class="in" name="Limit" size="10" type="text"> ;
+
+while ( zaehler &lt;= limit )
+{
+  System.out.println( "Zaehler ist:" + zaehler );
+  zaehler = zaehler + 1;
+}
+System.out.println( "Schleife beendet" );
+</pre>
+</div>
+</td>
+
+<td>
+<textarea  class="dos" name="loopText" rows="15" cols="20"></textarea>
+</td>
+</tr>
+
+
+<tr>
+<td colspan="2">
+<center>
+<input value="Programm ausf&uuml;hren" onclick="loopExample2( this.form )" type="button">
+&nbsp;
+<input value="Ausgabe l&ouml;schen" onclick="clearExample2( this.form )" type="button">
+</center>
+</td>
+</tr>
+</tbody></table>
+</center>
+
+</form>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Geben Sie einen Anfangswert von 9 und einen Endwert von 4 ein. Was passiert?
+Warum?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Schleifenkontrollvariable
+
+<ANSWER>
+<p>
+Die Schleife wird nicht ausgef&uuml;hrt, nicht einmal ein einziges Mal.
+Das liegt an der Bedingung der <code>while</code>-Anweisung,
+</p>
+
+<pre class="code">
+<code>zaehler &lt;= limit</code>
+</pre>
+
+<p>
+ist schon bei der ersten &Uuml;berpr&uuml;fung falsch.
+Die Anweisung, die auf die Schleife folgt,
+</p>
+
+<pre class="code">
+<code>System.out.println( "Schleife beendet" );</code>
+</pre>
+
+<p>
+<em>wird</em> ausgef&uuml;hrt.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>loop control variable</INDEX>
+<p>
+In diesem Kapitel sehen alle <code>while</code>-Schleifen so aus:
+</p>
+
+<pre class="code">
+int zaehler = 0;
+int limit = 5;
+while ( zaehler &lt;  limit )
+{
+  System.out.println( "Zaehler ist:" + zaehler );
+  zaehler = zaehler + 1;
+}
+System.out.println( "Schleife beendet" );
+</pre>
+
+<p>
+Die Variable <code>zaehler</code> ist die, welche initialisiert, getestet und
+beim Ausf&uuml;hren des Schleifenk&ouml;rpers ge&auml;ndert wird.
+Es ist eine gew&ouml;hnliche <code>int</code>-Variable, aber sie wird f&uuml;r eine
+spezielle Aufgabe verwendet.
+Sie hat die Aufgabe einer <em>Schleifenkontrollvariable</em>.
+Aber, nicht alle Schleifen besitzen Schleifenkontrollvariablen.
+</p>
+
+<INDEX>counting loop</INDEX>
+<p>
+Der Typ Schleife, den wir betrachtet haben, ist eine <em>Z&auml;hlschleife</em>,
+da sie hochz&auml;hlt, indem sie eine Schleifenkontrollvariable als einen Z&auml;hler verwendet.
+Sie k&ouml;nnen Z&auml;hlschleifen mit anderen Anweisungen als der <code>while</code>-Anweisung realisieren, und nicht alle <code>while</code>-Schleifen sind Z&auml;hlschleifen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Denken Sie, dass eine Z&auml;hlschleife immer um eins hochgez&auml;hlt wird?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<p>
+Denken Sie, dass eine Z&auml;hlschleife immer um eins hochgez&auml;hlt wird?
+</p>
+<ANSWER>
+<p>
+Nein. Z&auml;hlschleifen k&ouml;nnen zum Beispiel um zwei hochz&auml;hlen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Wir haben das Limit dieses Kapitels erreicht.
+Sie m&ouml;chten vielleicht das Folgende noch einmal durchsehen.
+Klicken Sie auf ein Thema, das Sie interessiert, um dahin zu gehen, wo es besprochen wurde.
+</p>
+
+<ul>
+<li>
+<GOTO>cycles, usefulness</GOTO> N&uuml;tzlichkeit
+von Kreisl&auml;ufen bei Maschinen und Programmen.
+</li>
+<li>
+<GOTO>while statement, syntax</GOTO> Syntax
+einer <code>while</code>-Schleife.
+</li>
+<li>
+<GOTO>while statement, semantics</GOTO> Semantik
+einer <code>while</code>-Schleife.
+</li>
+<li>
+<GOTO>loops, coordinating three things</GOTO> Drei Dinge,
+die koordiniert werden m&uuml;ssen.
+</li>
+<li>
+<GOTO>loop control variable</GOTO> Die Schleifenkontrollvariable.
+</li>
+<li>
+<GOTO>counting loop</GOTO> Z&auml;hlschleifen.
+</li>
+</ul>
+
+<p>Das n&auml;chste Kapitel bespricht
+weitere Einzelheiten von Schleifen.
+</p>
+
+</CAI>
+</CHAPTER>

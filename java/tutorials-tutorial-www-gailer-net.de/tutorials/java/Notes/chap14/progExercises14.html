@@ -1,0 +1,131 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" >
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee  dot org ">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2003, Heinrich Gailer">
+
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css">
+<meta name="robots" content="noindex,nofollow">
+<head>
+<title>Programmieraufgaben</title>
+
+</head>
+
+
+<body>
+<p class="revisions">erstellt 29.07.99; &uuml;bersetzt 24.03.03; &uuml;berarbeitet 03.05.04, 29.09.06; Deutsche &Uuml;bersetzung Heinrich Gailer
+</p>
+
+<hr>
+
+<h1>Kapitel 14  Programmieraufgaben</h1>
+
+<hr>
+
+<h2>Aufgabe 1 &#8212; Scheckgeb&uuml;hr</h2>
+
+<p>Eine Bank verf&auml;hrt nach der folgenden Regel: Wenn ein Kunde auf seinem Girokonto ein Guthaben von mehr als 1000$ oder auf seinem Sparkonto ein Guthaben von mehr als 1500$ hat, wird keine Scheckgeb&uuml;hr erhoben. Andernfalls wird eine Geb&uuml;hr von 0.15$ erhoben.
+Schreiben Sie ein Programm, das nach dem Kontostand der beiden Konten fragt und dann ausgibt, ob eine Geb&uuml;hr erhoben wird oder nicht.</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#14">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 2 &#8212; Wettbewerb "<em class=myem>Torten essen</em>"</h2>
+
+<p>
+Beim <em class=myem>State Fair Pie Eating Contest</em> m&uuml;ssen alle
+Teilnehmer in der Schwergewichtsklasse zwischen 235 und 265 Pfund wiegen.
+Schreiben Sie ein Programm, das nach dem Gewicht des Teilnehmers fragt und dann ausgibt, ob er zum Wettbewerb zugelassen ist oder nicht.
+</p>
+
+<hr>
+
+<h2>Aufgabe 3  &#8212; Reifendruck</h2>
+
+<p>Die beiden vorderen Reifen eines Autos sollten beide den gleichen Reifendruck haben. Ebenso sollten die beiden hinteren Reifen den gleichen Reifendruck haben, aber nicht unbedingt den gleichen wie die Vorderreifen. Schreiben Sie ein Programm, das den Reifendruck der vier Reifen einliest und dann eine Meldung ausgibt, ob der Reifendruck in Ordnung ist.
+</p>
+
+<pre class="dos">
+Reifendruck: rechter Vorderreifen
+38
+Reifendruck: linker Vorderreifen
+38
+Reifendruck: rechter Hinterreifen
+42
+Reifendruck: linker Hinterreifen
+42
+
+Reifendruck ist OK
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#14">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 4 &#8212; Reifendruck zum Zweiten</h2>
+
+<p>Es gen&uuml;gt nicht, dass der Reifendruck der beiden Vorder- und Hinterr&auml;der der gleiche ist. Beide Reifendr&uuml;cke m&uuml;ssen sich innerhalb eines bestimmten Bereichs befinden.
+Erweitern Sie das Pogramm aus Aufgabe 3. Es soll &uuml;berpr&uuml;fen, ob sich der Druck aller Reifen zwischen 35 und 45 befindet. Befindet sich ein Reifen au&szlig;erhalb dieses Bereichs, wird sofort eine Warnmeldung ausgegeben. Danach f&auml;hrt das Programm mit dem Einlesen und Verarbeiten der Werte fort.
+</p>
+
+<pre class="dos">
+Reifendruck: rechter Vorderreifen
+32
+Warnung: Der Reifendruck ist au&szlig;erhalb des erlaubten Bereichs
+
+Reifendruck: linker Vorderreifen
+32
+Warnung: Der Reifendruck ist au&szlig;erhalb des erlaubten Bereichs
+
+Reifendruck: rechter Hinterreifen
+42
+Reifendruck: linker Hinterreifen
+42
+
+Der Reifendruck ist nicht in Ordnung!
+</pre>
+
+<p>Kommt es zu einer Warnmeldung, dann gibt das Programm am Ende eine letzte Warnmeldung aus. Deklarieren Sie daf&uuml;r eine boolesche Variable <code>druckOK</code>.</p>
+
+<p><code>boolean druckOK</code></p>
+
+<p>
+Initialisieren Sie sie mit <code>true</code> und setzen Sie den Wert auf <code>false</code>, wenn sich ein Reifen au&szlig;erhalb des g&uuml;ltigen Bereichs befindet.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#14">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 5  &#8212; Reifendruck zum Dritten</h2>
+
+<p>Reifen m&uuml;ssen nicht genau den gleichen Druck haben.
+Ver&auml;ndern Sie Ihr Programm aus Aufgabe 3, so dass sich die beiden Vorder- und Hinterr&auml;der in einem Toleranzbereich von 3 psi bewegen d&uuml;rfen.</p>
+
+<pre class="dos">
+Reifendruck: rechter Vorderreifen
+35
+Reifendruck: linker Vorderreifen
+37
+Reifendruck: rechter Hinterreifen
+41
+Reifendruck: linker Hinterreifen
+44
+
+Reifendruck ist OK
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#14">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<p>Ende der Aufgaben</p>
+</body>
+
+</html>

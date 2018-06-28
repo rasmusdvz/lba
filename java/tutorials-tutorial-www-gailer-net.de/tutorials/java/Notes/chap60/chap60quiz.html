@@ -1,0 +1,556 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="copyright" content="2006">
+<meta name="author" content="B. P. Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+
+<title>Quiz &uuml;ber Labels und Textfelder</title>
+
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css">
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+</head>
+
+<body>
+<p class="revisions">&uuml;berarbeitet 05.10.03; &uuml;bersetzt 11.02.11; &uuml;berarbeitet 01.08.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+
+<h1><img src="quizTextField.jpg" class="right">Quiz &uuml;ber Labels und Textfelder</h1>
+
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+ W&auml;hlen Sie f&uuml;r jede Frage die beste Antwort und klicken Sie dann auf das entsprechende Optionsk&auml;stchen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Wenn das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox nach jeder Frage.
+</p>
+
+<br clear="all">
+
+
+<hr>
+<form name="question1">
+
+<p>
+1.
+Von welcher direkten Basisklasse wird <code>JTextField</code> abgeleitet?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<code>JText</code>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+
+<code>JField</code>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+<code>JTextComponent</code>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+
+<code>JComponent</code>
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question2">
+<p>
+2.
+Was muss in den L&uuml;cken stehen,
+so dass ein Textfeld von 20 Zeichen
+in den Frame gestellt wird?
+
+<pre>
+  public TextExample()
+  {
+    text = new JTextField( <span class="blue">____</span> ) ;
+    <span class="blue">_________</span>( new FlowLayout() );
+    add( <span class="blue">____</span> );
+  }
+
+</pre>
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+text, setLayout, 20
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+20, setLayout, text
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+20, put, frame
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+20, set, text
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question3">
+<p>
+3.
+Welches ist die Klasse von Swing-Labels?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+JLabel
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Label
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+SLable
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+
+label
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question4">
+<p>
+4.
+Wie stellt <code>FlowLayout()</code>
+Komponenten in einen Frame?
+
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Er beginnt oben, dann von links nach rechts f&uuml;r jede Zeile.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Er beginnt unten, dann von rechts nach links f&uuml;r jede Zeile.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Er beginnt in der Mitte und geht dann spiralenf&ouml;rmig nach au&szlig;en.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Er stellt die erste Komponente in die Mitte und quetscht den Rest darum herum.
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question5">
+<p>
+5.
+Wann erzeugt ein Textfeld einen Action-Event?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Wenn das Feld den Fokus hat und die Eingabetaste gedr&uuml;ckt wird.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+F&uuml;r jedes Zeichen, dass in das Feld eingegeben wird.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Immer wenn der Frame den Fokus hat und die Eingabetaste gedr&uuml;ckt wird.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+Wenn das Textfeld den Fokus verliert.
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question6">
+<p>
+6.
+K&ouml;nnen Korrekturen vorgenommen werden, wenn der Anwender in ein Textfeld eingibt?
+
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Nein, jedes Zeichen wird sobald es eingegeben wurde so bald wie m&ouml;glich an die
+Applikation geschickt.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Nein, die R&uuml;ck- oder L&ouml;schen-Taste beendet die Eingabe.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Ja, bis die Eingabetaste gedr&uuml;ckt wird.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Ja, aber nur das L&ouml;schen der ganzen Zeile ist m&ouml;glich.
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question7">
+<p>
+7.
+Welche Methode wird verwendet, um den Text eines <code>JTextField</code> zu lesen?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<code>readText()</code>
+
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+<code>getText()</code>
+
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+<code>getString()</code>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+<code>putText()</code>
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question8">
+
+<p>
+8.
+
+Kann das Programm Text in ein <code>JTextField</code> stellen?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Nein, nur der Anwender kann Text eingeben.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'">
+
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Ja, indem er ein <code>JLabel</code> verwendet.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Ja,, indem er <code>setEditable()</code> verwendet.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Ja, indem er <code>setText()</code> verwendet.
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question9">
+<p>
+9.
+
+Wie kann der Anwender daran gehindert werden
+Text in ein Textfeld einzugeben?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Durch die Verwendung von <code>setEditable( true )</code>.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Durch die Verwendung von <code>setEditable( false )</code>.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Durch die Verwendung von <code>setNotEditable()</code>.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Durch die Verwendung von <code>setVisible( false )</code>.
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+
+</form>
+
+<hr>
+<form name="question10">
+<p>
+10.
+
+Welche Methode &auml;ndert die Hintergrundfarbe eines Inhaltsbereichs?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<code>setColor()</code>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'">
+
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+<code>setBackgroundColor()</code>
+
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+<code>setBackground()</code>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+
+<code>setForegroundColor()</code>
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+</p>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+
+<p><a href="../../index.html#60"><img class="left" src="../homeIcon.gif" alt="Inhalt" border="0"></a>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</p>
+
+<p>Um die alten Antworten zu l&ouml;schen, halten Sie die Strg-Taste gedr&uuml;ckt und laden dann die Seite neu (Firefox). Bei anderen Browsern funktioniert das in Verbindung mit der Umschalt- bzw. Strg+Umschalt-Taste. Beim Internet Explorer 8 muss die Seite verlassen und erneut aufgerufen werden.</p>
+
+</body>
+</html>

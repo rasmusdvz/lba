@@ -1,0 +1,87 @@
+<!doctype html public "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Kapitel 26  Programmieraufgaben</title>
+<meta name="copyright" content="2002/2004, Bradley Kjell, Heinrich Gailer" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org, Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="index,follow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<small>&uuml;bersetzt und erweitert 14.06.04; &uuml;berarbeitet 29.06.04, 09.10.06; &copy; Copyright 2002 - 2006 Bradley Kjell &amp; Heinrich Gailer</small>
+<hr />
+<center>
+<h1>Kapitel 26  Programmieraufgaben</h1>
+</center>
+<h2>Aufgabe 1 &#8212; Der <code><strong>==</strong></code> - Operator</h2>
+
+<p>Erstellen Sie eine Klasse <code>LiteralTester</code> und deklarieren Sie vier Stringvariablen <code>str1</code>, <code>str2</code>, <code>str3</code> und <code>str4</code>. Erzeugen Sie dann ein Stringliteral "Bo, die Katze" und weisen Sie dieses Stringliteral den beiden Referenzvariablen <code>str1</code> und <code>str2</code> zu. Erzeugen Sie danach f&uuml;r die beiden Referenzvariablen <code>str3</code> und <code>str4</code> mit dem <code>new</code>-Operator jeweils ein Stringobjekt mit dem Inhalt "Fred, der Hund".</p>
+
+<p>&Uuml;berpr&uuml;fen Sie anschlie&szlig;end mit dem <code>==</code> -Operator, ob die Referenzvariablen <code>str1</code> und <code>str2</code> auf dasselbe Objekt verweisen. &Uuml;berpr&uuml;fen Sie ebenfalls mit dem <code>==</code> -Operator, ob die Referenzvariablen <code>str3</code> und <code>str4</code> auf dasselbe Objekt verweisen.</p>
+
+<p>Ermitteln Sie die Anzahl der Stringobjekte und geben Sie das Ergebnis auf den Bildschirm aus. Die Ausgabe des Programms sieht dann folgenderma&szlig;en aus.</p>
+
+<blockquote>
+<pre>
+Es wurden 3 Objekte erzeugt.
+</pre>
+</blockquote>
+
+<p>Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#26">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 2 &#8212; <code><strong>equals()</strong></code></h2>
+
+<p>Schreiben Sie ein Programm, das den Anwender auffordert 5 Integer einzugeben. Das Programm wird den Anwender f&uuml;nfmal auffordern eine Zahl einzugeben. Danach wird es die Summe berechnen und ausgeben.</p>
+
+<p>Die Ausgabe des Programms sieht dann ungef&auml;hr folgenderma&szlig;en aus.</p>
+
+<blockquote>
+<pre>
+Geben Sie 1. Zahl ein:
+11
+Geben Sie 2. Zahl ein:
+4
+Geben Sie 3. Zahl ein:
+5
+Geben Sie 4. Zahl ein:
+1
+Geben Sie 5. Zahl ein:
+9
+Gesamtsumme: 30
+
+</pre>
+</blockquote>
+
+<p>Ver&auml;ndern Sie dann das Programm, so dass es am Anfang den Anwender fragt, ob er eine Eingabeaufforderung w&uuml;nscht. Der Anwender gibt "ja" oder "nein" ein (nur einmal, am Anfang). Die Schleife wird jetzt entweder eine Eingabeauforderung ausgeben oder nicht.</p>
+
+<p>
+Deklarieren Sie eine weitere Stringvariable <code>antwort</code> und weisen Sie ihr das Stringliteral "ja" zu. Vergleichen Sie dann mit der <code>equals()</code> Methode ob der vom Anwender eingegebene String &auml;quivalent zur Stringvariablen <code>antwort</code> ist. Setzen Sie eine boolesche Variable auf <code>true</code> oder <code>false</code>, je nach dem was der Anwender eingegeben hat. Innerhalb der Schleife bestimmt dann eine <code>if</code>-Anweisung ob die Eingabeaufforderung ausgegeben wird oder nicht.
+</p>
+
+<p>Die Ausgabe des Programms sieht dann ungef&auml;hr folgenderma&szlig;en aus.</p>
+
+<blockquote>
+<pre>
+Eingabeaufforderung &lt;ja&gt; oder &lt;nein&gt;?
+nein
+3
+5
+2
+12
+8
+Gesamtsumme: 30
+</pre>
+</blockquote>
+
+<p>Als Ausgangsbasis kann das Programm <a href="../chap10/ch10_15.html"><code>EchoQuadrat</code></a> aus Kapitel 10 verwendet werden.</p>
+
+<p>Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#26">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<p>Ende der Aufgaben.</p>
+
+</body>
+</html>

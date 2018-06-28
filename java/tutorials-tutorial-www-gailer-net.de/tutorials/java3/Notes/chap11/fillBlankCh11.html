@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+
+<!-- revision 03/06/00 add meta; fix question 8 -->
+
+<meta name="copyright" content="2000,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<title>
+F&uuml;llen Sie die L&uuml;cken aus
+</title>
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<small>erstellt: 01.08.99; &uuml;berarbeitet 01.06.00; &uuml;bersetzt: 03.03.03; &uuml;berarbeitet 20.10.03, 26.04.04, 18.04.05, 29.09.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+F&uuml;llen Sie die L&uuml;cken aus
+<!-- end of Quiz Name -->
+</h1></center>
+
+<p>
+<b>Hinweise:</b> &nbsp;
+Das ist eine unbewertete L&uuml;cken&uuml;bung.
+Jede Frage besteht aus einem Satz, bei dem ein oder zwei W&ouml;rter fehlen.
+Jede Schaltfl&auml;che repr&auml;sentiert das fehlende Wort bzw. die fehlenden W&ouml;rter.
+&Uuml;berlegen Sie welches Wort bzw. welche W&ouml;rter fehlen. Klicken Sie dann auf die Schaltfl&auml;che, um zu sehen ob Sie recht haben. Es wird keine Note f&uuml;r diese &Uuml;bung ermittelt.
+</p>
+<hr />
+
+<!-- ------------------------start of  question ------------------------------ -->
+<p>
+Dieser Test &uuml;berpr&uuml;ft Java Input und Output von Gleitpunktzahlen.
+
+</p>
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>1.</b> &nbsp; Der Datentyp <code>long</code> und der Datentyp
+<input type="button"
+value="_______"
+name="button1"
+onClick="value='double'" />
+<!-- FILL in  -->
+verwenden 64 Bits.
+<!-- end FILL -->
+</form>
+<br />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>2.</b> &nbsp; Obwohl sie beide die gleiche Anzahl von Bits haben, ist das
+<input type="button"
+value="___________________"
+name="button1"
+onClick="value='Bitmuster'" />
+<!-- FILL in  -->
+von <code>long</code> und <code>double</code> Datentypen vollkommen verschieden.
+<!-- end FILL -->
+</form>
+<br />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>3.</b> &nbsp; Das Java IO-Paket, das wir verwenden hei&szlig;t:
+<input type="button"
+value="_________"
+name="button1"
+onClick="value='java.io'" />
+<!-- FILL in  -->
+<!-- end FILL -->
+</form>
+<br />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>4.</b> &nbsp; Egal ob der Input aus Ganzzahlen oder Gleitpunktzahlen besteht, es wird ein String von
+<input type="button"
+value="__________"
+name="button1"
+onClick="value='Zeichen'" />
+<!-- FILL in  -->
+eingelesen, der dann in den entsprechenden numerischen Datentyp
+<!-- end FILL -->
+<input type="button"
+value="_________"
+name="button2"
+onClick="value='konvertiert'" />
+werden muss.
+</form>
+<br />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>5.</b> &nbsp; Das reservierte Wort
+<input type="button"
+value="______"
+name="button1"
+onClick="value='final'" />
+<!-- FILL in  -->
+bedeutet, dass sich der Wert einer Variablen nicht &auml;ndern wird.
+<!-- end FILL -->
+</form>
+<br />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>6.</b> &nbsp;
+Um einen String von Zeichen in ein <code>double</code>
+zu konvertieren, wird die Methode <code>parseDouble()</code> der Wrapperklasse
+<input type="button"
+value="_________"
+name="button1"
+onClick="value='Double'" /> verwendet.
+<!-- FILL in  -->
+<!-- end FILL -->
+</form>
+<br />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>7.</b> &nbsp; Nachdem der Eingabe-String konvertiert wurde, kann der Wert einer <code>double</code> Variablen
+<input type="button"
+value="_____________"
+name="button1"
+onClick="value='zugewiesen'" /> werden.
+<!-- FILL in  -->
+
+<!-- end FILL -->
+</form>
+<br />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<b>8.</b> &nbsp;  Betrachten Sie das folgende Programm, das eine Zeile Text einliest, sie in ein <code>double</code> konvertiert und den <code>double</code>-Wert auf den Bildschirm ausgibt. F&uuml;llen Sie die L&uuml;cken aus.
+
+<blockquote>
+<form><pre>
+import <input type="button" value="___________" onClick="value='java.io.*'" /> ;
+class Echo
+{
+  public static void main (String[] args) <input type="button" value="_________________"  onClick="value='throws IOException'" />
+  {
+    double zahl
+
+    BufferedReader stdin =
+            new <input type="button" value="_________________" onClick="value='BufferedReader'" />
+    ( new InputStreamReader( System.in ) );
+
+    String inData;
+
+    System.out.println("Geben Sie die Daten ein:");
+    inData = stdin.<input type="button" value="_________________" onClick="value='readLine();'" />
+
+    zahl  = Double.<input type="button" value="____________" onClick="value='parseDouble'" />( inData ) ;
+    System.out.println("Sie haben eingegeben: " + zahl );
+  }
+}
+</pre></form>
+</blockquote>
+
+
+<!-- ------------------------start of  question ------------------------------ -->
+<b>9.</b> &nbsp;  Betrachten Sie das folgende Programm, das eine Zahl einliest und den Sinus der Zahl auf den Bildschirm ausgibt. F&uuml;llen Sie die L&uuml;cken aus.
+
+<blockquote>
+<form><pre>
+<input type="button" value="___________" onClick="value='import'" /> java.io.* ;
+class Trig
+{
+  public static void main (String[] args) <input type="button" value="_________________"  onClick="value='throws IOException'" />
+  {
+    BufferedReader stdin =
+            new BufferedReader( new <input type="button" value="_________________"  onClick="value='InputStreamReader'" />(  System.in ) );
+    String inData;
+    double zahl, sinZahl;                      // Deklaration von zwei double-Variablen
+    System.out.println("Geben Sie die Zahl ein:");
+    inData = stdin.<input type="button" value="_________________" onClick="value='readLine();'" />
+    zahl    = Double.parseDouble(<input type="button" value="_________" onClick="value='inData'" /> ) ;
+
+    sinZahl = Math.<input type="button" value="______" onClick="value='  sin  '" />( zahl );
+    System.out.println("Der Sinus von " + inData + " ist " + sinZahl );
+  }
+}
+</pre></form>
+</blockquote>
+</p>
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>10.</b> &nbsp; Wenn in das oben stehende Programm "1x23"
+eingegeben wird, wird eine
+
+<input type="button"
+value="____________________"
+name="button1"
+onClick="value='NumberFormatException'" />
+<!-- FILL in  -->
+ausgel&ouml;st.
+<!-- end FILL -->
+</form>
+<br />
+<!-- ------------------------end of  question --------------------------------- -->
+<hr />
+Ende des Tests.  Wenn Sie ihn wiederholen m&ouml;chten, laden Sie die Seite in Ihrem Browser neu.
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#11">Inhaltsverzeichnis</a>.
+</p>
+</body>
+</html>

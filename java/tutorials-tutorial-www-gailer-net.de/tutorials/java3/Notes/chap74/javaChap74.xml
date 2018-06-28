@@ -1,0 +1,1080 @@
+<CHAPTER>
+
+<COPYRIGHTDATE>2003</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER> 
+<AUTHORNAME>Bradley Kjell kjell@ieee.org</AUTHORNAME>
+
+<CAI> CHAPTER  74 &#8212; Recursion with Graphics
+<p>
+<small>created: 01/03/03</small>
+</p>
+
+<LESSON>
+<p>
+This chapter builds an applet that
+shows how complicated-appearing graphics
+may be created with recursive Java methods.
+The applet draws the snowflake figure from 
+the first chapter on recursion.
+</p>
+
+<h4>Chapter Topics:</h4>
+<ul>
+<li>Review of applets.</li>
+<li>Review of applet graphics.</li>
+<li>The SnowFlake applet.</li>
+</ul>
+
+</LESSON>
+
+<p>
+Most of the programs used to illustrate recursion in the previous
+chapters could easily be written using iteration in place of recursion.
+Of course, it is always possible to use one instead of the other.
+Sometimes iteration is the obvious choice; sometimes recursion.
+This chapter discusses an applet that is much easier to write
+with recursion.
+</p>
+
+<p>
+You may wish to review the first chapter on applets (chapter 36)
+if your recollection of applets is hazy.
+</p>
+
+<QUESTION>
+<p>
+(Hazy Review: ) What is the method of an applet
+that is called by a Web browser when it needs to fill in
+the part of the screen that contains the applet?
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Graphics
+<p>
+</p>
+<ANSWER>
+<pre>
+public void paint(Graphics g) { . . . }
+</pre>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>paint(), Applet</INDEX>
+
+<p>
+An applet does not have a <code>main()</code> method.
+It has a collection of methods that the Web browser
+(or <code>appletViewer</code>) calls at appropriate times.
+</p>
+
+<p>
+The <code>paint()</code> method is called by the Web browser
+to draw the rectangular part of the screen that the applet
+is responsible for.
+The <code>Graphics</code> object that is passed to 
+the method represents the rectangular part of the screen
+given to the applet.
+</p>
+
+<img src="grid.gif" hspace="15" align="right" />
+<p>
+The dimensions of this rectangle are specified in the
+<code>&lt;applet&gt;</code> tag of the Web page.
+(More on this, later)
+Dimensions are measured in <b>pixels</b>.
+The rectangle may be <em>width</em> pixels across and
+<em>height</em> pixels in height.
+A location in the rectangle is given as
+<code>(X,Y)</code> where both are integers.
+The (0, 0) location is at the top left.
+</p>
+
+<p>
+Think of <code>Graphics</code> as representing
+a rectangle of graph paper where each small square is
+a pixel.
+The columns of pixels are numbered 0 to <em>width-1</em>
+starting at the left.
+The rows of pixels are numbered 0 to <em>height-1</em>
+starting at the top.
+</p>
+
+<br clear="all"/>
+<p>
+&#160;
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+What is the name of the method (of class <code>Graphics</code>) that
+draws a line from (x0, y0) to (x1, y1) ?
+</p>
+
+<pre>
+<span class="blue">____________</span>( int x0, int y0, int x1, int y1)
+</pre>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Snowflake
+
+<ANSWER>
+<pre>
+<span class="blue">drawLine</span>( int x0, int y0, int x1, int y1)
+</pre>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>drawLine(), Applet</INDEX>
+<p>
+The first applet of this chapter draws the snowflake figure
+that was discussed in the first chapter on recursion.
+The snowflake is made up entirely of straight lines.
+The only drawing method used is the <nobr><code>drawLine()</code></nobr> method.
+</p>
+
+<center>
+<table border="border" bordercolor="brown" width="300" height="300">
+<tr><td>
+<applet code="SnowFlake.class" width="300" height="300">
+Loading an Applet....
+</applet>
+</td></tr>
+</table>
+</center>
+
+<p>
+You should see a snowflake figure.  
+It may take 30 seconds or so for this to load.
+If you see nothing after a few minutes, click on the "reload" icon
+of your browser.
+If after this you still see nothing, check that your browser has
+applets enabled.
+If you are behind a firewall, it may be deleting applets from incoming 
+Web pages.
+</p>
+
+<p>
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+What is the basic shape of the snowflake figure?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Basic Star
+<p>
+</p>
+<ANSWER>
+<p>
+Six lines radiating from a center.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<p>
+Let us first write an applet that draws the basic 6-pointed star.
+This will get the details of writing an applet out of the way
+and will clear up the geometry.
+Here is the first version:
+</p>
+
+<center>
+<table border="border" bordercolor="brown" width="300" height="300">
+<tr><td>
+<applet code="SnowFlakeBasic.class" width="300" height="300">
+Loading an Applet....
+</applet>
+</td></tr>
+</table>
+</center>
+
+<p>
+Think of this figure as six lines that radiate from a center
+(not three crossed lines).
+</p>
+
+<p>
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+(Review: ) When you write an applet, what class do you extend?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Skeletal Applet
+
+<ANSWER>
+<p>
+class <code>Applet</code>
+</p>
+</ANSWER>
+
+<LESSON>
+
+
+<p>
+Here is the skeleton for our applet:
+</p>
+
+<pre>
+import java.applet.Applet ;
+import java.awt.* ;
+
+public class SnowFlakeBasic extends Applet
+{
+  Graphics graph;
+   
+  // draw a star consisting of six lines of length size
+  // radiating from the point (x,y)
+  //
+  private void drawStar( int x, int y, int size )
+  {
+    .  .  .  .
+  }
+         
+  public void paint ( Graphics gr )
+  { 
+    graph = gr;
+    int width  = getSize().width;
+    int height = getSize().height;
+
+    .  .  .  .  .
+
+    drawStar( . . . . );
+  }
+}
+</pre>
+
+<p>
+We extend the <code>Applet</code> class and override the 
+<code>paint()</code> method.
+The <code>paint()</code> method is called when the browser needs to fill
+in the applet's part of the screen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Lucky Guess Department: ) What do you suppose the following does?
+</p>
+
+<pre>
+    int width  = getSize().width;
+    int height = getSize().height;
+</pre>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Center of the Rectangle
+<INDEX>getSize()</INDEX>
+<pre>
+    int width  = getSize().width;
+    int height = getSize().height;
+</pre>
+<ANSWER>
+<p>
+These statements get the width and height (in pixels) of the rectangle
+that the Web browser has allocated to the applet.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX></INDEX>
+<p>
+The width and height are needed to determine the size of the star that
+fits in the rectangle.
+</p>
+
+<p>
+Next the applet sets the background color to white and the pen
+color to blue.
+The lines of the figure will be drawn with the pen.
+</p>
+
+<pre>
+import java.applet.Applet ;
+import java.awt.* ;
+
+public class SnowFlakeBasic extends Applet
+{
+  Graphics graph;
+   
+  // draw a star consisting of six lines of length size
+  // radiating from the point (x,y)
+  //
+  private void drawStar( int x, int y, int size )
+  {
+    .  .  .  .
+  }
+         
+  public void paint ( Graphics gr )
+  { 
+    graph = gr;
+    int width  = getSize().width;
+    int height = getSize().height;
+    int min;
+    
+    setBackground( Color.white );   // set the background color
+    gr.setColor  ( Color.blue  );   // set the drawing pen color
+ 
+    // ensure that the star fits in the rectangle   
+    if ( height &gt; width )
+      min = height;
+    else
+      min = width;
+      
+    drawStar( <span class="blue">________</span>, <span class="blue">________</span>, min/4 );  // draw star in center
+  }
+}
+</pre>
+
+<p>
+To draw a symmetrical star, find the 
+minimum of the rectangle's
+width and height.
+Base the length of the radiating lines on this distance.
+The length could be <code>min/2</code> if all we were drawing
+were the star, but let us make the length <code>min/4</code>
+so that there is room for the rest of the snowflake.
+</p>
+
+<p>
+Next the star is drawn in the center of the rectangle.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Fill in the blanks so that the center of the star is the center of
+the rectangle.
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Geometry
+<p>
+</p>
+<ANSWER>
+<pre>
+    drawStar( <span class="blue">width/2</span>, <span class="blue">height/2</span>, min/4 );  // draw star in center
+</pre>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>snowflake, geometry</INDEX>
+
+<img src="trig.jpg" hspace="20" align="right" />
+<p>
+Now consider the method that draws the star:
+</p>
+
+<pre>
+drawStar( int x, int y, int size )
+</pre>
+
+<p>
+Each line (of the six) starts at the center, 
+<nobr>(<span class="blue">x, y</span>)</nobr>,
+and ends at a point on the circle of radius <span class="blue">size</span>.
+The X distance from the center of a point on a circle
+is <nobr><code>size*cos( theta )</code></nobr>.
+The Y distance from the center of a point on a circle
+is <nobr><code>size*sin( theta )</code></nobr>.
+</p>
+
+<p>
+All you need to do is find the six
+values for theta and the
+six endpoints are yours.
+</p>
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+How many radians are there in a circle?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Dividing a Circle
+<p>
+</p>
+<ANSWER>
+<p>
+Two Pi radians.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>radian</INDEX>
+<INDEX>cos()</INDEX>
+<INDEX>sin()</INDEX>
+<INDEX>Math.sin()</INDEX>
+<INDEX>Math.cos()</INDEX>
+<INDEX>Math.PI</INDEX>
+
+<p>
+The Java trigonometric functions
+are static methods of the <code>Math</code>.
+They
+take radians for their arguments
+(as do such functions in most programming languages).
+Here is the complete method:
+</p>
+
+<pre>
+  private void drawStar( int x, int y, int size )
+  {
+    int endX, endY ;
+    
+    // Six lines radiating from (x,y)
+    for ( int i = 0; i&lt;6; i++ )
+    {
+      endX = x + (int)(size*Math.cos( (2*Math.PI/6)*i ));
+      endY = y - (int)(size*Math.sin( (2*Math.PI/6)*i ));  // Note "-"
+      graph.drawLine( x, y, endX, endY );
+    }
+  }
+</pre>
+
+<p>
+The circle is divided into six pieces.
+The constant pi is available in Java as <nobr><code>Math.PI</code></nobr>.
+There are two pi radians per circle.
+One sixth of a circle is <nobr><code>(2*Math.PI/6)</code></nobr>.
+</p>
+
+<p>
+You could do the division and write this as  <nobr><code>(Math.PI/3)</code></nobr>,
+but this is unwise.
+The Java compiler does the division when it compiles the bytecode.
+So the executing program does not waste time or space doing it.
+But your program has lost clarity if you do it.
+</p>
+
+<p>
+The "-" sign is used for <code>endY</code> because 
+<code>y</code> increases in value going down.
+Using a "+" would also work because of symmetry.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+What does the <code>(int)</code> do in the statement
+</p>
+<pre>
+endY = y - (int)(size*Math.sin( (2*Math.PI/6)*i ));
+</pre>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Complete Star
+<p>
+</p>
+<ANSWER>
+<p>
+This is a <b>type cast</b>. It notifies the compiler that
+it is OK to convert the floating point value to its right into an
+<code>int</code>.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>star, applet</INDEX>
+<p>
+Here is the complete program that draws a single star in the
+center of the rectangle:
+</p>
+
+<pre class="program">
+import java.applet.Applet ;
+import java.awt.* ;
+import java.lang.Math ;
+
+public class SnowFlakeBasic extends Applet
+{
+  Graphics graph;
+   
+  private void drawStar( int x, int y, int size )
+  {
+    int endX, endY ;
+    
+    // Six lines radiating from (x,y)
+    for ( int i = 0; i&lt;6; i++ )
+    {
+      endX = x + (int)(size*Math.cos( (2*Math.PI/6)*i ));
+      endY = y - (int)(size*Math.sin( (2*Math.PI/6)*i ));
+      graph.drawLine( x, y, endX, endY );
+    }
+  }
+         
+  public void paint ( Graphics gr )
+  { 
+    graph = gr;
+    int width  = getSize().width;
+    int height = getSize().height;
+    int min;
+    
+    setBackground( Color.white );
+    gr.setColor  ( Color.blue  );
+    
+    if ( height &gt; width )
+      min = height;
+    else
+      min = width;
+      
+    drawStar( width/2, height/2, min/4 );
+  }
+}
+</pre>
+
+<p>
+There is nothing recursive about it yet.
+This will come next.
+</p>
+</LESSON>
+
+<QUESTION>
+
+<table border="border" bordercolor="brown" width="150" height="150" align="right">
+<tr><td>
+<applet code="SnowFlakeStageTwo.class" width="150" height="150">
+Loading an Applet....
+</applet>
+</td></tr>
+</table>
+
+<p>
+Next, to draw the snowflake, stars are drawn at the end of the six lines.
+Do you already know where these locations are?
+</p>
+<br clear="all" />
+<br />
+
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Second Stage Star
+<p>
+</p>
+<ANSWER>
+<p>
+Yes.  The applet that draws the single stars has calculated the
+endpoints of all these lines.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+Here is an applet that extends the basic star by drawing
+another star centered at the tip of each of the six lines:
+</p>
+
+<center>
+<table border="border" bordercolor="brown" width="300" height="300">
+<tr><td>
+<applet code="SnowFlakeStageTwo.class" width="300" height="300">
+Loading an Applet....
+</applet>
+</td></tr>
+</table>
+</center>
+
+<p>
+The new stars are drawn in red.  Each new star partially
+overlaps a line of the central star.
+This could be avoided by doing more math,
+but the the overlap does not hurt.
+</p>
+
+<p>
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Can you think of a way to draw a star at the end of each line?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Recursion
+<p>
+</p>
+<ANSWER>
+<p>
+Use the <code>drawStar()</code> method again.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+Of course.  We already have a method to draw a star, so just use it.
+The new stars need to be smaller than the central star.
+So the size of the new stars is <code>size/3</code>.
+(Other sizes will also work.  You may wish to play with this.)
+</p>
+
+<pre> 
+  // Grievously Awful Method
+  //
+  private void drawStar( int x, int y, int size )
+  {
+    int endX, endY ;
+     
+    // Six lines radiating from (x,y)
+    for ( int i = 0; i&lt;6; i++ )
+    {
+      endX = x + (int)(size*Math.cos( (2*Math.PI/6)*i ));
+      endY = y - (int)(size*Math.sin( (2*Math.PI/6)*i ));
+      graph.drawLine( x, y, endX, endY );
+      <span style="color:red">drawStar( endX, endY, size/3 )</span> ;
+    }
+  }
+</pre>
+
+<p>
+The basic star method is easily modified by inserting a statement
+that puts a star on the end of each line.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+But something is very seriously wrong with the new method.
+What is wrong?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Two Parts to Recursion
+
+<ANSWER>
+<p>
+The new method does not test for a base case.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<p>
+I can't allow a chapter to go by without reminding you of this:
+A recursive definition has two parts:
+</p>
+
+<ol>
+<li>If the problem is easy, solve it immediately.</li>
+<li>If the problem can't be solved immediately,
+    divide it into smaller problems, then:
+    <ul>
+    <li>Solve the smaller problems by applying this procedure to each of them.</li>
+    </ul>
+    </li>
+</ol>
+
+<p>
+Our seriously wrong <code>drawStar()</code> method does not test
+for a base case. Look at it again:
+</p>
+
+<pre> 
+  // Grievously Awful Method
+  //
+  private void drawStar( int x, int y, int size )
+  {
+    int endX, endY ;
+     
+    // Six lines radiating from (x,y)
+    for ( int i = 0; i&lt;6; i++ )
+    {
+      endX = x + (int)(size*Math.cos( (2*Math.PI/6)*i ));
+      endY = y - (int)(size*Math.sin( (2*Math.PI/6)*i ));
+      graph.drawLine( x, y, endX, endY );
+      <span style="color:red">drawStar( endX, endY, size/3 )</span> ;
+    }
+  }
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(You might want to think about this: )
+What base case should this method test for?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Small Stars
+<p>
+</p>
+<ANSWER>
+<p>
+When a star is too small, don't draw it.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>drawStar(), recursive</INDEX>
+<p>
+This is a somewhat hard thought, and I suggest that you
+get out pencil and paper and draw some stars attached to stars
+attached to stars.
+After a while it is clear that you want to stop drawing when
+the stars are too small to draw.
+Our applet is no different:
+</p>
+
+<pre>
+  private void drawStar( int x, int y, int size )
+  {
+    int endX, endY ;
+    
+    <span style="color:red">if ( size &lt;= 2 ) return</span>;  // base case
+    
+    // Six lines radiating from (x,y)
+    for ( int i = 0; i<6; i++ )
+    {
+      endX = x + (int)(size*Math.cos( (2*Math.PI/6)*i ));
+      endY = y - (int)(size*Math.sin( (2*Math.PI/6)*i ));
+      graph.drawLine( x, y, endX, endY );
+      <span style="color:red">drawStar( endX, endY, size/3 )</span>;  
+    }
+  }
+</pre>
+
+<p>
+I picked the value "2" for the base case
+because smaller values result in cluttered snowflakes.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+In this code, if the test for the base case followed the
+<code>for</code> loop, would everything be OK? 
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Complete Program
+
+<ANSWER>
+<p>
+No.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<p>
+Here is the complete program, suitable for copying and
+pasting to your own source file.
+The file should be called <em>SnowFlake.java</em>.
+</p>
+
+<pre class="program">
+// SnowFlake.java
+//
+import java.applet.Applet ;
+import java.awt.* ;
+import java.lang.Math ;
+
+public class SnowFlake extends Applet
+{
+  Graphics graph;
+   
+  private void drawStar( int x, int y, int size )
+  {
+    int endX ;
+    int endY ;
+    
+    if ( size &lt;= 2 ) return;
+    
+    // Six lines radiating from (x,y)
+    for ( int i = 0; i&lt;6; i++ )
+    {
+      endX = x + (int)(size*Math.cos( (2*Math.PI/6)*i ));
+      endY = y - (int)(size*Math.sin( (2*Math.PI/6)*i ));
+      graph.drawLine( x, y, endX, endY );
+      drawStar( endX, endY, size/3 );
+    }
+  }
+         
+  public void paint ( Graphics gr )
+  { 
+    graph      = gr;
+    int width  = getSize().width;
+    int height = getSize().height;
+    int min;
+    
+    setBackground( Color.white );
+    gr.setColor  ( Color.blue  );
+    
+    if ( height &lt; width )
+      min = height;
+    else
+      min = width;
+      
+    drawStar( width/2, height/2, min/4 );
+  }
+}
+</pre>
+
+<p>
+
+</p>
+
+<p>
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+To run this program, what else do you need?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Web Page
+<p>
+</p>
+<ANSWER>
+<p>
+You need a Web page to use with a Web browser or with the
+<em>appletviewer</em>.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>Web page for applet</INDEX>
+<p>
+Here is a minimal Web page for use with this applet.
+The <code>width</code> and <code>height</code> are required,
+but you may change their values.
+Copy and paste it to an editor and save it as a file
+named, perhaps, <em>SnowFlake.html</em>.
+</p>
+
+<pre>
+&lt;!-- SnowFlake.html --&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;applet code="SnowFlake.class"  width="400" height="400"&gt;
+&lt;/applet&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+Put <em>Snowflake.java</em> and <em>Snowflake.html</em> in the
+same subdirectory.
+Compile <em>Snowflake.java</em> and then use the <em>appletviewer</em>.
+</p>
+
+<pre>
+C:\JavaNotes&gt;javac SnowFlake.java
+
+C:\JavaNotes&gt;appletviewer SnowFlake.html
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+If you can draw one snowflake, can you draw dozens?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Blizzard
+<p>
+</p>
+<ANSWER>
+<p>
+Of course.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+The <code>paint()</code> method can be modified to draw several dozen
+snowflakes of random colors at random locations:
+</p>
+
+<center>
+<table border="border" bordercolor="brown" width="500" height="300">
+<tr><td>
+<applet code="Blizzard.class" width="500" height="300">
+Loading an Applet....
+</applet>
+</td></tr>
+</table>
+</center>
+
+<p>
+A counting loop controls how many flakes are drawn.
+The location and size of each flake is determined by:
+</p>
+
+<pre>
+      x    = rand.nextInt( width  );
+      y    = rand.nextInt( height );
+      size = rand.nextInt( 20 ); 
+</pre>
+</LESSON>
+
+<QUESTION>
+<p>
+How many different colors are there in this picture?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>End of Chapter
+<p>
+</p>
+<ANSWER>
+<p>
+Only three: blue, green, and red.
+Pictures like this usually look best when colors are selected
+randomly from just a few choices.
+</p>
+</ANSWER>
+
+
+<LESSON>
+<p>
+You have reached the end this chapter.
+You may wish to review the following.
+Click on a subject that interests you to go to where it was discussed.
+</p>
+
+<UL>
+<LI>
+<GOTO>paint(), Applet</GOTO>The <code>paint()</code> method.
+</LI>
+
+<LI>
+<GOTO>drawLine(), Applet</GOTO>The <code>drawLine()</code> method.
+</LI>
+
+<LI>
+<GOTO>snowflake, geometry</GOTO>Geometry of the snowflake.
+</LI>
+
+<LI>
+<GOTO>cos()</GOTO>Java trig methods.
+</LI>
+
+<LI>
+<GOTO>star, applet</GOTO>Java applet that draw a simple star.
+</LI>
+
+<LI>
+<GOTO>drawStar(), recursive</GOTO>Java method that draws the snowflake.
+</LI>
+
+<LI>
+<GOTO>Web page for applet</GOTO>Web page for an applet.
+</LI>
+
+
+</UL>
+
+<hr>
+
+<p>
+<a href="../../cs151java.html#74">
+<img src="../contents.gif" alt="Click here" align="center"> </a> 
+&nbsp; &nbsp; Back to the main menu.
+</p>
+</CAI>
+</CHAPTER>

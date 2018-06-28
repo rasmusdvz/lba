@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Programming Exercises</title>
+</head>
+<body BGCOLOR="#e8e8e8"><hr size=5>
+<font size=-1><b>created 06/29/99</b></font>
+<hr size=5>
+<center><h1><font color=blue> 
+Programming Exercises</font></h1></center>
+<p>
+All these exercises can be done by thoughtfully modifying
+(hacking) the example program of the chapter.
+</p>
+
+<h2>Exercise 1 --- Guessing Game</h2>
+<p>
+Modify the <code>Repeater</code> program so that
+the user must enter a secret word into the top field.
+After each entry, the bottom field either says
+"correct" or "wrong!"
+After three wrong guesses, exit the program.
+</p>
+<p>
+You will need the <code>equals()</code> method of class <code>String</code> for this
+program.
+</p>
+<A HREF="../../cs151java.html#60">Click here </A> to go back to the main menu.
+
+<hr>
+
+<h2>Exercise 2 -- Error Message</h2>
+<p>
+Modify the <code>Repeater</code> program so that
+when the user enters text into the bottom TextField
+and hits enter, the text is replaced with an
+error message such as "Enter text in the top field."
+</p>
+<p>
+You will need to modify the <code>actionPerformed( ActionEvent evt )</code>
+method so that it determines which text field has just generated
+an action.
+This can be done by using <code>evt.getActionCommand()</code>,
+which evaluates to the <code>String</code> that the user just entered
+(no matter in which field it was entered.)
+Now use <code>getText()</code> with the top box to see if the string in
+that field is the same as the command in the <code>ActionEvent</code>.
+If so, copy it to the bottom field.
+If not, write the error message.
+Be sure to register an <code>ActionListener</code> for each <code>JTextField</code>.
+</p>
+
+<A HREF="../../cs151java.html#60">Click here </A> to go back to the main menu.
+
+
+<hr>
+<h2>Exercise 3 -- Echo Both Fields</h2>
+<p>
+Modify the <code>Repeater</code> program so that
+the user can enter text into <em>either</em> field.
+The text will be repeated in the other field,
+replacing whatever was there.
+To do this you will need to use <code>getActionCommand()</code>,
+as in Exercise 2.
+</p>
+<A HREF="../../cs151java.html#60">Click here </A> to go back to the main menu.
+
+<hr>
+<h2>Exercise 4 -- Text Swap</h2>
+<p>
+Add a Button to the GUI.
+Modify the program so that when the button is clicked,
+the Strings in the two <code>JTextField</code>s are swapped;
+ie. the top field gets what was in the bottom box and
+the bottom field gets what was in the top.
+The <code>actionPerformed()</code> method
+will listen for a Button event.
+When it gets one, it swaps whatever text is in
+the two fields.
+</p>
+
+<A HREF="../../cs151java.html#60">Click here </A> to go back to the main menu.
+
+</body>
+</html>

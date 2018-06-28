@@ -1,0 +1,1371 @@
+<CHAPTER>
+
+<COPYRIGHTDATE>2002</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER> 
+<AUTHORNAME>Bradley Kjell kjell@ieee.org </AUTHORNAME>
+
+<CAI> CHAPTER  71 &#8212; Recursion in Java 
+<p>
+<small>created: 12/25/02</small>
+</p>
+<LESSON>
+<p>
+This chapter discusses how to write Java programs that use recursion.
+</p>
+
+<h4>Chapter Topics:</h4>
+<ul>
+<li>Triangle Numbers</li>
+<li>Recursive Java method that computes triangle numbers</li>
+<li>Base cases</li>
+<li>Static and Dynamic view of recursion</li>
+<li>Activation chain</li>
+</ul>
+</LESSON>
+
+<QUESTION>
+<p>
+How many bowling pins are used in the game <em>Ten Pins</em>?
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Adding a Fifth Row
+
+<ANSWER>
+<p>
+Ten.
+</p>
+</ANSWER>
+
+<LESSON>
+<!--INDEX></INDEX-->
+<script language="JavaScript">
+<!-- hide from browsers
+var currentImage = 0
+var my_images = new Array(2)
+my_images[0] = "tenPins.jpg"
+my_images[1] = "fifteenPins.jpg"
+
+function loadImage()
+{
+  if ( currentImage==1 ) currentImage=0
+  else                   currentImage=1
+  document.images[0].src = my_images[currentImage]
+}
+// stop hiding -->
+</script>
+<img src="tenPins.jpg" width="300" hspace="15"  onClick="loadImage()" align="right" />
+
+<p>
+The arrangement of the pins for <em>Ten Pins</em> is
+at right.
+Say that another row of pins were added.
+How many pins are in that row?
+</p>
+
+<dl>
+<dd>Row 1 has 1 pin,</dd>
+<dd>Row 2 has 2 pins,</dd>
+<dd>Row 3 has 3 pins,</dd>
+<dd>Row 4 has 4 pins,</dd>
+<dd>Row 5 has ________ pins.</dd>
+</dl>
+
+<p>
+Row 5 will have 5 pins in it.
+</p>
+
+
+<p>
+(Click the image to see the added row.)
+</p>
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+There are 10 pins total in the first <u>four</u> rows.
+How many pins are there in <u>five</u> rows?
+</p>
+
+<p>
+10 + Pins in Row 5 = ___________
+</p>
+
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Triangle Numbers
+<p>
+</p>
+<ANSWER>
+<p>
+10 + Pins in Row 5 = 15
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>triangle number</INDEX>
+
+<!--INDEX></INDEX-->
+<script language="JavaScript">
+<!-- hide from browsers
+var currentImage = 0
+var my_images = new Array(8)
+my_images[0] = "onePins.jpg"
+my_images[1] = "threePins.jpg"
+my_images[2] = "sixPins.jpg"
+my_images[3] = "tenPins.jpg"
+my_images[4] = "fifteenPins.jpg"
+my_images[5] = "twentyonePins.jpg"
+my_images[6] = "twentyeightPins.jpg"
+my_images[7] = "strike.jpg"
+
+function loadImage()
+{
+  if ( currentImage==7 ) currentImage=0
+  else                   currentImage=currentImage+1
+  document.images[0].src = my_images[currentImage]
+}
+// stop hiding -->
+</script>
+<p>
+The total number of pins in a triangular arrangement is called a <b>triangle number</b>.
+The total number of pins in a triangular arrangement of 5 rows is 5 plus the
+number of pins in 4 rows.
+Let us call this number <nobr><code>Triangle(5)</code></nobr>.
+</p>
+
+<p>
+Here is a chart that gives the first seven triangle numbers.
+But it seems not to be complete.  Luckily you can fill it in.
+Click on the figure at right to see the various arrangements.
+</p>
+
+<img src="onePins.jpg" width="300" hspace="15"  onClick="loadImage()" align="right" />
+
+<table border="border" bgcolor="white" bordercolor="green" cellpadding="8">
+<tr><th>Rows</th><th>Triangle(Rows)</th></tr>
+<tr><td>1   </td><td><input type="text" size="5"/> </td></tr>
+<tr><td>2   </td><td><input type="text" size="5"/> </td></tr>
+<tr><td>3   </td><td><input type="text" size="5"/> </td></tr>
+<tr><td>4   </td><td><input type="text" size="5"/> </td></tr>
+<tr><td>5   </td><td><input type="text" size="5"/> </td></tr>
+<tr><td>6   </td><td><input type="text" size="5"/> </td></tr>
+<tr><td>7   </td><td><input type="text" size="5"/> </td></tr>
+</table>
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Fill in the chart.
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Formula for Triangle Numbers
+
+<ANSWER>
+
+<table border="border" align="center" bgcolor="white" bordercolor="green" cellpadding="8">
+<tr><th colspan="3">Triangle Numbers</th><tr>
+<tr><th>Rows</th><th>Triangle(Rows)</th> <th>Formula</th></tr>
+<tr><td>1   </td><td>1 </td> <td>base case       </td> </tr>
+<tr><td>2   </td><td>3 </td> <td>2 + Triangle(1) </td> </tr>
+<tr><td>3   </td><td>6 </td> <td>3 + Triangle(2) </td> </tr>
+<tr><td>4   </td><td>10</td> <td>4 + Triangle(3) </td> </tr>
+<tr><td>5   </td><td>15</td> <td>5 + Triangle(4) </td> </tr>
+<tr><td>6   </td><td>21</td> <td>6 + Triangle(5) </td> </tr>
+<tr><td>7   </td><td>28</td> <td>7 + Triangle(6) </td> </tr>
+</table>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+The table shows values of the <code>Triangle()</code> function.
+For example, <code>Triangle(4) = 10</code>.
+But it stops at seven. What is <code>Triangle(12)</code>?
+</p>
+
+<p>
+We have already figured out that the following is true:
+</p>
+
+<pre>
+total number of pins in N rows = number of pins in row N + 
+                                 total number of pins in N-1 rows
+                           
+                               = N +
+                                 total number of pins in N-1 rows
+</pre>
+
+<p>
+This can be written as a formula:
+</p>
+
+<pre>
+Triangle( N ) = N + Triangle( N - 1 )
+</pre>
+
+<p>
+So the number of pins in a
+<nobr>12 row</nobr> arrangement is <nobr>12 + number of pins in 11 rows</nobr>.
+</p>
+
+<br clear="all" />
+</LESSON>
+
+<QUESTION>
+<p>
+How many pins are in 11 rows?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Base Case
+<p>
+</p>
+<ANSWER>
+<p>
+11 plus the number of pins in 10 rows.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>base case</INDEX>
+<p>
+This keeps on going.  Each round divides the problem into  an integer
+and a problem that is smaller by one.
+Eventually you reach the end:
+</p>
+
+<pre>
+number of pins in 12 rows = 12 + number of pins in 11 rows
+number of pins in 11 rows = 11 + number of pins in 10 rows
+
+                        . . .
+
+number of pins in  3 rows =  3 + number of pins in 2 rows
+number of pins in  2 rows =  2 + <b>number of pins in 1 row</b>
+                          =  2 + <b>1</b>
+</pre>
+
+<p>
+The <em>number of pins in 1 row</em> is called a <b>base case</b>.
+A <em>base case</em> is a problem that can solved immediately.
+In this example, the number of pins in 1 row is 1.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+In the "destroy a rock" problem of the previous chapter, what was the
+base case?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Recursion with Triangle Numbers
+<p>
+</p>
+<ANSWER>
+<p>
+The base case is when a rock fragment is small enough.
+No more work needs to be done.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<p>
+Here are the two parts to recursion:
+</p>
+
+<!-- parts to recursion -->
+<ol>
+<li>If the problem is easy, solve it immediately.
+    <ul>
+    <li>An easy problem is a <b>base case</b>.</li>
+    </ul>
+   </li>
+<li>If the problem can't be solved immediately,
+    divide it into smaller problems, then:
+    <ul>
+    <li>Solve the smaller problems by applying this procedure to each of them.</li>
+    </ul>
+    </li>
+</ol>
+
+<INDEX>triangle number, formula</INDEX>
+<p>
+And here is how this applies to triangle numbers:
+</p>
+
+<ol>
+<li>Triangle( 1 ) = 1</li>
+<li>Triangle( N ) = N + Triangle( N-1 )
+</ol>
+
+<p>
+The problem "<code>Triangle(N)</code>" is divided into two
+problems: "add N to something"
+and <nobr>"<code>Triangle(N-1)</code>".</nobr>
+Sometimes the latter can be solved immediately
+(when it is the base case).  Other times you need to re-apply the solution to the
+smaller problem.
+</p>
+
+</LESSON>
+<QUESTION>
+<p>
+Using the above, what is <code>Triangle(3)</code>?
+(Fill in the boxes starting with the top row and work your way down.)
+</p>
+
+<table cellpadding="5">
+<tr><td>Triangle( 3 ) = </td>
+    <td><input type="text" size="5"/></td><td>+</td>
+    <td>Triangle( <input type="text" size="5"/> )</td>
+</tr>
+<tr><td>Triangle( 2 ) = </td>
+    <td><input type="text" size="5"/></td><td>+</td>
+    <td>Triangle( <input type="text" size="5"/> )</td>
+</tr>
+<tr><td>Triangle( 1 ) = </td>
+    <td><input type="text" size="5"/></td><td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+<tr><td>Triangle( 2 ) = </td>
+    <td><input type="text" size="5"/></td><td>+</td>
+    <td><input type="text" size="5"/> </td>
+</tr>
+<tr><td>Triangle( 3 ) = </td>
+    <td><input type="text" size="5"/></td><td>+</td>
+    <td><input type="text" size="5"/> </td>
+</tr>
+<tr><td>Triangle( 3 ) = </td>
+    <td><input type="text" size="5"/></td><td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Example
+<p>
+</p>
+<ANSWER>
+
+<table cellpadding="5">
+<tr><td>Triangle( 3 ) = </td>
+    <td><input type="text" size="5" value="3" /></td><td>+</td>
+    <td>Triangle( <input type="text" size="5" value="2" /> )</td>
+</tr>
+<tr><td>Triangle( 2 ) = </td>
+    <td><input type="text" size="5" value="2" /></td><td>+</td>
+    <td>Triangle( <input type="text" size="5" value="1" /> )</td>
+</tr>
+<tr><td>Triangle( 1 ) = </td>
+    <td><input type="text" size="5" value="1" /></td><td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+<tr><td>Triangle( 2 ) = </td>
+    <td><input type="text" size="5" value="2" /></td><td>+</td>
+    <td><input type="text" size="5" value="1" /> </td>
+</tr>
+<tr><td>Triangle( 3 ) = </td>
+    <td><input type="text" size="5" value="3" /></td><td>+</td>
+    <td><input type="text" size="5" value="3" /> </td>
+</tr>
+<tr><td>Triangle( 3 ) = </td>
+    <td><input type="text" size="5" value="6" /></td><td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+
+<p>
+Here is our solution for triangle numbers:
+</p>
+
+<ol>
+<li>Triangle( 1 ) = 1</li>
+<li>Triangle( N ) = N + Triangle( N-1 )
+</ol>
+
+<p>
+Here is another example, calculating <code>Triangle( 5 )</code>:
+</p>
+
+<pre>
+Triangle( 5 ) = 5 +  Triangle( 4 )
+              = 5 + ( 4 + Triangle( 3 ) )
+              = 5 + ( 4 + ( 3 + Triangle( 2 ) ))
+              = 5 + ( 4 + ( 3 + ( 2 + Triangle( 1 ) )))
+              = 5 + ( 4 + ( 3 + ( 2 +      1        )))
+              
+              = 5 + ( 4 + ( 3 + 3) )
+              = 5 + ( 4 + 6 )
+              = 5 + 10
+              = 15
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Is there a number <code>Triangle(N)</code> for all positive integers N?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Java Method
+<p>
+</p>
+<ANSWER>
+<p>
+Yes.  The calculation gets rather tedious, but the definition works
+for all positive integers.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>triangle number, Java method</INDEX>
+<p>
+It might be nice to have a Java method that does the calculation for us.
+Here is  a math-like definition of <code>Triangle(N)</code>:
+</p>
+
+<ol>
+<li>Triangle( 1 ) = 1</li>
+<li>Triangle( N ) = N + Triangle( N-1 )
+</ol>
+
+<p>
+And here is a Java method that does this calculation:
+</p>
+
+<pre>
+int Triangle( int N )
+{
+  if ( N == 1 )
+    return 1;
+  else
+    return N + Triangle( N-1 );
+}
+</pre>
+
+<p>
+The Java code is similar to the math-like definition of <code>Triangle()</code>.
+The <code>if</code> statement has been added so that the base case is selected
+when it is needed.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Is it OK to have <code>Triangle( N-1 )</code> in the body of the method?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Complete Program
+<p>
+</p>
+<ANSWER>
+<p>
+Sure.  The Java code describes the computation you want done, just like
+the math-like definition of Triangle.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+Here is a complete program for testing this method. 
+The value for N is hard-coded.  You might wish to
+improve the program so that N is entered by the user.
+</p>
+
+<pre>
+class TriangleCalc
+{
+  int Triangle( int N )
+  {
+    if ( N == 1 )
+      return 1;
+    else
+      return N + Triangle( N-1 );
+  }
+}
+
+class TriangleTester
+{
+  public static void main ( String[] args)
+  {
+    TriangleCalc tri = new TriangleCalc();
+    int result = tri.Triangle( 4 );
+    System.out.println("Triangle(4) is " + result );
+  }
+}
+</pre>
+
+<p>
+Here is the output of the program:
+</p>
+
+<pre>
+C:\&gt;java TriangleTester
+Triangle(4) is 10
+
+C:\&gt;
+</pre>
+
+<p>
+Of course, it would be worth while at this point to copy this program
+to a file and run it.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+What is <code>Triangle(500)</code>?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Static View of Recursion
+<p>
+</p>
+<ANSWER>
+<p>
+Run the program and see!
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>recursion, static view</INDEX>
+<p>
+Writing a recursive Java program can be viewed as translating 
+a math-like definition into Java code.
+The symbols of the definition are rearranged and some extra syntax
+is added to create Java code.
+</p>
+
+<table>
+<tr><th>Definition</th><th>Translation into Java</th></tr>
+<tr><td>
+<pre>
+Triangle( 1 ) = 1
+Triangle( N ) = N + Triangle( N-1 )
+</pre>
+</td><td>
+<pre>
+int Triangle( int N )
+{
+  if ( N == 1 )
+    return 1;
+  else
+    return N + Triangle( N-1 );
+}
+</pre>
+</td></tr>
+</table>
+
+<p>
+In this static view, if the math-like definition is correct, and
+you correctly translate it into Java, then the program is correct.
+You don't have to think about how Java does the calculation.
+Just check that you have correctly translated the definition.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Is the following a correct translation of the math-like definition?
+</p>
+
+<pre>
+int Triangle( int N )
+{
+  if ( N == 1 )
+    return 1;
+  else
+    return N + Triangle( N );
+}
+</pre>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Dynamic View of Recursion
+<p>
+</p>
+<ANSWER>
+<p>
+No.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>activation of a method</INDEX>
+<INDEX>recursion, dynamic view</INDEX>
+<p>
+Sometimes thinking about the definition and translating it into Java is
+all you need to do.  But sometimes you need to think about what happens
+when the program runs.
+In this dynamic view you think about the sequence of events as the method
+is actually executing.
+</p>
+
+<p>
+Here is a statement from <code>main()</code>: 
+</p>
+
+<pre>
+int result = tri.Triangle( 4 );
+</pre>
+
+<p>
+When a statement like this executes the method 
+<code>Triangle()</code> is said to be <b>activated</b>
+with an argument of 4.
+It does some computation and returns a result, 10.
+Let us  picture  this as:
+</p>
+
+<center>
+<img src="callAndReturn.gif" />
+</center>
+
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Examine the code.  Say that <code>Triangle()</code>
+has been activated with a parameter of 4.
+The <code>if</code> statement causes the false branch
+to execute.
+What happens next?
+</p>
+
+<pre>
+int Triangle( int N )
+{
+  if ( N == 1 )
+    return 1;
+  else
+    return N + Triangle( N-1 );
+}
+</pre>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>New Activation
+<ANSWER>
+<p>
+Another
+<code>Triangle()</code>
+is activated with a parameter of 3.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+
+<p>
+The statement:
+</p>
+<pre>
+    return N + Triangle( N-1 );
+</pre>
+
+<p>
+must get a value for <code>Triangle(N-1)</code> before the addition can be done.
+So the <u>first</u> activation of <code>Triangle()</code> causes a
+<u>second</u> activation  of <code>Triangle()</code>, this time with
+a parameter of 3.
+Here is how this is pictured:
+</p>
+<center>
+<img src="callAndReturn2.gif" />
+</center>
+
+</pre>
+
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Look at the code again.  Think about the latest activation.
+What does the activation <nobr><code>Triangle(3)</code></nobr> do?
+</p>
+
+<pre>
+int Triangle( int N )
+{
+  if ( N == 1 )
+    return 1;
+  else
+    return N + Triangle( N-1 );
+}
+</pre>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Yet Another Activation
+<p>
+</p>
+<ANSWER>
+<p>
+It activates <nobr><code>Triangle()</code></nobr>
+with a parameter of 2.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<p>
+Here is the new picture. You may be a bit uneasy about
+something called "Triangle" being active multiple times.
+But this is perfectly fine.
+Think of each activation as being a "clone" of Triangle
+that has been given its own little task.
+</p>
+
+<center>
+<img src="callAndReturn3.gif"  hspace="25"/>
+</center>
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+What does the activation <nobr><code>Triangle(2)</code></nobr> do?
+</p>
+
+<pre>
+int Triangle( int N )
+{
+  if ( N == 1 )
+    return 1;
+  else
+    return N + Triangle( N-1 );
+}
+</pre>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Base Case
+<p>
+</p>
+<ANSWER>
+<p>
+It activates <nobr><code>Triangle()</code></nobr>
+with a parameter of 1.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>activation chain</INDEX>
+<img src="callAndReturn4.gif" align="right" hspace="25" />
+<p>
+Finally we are at the base case.
+When <nobr><code>Triangle()</code></nobr>
+is activated with a parameter of 1,
+the <code>if</code> statement causes the
+value <code>1</code> to be immediately returned.
+</p>
+
+<p>
+The chain of activations is called an <b>activation chain</b>.
+The picture on this page shows the activation chain when it
+has reached the base case.
+</p>
+
+<pre>
+int Triangle( int N )
+{
+  if ( N == 1 )
+    return 1;
+  else
+    return N + Triangle( N-1 );
+}
+</pre>
+
+<p>
+Now look again at the activation where <nobr><code>N = 2</code></nobr>.
+It has just gotten a value back from <code>Triangle(1)</code>:
+</p>
+
+<pre><span style="color:blue">
+                  2
+                  |</span>
+int Triangle( int N )
+{
+  if ( N == 1 )
+    return 1;
+  else
+    return N + Triangle( N-1 );<span style="color:blue">
+           |   ------+-------
+           |         |
+           2         1</span>
+}
+</pre>
+
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+What value does this activation return to its caller?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Returned Value used by a Caller
+<p>
+</p>
+<ANSWER>
+<p>
+3
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<img src="callAndReturn5.gif" align="right" hspace="25" />
+<p>
+Each caller gets a value back from the method it
+activated.
+The caller then uses this value in the addition
+and returns the result.
+The chain of activation "unwinds" as the values
+are returned.
+</p>
+
+<pre>
+int Triangle( int N )
+{
+  if ( N == 1 )
+    return 1;
+  else
+    return N + Triangle( N-1 );
+}
+</pre>
+
+<p>
+Finally the very first activation gets a 6 back from
+the method it activated, so it computes a 10 and 
+returns that to its caller.
+</p>
+
+
+<p>
+After an activation has returned a value to its caller,
+it is no longer active and is removed from the
+chain of activations.
+The diagram does not show this.
+</p>
+
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+This example computed <code>Triangle(4)</code>.
+How many activations of the method <code>Triangle()</code>
+were there?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Review
+<p>
+</p>
+<ANSWER>
+<p>
+4
+</p>
+</ANSWER>
+
+<LESSON>
+<script language="JavaScript">
+<!-- hide from browsers
+var currentImage = 0
+var my_images = new Array(9)
+my_images[0] = "chain1.jpg"
+my_images[1] = "chain2.jpg"
+my_images[2] = "chain3.jpg"
+my_images[3] = "chain4.jpg"
+my_images[4] = "chain5.jpg"
+my_images[5] = "chain6.jpg"
+my_images[6] = "chain7.jpg"
+my_images[7] = "chain8.jpg"
+my_images[8] = "chain9.jpg"
+
+function loadImage()
+{
+  if ( currentImage==8 ) currentImage=0
+  else                   currentImage=currentImage+1
+  document.images[0].src = my_images[currentImage]
+}
+// stop hiding -->
+</script>
+
+<img src="chain1.jpg" hspace=15  onClick="loadImage()" align="right">
+
+
+<!--INDEX></INDEX-->
+<p>
+Here is a review of how recursion works
+with <code>Triangle()</code>.
+</p>
+
+<pre>
+int Triangle( int N )
+{
+  if ( N == 1 )
+    return 1;
+  else
+    return N + Triangle( N-1 );
+}
+</pre>
+
+<p>
+Click on 
+the diagram shows the steps of the computation.
+Each <u>activation</u> of the method is represented
+by a circle.
+Each activation has its own parameter and returns
+a value to its caller.
+</p>
+
+<p>
+An activation may need to wait for a returned value
+before it can continue with a computation.
+In the diagram this is represented by a circle on the
+chain that has not returned a value.
+The circle is labeled with the statement that is
+waiting for a result.
+</p>
+
+<p>
+The bottom circle represents the <u>base case</u>
+which immediately returns a value to its caller.
+</p>
+
+<p>
+When the base case is reached,
+values start returning to callers,
+and activations start completing their work.
+</p>
+
+<p>
+When an activation is finished with its work,
+its circle is removed from the chain.
+</p>
+
+<p>
+The final picture (which shows nothing) represents
+the case where the first activation of <code>Triangle()</code>
+has completed the computation and returned a value to its
+caller.
+</p>
+
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+(Review: ) What are the two ways to view recursion?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Two Views of Recursion
+<p>
+</p>
+<ANSWER>
+<ul>
+<li>The static view, where a math-like definition is re-written in Java.</li>
+<li>The dynamic view, where you think about activations and their parameters.</li>
+</ul>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>recursion, two views</INDEX>
+<p>
+You need to be able to use both views.
+Sometimes when you are working on a problem you need to
+switch between these two views.
+You might write the code using the static viewpoint,
+then test and debug the code using the dynamic viewpoint.
+</p>
+
+
+<p>
+Let us practice this. Here is the math-like definition of <code>Triangle</code>:
+</p>
+
+<ol>
+<li>Triangle( 1 ) = 1</li>
+<li>Triangle( N ) = N + Triangle( N-1 )
+</ol>
+
+<p>
+And here is another version of the Java method <code>Triangle()</code>:
+</p>
+
+<pre>
+int Triangle( int N )
+{
+    return N + Triangle( N-1 );
+}
+</pre>
+
+<p>
+Say that you try to run this program..... but it never prints out a result.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+From a <b>static</b> viewpoint, what is wrong?
+</p>
+
+<p>
+From a <b>dynamic</b> viewpoint, what is wrong?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Computational Advantages of Iteration and Recursion
+<p>
+</p>
+<ANSWER>
+<p>
+From a <b>static</b> viewpoint, what is wrong?
+</p>
+
+<blockquote>
+The base case <code>Triangle(1) = 1</code> was left out of the Java code.
+</blockquote>
+
+<p>
+From a <b>dynamic</b> viewpoint, what is wrong?
+</p>
+
+<blockquote>
+The method always calls for another activation 
+regardless of the value of the parameter,
+so the chain of
+activation keeps growing until system resources run out.
+</blockquote>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>Advantages of recursion and iteration</INDEX>
+<p>
+Recursion is useful because sometimes a problem is naturally recursive.
+Then all you need to do is match it with Java code.
+But recursion does not add any fundamental power to Java.
+</p>
+
+<blockquote>
+Any method that is written using recursion can be written using iteration.
+Any method that is written using iteration can be written using recursion.
+</blockquote>
+
+<p>
+A computer programming language needs to include only one of iteration or
+recursion to be as powerful as any other programming language.
+Some languages (such as early FORTRAN) have only iteration.
+Other languages (such as early LISP) have only recursion.
+Most modern languages have both, because both are convenient. 
+</p>
+
+<p>
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Is there an iterative version of <code>Triangle</code>?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Iterative Triangle
+<p>
+</p>
+<ANSWER>
+<p>
+Of course.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+Here is an iterative method that calculates <code>Triangle</code>
+</p>
+
+<pre>
+int Triangle( int N )
+{
+  int totalPins = 0;
+  for ( int row=1; row&lt=N; row++ )
+    totalPins += row;
+    
+  return totalPins;
+}
+</pre>
+
+<p>
+You might prefer it to the recursive version because the code looks familiar.
+But notice that it is not as clear that it implements the definition.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Is there a formula that gives <code>Triangle(N)</code>
+immediately?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>Formula for Triangle
+<p>
+</p>
+<ANSWER>
+<p>
+Yes.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+<code>Triangle</code> is so easy that you don't need to use either
+iteration or recursion for it.
+You might recognize <code>Triangle(N)</code> as the sum of the series
+</p>
+
+<pre>
+1 + 2 + 3 + ... + (N-1) + N = (N(N+1)) / 2
+</pre>
+
+<p>
+For example
+</p>
+
+<pre>
+1 + 2 + 3 + 4  = (4(5)) / 2 = 10
+</pre>
+
+<p>
+Of course a Java  method that implements this formula is simple.
+And that is how you would do it in a practical situation.
+But the goal of this chapter was to show recursion with Java and
+and triangle numbers work well for that.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Are you ready for another example?
+</p>
+</QUESTION>
+</CAI>
+
+
+
+<!-- ************* -->
+<!-- ************* -->
+<!-- ************* -->
+<CAI>End of the Chapter
+<p>
+</p>
+<ANSWER>
+<p>
+NO!
+</p>
+
+<LESSON>
+<p>
+Alright.  About time to wind down this chapter.
+You may wish to review the following.
+Click on a subject that interests you to go to where it was discussed.
+</p>
+
+<UL>
+<LI>
+<GOTO>triangle number</GOTO> Triangle numbers.
+</LI>
+
+<LI>
+<GOTO>base case</GOTO> Base case of a recursive definition.
+</LI>
+
+<LI>
+<GOTO>triangle number, formula</GOTO> Formula for triangle numbers.
+</LI>
+
+<LI>
+<GOTO>triangle number, Java method</GOTO> Java implementation of triangle numbers.
+</LI>
+
+<LI>
+<GOTO>recursion, static view</GOTO> Static view of recursion.
+</LI>
+
+<LI>
+<GOTO>recursion, dynamic view</GOTO> Dynamic view of recursion.
+</LI>
+
+<LI>
+<GOTO>activation of a method</GOTO> Activation of a method.
+</LI>
+
+<LI>
+<GOTO>activation chain</GOTO> Activation chain.
+</LI>
+
+<LI>
+<GOTO>Advantages of recursion and iteration</GOTO> Advantages of recursion and iteration
+</LI>
+
+</UL>
+
+<hr>
+<p>
+<A HREF="../../cs151java.html#71">
+<img src="../contents.gif" alt="Click here" align="center"> </A> 
+&nbsp; &nbsp; Back to the main menu.
+</p>
+
+</CAI>
+</CHAPTER>

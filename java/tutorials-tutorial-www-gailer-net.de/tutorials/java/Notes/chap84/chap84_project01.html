@@ -1,0 +1,195 @@
+<html>
+<head>
+<title>Java Project</title>
+</head>
+
+<body>
+<center>
+<h2>File IO Project</h2>
+</center>
+
+<p><b>First Part:</b></p>
+<blockquote>
+<p>
+Letters of the alphabet
+occur in text
+at different frequencies.
+Write a program
+that confirms this phenomonon.
+Your program will be invoked from
+the command line like this:
+</p>
+<blockquote><pre>
+C:\mydir&gt; java freqCount avonlea.txt avonlea.rept -all
+</pre></blockquote>
+
+<p>
+It will then read through the first text file
+on the command line (in this case "avonlea.txt")
+accumulating the counts for each letter.
+When it reaches the end of the file,
+it will write a report (in this case "avonlea.rpt")
+that displays the total number of alphabetic
+characters "a-zA-Z" and for each character
+the number of times it occured and the relative
+frequency with which it occured.
+In counting characters,
+regard lower case "a-z" and upper case "A-Z"
+characters as identical.
+</p>
+
+<p>
+You will need an array of 26 <b>long</b> integers,
+one per character.
+To increment the count for a particular character
+you will have to convert it into an index in the
+range 0..25.
+Do this by first determining which range the
+character belongs in:"a-z" or "A-Z" and then
+subtracting 'a' or 'A' from it, as appropriate:
+</p>
+<blockquote><pre>
+     int inx = (int)ch - (int)'A' ;
+     count[inx]++ ;
+</pre></blockquote>
+<p>
+Discard characters not in either range 
+without increasing any count.
+</p>
+</blockquote>
+
+
+<p><b>Second Part:</b></p>
+<blockquote>
+
+<p>
+Do the relative frequencies of the initial
+letters of words differ from the relative
+frequencies for all letters in a text?
+Add logic to the program so that it examines
+only the first character in each word.
+Allow the user to chose between the two options
+with a switch on the command line:
+</p>
+
+<blockquote><pre>
+C:\mydir>java freqCount avonlea.txt avonlea.rept -first
+</pre></blockquote>
+
+<p>
+For this option it will be convenient to use the
+Java class <em>StringTokenizer</em> to deliver
+individual words one at a time.
+In the string of delimiters passed to <em>StringTokenizer</em>
+include whitespace and all punctuation that might be at
+the start or end of a word.
+This is not quite good enough for an accurate count
+because some words will be split between lines 
+</p>
+
+<blockquote><pre>
+It is often true that handling the an-
+noying details makes up the large maj-
+ority of the statements in a pro-
+gram.
+</pre></blockquote>
+
+<p>
+So, if the last token 
+in a line (returned by <em>StringTokenizer</em>)
+ends with '-', don't include 
+the  first letter of the first token on the next line
+in the count.
+</p>
+</blockquote>
+
+<p><b>Testing:</b></p>
+<blockquote>
+For testing, create some really simple files
+that demonstrate that your program is working.
+For instance:
+</p>
+<blockquote><pre>
+AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA 
+AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA 
+aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa 
+aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa 
+!*$#)&%$#) @#&$%))!__ !#4241-432 !_#*%_@*(* !@%&*#.,?+
+</pre>
+</blockquote>
+<P>
+and:
+</p>
+<blockquote><pre>
+AAAAA AAAAA-
+BBBBB BBBBB-
+CCCCC CCCCC-
+
+DDDDD-DDDDD
+EEEEE-EEEEE
+</pre>
+</blockquote>
+<p>
+The first draft of your program will write its count to
+the monitor for easy debugging.
+Add text file output later.
+It is probably wise to write the first part of the program
+and debug it before moving on to the second option.
+</p>
+
+<p>
+Download a text file of a novel of at least 400K bytes from
+<A HREF="http://promo.net/pg/"> Project Gutenberg.</A>.
+Use a file that does not use HTML formatting tags
+(which would confuse the count).
+Delete the text at the beginning of the file that is
+not part of the novel (the legalese and documentation).
+Run both options of the program on the text.
+</p>
+
+</blockquote>
+
+<p><b>Example:</b></p>
+<blockquote>
+
+<p>
+Here is a sample run of my program with the text "Ann of Avonlea" from project
+Gutenberg.
+</p>
+
+<pre>
+C:\mydir>java freqCount avonlea.txt avonlea.rept -all
+
+C:\mydir>type avonlea.rept
+Total alphabetical characters:  373267
+
+ A:       31840       8.53%
+ B:        5942       1.59%
+ C:        7627       2.04%
+ D:       17541       4.69%
+ E:       45614      12.22%
+ F:        7191       1.92%
+ G:        7960       2.13%
+ H:       22500       6.02%
+ I:       25095       6.72%
+ J:         733       0.19%
+ K:        3443       0.92%
+ L:       17534       4.69%
+ M:        9324       2.49%
+ N:       26516       7.1%
+ O:       27344       7.32%
+ P:        6083       1.62%
+ Q:         275       0.07%
+ R:       21285       5.7%
+ S:       23398       6.26%
+ T:       32579       8.72%
+ U:       10720       2.87%
+ V:        4201       1.12%
+ W:        9063       2.42%
+ X:         546       0.14%
+ Y:        8745       2.34%
+ Z:         168       0.04%
+</pre>
+</blockquote>
+</body>
+</html>

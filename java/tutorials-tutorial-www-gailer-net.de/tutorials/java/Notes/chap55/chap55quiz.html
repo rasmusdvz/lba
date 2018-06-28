@@ -1,0 +1,472 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="copyright" content="2006">
+<meta name="author" content="B. P. Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+<title>Quiz &uuml;ber GUI-Grundlagen</title>
+
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css">
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+</head>
+
+<body>
+<p class="revisions">&uuml;berarbeitet 05.10.03; &uuml;bersetzt 03.03.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<h1>Quiz &uuml;ber GUI-Grundlagen</h1>
+<p>
+<img src="quizFrame.gif" class="left">
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+ W&auml;hlen Sie f&uuml;r jede Frage die beste Antwort und klicken Sie dann auf das entsprechende Optionsk&auml;stchen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Wenn das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox nach jeder Frage.
+</p>
+
+
+<hr>
+<form name="question1">
+<p>
+1.
+<!-- FILL in Question 1-->
+Wie wird es genannt, wenn ein Programm geschrieben wurde, um auf
+Buttonklicks, Auswahl von Men&uuml;befehlen und anderen Aktionen des Anwenders
+zu antworten, egal in welcher Reihenfolge der Anwender das tut?
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Ereignisgesteuerte Programmierung.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Aktionsgesteuerte Programmierung.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Anwendergesteuerte Programmierung.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Mausgesteuerte Programmierung.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p> <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr>
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+Die <b>fundamentalen</b> Klassen der GUI-Programmierung
+sind enthalten in dem:
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+GUI-Toolkit
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Abstract Windowing Toolkit
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Graphics Event Toolkit
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Java Enhancement Toolkit
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p> <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr>
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+Die drei Softwareteile eines GUI-Programms sind:
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Fenster, Buttons und Maus.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+GUI-Komponenten, Grafiken und Code.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+GUI-Komponenten, Listener-Methoden und Applikationscode.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Frames, Code und Ereignisse.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p> <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr>
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+Welches ist die eine Komponente, die fast alle GUI-Programme haben werden?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Fenster
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Maus
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Monitor
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Button
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p> <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr>
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+Was ist ein <em>Container-Objekt</em> in der GUI-Programmierung?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Ein Container ist ein anderer Name f&uuml;r ein Vector-Array.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Ein Container ist jede Klasse, die aus anderen Klassen gemacht wurde.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ein Container ist eine primitive Variable, die die aktuellen Daten enth&auml;lt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ein Container ist eine GUI-Komponente, die andere GUI-Komponenten enth&auml;lt.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p> <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr>
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+Wenn der Anwender auf einen Button klickt, was wird erzeugt?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Ein Ereignis.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Ein Buttonobjekt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ein Container.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ein Listener.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p> <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr>
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+Welches ist der Name f&uuml;r eine Methode, die auf Ereignisse reagiert?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Eine Container-Methode.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Eine Snoop-Methode.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Eine Listener-Methode.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Eine Applikationsmethode.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p> <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr>
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+Welches ist die Elternklasse der AWT <code>Component</code>-Klasse?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+GUI
+<!end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+AWT
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Object
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Container
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p> <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr>
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+Welches ist die Basisklasse fast aller Swing-Klassen?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Object
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Component
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Swing
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+JComponent
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p> <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+
+<hr>
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+Mit welchem Buchstaben beginnen viele Swingklassen?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+A
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+B
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+J
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+S
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p> <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+
+
+<hr>
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+</p>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+
+<p><a href="../../index.html#55"><img class="left" src="../homeIcon.gif" alt="Inhalt" border="0"></a>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</p>
+
+<p>Um die alten Antworten zu l&ouml;schen, halten Sie die Strg-Taste gedr&uuml;ckt und laden dann die Seite neu (Firefox). Bei anderen Browsern funktioniert das in Verbindung mit der Umschalt- bzw. Strg+Umschalt-Taste. Beim Internet Explorer 8 muss die Seite verlassen und erneut aufgerufen werden.</p>
+
+
+</body>
+</html>

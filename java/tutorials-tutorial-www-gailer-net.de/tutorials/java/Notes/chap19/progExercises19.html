@@ -1,0 +1,102 @@
+<HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee  dot org ">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+<meta name="robots" content="noindex,nofollow">
+
+<title>Programmieraufgaben</title>
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css">
+</head>
+
+<body>
+<p class="revisions">erstellt 09.08.99; &uuml;bersetzt 01.04.03; &uuml;berarbeitet 04.12.03, 24.05.04, 31.05.05, 03.10.06, 29.11.10; &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+
+<h1>Kapitel 19  Programmieraufgaben</h1>
+
+<h2>Aufgabe 1 &#8212;  Ratenzahlung</h2>
+
+<p>
+Angenommen Sie schulden Ihrer Kreditkartengesellschaft 1000.00$.
+Die Gesellschaft berechnet Ihnen monatlich 1.5% Zinsen f&uuml;r den gew&auml;hrten Kredit.
+Sie entscheiden sich die Kreditkarte nicht mehr zu verwenden und Ihren Kredit monatlich mit einem bestimmten Betrag <code>n</code> zur&uuml;ckzuzahlen.
+Schreiben Sie ein Programm, das nach dem monatlichen R&uuml;ckzahlungsbetrag fragt, dann den Saldo und den Gesamtbetrag der Zahlungen f&uuml;r jeden Monat ausgibt, bis der Saldo Null oder weniger betr&auml;gt.
+</p>
+
+<pre class="dos4">
+Geben Sie den monatlichen Betrag ein:
+100
+Monat: 1        Saldo: 915.0  Gesamtbetrag: 100.0
+Monat: 2        Saldo: 828.725        Gesamtbetrag: 200.0
+Monat: 3        Saldo: 741.155875     Gesamtbetrag: 300.0
+Monat: 4        Saldo: 652.273213125  Gesamtbetrag: 400.0
+Monat: 5        Saldo: 562.057311321875       Gesamtbetrag: 500.0
+Monat: 6        Saldo: 470.4881709917031      Gesamtbetrag: 600.0
+Monat: 7        Saldo: 377.54549355657866     Gesamtbetrag: 700.0
+Monat: 8        Saldo: 283.20867595992735     Gesamtbetrag: 800.0
+Monat: 9        Saldo: 187.4568060993263      Gesamtbetrag: 900.0
+Monat: 10       Saldo: 90.26865819081618      Gesamtbetrag: 1000.0
+Monat: 11       Saldo: -8.377311936321576     Gesamtbetrag: 1100.0
+</pre>
+
+
+<p>
+Berechnen Sie die monatlichen Zinsen auf Grund des Saldos.
+Berechnen Sie dann den neuen Saldo, indem Sie die Zinsen addieren und den zur&uuml;ckgezahlten Betrag subtrahieren.
+</p>
+
+<p>
+<b>Verbessertes Programm:</b> &nbsp; &nbsp;
+Lassen Sie das Programm nach dem Anfangssaldo, dem monatlichen Zinssatz und dem R&uuml;ckzahlungsbetrag fragen. Wenn der Saldo unter dem R&uuml;ckzahlungsbetrag liegt, gibt das Programm die letzte Rate aus, die den Saldo exakt auf 0 bringt.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#19">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 2 &#8212; Wirkstoffgehalt eines Arzneimittels</h2>
+
+<p>
+Ein bestimmtes Arzneimittel verliert jeden Monat 4% seines Wirkstoffgehalts.
+Wenn sein Wirkstoffgehalt unter 50% f&auml;llt, muss es ausgemustert werden.
+Schreiben Sie ein Programm, das berechnet wie viele Monate eine Arznei gelagert werden kann.
+</p>
+
+<pre class="dos4">
+Monat: 0  Wirkstoffgehalt: 100.0
+Monat: 1  Wirkstoffgehalt: 96.0
+Monat: 2  Wirkstoffgehalt: 92.16
+Monat: 3  Wirkstoffgehalt: 88.47359999999999
+Monat: 4  Wirkstoffgehalt: 84.93465599999999
+Monat: 5  Wirkstoffgehalt: 81.53726975999999
+Monat: 6  Wirkstoffgehalt: 78.27577896959998
+Monat: 7  Wirkstoffgehalt: 75.14474781081599
+Monat: 8  Wirkstoffgehalt: 72.13895789838334
+Monat: 9  Wirkstoffgehalt: 69.253399582448
+Monat: 10  Wirkstoffgehalt: 66.48326359915008
+Monat: 11  Wirkstoffgehalt: 63.82393305518407
+Monat: 12  Wirkstoffgehalt: 61.27097573297671
+Monat: 13  Wirkstoffgehalt: 58.82013670365764
+Monat: 14  Wirkstoffgehalt: 56.46733123551133
+Monat: 15  Wirkstoffgehalt: 54.20863798609088
+Monat: 16  Wirkstoffgehalt: 52.04029246664724
+Monat: 17  Wirkstoffgehalt: 49.95868076798135 ABGELAUFEN
+</pre>
+
+
+
+<p>Zur&uuml;ck zum <a href="../../index.html#19">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+
+<p>Ende der Aufgaben.</p>
+</body>
+</html>

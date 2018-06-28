@@ -1,0 +1,184 @@
+<html>
+
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2003,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<p>
+<small>erstellt 08.05.00; &uuml;bersetzt 08.07.03; &uuml;berarbeitet 14.02.05; &copy; Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+
+<hr />
+<center><h1> Programmieraufgaben </h1></center>
+<hr />
+
+<h2>Aufgabe 1 &#8212; Junk-Mail Generator</h2>
+
+<p>
+Schreiben Sie ein Programm, das einen &quot;personalisierten&quot;
+Brief erzeugt. Gegeben ist ein allgemeines Anschreiben und der Personenname.
+Das Anschreiben ist eine Textdatei, die als Input dient
+(verwenden Sie Dateiumlenkung wie sie im Kapitel 23 besprochen wurde).
+Der Personenname wird ein Befehlszeilenargument sein.
+Die Datei ist normaler Text, aber mit einem * wo immer
+der Name der Person eingesetzt werden sollte.
+Zum Beispiel:
+</p>
+
+<pre>
+Hallo *,
+
+ich habe aufregende Neuigkeiten fuer Sie, *!!!
+Fuer gerade einmal $49.99 plus Porto und Versand koennen Sie, *,
+der stolze Besitzer eines Mauspads aus echtem Leder werden!
+Keine Belastung Ihrer Finger mehr, *,
+waehrend Sie mit Stil im Web surfen.
+
+Handeln Sie sofort,
+
+Venture Marketing Corp.
+</pre>
+
+<p>
+Vorausgesetzt das oben stehende ist in einer Datei <em>junk.txt</em>.
+Ein Testlauf des Programms gibt folgendes aus::
+</p>
+
+<pre>
+C:\data\javaNotes&gt;java  JunkGenerator "Herr Meixner" &lt; junk.txt
+
+Hallo Herr Meixner,
+
+ich habe aufregende Neuigkeiten fuer Sie, Herr Meixner!!!
+Fuer gerade einmal $49.99 plus Porto und Versand koennen Sie, Herr Meixner,
+der stolze Besitzer eines Mauspads aus echtem Leder werden!
+Keine Belastung der Finger mehr fuer Sie, Herr Meixner,
+waehrend Sie mit Stil im Web surfen.
+
+Handeln Sie sofort,
+
+Venture Marketing Corp.
+
+C:\chap49D&gt;
+</pre>
+
+<p>
+Schreiben Sie das Programm, so dass es jedes Vorkommen von *  in einer Zeile ersetzt
+und jede Anzahl von Zeilen akzeptiert.
+Das Hauptprogramm wird eine <code>while</code>-Schleife sein,
+die fortf&auml;hrt bis der Inputstring (eingelesen mit <code>readLine()</code>)
+<code>null</code> ist.
+Jede Inputzeile sollte verwendet werden, um einen <code>StringTokenizer</code>
+mit den geeigneten Begrenzern zu erzeugen.
+</p>
+
+<p>
+Wenn Sie das Befehlszeilenargument vermeiden m&ouml;chten,
+fragen Sie den Anwender nach dem Namen und lesen ihn
+in der &uuml;blichen Weise ein.
+</p>
+
+<p>
+<A HREF="../../java-toc.html#49D">Zur&uuml;ck</A> zur &Uuml;bersicht.
+</p>
+
+<hr>
+<h2>Aufgabe 2 &#8212; Wort Umkehrer</h2>
+
+<p>
+Schreiben Sie ein Programm, das einen Satz vom Anwender einliest
+und jedes Wort umgekehrt wieder ausgibt,
+wobei die urspr&uuml;nglichen Reihenfolge der Worte und der
+Interpunktionszeichen bestehen bleibt:
+</p>
+
+<pre>
+C:\data\javaNotes&gt; java WorteUmkehren
+Eingabe:  Go to the main menu.
+oG ot eht niam unem.
+</pre>
+
+<p>
+<A HREF="../../java-toc.html#49D">Zur&uuml;ck</A> zur &Uuml;bersicht.
+</p>
+
+<hr>
+<h2>Aufgabe 3 &#8212; 12-Zu-24-Stunden Konvertierer</h2>
+
+<p>
+Schreiben Sie ein Programm,
+das einen String einliest,
+der ein 12-Stunden Zeitformat hat
+und die Zeit im 24-Stunden Format ausgibt.
+</p>
+
+<pre>
+C:\data\javaNotes&gt;java  ZeitUmwandler
+Eingabe: 12:13AM
+
+C:\data\javaNotes&gt;java  ZeitUmwandler
+Eingabe: 12:23
+0:23
+
+C:\data\javaNotes&gt;java  ZeitUmwandler
+Eingabe:8:30AM
+8:30
+
+C:\data\javaNotes&gt;java  ZeitUmwandler
+Eingabe:8:30PM
+20:30
+
+C:\data\javaNotes&gt;java  ZeitUmwandler
+Eingabe:8:30 PM
+20:30
+</pre>
+
+<p>
+Setzen Sie voraus, dass der Anwender die Ziffern korrekt durch einen
+Doppelpunkt getrennt eingegeben hat.
+Wenn weder "AM" noch "PM" gegeben ist, nehmen Sie "AM" an.
+</p>
+
+<p>
+Das kann kompliziert werden.
+Wenn Sie es etwas leichter wollen,
+setzen Sie voraus, dass "AM" oder "PM"
+unmittelbar den Minuten folgt.
+</p>
+
+<p>
+Oder, wenn Sie es kompliziert m&ouml;chten,
+versuchen Sie Ihr Programm &quot;kugelfest&quot; zu machen.
+&Uuml;berpr&uuml;fen Sie, dass sowohl Stunden als auch Minuten sich
+im g&uuml;ltigen Bereich befinden.
+Erlauben Sie Leerzeichen links und rechts des Doppelpunktes
+und zwischen Minuten und AM bzw. PM.
+Lassen Sie AM und PM sowohl in Gro&szlig;buchstaben als auch
+in Kleinbuchstaben zu.
+</p>
+
+<pre>
+C:\data\javaNotes&gt;java  ZeitUmwandler
+Eingabe:8 : 30 pm
+20:30
+
+C:\data\javaNotes&gt;java  ZeitUmwandler
+Eingabe:8:77
+Bad input format.
+</pre>
+
+<p>Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#49D">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1395 @@
+<!-- Aug. 13, 2005  bpk   extensive change to discussion of rabbits, other fixes  -->
+
+<COPYRIGHTDATE>2005</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>Bradley Kjell kjell at ieee dot org </AUTHORNAME>
+
+<CHAPTER>
+<CAI> CHAPTER  72 &#8212;  Examples of Recursion
+<p>
+<small>created: 12/27/2002; revisions: 08/13/2005</small>
+</p>
+<LESSON>
+<p>
+This chapter contains additional examples of recursion.
+</p>
+
+<h4>Chapter Topics:</h4>
+<ul>
+<li>Factorial function.</li>
+<li>Java method for factorial.</li>
+<li>Fibonacci series.</li>
+<li>Java method for Fibonacci series.</li>
+<li>Re-entrant code.</li>
+</ul>
+</LESSON>
+
+<QUESTION>
+<p>
+What are the two parts of recursion?
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Factorial Function
+
+<ANSWER>
+<p>
+
+<p>
+Here (yet again) are the two parts to recursion:
+</p>
+
+<!-- parts to recursion -->
+
+<ol>
+<li>If the problem is easy, solve it immediately.</li>
+<li>If the problem can't be solved immediately,
+    divide it into smaller problems, then:
+    <ul>
+    <li>Solve the smaller problems by applying this procedure to each of them.</li>
+    </ul>
+    </li>
+</ol>
+
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>factorial, definition</INDEX>
+<p>
+You have probably seen the factorial function before.
+It is defined for all integers greater or equal to zero:
+</p>
+
+<pre>
+factorial( 0 ) = 1
+factorial( N ) = N * factorial( N-1 )
+</pre>
+
+<p>
+For example,
+</p>
+
+<pre>
+factorial( 5 ) = 5 * factorial( 4 )
+               = 5 * ( 4 * factorial( 3 ) )
+               = 5 * ( 4 * (3 * factorial( 2 ) ) )
+               = 5 * ( 4 * (3 * (2 * factorial( 1 ) ) ) )
+               = 5 * ( 4 * (3 * (2 * ( 1 * factorial( 0 ) ) ) ) )
+               = 5 * ( 4 * (3 * (2 * ( 1 * 1 ) ) ) )
+               = 5 * 4 * 3 * 2 * 1 * 1
+               = 120
+</pre>
+
+<p>
+Often factorial(N) is written N!
+</p>
+
+<p>
+Examine the definition and check that it includes both of
+the two parts of a recursive definition.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+What is the <b>base case</b> in this definition?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Static View of Recursion
+<p>
+</p>
+<ANSWER>
+<p>
+A base case of a recursive definition is a case that has
+an immediate solution.
+</p>
+<pre>
+factorial( 0 ) = 1 <span style="color:blue">&lt;-- base case</span>
+factorial( N ) = N * factorial( N-1 )
+</pre>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+In the "static view" of recursion,  you translate one
+form of a definition (a math-like definition)
+into another form (the Java method definition).
+You don't think much about what happens when the method runs.
+Here is the math-like definition of recursion:
+</p>
+
+<pre>
+factorial( 0 ) = 1
+factorial( N ) = N * factorial( N-1 )
+</pre>
+
+<p>
+And here is part of its translation into a Java method:
+</p>
+
+<pre>
+int factorial( int N )
+{
+  if ( <span style="color:blue">__________</span> )
+
+    return 1;
+
+  else
+
+    return <span style="color:blue">______</span> * <span style="color:blue">_____________</span>;
+}
+</pre>
+
+<p>
+Practice thinking statically.
+Translate the math-like definition into the Java code.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Fill in the blanks.
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Dynamic Thinking
+<p>
+</p>
+<ANSWER>
+<p>
+</p>
+
+<pre>
+int factorial( int N )
+{
+  if ( <span style="color:blue">N == 0</span> )
+
+    return 1;
+
+  else
+
+    return <span style="color:blue">N</span> * <span style="color:blue">factorial( N-1 )</span>;
+}
+</pre>
+</ANSWER>
+
+<LESSON>
+<script language="JavaScript">
+<!-- hide from browsers
+var currentImage = 0
+var my_images = new Array(12)
+my_images[0] = "fact0.gif"
+my_images[1] = "fact1.gif"
+my_images[2] = "fact2.gif"
+my_images[3] = "fact3.gif"
+my_images[4] = "fact4.gif"
+my_images[5] = "fact5.gif"
+my_images[6] = "fact6.gif"
+my_images[7] = "fact7.gif"
+my_images[8] = "fact8.gif"
+my_images[9] = "fact9.gif"
+my_images[10] = "fact10.gif"
+my_images[11] = "fact11.gif"
+
+function loadImage()
+{
+  if ( currentImage==11 ) currentImage=0
+  else                   currentImage=currentImage+1
+  document.images[0].src = my_images[currentImage]
+}
+// stop hiding -->
+</script>
+
+<img src="fact0.gif" hspace=15  onClick="loadImage()" align="right">
+
+
+<INDEX>factorial, activation chain</INDEX>
+<p>
+If you have a correct math-like definition of what you want to do,
+then transforming it into a Java method is almost mechanical.
+</p>
+
+<p>
+But, you can also think about what happens
+as the method runs.
+This is a "dynamic view" of recursion.
+The diagram
+shows the how the activation chain grows
+as the method executes.
+</p>
+
+<p>
+Each activation except the base case requires another activation.
+This is because the statement <nobr><code>return n * factorial( N-1 )</code></nobr>
+needs a value for <nobr><code>factorial( N-1 )</code></nobr> before the
+multiplication can be done.
+(Click on the diagram to see the activation chain grow.)
+</p>
+
+<pre>
+int factorial( int N )
+{
+  if ( N == 0 )
+    return 1;
+  else
+    return n * factorial( N-1 ) ;
+}
+</pre>
+
+<p>
+When the base case is reached, return values
+start being passed up the chain.
+After an activation has returned a value to its
+caller it is no longer active.
+The diagram shows this as a dotted circle.
+</p>
+
+<br clear="all" />
+<br clear="all" />
+</LESSON>
+
+<QUESTION>
+<p>
+(Practice Dynamic Thinking: ) What would happen if
+<nobr><code>factorial()</code></nobr> were called with
+a parameter <nobr>of -1</nobr>?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Defensive Programming
+<p>
+</p>
+<ANSWER>
+<p>
+As it is written, calling <nobr><code>factorial( -1 )</code></nobr>
+would grow the activation chain without limit.
+The base case (of <code>N == 0</code>) would never be reached.
+Eventually the computer system would run out of resources,
+and the program would stop running.
+</p>
+
+<pre>
+int factorial( int N )
+{
+  if ( N == 0 )
+    return 1;
+  else
+    return N * factorial( N-1 ) ;
+}
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>defensive programming</INDEX>
+<p>
+<b>Defensive programming</b> is when the programmer anticipates
+problems and writes code to deal with them.
+To avoid the disaster a negative parameter would cause,
+sometimes <code>factorial()</code> is written like this:
+</p>
+
+<pre>
+int factorial( int N )
+{
+  if ( N &lt= 0 )
+    return 1;
+  else
+    return N * factorial( N-1 ) ;
+}
+</pre>
+
+<p>
+But, according to the math-like definition, this is not correct.
+The value of <nobr><code>factorial( -1 )</code></nobr> is undefined,
+not equal to one.
+Potentially, returning an incorrect value and continuing on as if nothing is
+wrong might cause a greater disaster than stopping the computer system.
+</p>
+
+<p>
+Sometimes the method is written to throw an exception when an illegal argument
+is detected.
+But this adds complication since now the caller
+must deal with a possible exception.
+</p>
+
+<p>
+Perhaps the best solution is to write <nobr><code>factorial()</code></nobr>
+so that it follows the math-like definition exactly.
+It is the responsibility of the caller to
+make sure that the argument is within range.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Here is another idea: why not have <nobr><code>factorial()</code></nobr> take
+the absolute value of its argument to be sure that it is positive?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Complete Program
+
+<ANSWER>
+<p>
+Not a good idea.  This would prevent the system from crashing, but would
+hide some other serious problem with the input data.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>factorial, complete program</INDEX>
+<p>
+Here is a complete program that uses the <nobr><code>factorial()</code></nobr> method:
+</p>
+
+<INDEX>FactorialTester.java</INDEX>
+<pre class="program">
+//FactorialTester.java
+//
+class FactorialCalc
+{
+  int factorial( int N )
+  {
+    if ( N == 0 )
+      return 1;
+    else
+      return N * factorial( N-1 ) ;
+  }
+}
+
+class FactorialTester
+{
+  public static void main ( String[] args)
+  {
+    int argument = 10;
+    FactorialCalc f = new FactorialCalc();
+    int result = f.factorial( argument );
+    System.out.println("Factorial(" + argument + ") is " + result );
+  }
+}
+</pre>
+
+<p>
+Here is a run of the program:
+</p>
+
+<pre>
+C:\JavaNotes\Recursion03>javac FactorialTester.java
+
+C:\JavaNotes\Recursion03>java FactorialTester
+Factorial(10) is 3628800
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Here is another run of the program with a new value for the argument:
+</p>
+
+<pre>
+C:\JavaNotes\Recursion03>java FactorialTester
+Factorial(17) is -288522240
+</pre>
+
+<p>
+That answer does not look correct.  What went wrong?
+</p>
+
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Iterative Factorial
+<ANSWER>
+<p>
+<code>factorial(N)</code> got too big to hold in an <code>int</code>.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>overflow</INDEX>
+<p>
+<code>factorial(N)</code> gets very big even for small N.
+It soon gets too big to hold in a Java <code>int</code> and wrong answers result.
+In fact, 12 is the largest <code>int</code> that will work as an argument.
+This situation is called <b>overflow</b>.
+The range of values that a Java <code>int</code> can hold is
+(roughly) -2 billion to +2 billion.
+Overflow happens when a value is computed that is outside of
+that range.
+</p>
+
+<p>
+You could improve the Java method by using <code>long</code> or
+perhaps <code>double</code>
+in place of <code>int</code>.
+This would extend the range of arguments that could be used with it,
+but the
+range would not be extended very far.
+</p>
+
+<INDEX>numerical analysis</INDEX>
+<p>
+If a mathematical formula includes the factorial function,
+you need to be careful to avoid overflow.
+The correct approach is to manipulate the formula until factorial is removed.
+Usually this makes the formula less pretty,
+but makes it suitable for implementation
+in a program.
+Topics like these are the subject of <b>numerical analysis</b>,
+a common course in a computer science curriculum.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Is an iterative version of factorial possible?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Iterative Implementation of Factorial
+<p>
+</p>
+<ANSWER>
+<p>
+Yes.  No matter what you are computing, if there is a recursive
+way to do it, then there is an iterative way to do it.
+And if there is an iterative way to do it, then there is a recursive way.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>factorial, iterative</INDEX>
+<p>
+Here is the math-like definition of recursion (again):
+</p>
+
+<pre>
+factorial( 0 ) = 1
+factorial( N ) = N * factorial( N-1 )
+</pre>
+
+<p>
+And here is an iterative implementation:
+</p>
+
+<pre>
+int factorial( int N )
+{
+  int product = 1;
+  for ( int j=1; j&lt;=N; j++ )
+    product *= j;
+  return product;
+}
+</pre>
+
+<p>
+Of course, this version suffers from the same overflow problem as the
+recursive version.
+For any argument larger than 12 the product is too large to hold
+in an <b>int</b> and incorrect values will be returned to the caller.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+What does this version compute if given a parameter of <nobr>-1</nobr>?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Rabbits
+<p>
+</p>
+<ANSWER>
+<p>
+It returns a 1.  According to the math-like definition, this is not correct.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+Say that a female rabbit is  mature 2 months after birth.
+Assume that each mature female rabbit produces 1 baby
+female rabbit per month.
+If you start out with one baby female rabbit,
+how many female rabbits will
+you have in 10 months?
+Assume that there are enough male rabbits to ensure maximum production,
+  and that no rabbits die.
+</p>
+
+<p>
+Here is a chart:
+</p>
+
+<table border="border" bgcolor="white" bordercolor="brown" cellpadding="8">
+<tr><td bgcolor="pink">N</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                                  <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+<tr><td bgcolor="pink">Rabbits</td><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+                                        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+<p>
+The chart shows the number of rabbits at the <u>end</u> of the first month,
+at the <u>end</u> of the second month,
+and so on.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+How many female rabbits do you have at the <u>end</u> of the second month?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>End of Month Two
+<p>
+</p>
+<ANSWER>
+<p>
+At the end of the second month, your female rabbit has just become mature.
+She could not give birth during the month,
+  so there is still just one rabbit.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+Recall the rules:
+</p>
+
+<ul>
+<li>A female rabbit matures after 2 months.</li>
+<li>Each mature female rabbit produces 1 baby female rabbit
+    per month.</li>
+</ul>
+
+<p>
+The chart shows the situation at the end of the second month.
+Your single female rabbit has just become mature.
+Assume that this fact has not gone unnoticed by the male rabbits.
+</p>
+
+<table border="border" bgcolor="white" bordercolor="brown" cellpadding="8">
+<tr><td bgcolor="pink">N</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                                  <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+<tr><td bgcolor="pink">Rabbits</td><td>1</td><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+                                        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+How many female rabbits are there at the <u>end</u> of the third month?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>End of the Third Month
+<p>
+</p>
+<ANSWER>
+<p>
+The one mature female rabbit gives birth to one baby female rabbit
+during the third month.
+So there is a total of two female rabbits (and several males).
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+The new chart shows this.
+At the end of month three there is 1 mature female rabbit and 1 baby female rabbit
+for a total of two female rabbits.
+</p>
+
+<table border="border" bgcolor="white" bordercolor="brown" cellpadding="8">
+<tr><td bgcolor="pink">N</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                                  <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+<tr><td bgcolor="pink">Rabbits</td><td>1</td><td>1</td><td>2</td><td>&nbsp;</td><td>&nbsp;</td>
+                                        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+<p>
+If you look under month 2 you see how many <u>mature</u>
+female rabbits there are
+in month 4.
+Since it takes rabbits two months to become mature,
+  every rabbit listed for month n will be mature in month N+2.
+</p>
+
+<p>
+If you look under month 3 you see how many <u>total</u>
+female rabbits there are at the start
+of month 4.
+</p>
+<br clear="all" />
+
+</LESSON>
+
+<QUESTION>
+<p>
+How many rabbits are there at the end of month 4?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>End of Month Four
+<p>
+</p>
+<ANSWER>
+<p>
+3
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+Month 4 starts out with two rabbits (the number under month 3)
+one of which is mature
+(the number under month 2).
+During the month the mature rabbit gives birth to another baby.
+The chart shows the total of three rabbits at the end of the month.
+</p>
+
+<p>
+Month 5 starts out with three rabbits (the number under month 4)
+two of which are mature
+(the number under month 3).
+During the month the mature rabbits give birth to one baby each.
+The chart shows the total of five rabbits at the end of the month.
+</p>
+
+
+<table border="border" bgcolor="white" bordercolor="brown" cellpadding="8">
+<tr><td bgcolor="pink">N</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                                  <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+<tr><td bgcolor="pink">Rabbits</td><td>1</td><td>1</td><td>2</td><td>3</td><td>5</td>
+                                        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+<p>
+The total number of female rabbits at the start of a month
+is shown under the previous month in the chart.
+The number of <u>mature</u> rabbits
+(which give birth during that month)
+is the number shown under the second previous month.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+How many total female rabbits are there at the end of month 6?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Rabbits Rule
+<p>
+</p>
+<ANSWER>
+<p>
+Month 6 starts out with five total rabbits three of which are mature.
+During the month the mature rabbits gives birth to three babies,
+so there are eight rabbits at the end of the month.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+The updated chart shows the situation.
+</p>
+
+<table border="border" bgcolor="white" bordercolor="brown" cellpadding="8">
+<tr><td bgcolor="pink">N</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                                  <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+<tr><td bgcolor="pink">Rabbits</td><td>1</td><td>1</td><td>2</td><td>3</td><td>5</td>
+                                        <td><b>8</b></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+
+<p>
+Here is what we have been doing:
+</p>
+
+<pre>
+rabbits At End Of Month( N ) = rabbits At End Of Month( N-1 )
+                                             +
+                               rabbits Born During Month( N )
+
+rabbits At End Of Month( N ) = rabbits At End Of Month( N-1 )
+                                             +
+                               mature Rabbits During Month( N )
+
+rabbits At End Of Month( N ) = rabbits At End Of Month( N-1 )
+                                             +
+                               rabbits At End Of Month( N-2 )
+</pre>
+
+<p>
+Once you have this rule,
+to calculate the number of rabbits
+at the end of a month just add up the numbers for the previous two months.
+</p>
+
+<p>
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+What is the value for the end of month 7?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Fibonacci
+<p>
+</p>
+<ANSWER>
+<p>
+5 + 8 = 13
+</p>
+</ANSWER>
+
+<LESSON>
+
+<table align="right" hspace="25">
+<tr>
+<td>
+<img src="fibonacciStack.jpg" >
+</td>
+</tr>
+<tr>
+<td>
+Smokestack in Turku, Finland
+</td>
+</tr>
+</table>
+
+
+<INDEX>Fibonacci series</INDEX>
+
+<p>
+&#160;
+</p>
+
+<p>
+This problem was studied and solved by a famous mathematician,
+Fibonacci.  The numbers of rabbits form the <b>Fibonacci series</b>.
+This series has important applications in several problems
+that have nothing to do with rabbits.
+Call the N'th number in the series <code>fib(N)</code>:
+</p>
+
+<table border="border" bgcolor="white" bordercolor="brown" cellpadding="8">
+<tr><th  bgcolor="white" colspan="11">Fibonacci Series</th></tr>
+<tr><td bgcolor="pink">N</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                                  <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+<tr><td bgcolor="pink">fib(N)</td><td>1</td><td>1</td><td>2</td><td>3</td><td>5</td>
+                                        <td>8</td><td>13</td><td>21</td><td>34</td><td>55</td></tr>
+</table>
+
+<p>
+Here is the rule for filling the chart, rewritten for <code>fib(N)</code>:
+</p>
+
+<pre>
+fib( N ) = fib( N-1 ) + fib( N-2 )
+</pre>
+
+<p>
+Look at the chart to verify that the rule works.
+</p>
+
+<br clear="all" />
+<br clear="all" />
+
+</LESSON>
+
+<QUESTION>
+<p>
+Is the rule a correct recursive definition?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Complete Rules
+<p>
+</p>
+<ANSWER>
+<p>
+No.  It does not mention the base cases.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+A recursive definition (or program) must have two parts:
+</p>
+
+<ol>
+<li>If the problem is easy, solve it immediately.</li>
+<li>If the problem can't be solved immediately,
+    divide it into smaller problems, then:
+    <ul>
+    <li>Solve the smaller problems by applying this procedure to each of them.</li>
+    </ul>
+    </li>
+</ol>
+</table>
+
+<p>
+Here is an expanded version of <code>fib(N)</code>:
+</p>
+
+<pre>
+fib( <span style="color:blue">___</span> ) = <span style="color:blue">_____</span>       (base case)
+
+fib( <span style="color:blue">___</span> ) = <span style="color:blue">_____</span>       (base case)
+
+fib( N ) = fib( N-1 ) + fib( N-2 )
+</pre>
+
+<table border="border" bgcolor="white" bordercolor="brown" cellpadding="8">
+<tr><th  bgcolor="white" colspan="11">Fibonacci Series</th></tr>
+<tr><td bgcolor="pink">N</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                                  <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+<tr><td bgcolor="pink">fib(N)</td><td>1</td><td>1</td><td>2</td><td>3</td><td>5</td>
+                                        <td>8</td><td>13</td><td>21</td><td>34</td><td>55</td></tr>
+</table>
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+The rule seems to be plagued with blue blanks.  Can you fill them?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Static View
+<p>
+</p>
+<ANSWER>
+<p>
+The complete rule is below.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+Here is the complete math-like definition for the Fibonacci series.
+There are <u>two base cases</u>.
+This is fine.
+Recursion breaks problems into smaller pieces.
+After enough breaking, all that remains are the base cases that
+can be solved immediately.
+There can be any number of base cases.
+</p>
+
+<pre>
+fib( <span style="color:blue">1</span> ) = <span style="color:blue">1</span>       (base case)
+
+fib( <span style="color:blue">2</span> ) = <span style="color:blue">1</span>       (base case)
+
+fib( N ) = fib( N-1 ) + fib( N-2 )
+</pre>
+
+<p>
+We have a math-like definition. Creating a Java method to implement it
+should be a nearly mechanical translation from math to Java.
+</p>
+
+<pre>
+public int fib( int n )
+{
+  if ( <span style="color:blue">________</span> )
+
+    return <span style="color:blue">_______</span>;
+
+  else if  ( <span style="color:blue">________</span> )
+
+    return <span style="color:blue">_______</span>;
+
+  else
+
+    return <span style="color:blue">________</span> + <span style="color:blue">________</span>;
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Sharpen your translation skills by filling those blanks.
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Complete Fib
+<p>
+</p>
+<ANSWER>
+<p>
+The complete method is seen below.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>Fibonacci, Java method</INDEX>
+<p>
+</p>
+<pre>
+public int fib( int n )
+{
+  if ( <span style="color:blue">n == 1</span> )
+    return <span style="color:blue">1</span>;
+
+  else if  ( <span style="color:blue">n == 2</span> )
+    return <span style="color:blue">1</span>;
+
+  else
+    return <span style="color:blue">fib( n-1 )</span> + <span style="color:blue">fib( n-2 )</span>;
+}
+</pre>
+
+<p>
+It may worry you that the code for <code>fib(int n)</code> uses
+<code>fib(n-1)</code> and <code>fib(n-2)</code>.
+This is fine.
+Look at the math-like definition. Play with it until you understand it.
+The program says the same thing but uses a different language (Java) to say it.
+</p>
+
+<p>
+It is the job of the Java system to make sure that you get the computation that
+you ask for.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+If you are uneasy about that explanation, what can you do?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Dynamic Thinking
+<p>
+</p>
+<ANSWER>
+<p>
+Think dynamically, in terms of parameters and activations
+</p>
+</ANSWER>
+
+<LESSON>
+<script language="JavaScript">
+<!-- hide from browsers
+var currentImage = 0
+var my_images = new Array(19)
+my_images[0] = "fib0.gif"
+my_images[1] = "fib1.gif"
+my_images[2] = "fib2.gif"
+my_images[3] = "fib3.gif"
+my_images[4] = "fib4.gif"
+my_images[5] = "fib5.gif"
+my_images[6] = "fib6.gif"
+my_images[7] = "fib7.gif"
+my_images[8] = "fib8.gif"
+my_images[9] = "fib9.gif"
+my_images[10] = "fib10.gif"
+my_images[11] = "fib11.gif"
+my_images[12] = "fib12.gif"
+my_images[13] = "fib13.gif"
+my_images[14] = "fib14.gif"
+my_images[15] = "fib15.gif"
+my_images[16] = "fib16.gif"
+my_images[17] = "fib17.gif"
+my_images[18] = "fib18.gif"
+
+function loadImage()
+{
+  if ( currentImage==18 ) currentImage=0
+  else                    currentImage=currentImage+1
+  document.images[0].src = my_images[currentImage]
+}
+// stop hiding -->
+</script>
+
+<INDEX>Fibonacci, activation chain</INDEX>
+
+<p>
+Say that a <code>main()</code> program has called <code>fib(5)</code>.
+The diagram shows the activations, their parameters (in blue),
+and their return values (in red).
+Pick an activation and study how the activations below it
+correspond to the code.
+</p>
+
+<center>
+<img src="fib0.gif" onClick="loadImage()" />
+</center>
+
+<p>
+The diagram labeled <em>All Activations</em> shows how each activation
+(except for the base cases)
+is supported by two other activations.
+</p>
+
+<p>
+To see the dynamic sequence of activations,
+  repeatedly click on the diagram.
+A solid circle represents an activation that
+is currently computing or waiting for a
+result to be returned.
+When an activation is shown as a dotted circle,
+it has finished its computation and
+is "history".  It is no longer on the activation chain.
+</p>
+
+<p>
+At any time in the execution of <code>fib(5)</code> the activations
+that have not yet finished their computation (because they are waiting for a value)
+form a single chain.
+There is never more than one activation chain.
+The activation chain bends left and right, but there is always a single successor
+and a single predecessor for each link (except for the first activation and for
+the base cases.)
+</p>
+
+<br clear="all" />
+
+</LESSON>
+
+<QUESTION>
+<p>
+For <code>fib(5)</code>, 9 activations occur.
+Examine the diagram.  Do you imagine that for <code>fib(n)</code> that there
+are many more than n activations.
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Complete Program
+<p>
+</p>
+<ANSWER>
+<p>
+Yes.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>benchmark</INDEX>
+<p>
+When <code>fib(n)</code> is computed recursively, very many activations are created
+and destroyed.
+Sometimes the time it takes to compute <code>fib(n)</code> is used as a
+<b>benchmark</b>, a program that tests the speed of a computer.
+Here is a bare-minimum program for <code>fib(n)</code>:
+</p>
+
+<pre>
+class FibonacciCalc
+{
+  public int fib( int n )
+  {
+    if ( n == 1 )
+      return 1;
+    else if ( n == 2 )
+      return 1;
+    else
+      return fib( n-1 ) + fib( n-2 );
+  }
+}
+
+class FibonacciTester
+{
+  public static void main ( String[] args)
+  {
+    int argument = Integer.parseInt( args[0] );
+
+    FibonacciCalc f = new FibonacciCalc();
+    int result = f.fib( argument );
+    System.out.println("fib(" + argument + ") is " + result );
+  }
+}
+</pre>
+
+<p>
+Here are some results of running the program on my IBM ThinkPad 380ED.
+You might wish to run the program on your computer and compare speeds.
+</p>
+
+<center>
+<table border="border" bgcolor="white" bordercolor="brown" cellpadding="8">
+<tr><th bgcolor="pink">N</th><th>10</th><th>20</th><th>30</th><th>35</th><th>40</th><th>45</th></tr>
+<tr><th bgcolor="pink">fib(N)</th><th>55</th><th>6765</th><th>832040</th><th>9227465</th><th>102334155</th><th>1134903170
+</th></tr>
+<tr><th bgcolor="pink">time (sec) </th><th>2</th><th>2</th><th>3</th><th>4</th><th>30</th><th>360</th></tr>
+</table>
+</center>
+
+<p>
+It takes a few seconds for the Java system to load and start running.
+This time is included in these measurements.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Is an <em>iterative</em> version of Fibonacci possible?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Re-entrant Code
+<p>
+</p>
+<ANSWER>
+<p>
+Yes.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>re-entrant code</INDEX>
+<p>
+An iterative version of the Fibonacci series is certainly possible,
+since an iterative version of any recursive program always is possible.
+It runs much faster than the recursive version.
+You may wish to figure out how to write this program.
+</p>
+
+<p>
+As the Fibonacci code executes, there are several activations
+of the <code>fib()</code> method on the activation chain.
+Each activation is an individual entity that embodies a particular evaluation
+of the method with particular parameters.
+The activation for <code>fib(5)</code> is an
+individual entity that calls for the creation of other entities:
+the activation of <code>fib(4)</code> and <code>fib(3)</code>.
+</p>
+
+<p>
+An activation is like a software object.
+Each activation represents a distinct execution of its method
+(like each object is an distinct instance of its class).
+Each activation  has its own values for its parameters
+(like each object has its own values for its
+instance variables).
+</p>
+
+<p>
+Not all programming languages allow this.
+Old versions of FORTRAN and COBOL do not allow multiple
+activations of the same code.
+</p>
+
+<p>
+<b>Re-entrant</b> code allows multiple, simultaneous activations
+which do not interfere with each other.
+Java and all modern languages are re-entrant.
+</p>
+
+<p>
+Re-entrant code is important for more than just recursion.
+For example, the graphical objects displayed on the user interface of
+a modern computer system are all controlled by one set of methods.
+These methods are re-entrant, so that only one
+copy is needed no matter how many windows and icons
+are on the display.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Are you using re-entrant code right now?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>End of the Chapter
+<p>
+</p>
+<ANSWER>
+<p>
+Yes.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+You have reached the end this chapter.
+You may wish to review the following.
+Click on a subject that interests you to go to where it was discussed.
+</p>
+
+<UL>
+<LI>
+<GOTO>factorial, definition</GOTO>Factorial function.
+</LI>
+
+<LI>
+<GOTO>factorial, activation chain</GOTO>Activation chain of factorial method.
+</LI>
+
+<LI>
+<GOTO>defensive programming</GOTO>Defensive programming.
+</LI>
+
+<LI>
+<GOTO>factorial, iterative</GOTO>Iterative Java method for factorial.
+</LI>
+
+<LI>
+<GOTO>Fibonacci series</GOTO>Fibonacci series.
+</LI>
+
+<LI>
+<GOTO>Fibonacci, Java method</GOTO>Java method for Fibonacci series.
+</LI>
+
+<LI>
+<GOTO>Fibonacci, activation chain</GOTO>Activation chain with Fibonacci series.
+</LI>
+
+<LI>
+<GOTO>benchmark</GOTO>Computer benchmarks.
+</LI>
+
+<LI>
+<GOTO>re-entrant code</GOTO>Re-entrant code
+</LI>
+
+</UL>
+
+<hr>
+
+<br />
+<br />
+<A HREF="../../cs151java.html#72">
+<img src="../contents.gif" alt="Click here" align="center"> </A>
+&nbsp; &nbsp; Back to the main menu.
+<br />
+<br />
+
+</CAI>
+</CHAPTER>

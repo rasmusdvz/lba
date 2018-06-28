@@ -1,0 +1,14 @@
+<!-- call by value -->
+<li><a href="ch34B_2.html#call by value">call by value</a></li>
+<!-- primitive data -->
+<li><a href="ch34B_3.html#primitive data">primitive data</a></li>
+<!-- parameter passing -->
+<li><a href="ch34B_4.html#parameter passing">parameter passing</a></li>
+<!-- return statement -->
+<li><a href="ch34B_5.html#return statement">return statement</a></li>
+<!-- parameter, object reference -->
+<li><a href="ch34B_6.html#parameter, object reference">parameter, object reference</a></li>
+<!-- parameter, mutable object reference -->
+<li><a href="ch34B_10.html#parameter, mutable object reference">parameter, mutable object reference</a></li>
+<!-- call by value, object reference -->
+<li><a href="ch34B_12.html#call by value, object reference">call by value, object reference</a></li>

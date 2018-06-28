@@ -1,0 +1,433 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN"/>
+<html>
+<head>
+<meta name="copyright" content="2003" />
+<meta name="author" content="B. P. Kjell" />
+<meta name="email" content="kjell@ieee.org" />
+<meta name="robots" content="noindex,nofollow" />
+<title>
+<img src="quizPencil.gif"/>
+ on Recursion with Java
+</title>
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css" />
+
+<script language="JavaScript">
+function gradeQuiz( reportForm ) 
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+</script>
+</head>
+<body>
+<p><small>Created 01/07/03 </small></p>
+<hr/><center><h1>
+<img src="quizPencil.gif"/>
+ on Recursion with Java
+</h1></center>
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br clear="all"/>
+
+
+<hr/>
+<form name="question1">
+<p>
+1.
+
+Which answer is a correct skeleton for a recursive Java method?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+int solution( int N )
+{
+  if ( <em><b>base case</b></em> )
+  {
+    return <em><b>something easily computed</b></em>
+  }
+  else
+  {
+    <em><b>divide problem into pieces</b></em>
+    return <em><b>something calculated from the solution to each piece</b></em>  
+  }
+}
+</pre>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+int solution( int N )
+{
+  if ( <em><b>base case</b></em> )
+  {
+    return <em><b>something easily computed</b></em>
+  }
+  else
+  {
+    return <em><b>solution(N)</b></em>  
+  }
+}
+</pre>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+int solution( int N )
+{
+  <em><b>divide problem into pieces</b></em>
+  return <em><b>something calculated from the solution to each piece</b></em>  
+}
+</pre>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+int solution( int N )
+{
+  <em><b>divide problem into pieces</b></em>
+
+  if ( <em><b>base case</b></em> )
+  {
+    return <em><b>something easily computed</b></em>
+  }
+  else
+  {
+    return <em><b>something calculated from the solution to each piece</b></em>  
+  }
+}
+</pre>
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question2">
+<p>
+2.
+
+Consider <b><em>square numbers</em></b> defined as follows:
+<blockquote>
+<pre>
+square(1) = 1
+square(N) = square(N-1) + 2N -1
+</pre>
+</blockquote>
+<p>
+According to this definition, what is <code>square(3)</code>?
+</p>
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>square(3) = square(2) + square(1)</code>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>square(3) = square(2) - 2*3 +1</code>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>square(3) = square(2) + 2*3 -1</code>
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<code>square(3) = square(3) + 2*3 -1</code>
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question3">
+<p>
+3.
+
+Look at square numbers again:
+<blockquote>
+<pre>
+square(1) = 1
+square(N) = square(N-1) + 2N -1
+</pre>
+</blockquote>
+<p>
+Which Java method below successfully implements this definition?
+</p>
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+int square( int N )
+{
+  if ( N&lt;1 )
+  {
+    return 1;
+  }
+  else
+  {
+    return N*N;
+}
+</pre>
+
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+int square( int N )
+{
+  if ( N==1 )
+  {
+    return 1;
+  }
+  else
+  {
+    return square(N-1) + 2*N - 1;  
+  }
+}
+</pre>
+
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+int square( int N )
+{
+  if ( N=1 )
+  {
+    return 1;
+  }
+  else
+  {
+    return square(N-1) + 2*N - 1;  
+  }
+}
+</pre>
+
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+<pre>
+int square( int N )
+{
+  if ( N==1 )
+  {
+    return 1;
+  }
+  else
+  {
+    return square(N);  
+  }
+}
+</pre>
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question4">
+<p>
+4.
+
+Look at square numbers one more time:
+<blockquote>
+<pre>
+square(1) = 1
+square(N) = square(N-1) + 2N -1
+</pre>
+</blockquote>
+
+<p>
+Assume the definition has been implemented correctly.
+How many activations will there be on the <b>activation chain</b>
+if <code>main()</code> calls <code>square(5)</code>?
+</p>
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+1
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+3
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+5
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+6
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question5">
+<p>
+5.
+
+What are two ways to view recursion?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+ 
+(i) static view, and (ii) dynamic view.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+ 
+(i) recursive view, and (ii) iterative view.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+ 
+(i) math view, and (ii) programming view
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+ 
+(i) code view, and (ii) translation view
+
+</tr></td>
+
+</table>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+<hr/>
+<form name="evaluateQuest">
+<center>
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</center>
+<p>
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+<hr/>
+<a href="../../cs151java.html#70"><img src="../contents.gif"alt="Click here" align="left" hspace="10" vspace="25"> </a> <p>
+If you have returned here from another page,
+or have re-loaded this page, you will need to click again on
+each of your choices for the grading program to work correctly.
+You may want to press the SHIFT KEY while clicking to clear
+the old answers.
+</p>
+</body>
+</html>

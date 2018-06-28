@@ -1,0 +1,283 @@
+<!--  INSTRUCTIONS FOR MAKING YOUR OWN FLASH CARDS:
+
+<p>
+1.  Modify this file with a text editor, such as Notepad.
+
+2.  Each card consists of a questions[] answers[] pair.
+
+3.  The cards are numbered from 0 to N-1.
+
+4.  For each questions[] line, enter a question between the quote marks
+      (replacing what is already there.)  Keep everything on one line.
+
+8.  For its answers[] line, enter the answer between the quote marks
+      (replacing what is already there.)  Keep everything on one line.
+
+9.  Delete any extra pairs you don't need, or add extra ones as needed.
+      (Use the editor's cut, copy, and paste to make this easy.)
+      Number added cards following the pattern of the first ones.
+
+10. Change the line var numCards  = N to the number of cards you now have.
+      (Example: if you have 10 cards, they will be numbered 0 to 9 and
+      var NumCards = 10)
+
+11. Save the file.  Use a file name like "flashCards.html"  .
+
+12. Use the flash cards by clicking on the file name, or by opening them in
+    your browser.
+
+-->
+
+<html>
+<head>
+<title>Vokabeltraining - Kapitel 2</title>
+
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name"translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css" />
+
+
+
+<script language="JavaScript">
+<!--
+  var numCards  = 20                        // change this to the number of cards
+  var questions = new Array(numCards)
+  var answers   = new Array(numCards)
+  var asked     = new Array(numCards)
+  var qNumber
+
+  // The flash cards start here
+  questions[0] = "Binär bedeutet?"
+  answers  [0] = "Zwei Zustände."
+
+  questions[1] = "Ein Bit ist...?"
+  answers  [1] = "ein einzelner binärer (an/aus) Wert."
+
+  questions[2] = "Was sind die 4 Vorteile des Binären?"
+  answers  [2] = "1. Einfach; leicht herzustellen.\n2. Eindeutige Signale (daher störunanfällig).\n3. Fehlerfreie Kopien können gemacht werden.\n4. Alles was in einer bestimmten Art von Muster dargestellt werden kann, kann mit Bitmustern dargestellt werden."
+
+  questions[3] = "Diskret bedeutet...?"
+  answers  [3] = "eindeutige Zustände zu haben."
+
+  questions[4] = "Was bedeutet es, dass ein binäres Signal eindeutig ist?"
+  answers  [4] = "Es ist leicht zu sagen in welchem seiner zwei Zustände es sich befindet."
+
+  questions[5] = "Um welche Art von Signal handelt es sich, wenn der präzise Wert zu einem gegebenen Zeitpunkt wichtig ist?"
+  answers  [5] = "Analog."
+
+  questions[6] = "Wie werden unbedeutende, zufällige Signale genannt, die in ein analoges Signal geraten?"
+  answers  [6] = "Störgeräusche (Rauschen)."
+
+  questions[7] = "Verliert ein binäres Signal, jedes Mal wenn es kopiert wird, an Information?"
+  answers  [7] = "Nein."
+
+  questions[8] = "Verliert ein analoges Signal, jedes Mal wenn es kopiert wird, an Information?"
+  answers  [8] = "Ja."
+
+  questions[9] = "Wie heißt die Geschwindigkeit, in der ein Prozessor den Wert seiner binären Signale überprüft?"
+  answers  [9] = "Taktgeschwindigkeit."
+
+  questions[10] = "Wie wird der bestimmte Satz von Bitmustern genannt, der oft verwendet wird, um die Zeichen des lateinischen (Latin) Alphabets darzustellen?"
+  answers  [10] = "ASCII."
+
+  questions[11] = "Digital bedeutet...?"
+  answers  [11] = "eindeutige Zustände zu haben."
+
+  questions[12] = "Kann Farbe in Bits dargestellt werden?"
+  answers  [12] = "Ja -- bestimmten Farben werden bestimmte Bitmuster zugewiesen."
+
+  questions[13] = "Kann jedes Alphabet in Bits dargestellt werden?"
+  answers  [13] = "Ja."
+
+  questions[14] = "Was bedeutet MHz (wie in 700 MHz Taktgeschwindigkeit)?"
+  answers  [14] = "Millionen Mal pro Sekunde."
+
+  questions[15] = "Wie wird eine Signalhöhe genannt, die eine binäre 1 von einer binären 0 trennt?"
+  answers  [15] = "Grenzwert."
+
+  questions[16] = "Der Erfinder der beweglichen Drucktype war...?"
+  answers  [16] = "Gutenberg (um 1450 nach Christus)."
+
+  questions[17] = "Wie oft pro Sekunde werden Daten zwischen Hauptspeicher und Prozessor hin und herkopiert?"
+  answers  [17] = "Hunderte von Millionen Mal."
+
+  questions[18] = "Welcher Prozessor ist schneller: ein 400 MHz Pentium oder ein 800 MHz Pentium?"
+  answers  [18] = "Der 800 MHz Pentium."
+
+  questions[19] = "Könnten Millionen von Speicherbits in einem einzelnen Siliziumchip eingesetzt werden, wenn binäre Geräte nicht einfach wären?"
+  answers  [19] = "Nein."
+
+
+  // If you are making your own flashcards, do not modify anythin below this line.
+
+
+
+  // Initialize Variables
+
+  var state    = 0  // state 0 is question, state 1 is answer,
+                    // state 2 is grade,    state 7 is final
+
+  for ( var j=0; j < asked.length; j++ ) asked[j] = 0
+
+function questionClick()
+{
+  var txt
+  var coin
+
+  if ( state == 0 )
+  {
+
+    coin = Math.floor( Math.random()*questions.length )
+    qNumber = coin
+
+    while ( asked[qNumber] == 1 && ((qNumber+1)%questions.length) != coin )
+      qNumber = (qNumber+1)%questions.length
+
+    if ( ((qNumber+1)%questions.length) == coin )
+    {
+      state = 7
+      txt = "Sie haben die Vokabelübung beendet.\n"
+
+      txt +=  "Anzahl der Fragen: " + document.aForm.count.value + "\n"
+      txt +=  "Richtige Antworten: " + document.aForm.numRight.value + "\n"
+      txt +=  "Richtige in Prozent: " +
+          Math.round((document.aForm.numRight.value*100)/document.aForm.count.value) + "\n"
+      document.aForm.questionArea.value = txt
+    }
+
+    else
+    {
+      state = 1
+      document.aForm.count.value++;
+      document.aForm.Counter.value = " " + document.aForm.count.value
+
+      document.aForm.questionArea.value  =  questions[qNumber] + "\n"
+      document.aForm.answerArea.value = " "
+    }
+
+  }
+}
+
+function answerClick()
+{
+  if ( state == 1 )
+  {
+    state = 2
+    document.aForm.answerArea.value =  answers[qNumber]
+  }
+}
+
+function rightClick()
+{
+  if ( state == 2 )
+  {
+    state = 0
+    document.aForm.numRight.value++
+    document.aForm.Right.value = " " + document.aForm.numRight.value
+    document.aForm.Wrong.value = " " + document.aForm.numWrong.value
+    asked[qNumber] = 1
+  }
+}
+
+function wrongClick()
+{
+  if ( state == 2 )
+  {
+    state = 0
+    document.aForm.numWrong.value++
+    document.aForm.Right.value = " " + document.aForm.numRight.value
+    document.aForm.Wrong.value = " " + document.aForm.numWrong.value
+  }
+}
+
+//-->
+</script>
+</head>
+
+<body>
+<small>&uuml;bersetzt 05.09.03; &uuml;berarbeitet 06.04.04, 22.08.06; &copy; Copyright 2003 - 2006  Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<center>
+<h1>Vokabeltraining - analoge und bin&auml;re Signale</h1>
+</center>
+
+<form name="aForm">
+<center>
+<textarea name="questionArea" rows="5" cols="70" wrap="physical" readonly="readonly">
+Hinweise: Die Vokabel&uuml;bung besteht aus 20 Fragen.
+Schritt 1: Klicken Sie auf den Button &quot;1. Frage stellen&quot;, um die Frage zu sehen.
+Beantworten Sie f&uuml;r sich die Frage.
+</textarea>
+
+<textarea name="answerArea" rows="6" cols="70" wrap="physical" readonly="readonly">
+Schritt 2: Klicken Sie auf den Button &quot;2. Antwort zeigen&quot;, um die richtige Antwort zu sehen.
+Schritt 3: Bewerten Sie dann Ihre Antwort, indem Sie auf &quot;Richtig&quot; oder &quot;Falsch&quot; klicken.
+Wiederholen Sie die Schritte 1 bis 3.
+</textarea>
+
+<p>
+Bisher gestellte Fragen
+&nbsp;&nbsp;
+<input type=text name="Counter" size=5 value="" readonly="readonly" />
+&nbsp;&nbsp;
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="Right" size=5 value="" readonly="readonly" />
+&nbsp;&nbsp;
+Falsche Antworten:
+&nbsp;&nbsp;
+<input type=text name="Wrong" size=5 value="" readonly="readonly" />
+</p>
+
+<input type="button"
+  name="questionButton"
+  value="1. Frage stellen"
+  onclick="questionClick()" />
+
+&nbsp;
+
+<input type="button" name="answerButton"
+  value="2. Antwort zeigen"
+  onclick="answerClick()" />
+
+&nbsp;
+
+<input type="button" name="rightButton"
+  value="3. Richtig"
+  onclick="rightClick()" />
+
+oder
+
+<input type="button" name="wrongButton"
+  value="3. Falsch"
+  onclick="wrongClick()" />
+
+<input type="hidden" name="numRight" value="0" />
+<input type="hidden" name="numWrong" value="0" />
+<input type="hidden" name="count" value="0" />
+</center>
+</form>
+
+<hr />
+<p>
+<b>Hinweise:</b>&nbsp;Die Vokabel&uuml;bung besteht aus 20 Fragen.
+Klicken Sie auf den Button &quot;1. Frage stellen&quot;, um die Frage zu sehen.
+Beantworten Sie f&uuml;r sich die Frage.
+Klicken Sie auf den Button &quot;2. Antwort zeigen&quot;, um die richtige Antwort zu sehen.
+Bewerten Sie dann Ihre Antwort, indem Sie auf &quot;Richtig&quot; oder &quot;Falsch&quot; klicken.
+Wiederholen Sie die Schritte 1 bis 3.
+</p>
+
+<p>
+Falsche Antworten werden wieder verwendet. Die richtig beantworteten Fragen werden aus dem Stapel der Karteikarten entfernt. Das Vokabeltraining ist abgeschlossen, sobald Sie alle Fragen richtig beantwortet haben.</p>
+
+
+<hr />
+<p>Zur&uuml;ck zum  <a href="../../index.html#02">Inhaltsverzeichnis</a>.</p>
+
+<p><small>Wenn Sie sich eine eigene Vokabel&uuml;bung erstellen m&ouml;chten, speichern Sie die Datei ab. &Ouml;ffnen Sie dann die Datei mit Ihrem Texteditor (bzw. HTML Editor) und folgen Sie den Anweisungen.</small>
+</p>
+
+</body>
+</html>

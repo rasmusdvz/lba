@@ -1,0 +1,479 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css" />
+<title>
+Quiz &uuml;ber Kapitel Drei
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" /></head>
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+
+<body>
+<p><small>&uuml;berarbeitet 16.01.00; &uuml;bersetzt 11.09.03; &uuml;berarbeitet 06.04.04, 22.08.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small></p><hr>
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+Quiz &uuml;ber Kapitel Drei
+<!-- end of Quiz Name -->
+</h1></center>
+
+<body>
+<img src="quizScroll.gif" align=left vspace=20 hspace=20 />
+<br />
+<br />
+
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+Entscheiden Sie sich bei jeder Frage f&uuml;r die beste Antwort. Klicken Sie dann auf das entsprechende Optionsk&auml;stchen, um diese Antwort auszuw&auml;hlen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Sobald das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox unterhalb der Frage.
+</p>
+
+<hr />
+<form name="question1">
+<p>
+1.
+<!-- FILL in Question 1-->
+Was ist ein Bit?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Ein einzelner An/Aus-Wert.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Ein Wert von "eins".
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ein gro&szlig;er Abschnitt Computerspeicher.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Genug Speicher, um ein Zeichen zu speichern.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr/>
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+Welche der folgenden Aussagen ist FALSCH?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Die Methode, die verwendet wird um ein Bit zu implementieren, hat keine Auswirkung auf die Information, die es darstellt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Ein Bit kann als ein winziger Teil einer Magnetplatte implementiert sein.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Das Kopieren eines Bits von einem Medium auf ein anderes hat keine Auswirkung auf die Information, die es repr&auml;sentiert.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ein Bit ist immer als etwas elektronisches implementiert.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+Wie wird eine Gruppe von 8 Bits &uuml;blicherweise genannt?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Ein Bite.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Ein Bight.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ein Byte.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ein Blight.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+Wie viel Speicher ist ein Megabyte?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Ungef&auml;hr 100 Bytes.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Ungef&auml;hr 1000 Bytes.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ungef&auml;hr eine Million Bytes.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ungef&auml;hr eine Milliarde Bytes.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr/>
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+Wie viel ist 2<sup>5</sup> * 2<sup>3</sup> ?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+2<sup>8</sup>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+2<sup>10</sup>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+4<sup>8</sup>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+10<sup>6</sup>
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr/>
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+Welche der folgenden Aussagen ist FALSCH?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Jedes Byte des Hauptspeichers besitzt eine eindeutige Adresse.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Hauptspeicher besteht aus einer sehr langen Liste von Bytes.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Jede Speicherstelle kann eine beliebige Anzahl von Bits speichern.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Speicheradressen sind positive ganze Zahlen und beginnen mit 0.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+Was sind die zwei grunds&auml;tzlichen Dinge, die ein Prozessor mit
+einem Byte des Hauptspeichers tun kann?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Er kann 8 Bits in ein Speicherbyte schreiben und er kann
+8 Bits aus einem Speicherbyte lesen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Er kann ein Byte des Hauptspeichers l&ouml;schen und er kann
+ein Byte des Hauptspeichers lesen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Er kann Werte aus dem Hauptspeicher einer Summe hinzuf&uuml;gen und er kann
+den Wert auf den Bildschirm ausgeben.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Er kann ein Byte in den Sekund&auml;rspeicher schreiben und er kann
+ein Byte aus dem Sekund&auml;rspeicher lesen.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+Was ist eine Datei?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Eine Datei ist ein Abschnitt des Hauptspeichers, der f&uuml;r die Speicherung von Daten verwendet wird.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Eine Datei ist eine Sammlung von Information, die einen Namen bekommen hat und die auf dem Sekund&auml;rspeicher gespeichert ist.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Eine Datei ist ein Teil eines Programms, der verwendet wird, um zu beschreiben was das Programm tun soll.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Datei ist ein anderer Name f&uuml;r Diskette.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr/>
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+Wie werden Bytes auf die Festplatte geschrieben?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Winzige L&ouml;cher in der Platte repr&auml;sentieren die Bits.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Die Platte ist mit Wachs &uuml;berzogen, auf dem die Bits als winzige Aufdr&uuml;cke aufgezeichnet werden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Bits werden mit Tintenstrahl auf die Platte gedruckt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Bits werden magnetisch auf der Platte aufgezeichnet.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+Welche Rolle spielt das Betriebssystem bei der Handhabung von Dateien?
+<!-- end of question -->
+</p>
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Das Betriebssystem hat mit Dateien nichts zu tun; es h&auml;lt nur die Hardware am Laufen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Das Betriebssystem  ist nur mit den Dateien befasst, die es selbst braucht.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Alles was im Computersystem mit Dateien gemacht wird bezieht das Betriebssystem mit ein.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Das Betriebssystem greift auf Dateien zu, die Applikationsprogramme enthalten
+und startet die Applikation,
+aber die Applikation managt ihre eigenen Dateien v&ouml;llig allein.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)" />
+</center>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5" />
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5" />
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5" />
+</form>
+
+<table border="0">
+<tr>
+<td valign="top">
+<a href="../../java-toc.html#03">
+<img src="../contents.gif" alt="Inhalt" title="Zur&uuml;ck zum Inhaltsverzeichnis" border="0" /></a>
+</td>
+<td>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</td>
+</tr>
+</table>
+<p> Um die alten Antworten zu l&ouml;schen, halten Sie die Umschalt-Taste (beim Internet Explorer Strg + Umschalt-Taste) gedr&uuml;ckt und laden dann die Seite neu.</p>
+<p>Zur&uuml;ck zum  <a href="../../java-toc.html#03">Inhaltsverzeichnis</a>.</p>
+
+</body>
+</html>

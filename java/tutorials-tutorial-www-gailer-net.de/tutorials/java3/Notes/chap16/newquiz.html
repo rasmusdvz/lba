@@ -1,0 +1,566 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css" />
+<!-- FILL in the Quiz Name between title and /title -->
+<title>
+Counting Loop Quiz
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+</head>
+
+<script language="JavaScript">
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+ 
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;   
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else 
+    reportForm.letter.value = "hmm.."
+    
+}
+</script>
+
+<body>
+<body>
+<center><h1>
+<!-- FILL in the Quiz Name -->
+Counting Loop Quiz
+<!-- end of Quiz Name -->
+</h1></center> 
+<img src="spiralQuiz.gif" align=left vspace=15 hspace=15 >
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make you choice by clicking on its button.
+You can change your answers at any time.
+(When the quiz is graded, the correct answers will appear in the box after each question.)
+</p>
+<br clear>
+<hr/>
+<form name="question1">
+<p>
+1.
+<!-- Fill in a Question -->
+What three parts of a counting loop must be coordinated in order
+for the loop to work properly? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+initializing the counter, testing the counter, changing the counter
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+initializing the condition, changing the condition, terminating the loop
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+the <em>while</em>, the <em>assignment</em>, and the <em>loop body</em> 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+the <em>while</em> statement, the <em>if</em> statement, and sequential execution.
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question2">
+<p>
+2.
+<!-- Fill in a Question -->
+Another word for "looping" is: 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+recapitulation 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+tintinabulation
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+iteration 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+reiteration 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="C"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question3">
+<p>
+3.
+<!-- Fill in a Question -->
+What makes a loop a counting loop? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+A loop control variable is tested in the <em>while</em> statement, 
+and is changed each time the loop body executes, 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+A counter is counted upwards by one until it hits a particular limit.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+A counter is counted downwards by one until it hits zero.
+ <!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+No loop control variables are used. 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question4">
+<p>
+4.
+<!-- Fill in a Question -->
+Examine the following code:
+</p>
+
+<blockquote>
+<pre>
+    int count = 0;                                  
+    while ( count &lt;= 6 )  
+    {
+      System.out.print( count + " " );
+      count = count + 2; 
+    }
+    System.out.println(  );
+</pre>
+</blockquote>
+
+<p>
+What does this code print on the monitor? 
+</p>
+
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+1 2 3 4 5 6 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+0 2 4 6 8
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+0 2 4  
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+0 2 4 6 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question5">
+<p>
+5.
+<!-- Fill in a Question -->
+Examine the following code:
+</p>
+
+<blockquote>
+<pre>
+    int count = 7;                                  
+    while ( count &gt;= 4 )  
+    {
+      System.out.print( count + " " );
+      count = count - 1; 
+    }
+    System.out.println(  );
+</pre>
+</blockquote>
+
+<p>
+What does this code print on the monitor? 
+</p>
+ 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+1 2 3 4 5 6 7 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+7 6 5 4
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+6 5 4 3 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+7 6 5 4 3 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="B"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question6">
+<p>
+6.
+<!-- Fill in a Question -->
+Examine the following code:
+</p>
+
+<blockquote>
+<pre>
+    int count = -2 ;                                  
+    while ( count &lt; 3 )  
+    {
+      System.out.print( count + " " );
+      count = count + 1; 
+    }
+    System.out.println(  );
+</pre>
+</blockquote>
+
+<p>
+What does this code print on the monitor? 
+</p>
+ 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+-2 -1 1 2 3 4 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+-2 -1 1 2 3
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+-3 -4 -5 -6 -7 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+-2 -1 0 1 2 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question7">
+<p>
+7.
+<!-- Fill in a Question -->
+Examine the following code:
+</p>
+
+<blockquote>
+<pre>
+    int count =  1;                                  
+    while ( count &lt; 5 )  
+    {
+      System.out.print( count + " " );
+    }
+    System.out.println(  );
+</pre>
+</blockquote>
+<p>
+What does this code print on the monitor? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+1 2 3 4 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+1 2 3 4 5
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+2 3 4  
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+1 1 1 1 1 1 1 1 1 1 1 . . . . 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question8">
+<p>
+8.
+<!-- Fill in a Question -->
+Examine the following code:
+</p>
+
+<blockquote>
+<pre>
+    int count =  1;                                  
+    while (  ___________ )  
+    {
+      System.out.print( count + " " );
+      count = count + 1;
+    }
+    System.out.println(  );
+</pre>
+</blockquote>
+<p>
+What condition should be used so that the code writes out:
+</p>
+<blockquote>
+<pre>
+1 2 3 4 5 6 7 8
+</pre>
+</blockquote>
+ 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+count &lt; 8 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+count &lt; 9
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+count+1 &lt;= 8 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+count != 8 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="B"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question9">
+<p>
+9.
+<!-- Fill in a Question -->
+Which of the following situation most likely does NOT call for a counting loop? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+Adding up all the integers between zero and one hundred. 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+Writing out a table of Fahrenheit and Celcius temperature equivalents.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+Prompting the user of a program until the user responds with correct information. 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Making the computer beep ten times. 
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="C"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question10">
+<p>
+10.
+<!-- Fill in a Question -->
+What is the most common type of bug in software? 
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+The "wrong way" problem, where a two way decision is written incorrectly. 
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+The "wrong operator" problem, where an arithmetic expression does not mean what
+the programmer thought it did.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+The "unititialized variable" problem, where a variable is used in an expression before its
+contents have been initialized. 
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+The "off by one" problem, where a counting loop executes its 
+body one time too many or one time too few.
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+
+
+<hr>
+<form name="evaluateQuest">
+
+<center>
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</center>
+<p>
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size=5>
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size=5>
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size=5>
+</p>
+</form>
+
+<table>
+<tr>
+<td>
+<A HREF="../../cs151java.html#16">
+<img src="../contents.gif" alt="Click here" align="center"> </A> 
+</td>
+<td>
+(If you have just returned here from another page, 
+or have re-loaded this page, you will need to click again on 
+each of your choices for the grading program to work correctly.
+You may want to press the "shift key" while clicking on reload to clear
+the old answers.)
+</td>
+</tr>
+</table>
+
+<hr/>
+
+
+</body>
+</html>

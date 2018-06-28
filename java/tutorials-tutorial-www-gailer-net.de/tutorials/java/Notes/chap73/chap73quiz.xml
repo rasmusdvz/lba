@@ -1,0 +1,430 @@
+<QUIZ>
+
+<QHEAD>
+<QCREATION>Created 01/07/03 </QCREATION>
+<QAUTHOR>B. P. Kjell</QAUTHOR>
+<QEMAIL>kjell@ieee.org</QEMAIL>
+<QCOPYRIGHT>2003</QCOPYRIGHT>
+<QCSSFILE>../QUIZstyle.css</QCSSFILE>
+<QRETURNTO>../../cs151java.html#70</QRETURNTO>
+<QRETURNIMAGE>../contents.gif</QRETURNIMAGE>
+</QHEAD>
+
+<QTITLE>
+<img src="quizPencil.gif"/>
+ on More Recursion
+</QTITLE>
+
+<QTOP>
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br clear="all"/>
+</QTOP>
+
+<QUESTION>
+<QTEXT>
+Here is another definition
+for integers N and M.
+Assume <nobr>0&lt;=N</nobr> and <nobr>0&lt;M</nobr>.
+<blockquote>
+<pre>
+mod( N, M ) = N, if N &lt; M
+mod( N, M ) = mod( N-M, M ), if N &gt;= M
+</pre>
+</blockquote>
+
+<p>
+What is the value of <nobr>mod(2, 5)</nobr>?
+</p>
+
+</QTEXT>
+
+<QRIGHT>
+2
+</QRIGHT>   
+
+<QWRONG>
+5
+</QWRONG>   
+ 
+<QWRONG>
+7
+</QWRONG>   
+ 
+<QWRONG>
+17
+</QWRONG>   
+
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+What is the value of <nobr>mod(17, 5)</nobr>?
+</QTEXT>
+
+<QRIGHT>
+2
+</QRIGHT>   
+
+<QWRONG>
+5
+</QWRONG>   
+ 
+<QWRONG>
+7
+</QWRONG>   
+ 
+<QWRONG>
+17
+</QWRONG>   
+
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Here (again) is the definition of mod()
+for integers N and M.
+Assume <nobr>0&lt;=N</nobr> and <nobr>0&lt;M</nobr>.
+<blockquote>
+<pre>
+mod( N, M ) = N, if N &lt; M
+mod( N, M ) = mod( N-M, M ), if N &gt;= M
+</pre>
+</blockquote>
+
+<p>
+Which of the following methods
+correctly implements it?
+</p>
+
+</QTEXT>
+
+<QWRONG>
+<pre>
+int mod( int N, int M )
+{
+  if ( N &gt; M )
+    return M;
+  else
+    return mod( M-N, M );
+}
+</pre>
+</QWRONG>   
+ 
+<QWRONG>
+<pre>
+int mod( int N, int M )
+{
+  if ( M &lt; N )
+    return 1;
+  else
+    return mod( N-M, M );
+}
+</pre>
+</QWRONG>   
+
+<QRIGHT>
+<pre>
+int mod( int N, int M )
+{
+  if ( N &lt; M )
+    return N;
+  else
+    return mod( N-M, M );
+}
+</pre>
+</QRIGHT>   
+ 
+<QWRONG>
+<pre>
+int mod( int N, int M )
+{
+  if ( N &lt; M )
+    return N;
+  if ( N &gt; M )
+    return mod( N-M, M );
+}
+</pre>
+</QWRONG>   
+
+</QUESTION>   
+
+
+<QUESTION>
+<QTEXT>
+Here is another crazy definition,
+for integers N and M.
+Assume <nobr>0&lt;=N</nobr> and <nobr>0&lt;M</nobr>.
+<blockquote>
+<pre>
+div( N, M ) = 0, if N &lt; M
+div( N, M ) = 1 + div( N-M, M ), if N &gt;= M
+</pre>
+</blockquote>
+<p>
+What is <code>div( 7, 5 )</code> ?
+</p>
+</QTEXT>
+
+<QWRONG>
+0
+</QWRONG>   
+ 
+<QRIGHT>
+1
+</QRIGHT>   
+
+<QWRONG>
+2
+</QWRONG>   
+ 
+<QWRONG>
+5
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+What is <code>div( 17, 5 )</code> ?
+</QTEXT>
+
+<QWRONG>
+1
+</QWRONG>   
+ 
+<QWRONG>
+2
+</QWRONG>   
+ 
+<QRIGHT>
+3
+</QRIGHT>   
+
+<QWRONG>
+4
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Here is our definition, again,
+for integers N and M.
+Assume <nobr>0&lt;=N</nobr> and <nobr>0&lt;M</nobr>.
+<blockquote>
+<pre>
+div( N, M ) = 0, if N &lt; M
+div( N, M ) = 1 + div( N-M, M ), if N &gt;= M
+</pre>
+</blockquote>
+<p>
+Which one of the following correctly implements it ?
+</p>
+</QTEXT>
+
+<QWRONG>
+<pre>
+int div( int N, int M )
+{
+  if ( N &lt; M )
+    return N;
+  else
+    return div( N-M, M );
+}
+</pre>
+</QWRONG>   
+ 
+<QRIGHT>
+<pre>
+int div( int N, int M )
+{
+  if ( N &lt; M )
+    return 0;
+  else
+    return 1+div( N-M, M );
+}
+</pre>
+</QRIGHT>   
+
+<QWRONG>
+<pre>
+int div( int N, int M )
+{
+  if ( N == M )
+    return N;
+  else
+    return div( N-M, M );
+}
+</pre>
+</QWRONG>   
+ 
+<QWRONG>
+<pre>
+int div( int N, int M )
+{
+  if ( N &lt; M )
+    return 0;
+  else
+    return 1+div( N-M, N );
+}
+</pre>
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Which of the following correctly tests if <code>str</code>
+is the empty string?
+</QTEXT>
+
+<QWRONG>
+str == ""
+</QWRONG>   
+ 
+<QWRONG>
+str == 0
+</QWRONG>   
+ 
+<QWRONG>
+str.length = 0
+</QWRONG>   
+
+<QRIGHT>
+str.length() == 0
+</QRIGHT>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Which of the following evaluates to
+the first character of <code>str</code>?
+</QTEXT>
+
+<QWRONG>
+str[0]
+</QWRONG>   
+ 
+<QWRONG>
+str[1]
+</QWRONG>   
+ 
+<QWRONG>
+str.substring(0)
+</QWRONG>   
+
+<QRIGHT>
+str.charAt(0)
+</QRIGHT>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Here is another definition.
+Assume that <code>x</code> is a variable that represents a single character
+and that  <code>X</code> represents a string.
+The operator "+" means concatenation.
+<blockquote>
+<pre>
+rev( "" ) = ""
+rev( x+X ) = rev(X) + x
+</pre>
+</blockquote>
+<p>
+What is <code>rev( "fooey" )</code>?
+</QTEXT>
+
+<QWRONG>
+"ooeyf"
+</QWRONG>   
+ 
+<QWRONG>
+"ooey"
+</QWRONG>   
+ 
+<QWRONG>
+"Fooey"
+</QWRONG>   
+
+<QRIGHT>
+"yeoof"
+</QRIGHT>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Here is the definition.
+<blockquote>
+<pre>
+rev( "" ) = ""
+rev( x+X ) = rev(X) + x
+</pre>
+</blockquote>
+<p>
+Which of the following correctly implements it?
+</p>
+</QTEXT>
+
+<QWRONG>
+<pre>
+String  rev( String str )
+{
+  if ( str == ""  )
+    return str;
+  else
+    return rev( str.substring(1) ) + str.charAt(0);
+}
+</pre>
+</QWRONG>   
+ 
+<QRIGHT>
+<pre>
+String  rev( String str )
+{
+  if ( str.length() == 0 )
+    return str;
+  else
+    return rev( str.substring(1) ) + str.charAt(0);
+}
+</pre>
+</QRIGHT>   
+
+<QWRONG>
+<pre>
+String  rev( String str )
+{
+  if ( str.length() == 0 )
+    return str;
+  else
+    return rev( str.substring(0) ) + str.charAt(0);
+}
+</pre>
+</QWRONG>   
+ 
+<QWRONG>
+<pre>
+String  rev( String str )
+{
+  if ( str.length() == 0 )
+    return str;
+  else
+    return rev( str.substring(0) ) + str.charAt(1);
+}
+</pre>
+
+</QWRONG>   
+</QUESTION>   
+
+</QUIZ> 
+ 

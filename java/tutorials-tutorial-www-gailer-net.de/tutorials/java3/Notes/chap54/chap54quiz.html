@@ -1,0 +1,626 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css" />
+<!-- FILL in the Quiz Name between <title> and </title> -->
+<title>
+Quiz &uuml;ber Vektoren und Aufz&auml;hlungen
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="translation" content="Copyright 2004 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+</head>
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+
+<body>
+<p>
+<small>erstellt 06.02.00; &uuml;bersetzt 22.03.04; &uuml;berarbeitet 22.02.05; &copy; Copyright 2004 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+<hr />
+
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+Quiz &uuml;ber Vektoren und Aufz&auml;hlungen
+ <!-- end of Quiz Name -->
+</h1></center>
+<img src="quizBug.gif" align="left" hspace="15" vspace="5" />
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+ W&auml;hlen Sie f&uuml;r jede Frage die beste Antwort und klicken Sie dann auf das entsprechende Optionsk&auml;stchen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Wenn das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox nach jeder Frage.
+</p>
+
+<hr />
+<form name="question1">
+
+<p>
+1.
+<!-- FILL in Question 1-->
+Deklarieren und konstruieren Sie einen <code>Vector</code>
+mit anfangs 20 Slots und einer Inkrementgr&ouml;&szlig;e von 5.
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>Vector v(20) = new Vector(5)</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<code>Vector v = new Vector(20)</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<code>Vector[] v = new Vector(20,5)</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<code>Vector v = new Vector(20, 5)</code>
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr/>
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+Pr&uuml;fen Sie den folgenden Code:
+</p>
+
+<blockquote><pre>
+Vector liste = new Vector(10);
+
+liste.addElement( new Point(5,12) );
+liste.addElement( new Point(15,23) );
+liste.addElement( new Point(62,72) );
+</pre></blockquote>
+
+<p>
+Nachdem der Code ausgef&uuml;hrt wurde, was ist die Kapazit&auml;t des
+<code>Vector</code>-Objekts?  Was ist seine Gr&ouml;&szlig;e?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+3, 3
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+3, 10
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+10, 3
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+10, 10
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+Pr&uuml;fen Sie den folgenden Code:
+</p>
+
+<blockquote><pre>
+Vector liste = new Vector(5, 5);
+
+liste.addElement( new Point(5,12) );
+liste.addElement( new Point(15,23) );
+liste.addElement( new Point(62,72) );
+liste.addElement( new Point(7,8) );
+liste.addElement( new Point(25,43) );
+liste.addElement( new Point(12,76) );
+</pre></blockquote>
+
+<p>
+Nachdem der Code ausgef&uuml;hrt wurde, was ist die Kapazit&auml;t
+des <code>Vector</code>-Objekts? Was ist seine Gr&ouml;&szlig;e?
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+5, 6
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+6, 6
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+10, 6
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+6, 10
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr/>
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+Pr&uuml;fen Sie den folgenden Code:
+</p>
+
+<blockquote><pre>
+Vector liste = new Vector(10);
+
+liste.addElement( "Andy" );
+liste.addElement( "Bart" );
+liste.addElement( "Carl" );
+liste.addElement( "Doug" );
+liste.addElement( "Elmo" );
+</pre></blockquote>
+
+<p>
+Welche der folgenden Anweisungen wird das Element "Carl" durch "Zoltan" ersetzen?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>liste[2] = "Zoltan" ;</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<code>liste.setElementAt(  "Zoltan", 3 );</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<code>liste.setElementAt( "Carl", liste.indexOf("Zoltan") );</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<code>liste.setElementAt( "Zoltan", liste.indexOf("Carl") );</code>
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+Pr&uuml;fen Sie den folgenden Code:
+</p>
+
+<blockquote><pre>
+Vector liste = new Vector(10);
+
+liste.addElement( "Andy" );
+liste.addElement( "Bart" );
+liste.addElement( "Carl" );
+liste.addElement( "Doug" );
+liste.addElement( "Elmo" );
+</pre></blockquote>
+
+<p>
+Welche der folgenden Anweisungen wird die Liste &auml;ndern, so dass sie wie folgt aussieht:
+</p>
+
+<blockquote><pre>
+Andy
+Bart
+Carl
+Doug
+Oscar
+Elmo
+</pre></blockquote>
+<!-- end of question -->
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>liste.insertElementAt( "Oscar", 3) ;</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<code>liste.insertElementAt( "Oscar", 4) ;</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<code>liste.setElementAt( "Oscar", 3) ;</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<code>liste.setElementAt( "Oscar", 4) ;</code>
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+Pr&uuml;fen Sie den folgenden Code:
+</p>
+
+<blockquote><pre>
+Vector liste = new Vector(10);
+
+liste.addElement( "Andy" );
+liste.addElement( "Bart" );
+liste.addElement( "Carl" );
+liste.addElement( "Doug" );
+liste.addElement( "Elmo" );
+</pre></blockquote>
+
+<p>
+Welche der folgenden Anweisungen wird die Liste &auml;ndern, so dass sie wie folgt aussieht:
+</p>
+
+<blockquote><pre>
+Andy
+Bart
+Doug
+Elmo
+</pre></blockquote>
+
+<!-- end of question -->
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>liste.removeElementAt( 3 );</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<code>liste.removeElementAt( liste.elementAt( 2 ) );</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<code>liste.removeElementAt( liste.indexOf( "Carl", 3 ) );</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<code>liste.removeElementAt( liste.indexOf( "Carl" ) );</code>
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+Pr&uuml;fen Sie den folgenden Code:
+</p>
+
+<blockquote><pre>
+Vector liste = new Vector(10);
+
+liste.addElement( "Andy" );
+liste.addElement( "Bart" );
+liste.addElement( "Carl" );
+liste.addElement( "Doug" );
+liste.addElement( "Elmo" );
+</pre></blockquote>
+
+<p>
+Welche der folgenden Anweisungen wird die Liste &auml;ndern, so dass sie wie folgt aussieht:
+</p>
+
+<blockquote><pre>
+Andy
+Bart
+Carl
+Doug
+</pre></blockquote>
+
+<!-- end of question -->
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>liste.removeElementAt( liste.size()-1 );</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<code>liste.removeElementAt( 5 );</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<code>liste.removeElementAt(  liste.lastElement() );</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<code>liste.removeElementAt( liste.capacity() );</code>
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+Pr&uuml;fen Sie den folgenden Code:
+</p>
+
+<blockquote><pre>
+Vector liste = new Vector(10);
+
+liste.addElement( "Andy" );
+liste.addElement( "Bart" );
+liste.addElement( "Carl" );
+liste.addElement( "Doug" );
+liste.addElement( "Elmo" );
+
+for ( Enumeration en = liste.__________; en.____________; )
+  System.out.println( en.___________ );
+</pre></blockquote>
+
+<p>
+F&uuml;llen Sie die L&uuml;cken aus, so dass die Liste ausgegeben wird.
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>elements() &nbsp; &nbsp; &nbsp; hasMoreElements() &nbsp; &nbsp; &nbsp; nextElement()</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<code>getElements() &nbsp; &nbsp;hasMoreElements() &nbsp; &nbsp; &nbsp; nextElement()</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<code>elements() &nbsp; &nbsp; &nbsp; empty() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; nextElement()</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<code>elements() &nbsp; &nbsp; &nbsp; moreElements() &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; getNextElement()</code>
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+Ein <code>Vector</code>-Objekt verh&auml;lt sich wie:
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Ein Array von primitiven Werten.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Ein Array von Referenzen auf Objekte einer bestimmten Klasse.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ein Array von Referenzen auf Objekte der Klasse <code>Object</code>.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ein Array von primitiven Werten oder von Objektreferenzen.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+Welche  <code>equals()</code> Methode
+m&uuml;ssen Sie f&uuml;r eine Klasse &uuml;berschreiben, deren Objekte Sie in einem
+<code>Vector</code> halten m&ouml;chten?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>public boolean equals( Object )</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<code>public boolean equals( Vector )</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<code>boolean equals( Object )</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<code>private int equals( Object )</code>
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)" />
+</center>
+</p>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5" />
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5" />
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5" />
+</p>
+</form>
+<table>
+<tr>
+<td style="white-space:nowrap">
+<A HREF="../../java-toc.html#54">
+<img src="../contents.gif" alt="Inhaltsverzeichnis" align="center"></A>
+&#8212;&#8212; Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#54">Inhaltsverzeichnis</a>.
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+<hr />
+
+</body>
+</html>

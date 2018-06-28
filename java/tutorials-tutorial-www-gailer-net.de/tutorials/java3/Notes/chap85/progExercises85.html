@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+<small>created 06/16/00</small>
+
+<center><h1>Programming Exercises</h1></center>
+<hr />
+<h2>Exercise  1 --- Data Translator</h2>
+
+<p>
+Write a program that asks the user for the name of an input text file.
+The text file (which could be created with NotePad) will contain
+integers in character format, one per line, such as follows.
+</p>
+
+<pre>
+12
+1023
+-56
+84781
+0
+-9371
+</pre>
+
+<p>
+The program also asks for the name of an output file.
+The program then reads the input file line by line until end of file.
+Each input integer is translated
+into <code>int</code> data (use <code>Integer.parseInt()</code>)
+and written to the output file using <code>DataOutputStream.writeInt()</code>.
+</p>
+
+<p>
+Look at the input file and output file with the DOS command DIR
+and, if possible, with a hex dump program.
+</p>
+
+<pre>
+
+C:\Programs&gt;java  IntCopy
+Input file --&gt;ints.txt
+Output file --&gt;ints.bin
+
+C:\Programs&gt;dir
+
+06/16/00  04:33p                 1,881 IntCopy.class
+06/16/00  04:33p                 1,920 IntCopy.java
+06/16/00  04:35p                    24 ints.bin
+06/16/00  04:35p                    30 ints.txt
+</pre>
+
+<p>
+Write the input loop so it catches <code>NumberFormatExceptions</code>
+and echos the offending line.
+Here is another input file:
+</p>
+
+<pre>
+0
+1
+2
+3
+4
+Rats, this won't work
+6
+7
+8
+</pre>
+
+<p>
+And the corresponding run of the program:
+</p>
+
+<pre>
+C:\Programs&gt;dir
+Input file -->oops.txt
+Output file -->opps.bin
+Poor input data:Rats, this won't work
+
+C:\Programs&gt;
+</pre>
+<a href="../../cs151java.html#85">Click here</a> to go back to the main menu.
+
+
+<hr>
+<p>
+End of Exercises.
+</p>
+
+</body>
+</html>

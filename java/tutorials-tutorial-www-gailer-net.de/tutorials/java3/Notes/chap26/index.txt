@@ -1,0 +1,16 @@
+<INDEX>Datentyp</INDEX>
+<INDEX>String, Abbildung eines</INDEX>
+<INDEX>Zuweisungsoperator, zwei Schritte</INDEX>
+<INDEX>Objektreferenzen, Definition</INDEX>
+<INDEX>Zuweisungsoperator, zwei Schritte</INDEX>
+<INDEX>Objektreferenzen, Definition</INDEX>
+<INDEX>Programm, Beispiel für Referenz</INDEX>
+<INDEX>Referenzvariable, Zuweisung an eine</INDEX>
+<INDEX>Objektreferenz, Verwendung</INDEX>
+<INDEX>Garbage</INDEX>
+<INDEX>Garbage Collector, Speicherbereinigung</INDEX>
+<INDEX>== Operator, mit Objektreferenzen</INDEX>
+<INDEX>Alias</INDEX>
+<INDEX>String-Literal</INDEX>
+<INDEX>Literal, String</INDEX>
+

@@ -1,0 +1,576 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<!-- FILL in the Quiz Name between <title> and </title> -->
+<title>
+F&uuml;llen Sie die L&uuml;cken aus
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<small>erstellt: 13.8.99; &uuml;berarbeitet: 05.05.03; &uuml;bersetzt: 19.05.03; &uuml;berarbeitet 19.01.04, 06.07.04, 10.01.05, 11.10.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+F&uuml;llen Sie die L&uuml;cken aus
+<!-- end of Quiz Name -->
+</h1></center>
+
+<p>
+<b>Hinweise:</b> &nbsp;
+Das ist eine unbewertete L&uuml;cken&uuml;bung.
+Jede Frage besteht aus einem Satz, bei dem ein oder zwei W&ouml;rter fehlen.
+Jede Schaltfl&auml;che repr&auml;sentiert das fehlende Wort bzw. die fehlenden W&ouml;rter.
+&Uuml;berlegen Sie welches Wort bzw. welche W&ouml;rter fehlen. Klicken Sie dann auf die Schaltfl&auml;che, um zu sehen ob Sie recht haben. Es wird keine Note f&uuml;r diese &Uuml;bung ermittelt.
+</p>
+<hr />
+
+<blockquote>
+Studenten fahren sich beim Programmieren h&auml;ufig deswegen fest,
+weil es scheinbar zu viele Wege gibt etwas zu tun und es nicht klar ist, welches der richtige Weg ist.
+Diese &Uuml;bung zeigt verschiedene Wege, in der ein Programm geschrieben werden kann, um dieselbe Aufgabe auszuf&uuml;hren.
+Die Programme werden zunehmend komplizierter und verwenden wahrscheinlich ein zunehmend schlechteres Programmdesign f&uuml;r das angegebene Problem.
+</blockquote>
+<hr />
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+1. &nbsp; &nbsp; &nbsp; F&uuml;llen Sie die L&uuml;cken aus,
+so dass das folgende Programm sechsmal "Hallo Vesta" auf den Bildschirm ausgibt.
+</p>
+
+<form>
+<pre>
+class VestaHallo
+{
+
+  public static void main ( String[] args )
+  {
+    int j = <input type="button" value="______" name="button1" onClick="value=' 0  '" /> ;
+
+    while ( j <input type="button" value="______" name="button2" onClick="value=' <  '" /> 6 )
+    {
+        System.out.println( "Hallo Vesta" );
+        j = j + 1;
+    }
+
+  }
+}
+</pre>
+</form>
+
+<p>
+
+Dieses Programm zeigt wenig von der objektorientierten Art der Programmierung.
+F&uuml;r das gestellte Problem ist es wahrscheinlich das Beste der zehn Programme, da es die Aufgabe in einer einfachen und klaren Weise l&ouml;st.
+Aber lassen Sie uns die anderen Programme ansehen.
+</p>
+
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+
+<p>
+2. &nbsp; &nbsp; &nbsp;Schreiben Sie jetzt ein Programm,
+das ein Vesta-Objekt verwendet, um "Hallo Vesta" auf den Bildschirm auszugeben.
+</p>
+
+<form>
+<pre>
+class Vesta
+{
+  void sprich()
+  {
+    System.out.println( "<input type="button" value="___________" name="button1" onClick="value=' Hallo Vesta  '" /> " );
+  }
+}
+
+class VestaHallo2
+{
+
+  public static void main ( String[] args )
+  {
+    int   j    = 0  ;
+    Vesta vest = new  <input type="button" value="______" name="button2" onClick="value=' Vesta()  '" /> ;
+
+    while ( j &lt; 6 )
+    {
+        vest.<input type="button" value="______" name="button3" onClick="value=' sprich() '" /> ;
+        j = j + 1;
+    }
+
+  }
+}
+</pre>
+</form>
+
+<p>
+In diesem Programm wird <strong>ein</strong> Vesta-Objekt erzeugt und dessen
+Methode <code>sprich()</code>  sechsmal aufgerufen.
+Wenn alles was Sie wollten nur die sechsmalige Ausgabe des Satzes war, dann ist die erste Version des Programms wahrscheinlich besser als diese Version.
+</p>
+
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+3. &nbsp; &nbsp; &nbsp;Hier ist eine Abwandlung des Programms.
+Jetzt werden <strong>sechs</strong> Vesta-Objekte erzeugt und
+jedes von ihnen verwendet einmal seine Methode <code>sprich()</code>.
+</p>
+
+<form>
+<pre>
+class Vesta
+{
+  void sprich()
+  {
+    System.out.<input type="button" value="___________" name="button1" onClick="value='println'" />( "Hallo Vesta" );
+  }
+}
+
+class VestaHallo3
+{
+
+  public static void main ( String[] args )
+  {
+    int   j    = 0  ;
+
+    while ( j &lt; 6 )
+    {
+        Vesta vest = new  <input type="button" value="______" name="button2" onClick="value=' Vesta()  '" /> ;
+        vest.<input type="button" value="______" name="button3" onClick="value=' sprich() '" /> ;
+        j = j + 1;
+    }
+
+  }
+}
+</pre>
+</form>
+
+<p>
+Diese Version des Programms ist weniger effizient als die vorherigen, da
+sie sechs Objekte erzeugt, die alle das gleiche tun
+und wo jedes von ihnen sofort nach der Verwendung Datenausschuss wird.
+Das ist ein schlechter Programmierstil.
+</p>
+
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+4. &nbsp; &nbsp; &nbsp;Hier ist eine weitere Modifikation des Programms.
+Wieder werden sechs Vesta-Objekte erzeugt,
+aber jetzt ist jedes ein tempor&auml;res, unbenanntes Objekt.
+</p>
+
+<form>
+<pre>
+class Vesta
+{
+  void sprich()
+  {
+    System.out.println( "Hallo Vesta" );
+  }
+}
+
+class VestaHallo4
+{
+
+  public static void main ( String[] args )
+  {
+    int   j    = 0  ;
+
+    while ( j &lt; 6 )
+    {
+        new  <input type="button" value="______" name="button2" onClick="value=' Vesta()  '" /> . <input type="button" value="______" name="button3" onClick="value=' sprich() '" /> ;
+        j = j + 1;
+    }
+
+  }
+}
+</pre>
+</form>
+
+<p>
+Der <code>new</code>-Operator wird verwendet, um jedes Objekt zu erzeugen
+und die Methode <code>sprich()</code> der neu erzeugten Objekte wird aufgerufen.
+Trotz dieser Verfeinerung ist diese Version des Programms genauso unpraktisch wie die vorherige Version.
+</p>
+
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+5. &nbsp; &nbsp; &nbsp;Jetzt ist die Klasse Vesta so ver&auml;ndert,
+dass ein Vesta-Objekt seine Mitteilung sechsmal ausgibt:
+</p>
+
+<form>
+<pre>
+class Vesta
+{
+  void sprich()
+  {
+    int   j    = 0  ;
+
+    while ( j &lt; 6 )
+    {
+        System.out.println(" <input type="button" value="________________" name="button1" onClick="value=' Hallo Vesta '" /> ");
+        j = j + 1;
+    }
+
+  }
+}
+
+class VestaHallo5
+{
+
+  public static void main ( String[] args )
+  {
+
+    <input type="button" value="______" name="button2" onClick="value=' Vesta  '" /> vest = <input type="button" value="______" name="button3" onClick="value=' new '" /> Vesta() ;
+
+    vest . <input type="button" value="______" name="button4" onClick="value=' sprich() '" /> ;
+  }
+}
+</pre>
+</form>
+
+<p>
+Diese Version hat den Vorteil, dass sie nur ein Objekt erzeugt und den weiteren
+Vorteil, dass <code>main()</code> jetzt ein einfaches Programm ist.
+Wenn damit gerechnet wird, dass <code>main()</code> l&auml;nger wird, indem
+mehr und mehr Dinge hinzugef&uuml;gt werden, dann k&ouml;nnte das  <code>Vesta</code>-Objekt
+vern&uuml;nftig sein.
+Aber f&uuml;r die angef&uuml;hrte einfache Aufgabe ist das erste Programm immer noch das Beste.
+</p>
+
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+6. &nbsp; &nbsp; &nbsp;In dieser Version beinhaltet die Klassendefinition
+einen Konstruktor, der die auszugebende Mitteilung initialisiert.
+</p>
+
+<form>
+<pre>
+class Vesta
+{
+  <input type="button" value="____________" name="button1" onClick="value='String'" /> mitteilung ; // Der Ausgabe-String
+
+  // Konstruktor
+  Vesta( String mit )
+  {
+      <input type="button" value="____________" name="button2" onClick="value='mitteilung'" /> = mit ;  // Mitteilung initialisieren
+  }
+
+  void sprich()
+  {
+    int   j    = 0  ;
+
+    while ( j &lt; 6 )
+    {
+        System.out.println( <input type="button" value="_________" name="button3" onClick="value=' mitteilung '" /> );
+        j = j + 1;
+    }
+
+  }
+}
+
+class VestaHallo6
+{
+
+  public static void main ( String[] args )
+  {
+
+    Vesta vest = new Vesta ( " <input type="button" value="______ _______" name="button4" onClick="value=' Hallo Vesta '" /> " ) ;
+
+    vest . sprich() ;
+  }
+}
+</pre>
+</form>
+
+<p>
+Noch einmal, ob die <code>Vesta</code>-Klasse vern&uuml;nftig ist, h&auml;ngt von der Aufgabe ab.
+Wenn die Aufgabe kompliziert ist und das obige Programm erst ein kleiner Schritt in Richtung einer vollst&auml;ndigen L&ouml;sung, dann ist die <code>Vesta</code>-Klasse vielleicht gutes Design.
+</p>
+
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+7. &nbsp; &nbsp; &nbsp;Eine weitere Verfeinerung ist
+die Aufnahme der Iterationsbegrenzung in den Konstruktor.
+</p>
+
+<form>
+<pre>
+class Vesta
+{
+  String  mitteilung ; // Der Ausgabe-String
+  <input type="button" value="____________" name="button1" onClick="value='  int  '" /> anzahl ; // Anzahl der Ausgaben
+
+  // Konstruktor
+  Vesta( String mit, int anz )
+  {
+      mitteilung = mit ;  // Mitteilung initialisieren
+      anzahl = <input type="button" value="____________" name="button2" onClick="value='  anz  '" /> ;  // Anzahl initialisieren
+  }
+
+  void sprich()
+  {
+    int   j    = 0  ;
+
+    while ( j &lt; <input type="button" value="_________" name="button3" onClick="value=' anzahl '" /> )
+    {
+        System.out.println( mitteilung );
+        j = j + 1;
+    }
+
+  }
+}
+
+class VestaHallo7
+{
+
+  public static void main ( String[] args )
+  {
+
+    Vesta vest = new Vesta ( "Hallo Vesta" , <input type="button" value="______" name="button4" onClick="value='  6  '" /> ) ;
+
+    vest . sprich() ;
+  }
+}
+</pre>
+</form>
+
+<p>
+Diese Version der <code>Vesta</code>-Klasse ist flexibler als die vorherige Version.
+Sie ist wahrscheinlich besser, da sie f&uuml;r mehr Situationen verwendet werden kann als die vorherige.
+</p>
+
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+8. &nbsp; &nbsp; &nbsp;Bei weiterer &Uuml;berlegung (was vor jeder Programmierung h&auml;tte getan werden sollen) scheint es vern&uuml;nftig, dass die Anzahl f&uuml;r die Ausgabe der Mitteilung besser als Parameter der Methode <code>sprich()</code> spezifiziert wird.
+Das verbessert weiter die Flexibilit&auml;t der Klasse.
+</p>
+
+<form>
+<pre>
+class Vesta
+{
+  String  mitteilung ; // Der Ausgabe-String
+
+  // Konstruktor
+  Vesta( String mit )
+  {
+      mitteilung = mit ;  // Mitteilung initialisieren
+  }
+
+  void sprich( int <input type="button" value="_________" name="button3" onClick="value=' anzahl '" />)
+  {
+    int   j    = 0  ;
+
+    while ( j &lt; <input type="button" value="_________" name="button4" onClick="value=' anzahl '" /> )
+    {
+        System.out.println( mitteilung );
+        j = j + 1;
+    }
+
+  }
+}
+
+class VestaHallo8
+{
+
+  public static void main ( String[] args )
+  {
+
+    Vesta vest = new Vesta ( "Hallo Vesta" ) ;
+
+    vest . sprich(<input type="button" value="______" name="button5" onClick="value='  6  '" /> ) ;
+  }
+}
+</pre>
+</form>
+
+<p>
+Diese Version erscheint sowohl logischer als auch vielseitiger. Die Anzahl wie oft eine
+Mitteilung wiederholt werden soll, sollte ein Merkmal der Anfrage sein, nicht ein
+inh&auml;rentes Merkmal des Objekts.
+</p>
+
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+9. &nbsp; &nbsp; &nbsp;Gr&ouml;&szlig;tenteils sagt ein Vesta-Object "Hallo Vesta", jedes Mal wenn es verwendet wird.
+Wenn es das ist was wir wollen, dann sollte es nicht die Methode <code>main()</code>
+sagen.
+Klassen k&ouml;nnen mehrere  Konstruktoren mit jeweils verschiedenen Parametern haben. (Denken Sie an die <code>Point</code>-Klasse.)
+In der folgenden Version des Programms
+gibt es zwei Konstruktoren,
+der eine initialisiert die Mitteilung automatisch mit "Hallo Vesta" und
+der andere initialisiert sie mit der &uuml;bergebenen Mitteilung.
+</p>
+
+<form>
+<pre>
+class Vesta
+{
+  String  mitteilung ; // Der Ausgabe-String
+
+  // Parameterloser Konstruktor
+  Vesta( )
+  {
+      mitteilung =  "<input type="button" value="_________" name="button1" onClick="value=' Hallo Vesta '" />" ;  // Mitteilung initialisieren
+  }
+
+
+  // Ein Konstruktor mit einem Parameter
+  Vesta( <input type="button" value="_________" name="button2" onClick="value=' String '" /> mit )
+  {
+      mitteilung =  <input type="button" value="_________" name="button3" onClick="value=' mit '" /> ;  // Mitteilung initialisieren
+  }
+
+  void sprich( int anzahl )
+  {
+    int   j    = 0  ;
+
+    while ( j &lt; anzahl )
+    {
+        System.out.println( mitteilung );
+        j = j + 1;
+    }
+
+  }
+}
+
+class VestaHallo9
+{
+
+  public static void main ( String[] args )
+  {
+
+    Vesta vest = new Vesta () ;  // Standardwert "Hallo Vesta" verwenden
+
+    vest . sprich(<input type="button" value="______" name="button5" onClick="value='  6  '" /> ) ;
+  }
+}
+</pre>
+</form>
+
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+10. &nbsp; &nbsp; &nbsp;Eine weitere Verbesserung der <code>Vesta</code>-Klasse ist
+die Aufnahme einer Methode, die die Mitteilung ver&auml;ndern kann.
+Das ist KEIN Konstruktor &#8212 es ist eine Methode, die ein Teil
+eines existierenden Objekts ist und die Mitteilung des Objekts &auml;ndert.
+</p>
+
+<form>
+<pre>
+class Vesta
+{
+  String  mitteilung ; // Der Ausgabe-String
+
+  // Parameterloser Konstruktor
+  Vesta( )
+  {
+      mitteilung =  "Hallo Vesta" ;  // Mitteilung initialisieren
+  }
+
+  // Ein Konstruktor mit einem Parameter
+  Vesta( String mit )
+  {
+      mitteilung =   mit  ;  // Mitteilung initialisieren
+  }
+
+  // Methode, die die Mitteilung des Objekts ändert
+  void setMitteilung( <input type="button" value="_________" name="button2" onClick="value=' String '" /> mit )
+  {
+      mitteilung =  <input type="button" value="_________" name="button3" onClick="value=' mit '" /> ;  // Mitteilung initialisieren
+  }
+
+  void sprich( int anzahl )
+  {
+    int   j    = 0  ;
+
+    while ( j &lt; anzahl )
+    {
+        System.out.println( <input type="button" value="_________" name="button4" onClick="value=' mitteilung '" /> );
+        j = j + 1;
+    }
+
+  }
+}
+
+class VestaHallo10
+{
+
+  public static void main ( String[] args )
+  {
+
+    Vesta vest = new Vesta () ;  // Den Standardwert "Hallo Vesta" verwenden
+    vest . sprich( 6 ) ;
+
+    // Die Mitteilung in "Hallo Ceres" ändern
+    vest.setMitteilung( "<input type="button" value="_______ ________" name="button5" onClick="value='Hallo Ceres '" /> " );
+    vest . sprich( 6 ) ;
+  }
+}
+</pre>
+</form>
+
+<p>
+Beachten Sie sorgf&auml;ltig den Unterschied zwischen einem Konstruktor
+und einer Methode;
+ein Konstruktor initialisiert die Daten in einem Objekt, wenn das Objekt erzeugt wird.
+Jede Verwendung eines Konstruktors erzeugt ein neues Objekt.
+Eine Methode ist Teil eines Objekts.
+Sie ver&auml;ndert die Daten ihres Objekts.
+Da die Daten in einem Vesta-Objekt ge&auml;ndert werden k&ouml;nnen, sind sie NICHT unver&auml;nderbar.
+</p>
+
+<hr />
+
+<!-- ------------------------end of question --------------------------------- -->
+
+<p>
+Ende des Tests.  Wenn Sie ihn wiederholen m&ouml;chten, klicken Sie in Ihrem Browser auf &quot;Aktualisieren&quot;.</p>
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#30">Inhaltsverzeichnis</a>.</p>
+
+</body>
+</html>

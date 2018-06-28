@@ -1,0 +1,1301 @@
+<!-- April 17, 1998  creation -->
+
+<!-- Jan 20, 2000 INDEX   --->
+<!-- May 07, 2003 small changes  --->
+
+<?xml version="1.0" standalone="yes" ?>
+
+<CHAPTER>
+<COPYRIGHTDATE>2008</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2010, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#31</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+
+<CAI>Kapitel 31 &#8212; Entwerfen einer Klasse (Meilen-pro-Gallone)
+
+<p class="revisions">erstellt: 17.04.99; &uuml;berarbeitet: 12.09.99, 21.01.00, 14.07.02, 18.01.06, 01.04.07 ; &uuml;bersetzt: 21.07.03; &uuml;berarbeitet 20.01.04, 12.07.04, 10.01.05, 11.10.06, 20.12.10; Deutsche &Uuml;bersetzung Heinrich Gailer
+</p>
+
+<LESSON>
+<p>
+Dieses Kapitel enth&auml;lt ein weiteres Beispiel zum Entwerfen einer Klasse
+und dann der Verwendung von Objekten dieses Typs.
+Die Klasse hei&szlig;t <code>Auto</code> und ist ein einfacher
+Meilen-pro-Gallonen Rechner.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Wie Klassen dokumentiert werden</li>
+<li>Eine Klassendefinition schreiben</li>
+<li>Instanzvariablen</li>
+<li>Instanzvariablen in einer Methode verwenden</li>
+<li>Konstruktoren</li>
+<li>Konstruktor Parameterlisten</li>
+</ul>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Welche drei Werte werden Sie wahrscheinlich verwenden, um Meilen pro Gallone f&uuml;r ein Auto zu berechnen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Spezifikationen f&uuml;r die Klasse Auto
+<ANSWER>
+<p>
+Sie werden wahrscheinlich folgende Werte verwenden:
+</p>
+
+<ol>
+<li>Tachoanfangsstand,</li>
+<li>Tachoendstand und</li>
+<li>die Gallonen Benzin, die verbraucht wurden.</li>
+</ol>
+
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Denken Sie bevor Sie mit dem Schreiben anfangen &uuml;ber die Klassen nach, die Sie brauchen.
+Das macht das Programmieren einfacher und Ihr Programm wird weniger Bugs haben.
+<b>Objektorientiertes Design</b> besteht darin zu entscheiden welche Klassen Sie brauchen, &uuml;ber welche Daten die Objekte verf&uuml;gen sollen und wie sich die Objekte verhalten sollen.
+Lassen Sie uns das mit der Klasse <code>Auto</code> tun.
+</p>
+
+<INDEX>car, class</INDEX>
+
+<hr>
+<blockquote>
+
+<span class="blue"><big><b>Auto</b></big></span>
+<p>
+Eine Klasse, die Meilen pro Gallone berechnet.
+</p>
+
+<p>
+<big><b>Variablen</b></big>
+<ul>
+<li>  double startMeilen; &nbsp; &nbsp;&nbsp;// Anfangsstand Tachometer lesen
+<li>  double endMeilen; &nbsp; &nbsp;&nbsp; // Endstand Tachometer lesen
+<li>  double gallonen; &nbsp; &nbsp; &nbsp; &nbsp; // Benzinverbrauch in Gallonen
+</ul>
+
+<p>
+<big><b>Konstruktoren</b></big>
+<ul>
+<li>Auto( double startTacho, double endTacho, double galls )
+    <ul><li>Erzeugt eine neue Instanz eines <code>Auto</code>-Objekts mit dem Anfangs- und Endstand des Tachometers und der Anzahl der verbrauchten Gallonen.
+    </ul>
+</ul>
+
+<big><b>Methoden</b></big>
+<ul>
+<li>double berechneMPG()
+    <ul><li>Berechnet Meilen pro Gallone f&uuml;r ein <code>Auto</code> und gibt das Ergebnis zur&uuml;ck.
+    </ul>
+</ul>
+</blockquote>
+<hr size="3">
+
+<p>
+Betrachten Sie die Parameterliste f&uuml;r den Konstruktor:
+</p>
+
+<blockquote>
+double startTacho, double endTacho, double galls
+</blockquote>
+
+<p>
+Das hei&szlig;t, dass der Konstruktor mit drei Datenelementen vom Typ <code>double</code> aufgerufen werden muss.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Kann eine <code>main()</code> Methode ein <code>Auto</code>-Objekt erzeugen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ein <code><strong>Auto</strong></code>-Objekt verwenden
+<p>
+Kann eine <code>main()</code> Methode ein <code>Auto</code>-Objekt erzeugen?
+</p>
+<ANSWER>
+<p>
+Sicher, solange sie Zugang zur Klassendefinition hat.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Um zu sehen ob das Design f&uuml;r die Klasse <code>Auto</code> korrekt ist,
+wollen wir es in einem Programm verwenden.
+Hier ist ein kurzes Programm, das ein <code>Auto</code>-Objekt f&uuml;r
+die Berechnung von Meilen pro Gallonen verwendet:
+</p>
+
+<pre class="program">
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto = new Auto( <input class="in" size="10" type="text">, <input class="in" size="10" type="text">, <input class="in" size="10" type="text"> );
+
+    System.out.println( "Meilen pro Gallone: " + <input class="in" size="25" type="text"> );
+  }
+}
+</pre>
+
+<p>
+Das Programm erzeugt ein Objekt der Klasse <code>Auto</code> und speichert eine Referenz darauf in der Variablen <code>auto</code>.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus, so dass das Programm die Meilen pro Gallone f&uuml;r ein Auto
+folgenderma&szlig;en ausgibt:
+</p>
+
+<ul>
+<li>Anfangsstand Tachometer gelesen bei 32456</li>
+<li>Endstand Tachometer gelesen bei 32810</li>
+<li>Verbrauchte Gallonen Benzin 10.6</li>
+</ul>
+
+<p>
+(Schauen Sie auf der vorherigen Seite nach, um den Konstruktor zu sehen.)
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Input vom Anwender sammeln
+
+
+<ul>
+<li>Anfangsstand Tachometer gelesen bei 32456</li>
+<li>Endstand Tachometer gelesen bei 32810</li>
+<li>verbrauchte Gallonen Benzin 10.6</li>
+</ul>
+
+
+<ANSWER>
+<pre class="program">
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto = new Auto( <span class="blue">32456, 32810, 10.6</span> );
+
+    System.out.println( "Meilen pro Gallone: " + <span class="blue">auto.berechneMPG()</span> );
+  }
+}
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+Mit der bereits vorliegenden Dokumentation der Klasse <code>Auto</code>
+ist das Schreiben des Programms einfach.
+(Aber Sie k&ouml;nnen das Programm noch nicht ausf&uuml;hren, da die Klasse <code>Auto</code> bis jetzt noch nicht definiert wurde.)
+Das Programm wurde um die Interaktion mit dem Anwender erweitert.
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Scanner scan = new Scanner(System.in);
+
+    double startMeilen, endMeilen, gallonen;
+
+    System.out.println("Anfangsstand eingeben:");
+    startMeilen = scan.nextDouble();
+
+    System.out.println("Endstand eingeben:");
+    endMeilen = scan.nextDouble();
+
+    System.out.println("Gallonen eingeben: ");
+    gallonen = scan.nextDouble();
+
+
+    Auto auto = new Auto( <input class="in" value="" size="12" type="text">, <input class="in" value="" size="12" type="text">, <input class="in" value="" size="12" type="text"> );
+
+    System.out.println( "Meilen pro Gallone: "
+        + auto.berechneMPG() );
+  }
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus, so dass das Programm mit Benutzerinteraktion
+arbeitet.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Das fertige Programm
+<ANSWER>
+<p>
+Das fertige Programm finden Sie unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist das komplette Programm.
+Nat&uuml;rlich kann das Programm immer noch nicht ausgef&uuml;hrt werden,
+da die Klasse <code>Auto</code> noch nicht definiert ist.
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Scanner scan = new Scanner(System.in);
+
+    double startMeilen, endMeilen, gallonen;
+
+    System.out.println("Anfangsstand eingeben:");
+    startMeilen = scan.nextDouble();
+
+    System.out.println("Endstand eingeben:");
+    endMeilen = scan.nextDouble();
+
+    System.out.println("Gallonen eingeben: ");
+    gallonen = scan.nextDouble();
+
+
+    Auto auto = new Auto( <span class="blue">startMeilen, endMeilen, gallonen </span> );
+
+    System.out.println( "Meilen pro Gallone: "
+        + auto.berechneMPG() );
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wir brauchen immer noch eine Definition f&uuml;r die Klasse <code>Auto</code>.
+Kann ein Programmierer eine Definition f&uuml;r die Klasse <code>Auto</code> schreiben?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Klassendefinition
+<p>
+Kann ein Programmierer eine Definition f&uuml;r die Klasse <code>Auto</code> schreiben?
+</p>
+<ANSWER>
+<p>
+Aber sicher!
+Wenn Sie eine Klasse brauchen, die etwas tun soll
+und die noch nicht definiert wurde,
+k&ouml;nnen Sie die Definition selbst schreiben.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist das Meilen-pro-Gallone Programm.
+Sowohl die Klasse <code>Auto</code> als auch
+die Testklasse <code>MeilenProGallone</code>
+sind in derselben Quelldatei.
+Um das Programm kurz zu halten, wurde die Benutzerinteraktion ausgelassen.
+</p>
+
+
+<pre class="program">
+import java.util.Scanner;
+
+class Auto
+{
+  // Instanzvariablen
+
+
+  // Konstruktor
+
+
+  // Methoden
+
+}
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto = new Auto( 32456, 32810, 10.6 );
+    System.out.println( "Meilen pro Gallone: " + auto.berechneMPG() );
+  }
+}
+</pre>
+
+<p>
+Die Quelldatei muss <code>MeilenProGallone.java</code> genannt werden, nach dem Namen der Klasse, die die <code>main()</code> Methode enth&auml;lt.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Entscheiden Sie, welche Variablen in den Datenabschnitt
+gehen sollen.
+Werfen Sie einen Blick zur&uuml;ck auf die
+<GOTO>Auto, Klasse</GOTO> Auto-Klasse,
+um zu sehen was Sie brauchen.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ausf&uuml;llen der Definition
+<ANSWER>
+<p>
+Die Daten des <code>Auto</code>-Objekts sollten sein:
+</p>
+
+<ol>
+<li>Anfangsstand Tachometer,</li>
+<li>Endstand Tachometer und</li>
+<li>verbrauchte Gallonen Benzin.</li>
+</ol>
+
+<p>
+Die Variablennamen sind Sache des Programmierers.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist das Programm mit der teilweise ausgef&uuml;llten <code>Auto</code>-Definition:
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class Auto
+{
+  // Instanzvariablen
+  double startMeilen;   // Anfangsstand Tachometer
+  double endMeilen;     // Endstand Tachometer
+  double gallonen;      // verbrauchte Gallonen
+
+  // Konstruktor
+
+
+  // Methoden
+
+}
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto = new Auto( 32456, 32810, 10.6 );
+    System.out.println( "Meilen pro Gallonen: " + auto.berechneMPG() );
+  }
+}
+</pre>
+
+<p>
+<INDEX>instance variable</INDEX>
+
+Eine <b>Instanzvariable</b> ist eine Variable, die einen Teil des Zustands eines Objekts enth&auml;lt.
+Jedes Objekt (jede &quot;Instanz&quot; der Klasse)  enth&auml;lt ihre eigenen Instanzvariablen.
+Instanzvariablen behalten ihre Werte solange das Objekt existiert.
+Eine Zuweisungsanweisung kann den Wert einer Instanzvariablen &auml;ndern (siehe n&auml;chstes Kapitel), aber ansonsten behalten sie ihren Wert f&uuml;r die Lebenszeit des Objekts.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wie muss der Konstruktor benannt werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Konstruktor Parameterliste
+<ANSWER>
+<p>
+Der Konstruktor muss <code>Auto</code> genannt werden, genau wie der Name der Klasse.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Der Konstruktor wird verwendet, wenn das Objekt konstruiert wird.
+Die meiste Arbeit beim Erzeugen eines Objekts (im Hauptspeicher) passiert hinter der B&uuml;hne.
+&Uuml;blicherweise initialisiert der Konstruktor, den Sie schreiben, ein paar Variablen.
+Der Konstruktor f&uuml;r <code>Auto</code> wird die drei Variablen des Objekts initialisieren.
+
+Hier ist das Programm mit dem teilweise ausgef&uuml;llten Konstruktor:
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class Auto
+{
+  // Instanzvariablen
+  double startMeilen;   // Anfangsstand Tachometer
+  double endMeilen;     // Endstand Tachometer
+  double gallonen;      // verbrauchte Gallonen
+
+  // Konstruktor
+  Auto( <input class="in" size="8" type="text"> <input class="in" size="12" type="text">, <input class="in" size="8" type="text"> <input class="in" size="12" type="text">, <input class="in" size="8" type="text"> <input class="in" size="12" type="text"> )
+  {
+
+
+
+  }
+
+  // Methoden
+
+}
+</pre>
+
+<p>
+<INDEX>constructor, parameter</INDEX>
+Die <em>Parameterliste</em> eines Konstruktors sieht wie folgt aus:
+</p>
+
+<pre>
+<em>datentyp parametername , datentyp parametername </em> und so weiter
+</pre>
+
+<p>
+Jeder <em>datentyp</em> ist der Typ eines Datenelements, das an den Konstruktor &uuml;bergeben wird und jeder <em>parametername</em> ist ein
+Name, der f&uuml;r dieses Datenelement verwendet wird.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken in der Parameterliste aus.
+Der Datentyp eines jeden Parameter sollte dem Datentyp
+einer Instanzvariable entsprechen.
+Die  Namen der Parameter sind Ihre Aufgabe.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Daten initialisieren
+<ANSWER>
+<p>
+Die vollst&auml;ndige Parameterliste sehen sie unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+In diesem Konstruktor verwendet die Parameterliste drei Parameter, die den
+drei Instanzvariablen entsprechen, die intialisiert werden.
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class Auto
+{
+  // Instanzvariablen
+  double startMeilen;   // Anfangsstand Tachometer
+  double endMeilen;     // Endstand Tachometer
+  double gallonen;      // verbrauchte Gallonen
+
+  // Konstruktor
+  Auto( <span class="blue">double startTacho, double endTacho, double galls</span> )
+  {
+
+    <input class="in" size="12" type="text"> = startTacho;
+    <input class="in" size="12" type="text"> = endTacho;
+    <input class="in" size="12" type="text"> = galls;
+
+  }
+
+  // Methoden
+
+}
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto = new Auto( 32456, 32810, 10.6 );
+    System.out.println( "Meilen pro Gallonen: " + auto.berechneMPG() );
+  }
+}
+</pre>
+
+<p>
+<b>Hinweis:</b> In den meisten Klassen gibt es KEINE exakte &Uuml;bereinstimmung
+zwischen den Parametern eines Konstruktors und den Instanzvariablen.
+Es kann weniger (oder mehr) Parameter geben als Instanzvariablen.
+Auch m&uuml;ssen die Parameter des Konstruktors nicht in derselben Reihenfolge sein wie die Instanzvariablen
+(das mag die Dinge klarer halten, aber dem Compiler ist das egal.)
+
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie jetzt die Zuweisungsanweisungen aus, um den Konstruktor zu vervollst&auml;ndigen.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndiger Konstruktor
+<ANSWER>
+<p>
+Den vollst&auml;ndigen Konstruktor sehen Sie unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<pre class="program">
+import java.util.Scanner;
+
+class Auto
+{
+  // Instanzvariablen
+  double startMeilen;   // Anfangsstand Tachometer
+  double endMeilen;     // Endstand Tachometer
+  double gallonen;      // verbrauchte Gallonen Benzin
+  // Konstruktor
+  Auto(  double startTacho, double endTacho, double galls  )
+  {
+    <span class="blue">startMeilen</span> = <span class="blue">startTacho</span>;
+    <span class="blue">endMeilen</span>   = <span class="blue">endTacho</span>;
+    <span class="blue">gallonen</span>    = <span class="blue">galls</span>;
+  }
+
+  // Methoden
+  double berechneMPG()
+  {
+    return <input class="in" size="40" type="text"> ;
+  }
+
+}
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto = new Auto( 32456, 32810, 10.6 );
+    System.out.println( "Meilen pro Gallonen: "
+        + auto.berechneMPG() );
+  }
+}
+</pre>
+
+
+<p>
+Konstruktoren k&ouml;nnen kompliziert werden; aber f&uuml;r die meisten Programme
+m&uuml;ssen Sie nichts anderes tun, als die Werte der Parameter in die Instanzvariablen zu kopieren.
+Sie m&ouml;gen sich fragen, warum Sie das tun sollen.
+Warum nicht einfach die Daten in den Parametern lassen?
+Daf&uuml;r gibt es zwei Gr&uuml;nde:
+</p>
+
+<ol>
+<li>Die Parameter eines Konstruktors k&ouml;nnen nur von seinen eigenen Anweisungen gesehen werden.
+    Eine Methode wie <code>berechneMPG()</code> kann die Parameter des Konstruktors nicht sehen.</li>
+
+<li>Daten in Parametern sind tempor&auml;r. Parameter werden verwendet, um Daten zu &uuml;bermitteln, aber nicht um Daten zu halten.</li>
+</ol>
+
+<p>
+Stellen Sie sich einen Parameter als einen Papierfetzen mit Informationen vor,
+der an den Konstruktor &uuml;bergeben wird.
+Der Konstruktor muss die Informationen an irgendeine dauerhafte Stelle kopieren,
+wo sie von den anderen Methoden gesehen werden k&ouml;nnen.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<form>
+<p>
+Vervollst&auml;ndigen Sie jetzt die <code>berechneMPG()</code> Methode.&nbsp; &nbsp;
+<input type="button" value="Hinweis"
+onClick="alert('Sie m&uuml;ssen die gefahrenen Meilen durch die verbrauchten Gallonen dividieren.')">&nbsp;
+&nbsp; &nbsp;
+</p>
+</form>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndiges Programm
+<ANSWER>
+<p>
+Das vollst&auml;ndige Programm sehen Sie unten. Es ist zum Kopieren-Einf&uuml;gen-Speichern-und-Starten geeignet.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist das vollst&auml;ndige Programm.
+Die <code>berechneMPG()</code> Methode gibt
+einen <code>double</code>-Wert an den Aufrufer zur&uuml;ck.
+Da sie einen Wert zur&uuml;ckgibt,
+muss es in ihrem K&ouml;rper eine <code>return</code>-Anweisung
+geben, die einen Wert mit dem korrekten Typ zur&uuml;ckgibt.
+</p>
+
+<INDEX>program, car class</INDEX>
+<p>
+In dem vollst&auml;ndigen Programm verwendet die <code>berechneMPG()</code> Methode
+die Instanzvariablen ihres Objekts, um die Meilen pro Gallone zu berechnen.
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class Auto
+{
+  // Instanzvariablen
+  double startMeilen;   // Anfangsstand Tachometer
+  double endMeilen;     // Endstand Tachometer
+  double gallonen;      // verbrauchte Gallonen Benzin
+
+  // Konstruktor
+  Auto(  double startTacho, double endTacho, double galls  )
+  {
+    startMeilen = startTacho;
+    endMeilen   = endTacho;
+    gallonen    = galls;
+  }
+
+  // Methoden
+  double berechneMPG()
+  {
+    return <span class="blue">(endMeilen - startMeilen) / gallonen</span> ;
+  }
+
+}
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto = new Auto( 32456, 32810, 10.6 );
+    System.out.println( "Meilen pro Gallonen: "
+        + auto.berechneMPG() );
+  }
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+
+
+<ul>
+<li>Wie viele Objekte gibt es in dem Moment im System, in dem das Programm gerade zu starten beginnt?</li>
+<li>Wie viele Objekte gibt es im System, kurz bevor das Programm beendet wird?</li>
+</ul>
+
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Abbildung des Arbeitsspeichers
+<ANSWER>
+
+<ul>
+<li>Wie viele Objekte gibt es im System, in dem Moment an dem das Programm gerade zu starten beginnt?
+    <ul><li><span class="blue">0.</span></li>
+        <li>(Das ist immer die Antwort auf diese Frage.)</li>
+    </ul></li>
+<li>Wie viele Objekte gibt es im System, kurz bevor das Programm beendet wird?
+    <ul><li><span class="blue">Eins.</span> Das Objekt, das von <em><code>auto</code></em> referenziert wird.</li>
+        <li>(Das Stringobjekt von <code>println</code> ist schon Ausschuss geworden.)</li>
+    </ul></li>
+</ul>
+
+
+</ANSWER>
+
+<LESSON>
+<img src="mpgProgram.gif" align="left" hspace="25">
+
+<p>
+Wenn ein Programm zu starten beginnt, gibt es noch keine Objekte,
+nur die Klassendefinitionen und eine statische <code>main()</code> Methode.
+&Uuml;blicherweise konstruiert <code>main()</code> dann einige Objekte und ruft ihre
+Methoden auf, um die Programmarbeit zu verrichten.
+In unserem Beispiel konstruiert <code>main()</code> genau ein Objekt und ruft dann dessen
+<code>berechneMPG()</code> Methode auf.
+</p>
+
+<p>
+Die Abbildung zeigt die Variable <code>auto</code> in der statischen <code>main()</code> Methode, die auf das konstruierte Objekt verweist, indem sie dem Plan folgt,
+der von der Klassendefinition von <code>Auto</code> vorgegeben wurde.
+</p>
+
+<p>
+Die  statische <code>main()</code> Methode ist eigentlich Teil der
+<code>MeilenProGallone</code> Klasse, die nicht in der Abbildung gezeigt wird.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+K&ouml;nnten mehrere Objekte des Typs <code>Auto</code> konstruiert werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Zwei Autos
+<ANSWER>
+<p>
+Sicher.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist das Programm mit ein paar leeren Zeilen:
+</p>
+
+
+<pre class="program">
+import java.util.Scanner;
+
+class Auto
+{
+  . . . .
+}
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto1 = new Auto( 32456, 32810, 10.6 );
+    System.out.println( "Meilen pro Gallone von Auto 1 sind: "
+        + auto1.berechneMPG() );
+
+    Auto auto2 = new Auto( <input class="in" size="8" type="text">, <input class="in" size="8" type="text">, <input class="in" size="8" type="text"> );
+    System.out.println( "Meilen pro Gallone von Auto 2 sind: "
+        + <input class="in" size="20" type="text"> );
+
+  }
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken f&uuml;r das zweite Auto mit den folgenden Werten aus:
+
+<ul>
+<li>Anfangsstand Tachometer 100000</li>
+<li>Endstand Tachometer 100300</li>
+<li>Verbrauchte Gallonen 12.5</li>
+</ul>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Abbildung des Zwei-Objekte-Programms
+<ANSWER>
+<p>
+Das war leicht.  Das ausgef&uuml;llte Programm steht unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+In diesem Programm wurden zwei verschiedene <code>Auto</code>-Objekte konstruiert,
+jedes mit verschiedenen Daten,
+und die Berechnung der Meilen pro Gallone wurden f&uuml;r jedes <code>Auto</code>-Objekt berechnet.
+</p>
+
+<table>
+<tr>
+
+<td>
+<img src="mpgProgram2.gif">
+</td>
+
+<td>
+<pre>
+
+<pre>
+import java.util.Scanner;
+
+class Auto
+{
+  . . . .
+}
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto1 = new Auto( 32456, 32810, 10.6 );
+    System.out.println( "Meilen pro Gallone von Auto 1 sind: "
+        + auto1.berechneMPG() );
+
+    Auto auto2 = new Auto( <span class="blue">100000, 100300, 12.5</span> );
+    System.out.println( "Meilen pro Gallone von Auto 2 sind: "
+        +  <span class="blue">auto2.berechneMPG()</span> );
+
+  }
+}
+</pre>
+</td>
+</tr>
+</table>
+
+<p>
+Die Abbildung zeigt die Situation, gerade nachdem das zweite Objekt konstruiert wurde:
+Beachten Sie, dass es nur eine Klassendefinition gibt, zwei Objekte und eine statische <code>main()</code> Methode.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Es gibt zwei Objekte, aber jedes ben&uuml;tzt <em>die gleichen</em> Namen f&uuml;r seine Instanzvariablen! Ist das ein Fehler?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Geringf&uuml;gig ver&auml;ndertes Programm
+<ANSWER>
+<p>
+Nein.  Jedes Objekt hat seine eigene Identit&auml;t, also gibt es keine Verwirrung
+zu welchem Objekt welche Variablen geh&ouml;ren.
+Der Konstruktor eines jeden Objekts gibt deren Variablen den richtigen Wert.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+
+<p>
+Wenn das verwirrend ist, denken Sie daran, dass objektorientierte Programmmierung die
+reale Welt nachbilden soll.
+Denken Sie an Objekte der realen Welt, sagen wir Objekte der Klasse <em>Mensch</em>.
+Jedes Objekt hat seine eigene Identit&auml;t (z.B. ist Bob ein anderes Individuum als Jill),
+obwohl jedes Teile hat, die den gleichen Namen haben.
+Es ist nicht verwirrend von "Bills Herz" und "Bills Nase", und "Jills Herz"
+und "Jills Nase" zu sprechen.
+Mit "Punktnotation" w&auml;re das <code>Bob.herz, Bob.nase, Jill.herz</code> und
+<code>Jill.nase</code>.
+</p>
+
+<p>
+Unten ist eine leicht abge&auml;nderte Version des Programms.
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class Auto
+{
+  . . . .
+}
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto  = new Auto( 32456, 32810, 10.6 );
+    System.out.println( "Meilen pro Gallone von Auto 1 sind: "
+        + auto.berechneMPG() );
+
+    auto      = new Auto( 100000, 100300, 10.6 );
+    System.out.println( "Meilen pro Gallone von Auto 2 sind: "
+        + auto.berechneMPG() );
+
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Worin unterscheidet sich dieses Programm vom vorherigen Programm?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Autoschrott
+<ANSWER>
+<p>
+Eine einzige Referenzvariable <code>auto</code> wird nacheinander f&uuml;r jedes der
+Objekte verwendet.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<img src="mpgProgram3.gif" align="right" hspace="20">
+
+<p>
+Die Bildschirmausgabe dieses Programms ist die gleiche wie die des Vorherigen.
+Dennoch, da die Referenzvariable <code>auto</code> verwendet wird,
+um das zweite <code>auto</code>-Objekt zu konstruieren, wird das erste <code>auto</code>-Objekt
+vor dem Ende des Programms zu Datenauschuss.
+</p>
+
+<pre>
+Auto auto  = new Auto( 32456, 32810, 10.6 );
+System.out.println( "Meilen pro Gallone von Auto 1 sind: "
+  + auto.berechneMPG() );
+
+auto      = new Auto( 100000, 100300, 10.6 );
+System.out.println( "Meilen pro Gallone von Auto 2 sind: "
+  + auto.berechneMPG() );
+</pre>
+
+<p>
+Die Abbildung zeigt die Situation, kurz nachdem das zweite <code>Auto</code>-Objekt konstruiert wurde.
+F&uuml;r das erste <code>Auto</code>-Objekt gibt es keine Referenz mehr, also ist es jetzt Ausschuss.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Wiederholungsfrage:)
+</p>
+
+<ol>
+<li>Halten Instanzvariablen eines Objekts die Werte &uuml;ber den ganzen Lebenszyklus eines Objekts?</li>
+<li>Halten die Parameter eines Konstruktors die Werte &uuml;ber den ganzen Lebenszyklus eines Objekts?</li>
+</ol>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>M&ouml;gliche Fehler
+<ANSWER>
+
+
+<ol>
+<li>Halten Instanzvariablen eines Objekts die Werte &uuml;ber den ganzen Lebenszyklus eines Objekts?
+    <ul><li><span class="blue">
+            Ja &#8212; ein Objekt ist ein "Ding", das einen Zustand hat
+            (eindeutige Merkmale). Der Zustand wird in den Instanzvariablen gehalten.
+            </span></li></ul></li>
+<li>Halten die Parameter eines Konstruktors die Werte &uuml;ber den ganzen Lebenszyklus eines Objekts?
+    <ul><li><span class="red">
+            Nein &#8212; die Parameter eines Konstruktors sind
+            Teil einer tempor&auml;ren "Mitteilung" an den Konstruktor.  Nachdem die Parameter verwendet wurden, gibt es sie nicht mehr.
+            </span></li></ul></li>
+</ol>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+Nat&uuml;rlich werden die Daten der "Mitteilung" an den Konstruktor &uuml;blicherweise in den Instanzvariablen gespeichert, wo sie verbleiben, bis das Objekt zerst&ouml;rt wird
+(oder bis die Instanzvariablen absichtlich ge&auml;ndert werden.)
+</p>
+
+<p>
+Hier ist ein interessantes Programm.  Ist irgendetwas falsch?
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class Auto
+{
+  // Instanzvariablen
+  double startMeilen;   // Anfangsstand Tachometer
+  double endMeilen;     // Endstand Tachometer
+  double gallonen;      // dazwischen verbrauchte Gallonen
+
+  // Konstruktor
+  Auto( double startTacho, double endTacho, double galls )
+  {
+    startMeilen = startTacho ;
+    endMeilen   = endTacho ;
+    gallonen    = galls ;
+  }
+
+  // Methoden
+  double berechneMPG()
+  {
+    return  (endTacho - startTacho)/galls  ;
+  }
+
+}
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto = new Auto( 32456, 32810, 10.6 );
+    System.out.println( "Meilen pro Gallonen: " + auto.berechneMPG() );
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+<form>
+Begutachten Sie das Programm.  Ist irgend etwas falsch?&nbsp; &nbsp;
+<input type="button" value="Hinweis"
+onClick="alert('Betrachten Sie berechneMPG().')">&nbsp;
+&nbsp; &nbsp;
+</form>
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Sie k&ouml;nnen keine Parameter eines Konstruktors in einer Methode verwenden.
+<ANSWER>
+<p>
+Die <code>berechneMPG()</code> Methode kann die Parameter des Konstruktor nicht verwenden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Tats&auml;chlich kann die <code>berechneMPG()</code> Methode die Parameter
+des Konstruktors nicht einmal sehen.
+Anders gesagt, die <strong>Sichtbarkeit</strong> der
+Parameter ist auf den K&ouml;rper der Methode beschr&auml;nkt.
+Der Compiler wird sich beschweren, dass <code>startTacho, endTacho </code>
+und <code>galls</code> undefinierte Variablen sind,
+da sie au&szlig;erhalb ihres Sichtbarkeitsbereichs verwendet werden.
+Werfen Sie einen Blick zur&uuml;ck auf das
+<GOTO>Programm, Auto-Klasse</GOTO> vollst&auml;ndige Programm,
+um die korrekte Methode zu sehen.
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class Auto
+{
+  // Instanzvariablen
+  double startMeilen;   // Anfangsstand Tachometer
+  double endMeilen;     // Endstand Tachometer
+  double gallonen;      // verbrauchte Gallonen Benzin
+
+  // Konstruktor
+  Auto(  double startTacho, double endTacho, double galls  )
+  {
+    startMeilen = startTacho ;
+    endMeilen   = endTacho ;
+    gallonen    = galls ;
+  }
+
+  // Methoden
+  double berechneMPG()
+  {
+    return  (<span class="red">endTacho</span> - <span class="red">startTacho</span>)/<span class="red">galls</span>  ;       // <span class="red">FALSCH, FALSCH, FALSCH</span>
+  }
+
+}
+
+class MeilenProGallone
+{
+  public static void main( String[] args )
+  {
+    Auto auto = new Auto( 32456, 32810, 10.6 );
+    System.out.println( "Meilen pro Gallonen: " + auto.berechneMPG() );
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Geht Ihnen das Benzin aus?
+</p>
+</QUESTION><ol start="1" type="A">
+<li></li>
+</ol>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Sie haben das Ende des Kapitels erreicht.
+Es gibt &uuml;ber das Definieren von Klassen noch viel mehr zu erfahren.
+Das n&auml;chste Kapitel setzt diese Er&ouml;rterung fort.
+
+</p>
+
+<ul>
+<li>
+<GOTO>car, class</GOTO> Dokumentation
+der Auto-Klasse
+</li>
+<li>
+<GOTO>program, car class</GOTO> Definition
+der Auto-Klasse
+<li>
+<GOTO>instance variable</GOTO> Instanzvariablen
+</li>
+<li>
+<GOTO>constructor, parameter</GOTO> Parameterliste
+eines Konstruktors
+</li>
+</ul>
+
+</LESSON>
+</CAI>
+</CHAPTER>

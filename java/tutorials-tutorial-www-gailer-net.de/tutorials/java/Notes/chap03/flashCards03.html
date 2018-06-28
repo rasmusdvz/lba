@@ -1,0 +1,296 @@
+<!--  INSTRUCTIONS FOR MAKING YOUR OWN FLASH CARDS:
+
+<p>
+1.  Modify this file with a text editor, such as Notepad.
+
+2.  Each card consists of a questions[] answers[] pair.
+
+3.  The cards are numbered from 0 to N-1.
+
+4.  For each questions[] line, enter a question between the quote marks
+      (replacing what is already there.)  Keep everything on one line.
+
+8.  For its answers[] line, enter the answer between the quote marks
+      (replacing what is already there.)  Keep everything on one line.
+
+9.  Delete any extra pairs you don't need, or add extra ones as needed.
+      (Use the editor's cut, copy, and paste to make this easy.)
+      Number added cards following the pattern of the first ones.
+
+10. Change the line var numCards  = N to the number of cards you now have.
+      (Example: if you have 10 cards, they will be numbered 0 to 9 and
+      var NumCards = 10)
+
+11. Save the file.  Use a file name like "flashCards.html"  .
+
+12. Use the flash cards by clicking on the file name, or by opening them in
+    your browser.
+-->
+
+<html>
+<head>
+<title>Vokabeltraining - Kapitel 3</title>
+
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name"translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css" />
+
+<script language="JavaScript">
+<!--
+  var numCards  = 25                        // change this to the number of cards
+  var questions = new Array(numCards)
+  var answers   = new Array(numCards)
+  var asked     = new Array(numCards)
+  var qNumber
+
+  // The flash cards start here
+  questions[0] = "Welcher Speichertyp ist sehr eng mit dem Prozessor verbunden?"
+  answers  [0] = "Hauptspeicher."
+
+  questions[1] = "Könnte ein Computersystem ohne Speicher sehr viel tun?"
+  answers  [1] = "Nein."
+
+  questions[2] = "Welcher Speichertyp enthält sowohl Programme als auch Daten?"
+  answers  [2] = "Hauptspeicher und Sekundärspeicher."
+
+  questions[3] = "Wie ist der Sekundärspeicher üblicherweise organisiert?"
+  answers  [3] = "In einer Sammlung von Dateien."
+
+  questions[4] = "Nennen Sie eine nichtelektronische Möglichkeit ein Bit darzustellen."
+  answers  [4] = "Ein Loch in einer Lochkarte,\neine kleine reflektierende Einheit auf der Oberfläche einer CD."
+
+  questions[5] = "Ändert sich die Information eines digitalen Signals, wenn es von einem Medium auf ein anderes kopiert wird?"
+  answers  [5] = "Nein."
+
+  questions[6] = "Eine Gruppe von 8 Bits ist ein .... ?"
+  answers  [6] = "Byte."
+
+  questions[7] = "2 hoch 10 Bytes ergibt "
+  answers  [7] = "1024, 1 Kilobyte."
+
+  questions[8] = "2 hoch 20 Bytes ergibt"
+  answers  [8] = "1 Megabyte (ungefähr eine Million Bytes)."
+
+  questions[9] = "2 hoch 30 Bytes ergibt"
+  answers  [9] = "1 Gigabyte (ungefähr eine Milliarde Bytes)."
+
+  questions[10] = "Jedes Byte im Hauptspeicher hat eine eindeutige ........, die verwendet wird, um es zu lokalisieren."
+  answers  [10] = "Adresse."
+
+  questions[11] = "Das an einer Speicherstelle gespeicherte Bitmuster wird der ........ dieser Speicherstelle genannt."
+  answers  [11] = "Inhalt."
+
+  questions[12] = "Das Speichern eines neuen Bitmusters an einer Speicherstelle wird ...... genannt."
+  answers  [12] = "Schreiben."
+
+  questions[13] = "Das Abfragen eines Bitmusters an einer Speicherstelle wird ....... genannt."
+  answers  [13] = "Lesen."
+
+  questions[14] = "Welcher Teil der Festplatte beschreibt oder liest die Platte?"
+  answers  [14] = "Der Lese/Schreibkopf."
+
+  questions[15] = "Welches Speichermedium verwendet mechanische Bewegung, um seine Daten zu erreichen?"
+  answers  [15] = "Die Magnetplatte."
+
+  questions[16] = "Welche Art von Material umgibt eine Festplatte?"
+  answers  [16] = "Magnetisches."
+
+  questions[17] = "Welche Software behält Dateien und ihren Speicherort im Auge?"
+  answers  [17] = "Das Betriebssystem."
+
+  questions[18] = "Ein Grund warum alte Computerspiele auf modernen Computern nicht laufen, ist ... "
+  answers  [18] = "Alte Spiele versuchen ihr eigenes I/O zu handhaben, ohne das Betriebssystem zu verwenden.\nModerne Betriebssysteme lassen das nicht zu."
+
+  questions[19] = "Der Teil des Dateinamens nach dem Punkt ist .... \nZum Beispiel, \"exe\"  in monopoly.exe."
+  answers  [19] = "Die Dateiendung."
+
+  questions[20] = "Sind die Bytes in einer Textdatei grundsätzlich anders als die Bytes in einer ausführbaren Datei?"
+  answers  [20] = "Nein, beide enthalten Bitmuster."
+
+  questions[21] = "Eine Datei, die ein ausführbares Programm enthält, heißt ........?"
+  answers  [21] = "ausführbare Datei."
+
+  questions[22] = "Ändert sich der Inhalt eines Speicherbytes, wenn es vom Prozessor gelesen wird?"
+  answers  [22] = "Nein."
+
+  questions[23] = "Wie viele Bits enthält ein Byte?"
+  answers  [23] = "8."
+
+  questions[24] = "Bedeutet das gleiche Bitmuster immer das gleiche?"
+  answers  [24] = "Nein."
+
+
+  // If you are making your own flashcards, do not modify anything below this line.
+
+  // Initialize Variables
+
+  var state    = 0  // state 0 is question, state 1 is answer,
+                    // state 2 is grade,    state 7 is final
+
+  for ( var j=0; j < asked.length; j++ ) asked[j] = 0
+
+
+function questionClick()
+{
+  var txt
+  var coin
+
+  if ( state == 0 )
+  {
+
+    coin = Math.floor( Math.random()*questions.length )
+    qNumber = coin
+
+    while ( asked[qNumber] == 1 && ((qNumber+1)%questions.length) != coin )
+      qNumber = (qNumber+1)%questions.length
+
+    if ( ((qNumber+1)%questions.length) == coin )
+    {
+      state = 7
+      txt = "Sie haben die Vokabelübung beendet.\n"
+
+      txt +=  "Anzahl der Fragen: " + document.aForm.count.value + "\n"
+      txt +=  "Richtige Antworten: " + document.aForm.numRight.value + "\n"
+      txt +=  "Richtige in Prozent: " +
+          Math.round((document.aForm.numRight.value*100)/document.aForm.count.value) + "\n"
+      document.aForm.questionArea.value = txt
+    }
+
+    else
+    {
+      state = 1
+      document.aForm.count.value++;
+      document.aForm.Counter.value = " " + document.aForm.count.value
+
+      document.aForm.questionArea.value  =  questions[qNumber] + "\n"
+      document.aForm.answerArea.value = " "
+    }
+
+  }
+}
+
+function answerClick()
+{
+  if ( state == 1 )
+  {
+    state = 2
+    document.aForm.answerArea.value =  answers[qNumber]
+  }
+}
+
+function rightClick()
+{
+  if ( state == 2 )
+  {
+    state = 0
+    document.aForm.numRight.value++
+    document.aForm.Right.value = " " + document.aForm.numRight.value
+    document.aForm.Wrong.value = " " + document.aForm.numWrong.value
+    asked[qNumber] = 1
+  }
+}
+
+function wrongClick()
+{
+  if ( state == 2 )
+  {
+    state = 0
+    document.aForm.numWrong.value++
+    document.aForm.Right.value = " " + document.aForm.numRight.value
+    document.aForm.Wrong.value = " " + document.aForm.numWrong.value
+  }
+}
+//-->
+</script>
+</head>
+
+<body>
+<small>&uuml;bersetzt 11.09.03; &uuml;berarbeitet 06.4.04, 28.08.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+
+<center>
+<h1>Vokabeltraining &uuml;ber Computerspeicher</h1>
+</center>
+
+<form name="aForm">
+<center>
+<textarea name="questionArea" rows="5" cols="70" wrap="physical" readonly="readonly">
+Hinweise: Die Vokabel&uuml;bung besteht aus 25 Fragen.
+Schritt 1: Klicken Sie auf den Button &quot;1. Frage stellen&quot;, um die Frage zu sehen.
+Beantworten Sie f&uuml;r sich die Frage.
+</textarea>
+
+<textarea name="answerArea" rows="6" cols="70" wrap="physical" readonly="readonly">
+Schritt 2: Klicken Sie auf den Button &quot;2. Antwort zeigen&quot;, um die richtige Antwort zu sehen.
+Schritt 3: Bewerten Sie dann Ihre Antwort, indem Sie auf &quot;Richtig&quot; oder &quot;Falsch&quot; klicken.
+Wiederholen Sie die Schritte 1 bis 3.
+</textarea>
+
+<p>
+Bisher gestellte Fragen
+&nbsp;&nbsp;
+<input type=text name="Counter" size=5 value="" readonly="readonly" />
+&nbsp;&nbsp;
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="Right" size=5 value="" readonly="readonly" />
+&nbsp;&nbsp;
+Falsche Antworten:
+&nbsp;&nbsp;
+<input type=text name="Wrong" size=5 value="" readonly="readonly" />
+</p>
+
+<input type="button"
+  name="questionButton"
+  value="1. Frage stellen"
+  onclick="questionClick()" />
+
+&nbsp;
+
+<input type="button" name="answerButton"
+  value="2. Antwort zeigen"
+  onclick="answerClick()" />
+
+&nbsp;
+
+<input type="button" name="rightButton"
+  value="3. Richtig"
+  onclick="rightClick()" />
+
+oder
+
+<input type="button" name="wrongButton"
+  value="3. Falsch"
+  onclick="wrongClick()" />
+
+<input type="hidden" name="numRight" value="0" />
+<input type="hidden" name="numWrong" value="0" />
+<input type="hidden" name="count" value="0" />
+</center>
+</form>
+
+<hr />
+<p>
+<b>Hinweise:</b>&nbsp;Die Vokabel&uuml;bung besteht aus 25 Fragen.
+Klicken Sie auf den Button &quot;1. Frage stellen&quot;, um die Frage zu sehen.
+Beantworten Sie f&uuml;r sich die Frage.
+Klicken Sie auf den Button &quot;2. Antwort zeigen&quot;, um die richtige Antwort zu sehen.
+Bewerten Sie dann Ihre Antwort, indem Sie auf &quot;Richtig&quot; oder &quot;Falsch&quot; klicken.
+Wiederholen Sie die Schritte 1 bis 3.
+</p>
+
+<p>
+Falsche Antworten werden wieder verwendet. Die richtig beantworteten Fragen werden aus dem Stapel der Karteikarten entfernt. Das Vokabeltraining ist abgeschlossen, sobald Sie alle Fragen richtig beantwortet haben.
+</p>
+
+<hr />
+
+<p>Zur&uuml;ck zum  <a href="../../index.html#03">Inhaltsverzeichnis</a>.</p>
+
+<p>
+<small>Wenn Sie sich eine eigene Vokabel&uuml;bung erstellen m&ouml;chten, speichern Sie die Datei ab. &Ouml;ffnen Sie dann die Datei mit Ihrem Texteditor (bzw. HTML Editor) und folgen Sie den Anweisungen.</small>
+</p>
+
+</body>
+</html>

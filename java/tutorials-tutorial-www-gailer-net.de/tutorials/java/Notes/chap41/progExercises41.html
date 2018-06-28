@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+<p>
+<small>created 05/24/03</small>
+</p>
+<hr />
+
+<center><h1>  
+Chapter 41  Programming Exercises </h1></center>
+
+<blockquote>
+Many of your programs from previous chapters
+can modified by changing <code>while</code> loops
+into the equivalent <code>for</code> loops.
+Some of these exercises are repeats of previous ones.
+</blockquote>
+<hr />
+
+<h2>Exercise 1 --- Sheep Herd Size</h2>
+<p>
+A breeding group of 20 bighorn sheep is released in
+a protected area in Colorado.
+It is expected that with careful management the
+number of sheep, <code>N</code>, after  <code>t</code>
+years will be given by the formula:
+</p>
+
+<pre>
+N = 220/(1 + 10(0.83)<sup>t</sup> )
+</pre>
+
+<p>
+and that the sheep population will be able to
+maintain itself without further supervision once
+the population reades a size of 80.
+</p>
+
+<p>
+Write a program (using a <code>for</code> loop)
+that writes out the value of  
+<code>N</code> 
+for  
+<code>t</code>
+starting at zero and going up to 25.
+How many years must the sheep heard be
+supervised?
+</p>
+
+<p>
+Hint: don't calculate <code>(0.83)<sup>t</sup></code>
+&nbsp; "from scratch" each time the formula is used.
+Use a variable <code>power</code> that is multiplied by
+0.83 in each iteration of the loop.
+What value should it be initialized to?
+</p>
+
+<p>
+(<small>Problem from Howard Anton, <em>Calculus,</em>
+6<sup>th</sup> ed., p. 105. </small>)
+</p>
+
+<p>
+<A HREF="../../cs151java.html#41">Click here </A> to go back to the main menu.
+</p>
+<hr />
+
+<h2>Exercise 2 --- Maximum of Integers in a File</h2>
+<p>
+Write a program that reads 5 integers from a file,
+computes their
+and their maximum and prints these values
+to the screen.
+Do this by modifying the summing program
+from the chapter.
+Insert a new <code>int</code> variable
+called <code>max</code> which you should initialize to
+the first value in the file.
+This will call for an extra set of input statements
+before the loop starts.
+To compute the maximum you will need an <code>if</code>
+statement nested inside the loop.
+</p>
+
+<p>
+<A HREF="../../cs151java.html#41">Click here </A> to go back to the main menu.
+</p>
+
+
+<hr>
+</body>
+</html>

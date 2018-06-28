@@ -1,0 +1,1391 @@
+<!-- Jan.   20, 2000  bpk   INDEX  -->
+<!-- July 18, 2002 bpk CSS and XML -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2002</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>Bradley Kjell kjell@ieee.org </AUTHORNAME>
+
+<CAI> CHAPTER 40 &#8212; Boolean Expressions and <br> Short-circuit Operators
+
+<p>
+<small>created 12/10/99; revised 01/22/00; edited 07/18/02</small>
+</p>
+
+<LESSON>
+<p>
+A boolean value (a <code>true/false</code> value) picks the branch
+of an <code>if</code> statement or allows a loop to continue.
+Sometimes the boolean expression is more complicated
+than we have seen so far in these notes.
+Often a program must make a decision based on a number of factors.
+This chapter will examine this topic and discuss some additional boolean
+operators.
+</p>
+
+<h4>Chapter Topics:</h4>
+<img src="shortCircuit.gif" align="right" hspace="10" />
+<ul>
+<li>Short-circuit <code>&amp;&amp;</code> and <code>||</code> operators.</li>
+<li>Non-short-circuit <code>&amp;</code> and <code>|</code> operators.</li>
+<li>Expressions made with several <code>&amp;&amp;</code> operators.</li>
+<li>Expressions made with several <code>||</code> operators.</li>
+<li>Expressions made with mixed <code>&amp;&amp;</code> and <code>&amp;&amp;</code> operators.</li>
+<li>precedence of <code>&amp;&amp;</code> and <code>||</code> operators.</li>
+</ul>
+
+<br clear="all" />
+<br />
+
+</LESSON>
+
+<QUESTION>
+<p>
+What is the <code>true/false</code> value of:
+</p>
+
+<pre class="code">
+12 &lt; 6 &amp;&amp; 18 &gt; 1
+</pre>
+
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Short-circuit AND Operator
+<pre class="code">
+</pre>
+
+<ANSWER>
+
+<p>
+<code>12 &lt; 6 &amp;&amp; 18 &gt; 1</code> evaluates to <code>false</code>
+</p>
+<table border="border" bordercolor="blue" cellpadding="8" align="left" bgcolor="white">
+<tr><th colspan="2">AND Operator &amp;&amp</th></tr>
+<tr>
+<td><tt>true&nbsp; &amp;&amp; true &nbsp;</tt></td><td><tt>true</tt></td></tr>
+<td><tt>false &amp;&amp; true &nbsp;</tt></td><td><tt>false</tt></td></tr>
+<td><tt>true&nbsp; &amp;&amp; false &nbsp;</tt></td><td><tt>false</tt></td></tr>
+<td><tt>false &amp;&amp; false&nbsp;</tt></td><td><tt>false</tt></td></tr>
+</td>
+</tr>
+</table>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+You may have noticed something in answering the
+question:
+you can get the correct answer to the question by
+evaluating just the first part of the expression:
+</p>
+
+<pre class="code">
+12 &lt; 6 &amp;&amp; 18 &gt; 1
+------
+false
+</pre>
+
+<p>
+Since <code>false</code> &amp;&amp; <em>anything</em> is <code>false</code>,
+there is no need
+to continue after the
+first <code>false</code> has been encountered.
+In fact,
+this is how Java operates:
+</p>
+
+<INDEX>and operator, short-circuit</INDEX>
+
+<blockquote>
+To evaluate <code>X &amp;&amp; Y</code>, first evaluate X.
+If X is <code>false</code> then stop: the whole expression
+is  <code>false</code>.
+Otherwise, evaluate Y then AND the two values.
+<INDEX>short-circuit evaluation</INDEX>
+</blockquote>
+
+<p>
+This idea is called <b>short-circuit evaluation</b>.
+Programmers frequently make use of this feature.
+For example,
+say that two methods that return <code>true/false</code> values
+are combined in a boolean expression:
+</p>
+
+<pre class="code">
+if ( methodThatTakesHoursToRun() &amp;&amp; methodThatWorksInstantly() )
+   ....
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Suggest a better (but logically identical) way to arrange this
+boolean expression.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Watch out for Side-effects
+
+<ANSWER>
+
+<p>
+Put the fastest method
+first because if it returns a <code>false</code> you are done immediately.
+</p>
+
+<pre class="code">
+if ( methodThatWorksInstantly() &amp;&amp; methodThatTakesHoursToRun() )
+   ....
+</pre>
+
+</ANSWER>
+
+<LESSON>
+<img src="rxBottle.gif" align="left" hspace="20">
+<p>
+If the first method returns <code>false</code>, the
+second method is not evaluated at all,
+saving time.
+The result of evaluating the boolean expression is
+<code>false</code>
+whenever <code>methodThatWorksInstantly()</code> is
+<code>false</code>.
+Only when it is <code>true</code> is the time consuming method executed.
+</p>
+
+<p>
+<b>Danger:</b> This trick works correctly only if the skipped method
+does nothing permanent.
+In other words, short-circuit evaluation is safe when
+the skipped method does nothing but
+compute <code>true</code> or <code>false</code>.
+Short-circuit evaluation <b>is not safe</b> when the
+skipped does more than that.
+For example:
+</p>
+
+<pre class="code">
+boolean methodThatTakesHoursToRun()
+{
+  // make a permanent change to the state of
+  // an object that the rest of the program uses.
+
+  // now return a true or false
+}
+</pre>
+
+
+<INDEX>side effect</INDEX>
+<p>
+When a method makes
+permanent changes to data,
+it must be called regardless of
+the <code>true/false</code> value of some other method.
+When a method makes a permanent change to data
+the method is said to have a <b>side effect</b>.
+When methods have side effects,
+you must be careful when using a short-circuit
+operator.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<form>
+<p>
+(Thought question: ) Do you have to worry about side effects with
+methods that return <code>int</code>?
+Click here for a <input type="button" value="Hint"
+onClick="alert('What if the return value of a method is compared with another value?')">
+</p>
+</form>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Danger with any Method
+<ANSWER>
+<p>
+Any function that returns any type of value can be used in a boolean
+expression, so side-effects are a concern.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+For example,
+say that a method <code>computeMaximum()</code>
+computes the maximum value of some variables,
+stores the result in <code>maximum</code> and returns
+that value:
+</p>
+
+<pre class="code">
+int maximum; // set by <em>computeMaximum()</em>
+. . .
+
+if ( sum &lt; 100 &amp;&amp; computeMaximum() &lt; 500 )
+{
+  result = 2 * maximum ;   // maximum might not be computed.
+}
+. . .
+</pre>
+
+<p>
+There is a problem here.
+The  method that follows  <code>&amp;&amp;</code>
+sets <code>maximum</code>
+(as a side effect)
+only when
+<code>sum</code> is greater than 100.
+The assignment statement will sometimes put
+the wrong value in <code>result</code>.
+You should arrange the expression like this:
+</p>
+
+<pre class="code">
+int maximum;
+. . .
+
+if ( computeMaximum() &lt; 500 &amp;&amp; sum &lt; 100 )
+{
+  result = 2 * maximum ;
+}
+. . .
+</pre>
+
+<p>
+With this arrangement the side effect will always happen.
+The two <code>if</code> statements look almost identical;
+however, the first one is a bug (probably).
+Bugs like this can be hard to find.
+</p>
+
+<p>
+The best solution is to write <code>computeMaximum()</code>
+so that it has no side effect,
+then use it like this:
+</p>
+
+<pre class="code">
+int maximum;
+. . .
+maximum = computeMaximum();
+
+if ( maximum &lt; 500 &amp;&amp; sum &lt; 100 )
+{
+  result = 2 * maximum ;
+}
+. . .
+</pre>
+
+<br clear="all" />
+<br />
+</LESSON>
+
+<QUESTION>
+<p>
+Would it be useful to have a <b>non</b>-short-circuit AND operator?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Non-short-circuit Operator
+<ANSWER>
+<p>
+Yes.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>and operator, not short-circuit</INDEX>
+
+<table border="border" bordercolor="brown" align="right"  cellpadding="5" bgcolor="white">
+<tr bgcolor="tan"><th>Expression</th><th>Result</th><th>Evaluation Order</th></tr>
+<tr><td><code>true  &amp;&amp; true </code> </td><td> <code>true </code></td><td>    both operands evaluated</td></tr>
+<tr><td><code>false &amp;&amp; true</code>  </td><td> <code>false</code></td><td>    only first operand evaluated</td></tr>
+<tr><td><code>true  &amp;&amp; false</code> </td><td> <code>false</code></td><td>    both operands evaluated</td></tr>
+<tr><td><code>false &amp;&amp; false</code></td><td> <code>false</code></td><td>    only first operand evaluated</td></tr>
+
+<tr><td><code>true  &amp; true</code>  </td><td> <code>true </code></td><td>    both operands evaluated</td></tr>
+<tr><td><code>false &amp; true </code> </td><td> <code>false</code></td><td>    both operands evaluated</td></tr>
+<tr><td><code>true  &amp; false</code> </td><td> <code>false</code></td><td>    both operands evaluated</td></tr>
+<tr><td><code>false &amp; false</code> </td><td> <code>false</code></td><td>    both operands evaluated</td></tr>
+</table>
+
+<p>
+The <span class="blue"><big>&amp;</big></span> operator combines two boolean values
+using the rules for AND, but always evaluates both operands.
+This is useful when you want both operands to be evaluated no matter
+what values are returned.
+</p>
+
+<INDEX>pure function</INDEX>
+<p>
+The disadvantage is a possible loss of speed.
+Most Java programs are written using the <code>&amp;&amp;</code> operator whenever an AND is
+needed.
+The programmer must be careful of side-effects, though.
+Usually this is done by writing methods that are "pure functions" as much
+as possible.
+A <b>pure function</b> is a method that returns a value and is free of
+side effects.
+Methods that are not pure functions should usually be kept out of boolean
+expressions.
+</p>
+<br clear="all" />
+
+<p>
+For example,
+the final version of the method <code>computeMaximum()</code> in the previous
+example is a pure function.
+It computed the maximum,
+but did not itself save the result.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+What does the following print?
+</p>
+
+<pre class="code">
+int count = 0;     // say that these values are the result of
+int total = 345;   // the program running with input data.
+
+if ( count &gt; 0 &amp;&amp; total / count &gt; 80 )
+  System.out.println("Acceptable Average");
+else
+  System.out.println("Poor Average");
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Testing Values
+<ANSWER>
+<p>
+Poor Average
+</p>
+
+</ANSWER>
+
+<LESSON>
+<table cellpadding="5" align="right" bgcolor="white" border="border" bordercolor="brown">
+<tr>
+<td>
+<pre>
+int count = 0;
+int total = 345;
+
+if ( count &gt; 0 &amp;&amp; total / count &gt; 80 )
+  System.out.println("Acceptable Average");
+else
+  System.out.println("Poor Average");
+
+</pre>
+</td></tr>
+</table>
+
+<p>
+Sometimes an <code>if</code> statement or a <code>while</code> statement uses the
+short-circuit AND to avoid division by zero,
+or to avoid some other easily tested condition,
+as in the example.
+The same could be done with nested <code>if</code> statements,
+but with additional clutter that the programmer
+might wish to avoid.
+The first comparison, <code>count &gt; 0</code> acts
+like a guard that prevents evaluation from reaching
+the division when count is zero.
+</p>
+
+<br clear="all"/>
+<p>
+The example program would not work if the
+non-short-circuit AND ( & ) were used.
+The second operand would include a
+division by zero even when the first
+operand evaluated to <code>false</code>.
+The example works like this:
+</p>
+
+<pre class="code">
+int count = 0;
+int total = 345;
+
+if ( count &gt; 0 &amp;&amp; total / count &gt; 80 )
+     ---------
+     false, so no further
+     evaluation is done.
+</pre>
+<br clear="all" />
+<br />
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Re-write the example using nested <code>if</code> statements:
+</p>
+
+<pre class="code">
+int count = 0;
+int total = 345;
+
+if ( <span class="blue">______________</span> )
+{
+  if ( <span class="blue">______________</span> )
+    System.out.println("Acceptable Average");
+  else
+    System.out.println("Low Average");
+}
+else
+  System.out.println("No values to average.");
+</pre>
+
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Use Nested-ifs when Needed
+<ANSWER>
+<pre class="code">
+int count = 0;
+int total = 345;
+
+if ( <span class="blue">count &gt; 0</span> )
+{
+  if ( <span class="blue">total / count &gt; 80</span> )
+    System.out.println("Acceptable Average");
+  else
+    System.out.println("Low Average");
+
+}
+else
+  System.out.println("No values to average.");
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+In this code fragment,
+the "guard" that prevents division by
+zero is the first <code>if</code> statement.
+When <code>count</code> is zero,
+it prevents the true-branch from executing.
+</p>
+
+<p>
+It is easy to get caught up in complicated boolean
+expressions and to use them when a nested-if is more
+appropriate.
+Notice that the solution to the question
+is probably the better program because it
+is easier to understand and writes
+better messages to the monitor.
+</p>
+
+<br clear="all"/>
+</LESSON>
+
+<QUESTION>
+
+<p>
+What is the <code>true/false</code> value of:
+</p>
+
+<pre class="code">
+12 &gt; 6 || 18 &gt; 1
+</pre>
+</QUESTION>
+
+</CAI>
+<!-- -------------------------------------------- -->
+<!-- -------------------------------------------- -->
+<!-- -------------------------------------------- -->
+<!-- -------------------------------------------- -->
+
+
+<CAI>Short-circuit OR
+<ANSWER>
+true
+
+</ANSWER>
+
+<LESSON>
+
+
+<table border="border" bordercolor="brown" align="right"  cellpadding="8" bgcolor="white">
+<tr bgcolor="tan"><th>Expression</th><th>Result</th><th>Evaluation Order</th></tr>
+<tr><td><code>true  || true </code> </td><td> <code>true </code></td><td>    only first operand evaluated</td></tr>
+<tr><td><code>false || true</code>  </td><td> <code>true</code></td><td>    both operands evaluated</td></tr>
+<tr><td><code>true  || false</code> </td><td> <code>true</code></td><td>    only first operand evaluated</td></tr>
+<tr><td><code>false || false</code></td><td> <code>false</code></td><td>    both operands evaluated</td></tr>
+
+<tr><td><code>true  | true</code>  </td><td> <code>true </code></td><td>    both operands evaluated</td></tr>
+<tr><td><code>false | true </code> </td><td> <code>true</code></td><td>    both operands evaluated</td></tr>
+<tr><td><code>true  | false</code> </td><td> <code>true</code></td><td>    both operands evaluated</td></tr>
+<tr><td><code>false | false</code> </td><td> <code>false</code></td><td>    both operands evaluated</td></tr>
+
+</table>
+<p>
+Perhaps you noticed that to answer the question you only needed to
+evaluate the first subexpression:
+</p>
+
+<pre class="code">
+12 &gt; 6 || 18 &gt; 1
+------
+true
+</pre>
+
+<p>
+Once you know that this subexpression is <code>true</code> there is no need to
+go further.
+<code>true</code> OR <em>anything</em> is <code>true</code>.
+</p>
+
+<INDEX>or operator, short-circuit</INDEX>
+<INDEX>or operator, not short-circuit</INDEX>
+<p>
+The <span class="blue"><big>||</big></span> OR operator is also
+a short-circuit operator.
+Since OR evaluates to <code>true</code> when one or both
+of its operands are <code>true</code>,
+short-circuit evaluation stops with the first <code>true</code>.
+</p>
+
+<p>
+The OR operator comes in a non-short-circuit version as
+well: <span class="blue"><big>|</big></span> (this is a
+single vertical bar.)
+When this operator is used,
+both operands are evaluated no matter what the
+outcome of the first operand.
+The short-circuit OR works like this:
+</p>
+
+<blockquote>
+To evaluate <code>X||Y</code>, first evaluate X.
+If X is <code>true</code> then stop: the whole expression
+is  <code>true</code>.
+Otherwise evaluate Y and OR the two values.
+</blockquote>
+
+<p>
+As with the short-circuit AND,
+be careful when using methods that
+have side effects.
+If you are depending on a method's side effect,
+be sure that the method executes.
+</p>
+<br clear="all"/>
+
+</LESSON>
+
+<QUESTION>
+<p>
+What is the value of:
+</p>
+
+<pre class="code">
+(4 &lt; 8 ) &amp;&amp; (12 &lt;= 40 ) &amp;&amp; (50 &gt; 1)
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Two AND Operators
+<ANSWER>
+
+
+<pre class="code">
+(4 &lt; 8 ) &amp;&amp; (12 &lt;= 40 ) &amp;&amp; (50 &gt; 1)
+</pre>
+
+<p>
+is <code>true</code>
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+An expression with two &amp;&amp; operators
+works like you expect.
+But let us look at the situation in detail.
+When the &amp;&amp; operator is used twice in
+an expression, group the first &amp;&amp; and its
+operands together like this:
+</p>
+
+<pre class="code">
+  (4 &lt; 8 ) &amp;&amp; (12 &lt;= 40 )  &amp;&amp; (50 &gt; 1)
+
+     is equivalent to:
+
+<span class="blue"><big>(</big></span> (4 &lt; 8 ) &amp;&amp; (12 &lt;= 40 )<span class="blue"><big>)</big></span> &amp;&amp; (50 &gt; 1)
+</pre>
+
+<p>
+Now evaluate that first group.
+The result is a <code>true</code> or <code>false</code>
+that works with the next &amp;&amp; operator:
+</p>
+
+<pre class="code">
+<span class="blue"><big>(</big></span>          true          <span class="blue"><big>)</big></span> &amp;&amp; (50 &gt; 1)
+</pre>
+
+<p>
+The effect of this is that for the entire expression to
+be <code>true</code>, every operand must be <code>true</code>.
+One or more <code>false</code> values cause the entire expression
+to be <code>false</code>.
+</p>
+
+<p>
+Short-circuit evaluation is still going on, so
+the <b>first</b> <code>false</code> value stops evaluation and
+causes the entire expression to be <code>false</code>.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+What is the value of:
+</p>
+
+<pre class="code">
+(4 &lt; 8 ) &amp;&amp; (  8 &lt; 0 ) &amp;&amp; ( 100 &gt; 45 )
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Cascade of &amp;&amp; Operators
+<ANSWER>
+
+<pre class="code">
+(4 &lt; 8 ) &amp;&amp; (  8 &lt; 0 ) &amp;&amp; ( 100 &gt; 45 )
+   (T    &amp;&amp;      F)    &amp;&amp; ( 100 &gt; 45 )
+          F            &amp;&amp; ( 100 &gt; 45 )
+</pre>
+
+<p>
+... evaluation stops with the value <code>false</code> for the entire expression.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>and operator, several per expression</INDEX>
+<p>
+When there are more than two &amp;&amp; operators in an expression,
+pairs of operands are grouped togther with an &amp;&amp; starting from
+the left and going toward the right of the expression.
+Such a group works as a single operand for the next &amp;&amp; to the right.
+</p>
+
+<p>
+Assume that V, W, X, Y, and Z stand for boolean operands.
+Then operands are grouped from left to right:
+</p>
+
+<pre class="code">
+   V &amp;&amp; W  &amp;&amp; X   &amp;&amp; Y  &amp;&amp; X
+
+  (V &amp;&amp; W) &amp;&amp; X   &amp;&amp; Y  &amp;&amp; X
+
+ ((V &amp;&amp; W) &amp;&amp; X ) &amp;&amp; Y  &amp;&amp; X
+
+(((V &amp;&amp; W) &amp;&amp; X ) &amp;&amp; Y) &amp;&amp; X
+</pre>
+
+<INDEX>associativity</INDEX>
+<p>
+In the last line (above) every &amp;&amp; operator has one operand to its left and one
+operand to its right.
+The <em>associativity</em> of an operator is how its operands are grouped in
+situations like this.
+The &amp;&amp; operator has <em>Left to Right</em> Associativity.
+Most (but not all) operators work this way.
+</p>
+
+<p>
+If you are not happy with the above discussion, don't worry about it.
+Mostly all you need to know is that an expression with many &amp;&amp;'s  works by looking
+for a <code>false</code> starting from the left and going toward the right.
+The first <code>false</code> it finds stops evaluation and causes the entire
+expression to be <code>false</code>.
+If every operand is <code>true</code> then every operand is evaluated and
+the entire
+expression is <code>true</code>.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+What is the value of:
+</p>
+
+<pre class="code">
+(4 &lt; 8 ) || (  8 &lt; 0 ) || ( 100 &gt; 45 )
+</pre>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Cascade of || Operators
+<ANSWER>
+
+<pre class="code">
+(4 &lt; 8 ) || (  8 &lt; 0 ) || ( 100 &gt; 45 )
+--------
+  true
+</pre>
+
+<p>
+.... evaluation stops with the first <code>true</code> and
+the entire expression is  <code>true</code>.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+The <code>||</code> operator also has left to right associativity.
+In other words, it works like you expect.
+When an expression has several <code>||</code>'s  look
+for a <code>true</code> starting from the left and going toward the right.
+The first <code>true</code>  stops the evaluation and causes the entire
+expression to be <code>true</code>.
+If every operand is <code>false</code> then every operand is evaluated and
+the entire
+expression is <code>false</code>.
+</p>
+
+<p>
+When there are possible side effects it is important to understand
+that evaluation goes from left to right, as explained above.
+If there are no side effects (as in the expression used for the question)
+it doesn't really matter.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+What is the value of:
+</p>
+
+<pre class="code">
+Math.sin( 0.5 ) &gt;= Math.tan( 0.2 ) || 43.259 / 12.073 &gt; 3.5 || ( 100 &gt; 45 )
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Red Miata Sports Car <img src="redMiata.gif">
+<ANSWER>
+
+<pre class="code">
+Math.sin( 0.5 ) &gt;= Math.tan( 0.2 ) || 43.259 / 12.073 &gt; 3.5 || ( 100 &gt; 45 )
+</pre>
+
+<p>
+There are no side-effects here, so it is safe to look at the last part:
+</p>
+
+<pre class="code">
+( 100 &gt; 45 )
+</pre>
+
+<p>
+and realize that the entire expression will be <code>true</code>.
+Java (working from left to right) might have found a different <code>false</code>,
+but in the absence of side-effects that doesn't matter.
+The entire expression is <code>false</code>.
+</p>
+<p>
+Math functions, such as <code>Math.sin()</code> and <code>Math.cos()</code>,
+do not have side effects.
+They are safe to use in boolean expressions.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Say that you have not yet given up on buying that $25,000 red Miata sports car.
+The sales manager of the car lot will let you buy the car if:
+</p>
+
+<ul>
+<li>You have at least $25,000 in cash, OR</li>
+<li>You have at least $25,000 in credit AND no outstanding debts.</li>
+</ul>
+
+<p>
+The logic of this situation is slightly complicated. Here are several situations:
+</p>
+
+<ul>
+<li>You have $30,000 in cash, no credit and massive debts. &nbsp; &nbsp; You get the car.</li>
+<li>You have $1,000 in cash,  $50,000 in credit and massive debts. &nbsp; &nbsp; You DON'T get the car.</li>
+<li>You have $1,000 in cash,  $10,000 in credit and no debts. &nbsp; &nbsp; You DON'T get the car.</li>
+<li>You have $1,000 in cash,  $30,000 in credit and no debts. &nbsp; &nbsp; You get the car.</li>
+</ul>
+
+
+<p>
+Notice that it is not enough to merely have a high credit line.
+To buy the car on credit you must also be free of debt.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+You have $25,000 in cash, $50,000 in credit and massive debts.  Do you
+get the car?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Car Buying Program
+<ANSWER>
+<p>
+Yes.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+The sales manager of the car lot will let you buy the car if:
+</p>
+
+<ul>
+<li>You have $25,000 in cash, OR</li>
+<li>You have $25,000 in credit and no outstanding debts.</li>
+</ul>
+
+<p>
+Say that "outstanding debts" means debts more than $1,000.
+Here is a program that makes the car buying decision:
+</p>
+
+<pre class="program">
+// Sports Car Purchase
+//    New $25,000 red Miata sports car.
+//    You need cash or credit with no debts .
+//
+import java.io.*;
+class HotWheels2
+{
+  public static void main (String[] args) throws IOException
+  {
+    BufferedReader stdin =
+        new BufferedReader ( new InputStreamReader( System.in ) );
+
+    String inData;
+    int    cash, credit, debt ;
+
+    // get the cash
+    System.out.println("How much cash?");
+    inData   = stdin.readLine();
+    cash    = Integer.parseInt( inData );
+
+    // get the credit line
+    System.out.println("How much credit do you have?");
+    inData   = stdin.readLine();
+    credit   = Integer.parseInt( inData );
+
+    // determine the debts
+    System.out.println("How much much do you owe?");
+    inData   = stdin.readLine();
+    debt     = Integer.parseInt( inData );
+
+    // check that at least one qualification is met
+    if ( <span class="blue">cash &gt;= 25000  ||  ( credit &gt;= 25000 &amp;&amp; debt &lt; 1000 )</span> )
+      System.out.println("Enough to buy this car!" );
+    else
+      System.out.println("Have you considered a Yugo?" );
+
+  }
+}
+</pre>
+
+<p>
+The boolean expression of the <code>if</code> statement correctly implements the
+car buying rules.
+The expression includes both <code>&amp;&amp;</code> and <code>||</code>.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+You have zero dollars, $26,000 in credit and $500 in debts.  Do you get the car?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Boolean Expressions with Mixed AND and OR
+<ANSWER>
+<p>
+Yes.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Boolean expression, mixed operators</INDEX>
+<p>
+<code>cash</code> is 0;<code>credit</code> is 26000; <code>debt</code> is 500.
+The boolean expression is evaluated like this:
+</p>
+
+<pre class="program">
+cash &gt;= 25000  ||  ( credit &gt;= 25000 &amp;&amp; debt &lt; 1000 )
+
+   false       ||  ( credit &gt;= 25000 &amp;&amp; debt &lt; 1000 )
+
+   false       ||  (      true       &amp;&amp; debt &lt; 1000 )
+
+   false       ||  (      true       &amp;&amp;    true     )
+
+   false       ||  (                true            )
+
+              true
+</pre>
+
+<p>
+Parentheses are used to group the two relational expressions that are to be ANDed.
+(Since <code>&amp;&amp;</code> has higher precedence than <code>||</code>,
+the parentheses are not needed,
+but they don't hurt.)
+The following expression is <b>not</b> equivalent:
+</p>
+
+<pre class="code">
+( cash &gt;= 25000  ||  credit &gt;= 25000 ) &amp;&amp; debt &lt; 1000
+</pre>
+
+<p>
+When boolean expressions contain both
+<code>&amp;&amp;</code> and <code>||</code> correct grouping is
+important.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Use the (incorrect) boolean expression above to answer this question:
+You have $50,000 in cash, $100,000 of credit, and $3,000 of debt.
+Can you buy the car?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Incorrect Parentheses
+<p>
+</p>
+<ANSWER>
+<p>
+No, you can't buy the car
+(at least that is what the incorrect boolean expression says.)
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+You have $50,000 in cash, $100,000 of credit, and $3,000 of debt.
+Here is how the incorrect expression is evaluated:
+</p>
+
+<pre class="program">
+( cash &gt;= 25000  ||  credit &gt;= 25000 ) &amp;&amp; debt &lt; 1000
+
+(      true      ||  credit &gt;= 25000)  &amp;&amp; debt &lt; 1000
+
+(               true                )  &amp;&amp; debt &lt; 1000
+
+                true                   &amp;&amp;     false
+
+                                      false
+</pre>
+
+<p>
+The correctly grouped expression,
+</p>
+
+<pre class="code">
+cash &gt;= 25000  ||  ( credit &gt;= 25000 &amp;&amp; debt &lt; 1000 )
+</pre>
+
+<p>
+immediately evaluates to <code>true</code>.
+</p>
+
+<p>
+Here is another problem:  a program screens job applicants.
+An applicant is accepted for an interview only if the applicant
+meets two conditions:
+</p>
+
+<ul>
+<li>4 or more years of college, AND</li>
+<li>2 years experience programming in Java OR a grade point average greater than 3.5.</li>
+</ul>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Put parentheses in this boolean expression so that it correctly tests applicants:
+</p>
+
+<pre class="code">
+if (   college &gt;= 4   &amp;&amp;   experience   &gt;= 2   ||    gpa &gt; 3.5   )
+
+  System.out.println("Interview applicant");
+
+else
+
+  System.out.println("Send resume to circular file.");
+</pre>
+
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Precedence of Logical Operators
+<p>
+An applicant must
+meet two conditions:
+</p>
+
+
+<ul>
+<li>4 or more years of college, AND</li>
+<li>2 years experience programming in Java OR a grade point average greater than 3.5.</li>
+</ul>
+
+
+<ANSWER>
+
+<pre class="code">
+if (   college &gt;= 4   &amp;&amp;   <span class="blue"><b>(</b></span> experience   &gt;= 2   ||    gpa &gt; 3.5  <span class="blue"><b>)</b></span> )
+
+  System.out.println("Interview applicant");
+
+else
+
+  System.out.println("Send resume to circular file.");
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<table border="border" bordercolor="brown" cellpadding="10" align="right" bgcolor="white">
+<tr bgcolor="tan"><th>Operator</th><th>precedence</th></tr>
+<tr><td align="center"><code>!</code</td><td align="center">High</td></tr>
+<tr><td align="center"><code>&amp;&amp</code</td><td align="center">Medium</td></tr>
+<tr><td align="center"><code>||</code></td><td align="center">Low</td></tr>
+</table>
+
+<INDEX>precedence, logical operators</INDEX>
+<p>
+You have seen that when expressions mix
+<code>&amp;&amp;</code> and <code>||</code>
+that evaluation must be
+done in the correct order.
+Parentheses can be used to group operands with their correct operator,
+just like in arithmetic.
+Also like arithmetic operators, logical operators have precedence that
+determines how things are grouped in the absence of parentheses.
+</p>
+
+<p>
+In an expression,
+the operator with the highest precedence is grouped with its
+operand(s) first,
+then the next highest operator will be grouped with its operands,
+and so on.
+If there are several logical operators of the same precedence, they
+will be examined left to right.
+</p>
+<br clear="all"/>
+<p>
+For example, say that <code>A, B, C, and D</code> stand for relational expressions
+(things like 23 &gt; 90).
+Then,
+</p>
+
+<blockquote>
+<table cellpadding="8">
+<tr><td><code> A || B &amp;&amp; C</code></td><td>means</td><td><code>A || (B &amp;&amp; C)</code></td></tr>
+<tr><td><code> A &amp;&amp; B || C &amp;&amp; D</code></td><td>means</td><td><code>(A &amp;&amp; B) || (C &amp;&amp; D)</code></td></tr>
+<tr><td><code> A &amp;&amp; B &amp;&amp; C || D</code></td><td>means</td><td><code>((A &amp;&amp; B) &amp;&amp; C) || D</code></td></tr>
+<tr><td><code>!A &amp;&amp; B || C</code></td><td>means</td><td><code>((!A) &amp;&amp; B) || C</code></td></tr>
+</table>
+</blockquote>
+
+
+<p>
+It is common for programmers to use parentheses to group operands together
+rather than rely on logical operator precedence rules.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Add parentheses to the following to show how operator precedence  groups
+operands:
+</p>
+
+<pre class="code">
+a &gt; b &amp;&amp; 45 &lt;= sum || sum &lt; a + b &amp;&amp; d &gt; 90
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Expressions and Subexpressions
+
+<ANSWER>
+<pre class="code">
+ ( a &gt; b &amp;&amp; 45 &lt;= sum  )</span> ||  (</span>sum &lt; a + b &amp;&amp; d &gt; 90 )</span>
+</pre>
+
+</ANSWER>
+
+<LESSON>
+<table border="border" bordercolor="brown"cellpadding="10" align="right"  bgcolor="white">
+<tr>
+<td align="left">a + b</td><td>is an arithmetic expression</td></tr>
+<td align="left">sum &lt; a + b</td><td>is a relational expression,<br>a type of boolean expression</td></tr>
+<td align="left">d &gt; 90</td><td>is a relational expression,<br>a type of boolean expression</td></tr>
+<td align="left"> sum &lt; a + b &amp;&amp; d &gt; 90</td><td>is a boolean expression</td></tr>
+<td align="left"> ... and so on ... </td><td>There are many other subexpressions</td></tr>
+</table>
+<INDEX>subexpressions</INDEX>
+
+<p>
+The boolean expression of the question contained pieces,
+called <em>sub-expressions</em>, that are themselves expressions.
+It is common in Java (and other languages) to build up
+complicated expressions out of smaller expressions.
+The precedence rules and parentheses keep everything straight.
+</p>
+
+<p>
+Arithmetic operators *, /, +, -, and % have higher precedence than &amp;&amp; and || so
+they are done first.
+For example:
+</p>
+
+<pre>
+sum &lt; a + b
+</pre>
+
+<p>
+means
+</p>
+
+<pre>
+sum &lt; (a + b)
+</pre>
+
+
+<br clear="all"/>
+<p>
+However, the not operator (!) has higher precedence than all the arithmetic
+operators except unary minus
+and has higher precedence than the other logical operators.
+Usually this means that you will need to use parentheses to apply it correctly.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+People may enter a contest UNLESS they are less than 21 years old, make more
+than $100,000, or live in Ohio.
+Use parentheses to group this boolean expression so that it is
+<code>true</code> when a person CAN enter the contest.
+</p>
+
+<pre class="code">
+<big>!</big> age &lt; 21 || pay &gt; 100000 || home.equals("Ohio")
+</pre>
+
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>End of the Chapter
+<p>
+People may enter a contest UNLESS they are less than 21 years old, make more
+than $100,000, or live in Ohio.
+The boolean expression is grouped so that it is
+<code>true</code> when a person CAN enter the contest.
+</p>
+<ANSWER>
+<pre class="code">
+<big>!</big>( age &lt; 21 || pay &gt; 100000 || home.equals("Ohio") )
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+You have reached the end this chapter.
+You may wish to review the following.
+Click on a subject that interests you to go to where it was discussed.
+</p>
+
+<ul>
+<li>The
+<GOTO>and operator, short-circuit</GOTO> short-circuit AND
+    operator</li>
+<li>
+<GOTO>side effect</GOTO> Side effects.
+<li>The
+<GOTO>and operator, not short-circuit</GOTO> non-short-circuit AND
+    operator</li>
+<li>
+The
+<GOTO>or operator, short-circuit</GOTO> short-circuit OR
+    operator</li>
+<li>The
+<GOTO>or operator, not short-circuit</GOTO> non-short-circuit OR
+    operator</li>
+<li>
+<GOTO>associativity</GOTO> Associativity of &amp;&amp;</li>
+
+<li>Boolean expressions with
+<GOTO>Boolean expression, mixed operators</GOTO> mixed logical operators.</li>
+<li>
+<GOTO>precedence, logical operators</GOTO> precedence of logial operators.</li>
+
+<li>
+<GOTO>pure function</GOTO> pure function.</li>
+
+<li>
+<GOTO>subexpressions</GOTO> Subexpressions
+  in a boolean expression.</li>
+</ul>
+
+<hr/>
+<br />
+<A HREF="../../cs151java.html#40">
+<img src="../contents.gif" alt="Click here" align="center"> </A>
+&nbsp; &nbsp; Back to the main menu.
+<br />
+<br />
+</LESSON>
+</CAI>
+</CHAPTER>

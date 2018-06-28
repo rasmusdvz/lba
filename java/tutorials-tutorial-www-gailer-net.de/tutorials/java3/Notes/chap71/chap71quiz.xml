@@ -1,0 +1,278 @@
+<QUIZ>
+
+<QHEAD>
+<QCREATION>Created 01/07/03 </QCREATION>
+<QAUTHOR>B. P. Kjell</QAUTHOR>
+<QEMAIL>kjell@ieee.org</QEMAIL>
+<QCOPYRIGHT>2003</QCOPYRIGHT>
+<QCSSFILE>../QUIZstyle.css</QCSSFILE>
+<QRETURNTO>../../cs151java.html#70</QRETURNTO>
+<QRETURNIMAGE>../contents.gif</QRETURNIMAGE>
+</QHEAD>
+
+<QTITLE>
+<img src="quizPencil.gif"/>
+ on Recursion with Java
+</QTITLE>
+
+<QTOP>
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br clear="all"/>
+</QTOP>
+
+<QUESTION>
+<QTEXT>
+Which answer is a correct skeleton for a recursive Java method?
+</QTEXT>
+
+<QRIGHT>
+<pre>
+int solution( int N )
+{
+  if ( <em><b>base case</b></em> )
+  {
+    return <em><b>something easily computed</b></em>
+  }
+  else
+  {
+    <em><b>divide problem into pieces</b></em>
+    return <em><b>something calculated from the solution to each piece</b></em>  
+  }
+}
+</pre>
+</QRIGHT>   
+
+<QWRONG>
+<pre>
+int solution( int N )
+{
+  if ( <em><b>base case</b></em> )
+  {
+    return <em><b>something easily computed</b></em>
+  }
+  else
+  {
+    return <em><b>solution(N)</b></em>  
+  }
+}
+</pre>
+</QWRONG>   
+ 
+<QWRONG>
+<pre>
+int solution( int N )
+{
+  <em><b>divide problem into pieces</b></em>
+  return <em><b>something calculated from the solution to each piece</b></em>  
+}
+</pre>
+</QWRONG>   
+ 
+<QWRONG>
+<pre>
+int solution( int N )
+{
+  <em><b>divide problem into pieces</b></em>
+
+  if ( <em><b>base case</b></em> )
+  {
+    return <em><b>something easily computed</b></em>
+  }
+  else
+  {
+    return <em><b>something calculated from the solution to each piece</b></em>  
+  }
+}
+</pre>
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Consider <b><em>square numbers</em></b> defined as follows:
+<blockquote>
+<pre>
+square(1) = 1
+square(N) = square(N-1) + 2N -1
+</pre>
+</blockquote>
+<p>
+According to this definition, what is <code>square(3)</code>?
+</p>
+</QTEXT>
+
+<QWRONG>
+<code>square(3) = square(2) + square(1)</code>
+</QWRONG>   
+
+<QWRONG>
+<code>square(3) = square(2) - 2*3 +1</code>
+</QWRONG>   
+
+<QRIGHT>
+<code>square(3) = square(2) + 2*3 -1</code>
+</QRIGHT>   
+
+<QWRONG>
+<code>square(3) = square(3) + 2*3 -1</code>
+</QWRONG>   
+ 
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Look at square numbers again:
+<blockquote>
+<pre>
+square(1) = 1
+square(N) = square(N-1) + 2N -1
+</pre>
+</blockquote>
+<p>
+Which Java method below successfully implements this definition?
+</p>
+</QTEXT>
+
+
+<QWRONG>
+<pre>
+int square( int N )
+{
+  if ( N&lt;1 )
+  {
+    return 1;
+  }
+  else
+  {
+    return N*N;
+}
+</pre>
+
+</QWRONG>   
+
+<QRIGHT>
+<pre>
+int square( int N )
+{
+  if ( N==1 )
+  {
+    return 1;
+  }
+  else
+  {
+    return square(N-1) + 2*N - 1;  
+  }
+}
+</pre>
+
+</QRIGHT>   
+
+<QWRONG>
+<pre>
+int square( int N )
+{
+  if ( N=1 )
+  {
+    return 1;
+  }
+  else
+  {
+    return square(N-1) + 2*N - 1;  
+  }
+}
+</pre>
+
+</QWRONG>   
+<QWRONG>
+<pre>
+int square( int N )
+{
+  if ( N==1 )
+  {
+    return 1;
+  }
+  else
+  {
+    return square(N);  
+  }
+}
+</pre>
+</QWRONG>   
+ 
+</QUESTION>   
+
+<QUESTION>
+
+<QTEXT>
+Look at square numbers one more time:
+<blockquote>
+<pre>
+square(1) = 1
+square(N) = square(N-1) + 2N -1
+</pre>
+</blockquote>
+
+<p>
+Assume the definition has been implemented correctly.
+How many activations will there be on the <b>activation chain</b>
+if <code>main()</code> calls <code>square(5)</code>?
+</p>
+</QTEXT>
+
+ 
+<QWRONG>
+1
+</QWRONG>   
+
+<QWRONG>
+3
+</QWRONG>   
+ 
+<QRIGHT>
+5
+</QRIGHT>   
+
+<QWRONG>
+6
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+What are two ways to view recursion?
+</QTEXT>
+
+<QRIGHT>
+(i) static view, and (ii) dynamic view.
+</QRIGHT>   
+
+<QWRONG>
+(i) recursive view, and (ii) iterative view.
+</QWRONG>   
+ 
+<QWRONG>
+(i) math view, and (ii) programming view
+</QWRONG>   
+
+<QWRONG>
+(i) code view, and (ii) translation view
+</QWRONG>   
+</QUESTION>   
+
+
+</QUIZ> 
+ 

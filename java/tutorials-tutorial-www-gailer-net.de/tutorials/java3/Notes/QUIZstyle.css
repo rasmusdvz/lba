@@ -1,0 +1,13 @@
+h1,h2,h3,h4,p{font-family:arial,sans-serif;}
+table{font-family:arial,sans-serif;}
+p{margin-left:5pt;margin-right:5pt;}
+table{margin-left:15pt;margin-right:15pt;margin-bottom:5pt;}
+h1,h2,h3,hr{color:blue;}
+pre.code{margin-left:1cm;font-family:courier-new,monospace;font-size:110%}
+pre.smallcode{margin-left:1cm;font-family:courier-new,monospace;font-size:80%}
+code{font-family:courier-new,monospace;font-size:110%}
+a:link     { color:blue }
+a:visited  { color:saddlebrown }
+a:active   { color:red }
+a:hover    { color:red }
+body{background-color:#EAEAFF;}

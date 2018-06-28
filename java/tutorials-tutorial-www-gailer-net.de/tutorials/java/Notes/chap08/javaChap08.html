@@ -1,0 +1,1184 @@
+<!-- Jan.   18, 1999  bpk   chapter re-numbering    previously chapter 5   --->
+<!-- Jan.   17, 2000  bpk   INDEX  --->
+<!-- Apr.   09, 2000  bpk   minor changes  --->
+<!-- May    27, 2002  bpk  updated to CSS -->
+
+<COPYRIGHTDATE>2008</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org</AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2010, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#08</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+<CAI>Kapitel 8 &#8212; Primitive Datentypen
+
+<p>
+<p class="revisions">&uuml;berarbeitet 26.09.98, 27.07.99, 17.01.00, 20.04.00, 27.01.06, 23.07.08 ; &uuml;bersetzt 30.09.03; &uuml;berarbeitet 15.10.03, 20.04.04, 04.04.05, 29.09.06, 22.09.10
+</p>
+
+<LESSON>
+<p>
+Computerspeicher speichert beliebige Bitmuster.
+Damit diese Muster einen Sinn bekommen, m&uuml;ssen <em>Datentypen</em> verwendet werden.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Datentypen</li>
+<li>Primitive Daten im Vergleich zu Objekten</li>
+<li>Die acht primitiven Datentypen von Java</li>
+<li>Numerische Datentypen</li>
+<li>Alphanumerische und Boole'sche Datentypen</li>
+</ul>
+
+</LESSON>
+
+<QUESTION>
+<img src="mixPaper.gif" align="right" hspace="15" vspace="5">
+<p>
+Einmal angenommen Sie finden den folgenden Papierfetzen.
+Was k&ouml;nnte er bedeuten?
+</p>
+<br clear="all">
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Datentypen
+<p>
+Was bedeutet das Folgende:
+</p>
+
+<blockquote>
+<pre>
+MIX
+</pre>
+</blockquote>
+
+<ANSWER>
+<p>
+Nicht leicht zu sagen, ohne mehr dar&uuml;ber zu wissen.
+</p>
+</ANSWER>
+
+<LESSON>
+<div class="left">
+<p>
+Sie w&uuml;rden gerne den Rest des Papiers sehen wollen
+oder wissen wollen woher es kommt.
+Ohne den Kontext zu kennen ist es schwer zu sagen
+was &quot;MIX&quot; bedeutet.
+Es k&ouml;nnte 1009 in R&ouml;mischen Ziffern sein oder es k&ouml;nnte das
+englische Wort "mix" sein (welches selbst wieder mehrere Bedeutungen hat)
+oder es k&ouml;nnte der Nachname des bekannten Schauspielers Tom Mix (1880 - 1940) sein.
+Es k&ouml;nnte Teil eines CD Labels sein: "MTV Dance MIX" oder
+Teil eines Etiketts einer Flasche: "BLOODY MARY MIX"
+oder vielleicht betrachten Sie es verkehrt herum und es sollte "XIW" sein.
+Es k&ouml;nnte nat&uuml;rlich &uuml;berhaupt kein Englisch sein.
+Ohne den Zusammenhang zu kennen hat eine Folge von Buchstaben
+kaum eine Bedeutung.
+</p>
+
+<p>
+Computerspeicher speichert beliebige Bitmuster.
+Wie bei einer Folge von Buchstaben h&auml;ngt die Bedeutung einer Folge von Bits davon ab wie sie verwendet werden.
+Das jeweilige Schema, das f&uuml;r eine bestimmte Folge von
+Bits verwendet wird, ist ein <b>Datentyp.</b>
+</p>
+
+<INDEX>data type</INDEX>
+<p>
+Ein <b>Datentyp &#8212; </b>
+</p>
+
+<ul>
+<li>Ist ein Schema f&uuml;r die Verwendung von Bits, um Werte darzustellen.</li>
+<li>Werte sind nicht nur Zahlen, sondern jede Art von Daten, die ein Computer verarbeiten kann.</li>
+<li>Alle Werte in einem Computer werden dargestellt, indem der eine oder der andere Datentyp verwendet wird.</li>
+</ul>
+</div>
+
+<div class="right">
+<p>
+Zum Beispiel:
+</p>
+
+<pre class="code">
+0000000001100111
+</pre>
+
+<p>
+ist ein Muster von 16 Bit, die irgendwo im Computerspeicher gefunden werden k&ouml;nnten.
+Was stellen sie dar?
+</p>
+<p>
+Ohne mehr dar&uuml;ber zu wissen, wie das oben stehende Muster verwendet wird,
+ist es unm&ouml;glich zu sagen was es darstellt. Der Typ <code>short</code> ist einer der primitiven Datentypen von Java. Wenn das Muster vom Datentyp <code>short</code> ist, dann stellt es den Wert 103 (einhundertdrei) dar.
+</p>
+
+<p style="padding:20px"><img src="mixPaper.gif" alt="Torn slip of paper bearing the word MIX" align="center"></p>
+
+
+</div>
+</LESSON>
+
+<QUESTION>
+<p>
+Was stellt das folgende 16-Bit Muster dar:
+</p>
+
+<pre class="code">
+0000000000000000
+</pre>
+
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Es gibt viele Datentypen
+<ANSWER>
+
+<p>
+Ohne mehr dar&uuml;ber zu wissen, wie das Muster verwendet wird, ist es
+unm&ouml;glich zu sagen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<div class="left">
+<p>
+Sie k&ouml;nnten versucht gewesen sein zu sagen, dass das Muster 0000000000000000
+die "Null"  darstellt. Aber das ist nicht unbedingt gesagt.
+Sogar ein solch offensichtliches Muster hat keine automatische Bedeutung.
+</p>
+
+<p>
+Wenn Ihnen gesagt worden w&auml;re, dass das oben stehende Muster den Typ
+<code>short</code> darstellt, dann h&auml;tten Sie recht:
+als ein <code>short</code> stellt es die Ganzzahl 0 dar.
+Hier ist ein weiteres Muster:
+</p>
+
+<pre class="code">
+1111111110011001
+</pre>
+
+<p>
+Als ein <code>short</code> stellt dieses Muster -103 (negative einhundertdrei) dar.
+</p>
+
+<p>
+Es gibt unz&auml;hlig viele Datentypen, die im Computerspeicher dargestellt werden k&ouml;nnen.
+Wenn bestimmte Muster immer eine bestimmte Bedeutung h&auml;tten,
+k&ouml;nnten nur ein paar wenige Datentypen dargestellt werden.
+Das w&auml;re viel zu restriktiv.
+Viele Datentypen werden vom Programmierer beim Schreiben eines Programms <em>erfunden</em>.
+</p>
+</div>
+
+
+<div class="right">
+<p>
+Der Hauptspeicher eines Mehrzweckcomputers (wie Ihr Desktopcomputer oder Laptop) enth&auml;lt viele Bits. Programme k&ouml;nnen diesen Speicher mit beliebigen Datentypen nutzen. Zum Beispiel k&ouml;nnte ein Programm f&uuml;r vier Speicherbytes den Datentyp <code>int</code> und f&uuml;r weitere acht Speicherbytes den Datentyp <code>double</code> verwenden. Ein anderes Programm k&ouml;nnte denselben Speicher f&uuml;r andere Datentypen verwenden.
+
+</p>
+
+<p>
+Nicht alle Maschinen verwenden Speicher in dieser Weise.
+Zum Beispiel verwendet eine einfache elektronische Rechenmaschine
+den Speicher nur zu einem Zweck:
+um Gleitpunktzahlen zu speichern.
+Sie verwendet nur einen Datentyp und kann nur diese Dinge tun
+f&uuml;r die sie fest vorprogrammiert ist.
+Die Ingenieure, die die Rechenmaschine entworfen haben,
+haben bestimmt wie Zahlen durch Bitfolgen dargestellt werden
+und haben dann die Elektronik so konstruiert, dass sie
+genau mit diesen Bitfolgen funktioniert.
+Das ist f&uuml;r einen Mehrzweckcomputer viel zu restriktiv.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Glauben Sie, dass die Computer der 1960-er Jahre gebaut wurden, um Audiodaten
+zu handhaben?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Primitive Datentypen
+<ANSWER>
+<p>
+Nein &#8212; das war damals sicherlich keine gebr&auml;uchliche Verwendung f&uuml;r Computer.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<table class="code">
+<tbody><tr>
+<td><big> byte</big></td>
+<td><big> short</big></td>
+<td><big> int</big></td>
+
+<td><big> long</big></td>
+<td><big> float</big></td>
+<td><big> double</big></td>
+<td><big> char</big></td>
+<td><big> boolean</big></td>
+</tr>
+</tbody></table>
+</div>
+
+<div class="left"><p>
+Aber einige 1960er Computer hatten mit Audiodaten zu tun;
+Es war blo&szlig; die Frage eine M&ouml;glichkeit zu finden, um Audiodaten durch
+Bitmuster darzustellen und dann daf&uuml;r ein Programm zu schreiben.
+</p>
+<INDEX>data type, primitive</INDEX>
+<p>
+Es w&auml;re arg umst&auml;ndlich jedes Mal, wenn Sie Daten verwenden Ihr eigenes Schema
+erfinden zu m&uuml;ssen, um sie durch Bits darzustellen.
+Es gibt Datentypen, die so elementar sind, dass die Art und Weise sie zu repr&auml;sentieren
+in Java eingebaut ist. Das sind die <em>primitiven Datentypen</em>.
+Die acht primitiven Datentypen sind: <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>char</code> und <code>boolean</code>.
+</p>
+</div>
+
+<div class="right">
+<INDEX>case sensitive</INDEX>
+<p>
+Gro&szlig;e und kleine Buchstaben sind von Bedeutung.
+So ist "byte" der Name eines primitiven Datentyps, aber "BYTE" ist es nicht.
+Computersprachen, die zwischen Gro&szlig;- und Kleinschreibung unterscheiden,
+werden &quot;<b><em>case sensitive</em></b>&quot; genannt.
+Einige Sprachen unterscheiden nicht zwischen Gro&szlig;- und Kleinschreibung,
+haupts&auml;chlich alte Sprachen, die entwickelt wurden als
+die Dateneingabeger&auml;te keine Kleinbuchstaben hatten.
+</p>
+
+<INDEX>primitive</INDEX>
+<p>
+In dem Ausdruck <em>primitiver Datentyp</em> bedeutet das Wort <b>primitiv</b>
+"eine elementare Komponente, die verwendet wird, um andere, gr&ouml;&szlig;ere Teile"
+zu erstellen.
+Dieses Wort wird in der Informatik oft verwendet.
+Um eine umfangreiche Aufgabe zu l&ouml;sen, sehen Sie sich nach primitiven Operationen um, die ben&ouml;tigt werden,
+dann verwenden Sie sie, um zu einer L&ouml;sung zu kommen.
+</p>
+</div>
+</LESSON>
+
+<QUESTION>
+<p>
+(Fangfrage:) Ist <code>Int</code> ein primitiver Datentyp?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Objekte
+<p>
+Ist <code>Int</code> ein primitiver Datentyp?
+</p>
+
+<ANSWER>
+<p>
+Nein &#8212; er ist nicht auf der Liste der primitiven Datentypen (das Wort, das
+mit einem kleinen "i" beginnt ist auf der Liste: <code>int</code>).
+Denken Sie daran, dass Java
+Gro&szlig;-/Kleinschreibung unterscheidet.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>data, two kinds</INDEX>
+
+<center>
+<img src="dataSplit.gif" vspace="5">
+</center>
+
+<div class="left">
+<p>
+Java hat <em>sehr viele</em> eingebaute Datentypen,
+und Sie (als ein Programmierer) k&ouml;nnen so viele erstellen wie Sie m&ouml;chten.
+Dennoch, alle Daten in Java geh&ouml;ren zu einer von zwei
+Kategorien:
+<b>primitive Daten</b> oder <b>Objekte</b>.
+Es gibt nur acht primitive Datentypen.
+Jeder Datentyp, den Sie sich ausdenken wird vom Typ Objekt sein.
+</p>
+
+<p>
+Es wird in den folgenden Kapiteln noch sehr viel mehr &uuml;ber Objekte gesagt werden
+(da Java eine
+<em>objektorientierte</em> Programmiersprache ist).
+F&uuml;r jetzt ist das Folgende alles, was Sie zu wissen brauchen:
+</p>
+
+<ul>
+<li>Primitive Daten verwenden eine kleine, feste Anzahl von Bytes.</li>
+<li>Es gibt nur acht primitive Datentypen.</li>
+<li>Ein Programmierer kann keine neuen primitiven Datentypen erstellen.</li>
+</ul>
+</div>
+
+<div class="right">
+<ul>
+<li>Ein Objekt ist ein gro&szlig;er Block Daten. Ein Objekt kann viele Speicherbytes verwenden.</li>
+<li>Ein Objekt besteht gew&ouml;hnlich aus vielen internen Teilen.
+<li>Der Datentyp eines Objekts wird seine <b>Klasse</b> genannt.</li>
+<li>Viele Klassen sind schon in Java definiert.</li>
+<li>Ein Programmierer kann neue Klassen erstellen, um die speziellen Anforderung eines Programms zu erf&uuml;llen.</li>
+</ul>
+</p>
+
+<p>
+Ein grober Vergleich ist, einen primitiven Datenwert mit einer Schraube,
+ein Objekt aber mit einer ganzen Maschine zu vergleichen.
+Wenn Sie sofort mehr &uuml;ber Objekte lernen wollen,
+w&uuml;rde es nicht schaden gleich zum
+<A HREF="../chap25/ch25_1.html">Kapitel &uuml;ber Objekte</A> zu springen und ein
+paar Seiten zu lesen.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Sind Zahlen von elementarer Bedeutung f&uuml;r Computerprogramme?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Numerische Primitive Datentypen
+
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<div class="left">
+<INDEX>data type, numeric</INDEX>
+<INDEX>numbers, ranges of data types</INDEX>
+<p>
+Zahlen sind in Java so wichtig, dass 6 der 8 primitiven Datentypen numerische Typen sind.
+</p>
+
+<p>
+Sowohl Ganzzahlen (<em>Integer</em>) als auch Gleitpunktzahlen sind primitive Typen.
+Ganzzahlen haben keinen Dezimalteil; Gleitpunktzahlen haben einen Dezimalteil.
+Auf dem Papier haben Ganzzahlen keinen Dezimalpunkt und Gleitpunkttypen haben einen.
+Aber im Hauptspeichergibt es keine Dezimalpunkte:
+selbst Gleitpunktwerte werden durch Bitmuster dargestellt.
+Es gibt einen wesentlichen Unterschied zwischen
+der Methode, die verwendet wird, um ganze Zahlen darzustellen
+und der Methode, die verwendet wird, um Gleitpunktzahlen darzustellen.
+</p>
+
+<p>
+Jeder primitive Typ verwendet eine <em>feste</em> Anzahl von Bits.
+Das bedeutet, wenn Sie einen bestimmten Datentyp verwenden,
+dann wird immer die gleiche Anzahl von Bits verwendet, egal welcher Wert
+dargestellt wird.
+</p>
+
+</p>
+Zum Beispiel werden alle Werte, die durch den
+Datentyp <code>short</code> dargestellt werden, 16 Bit verwenden.
+Der Nullwert (als ein <code>short</code>) wird 16 Bit verwenden und
+der Wert Drei&szlig;igtausend wird 16 Bit verwenden.
+</p>
+
+<p>
+Alle Werte, die durch den <code>long</code> Datentyp dargestellt werden,
+verwenden 64 Bit.
+Der Nullwert (als ein <code>long</code>) wird 64 Bit verwenden,
+der Wert Drei&szlig;igtausend wird 64 Bit verwenden
+und der Wert Achtbillionen wird 64 Bit verwenden.
+</p>
+
+<p>
+Sehr gro&szlig;e Werte (negative oder positive) brauchen mehr
+Bits zum darstellen.
+Das ist &auml;hnlich wie das Schreiben von Zahlen auf Papier: gro&szlig;e Zahlen
+brauchen mehr Ziffern.
+Wenn ein Wert mehr Bits braucht, als ein bestimmter Datentyp verwendet,
+dann kann er nicht durch diesen Datentyp dargestellt werden.
+</p>
+</div>
+
+<div class="right">
+<p>
+In den Tabellen bedeutet E "zehn hoch". <code>3.5E38</code> bedeutet also <code>3.5 x 10<sup><sup>38</sup></sup></code>
+</p>
+
+<table>
+<tr class="headings"><th colspan=3>Ganzzahlen Primitive Datentypen</th></tr>
+<tr><td><b>Typ</b></td><td><b>Gr&ouml;&szlig;e</b></td><td><b>Wertebereich</b></td></tr>
+<tr><td>byte</td><td>8 Bit</td><td>-128 bis +127</td></tr>
+<tr><td>short</td><td>16 Bit</td><td>-32.768 bis +32.767</td></tr>
+<tr><td>int</td><td>32 Bit</td><td>(ca.) -2 Milliarden bis +2 Milliarden</td></tr>
+<tr><td>long</td><td>64 Bit</td><td>(ca.) -10E18 bis +10E18</td></tr>
+</table>
+
+
+<table>
+<tr class="headings"><th colspan=3>Primitive Gleitpunkttypen</th></tr>
+<tr><td><b>Typ</b></td><td><b>Gr&ouml;&szlig;e</b></td><td><b>Wertebereich</b></td></tr>
+<tr><td>float</td><td>32 Bit</td><td>-3.4E+38 bis +3.4E+38</td></tr>
+<tr><td>double</td><td>64 Bit</td><td>-1.7E+308 bis 1.7E+308</td></tr>
+</table>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Sagen wir, dass Sie in Ihrem
+Computerprogramm mit der Zahl 1.023.004 zu tun haben.
+W&uuml;rde der Datentyp <code>short</code> eine geeignete Wahl sein?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Mehr Bits f&uuml;r einen gro&szlig;en Wertebereich
+<p>
+Kann der Datentyp <code>short</code> den Wert 1.023.004 enthalten?
+</p>
+
+<ANSWER>
+<p>
+Nein. Der Datentyp <code>short</code> kann nur f&uuml;r den Wertebereich -32.768 bis +32.767 verwendet werden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<div class="left">
+<p>
+Gr&ouml;&szlig;ere Wertebereiche von numerischen Werten erfordern mehr Bits.
+Die unterschiedlichen Gr&ouml;&szlig;en f&uuml;r ganzzahlige Daten
+erm&ouml;glichen es Ihnen eine geeignete Gr&ouml;&szlig;e f&uuml;r
+die Daten, mit denen Sie arbeiten, auszuw&auml;hlen.
+&Uuml;blicherweise sollten Sie einen Datentyp w&auml;hlen, der
+einen <b>wesentlich gr&ouml;&szlig;eren</b> Wertebereich hat,
+als der Bereich von Zahlen mit dem Sie rechnen es zu tun haben zu werden.
+Wenn ein Programm nur ein paar dutzend Variable verwendet,
+wird es fast genauso schnell laufen und es wird ungef&auml;hr
+genauso viel Hauptspeicher beanspruchen, ganz egal
+welche Gr&ouml;&szlig;e f&uuml;r die Variablen verwendet wurde.
+</p>
+
+<p>
+Warum existieren dann die kleinen Datentypen?
+Nun, viele in der Praxis eingesetzte Programme haben es mit
+gewaltigen Datenmengen zu tun (Milliarden von Datenelementen)
+und dann k&ouml;nnte die Verwendung von kleineren
+Gr&ouml;&szlig;en erheblich Platz und Zeit sparen.
+Aber wir werden in diesen Aufzeichnungen nicht so viele Daten
+verwenden.
+Gew&ouml;hnlich sollten Sie <code>int</code> oder <code>double</code>
+f&uuml;r Ihre numerischen Daten verwenden.
+</p>
+
+<INDEX>literal, integer</INDEX>
+<p>
+Wenn Sie ein Programm schreiben, brauchen Sie nicht zu wissen
+wie eine Zahl durch Bits dargestellt wird.
+Sie k&ouml;nnen die Zahl wie bei einer Schreibmaschine eintippen.
+Das wird ein <b>Literal</b> genannt.
+Das Wort "Literal" bedeutet, dass ein Wert explizit in einem Programm ausgewiesen wird.
+</p>
+</div>
+
+<div class="right">
+<p>
+Zum Beispiel repr&auml;sentiert 125 buchstabengetreu den Wert einhundertf&uuml;nfundzwanzig. Ganzzahlige Literale werden in einem Programm wie in einem Buch geschrieben, au&szlig;er dass es keine Formatierungszeichen gibt:
+</p>
+
+<pre class="code">
+125          -32            16            0         -123987
+</pre>
+
+<p>
+Alle der oben stehenden Beispiele sind 32-Bit <code>int</code>-Literale.
+Ein 64-Bit <code>long</code>-Literal hat am Ende ein gro&szlig;es 'L' oder kleines 'l'.
+Verwenden Sie jedoch <b>NIEMALS</b> das kleine 'l', da es sehr leicht
+mit der Ziffer '1' verwechselt werden kann.
+</p>
+
+<pre class="code">
+125L          -32L            16L            0l         -123987l
+</pre>
+
+<p>
+Die letzten zwei Beispiele sind g&uuml;ltig, aber verwirrend.
+</p>
+</div>
+</LESSON>
+
+<QUESTION>
+<p>
+Ist das folgende ein ganzzahliges Literal?
+</p>
+
+<pre class="code">
+197.0
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Gleitpunkttypen
+<p>
+Ist das folgende ein ganzzahliges Literal?
+197.0
+</p>
+
+<ANSWER>
+<p>
+Nein &#8212; es hat einen Dezimalpunkt.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<div class="left">
+<p>
+Wenn Sie das Literal 197.0 in einem Programm verwenden,
+teilt der Dezimalpunkt dem Compiler mit
+den Wert unter Verwendung eines
+primitiven <nobr><b>Gleitpunkttyps</b></nobr> darzustellen.
+Das Bitmuster, das f&uuml;r die Gleitpunktzahl 197.0 verwendet wird,
+unterscheidet sich wesentlich von dem,
+das f&uuml;r die Ganzzahl 197 verwendet wird.
+Erinnern Sie sich an die zwei primitiven Gleitpunkttypen:
+</p>
+
+<INDEX>literal, floating point</INDEX>
+<p>
+Der Datentyp <code>float</code> wird manchmal als Gleitpunkttyp mit "einfacher Genauigkeit" bezeichnet.
+Dieses Vokabular stammt aus der Sprache FORTRAN, die zu ihrer Zeit die beherrschende
+Programmiersprache war.
+Der Datentyp <code>double</code> hat doppelt so viele Bits und wird manchmal
+als Gleitpunkttyp mit "doppelter Genauigkeit" bezeichnet.
+</p>
+
+<p>
+In Programmen haben Gleitpunktliterale einen Dezimalpunkt
+und <b>keine Kommata:</b>
+</p>
+
+<pre class="code">
+123.0        -123.5         -198234.234       0.00000381
+</pre>
+</div>
+
+<div class="right">
+<p>
+<b>Hinweis:</b> Literale wie die oben stehenden werden automatisch
+vom Typ <code>double</code> sein.
+Wenn Sie mit Gleitpunktzahlen zu tun haben, sollten Sie fast immer
+Variablen vom Typ <code>double</code> verwenden.
+Dann wird der Datentyp von Literalen, wie den oben stehenden,
+mit dem Datentyp Ihrer Variablen &uuml;bereinstimmen.
+Der Datentyp <code>float</code> sollte nur bei
+besonderen Umst&auml;nden verwendet werden
+(z.B. wenn Sie eine Datei verarbeiten, die 32-Bit <code>float</code>-Daten enth&auml;lt).
+</p>
+
+<table>
+<tr class="headings"><th colspan=3>primitive Gleitpunkttypen</th></tr>
+<tr><td><b>Typ</b></td><td><b>Gr&ouml;&szlig;e</b></td><td><b>Wertebereich</b></td></tr>
+<tr><td>float</td><td>32 Bit</td><td>-3.4E+38 to +3.4E+38</td></tr>
+<tr><td>double</td><td>64 Bit</td><td>-1.7E+308 to 1.7E+308</td></tr>
+</table>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage: ) Glauben Sie, dass die Verwendung von <code>float</code>
+anstelle von <code>double</code> zu einer wesentlichen Einsparung an Computerspeicher
+f&uuml;hrt?
+
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Explizite Gleitpunktliterale
+<p>
+(Denkfrage: ) Glauben Sie, dass die Verwendung von <code>float</code>
+anstelle von <code>double</code> zu einer wesentlichen Einsparung an Computerspeicher
+f&uuml;hrt?
+</p>
+<ANSWER>
+<p>
+Nein. Bei den meisten Programmen wird die Verwendung von Variablen des Typs <code>double</code> nur ein paar extra Bytes kosten und das in einem Programm, das Tausende von Bytes lang ist.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<div class="left">
+<p>
+Manchmal m&ouml;chten Sie explizit ein <code>float</code>-Literal mit einfacher Genauigkeit
+anfordern.
+Das k&ouml;nnen Sie tun, indem Sie ein kleines 'f' oder gro&szlig;es 'F' an das Ende setzen, so wie hier:
+</p>
+
+<pre class="code">
+123.0f        -123.5F
+-198234.234f  0.00000381F
+</pre>
+</div>
+
+<div class="right">
+<p>
+Manchmal m&ouml;chten Sie explizit ein <code>double</code>-Literal mit doppelter Genauigkeit
+anfordern.
+Das k&ouml;nnen Sie tun, indem Sie ein kleines 'd' oder gro&szlig;es 'D' an das Ende setzen, so wie hier:</p>
+
+<pre class="code">
+123.0d        -123.5D
+-198234.234d  0.00000381D
+</pre>
+
+<p>
+Denken Sie daran, dass ein Gleitpunktliteral ohne einen Buchstaben am Ende
+automatisch vom Typ <code>double</code> sein wird.
+<p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Glauben Sie, dass das folgende zul&auml;ssig ist?
+</p>
+
+<pre class="code">
+double zahl = 8912D ;
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Exponentialschreibweise
+<p>
+Glauben Sie, dass das folgende zul&auml;ssig ist?
+</p>
+
+<pre class="code">
+double zahl = 8912D ;
+</pre>
+
+<ANSWER>
+<p>
+Ja. Das 'D' macht das Literal zu einem <code>double</code> (auch wenn der Dezimalpunkt fehlt). Trotzdem, um Verwirrung zu vermeiden, f&uuml;gen Sie immer einen Dezimalpunkt an ein Gleitpunktliteral an. Auch da, wo es nicht erforderlich ist.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<div class="left">
+<p>
+Sie werden manchmal die <b>Exponentialschreibweise</b> sehen.
+Die folgenden sind alles Literale mit doppelter Genauigkeit:
+</p>
+
+<pre class="code">
+1.23E+02          -1.235E+02
+-1.98234234E+05   3.81E-06
+</pre>
+
+<form>
+<p>
+Das gro&szlig;e "E" bedeutet "Mal 10 hoch".
+Die folgende Ganzzahl gibt die Potenz von Zehn mit der die Zahl zu multiplizieren ist an.
+&nbsp;
+<input type="button" value="Huh?"
+ onClick="alert('Gew&ouml;hnlich wird die Exponentialschreibweise an der Highschool in Mathematik- und Wissenschaftskursen gelehrt. \n Sie werden Sie nicht (allzusehr) in diesen Aufzeichnungen brauchen, aber Sie ben&ouml;tigen Sie vielleicht f&uuml;r Ihre Informatikkarriere.')" />
+</p>
+</form>
+</div>
+
+<div class="right">
+<p>
+Eine andere M&ouml;glichkeit die Ganzzahl, die dem &quot;E&quot; folgt, zu betrachten ist,
+dass sie die Richtung und die Anzahl der Stellen angibt, in der der
+Dezimalpunkt zu verschieben ist.
+Positive Ganzzahlen bedeuten eine Rechtsverschiebung;
+negative Ganzzahlen bedeuten eine Linksverschiebung.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wie sieht die folgende Zahl aus, wenn Sie in der &uuml;blichen Weise dargestellt wird: 1.9343E+03
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Genauigkeit von Gleitpunktzahlen
+<p>
+1.9343E+03
+</p>
+
+<ANSWER>
+<p>
+1934.3
+</p>
+
+</ANSWER>
+
+<LESSON>
+<div class="left">
+<p>
+Betrachten Sie die Schreibweise des Wertes 1/3 in der Dezimalnotation:
+</p>
+
+<pre class="code">
+0.33333333333333333
+</pre>
+
+<p>
+Das Ergebnis ist unendlich.
+Es gibt keine Obergrenze f&uuml;r die Anzahl der erforderlichen 3-er.
+Der <code>float</code>-Datentyp verf&uuml;gt nur &uuml;ber 32 Bit.
+Das ist nicht genug, um eine unbegrenzte Anzahl von Dreiern darzustellen.
+</p>
+
+<INDEX>precision</INDEX>
+<p>
+Der Datentyp <code>float</code> hat 23 Bit f&uuml;r die Genauigkeit.
+(Die restlichen der 32 Bit werden verwendet, um die Gr&ouml;&szlig;e der Zahl anzugeben.)
+Das entspricht ungef&auml;hr einer Genauigkeit von 7 Stellen (Vorkomma- UND Nachkommastellen).
+</p>
+</div>
+
+<div class="right">
+<p>
+Die Anzahl der Stellen f&uuml;r die Genauigkeit ist
+bei <code>float</code> immer die gleiche, ganz egal wie
+gro&szlig; die Zahl ist.
+Der Datentyp <code>float</code> kann Zahlen bis zu einer Gr&ouml;&szlig;e von ungef&auml;hr
+3.4E+38 darstellen.
+Aber die Genauigkeit dieser gro&szlig;en Zahlen wird ebenfalls
+ungef&auml;hr 7 Stellen betragen.
+</p>
+
+<p><b>Denken Sie daran:</b> Der Datentyp <code>float</code> hat ungef&auml;hr
+den Wertebereich und die Genauigkeit eines preiswerten elektronischen
+Taschenrechners. Das reicht f&uuml;r gew&ouml;hnlich nicht aus.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was ist bei dem folgenden Literal falsch, vorausgesetzt es ist vom Typ
+<code>float</code>?
+</p>
+
+<pre class="code">
+1230.00089F
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Genauigkeit von Double
+<p>
+Was ist bei diesem <code>float</code> falsch?
+</p>
+
+<pre class="code">
+1230.00089F
+</pre>
+
+<ANSWER>
+<p>
+Es werden <em>neun</em> Stellen f&uuml;r die Genauigkeit ben&ouml;tigt.
+Der Datentyp <code>float</code> kann das nicht handhaben.
+(Der Compiler wird die Zahl in einen Wert runden, der
+f&uuml;r ein <code>float</code> passt.)
+</p>
+
+</ANSWER>
+
+<LESSON>
+<div class="left">
+<p>
+Sie k&ouml;nnten einwenden wollen, dass in der oben stehenden Zahl nur
+f&uuml;nf Stellen verwendet werden: die Stellen, die von den Ziffern
+1, 2, 3, 8, und 9 verwendet werden.
+Leider z&auml;hlen die vier Nullen in der Mitte mit.
+Es braucht Bits, um sie darzustellen, selbst wenn es Nullen sind.
+</p>
+
+<p>
+Der primitive Datentyp <code>double</code> verwendet 64 Bit und hat einen wesentlich gr&ouml;&szlig;eren Wertebereich, -1.7E+308 bis +1.7E+308. Er hat au&szlig;erdem eine deutlich h&ouml;here Genauigkeit: ca. 15 signifikante Stellen.
+</p>
+<INDEX>literal, double precision</INDEX>
+</div>
+
+<div class="right">
+<p>
+Darum wird, wenn Sie ein Literal wie 2.345 in einem Java Programm schreiben,
+es automatisch als ein <code>double</code> betrachtet,
+auch wenn ein <code>float</code> ausreichen w&uuml;rde.
+Es k&ouml;nnte sein, dass die anderen Zahlen im Programm <code>double</code> sein m&uuml;ssen,
+also k&ouml;nnen wir genauso gut alle zu <code>double</code> machen.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Halten Sie es f&uuml;r m&ouml;glich, dass Zeichen wichtig genug sind,
+um einer von den acht primitiven Datentypen zu sein?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Der primitive Datentyp <code><strong>char</strong></code>
+<p>
+Halten Sie es f&uuml;r m&ouml;glich, dass Zeichen wichtig genug sind, um einer von den acht primitiven Datentypen zu sein?
+</p>
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<div class="left">
+<INDEX>char</INDEX>
+<INDEX>characters</INDEX>
+<p>
+Zeichendaten sind in der Programmierung sehr gebr&auml;uchlich.
+Der daf&uuml;r verwendete primitive Datentyp hat den Namen <code>char</code>, um Tipparbeit zu sparen.
+Der <code>char</code>-Typ verwendet 16 Bit f&uuml;r die Darstellung der Zeichen.
+In vielen Programmiersprachen werden nur 8 Bit f&uuml;r diesen Zweck verwendet.
+Java verwendet 16 Bit, um auch die
+Schriftzeichen anderer Sprachen als der Englischen darstellen zu k&ouml;nnen.
+Die daf&uuml;r verwendete Methode wird Unicode genannt.
+</p>
+
+<p>
+Zum Beispiel, hier ist ein 16-Bit Muster:
+</p>
+
+<pre class="code">
+0000000001100111
+</pre>
+
+<p>
+Wenn Sie wissen, dass diese 16 Bit vom Datentyp <code>char</code> sind,
+dann k&ouml;nnten Sie in einer Tabelle nachsehen und feststellen, dass
+sie das Zeichen 'g' darstellen.
+Wenn Sie ein wirklich gutes Ged&auml;chtnis besitzen, k&ouml;nnten Sie sich
+daran erinnern, dass die gleichen 16 Bit die Ganzzahl 103 darstellen,
+wenn sie als Datentyp <code>short</code> betrachtet werden.
+Es ist notwendig den Datentyp eines Musters zu kennen,
+um ihm einen Sinn verleihen zu k&ouml;nnen.
+</p>
+</div>
+
+<div class="right">
+<p>
+Gro&szlig;- und Kleinbuchstaben werden durch unterschiedliche Muster dargestellt.
+Interpunktion und Sonderzeichen sind ebenfalls <code>char</code>-Daten.
+Es gibt auch Sonderzeichen wie das Leerzeichen, das Worte trennt.
+</p>
+
+<INDEX>control character</INDEX>
+<p>
+<em>Steuerzeichen</em> sind Bitmuster, die das Zeilenende
+oder den Seitenumbruch anzeigen.
+Andere Steuerzeichen stellen mechanische Aktionen alter
+Kommunikationsger&auml;te (wie Fernschreiber) dar, die heutzutage
+selten verwendet werden, aber beibehalten werden m&uuml;ssen.
+</p>
+
+<p>
+Der primitive Typ <code>char</code> repr&auml;sentiert ein <em>einzelnes</em> Zeichen.
+Er enth&auml;lt keinerlei Information &uuml;ber den Font.
+Wenn Sie mehr als ein Zeichen gleichzeitig handhaben m&ouml;chten (fast immer),
+m&uuml;ssen Sie Objekte verwenden, die aus
+<code>char</code>-Daten konstruiert werden.
+</p>
+</div>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist jedes der folgenden ein unterschiedliches Zeichen?
+</p>
+
+
+<pre class="code">
+0       O         o
+</pre>
+
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Zeichenliterale
+<p>
+Ist jedes der folgenden ein unterschiedliches Zeichen?
+</p>
+
+<pre class="code">
+0       O         o
+</pre>
+
+<ANSWER>
+
+<p>
+Ja.  Jedes der oben stehenden (0, gro&szlig;er Buchstabe "O" und kleiner Buchstabe "o") ist
+ein unterschiedliches Zeichen und wird einen vollst&auml;ndig anderen 16-Bit Code haben.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<div class="left">
+<INDEX>literal, character</INDEX>
+<p>
+In einem Programm wird ein Zeichenliteral von einfachen Hochkommata eingeschlossen:
+</p>
+
+<pre class="code">
+'m'          'y'               'A'
+</pre>
+
+<p>
+In einem Programm werden Steuerzeichen durch mehrere Zeichen innerhalb der Hochkommata dargestellt:
+</p>
+
+<pre class="code">
+'\n'          '\t'
+</pre>
+
+
+<p>
+In einem Programm schreiben Sie jedes der Steuerzeichen so wie es oben steht, um ein einzelnes Zeichen zu bekommen.
+Das erste repr&auml;sentiert das 16-Bit Zeichen f&uuml;r eine neue Zeile und das zweite repr&auml;sentiert das Tabulator-Zeichen. Sie werden selten andere Steuerzeichen brauchen als diese zwei. In der Java Dokumentation finden Sie weitere.
+</p>
+</div>
+
+<div class="right">
+
+<p>
+<b>Warnung:</b> Das Folgende ist <b>kein</b> Zeichenliteral:
+</p>
+
+<pre>"Hallo"
+</pre>
+
+<p>
+Das ist ein <code>String</code> und kein primitiver Datentyp.
+Es ist vielmehr ein Objekt. Zeichenketten werden von doppelten Anf&uuml;hrungszeichen eingeschlossen, nicht durch einfache Hochkommata.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was ist bei dem folgenden Literal falsch:
+</p>
+
+<pre class="code">
+"W"
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Der primitive Datentyp <code><strong>boolean</strong></code>
+<ANSWER>
+
+<p>
+Das Zeichen ist nicht von einfachen Hochkommata eingeschlossen. Es sollte 'W' sein. Mit den doppelten Anf&uuml;hrungszeichen bekommen Sie einen String, der ein einzelnes Zeichen enth&auml;lt. Das ist nicht das gleiche wie ein einzelnes primitives Zeichen. Ein String repr&auml;sentiert ein Objekt und kann aus mehreren 100 Bytes bestehen. Ein primitives Zeichen besteht nur aus zwei Bytes.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>boolean</INDEX>
+<div class="left">
+<p>
+Ein weiterer primitiver Datentyp ist der Typ <code>boolean</code>.
+Er wird verwendet, um einen einzelnen true/false-Wert darzustellen.
+Ein Boole'scher Wert kann nur einen von zwei Werten haben:
+</p>
+
+<center>
+<pre>
+true              false
+</pre>
+</center>
+</div>
+
+<div class="right">
+<p>
+In einem Javaprogramm bedeuten die Worte
+<code>true</code> und <code>false</code> immer
+Boole'sche Werte.
+Der Datentyp <code>boolean</code> wurde nach George Boole benannt,
+einem Mathematiker des 19. Jahrhunderts,
+der entdeckte wie viele Dinge man mit true/false-Werten (auch bekannt als Bit) tun kann.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+W&uuml;rde es Ihnen gefallen, wenn irgendwann ein Datentyp nach Ihnen benannt werden w&uuml;rde?
+<pre>  true     false</pre>
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Ende des Kapitels
+<ANSWER>
+<p>
+Vielleicht.
+</p>
+
+
+</ANSWER>
+
+<LESSON>
+
+
+<p>
+Sie m&ouml;chten vielleicht das Folgende noch einmal durchsehen.
+Klicken Sie auf ein Thema, das Sie interessiert, um dahin zu gehen, wo es besprochen wurde.
+</p>
+
+<ul>
+<li>
+<GOTO>data type</GOTO> Datentyp </li>
+<li>
+<GOTO>data type, primitive</GOTO> Primitive Datentypen </li>
+<li>Computersprachen, die
+<GOTO>case sensitive</GOTO> Gro&szlig;-/Kleinschreibung beachten </li>
+<li>
+<GOTO>data, two kinds</GOTO> Objekte
+und primitive Datentypen </li>
+<li>
+<GOTO>data type, numeric</GOTO> numerische
+Datentypen  </li>
+<li>
+<GOTO>literal, integer</GOTO> Ganzzahlliterale </li>
+<li>
+<GOTO>literal, floating point</GOTO> Gleitpunktliterale </li>
+<li>
+Die
+<GOTO>precision</GOTO> Genauigkeit
+einer Gleitpunktzahl </li>
+<li>
+Der Datentyp
+<GOTO>characters</GOTO> <code>char</code> </li>
+<li>
+Der Datentyp
+<GOTO>boolean</GOTO> <code>boolean</code> </li>
+</ul>
+
+<p>
+Das n&auml;chste Kapitel wird
+<em>Variablen</em> und <em>Zuweisungsanweisungen</em> besprechen.
+</p>
+
+</CAI>
+
+</CHAPTER>

@@ -1,0 +1,489 @@
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+
+</head>
+
+<body>
+
+<p>
+<small>created 05/08/00</small>
+</p>
+
+<hr>
+<center><h1> Programming Exercises </h1></center>
+
+<h2>Exercise  1 &#8212; C-style Loop</h2>
+
+<p>
+Modify the first example in the chapter so that
+it uses the C-style input loop.
+</p>
+
+<A HREF="../../cs151java.html#83">Click here</A> to go back to the main menu.
+
+<hr/>
+<h2>Exercise  2&#8212;Shorter File Copy Program</h2>
+
+<p>
+The file copy example program in the chapter is
+longer than it needs to be.
+Make it shorter by
+using fewer <code>try{}</code> blocks.
+(This will result in less specific error messages).
+</p>
+
+<A HREF="../../cs151java.html#83">Click here</A> to go back to the main menu.
+
+<hr/>
+<h2>Exercise  3&#8212;GUI File Copy</h2>
+
+<p>
+Write a file copy program that uses a graphical user interface.
+The user enters the name of the file to copy and the name
+of the destination file in TextFields and clicks a button
+to perform the copy.
+Write error messages into another TextField.
+</p>
+
+<p>
+For a nicer program,
+look in your documentation for the
+<code>FileDialog</code> class.
+Include it in the GUI so the user
+can choose the source file graphically.
+</p>
+
+<a href="../../cs151java.html#83">Click here</a> to go back to the main menu.
+
+<hr/>
+<h2>Exercise 4&#8212;Reading Random Integer Data</h2>
+
+<p>
+Write a class that reads data from a file
+containing integers in character format.
+This class will be a software tool that
+other programs can use to simplify their
+own input.
+The constructor for the class will use
+the name of the input file as a parameter,
+and will create the appropriate streams.
+Write a <code>close()</code> method
+and a method <code>int getNextInt()</code>
+that returns the value of the next integer
+from the stream.
+When an error is encountered,
+these methods will write an error message
+and stop the program.
+</p>
+
+<p>
+The input file
+may have none, one, or several integers per line.
+A suitable file could be created by the
+program for Exercise 1 of the previous chapter.
+The class will work with any
+number of integers total,
+and a varying number of integers per line.
+</p>
+
+<p>
+Use <code>BufferedReader</code>,
+<code>FileReader</code>,
+<code>parseInt()</code>,
+and <code>StringTokenizer</code>.
+</p>
+
+<p>
+Test your class by using it in a program that
+writes the integers from the input file on the monitor,
+one per line.
+Once the class is debugged there are many other
+programs you can write that use it:
+</p>
+
+<ul>
+<li>Compute the sum and average of all integers in a file (easy).</li>
+<li>Compute the sum, average, and standard deviation of the integers (easy).</li>
+<li>Find the minimum and maximum integer (easy).</li>
+<li>Find the most and least frequently occuring integer, reporting all ties (medium).</li>
+</ul>
+<a href="../../cs151java.html#84">Click here</a> to go back to the main menu.
+
+<hr/>
+
+
+<h2>Exercise 5 &#8212; HTML Java Source Code Reserved Word Highlighter</h2>
+
+<p>
+Write a program that inputs a Java source code file and outputs a
+copy of that file with Java keybords surrounded with HTML tags for
+bold type.
+For example this input:
+</p>
+
+<pre>
+public class JavaSource
+{
+  public static void main ( String[] args )
+  {
+    if ( args.length == 3 )
+      new BigObject();
+    else
+      System.out.println("Too few arguments.");
+  }
+}
+</pre>
+
+<p>
+will be transformed into:
+</p>
+<pre>
+&lt;b&gt;public&lt;/b&gt; &lt;b&gt;class&lt;/b&gt; JavaSource
+{
+  &lt;b&gt;public&lt;/b&gt; &lt;b&gt;static&lt;/b&gt; &lt;b&gt;void&lt;/b&gt; main ( String[] args )
+  {
+    &lt;b&gt;if&lt;/b&gt; ( args.length == 3 )
+      &lt;b&gt;new&lt;/b&gt; BigObject();
+    &lt;b&gt;else&lt;/b&gt;
+      System.out.println("Too few arguments.");
+  }
+}
+</pre>
+
+<p>
+In a browser the code will look like this:
+</p>
+
+<pre>
+<b>public</b> <b>class</b> JavaSource
+{
+  <b>public</b> <b>static</b> <b>void</b> main ( String[] args )
+  {
+    <b>if</b> ( args.length == 3 )
+      <b>new</b> BigObject();
+    <b>else</b>
+      System.out.println("Too few arguments.");
+  }
+}
+</pre>
+
+
+<a hreF="../../cs151java.html#84">Click here</a> to go back to the main menu.
+
+<hr/>
+<h2>Exercise 6 &#8212; HTML Filter</h2>
+
+<p>
+Any text editor, such as Notepad, can be used
+to create web pages.
+Unfortunately, these editors usually do not
+check spelling.
+Word processors can open a text file and check
+its spelling.
+But when a file is sprinkled with HTML tags
+they all are flagged as errors and
+the real spelling errors are hard to see.
+This exercise is to write a utility that strips
+the HTML tags from a text file.
+</p>
+
+<p>
+Write a program that reads in a text file
+and writes out another text file.
+The input file may have any number of HTML tags
+per line.
+The output file will be a copy of the input file
+but with spaces substituted for each HTML tag.
+The program will not check HTML syntax; it looks
+at the file as a stream of tokens and substitutes
+spaces for each token that is a tag.
+For this program,
+an HTML tag is any token that looks like one of these:
+
+</p>
+
+<code>
+&lt;Word&gt; &nbsp; &nbsp; &nbsp; &lt;/Word&gt;
+</code>
+
+<p>
+Assume that
+<em>Word</em> is a single word (perhaps just one letter or no letters)
+and that there are
+no spaces between the left and right angle brackets.
+With this definition, the following are tags:
+</p>
+
+<pre>
+&lt;p&gt; &nbsp; &nbsp; &nbsp; &lt;/p&gt;&nbsp; &nbsp; &nbsp;&lt;em&gt;&nbsp; &nbsp; &nbsp;&lt;/em&gt;
+&lt;rats&gt; &nbsp; &nbsp; &nbsp; &lt;/1234&gt;&nbsp; &nbsp; &nbsp;&lt;blockquote&gt;&nbsp; &nbsp; &nbsp;&lt;/&gt;
+</pre>
+
+<p>
+With this definition, the following are NOT tags (although some are with real HTML):
+</p>
+
+<pre>
+&lt; p&gt; &nbsp; &nbsp; &nbsp; &lt;/ p&gt;&nbsp; &nbsp; &nbsp;&lt;em &gt;&nbsp; &nbsp; &nbsp;&lt;/e m&gt;
+&lt;table border cellpadding=5&gt;&nbsp; &nbsp; &nbsp;&lt;block quote&gt;&nbsp; &nbsp; &nbsp;&lt; /em&gt;
+</pre>
+
+<b>Challenging Exercise:</b>
+Write the program to filter out
+any tag that looks like one of these:
+</p>
+
+<pre>
+&lt;Word .... &gt; &nbsp; &nbsp; &nbsp; &lt;/Word ... &gt;
+</pre>
+
+<p>
+Now <code>Word</code> is a single word that immediately
+follows the left angle bracket, but may be followed by
+more text which may include spaces.
+A tag ends with a right angle bracket, which
+might or might not be
+preceeded by a space.
+Assume that a tag starts and ends on the same line.
+With this definition,
+the following are tags
+</p>
+
+<pre>
+&lt;p&gt; &nbsp; &nbsp; &nbsp; &lt;/p&gt;&nbsp; &nbsp; &nbsp;&lt;em &gt;&nbsp; &nbsp; &nbsp;&lt;/em &gt;
+&lt;table border cellpadding=5&gt;&nbsp; &nbsp; &nbsp;&lt;word another word&gt;&nbsp; &nbsp; &nbsp;&lt;/x y z&gt;
+</pre>
+
+<p>
+Start by setting a flag to <em>false</em>.
+Now look at the input stream of tokens one by one.
+When a token starts a tag set a boolean flag to <em>true</em>.
+While the flag is <em>true</em> discard tokens until encountering
+a tag end <nobr>(either stuff&gt; or &gt;).</nobr>
+Set the flag to <em>false</em>.
+</p>
+
+<a href="../../cs151java.html#84">Click here</a> to go back to the main menu.
+
+<hr/>
+
+<center>
+<h2>File IO Project</h2>
+</center>
+
+<p><b>First Part:</b></p>
+
+<blockquote>
+
+  <p>
+  Letters of the alphabet
+  occur in text
+  at different frequencies.
+  Write a program
+  that confirms this phenomonon.
+  Your program will be invoked from
+  the command line like this:
+  </p>
+
+  <pre>
+  C:\mydir&gt; java freqCount avonlea.txt avonlea.rept -all
+  </pre>
+
+  <p>
+  It will then read through the first text file
+  on the command line (in this case "avonlea.txt")
+  accumulating the counts for each letter.
+  When it reaches the end of the file,
+  it will write a report (in this case "avonlea.rept")
+  that displays the total number of alphabetic
+  characters "a-zA-Z" and for each character
+  the number of times it occured and the relative
+  frequency with which it occured.
+  In counting characters,
+  regard lower case "a-z" and upper case "A-Z"
+  characters as identical.
+  </p>
+
+  <p>
+  You will need an array of 26 <b>long</b> integers,
+  one per character.
+  To increment the count for a particular character
+  you will have to convert it into an index in the
+  range 0..25.
+  Do this by first determining which range the
+  character belongs in:"a-z" or "A-Z" and then
+  subtracting 'a' or 'A' from it, as appropriate:
+  </p>
+
+  <pre>
+       int inx = (int)ch - (int)'A' ;
+       count[inx]++ ;
+  </pre>
+
+  <p>
+  Discard characters not in either range
+  without increasing any count.
+  </p>
+
+</blockquote>
+
+<p><b>Second Part:</b></p>
+
+<blockquote>
+
+  <p>
+  Do the relative frequencies of the initial
+  letters of words differ from the relative
+  frequencies for all letters in a text?
+  Add logic to the program so that it examines
+  only the first character in each word.
+  Allow the user to chose between the two options
+  with a switch on the command line:
+  </p>
+
+  <pre>
+  C:\mydir&gt;java freqCount avonlea.txt avonlea.rept -first
+  </pre>
+
+  <p>
+  For this option it will be convenient to use the
+  Java class <code>StringTokenizer</code> to deliver
+  individual words one at a time.
+  In the string of delimiters passed to <code>StringTokenizer</code>
+  include whitespace and all punctuation that might be at
+  the start or end of a word.
+  This is not quite good enough for an accurate count
+  because some words will be split between lines
+  </p>
+
+  <pre>
+  It is often true that handling the an-
+  noying details makes up the large maj-
+  ority of the statements in a pro-
+  gram.
+  </pre>
+
+  <p>
+  So, if the last token
+  in a line (returned by <code>StringTokenizer</code>)
+  ends with '-', don't include
+  the  first letter of the first token on the next line
+  in the count.
+  </p>
+
+</blockquote>
+
+<p><b>Testing:</b></p>
+
+<blockquote>
+
+  <p>
+  For testing, create some really simple files
+  that demonstrate that your program is working.
+  For instance:
+  </p>
+
+  <pre>
+  AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA
+  AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA
+  aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa
+  aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa
+  !*$#)#%$#) @##$%))!__ !#4241-432 !_#*%_@*(* !@%#*#.,?+
+  </pre>
+
+  <P>
+  and:
+  </p>
+
+  <pre>
+  AAAAA AAAAA-
+  BBBBB BBBBB-
+  CCCCC CCCCC-
+
+  DDDDD-DDDDD
+  EEEEE-EEEEE
+  </pre>
+
+
+  <p>
+  The first draft of your program will write its count to
+  the monitor for easy debugging.
+  Add text file output later.
+  It is probably wise to write the first part of the program
+  and debug it before moving on to the second option.
+  </p>
+
+  <p>
+  Download a text file of a novel of at least 400K bytes from
+  <a href="http://promo.net/pg/"> Project Gutenberg.</a>.
+  Use a file that does not use HTML formatting tags
+  (which would confuse the count).
+  Delete the text at the beginning of the file that is
+  not part of the novel (the legalese and documentation).
+  Run both options of the program on the text.
+  </p>
+
+</blockquote>
+
+
+<p><b>Example:</b></p>
+
+<blockquote>
+
+  <p>
+  Here is a sample run of my program with the text "Ann of Avonlea" from project
+  Gutenberg.
+  </p>
+
+  <pre>
+  C:\mydir&gt;java freqCount avonlea.txt avonlea.rept -all
+
+  C:\mydir&gt;type avonlea.rept
+  Total alphabetical characters:  373267
+
+   A:       31840       8.53%
+   B:        5942       1.59%
+   C:        7627       2.04%
+   D:       17541       4.69%
+   E:       45614      12.22%
+   F:        7191       1.92%
+   G:        7960       2.13%
+   H:       22500       6.02%
+   I:       25095       6.72%
+   J:         733       0.19%
+   K:        3443       0.92%
+   L:       17534       4.69%
+   M:        9324       2.49%
+   N:       26516       7.1%
+   O:       27344       7.32%
+   P:        6083       1.62%
+   Q:         275       0.07%
+   R:       21285       5.7%
+   S:       23398       6.26%
+   T:       32579       8.72%
+   U:       10720       2.87%
+   V:        4201       1.12%
+   W:        9063       2.42%
+   X:         546       0.14%
+   Y:        8745       2.34%
+   Z:         168       0.04%
+  </pre>
+
+</blockquote>
+
+
+<hr/>
+<p>
+End of Exercises.
+</p>
+
+<a href="../../cs151java.html#84">Click here</a> to go back to the main menu.
+
+
+</body>
+</html>

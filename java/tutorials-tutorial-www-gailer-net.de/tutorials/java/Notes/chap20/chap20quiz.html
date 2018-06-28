@@ -1,0 +1,559 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" >
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="copyright" content="2006">
+<meta name="author" content="B. P. Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+
+<title>Quiz &uuml;ber Random
+</title>
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css">
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+}
+//-->
+</script>
+</head>
+<body>
+<p class="revisions">erstellt 04.08.2007</p>
+
+<hr>
+
+<h1>Quiz &uuml;ber Random</h1>
+
+<div>
+<image src="quizDice.gif" alt="quiz" style="float:left;">
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<strong>Hinweise:</strong>
+Entscheiden Sie sich bei jeder Frage f&uuml;r die beste Antwort. Klicken Sie dann auf das entsprechende Optionsk&auml;stchen, um diese Antwort auszuw&auml;hlen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Sobald das Quiz bewertet wird, erscheint der Buchstabe der richtigen Antwort in der Textbox unterhalb der Frage.
+</p>
+
+<br clear="all">
+
+</div>
+
+<hr>
+
+<form name="question1">
+<p>
+1. Wenn eine Quelle von Zufallszahlen jede Zahl in ihrem Bereich gleich oft erzeugt,
+wird die Verteilung der Zahlen als _________________ bezeichnet?
+</p>
+
+<table>
+<tr>
+<td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+gleichverteilt
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+ungleichverteilt
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+eben
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+gleich
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question2">
+<p>
+2.
+Was sind <b>pseudozuf&auml;llige</b> Zahlen, so wie sie <code>Random</code> erzeugt?
+</p>
+
+<table>
+<tr>
+<td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Pseudozuf&auml;llige Zahlen sind Zahlen mit verschiedenen zus&auml;tzlichen Merkmalen.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Pseudozuf&auml;llige Zahlen sind Zahlen, die eine Gleichverteilung zur Folge haben.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Pseudozuf&auml;llige Zahlen sind weniger vorhersehbar als echte Zufallszahlen.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Pseudozuf&auml;llige Zahlen sehen in den meisten Applikationen wie Zufallszahlen aus,
+aber sie werden durch einen Algorithmus erzeugt und sind absolut vorhersehbar,
+wenn Sie den Startwert kennen.
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question3">
+<p>
+3.
+Was bedeutet <em>seed</em> f&uuml;r einen Pseudozufalls-Zahlengenerator?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<em>seed</em> versorgt den Zufallszahlengenerator mit einem Namen.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+<em>seed</em> initialisiert einen bestimmten Strom von pseudozuf&auml;lligen Zahlen,
+die der Generator erzeugt.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+<em>seed</em> bestimmt den Zahlenbereich, den der Generator erzeugt.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+<em>seed</em> bestimmt wie viele Zufallszahlen erzeugt werden.
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question4">
+<p>
+4.
+
+Angenommen, dass ein Zufallszahlengenerator mit <code>Random rand = Random()</code> erzeugt wurde.
+Welche der folgenden Anweisung w&auml;hlt einen Integer aus dem Bereich 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+<code>
+rand.nextInt(9)
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+<code>
+rand.nextInt()*10
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+<code>
+rand.nextInt(1,10)
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+<code>
+rand.nextInt(10)
+</code>
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question5">
+<p>
+5.
+
+Angenommen, dass ein Zufallszahlengenerator mit <code>Random rand = Random()</code> erzeugt wurde.
+Welche der folgenden Anweisung w&auml;hlt einen Integer aus dem Bereich 10, 11, 12, 13, 14, 15 ?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<code>
+rand.nextInt(5)
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+<code>
+rand.nextInt(6) + 10
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+<code>
+rand.nextInt(10,15)
+</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+<code>
+rand.nextInt(5) + 9
+</code>
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question6">
+<p>
+6. Welcher Bereich von Werten wird von <code>nextInt()</code> erzeugt?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Alle positiven Integer.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Alle Integer, sowohl negative, Null und positive.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Integer von 1 bis 100.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Integer von 0 bis 99.
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question7">
+<p>
+7.
+
+Wenn mit <code>new Random()</code> ein neues Objekt erzeugt wird, worauf basiert der Startwert
+f&uuml;r die Erzeugung der Zufallszahlen.
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Ein zuf&auml;lliger Startwert wird vom System ausgew&auml;hlt.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Ein Standardstartwert.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Die aktuelle Zeit in Millisekunden.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Der gleiche wie vorher verwendete Startwert.
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question8">
+<p>
+8.
+
+Welcher Bereich von Werten ist der Output von <code>nextDouble()</code>?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Alle Gleitpunktwerte doppelter Genauigkeit, negative und positive.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Alle positiven Gleitpunktwerte doppelter Genauigkeit.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Gleitpunktwerte doppelter Genauigkeit von -1.0 bis 1.0.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Gleitpunktwerte doppelter Genauigkeit von 0.0 bis fast 1.0.
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="D">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question9">
+<p>
+9.
+
+Welche der folgenden Anweisungen w&auml;hlt Gleitpunktwerte im Bereich von -10.0 bis aber ohne 15.5?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<code>rand.nextDouble(-10,15.5)</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+<code>25.5*rand.nextDouble() - 10.0</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+<code>15.5*rand.nextDouble() - 10.0</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+<code>rand.nextDouble(15.5) - 10.0</code>
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form name="question10">
+<p>
+10.
+
+Ein Lehrer m&ouml;chte f&uuml;r einen Multiple Choice Test eine zuf&auml;llige Auswahl von
+A, B, C, D undd E. Welche der folgenden Anweisungen kann daf&uuml;r verwendet werden?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<pre>Random rand = new Random();
+. . .
+char answer  =  "ABCDE".charAt( rand.nextInt() );
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+<pre>Random rand = new Random();
+. . .
+char answer  =  "ABCDE".charAt( rand.nextInt(6) );
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+<pre>Random rand = new Random();
+. . .
+char answer  =  "ABCDE".charAt( rand.nextInt(5) );
+</pre>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+<pre>Random rand = new Random();
+. . .
+char answer  =  "ABCDE".rand.nextInt(4) ;
+</pre>
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+<hr>
+
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+</p>
+
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</form>
+</p>
+
+<p style="margin-top:1em;"><a href="../../index.html#20"><img style="float:left;margin-right:5px;" src="../homeIcon.gif" alt="Inhalt" border="0"></a>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</p>
+
+<p>Um die alten Antworten zu l&ouml;schen, halten Sie die Strg-Taste gedr&uuml;ckt und laden dann die Seite neu (Firefox). Bei anderen Browsern funktioniert das in Verbindung mit der Umschalt- bzw. Strg+Umschalt-Taste. Beim Internet Explorer 8 muss die Seite verlassen und erneut aufgerufen werden.</p>
+
+</body>
+</html>

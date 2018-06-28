@@ -1,0 +1,119 @@
+<!doctype html public "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Kapitel 25  Programmieraufgaben</title>
+<meta name="copyright" content="2004 - 2006,  Heinrich Gailer" />
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="index,follow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<small>erstellt 14.06.04; &uuml;berarbeitet 16.06.04, 05.12.04, 07.01.06, 09.10.06; &copy; Copyright 2004 - 2006 Heinrich Gailer</small>
+<hr />
+<center>
+<h1>Kapitel 25 Programmieraufgaben</h1>
+<p><small>Diese Aufgaben werden von mir im Unterricht gemeinsam mit den Teilnehmern erarbeitet. Wer das Tutorial im Selbststudium durcharbeitet sollte diese Programmieraufgaben &uuml;berspringen und mit dem n&auml;chsten  Kapitel weitermachen.</small></p>
+</center>
+<h2>Aufgabe 1 &#8212; Pl&auml;tzchen</h2>
+
+<p>Erstellen Sie eine Klasse <code>Plaetzchen</code> mit den folgenden Instanzvariablen:</p>
+<ul>
+ <li><code>sorte</code></li>
+ <li><code>groesse</code></li>
+ <li><code>form</code></li>
+</ul>
+<p>Diese Variablen sind vom Typ <code>String</code>. Erstellen Sie danach eine Methode <code>public void <span style="white-space:nowrap">ausgeben()</span></code>, die Informationen &uuml;ber die Objekte dieser Klasse ausgibt. Das Grundger&uuml;st der Klasse <code>Plaetzchen</code> sieht folgenderma&szlig;en aus:</p>
+
+<blockquote>
+<pre>
+class Plaetzchen
+{
+
+  // Instanzvariablen
+  String sorte;
+  // weitere Instanzvariablen hier
+
+  // Instanzmethode
+  public void ausgeben()
+  {
+      // gibt Informationen über die Plätzchen aus z.B.
+      // Sorte Kokos, Groesse mittel, Form rund
+  }
+
+  // Test der Klasse Plaetzchen
+  public static void main(String[] args)
+  {
+    /*
+       (1) Erzeugen Sie mit dem new-Operator ein Objekt der Klasse Plaetzchen.
+       (2) Weisen Sie über die Punktnotation Klassenname.Variablenname
+           den Instanzvariablen des Objekts Werte zu.
+       (3) Lassen Sie dann das Objekt seine Methode ausgeben() aufrufen.
+       (4) Testen Sie Ihr Programm.
+       (5) Erzeugen Sie zwei weitere Plaetzchen-Objekte und verfahren Sie wie oben.
+   */
+  }
+}
+</pre>
+</blockquote>
+
+<p>Erzeugen Sie in der <code>main()</code> Methode die folgenden 3 <code>Plaetzchen</code>-Objekte:</p>
+
+<ul>
+<li>Sorte Kokos, Groesse mittel, Form rund</li>
+<li>Sorte Affennuss, Groesse klein, Form rund</li>
+<li>Sorte Honigkuchen, Groesse gross, Form rechteckig</li>
+</ul>
+
+Geben Sie anschlie&szlig;end die Informationen &uuml;ber die <code>Plaetzchen</code>-Objekte auf den Bildschirm auf:</p>
+
+<p>Die Ausgabe des Programms sieht dann folgenderma&szlig;en aus.</p>
+
+<blockquote>
+<pre>
++++ Plaetzchenliste +++
+
+Sorte Kokos, Groesse mittel, Form rund
+Sorte Affennuss, Groesse klein, Form rund
+Sorte Honigkuchen, Groesse gross, Form rechteckig
+
+</pre>
+</blockquote>
+
+<p>Zur&uuml;ck zum <a HREF="../../java-toc.html#25">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 2 &#8212; Verzierung</h2>
+
+<p>Die <code>Plaetzchen</code>-Objekte sollen &uuml;ber eine weitere Eigenschaft Verzierung verf&uuml;gen.</p>
+
+<ul>
+<li>Erweitern Sie dazu die Klasse <code>Plaetzchen</code> um die boolesche Instanzvariable <code>verzierungJaNein</code>.</li>
+<li>Passen Sie die <code>ausgeben()</code> Methode an.</li>
+<li>Weisen Sie in der Methode <code>main()</code> den  ersten beiden <code>Plaetzchen</code>-Objekten keine und dem letzten <code>Plaetzchen</code>-Objekt eine Verzierung zu.</li>
+<li>Testen Sie dann die erweiterte <code>Plaetzchen</code>-Klasse.</li>
+</ul>
+
+<p><strong>Hinweis:</strong> Sie werden eine lokale Stringvariable in der Methode <code>ausgeben()</code> brauchen.</p>
+
+<p>Die Ausgabe sieht dann folgenderma&szlig;en aus.</p>
+
+<blockquote>
+<pre>
++++ Plaetzchenliste +++
+
+Sorte Kokos, Groesse mittel, Form rund, Verzierung nein
+Sorte Affennuss, Groesse klein, Form rund, Verzierung nein
+Sorte Honigkuchen, Groesse gross, Form rechteckig, Verzierung ja
+
+</pre>
+</blockquote>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#25">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<p>Ende der Aufgaben.</p>
+
+</body>
+</html>

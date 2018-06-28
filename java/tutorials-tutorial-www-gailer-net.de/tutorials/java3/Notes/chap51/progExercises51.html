@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+
+<head>
+<title>Programmieraufgaben</title>
+<meta name="copyright" content="2004 - 2006 Heinrich Gailer" />
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="index, follow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<hr />
+<small>erstellt 01.03.04; &uuml;berarbeitet 15.03.04, 25.03.04, 17.06.04, 07.03.05, 07.07.06; &copy; Copyright 2004 - 2006 Heinrich Gailer</small>
+<hr />
+<center><h1><span class="blue">
+Kapitel 51  Programmieraufgaben</span></h1></center>
+
+
+<h2>Aufgabe 1 &#8212; Bessere Anrede</h2>
+
+<p>Das Grusskarten-Beispiel hat in der deutschen &Uuml;bersetzung einen kleinen Sch&ouml;nheitsfehler. Erweitern Sie die abstrakte Klasse <code>Karte</code> um die Instanzvariable <code>String anrede</code> und um einen Konstruktor, der die Variablen <code>empfaenger</code> und <code>anrede</code> initialisiert.</p>
+
+<pre>
+Karte( String empfaenger, String sex)
+</pre>
+
+<p>Der Variablen <code>anrede</code> wird dann entweder der String "Liebe" oder "Lieber" zugewiesen. Passen Sie die Subklassen und das Testprogramm entsprechend an.
+</p>
+<blockquote>
+<pre>
+Liebe Ann,
+
+frohe Feiertage!
+
+
+Lieber Bob,
+
+Alles Gute zum 55. Geburtstag.
+
+
+Liebe Joan,
+
+Herzliche Gruesse und Kuesse.
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+</pre>
+</blockquote>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#51">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<a name="haustiere"></a>
+<h2>Aufgabe 2 &#8212; Haustiere</h2>
+<p>
+Erstellen Sie eine abstrakte Klasse <code>Haustiere</code>. Die Klasse besteht aus<p>
+<ul>
+<li>
+den Instanzvariablen
+<blockquote>
+<pre>
+String name;
+double futtervorrat;
+int    anzahlTage; // gibt die Anzahl Tage aus, die der Futtervorat reicht
+</pre>
+</blockquote>
+</li>
+<li>
+einem Konstruktor, der die beiden Instanzvariablen <code>name</code> und <code>futtervorrat</code> initialisiert ( Dieser Kontruktor kann zwar nicht direkt genutzt werden, da die abstrakte Klasse <code>Haustiere</code> nicht instanziiert werden kann, aber er kann von den Subklassen <code>Katze</code> und <code>Hund</code> verwendet werden.)
+</li>
+<li>
+der Methode
+<blockquote>
+<pre>
+public void fuettern()
+{
+  // Hier erfolgt zuerst der Aufruf der Methode sprich().
+  // Solange der Futtervorat reicht, wird dann die Methode friss() aufgerufen
+  // und die Anzahl der Tage hochgezählt, die der Vorrat reicht.
+  // Implementiert werden die abstrakten Methoden sprich() und friss() erst in den Subklassen.
+}
+</pre>
+</blockquote>
+</li>
+<li>
+der Methode
+<blockquote>
+<pre>
+public void anzeigen()
+{
+ // zeigt den Namen des Haustiers an und wie viele Tage der Futtervorrat reicht
+}
+</pre>
+</blockquote>
+</li>
+
+<li>
+und den abstrakten Methoden
+<blockquote>
+<pre>
+public abstract void friss();
+public abstract void sprich();
+</pre>
+</blockquote>
+</li></ul>
+
+<p>
+Leiten Sie von der abstrakten Klasse <code>Haustiere</code> die Klassen <code>Hund</code> und <code>Katze</code> ab. Schreiben Sie f&uuml;r beide Subklassen einen Konstruktor, der den Konstruktor der Superklasse aufruft. Implementieren Sie anschlie&szlig;end in den Subklassen die abstrakten Methoden:
+<ul>
+<li>Die Methode <code>sprich()</code> gibt "Wuff!" bzw "Miau!" aus.</li>
+<li>Die Methode <code>friss()</code> verringert den Wert der Instanzvariablen <code>futtervorrat</code> um 1.0 (Hund) bzw. um 0.5 (Katze) und gibt den Namen des Haustiers mit dem jeweiligen Stand des Futtervorrats aus.</li>
+</ul>
+
+<p>Testen Sie das Programm in einer Klasse <code>HaustierFuettern</code>. Die Ausgabe sieht dann ungef&auml;hr wie folgt aus:</p>
+<blockquote>
+<pre>
+C:\data\java\bsp&gt;java HaustierFuettern
+Miau!
+Minka: 5.0
+Minka: 4.5
+Minka: 4.0
+Minka: 3.5
+Minka: 3.0
+Minka: 2.5
+Minka: 2.0
+Minka: 1.5
+Minka: 1.0
+Minka: 0.5
+Der Vorrat fuer Minka reicht 10 Tage.
+
+Wuff!
+Strolchie: 5.0
+Strolchie: 4.0
+Strolchie: 3.0
+Strolchie: 2.0
+Strolchie: 1.0
+Der Vorrat fuer Strolchie reicht 5 Tage.
+</pre>
+</blockquote>
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#51">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+
+</body>
+</html>

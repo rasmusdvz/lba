@@ -1,0 +1,1181 @@
+<?xml version="1.0" standalone="yes" ?>
+
+<!-- Jan. 19, 1998  revised chapter numbering; previously chapter 18c -->
+<!-- Jan. 20, 2000  INDEX  -->
+<!-- July 14, 2002  CSS and XML -->
+<!-- May  10, 2003  small changes -->
+
+<?xml version="1.0" standalone="yes" ?>
+
+<CHAPTER>
+<COPYRIGHTDATE>2008</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2010, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#34A</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+<CAI> Kapitel 34A &#8212; Parameter, lokale Variablen und &Uuml;berladen
+
+<p class="revisions">erstellt 30.12.98; &uuml;berarbeitet 26.09.99, 21.01.00, 14.07.02, 19.01.06, 15.04.07; &uuml;bersetzt 26.05.03; &uuml;berarbeitet 26.01.04, 19.07.04, 18.01.05, 19.10.06, 17.01.10; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<LESSON>
+<p>
+Der <strong>Zustand</strong> eines Objekts besteht in den Daten, die es in seinen Instanzvariablen h&auml;lt.
+Instanzvariablen behalten ihren Wert bis sie explizit ge&auml;ndert werden oder
+bis das Objekt zerst&ouml;rt wird.
+</p>
+
+<p>
+Eine Objektmethode arbeitet h&auml;ufig mit Werten,
+die <strong>nicht</strong> Teil des Objektzustands sind.
+Diese Werte werden in <b>lokalen Variablen</b> und <b>Parametern</b> der Methoden gehalten.
+Dieses Kapitel er&ouml;rtert wie diese deklariert und verwendet werden.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Formale und aktuelle Parameter</li>
+<li>G&uuml;ltigkeitsbereich von Parametern</li>
+<li>Lokale Variablen</li>
+<li>G&uuml;ltigkeitsbereich von lokalen Variablen</li>
+<li>&Uuml;berladen von Methoden</li>
+<li>Signatur einer Methode</li>
+</ul>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Was ist ein Parameter einer Methode?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Parameter
+
+<ANSWER>
+<p>
+Ein Parameter ist ein Wert, der an eine aufgerufene Methode &uuml;bergeben wird.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist ein Beispiel einer Methode, die  Parameter verwendet.
+</p>
+
+<pre class="program">
+class Konto
+{
+  . . . .
+  private int    kontostand;
+
+  . . . .
+  void  verarbeiteEinzahlung( int <span class="red">betrag</span> )
+  {
+    kontostand = kontostand + <span class="red">betrag</span> ;
+  }
+
+}
+</pre>
+
+<INDEX>parameter passing</INDEX>
+<p>
+Der Parameter <code>betrag</code> wird vom  Aufrufer verwendet,
+um einen Wert an die Methode zu schicken.
+Das wird "einen Wert an die Methode &uuml;bergeben" genannt.
+Hier ist ein Teil einer <code>main()</code> Methode, die den Parameter verwendet, um
+einen Wert an die Methode <code>verarbeiteEinzahlung()</code> zu &uuml;bergeben:
+</p>
+
+<pre class="program">
+class KontoTester
+{
+  public static void main( String[] args )
+  {
+    Konto bobsKonto = new Konto( "999", "Bob", 100 );
+    bobsKonto.verarbeiteEinzahlung( <span class="red">200</span> );
+
+    // . . . .
+  }
+}
+</pre>
+
+<p>
+Wenn die Anweisung
+</p>
+
+<pre>
+bobsKonto.verarbeiteEinzahlung( <span class="red">200</span> );
+</pre>
+
+<p>
+ausgef&uuml;hrt wird,
+erh&auml;lt der Parameter <code>betrag</code> den Wert 200.
+Wenn die Methode <code>verarbeiteEinzahlung()</code> jetzt ausgef&uuml;hrt wird, wird dieser Wert
+der Instanzvariablen <code>kontostand</code> des Objekts hinzugef&uuml;gt.:
+
+<pre>
+kontostand = kontostand + <span class="red">betrag</span> ;
+</pre>
+
+
+<p>
+Dann wird die Methode beendet und die Kontrolle kehrt zur&uuml;ck zu <code>main()</code>.
+Der <code>kontostand</code> von <code>bobsKonto</code> wird sich ge&auml;ndert haben.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+
+<ol>
+<li>Wird die Instanzvariable <code>kontostand</code> einen dauerhaften Wert enthalten?</li>
+<li>Wird der Parameter <code>betrag</code> einen dauerhaften Wert enthalten?</li>
+</ol>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Formale und aktuelle Parameter
+<ANSWER>
+
+<ol>
+<li>Wird die Instanzvariable <code>kontostand</code> einen dauerhaften Wert enthalten?
+   <ul>
+   <li>Ja &#8212; <code>kontostand</code> ist Teil des Zustands des Objekts und wird den Wert solange enthalten wie das Objekt existiert.</li>
+   </ul></li>
+<li>Wird der Parameter <code>betrag</code> einen dauerhaften Wert enthalten?
+   <ul>
+   <li>Nein &#8212; <code>betrag</code> wird nur verwendet, um einen Wert an eine Methode zu &uuml;bergeben.
+       Er hat keine dauerhafte Existenz.</li>
+   </ul></li>
+</ol>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>parameter, formal and actual</INDEX>
+<p>
+Die folgenden Definitionen sind n&uuml;tzlich:
+</p>
+
+
+<ul>
+<li><b>formaler Parameter</b> &#8212; Bezeichner, der in einer Methode verwendet wird,
+um einen Wert aufzunehmen, der an die Methode vom Aufrufer &uuml;bergeben wird.
+
+    <ul><li>Zum Beispiel ist <code>betrag</code> ein
+            formaler Parameter von <code>verarbeiteEinzahlung()</code></li></ul></li>
+<li><b>aktueller Parameter</b> &#8212; der tats&auml;chliche Wert, der an die
+ Methode durch den Aufrufer &uuml;bergeben wird.
+    <ul><li>Zum Beispiel werden die <code>200</code>, die beim Aufruf an die Methode  <code>verarbeiteEinzahlung()</code> &uuml;bergeben werden, als aktueller Parameter bezeichnet.</li></ul></li>
+</ul>
+
+
+<p>
+Wenn eine Methode aufgerufen wird, dann wird der formale Parameter tempor&auml;r an den aktuellen Parameter "gebunden".
+Die Methode verwendet den formalen Parameter f&uuml;r den aktuellen Wert, den der Aufrufer &uuml;bergeben hat.</p>
+
+<p>Zum Beispiel verwendet hier die Methode <code>verarbeiteEinzahlung()</code> den formalen Parameter <code>betrag</code> an Stelle des aktuellen Werts , der im Methodenaufruf &uuml;bergeben wurde:
+</p>
+
+<pre>
+kontostand = kontostand + <span class="red">betrag</span> ;
+</pre>
+
+
+<p>
+<b>Hinweis:</b> Formale Parametern sind nur solange wie ihre Methode aktiv ist an einen aktuellen Wert gebunden.
+Wenn eine Methode zum Aufrufer zur&uuml;ckkehrt,
+enth&auml;lt der formale Parameter keinen Wert mehr.
+Parameter k&ouml;nnen nicht dazu verwendet werden, um den Zustand eines Objekts zu speichern.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was wird verwendet, um den Zustand eines Objekts zu speichern?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Parameter sind nur in ihrer eigenen Methode sichtbar
+
+<ANSWER>
+<p>
+Instanzvariablen werden verwendet, um den Zustand eines Objekts zu speichern.
+Sie werden solange das Objekt existiert dessen Werte enthalten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Die formalen Parameter einer Methode k&ouml;nnen nur von ihren eigenen Anweisungen "gesehen" werden.
+Das hei&szlig;t, wenn eine Methode versucht einen Parameter einer anderen Methode zu verwenden,
+wird der Compiler einen Syntaxfehler finden.
+</p>
+
+<p>
+Hier ist noch einmal die <code>Konto</code>-Klasse,
+dieses Mal mit einer neuen Definition der <code>anzeigen()</code> Methode.
+</p>
+
+<pre class="program">
+class Konto
+{
+  . . . .
+  private int    kontostand;
+
+  . . . .
+  void  verarbeiteEinzahlung( int <span class="red">betrag</span> )
+  {
+    kontostand = kontostand + <span class="red">betrag</span> ;
+  }
+
+  // ge&auml;nderte anzeigen() Methode
+  void anzeigen()
+  {
+    System.out.println( kontostand + "\t" + <span class="red">betrag</span> );
+  }
+
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist diese <code>anzeigen()</code> Methode korrekt?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>G&uuml;ltigkeitsbereich eines formalen Parameters
+<ANSWER>
+<p>
+Nein.  Der formale Parameter <code>betrag</code> geh&ouml;rt zur Methode
+<code>verarbeiteEinzahlung()</code>.
+Er kann nicht von einer anderen Methode verwendet werden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>scope</INDEX>
+<p>
+Der <code>G&uuml;ltigkeitsbereich</code> eines formalen Parameters
+ist der Codeabschnitt, der den Parameter "sehen" (verwenden) kann.
+Der G&uuml;ltigkeitsbereich des formalen Parameters ist der K&ouml;rper der Methode.
+Zum Beispiel ist der G&uuml;ltigkeitsbereich von <code>betrag</code> der K&ouml;rper seiner Methode:
+</p>
+
+<pre class="program">
+class Konto
+{
+  . . . .
+  private int    kontostand;
+
+  . . . .
+  void  verarbeiteEinzahlung( int <span class="red">betrag</span> )
+  { // G&uuml;ltigkeitsbereich von betrag beginnt hier
+    kontostand = kontostand + <span class="red">betrag</span> ;
+  } // G&uuml;ltigkeitsbereich von betrag endet hier
+
+  // ge&auml;nderte anzeigen() Methode
+  void anzeigen()
+  {
+    System.out.println( kontostand + "\t" + <span class="red">betrag</span> );  // Syntaxfehler
+  }
+
+}
+</pre>
+
+<p>
+Die <code>anzeigen()</code> Methode kann <code>betrag</code> nicht "sehen", da sie
+au&szlig;erhalb des G&uuml;ltigkeitsbereich von <code>betrag</code> ist.
+Der Compiler wird das ge&auml;nderte Programm nicht kompilieren.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Kann die <code>anzeigen()</code> Methode die Instanzvariablen des Objekts
+(wie <code>kontostand</code>) sehen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Was Anweisungen sehen k&ouml;nnen
+<p>
+Kann die <code>anzeigen()</code> Methode die Instanzvariablen des Objekts
+(wie <code>kontostand</code>) sehen?
+</p>
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>visibility of variables</INDEX>
+<p>
+Anweisungen einer Methode (so wie <code>anzeigen()</code> ) k&ouml;nnen
+die Instanzvariablen und die anderen Methoden des Objekts sehen. Aber sie k&ouml;nnen die Parametern (und lokalen Variablen) anderer Methoden <strong>nicht sehen</strong>.
+Hier ist ein weiterer Blick auf die <code>Konto</code>-Klasse:
+</p>
+
+<pre class="program">
+class Konto
+{
+  . . . .
+  private int    kontostand;
+
+  . . . .
+  void  verarbeiteEinzahlung( int <span class="red">betrag</span> )
+  { // G&uuml;ltigkeitsbereich von <span class="red">betrag</span> beginnt hier
+    kontostand = kontostand + <span class="red">betrag</span> ;
+  }  // G&uuml;ltigkeitsbereich von <span class="red">betrag</span> endet hier
+
+  void verarbeiteAuszahlung( int <span class="blue">betrag</span> )
+  { // G&uuml;ltigkeitsbereich von <span class="blue">betrag</span> beginnt hier
+    int gebuehr;
+
+    inkrementZaehler();
+    if ( kontostand &lt; 100000 )
+      gebuehr = 15;
+    else
+      gebuehr = 0;
+
+    kontostand =  kontostand - <span class="blue">betrag</span> - gebuehr  ;
+  } // G&uuml;ltigkeitsbereich von <span class="blue">betrag</span> endet hier
+
+}
+</pre>
+
+<p>
+Zwei Methoden verwenden den <bold>gleichen Bezeichner</strong> <code>betrag</code>
+f&uuml;r <bold>zwei verschiedene</strong> formale Parameter.
+Jede Methode hat ihre eigenen formalen Parameter, vollkommen unabh&auml;ngig von anderen Methoden. Das ist OK.
+Der G&uuml;ltigkeitsbereich der zwei Parametern &uuml;berschneidet sich nicht, so dass die Anweisungen der einen Methode
+die formalen Parameter der anderen Methode nicht "sehen" k&ouml;nnen.
+</p>
+
+<p>
+Zum Beispiel kann die Anweisung
+</p>
+
+
+<pre>
+kontostand =  kontostand - <span class="blue">betrag</span> - gebuehr  ;
+</pre>
+
+
+<p>
+in der zweiten Methode nur den formalen Parameter ihrer Methode sehen &#8212; der
+G&uuml;ltigkeitsbereich des formalen Parameters der anderen Methode enth&auml;lt diese Anweisung nicht.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+K&ouml;nnen die zwei formalen Parameter, die beide <code>betrag</code> hei&szlig;en, unterschiedliche Datentypen haben. (Kann zum Beispiel der eine ein <code>int</code> und der andere ein <code>long</code> sein)?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Verspiegeltes Glas
+
+<ANSWER>
+<p>
+Ja &#8212; da jeder nur im K&ouml;rper seiner Methode sichtbar ist, kann er als ein beliebiger Typ deklariert sein.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<img src="oneWayGlass.gif" align="right" hspace="10" vspace="5">
+
+
+<p>
+Es ist manchmal n&uuml;tzlich sich Methoden visuell
+als eine Box aus verspiegelten Glas vorzustellen.
+Eine Methode kann lokale Variablen und Parameter,
+die in der Box sind, sehen.
+Eine Methode kann durch das Glas, das
+sie umgibt, hindurchsehen.
+Aber kein Au&szlig;enstehender kann in die Box hineinsehen.
+</p>
+
+<p>
+Die Abbildung zeigt die verspiegelte Box f&uuml;r das Beispielprogramm.
+Die <span class="red">roten Linien</span> zeigen das
+verspiegelte Glas, das jede Methode umgibt.
+Die Methode kann aus der Box herausschauen.
+Zum Beispiel kann jede Methode die
+Instanzvariable <code>kontostand</code> sehen,
+aber andere Methoden k&ouml;nnen von au&szlig;erhalb
+nicht in die verspiegelte Box hineinsehen.
+</p>
+
+<p>
+In <code>verarbeiteEinzahlung()</code> kann die Anweisung
+die Variable <code>kontostand</code>, die als Instanzvariable deklariert ist, &quot;sehen&quot;.
+Sie kann ebenfalls den Parameter <code>betrag</code> innerhalb der Box sehen.
+</p>
+
+<p>
+Die Methode <code>zeigeGebuehr()</code> ist  fehlerhaft,
+da sie eine Anweisung enth&auml;lt, die versucht
+in die Box von <code>verarbeiteAuszahlung()</code> hineinzusehen.
+</p>
+
+<p>
+Die Namen der formalen Parameter (wie <code>betrag</code>)
+und lokalen Variablen (wie <code>gebuehr</code>)
+sind <em>innerhalb</em> der Glasbox sichtbar.
+Aber dem Au&szlig;enstehenden ist nur die Anzahl und der Typ der f&uuml;r jede Methode
+erforderlichen Parameter bekannt.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist der Name einer Methode innerhalb oder au&szlig;erhalb der Glasbox?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Zuweisung eines Werts an einen Parameter
+<p>
+Ist der Name einer Methode innerhalb oder au&szlig;erhalb der Glasbox?
+</p>
+<ANSWER>
+<p>
+Au&szlig;erhalb &#8212; so dass er von anderen Methoden "gesehen" und verwendet werden kann.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>parameter, assignment to</INDEX>
+
+
+<p>
+Innerhalb des K&ouml;rpers einer Methode
+kann ein Parameter genau wie eine Variable verwendet werden.
+Er kann in arithmetischen Ausdr&uuml;cken,
+in Zuweisungsanweisungen usw. verwendet werden.
+
+</p>
+
+<p>
+<b>Aber,</b> eine &Auml;nderung des Parameters
+hat keinen Effekt au&szlig;erhalb des Methodenk&ouml;rpers.
+Ein Parameter ist eine "<strong>lokale Kopie</strong>", egal welchen Wert
+der Aufrufer an die Methode &uuml;bergeben hat.
+Jede &Auml;nderung, die an ihm vorgenommen wird, betrifft nur diese
+lokale Kopie.
+Zum Beispiel:
+</p>
+
+<pre class="program">
+class Konto
+{
+  . . . .
+  private int    kontostand;
+
+  void verarbeiteAuszahlung( int  betrag  )
+  {
+    int gebuehr;
+    if ( kontostand &lt; 100000 )
+      gebuehr = 15;
+    else
+      gebuehr = 0;
+    kontostand =  kontostand -  betrag  - gebuehr  ;
+
+    // &Auml;ndern der lokalen Kopie "betrag"
+    <span class="red">betrag = 0 ; </span>
+  }
+}
+
+class KontoTester
+{
+  public static void main ( String[] args )
+  {
+    Konto aktuell;
+    int <span class="red">scheck = 5000</span>;
+    aktuell = new Konto( "123-345-99",
+        "Wanda Fish",  100000 );
+
+    // <span class="red">gibt "5000" aus</span>
+    System.out.println( "Scheck: " + scheck );
+
+    // Aufruf von verarbeiteAuszahlung() mit dem <strong>Wert</strong> 5000
+    aktuell.verarbeiteAuszahlung( scheck );
+
+    // <span class="red">gibt "5000" aus</span> &#8212;  "scheck" wurde nicht ge&auml;ndert
+    System.out.println( "Scheck: " + scheck );
+
+  }
+}
+</pre>
+
+
+<p>
+Der formale Parameter <code>betrag</code> ist
+der <strong>Name</strong>, der von <code>verarbeiteAuszahlung()</code> f&uuml;r den <b>Wert</b> 5000
+verwendet wird, der ihm vom Aufrufer &uuml;bergeben wurde.
+Die Methode kann den  Wert, der in <code>betrag</code> enthalten ist &auml;ndern,
+aber das hat keine Auswirkung auf die Variable des Aufrufers.
+</p>
+
+<p>
+Dieses Thema wird in den folgenden Kapiteln weiter er&ouml;rtert.
+Betrachten Sie f&uuml;r jetzt einen Parameter als eine "<em>Einbahnstra&szlig;en</em>"-Mitteilung,
+die der Aufrufer verwendet, um Werte an die Methode zu &uuml;bermitteln.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Angenommen, dass die <code>main()</code> Methode in dem Beispiel folgendes tat:
+</p>
+
+
+<pre>
+   aktuell.verarbeiteAuszahlung( 7000 );  // verarbeiteAuszahlung()
+                                          // mit dem <b>Wert</b> 7000 aufrufen
+</pre>
+
+
+<p>
+Ist das OK?
+Was w&uuml;rde die Anweisung
+</p>
+
+
+<pre>
+   betrag = 0 ;  // lokale Kopie von "betrag" ändern
+</pre>
+
+
+<p>
+in der Methode tun?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Lokale Variablen
+<ANSWER>
+<p>
+Ist das OK?   <span class="green">Sicherlich. Der Aufrufer hat den Wert
+7000 an die Methode geschickt.</span>
+</p>
+
+<p>
+Was bewirkt <code>betrag = 0</code> in der Methode?
+<span class="green">
+Das &auml;ndert die lokale Kopie des Wertes von 7000 in 0.
+</span>
+</p>
+
+<p>
+Aber das hat keine Auswirkung auf den Aufrufer.
+Betrachten Sie noch einmal den Aufrufer &#8212; der Wert 7000  ist in keiner Variable enthalten.
+Es gibt nichts, was die aufgerufene Methode &auml;ndern k&ouml;nnte.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>local variable</INDEX>
+<INDEX>variable, local</INDEX>
+<p>
+Eine <b>lokale Variable</b> ist eine Variable, die innerhalb des K&ouml;rpers einer
+Methode deklariert ist.
+Sie kann nur von den Anweisungen innerhalb der Methode, die nach ihrer Deklaration kommen,
+gesehen werden.
+(Ihr <strong>G&uuml;ltigkeitsbereich</strong> beginnt mit ihrer Deklaration und endet mit dem Ende der Methode.)
+Zum Beispiel ist <code>gebuehr</code> &nbsp;von &nbsp;<code>verarbeiteAuszahlung()</code>
+eine lokale Variable:
+</p>
+
+<pre class="program">
+class Konto
+{
+  . . . .
+  private int    kontostand;
+
+
+  void verarbeiteAuszahlung( int  betrag  )
+  {
+    int gebuehr; // G&uuml;ltigkeitsbereich von <span class="red">gebuehr</span> beginnt hier
+
+    inkrementZaehler();
+    if ( kontostand &lt; 100000 )
+      gebuehr = 15;
+    else
+      gebuehr = 0;
+
+    kontostand =  kontostand -  betrag  - gebuehr  ;
+  } // G&uuml;ltigkeitsbereich von <span class="red">gebuehr</span> endet hier
+
+}
+</pre>
+
+<p>
+Die lokale Variable <code>gebuehr</code> wird in einer typischen Weise verwendet.
+Sie wird verwendet, um einen tempor&auml;ren Wert zu halten, w&auml;hrend etwas berechnet wird.
+Lokale Variablen werden nicht verwendet, um die permanente Werte des Zustands eines
+Objekts zu halten.
+Sie enthalten einen Wert nur w&auml;hrend der kurzen Zeitspanne in der die Methode aktiv ist.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist der G&uuml;ltigkeitsbereich einer lokalen Variable immer der gesamte K&ouml;rper einer Methode?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Sie k&ouml;nnen nicht den gleichen Namen in demselben G&uuml;ltigkeitsbereich verwenden
+<p>
+Ist der G&uuml;ltigkeitsbereich einer lokalen Variable immer der gesamte K&ouml;rper einer Methode?
+</p>
+<ANSWER>
+<p>
+Nein &#8212; nur ab der Stelle, an der die Variable deklariert wurde bis zum Ende des Methodenk&ouml;rpers.
+Manchmal wird eine lokale Variable mitten im K&ouml;rper deklariert,
+nahe der Anweisung, die sie das erste Mal verwendet.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Es ist ein Fehler den gleichen Bezeichner zweimal
+in demselben G&uuml;ltigkeitsbereich zu verwenden.
+Zum Beispiel ist das Folgende ein Fehler:
+</p>
+
+<pre class="program">
+class Konto
+{
+  . . . .
+  private int kontostand;
+
+  void verarbeiteAuszahlung( int  <span class="red">betrag</span>  )
+  {
+    int gebuehr, <span class="red">betrag</span>;
+
+    inkrementZaehler();
+    if ( kontostand &lt; 100000 )
+      gebuehr = 15;
+    else
+      gebuehr = 0;
+
+    kontostand =  kontostand -  betrag  - gebuehr;
+  }
+
+}
+</pre>
+
+<p>
+Der G&uuml;ltigkeitsbereich des formalen Parameters (<code>betrag</code>) &uuml;berschneidet sich mit dem G&uuml;ltigkeitsbereich der lokalen Variablen ( ebenfalls <code>betrag</code> genannt).
+Das ist ein Fehler.
+Hier ist die Situation anders als beim vorherigen Beispiel,
+in dem zwei  separate formale Parameter beide <code>betrag</code> genannt wurden.
+In jener Situation hat sich der G&uuml;ltigkeitsbereichs nicht &uuml;berschnitten und es gab keine &Uuml;berschneidung.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Kann der gleiche Bezeichner als Name f&uuml;r
+eine lokale Variable in zwei verschiedenen Methoden verwendet werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Instanzvariable und lokale Variable mit dem gleichen Namen
+<p>
+Kann der gleiche Bezeichner als Name f&uuml;r
+eine lokale Variable in zwei verschiedenen Methoden verwendet werden?
+</p>
+<ANSWER>
+
+<p>
+Ja &#8212; der G&uuml;ltigkeitsbereichs &uuml;berschneidet sich nicht, also wird es
+zwei lokale Variablen geben, eine pro Methode, jede mit dem gleichen Namen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Obwohl es normalerweise eine schlechte Idee ist,
+k&ouml;nnen Sie einem formalen Parameter oder einer lokalen Variablen
+den gleichen Namen geben wie einer Instanzvariable,
+zum Beispiel:
+</p>
+
+<pre class="program">
+class Konto
+{
+  . . . .
+  private int <span class="green">kontostand</span>;
+
+  . . . .
+  void  verarbeiteEinzahlung( int betrag )
+  {
+    int <span class="red">kontostand</span> = 0;                // neue Deklaration von kontostand.
+    kontostand = <span class="red">kontostand</span> + betrag ; // verwendet die lokale Variable kontostand.
+  }
+
+}
+</pre>
+
+<p>
+Das ist kein Syntaxfehler (obwohl es wahrscheinlich ein logischer Fehler, ein Bug ist).
+Der Compiler wird diesen Code ohne Beschwerde kompilieren.
+Die zweite Deklaration von <code>kontostand</code> (die in rot)
+erzeugt eine lokale Variable f&uuml;r die Methode <code>verarbeiteEinzahlung()</code>.
+Der G&uuml;ltigkeitsbereich dieser Variable beginnt mit ihrer Deklaration und endet mit dem Ende der Methode (so wie bei allen lokalen Variablen).
+Also verwendet die n&auml;chste Anweisung die lokale Variable, nicht die Instanzvariable.
+</p>
+
+<p>
+Wenn diese modifizierte Methode aufgerufen wird,
+wird sie <code>betrag</code> der lokalen Variablen <code>kontostand</code> hinzuf&uuml;gen
+und dann zum Aufrufer zur&uuml;ckkehren.
+Die lokale Variable wird keinen Wert mehr enthalten, nachdem sie zum Aufrufer zur&uuml;ckgekehrt ist.
+Die Instanzvariable wird sich nicht ge&auml;ndert haben.
+</p>
+
+
+<blockquote>
+<b>Hinweis:</b> &nbsp; Stellen Sie sich die Anweisungen vor, als wenn Sie von Ihrer Stelle ab  "aufw&auml;rts" suchen, um jede ihrer Variablen zu finden.
+Die <b>Erste</b>, die sie sehen, ist die welche Sie verwenden.
+Sie k&ouml;nnen von ihrer &quot;verspiegelten Glasbox&quot; in jeder Richtung nach au&szlig;en sehen,
+wenn sie die Variable nicht in ihrer eigenen Methode finden.
+</blockquote>
+
+<p>
+Es ist fast immer ein Fehler den gleichen Namen f&uuml;r
+eine Instanzvariable und eine lokale Variable (oder einen formalen Parameter) zu verwenden.
+Aber es ist kein Syntaxfehler,
+also wird Sie der Compiler nicht vor dem drohendem Schicksal warnen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist es schwierig dieses Problem abzuwenden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Methoden &uuml;berladen
+<p>
+Ist es schwierig dieses Problem abzuwenden?
+</p>
+<ANSWER>
+<p>
+Nein &#8212; normalerweise werden alle Instanzvariablen in der Klassendefinition an einer Stelle deklariert und es ist leicht sie zu kontrollieren.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>overloading</INDEX>
+<p>
+Wenn zwei oder mehr Methoden einer Klasse den gleichen Namen, aber verschiedene
+Parameterlisten haben, spricht man vom <strong>&Uuml;berladen</strong> der Methoden.
+Wenn eine der Methoden (von <code>main()</code> oder einer anderen Methode) aufgerufen wird, ist es durch die &Uuml;bereinstimmung der aktuellen Parameter mit der formalen Parameterliste klar welche Methode gemeint ist.
+</p>
+
+<p>
+Hier ist eine weitere &Auml;nderung der <code>Konto</code> Klasse:
+</p>
+
+<pre class="program">
+class Konto
+{
+  . . . .
+  private int    kontostand;
+
+  . . . .
+  void  verarbeiteEinzahlung( int betrag )
+  {
+    kontostand = kontostand + betrag ;
+  }
+
+  void  verarbeiteEinzahlung( int betrag, int gebuehr )
+  {
+    kontostand = kontostand + betrag - gebuehr;
+  }
+
+}
+</pre>
+
+<p>
+Angenommen, dass zwei <code>verarbeiteEinzahlung()</code> Methoden gebraucht werden:
+</p>
+
+<ul>
+<li>Eine f&uuml;r normale Einlagen, f&uuml;r die keine Geb&uuml;hr erhoben wird.</li>
+<li>Eine f&uuml;r andere Einlagen, f&uuml;r die eine Geb&uuml;hr erhoben werden kann.</li>
+</ul>
+
+<p>
+Der oben stehende Code implementiert diese Anforderung.
+Hier ist ein Beispiel der <code>main()</code> Methode, die beide Methoden verwendet:
+</p>
+
+<pre class="program">
+class KontoTester
+{
+  public static void main( String[] args )
+  {
+    Konto bobsKonto = new Konto( "999", "Bob", 100 );
+    bobsKonto.verarbeiteEinzahlung( 200 );       // Anweisung A
+    bobsKonto.verarbeiteEinzahlung( 200, 25 );   // Anweisung B
+  }
+}
+</pre>
+
+<p>Es gibt zwei Methodenaufrufe und zwei Methoden, die daf&uuml;r zur Verf&uuml;gung stehen. Ein Methodenaufruf ruft die Methode auf, die sowohl dem Namen als auch der Parameterliste entspricht.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Pr&uuml;fen Sie <code>main()</code>.
+</p>
+
+<p>
+Welche Methode, <code>verarbeiteEinzahlung(int)</code>
+oder  <code>verarbeiteEinzahlung(int, int)</code>,
+
+werden jede der Anweisungen aufrufen?
+</p>
+
+<ol>
+<li>Anweisung A ruft <input value="  ?  " name="b1" onclick="alert('verarbeiteEinzahlung(int)')" type="button"></li>
+<li>Anweisung B ruft <input value="  ?  " name="b1" onclick="alert('verarbeiteEinzahlung(int, int)')" type="button"></li>
+</ol>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Signatur von Methoden
+<ANSWER>
+
+<ol>
+<li>Anweisung A ruft <code>verarbeiteEinzahlung(int)</code> auf.
+<li>Anweisung B ruft <code>verarbeiteEinzahlung(int, int)</code> auf.
+</ol>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Bei mehreren Methoden, die den gleichen Namen haben,
+ist es leicht zu bestimmen, welche  durch den Aufruf verlangt wird:
+</p>
+
+<blockquote>
+Die verwendete Methode ist die, deren formale Parameter mit den
+aktuellen Parametern beim Aufruf &uuml;bereinstimmen.
+</blockquote>
+
+<p>
+Zum Beispiel, der Aufruf
+</p>
+
+<pre>
+bobsKonto.verarbeiteEinzahlung( 200, 25 );  //Anweisung B
+</pre>
+
+<p>
+stimmt mit dieser Methodendeklaration &uuml;berein:
+<p>
+
+<pre>
+void  verarbeiteEinzahlung( int betrag, int gebuehr )
+</pre>
+
+<p>
+da die Anzahl und der Typ der aktuellen Parametern mit der Anzahl und dem Typ der
+formalen Parameter &uuml;bereinstimmt.
+</p>
+
+<INDEX>signature</INDEX>
+<p>
+Die <b>Signatur</b> einer Methode ist:
+</p>
+
+<ul>
+<li>Ihr Name.</li>
+<li>Die Anzahl, der Typ und die Reihenfolge der Parameter.</li>
+</ul>
+
+<p>
+Die Signatur von Methoden in einer Klasse muss eindeutig sein.
+Zum Beispiel sind die Signaturen der zwei <code>verarbeiteEinzahlung()</code> Methoden folgende:
+</p>
+
+<ul>
+<li>verarbeiteEinzahlung( int )</li>
+<li>verarbeiteEinzahlung( int, int )</li>
+</ul>
+
+<p>
+<strong>Kein Teil der Signatur</strong> ist der R&uuml;ckgabetyp und die verwendeten Bezeichner f&uuml;r die formalen Parameter.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Eine Klasse hat die folgenden zwei Methoden:
+</p>
+
+<pre>
+float strafGebuehr( int betrag  ) { ... }
+int   strafGebuehr( int strafe ) { ... }
+</pre>
+<p>
+Haben diese Methoden eindeutige Signaturen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Der R&uuml;ckgabetyp z&auml;hlt nicht
+<p>
+Eine Klasse hat die folgenden zwei Methoden:
+</p>
+
+<pre>
+float strafGebuehr( int betrag  ) { ... }
+int   strafGebuehr( int strafe ) { ... }
+</pre>
+<p>
+Haben diese Methoden eindeutige Siqnaturen?
+</p>
+<ANSWER>
+<p>
+Nein.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Weder die Namen der formalen Parametern, noch der R&uuml;ckgabetyp sind Teil der Signatur.
+Die Signaturen der zwei Methoden sind:
+</p>
+
+<pre>
+strafGebuehr( int )
+strafGebuehr( int )
+</pre>
+
+<p>
+Es mag seltsam anmuten, dass der R&uuml;ckgabetyp nicht Teil der Signatur ist.
+Der Grund daf&uuml;r ist, dass dadurch ein anderes Problem vermieden wird.
+Angenommen, dass es zwei Methoden geben w&uuml;rde:
+</p>
+
+<pre>
+float strafGebuehr( int betrag ) { ... }
+int   strafGebuehr( int strafe ) { ... }
+</pre>
+
+<p>
+und, dass die <code>main()</code> Methode den folgenden Aufruf durchf&uuml;hrt:
+</p>
+
+
+<pre>
+class KontoTester
+{
+  public static void main( String[] args )
+  {
+
+    Konto bobsKonto = new Konto( "999", "Bob", 100 );
+
+    double result = bobsKonto.strafGebuehr( 60 );
+
+  }
+}
+</pre>
+
+<p>
+Welche Methode sollte aufgerufen werden?
+Da <b>sowohl <code>int</code> als auch <code>float</code></b> in ein
+<code>double</code> konvertiert werden k&ouml;nnen, gibt es wenig Gr&uuml;nde die eine Methode der anderen vorzuziehen.
+(Sie k&ouml;nnten argumentieren, dass <code>float</code> n&auml;her an einem <code>double</code> ist
+als <code>int</code>, aber es gibt andere Situationen, die weniger klar sind.)
+Um in solchen Situationen Konfusion zu vermeiden,
+wird der R&uuml;ckgabetyp nicht als Teil der Signatur gez&auml;hlt.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Eine Klasse hat die folgenden zwei Methoden:
+</p>
+
+<pre>
+void aendernZinssatz( double neuerZinssatz  ) { ... }
+void aendernZinssatz( int    neuerZinssatz  ) { ... }
+</pre>
+
+
+<p>
+Haben diese Methoden eindeutige Signaturen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+
+<ANSWER>
+<p>
+Ja.  Die Namen der formalen Parameter m&uuml;ssen nicht eindeutig sein.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Sie haben das Ende dieses Kapitels erreicht.
+Vielleicht m&ouml;chten Sie das Folgende noch einmal durchsehen.
+Klicken Sie auf das blaue Thema, das Sie interessiert, um dahin zu gehen,
+wo es besprochen wird. Um hierher zur&uuml;ckzugehen, klicken Sie auf den &quot;Zur&uuml;ck-Button&quot; Ihres Browsers.
+</p>
+
+<ul>
+<li>
+<GOTO>parameter passing</GOTO> Einen Wert an eine Methode
+&uuml;bergeben
+</li>
+<li>
+<GOTO>parameter, formal and actual</GOTO> Formale und aktuelle Parameter
+</li>
+<li>
+<GOTO>scope</GOTO> Der G&uuml;ltigkeitsbereich
+eines formalen Parameters
+</li>
+<li>
+<GOTO>visibility of variables</GOTO> Was Anweisungen
+einer Methode "sehen" k&ouml;nnen
+</li>
+<li>
+<GOTO>parameter, assignment to</GOTO> Zuweisung eines Werts
+an einen Parameter
+</li>
+<li>
+<GOTO>local variable</GOTO> Lokale Variablen
+</li>
+<li>
+<GOTO>overloading</GOTO> Methoden &uuml;berladen
+</li>
+<li>
+<GOTO>signature</GOTO> Signatur einer Methode
+</li>
+</ul>
+
+</LESSON>
+</CAI>
+</CHAPTER>

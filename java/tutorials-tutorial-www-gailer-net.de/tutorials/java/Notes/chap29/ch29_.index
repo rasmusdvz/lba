@@ -1,0 +1,32 @@
+<!-- String, construction -->
+<li><a href="ch29_2.html#String, construction">String, construction</a></li>
+<!-- String literal -->
+<li><a href="ch29_2.html#String literal">String literal</a></li>
+<!-- null -->
+<li><a href="ch29_4.html#null">null</a></li>
+<!-- empty string -->
+<li><a href="ch29_6.html#empty string">empty string</a></li>
+<!-- String, empty -->
+<li><a href="ch29_6.html#String, empty">String, empty</a></li>
+<!-- garbage -->
+<li><a href="ch29_7.html#garbage">garbage</a></li>
+<!-- garbage collector -->
+<li><a href="ch29_7.html#garbage collector">garbage collector</a></li>
+<!-- String, documentation -->
+<li><a href="ch29_9.html#String, documentation">String, documentation</a></li>
+<!-- String, concatenation -->
+<li><a href="ch29_10.html#String, concatenation">String, concatenation</a></li>
+<!-- String concatenation, shorthand notation -->
+<li><a href="ch29_11.html#String concatenation, shorthand notation">String concatenation, shorthand notation</a></li>
+<!-- overloaded -->
+<li><a href="ch29_11.html#overloaded">overloaded</a></li>
+<!-- unmutable object -->
+<li><a href="ch29_12.html#unmutable object">unmutable object</a></li>
+<!-- trim() -->
+<li><a href="ch29_14.html#trim()">trim()</a></li>
+<!-- whitespace -->
+<li><a href="ch29_14.html#whitespace">whitespace</a></li>
+<!-- startsWith() -->
+<li><a href="ch29_17.html#startsWith()">startsWith()</a></li>
+<!-- toLowerCase() -->
+<li><a href="ch29_19.html#toLowerCase()">toLowerCase()</a></li>

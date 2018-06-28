@@ -1,0 +1,9 @@
+<INDEX>Array, Element</INDEX>
+<INDEX>Zählschleife, Array und</INDEX>
+<INDEX>Array, Länge</INDEX>
+<INDEX>Arraylänge, dynamische</INDEX>
+<INDEX>Array, Maximum</INDEX>
+<INDEX>Array, Minimum</INDEX>
+<INDEX>Array, Summe</INDEX>
+<INDEX>Array, Durchschnitt</INDEX>
+

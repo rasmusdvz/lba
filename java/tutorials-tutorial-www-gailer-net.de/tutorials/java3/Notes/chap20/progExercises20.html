@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css" />
+<meta name="translation" content="Copyright 2005 - 2006 Deutsche &Uuml;bersetzung heinrich@gailer-net.de" />
+</head>
+
+<body>
+<p><small>erstellt 04.01.99; &uuml;bersetzt 30.05.05; &uuml;berarbeitet 12.12.05, 03.10.06; &copy; Copyright 2005 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>  </p>
+
+<hr />
+<center><h1>Kapitel 20  Programmieraufgaben</h1></center>
+<h2>Aufgabe 1</h2>
+<p>Verbessern Sie das <code>Zahlenschloss</code>-Programm,
+wie es auf der letzten Seite des Kapitels 20 vorgeschlagen wird:
+</p>
+
+<blockquote>
+Das Programm simuliert ein Kombinationsschloss.
+Die Zahlenkombination besteht aus drei in Variablen gespeicherten Integern.
+Der Anwender muss die drei Integer in der richtigen Reihenfolge eingeben.
+Aber, jede der eingegebenen Zahlen kann um drei nach oben oder unten von den richtigen Zahlen abweichen.
+</blockquote>
+
+<p>
+Zum Beispiel, wenn die Kombination 10-20-30 ist,
+wird das folgende funktionieren:
+</p>
+
+<blockquote>
+<pre>
+C:\daten\JavaNotes&gt;java Zahlenschloss
+
+Geben Sie die erste Zahl ein:
+13
+Geben Sie die zweite Zahl ein:
+17
+Geben Sie die dritte Zahl ein:
+31
+Das Schloss oeffnet sich.
+</pre>
+</blockquote>
+
+<p>
+Die <code>if</code>-Anweisungen werden f&uuml;r dieses Programm
+kompliziertere Boolesche Ausdr&uuml;cke verwenden als das Programm
+des Kapitels 20.
+Falls Sie Ihr Ged&auml;chtnis auffrischen m&ouml;chten, betrachten Sie noch einmal das <a href="../chap14/ch14_1.html">Kapitel&nbsp;14</a>.
+</p>
+<p>Verwenden Sie als Ausgangsbasis f&uuml;r diese Aufgabe das Programm aus <a href="ch20_13.html">Kapitel 20</a>.
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#20">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 2</h2>
+<p>
+In dem Programm des Kapitels 20 (und m&ouml;glicherweise in Ihrer Implementation der Aufgabe 1)
+wird jede Zahl sobald sie eingegeben wird getestet.
+Schreiben Sie das Programm auf eine andere Weise:
+Das Programm fragt den Anwender nach den drei Zahlen und liest sie ein.
+Aber es &uuml;berpr&uuml;ft die Zahlen erst nachdem alle drei eingelesen worden sind.
+Dann &uuml;berpr&uuml;ft eine einzige <code>if</code>-Anweisung ob die richtige Kombination eingegeben wurde.
+</p>
+<p>
+Schreiben Sie dieses Programm zuerst so, dass der Anwender jede Zahl korrekt eingeben muss.
+Dann schreiben Sie es so, dass jede eingegebene Zahl um drei nach oben oder unten von der korrekten Zahl abweichen darf.
+Die <code>if</code>-Anweisung der zweiten Version wird sehr kompliziert sein.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#20">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 3</h2>
+<p>
+Schreiben Sie ein Programm, das ein Ratespiel implementiert:
+</p>
+
+<blockquote>
+Das Programm w&auml;hlt eine Zufallszahl zwischen 1 und 10 aus.
+Jetzt hat der Spieler drei Versuche.
+Sobald der Spieler die richtige Zahl eingibt, gibt das Programm
+eine Meldung &uuml;ber den Gewinn des Spiels aus und endet.
+Wenn der Spieler nach drei Versuchen die Zahl nicht erraten hat,
+gibt das Programm eine Meldung &uuml;ber den Misserfolg aus und endet.
+</blockquote>
+
+<p>
+Sie werden die Funktion <code>Math.random()</code> brauchen,
+die eine Zufallszahl vom Typ <code>double</code> zwischen 0.0 und &lt; 1.0 erzeugt.
+Zum Beispiel:
+</p>
+
+<blockquote>
+<pre>
+double zufallszahl =  Math.random() ;   // ein Wert zwischen 0.0 und &lt; 1.0
+</pre>
+</blockquote>
+
+<p>
+Sie werden weitere Methoden der Klasse <code>Math</code> zusammen mit etwas Arithmetik ben&ouml;tigen, um diesen Wert in eine Zufallszahl des gew&uuml;nschten Bereichs zu konvertieren.
+Weitere Details finden Sie in Ihrer Java Dokumentation.
+Hier sind zwei Probel&auml;ufe des Programms:
+</p>
+
+<blockquote>
+<pre>
+C:\daten\JavaNotes>java Ratespiel
+
+Ich denke an eine Zahl zwischen 1 und 10.
+Sie haben drei Versuche, um die Zahl zu erraten.
+Geben Sie eine Zahl ein:
+4
+falsch
+8
+RICHTIG!
+Sie haben das Spiel gewonnen.
+
+C:\daten\JavaNotes>java Ratespiel
+
+Ich denke an eine Zahl zwischen 1 und 10.
+Sie haben drei Versuche, um die Zahl zu erraten.
+Geben Sie eine Zahl ein:
+1
+falsch
+5
+falsch
+9
+falsch
+Die richtige Zahl war 7.
+Sie haben das Spiel verloren.
+</pre>
+</blockquote>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#20">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 4</h2>
+<p>
+Schreiben Sie ein etwas komplizierteres Ratespiel.
+Jetzt wird das Programm "kalt" ausgeben,
+wenn die eingegebene Zahl um 3 oder noch weiter von der richtigen Zahl entfernt ist,
+es wird "warm" ausgeben, wenn sie um 2 entfernt ist und
+es wird "heiss" ausgeben, wenn die Zahl um 1 entfernt ist.
+Zum Beispiel:
+</p>
+
+<blockquote>
+<pre>
+C:\daten\JavaNotes>java Ratespiel
+
+Ich denke an eine Zahl zwischen 1 und 10.
+Sie haben drei Versuche, um die Zahl zu erraten.
+Geben Sie eine Zahl ein:
+1
+kalt
+3
+warm
+5
+RICHTIG!
+Sie haben das Spiel gewonnen.
+
+C:\daten\JavaNotes>java Ratespiel
+
+Ich denke an eine Zahl zwischen 1 und 10.
+Sie haben drei Versuche, um die Zahl zu erraten.
+Geben Sie eine Zahl ein:
+4
+heiss
+7
+warm
+5
+RICHTIG!
+Sie haben das Spiel gewonnen.
+
+C:\daten\JavaNotes>java Ratespiel
+</pre>
+</blockquote>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#20">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 5</h2>
+<p>
+Schreiben Sie ein noch komplizierteres Ratespiel.
+In dieser Version besteht das Spiel aus 10 "Runden",
+wobei jede Runde aus einem Spiel wie bei Aufgabe 4 besteht.
+Nach 10 Runden gibt das Programm aus
+wie viele Runden gewonnen und verloren wurden.
+</p>
+
+<UL>
+<LI>Spieler, die 7 oder weniger Runden gewonnen haben, werden als "Amateur" bewertet.
+<LI>Spieler, die 8 Runden gewonnen haben, werden als "Fortgeschritten" bewertet.
+<LI>Spieler, die 9 Runden gewonnen haben, werden als "Profi" bewertet.
+<LI>Spieler, die alle 10 Runden gewonnen haben, werden als "Hacker" bewertet.
+</UL>
+
+<p>
+Hier ist ein Probelauf:
+</p>
+
+<blockquote>
+<pre>
+C:\daten\JavaNotes>java Ratespiel
+
+Runde 1:
+
+Ich denke an eine Zahl zwischen 1 und 10.
+Sie haben drei Versuche, um die Zahl zu erraten.
+Geben Sie eine Zahl ein:
+4
+heiss
+7
+warm
+5
+RICHTIG!
+Sie haben 1 von 1 Runden gewonnen.
+
+Runde 2:
+
+Ich denke an eine Zahl zwischen 1 und 10.
+Sie haben drei Versuche, um die Zahl zu erraten.
+Geben Sie eine Zahl ein:
+10
+kalt
+5
+kalt
+3
+falsch
+Die richtige Zahl war 1
+Sie haben 1 von 2 Runden gewonnen.
+
+. . .
+
+Ich denke an eine Zahl zwischen 1 und 10.
+Sie haben drei Versuche, um die Zahl zu erraten.
+Geben Sie eine Zahl ein:
+1
+kalt
+6
+warm
+7
+RICHTIG!
+Sie haben 7 von 10 Runden gewonnen.
+
+Ihre Bewertung: Amateur
+
+C:\data\JavaNotes>java Ratespiel
+</pre>
+</blockquote>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#20">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben.</p>

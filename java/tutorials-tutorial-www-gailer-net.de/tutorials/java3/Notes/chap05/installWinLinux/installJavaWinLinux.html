@@ -1,0 +1,328 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Installation des Java SDK / JDK</title>
+  <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+  <meta name="description" content="Installation des Java SDK / JDK">
+  <meta name="keywords" content="Torsten Horn, Java, JDK, J2SE, J2SDK, SDK">
+  <meta name="author" content="Torsten Horn">
+  <link rel="stylesheet" type="text/css" href="techdocs.css">
+  <script language='JavaScript'><!-- 
+    if( top != self )
+      top.location = self.location;
+  // --></script>
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<form action="http://www.Torsten-Horn.de/cgi-bin/search.cgi" method="get" name="SearchForm">
+<table border=0 cellspacing=5 cellpadding=5 bgcolor="#A0B8F0" width="100%">
+  <tr>
+    <td width="95%">
+      <h2>Installation des Java SDK / JDK</h2>
+    </td>
+    <td nowrap>
+      + <a href="index.htm">andere TechDocs</a><br>
+      + <a href="index.htm#Java">andere Java-Docs</a><br>
+      + <a href="java-basics.htm">Java-Grundlagen</a><br>
+      + <a href="java-examples.htm">Java-Beispiele</a><br>
+      + <a href="index.htm#JSP">JSP</a>, <a href="sql.htm">SQL</a><br>
+      + <a href="webanwendungen.htm">Webanwendungen</a><br>
+        <input type="Hidden" name="Range"  value="All">
+        <input type="Hidden" name="Format" value="Standard">
+      + <input type="text"   size="20" maxlength="800" name="Terms">
+        <input type="submit" value="Suchen">
+    </td>
+  </tr>
+</table>
+</form>
+<br><br>
+
+
+<a name="Inhalt"></a>
+<br><br><h3><hr>Inhalt<hr></h3>
+
+
+<ol>
+  <li><b><a href="#EditorIDE">Editor, IDE, Compiler</a></b><br></li>
+  <li><b><a href="#InstallationUnterWindows">Installation des J2SE&nbsp;SDK unter Windows</a></b><br></li>
+  <li><b><a href="#InstallationUnterLinux">Installation des J2SE&nbsp;SDK unter SuSE&nbsp;Linux</a></b><br></li>
+  <li><b><a href="#CompilierenBeispiele">Java-Programm compilieren und Sourcecode-Beispiele</a></b><br></li>
+  <li><b><a href="#WeiterfuehrendeInformationen">Links auf weiterführende Informationen</a></b><br></li>
+</ol>
+
+
+<a name="EditorIDE"></a>
+<br><br><h3><hr>Editor, IDE, Compiler<hr></h3>
+
+Mit jedem ASCII-Editor kann Java-Quellcode editiert werden, aber zumindest auf Syntax-Highlighting sollte nicht verzichtet werden.<br>
+Kompiliert wird zum Beispiel mit dem J2SE-Compiler von Sun.<br>
+Alternativ können komplexe IDEs (Integrated Developer Environment) eingesetzt werden, die einen Editor, Compiler und Debugger beinhalten und einige Arbeiten vereinfachen.<br>
+Um Java zu lernen, sollte mit einfachen Editoren (statt der IDEs) begonnen werden, um die Grundlagen zu verstehen.<br>
+<ul type="circle">
+  <li type="square"><b>IDEs:</b></li>
+  <li><a href="http://www.eclipse.org" target="_blank">Eclipse</a> (Windows, Linux) (siehe auch <a href="java-eclipse.htm" target="_blank">Erste Schritte in Eclipse</a>)</li>
+  <li><a href="http://www.netbeans.org" target="_blank">NetBeans</a> (Windows, Linux, Solaris, AIX, HP/UX, Mac OS)</li>
+  <li><a href="java-sunjavastudiocreator.htm" target="_blank">Java Studio Creator</a> (Windows, Linux, Solaris, Mac OS)</li>
+  <li><a href="http://www.borland.com/jbuilder/" target="_blank">Borland JBuilder</a> (Windows, Linux, Solaris, Mac OS X).</li>
+  <li><a href="http://www-3.ibm.com/software/awdtools/studiositedev/" target="_blank">IBM WebSphere Studio</a> (Windows, Linux, Solaris, AIX, HP/UX)</li>
+  <li><a href="http://wwws.sun.com/software/sundev/jde/" target="_blank">Sun ONE Studio (früher Forte)</a> (Windows, Linux, Solaris)</li>
+  <li><a href="http://www.intellij.com/idea" target="_blank">IntelliJ IDEA</a> (Windows, Linux, Solaris, Mac OS X)</li>
+  <li><a href="http://www.omnicore.com" target="_blank">CodeGuide</a> (Windows, Linux, Solaris, Mac OS X)</li>
+  <li><a href="http://www.jcreator.com" target="_blank">Xinox JCreator</a> (Windows)</li>
+  <li type="square"><b>Editoren:</b></li>
+  <li>Java: Z.B. <a href="http://www.jedit.org" target="_blank">jEdit</a>.</li>
+  <li>Windows: Z.B. <a href="http://www.ultraedit.com" target="_blank">UltraEdit</a>, <a href="http://www.textpad.com" target="_blank">TextPad</a>, <a href="http://www.editplus.com" target="_blank">EditPlus</a> und <a href="http://www.editpadpro.net/editpadclassic.html" target="_blank">EditPad</a>.</li>
+  <li>Unix: Z.B. <a href="http://www.emacs.org" target="_blank">Emacs, XEmacs, GNU-Emacs</a> und <a href="http://www.nedit.org" target="_blank">NEdit</a>.</li>
+  <li>Mac: Z.B. <a href="http://www.barebones.com" target="_blank">BBEdit</a>.</li>
+  <li type="square"><b>Native Compiler</b> (versuchen Executables (z.B. .exe für Windows) zu erzeugen, was aber problematisch ist):</li>
+  <li><a href="http://www.excelsior-usa.com/jet.html" target="_blank">Excelsior JET</a></li>
+  <li><a href="http://www.geocities.com/marcoschmidt.geo/jcomp.html#native" target="_blank">http://www.geocities.com/marcoschmidt.geo/jcomp.html#native</a></li>
+  <li><a href="http://www.bearcave.com/software/java/comp_java.html" target="_blank">http://www.bearcave.com/software/java/comp_java.html</a></li>
+</ul>
+
+
+<a name="InstallationUnterWindows"></a>
+<br><br><h3><hr>Windows:<br>
+                Installation des J2SE SDK (auch J2SDK, Java 2 SDK oder JDK genannt)<hr></h3>
+
+<ol>
+  <li>Falls Java-Applets für Web-Browser erstellt werden sollen:
+      Beachten Sie die Bemerkungen zu Java-Versionen in <a href="java-plugin.htm">java-plugin.htm</a>.</li>
+  <li><p> Falls Sie bereits Java installiert haben, überprüfen Sie, ob es vielleicht aktuel genug ist.
+          Lassen Sie sich die Version anzeigen mit:</p>
+      <p> <tt class="code">java -version</tt></p>
+      <p> Überprüfen Sie, ob Sie nur das JRE oder das komplette SDK (JDK) installiert haben
+          (außer '<tt>java.exe</tt>' muss es auch '<tt>javac.exe</tt>' geben).</p></li>
+  <li>Bevor Sie Java installieren, sollten Sie bereits installierte Versionen vorher deinstallieren.
+      Unter Windows&nbsp;XP erfolgt das folgendermaßen:
+      'Start' | 'Systemsteuerung' | 'Software' | 'Java ... Entfernen'.</li>
+  <li><p> Downloaden Sie von
+          <a href="http://java.sun.com/j2se" target="_blank">http://java.sun.com/j2se</a>
+          entweder</p>
+      <p> <table border=0 cellspacing=3 cellpadding=2>
+            <tr><td bgcolor="#EBEEEE" nowrap>für <b>J2SE SDK 1.4</b></td><td>z.B. die Dateien '<tt>j2sdk-1_4_2_08-windows-i586-p.exe</tt>' und '<tt>j2sdk-1_4_2-doc.zip</tt>'</td></tr>
+            <tr><td colspan="2">oder</td></tr>
+            <tr><td bgcolor="#EBEEEE" nowrap>für <b>J2SE JDK 5.x</b></td><td>z.B. die Dateien '<tt>jdk-1_5_0_03-windows-i586-p.exe</tt>' und '<tt>jdk-1_5_0-doc.zip</tt>'.</td></tr>
+          </table></p></li>
+  <li>Starten Sie die ausführbare Windows-Installationsdatei.
+      Wählen Sie ein passendes Zielverzeichnis bei "Install to" bzw. "Destination Folder".
+      Im Folgenden wird davon ausgegangen, dass nicht die Vorgabe, sondern
+      '<tt><a href="file://C:\Java\j2sdk" target="_blank">C:\Java\j2sdk</a></tt>'
+      eingestellt wird (unter das Verzeichnis
+      '<tt><a href="file://C:\Java" target="_blank">C:\Java</a></tt>'
+      können so später weitere Java-Module installiert werden und das Weglassen der Versionsnummer hinter
+      '<tt><a href="file://C:\Java\j2sdk" target="_blank">C:\Java\j2sdk</a></tt>'
+      erleichtert den späteren Wechsel auf eine andere Version).</li>
+  <li>Expandierung der Doku-Zip-Datei nach
+      '<tt><a href="file://C:\Java\j2sdk" target="_blank">C:\Java\j2sdk</a></tt>'.</li>
+  <li>Falls Sie <b>Ant</b> verwenden wollen: Downloaden Sie die Ant-Installationsdatei (z.B. '<tt>apache-ant-1.6.5-bin.zip</tt>') von
+      <a href="http://ant.apache.org" target="_blank">http://ant.apache.org</a>.
+      Entpacken Sie das Ant-Archiv in ein temporäres Verzeichnis,
+      kopieren Sie den darin enthaltenen Ant-Ordner (z.B. '<tt>apache-ant-1.6.5</tt>') zum Beispiel nach
+      '<tt><a href="file://C:\Java" target="_blank">C:\Java</a></tt>'
+      und umbenennen Sie ihn in '<tt><a href="file://C:\Java\ant" target="_blank">C:\Java\ant</a></tt>'.</li>
+  <li><p> Jetzt müssen folgende Kommandos ein erfolgreiches Ergebnis liefern:</p>
+      <p> <tt class="code">C:\Java\j2sdk\bin\java.exe -version</tt></p>
+      <p> <tt class="code">C:\Java\j2sdk\bin\javac.exe -help</tt></p>
+      <p> <tt class="code">start <a href="file://C:\Java\j2sdk\docs\index.html" target="_blank">C:\Java\j2sdk\docs\index.html</a></tt></p></li>
+      <p> <tt class="code">C:\Java\ant\bin\ant.bat -h</tt></p>
+  <li><p> Einige Anwendungen erwarten korrekt gesetzte <b>Umgebungsvariablen</b> (Environment-Variablen)
+          <small>(passen Sie die Pfadangaben an Ihre Java-SDK- und Ant-Verzeichnisse an)</small>:</p>
+      <p> <table border=0 cellspacing=3 cellpadding=2>
+            <tr><td bgcolor="#EBEEEE" colspan="2">Benutzervariablen setzen:</td></tr>
+            <tr><td bgcolor="#EBEEEE"><tt>JAVA_HOME</tt></td><td><tt><a href="file://C:\Java\j2sdk" target="_blank">C:\Java\j2sdk</a></tt></td></tr>
+            <tr><td bgcolor="#EBEEEE" colspan="2">Systemvariablen erweitern um:</td></tr>
+            <tr><td bgcolor="#EBEEEE"><tt>Path</tt></td><td><tt>&lt;vorherigerPath&gt;;<a href="file://C:\Java\j2sdk\bin" target="_blank">C:\Java\j2sdk\bin</a>;<a href="file://C:\Java\ant\bin" target="_blank">C:\Java\ant\bin</a></tt></td></tr>
+          </table></p>
+      <p> Folgendermaßen ändern Sie die Umgebungsvariablen:</p>
+      <p> <table border=0 cellspacing=3 cellpadding=2>
+            <tr><td bgcolor="#EBEEEE" nowrap>Windows XP</td><td><tt>'Start' | rechter Mausklick auf 'Arbeitsplatz' | 'Eigenschaften' | 'Erweitert' | 'Umgebungsvariablen'</tt></td></tr>
+            <tr><td bgcolor="#EBEEEE" nowrap>Windows 2000</td><td><tt>'Start' | 'Einstellungen' | 'Systemsteuerung' | 'System' | 'Erweitert' | 'Umgebungsvariablen...'</tt></td></tr>
+            <tr><td bgcolor="#EBEEEE" nowrap>Windows 98/Me</td><td><small>C:\Autoexec.bat:<br></small><tt>set JAVA_HOME=C:\Java\j2sdk<br>set CLASSPATH=<br>set path=%JAVA_HOME%\bin;%path%</tt></td></tr>
+            <tr><td bgcolor="#EBEEEE">Linux</td><td><tt>siehe <a href="linux.htm#Umgebungsvariablen" target="_blank">linux.htm#Umgebungsvariablen</a></tt></td></tr>
+          </table></p></li>
+  <li><p> Jetzt müssen folgende Kommandos ein erfolgreiches Ergebnis liefern.
+          Öffnen Sie ein neues Kommandozeilenfenster (damit die Änderung der Umgebungsvariablen wirksam wird)
+          und geben Sie ein:</p>
+      <p> <tt class="code">set JAVA_HOME</tt></p>
+      <p> <tt class="code">java -version</tt></p>
+      <p> <tt class="code">javac -help</tt></p>
+      <p> <tt class="code">ant -h</tt></p>
+  <li><p> Für ältere Windows-Versionen empfiehlt es sich für einige Batch-Dateien (z.B. mit langen CLASSPATH-Anweisungen)
+          das Konsolen-Environment zu vergrößern, beispielsweise so:</p>
+      <p> <table border=0 cellspacing=3 cellpadding=2>
+            <tr><td bgcolor="#EBEEEE" nowrap>Windows XP<br>Windows 2000&nbsp;</td><td><small>Keine Änderung nötig</small></td></tr>
+            <tr><td bgcolor="#EBEEEE" nowrap>Windows Me</td><td><small>In den "Eigenschaften von MS-DOS-Eingabeaufforderung" unter "Arbeitsspeicher" den "Umgebungsspeicher" auf 3072 setzen</small></td></tr>
+            <tr><td bgcolor="#EBEEEE" nowrap>Windows 98</td><td><small>C:\Config.sys:<br></small><tt>shell=C:\Command.com C:\ /P/E:3000</tt></td></tr>
+          </table></p></li>
+</ol>
+
+
+<a name="InstallationUnterLinux"></a>
+<br><br><h3><hr>SuSE&nbsp;Linux&nbsp;7.x&nbsp;und&nbsp;8.x:<br>
+                Installation des J2SE&nbsp;1.4 (auch J2SDK 1.4 oder Java 2 SDK 1.4 genannt)<hr></h3>
+
+<ol>
+  <li>Falls Java-Applets für Web-Browser erstellt werden sollen: Bemerkungen zu Java-Versionen in <a href="java-plugin.htm">java-plugin.htm</a> beachten.</li>
+  <li>Java kann in vielen Linux-Distributionen aus der Distribution installiert werden. 
+      Allerdings ist man dann auf die vorhandene Java-Version festgelegt. 
+      Deshalb und für spätere Updates ist hier die Installation per Internet-Download beschrieben.</li>
+  <li>SuSE Linux 7.x/8.x Personal reicht aus, es wird nicht die Professional-Version benötigt. Im Folgenden wird davon ausgegangen, dass Linux ähnlich installiert ist, wie in <a href="linux.htm">linux.htm</a> beschrieben.</li>
+  <li>Falls eventuell bereits installierte ältere Java-Versionen noch benötigt werden, können sie installiert bleiben.
+      Falls nicht, sollten sie deinstalliert werden.
+      Unter SuSE 8.x folgendermaßen:<br>
+      '<tt>YaST2</tt>' | '<tt>Software</tt>' | '<tt>Software löschen</tt>',<br>
+      jeweils die beiden folgenden '<tt>Gruppen</tt>'/'<tt>Pakete</tt>' '<tt>Abwählen</tt>' (bis '<tt>d</tt>' oder nichts davor steht):<br>
+      <tt>&nbsp;&nbsp;</tt>'<tt>Entwicklung/Programmiersprache/Java</tt>' / '<tt>java</tt>'<br>
+      <tt>&nbsp;&nbsp;</tt>'<tt>Entwicklung/Programmiersprache/Java</tt>' / '<tt>java2</tt>'<br>
+  </li>
+  <li>Download von J2SE 1.4 (j2sdk-1_4_0-linux-rpm.bin und j2sdk-1_4_0-doc.zip) von<br><a href="http://java.sun.com/j2se/1.4" target="_blank">http://java.sun.com/j2se/1.4</a>. Dateien in ein Verzeichnis mit Schreibrechten kopieren (z.B. /tmp)<br>
+      (Dateinamen weichen je nach Version und Bugfix-Level etwas ab).</li>
+  <li>Überprüfen, ob es sich um ein Shell-Skript handelt, mit:<br>
+      <tt>file j2sdk-1_4_0-linux-rpm.bin</tt><br></li>
+  <li>Das Skript ausführen und in Lizenzbedingungen mit Leertaste weiterblättern bis mit "yes" bestätigt werden kann:<br>
+      <tt>sh j2sdk-1_4_0-linux-rpm.bin</tt><br></li>
+  <li>Nachsehen, wie entpackte Datei heißt (z.B. "j2sdk-1_4_0-linux.rpm"):<br>
+      <tt>ls -ltr</tt><br></li>
+  <li>Diese .rpm-Datei installieren mit:<br>
+      <tt>rpm -i j2sdk-1_4_0-linux.rpm</tt><br></li>
+  <li>Expandierung der Doku-Zip-Datei nach "/usr/java/j2sdk1.4.0".</li>
+  <li>Ansehen: <tt>/usr/java/j2sdk1.4.0/docs/index.html</tt><br></li>
+  <li>Nachsehen, in welches Verzeichnis das J2SE installiert wurde (z.B. "/usr/java/j2sdk1.4.0")
+      (notfalls im Dateisystem nach "javac" suchen, aber dabei nicht von eventuell anderen installierten Java-Versionen täuschen lassen).<br>
+      Das bin-Unterverzeichnis dieses Java-Root-Verzeichnisses muss im '<tt>PATH</tt>' und das Java-Root-Verzeichnis auch in anderen Umgebungsvariablen eingetragen sein.<br>
+      Das weitere Vorgehen hängt davon ab, ob noch andere Java-Versionen installiert bleiben sollen.
+      Hier wird angenommen, dass zusätzlich zum neuen J2SDK noch das ältere JDK 1.1.8 installiert sei, aber alle Umgebungsvariablen auf das neue J2SDK umgestellt werden sollen.<br>
+      Die aktuellen Java-Umgebungsvariablen können dann so ermittelt und angezeigt werden:<br>
+      <tt>set | grep -i java<br>
+          &nbsp;&nbsp;JAVA_BINDIR=/usr/lib/java/bin<br>
+          &nbsp;&nbsp;JAVA_HOME=/usr/lib/java<br>
+          &nbsp;&nbsp;JDK_HOME=/usr/lib/java<br>
+          &nbsp;&nbsp;JRE_HOME=/usr/lib/java<br>
+          &nbsp;&nbsp;PATH=...:/usr/lib/java/bin:...<br>
+          </tt>
+      Ein temporäres Umstellen der Umgebungsvariablen nur für das aktuelle Kommandozeilenfenster und dessen Tochterprozesse ist recht einfach.
+      Für die '<tt>PATH</tt>'-Variable zum Beispiel so:<br>
+      <tt>PATH=/usr/java/j2sdk1.4.0/bin:$PATH<br>
+          export PATH<br>
+          echo $PATH<br>
+          </tt>
+      Eine dauerhafte Umstellung der Umgebungsvariablen ist etwas komplizierter und muss je nach Linux-Distribution unterschiedlich erfolgen.
+      Unter SuSE Linux 7.x/8.x wird im Verzeichnis '<tt>/etc</tt>' eine neue Datei mit dem Namen '<tt>profile.local</tt>' und folgendem Inhalt erzeugt:<br>
+      <tt>JAVA_BINDIR=/usr/java/j2sdk1.4.0/bin<br>
+          JAVA_HOME=/usr/java/j2sdk1.4.0<br>
+          JDK_HOME=/usr/java/j2sdk1.4.0<br>
+          JRE_HOME=/usr/java/j2sdk1.4.0<br>
+          PATH=`echo $PATH|sed 's|:/usr/lib/java/bin|:/usr/java/j2sdk1.4.0/bin|'`<br>
+          export JAVA_BINDIR<br>
+          export JAVA_HOME<br>
+          export JDK_HOME<br>
+          export JRE_HOME<br>
+          export PATH<br>
+          </tt>
+  </li>
+</ol>
+
+
+<a name="CompilierenBeispiele"></a>
+<br><br><h3><hr>Java-Programm compilieren, Sourcecode-Beispiele und weitere Themen<hr></h3>
+
+Weiteres zu Java finden Sie unter:
+
+<ol>
+  <li><a href="java-examples.htm">Java-Programm compilieren und starten sowie einfache Java-Sourcecode-Beispiele</a></li>
+  <li><a href="index.htm#Java">Weitere Java-Docs (mit weiteren Sourcecode-Beispielen)</a></li>
+</ol>
+
+
+<a name="WeiterfuehrendeInformationen"></a>
+<br><br><h3><hr>Links auf weiterführende Informationen<hr></h3>
+
+<ul type="circle">
+  <li type="square"><b>Java Basics</b></li>
+  <li><a href="index.htm#Java">techdocs/index.htm#Java</a></li>
+  <li type="square"><b>Java bei Sun</b></li>
+  <li>J2SE-API-Doku: <a href="http://java.sun.com/j2se/1.4/docs/api" target="_blank">http://java.sun.com/j2se/1.4/docs/api</a></li>
+  <li>Sun Java: <a href="http://java.sun.com" target="_blank">http://java.sun.com</a></li>
+  <li>Sun Java Tutorial und andere Docs: <a href="http://java.sun.com/docs" target="_blank">http://java.sun.com/docs</a>, <a href="http://java.sun.com/docs/books" target="_blank">http://java.sun.com/docs/books</a>, <a href="http://java.sun.com/docs/books/tutorial" target="_blank">http://java.sun.com/docs/books/tutorial</a>, <a href="http://developer.java.sun.com/developer/" target="_blank">http://developer.java.sun.com/developer/</a></li>
+  <li type="square"><b>Online-Einführungen, Download-Bücher, FAQs</b></li>
+  <li>Krüger, GoTo Java 2: <a href="http://www.javabuch.de" target="_blank">http://www.javabuch.de</a></li>
+  <li>Ullenboom, Java ist auch eine Insel: <a href="http://www.galileocomputing.de/openbook/javainsel3" target="_blank">http://www.galileocomputing.de/openbook/javainsel3</a></li>
+  <li>Partl, Java-Einführung: <a href="http://www.boku.ac.at/javaeinf" target="_blank">http://www.boku.ac.at/javaeinf</a></li>
+  <li>Debacher, Java-Einführung: <a href="http://www.java-buch.de" target="_blank">http://www.java-buch.de</a></li>
+  <li>Eckel, Thinking in Java: <a href="http://codeguru.earthweb.com/java/tij" target="_blank">http://codeguru.earthweb.com/java/tij</a>, <a href="http://www.mindview.net" target="_blank">http://www.mindview.net</a></li>
+  <li>Göttler/Barthelmann, Java: <a href="http://www.informatik.uni-mainz.de/~barthel/Java/Java2.html" target="_blank">http://www.informatik.uni-mainz.de/~barthel/Java/Java2.html</a></li>
+  <li>Wutka, Java Expert Solutions: <a href="http://java.sch.bme.hu/doc/java/hackjava" target="_blank">http://java.sch.bme.hu/doc/java/hackjava</a></li>
+  <li>Robinson/Vorobiev, Swing: <a href="http://manning.spindoczine.com/sbe/" target="_blank">http://manning.spindoczine.com/sbe/</a></li>
+  <li>Sun, Java-FAQ: <a href="http://java.sun.com/docs/faqindex.html" target="_blank">http://java.sun.com/docs/faqindex.html</a>, <a href="http://java.sun.com/docs/books/faq/javafaq.html" target="_blank">http://java.sun.com/docs/books/faq/javafaq.html</a></li>
+  <li>Linden, Java FAQ: <a href="http://java.sun.com/people/linden/intro.html" target="_blank">http://java.sun.com/people/linden/intro.html</a>, <a href="http://www.afu.com/javafaq.html" target="_blank">http://www.afu.com/javafaq.html</a></li>
+  <li>Harold, Java FAQ: <a href="http://metalab.unc.edu/javafaq/javafaq.html" target="_blank">http://metalab.unc.edu/javafaq/javafaq.html</a>, <a href="http://www.ibiblio.org/javafaq/javafaq.html" target="_blank">http://www.ibiblio.org/javafaq/javafaq.html</a></li>
+  <li>Reitz, Java-FAQ: <a href="http://www.os-visions.de/texte/java/faq" target="_blank">http://www.os-visions.de/texte/java/faq</a>, <a href="http://www.meome.de" target="_blank">http://www.meome.de</a></li>
+  <li>Enterprise-Beans in WebSphere: <a href="http://www.transarc.ibm.com/Library/documentation/websphere/WAS-EE/de_DE/html/atswpg/atswpg00.htm#To" target="_blank">http://www.transarc.ibm.com/Library/documentation/websphere/WAS-EE/de_DE/html/atswpg/atswpg00.htm#To</a></li>
+  <li>Java zu PDF: <a href="http://www.geocities.com/marcoschmidt.geo/java-document-libraries.html#pdf" target="_blank">http://www.geocities.com/marcoschmidt.geo/java-document-libraries.html#pdf</a></li>
+  <li type="square"><b>Diskussionsforen</b></li>
+  <li>news:<a href="news:de.comp.lang.java">de.comp.lang.java</a>: <a href="http://groups.google.com/groups?as_ugroup=de.comp.lang.java" target="_blank">http://groups.google.com/groups?as_ugroup=de.comp.lang.java</a>, <a href="http://www.newsgate.ch/ch/de.comp.lang.java/" target="_blank">http://www.newsgate.ch/ch/de.comp.lang.java</a></li>
+  <li>jGuru Diskussionsforum: <a href="http://www.jguru.com/jguru/faq/" target="_blank">http://www.jguru.com/jguru/faq/</a></li>
+  <li>Yahoo Groups: <a href="http://dir.groups.yahoo.com/dir/Computers___Internet/Programming_Languages/Java" target="_blank">http://dir.groups.yahoo.com/dir/Computers___Internet/Programming_Languages/Java</a></li>
+  <li type="square"><b>Neuigkeiten, Reviews, Ressourcen</b></li>
+  <li>Kaffee &amp; Kuchen: <a href="http://java.seite.net" target="_blank">http://java.seite.net</a></li>
+  <li>Java Online Information Network: <a href="http://www.joint.org" target="_blank">http://www.joint.org</a></li>
+  <li>iX Java Ressources: <a href="http://www.ix.de/ix/raven/Web/Java/" target="_blank">http://www.ix.de/ix/raven/Web/Java/</a></li>
+  <li>baeumle: <a href="http://info.baeumle.com/java1.html" target="_blank">http://info.baeumle.com/java1.html</a></li>
+  <li>JavaWorld: <a href="http://www.javaworld.com" target="_blank">http://www.javaworld.com</a></li>
+  <li>Java Boutique: <a href="http://javaboutique.webdeveloper.com" target="_blank">http://javaboutique.webdeveloper.com</a></li>
+  <li>WebDeveloper.com: <a href="http://www.webdeveloper.com/java" target="_blank">http://www.webdeveloper.com/java</a></li>
+  <li>Web Developer's Virtual Library: <a href="http://wdvl.internet.com/Authoring/Java/" target="_blank">http://wdvl.internet.com/Authoring/Java/</a></li>
+  <li>Gamelan, Jars: <a href="http://gamelan.earthweb.com" target="_blank">http://gamelan.earthweb.com</a>, <a href="http://www.jars.com" target="_blank">http://www.jars.com</a></li>
+  <li>Java Glossary: <a href="http://mindprod.com/gloss.html" target="_blank">http://mindprod.com/gloss.html</a></li>
+  <li>Java bei Yahoo: <a href="http://dir.yahoo.com/computers_and_internet/programming_languages/java/" target="_blank">http://dir.yahoo.com/computers_and_internet/programming_languages/java/</a></li>
+  <li>Systemspezifische Sonderfunktionen für Java: <a href="http://www.tolstoy.com/samizdat/jconfig.html" target="_blank">http://www.tolstoy.com/samizdat/jconfig.html</a>, <a href="http://www.tolstoy.com/samizdat/sysprops.html" target="_blank">http://www.tolstoy.com/samizdat/sysprops.html</a></li>
+  <li type="square"><b>Zeitschriften</b></li>
+  <li>Java Magazin: <a href="http://www.javamagazin.de" target="_blank">http://www.javamagazin.de</a></li>
+  <li>Java Spektrum: <a href="http://www.sigs-datacom.de/sd/publications/js" target="_blank">http://www.sigs-datacom.de/sd/publications/js</a></li>
+  <li>JavaWorld: <a href="http://www.javaworld.com" target="_blank">http://www.javaworld.com</a></li>
+  <li type="square"><b>Bücher</b></li>
+  <li>Krüger, Handbuch der Java-Programmierung (früher GoTo Java 2): <a href="http://www.javabuch.de" target="_blank">http://www.javabuch.de</a>, <a href="http://www.gkrueger.com" target="_blank">http://www.gkrueger.com</a>, <a href="http://www.amazon.de/exec/obidos/ASIN/3827319498" target="_blank">Amazon.de 3827319498</a></li>
+  <li>Ullenboom, Java ist auch eine Insel: <a href="http://www.galileocomputing.de/openbook/javainsel3" target="_blank">Galileo Computing</a>, <a href="http://www.amazon.de/exec/obidos/ASIN/3898423654" target="_blank">Amazon.de 3898423654</a></li>
+  <li>Horstmann/Cornell, Core Java 2: <a href="http://www.amazon.de/exec/obidos/ASIN/3827295653" target="_blank">Amazon.de 3827295653</a>/<a href="http://www.amazon.de/exec/obidos/ASIN/3827295661" target="_blank">3827295661</a>/<a href="http://www.amazon.de/exec/obidos/ASIN/0130894680" target="_blank">0130894680</a></li>
+  <li>Schulz, Java professionell programmieren: <a href="http://www.amazon.de/exec/obidos/ASIN/354065710X" target="_blank">Amazon.de 354065710X</a></li>
+  <li>Wilhelms/Kopp, Java professionell: <a href="http://www.amazon.de/exec/obidos/ASIN/3826603958" target="_blank">Amazon.de 3826603958</a></li>
+  <li>Data Becker, Java Das Grundlagen Buch: <a href="http://www.amazon.de/exec/obidos/ASIN/3815813840" target="_blank">Amazon.de 3815813840</a></li>
+  <li>Linden, Just Java 2: <a href="http://www.amazon.de/exec/obidos/ASIN/0130105341" target="_blank">Amazon.de 0130105341</a></li>
+  <li>Wutka, J2EE Developer's Guide: <a href="http://www.amazon.de/exec/obidos/ASIN/3827262267" target="_blank">Amazon.de 3827262267</a></li>
+  <li>Monson-Haefel, Enterprise JavaBeans: <a href="http://www.amazon.de/exec/obidos/ASIN/3897211920" target="_blank">Amazon.de 3897211920</a></li>
+  <li>Eickstädt/Reuhl, Java mit Open Source-Tools: <a href="http://www.amazon.de/exec/obidos/ASIN/3827264626" target="_blank">Amazon.de 3827264626</a></li>
+  <li type="square"><b>Java-Zertifizierung</b></li>
+  <li>Sun Java Certification: <a href="http://www.sun.de/Schulung/" target="_blank">http://www.sun.de/Schulung/</a>,
+                              <a href="http://suned.sun.com/US/certification/" target="_blank">http://suned.sun.com/US/certification/</a></li>
+  <li>jCert: <a href="http://www.jcert.org" target="_blank">http://www.jcert.org</a></li>
+  <li>Levteck Java Certification: <a href="http://www.levteck.com" target="_blank">http://www.levteck.com</a></li>
+  <li>Esser, Java 2 - Designmuster und Zertifizierungswissen: <a href="http://www.amazon.de/exec/obidos/ASIN/3934358667" target="_blank">Amazon.de 3934358667</a></li>
+  <li>Heller/Roberts, Complete Java 2 Certification Study Guide: <a href="http://www.amazon.de/exec/obidos/ASIN/0782140777" target="_blank">Amazon.de 0782140777</a></li>
+  <li>Mughal/Rasmussen, A Programmer's Guide to Java Certification: <a href="http://www.amazon.de/exec/obidos/ASIN/0201596148" target="_blank">Amazon.de 0201596148</a></li>
+  <li>Habibi/Patterson/Camerlengo, The Sun Certified Java Developer Exam: <a href="http://www.amazon.de/exec/obidos/ASIN/1590590309" target="_blank">Amazon.de 1590590309</a></li>
+  <li>LANWrights Java Certification: <a href="http://www.lanw.com/java/javacert/" target="_blank">http://www.lanw.com/java/javacert/</a></li>
+  <li>Java 2 Certification Test Yourself: <a href="http://developer.java.sun.com/developer/Books/certification/testyourself.html" target="_blank">http://developer.java.sun.com/developer/Books/certification/testyourself.html</a></li>
+  <li>J2EE-Prüfung: <a href="http://www.j2ee-develop.de/skill" target="_blank">http://www.j2ee-develop.de/skill</a></li>
+</ul>
+
+
+<br><br><br>
+<center>
+<hr>
+Weitere Themen: <a href="index.htm">andere TechDocs</a>
+              | <a href="index.htm#Java">andere Java-Docs</a>
+              | <a href="java-basics.htm">Java-Grundlagen</a>
+              | <a href="java-examples.htm">Java-Beispiele</a>
+              | <a href="index.htm#JSP">JSP</a>
+              | <a href="sql.htm">SQL</a>
+              | <a href="webanwendungen.htm">Webanwendungen</a>
+              | <a href="http://www.torsten-horn.de/glossar">Glossar</a><br>
+<small>
+&copy; 1998-2005 Torsten Horn, Aachen
+</small>
+</center>
+
+</body>
+</html>

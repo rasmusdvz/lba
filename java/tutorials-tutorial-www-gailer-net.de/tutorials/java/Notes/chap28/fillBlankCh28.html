@@ -1,0 +1,332 @@
+<HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta  http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>F&uuml;llen Sie die L&uuml;cken aus</title>
+
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2003, Heinrich Gailer">
+
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css">
+</head>
+
+<body>
+<p class="revisions">erstellt: 13.88.99; &uuml;berarbeitet 06.03.00, 04.07.02; &uuml;bersetzt: 13.05.03; &uuml;berarbeitet 21.06.04, 13.012.04, 11.10.06, 13.12.10; &copy; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+Methodenparameter: F&uuml;llen Sie die L&uuml;cken aus
+<!-- end of Quiz Name -->
+</h1></center>
+
+<p>
+<b>Hinweise:</b> &nbsp;
+Das ist eine unbewertete L&uuml;cken&uuml;bung.
+Jede Frage besteht aus einem Satz, bei dem ein oder zwei W&ouml;rter fehlen.
+Jede Schaltfl&auml;che repr&auml;sentiert das fehlende Wort bzw. die fehlenden W&ouml;rter.
+&Uuml;berlegen Sie welches Wort bzw. welche W&ouml;rter fehlen. Klicken Sie dann auf die Schaltfl&auml;che, um zu sehen ob Sie recht haben. Es wird keine Note f&uuml;r diese &Uuml;bung ermittelt.
+</p>
+
+<hr>
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>
+1. &nbsp; &nbsp; &nbsp;Das folgende Programm soll die Anzahl der Zeichen des Strings ausgeben:
+</p>
+
+<blockquote><pre>
+class WieLang
+{
+  public static void main ( String[] args )
+  {
+    String str = "Sorgfaeltig zaehlen!" ;
+    int laenge = <input type="button"
+value="_______"
+name="button1"
+onClick="value='  str  '"> . <input type="button"
+value="_______"
+name="button2"
+onClick="value='length()'"> ;
+    System.out.println( "Anzahl der Zeichen: " + laenge );
+  }
+}
+</blockquote></pre>
+</form>
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>
+2. &nbsp; &nbsp; &nbsp;Denken Sie daran: Der <code>+</code> -Operator
+ben&ouml;tigt zwei Stringobjekte und gibt ein <em>neues Stringobjekt</em> zur&uuml;ck, das die verketteten Zeichen der ersten beiden Stringobjekte enth&auml;lt.
+Mit anderen Worten, die ersten zwei Objekte werden nicht ge&auml;ndert, und ein neues, drittes Objekt wird erzeugt.
+</p>
+<p>
+Das folgende Programm soll die zwei benannten Strings verketten und die L&auml;nge des Ergebnisses ausgeben:
+</p>
+
+<blockquote><pre>
+class WieLangZwei
+{
+  public static void main ( String[] args )
+  {
+    String str1 = "Neue Strings " ;
+    String str2 = "für den alten." ;
+
+    int laenge = ( <input type="button"
+value="_______"
+name="button1"
+onClick="value='  str1  '"> + <input type="button"
+value="_______"
+name="button2"
+onClick="value='  str2  '"> ) . <input type="button"
+value="_______"
+name="button3"
+onClick="value='  length()  '"> ;
+    System.out.println( "Anzahl der Zeichen: " + laenge );
+  }
+}
+</blockquote></pre>
+</form>
+
+<p>
+Diese &Uuml;bung hat das Ziel zu veranschaulichen, dass tempor&auml;re, unbenannte Objekte die gleichen Methoden haben wie benannte Objekte.
+</p>
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>
+3. &nbsp; &nbsp; &nbsp;Eine andere M&ouml;glichkeit ein Stringobjekt zu erzeugen,
+das die verketteten Zeichen zweier anderer Strings enth&auml;lt, ist die Verwendung
+der <code>concat(String st)</code> Methode.
+Diese Methode ben&ouml;tigt als Parameter einen zweiten String, dessen Zeichen mit dem String verkettet werden, dessen Methode ausgef&uuml;hrt wird.
+</p>
+
+<p>
+Das folgende Programm soll das gleiche tun, wie das vorherige Programm:
+</p>
+
+<blockquote><pre>
+class DasGleicheNochmal
+{
+  public static void main ( String[] args )
+  {
+    String str1 = "Neue Strings " ;
+    String str2 = "für den alten." ;
+
+    String str3 = str1.<input type="button"
+value="_______"
+name="button1"
+onClick="value='  concat  '"> ( <input type="button"
+value="_______"
+name="button2"
+onClick="value='  str2  '"> )  ;
+    System.out.println( "Anzahl der Zeichen: " + str3.<input type="button"
+value="_______"
+name="button3"
+onClick="value='  length()  '"> );
+  }
+}
+</blockquote></pre>
+</form>
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>
+4. &nbsp; &nbsp; &nbsp;Das folgende Programm zeichnet in einer grafischen Fl&auml;che
+eine Linie von <code>pointA</code> nach <code>pointB</code>.
+(Sie haben einige der Merkmale dieses Programms bis jetzt noch nicht gesehen,
+aber Sie k&ouml;nnen sie ignorieren und nur die <code>Point</code>-Objekte betrachten.)
+F&uuml;llen Sie die L&uuml;cken aus, so dass das Programm eine parallele Linie zur ersten Linie zeichnet, aber um 10 Positionen nach rechts versetzt.
+</p>
+
+<blockquote><pre>
+class LinienZeichnen extends Applet
+{
+  public void paint ( Graphics graph )
+  {
+    Point pointA = new Point( 10, 20 );
+    Point pointB = new Point( 30, 70 );
+    graph.drawLine( pointA.x, pointA.y, pointB.x, pointB.y );
+
+    pointA.move(<input type="button"
+value="_______"
+name="button1"
+onClick="value='  10 + 10  '"> , 20 );
+    pointB.move(<input type="button"
+value="_______"
+name="button2"
+onClick="value='  30 + 10  '"> , 70 );
+
+    graph.drawLine( pointA.x, pointA.y, pointB.x, pointB.y );
+
+  }
+}
+</blockquote></pre>
+</form>
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>
+5. &nbsp; &nbsp; &nbsp;Im allgemeinen wird eine Typumwandlung zwischen Datentypen
+nicht automatisch durchgef&uuml;hrt,
+wenn die Gefahr eines
+<input type="button"
+value="______________"
+name="button1"
+onClick="value='Datenverlusts'"> besteht.
+</p>
+</form>
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>
+6. &nbsp; &nbsp; &nbsp;In jeder der folgenden Situationen wird der Compiler
+den Typ des aktuellen Parameters in der Parameterliste automatisch in den von der Methode erforderlichen Parametertyp konvertieren:
+</p>
+
+<UL>
+<LI>Konvertieren eines Integertyps in einen anderen Integertyp mit
+<input type="button"
+value="_________"
+name="button1"
+onClick="value=' MEHR '"> Bits.</li>
+
+<LI>Konvertieren eines Gleitpunkttyps in einen anderen Gleitpunkttyp mit
+<input type="button"
+value="_________"
+name="button2"
+onClick="value=' MEHR '"> Bits.</li>
+
+<LI>Konvertieren eines Integertyps in einen Gleitpunkttyp mit
+<input type="button"
+value="___________"
+name="button3"
+onClick="value=' der GLEICHEN '"> Anzahl von Bits (obwohl dies zu einem Verlust an Genauigkeit f&uuml;hren kann.)</li>
+
+<LI>Konvertieren von einem Integertyp in einen Gleitpunkttyp mit
+<input type="button"
+value="_________"
+name="button4"
+onClick="value=' MEHR '"> Bits (dies wird zu keinem Verlust an Genauigkeit f&uuml;hren.)
+</li>
+
+</UL>
+</form>
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>
+7. &nbsp; &nbsp; &nbsp;In jeder der folgenden Situationen wird der Compiler
+den Typ des aktuellen Parameters in der Parameterliste NICHT automatisch in den von der Methode erforderlichen Parametertyp konvertieren:
+</p>
+
+<UL>
+<LI>Konvertieren eines Integertyps in einen anderen Integertyp mit
+<input type="button"
+value="_________"
+name="button1"
+onClick="value=' WENIGER '"> Bits.</li>
+<LI>Konvertieren eines Gleitpunkttyps in einen anderen Gleitpunktyp mit
+<input type="button"
+value="_________"
+name="button2"
+onClick="value=' WENIGER '"> Bits.</li>
+<LI>Konvertieren eines Gleitpunkttyps in einen Integertyp
+<input type="button"
+value="___________________"
+name="button3"
+onClick="value=' EGAL MIT WELCHER '"> Anzahl von Bits.</li>
+</UL>
+</form>
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>
+8. &nbsp; &nbsp; &nbsp;Eine <input type="button"
+value="_____________"
+name="button1"
+onClick="value='Typumwandlung'">  wird verwendet um den Compiler zu veranlassen eine Konvertierung durchzuf&uuml;hren, die er nicht automatisch durchf&uuml;hren w&uuml;rde.
+</p>
+</form>
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>
+9. &nbsp; &nbsp; &nbsp;Der Programmierer wei&szlig;, dass das folgende Programm
+korrekt funktionieren wird.
+F&uuml;llen Sie die L&uuml;cken aus um den Compiler dar&uuml;ber zu informieren,
+dass es OK ist die Umwandlung durchzuf&uuml;hren.
+Denken Sie daran, dass die meisten <code>Math</code>-Methoden <code>double</code> Argumente ben&ouml;tigen.
+</p>
+
+<blockquote><pre>
+class SinusBsp
+{
+  public static void main ( String[] args )
+  {
+    float winkel = 2.56;
+
+    System.out.println( "Der Sinus von winkel ist " + Math.sin( (<input type="button"
+value="_________"
+name="button1"
+onClick="value='double'">) winkel ) );
+  }
+}
+</blockquote></pre>
+</form>
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<form>
+<p>
+10. &nbsp; &nbsp; &nbsp;Was kann in der folgenden Situation
+&uuml;ber die Werte <code>x</code> und <code>y</code> gesagt werden,
+nachdem die <code>macheIrgendetwas()</code> Methode ausgef&uuml;hrt wurde?
+</p>
+
+<blockquote><pre>
+. . .
+int x = 41;
+int y = -12;
+. . .
+irgendeinObjekt.macheIrgendetwas( x, y );
+. . .
+</blockquote></pre>
+Die Werte von <code>x</code> und <code>y</code> werden
+<input type="button"
+value="_____________"
+name="button1"
+onClick="value='DIE GLEICHEN'"> sein, wie vor dem Methodenaufruf,
+egal welches Objekt und welche Methode beteiligt ist.
+</form>
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+<p>
+Ende des Tests.  Wenn Sie ihn wiederholen m&ouml;chten, laden Sie die Seite in Ihrem Browser neu.</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#28">Inhaltsverzeichnis</a>.</p>
+</body>
+</html>

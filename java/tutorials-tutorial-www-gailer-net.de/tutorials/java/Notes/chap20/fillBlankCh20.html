@@ -1,0 +1,532 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+
+<head>
+
+<title>
+Fill in the Blanks
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+
+</head>
+
+<body>
+<p>
+<small>creation: 08/12/99; revised 05/21/03, 01/15/06</small>
+</p>
+<hr>
+<center><h1>
+Fill in the Blanks 
+</h1></center> 
+
+<p>
+<b>Instructions:</b> &nbsp;
+This is an ungraded fill-in-the-blank exercise.
+Each question consists of a sentence with one or two words left out.
+A button represents the missing word(s).
+For each question,
+think of the word or phrase that should fill each blank,
+then click on the buttons to see if you are correct.
+No grade is calculated for this exercise. 
+</p>
+<hr>
+
+
+<!-- ------------------------start of  question ------------------------------ -->
+<p>
+This exercise involves  a  computer game:
+</p>
+
+<blockquote>
+The first player starts the program and enters a three letter word.
+The second player does not see what word is entered.
+Now the second player gets the computer.
+The second player has
+five tries to guess the word.
+If the second player does not guess the word,
+the first player wins.
+</blockquote>
+
+<p>
+(This is not a very good game; you may wish to work on it some more at the
+end of this exercise.)
+</p>
+
+<p>
+<b>1.</b> &nbsp; Sometimes when you start out a program it is nice to
+write comments that make it clear to yourself what you are about to do.
+In the following,
+decide on two major divisions for the program.
+Then click on the buttons to see if you agree with me:
+</p>
+
+<form>
+<pre>
+class MatchingGame
+{
+  public static void main ( String[] args )  
+  {
+
+    <input type="button" value="//                                                " name="bt1" onClick="bt1.value='// Get the word from the first player.'">
+
+    <em>Code for first section of the program goes here.</em>
+
+    <input type="button" value="//                                                " name="bt2" onClick="bt2.value='// Play the game with the second player.'">
+
+    <em>Code for second section of the program goes here.</em>
+
+  }
+}
+</pre>
+</form>
+
+<p>
+You might argue that the program is much more complicated than this.
+And of course, it is.
+But at the outermost level the program consists of code to perform just these two tasks.
+</p>
+
+<hr>
+
+<!-- ------------------------end of  question --------------------------------- -->   
+
+
+<p>
+<b>2.</b> &nbsp; Let us think about the first task, and think about the second task later.
+The first player   enters a three letter word.
+The length of a String object (the number of characters it contains)
+is retrieved by using its <code>length()</code> method.
+Here is more of the program:
+</p>
+
+<form>
+<pre>
+class MatchingGame
+{
+  public static void main ( String[] args ) 
+  {
+    Scanner scan = new Scanner( System.in );
+
+    <input type="button" value="___________" name="bt1" onClick="bt1.value=' String '"> theWord;
+
+    // Get the word from the first player.
+    System.out.print("Enter the word to be guessed: ");
+    theWord = scan.<input type="button" value="__________" name="bt2" onClick="bt2.value=' next()'"> 
+
+    while ( theWord.length() <input type="button" value="__________" name="bt3" onClick="bt3.value='   != 3   '"> )
+    {
+        System.out.print("The word must be three characters long. Please try again: ");
+        <input type="button" value="___________ =  __________" name="bt4" onClick="bt4.value='theWord = scan.next()'"> 
+    }
+
+    // Play the game with the second player.  
+    
+    . . . .
+    
+  }
+}
+</pre>
+</form>
+
+<hr>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<p>
+<b>3.</b> &nbsp; We are nearly done with the first part, but there is a problem:
+when the first player turns the keyboard over the second player, the word
+to be guessed is there in plain view!
+How do you propose to overcome this problem?
+</p>
+
+<form> 
+<blockquote>
+<input type="button" 
+value="  How?  "                    
+name="button1" 
+onClick="alert('Write blank lines until the screen is clear.')"> 
+</blockquote>
+</form>
+
+<p>
+(There are more elegant solutions, but this one works well enough.)
+</p>
+
+<hr>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+
+<p>
+<b>4.</b> &nbsp; 
+Here is the program with this idea partly implemented.
+Assume that 50 blank lines will clear the screen.
+</p>
+
+<form>
+<pre>
+class MatchingGame
+{
+  public static void main ( String[] args )  
+  {
+    Scanner scan = new Scanner( System.in );
+    String  theWord;
+
+    // Get the word from the first player.
+    System.out.print("Enter the word to be guessed: ");
+    theWord = scan.next() ;
+
+    while ( theWord.length() != 3 )
+    {
+       System.out.print("The word must be three characters long. Please try again: ");
+       theWord = scan.next() ;    
+    }
+
+    // Clear the Screen
+    int lineCounter = <input type="button" value="__________" name="bt1" onClick="bt1.value='  0  '"> 
+    <input type="button" value="__________" name="bt2" onClick="bt2.value=' while '"> ( lineCounter &lt; 50 )
+    {
+        <input type="button" value="___________________" name="bt3" onClick="bt3.value=' System.out.println();'">
+        lineCounter = lineCounter + 1;
+    }
+
+    // Play the game with the second player.  
+    
+    . . . .
+    
+  }
+}
+</pre>
+</form>
+
+<hr>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<p>
+<b>5.</b> &nbsp; Now for the second half of the program.
+In this part of the program,
+the second player repeatedly tries to guess the word.
+How (in general) will this repeated guessing be done
+in the program?
+</p>
+
+<form>
+<p>
+With a <input type="button" 
+value="_______________________"                    
+name="button1" 
+onClick="button1.value=' loop '"> 
+</p>
+</form>
+<hr>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<p>
+<b>6.</b> &nbsp; 
+Here is the program with some work done on the second half.
+First decide on the variables that are needed, then initialize them:
+</p>
+
+<form>
+<pre>
+class MatchingGame
+{
+  public static void main ( String[] args ) 
+  {
+    Scanner scan = new Scanner( System.in );
+    String  theWord;
+
+    // Get the word from the first player.
+    System.out.print("Enter the word to be guessed: ");
+    theWord = scan.next() ;
+
+    while ( theWord.length() != 3 )
+    {
+      System.out.print("The word must be three characters long. Please try again: ");
+      theWord = scan.next() ;
+    }
+
+    // Clear the Screen
+    int lineCounter = 0 ;
+    while ( lineCounter &lt; 50 )
+    {
+      System.out.println();
+      lineCounter = lineCounter + 1;
+    }
+
+    // Play the game with the second player.  
+    int count = 1;
+    <input type="button" value="___________" name="bt1" onClick="bt1.value=' String '"> guess;
+
+    System.out.print("Enter Your Guess: ");
+    <input type="button" value="___________ =  __________" name="bt4" onClick="bt4.value='guess = scan.next()'"> 
+
+    // while the second player still has not guessed the word and has some tries left
+    while ( )
+    {
+
+    }
+
+    // check if second player won
+    if ()
+    {
+
+    }
+
+    else
+    {
+
+    }
+
+  }
+}
+</pre>
+</form>
+<hr>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<p>
+<b>7.</b> &nbsp; 
+The <code>while</code> in the second half will be somewhat complicated.
+It must keep looping as long as two things are true:
+</p>
+
+<ol>
+<li>The user has tries left.
+<li>The user has not yet guessed the word.
+</ol>
+
+<p>
+To test the first part, use a relational operator.
+To test the second part, use the <code>equals()</code> method of the String <code>guess</code>.
+Each of these is a <code>true/false</code> value which must be combined using a
+logical operator.
+</p>
+
+<form>
+<pre>
+class MatchingGame
+{
+  public static void main ( String[] args ) 
+  {
+    Scanner scan = new Scanner( System.in );
+    String  theWord;
+
+    // Get the word from the first player.
+
+    . . . . .
+    
+    // Play the game with the second player.  
+    int count = 1;
+    String guess;
+
+    System.out.print("Enter Your Guess: ");
+    guess = scan.next() ;
+
+    // while the second player still has not guessed the word and has some tries left
+    while ( count &lt; 5 <input type="button" value="________" name="bt2" onClick="bt2.value='  &&  '">!guess.<input type="button" value=" __________" name="bt5" onClick="bt5.value='equals( theWord )'"> )
+    {
+      System.out.println("Enter Another Guess:");
+      guess = scan.next() ;
+      count   = <input type="button" value="________" name="bt7" onClick="bt7.value=' count + 1 ;'">
+    }
+
+    // check if second player won
+    if ()
+    {
+
+    }
+
+    else
+    {
+
+    }
+
+  }
+}
+</pre>
+</form>
+
+<p>
+The loop condition combines the ideas of a counting loop and a sentinel loop.
+</p>
+
+<hr>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<p>
+<b>8.</b> &nbsp; 
+When the loop ends one of two things will be true:
+the second player has guessed the number and won, or
+the second player has used up all the tries and lost.
+The final <code>if</code> statement must detect which is true
+in order to write out the correct concluding message.
+</p>
+
+<p>
+Think of what the <code>if</code> statement should test:
+</p>
+
+<form>
+<pre>
+class MatchingGame
+{
+  public static void main ( String[] args ) 
+  {
+    Scanner scan = new Scanner( System.in );
+    String  theWord;
+
+    // Get the word from the first player.
+    . . . . .
+
+    // Play the game with the second player.  
+    int count = 1;
+    String guess;
+
+    System.out.print("Enter Your Guess: ");
+    guess = scan.next() ;
+
+    // while the second player still has not guessed the word and has some tries left
+    while ( count &lt; 5  &amp;&amp;  !guess.equals( theWord ) )
+    {
+      System.out.print("Enter Another Guess: ");
+      guess = scan.next() ;
+      count = count + 1;
+    }
+
+    // check if second player won
+    if (<input type="button" value="___________________________" name="bt1" onClick="bt1.value=' guess.equals( theWord ) '">)
+      System.out.println("You Won!");
+    else
+      System.out.println("You Lost!");
+
+  }
+}
+</pre>
+</form>
+<hr>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+
+<p>
+<b>9.</b> &nbsp; 
+Here is the complete program.
+You can copy it to an editor,
+paste it to a file, compile and run it.
+</p>
+
+<pre>
+import java.util.Scanner;
+class MatchingGame
+{
+  public static void main ( String[] args ) 
+  {
+    Scanner scan = new Scanner(System.in);
+    String  theWord;
+
+    // Get the word from the first player.
+    System.out.print("Enter the word to be guessed: ");
+    theWord = scan.next() ;
+
+    while ( theWord.length() != 3 )
+    {
+      System.out.print("The word must be three characters long. Please try again: ");
+      theWord = scan.next() ;  
+    }
+
+    // Clear the Screen
+    int lineCounter = 0 ;
+    while ( lineCounter &lt; 50 )
+    {
+      System.out.println();
+      lineCounter = lineCounter + 1;
+    }
+
+    // Play the game with the second player.  
+    int count = 1;
+    String guess;
+    System.out.print("Enter Your Guess: ");
+    guess = scan.next() ;
+
+    // while the second player still has not guessed the word and has some tries left
+    while ( count &lt; 5  &&  !guess.equals( theWord ) )
+    {
+      System.out.print("Enter Another Guess: ");
+      guess = scan.next() ;
+      count = count + 1;
+    }
+
+    // check if second player won
+    if ( guess.equals( theWord ) )
+      System.out.println("You Won!");
+    else
+      System.out.println("You Lost!");
+
+  }
+}
+</pre>
+
+<form>
+<p>
+Are any of the <code>if</code> or <code>while</code> statements nested? 
+<input type="button" value="  yes/no  " name="bt7" onClick="bt7.value='NO'">
+</p>
+</form>
+
+<p>
+It will benefit you to study the organization of this program.
+Observe how it is put together with a sequence of <code>while</code> statements,
+and <code>if</code> statements.
+</p>
+
+<hr>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+
+<!-- ------------------------start of  question ------------------------------ -->
+<p>
+<b>10.</b> &nbsp; 
+Say that you wanted to play the game with THREE hidden words instead of one.
+The first player enters a word, the second player has five changes to guess it,
+then the first player enters a second word, the second player has five changes to
+guess it, and so on.
+(This is still a stupid game.)
+</p>
+
+<form>
+<p>
+How would you implement this new game? &nbsp; &nbsp; <input type="button" 
+value="  How?  "                    
+name="button1" 
+onClick="alert('By using a counting loop.  Most of the logic on the one-word program will be inside the loop body of the counting loop.')"> 
+</p>
+</form>
+
+<p>
+An even better game would consist of three "rounds".  Each round would consist of
+the first player entering a word and the second player guessing followed by the second
+player entering a word and the first player guessing.
+</p>
+
+<hr>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<p>
+End of the Exercise.  If you want to do it again, click on "Refresh" in your
+browser window.
+<a href="../../index.html#part3">Click here </A> to go back to the main menu.
+</p>
+</body>
+</html>

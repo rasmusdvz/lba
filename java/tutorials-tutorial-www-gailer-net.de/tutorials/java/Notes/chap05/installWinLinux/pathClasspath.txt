@@ -1,0 +1,71 @@
+Hallo Herr Manthey,
+
+im Kapitel 5 des Java Tutorials gibt es einen Link, der das Setzen der Path-Variablen für 
+die verschiedenen Windows Versionen beschreibt:
+
+http://www.gailer-net.de/tutorials/java/Notes/chap05/ch05_4.html
+
+Die Fehlermeldung:
+
+error: cannot read: Hello.java 
+
+besagt, dass der Java Compiler javac die Datei Hello.java im Verzeichnis C:\j2sdk1.4.2_
+07\bin> nicht findet. Überzeugen Sie sich mit dem dir-Befehl, ob die Datei sich auch in 
+diesem Verzeichnis befindet z.B. mit
+
+C:\j2sdk1.4.2_07\bin>dir  *.java
+
+um nur die Dateien mit der Endung .java anzeigen zu lassen.
+
+Überprüfen Sie auch, ob nicht von früheren Java Installationen eine Classpath-Variable gesetzt ist. Geben Sie dazu im DOS-Fenster
+
+set
+
+ein. Falls eine Classpath-Variable gesetzt ist, löschen Sie sie. Entweder in der autoexec.bat (Win 98) bzw. über Systemsteuerung > System > Erweitert > Umgebungsvariablen (Win XP).
+
+Nach dem Löschen der Classpath-Variablen
+
+Win 98: Starten Sie die autoexec.bat im DOS-Fenster mit
+
+\autoexec.bat
+
+Win XP: Schließen Sie ihr DOS-Fenster und starten Sie ein neuen DOS-Fenster.
+
+Weitere Hinweise zur Installation von Java und Windows Umgebungsvariablen finden Sie hier:
+
+http://www.torsten-horn.de/techdocs/java-install.htm#InstallationUnterWindows
+
+Grüße
+
+-Heinrich Gailer
+
+
+16.04.05 16:37:56, <alpha_team3@web.de> wrote:
+
+>Sehr geerhrter Herr Gailer,
+>
+>Ich bin gerade dabei ihr java Tutorial zu lesen. Ich habe Kapitel 5 jetzt abgeschlossen 
+und meine es bis jetzt gut verstanden zu haben.
+>
+>Ich verwende die Windows XP Home Edition und mein Problem ist das wenn ich im 
+DOS-Fenster nach der Eingabeaufforderung "path" eingebe müsste ja theoretisch etwas 
+wie "C:\j2sdk1.4.2_07\bin" erscheinen da dieß nich der Fall ist,
+>bekomme ich auch wenn ich den Befehl "C:\j2sdk1.4.2_07\bin>javac Hello.java" 
+eingebe die Antwort: "error: cannot read: Hello.java 1 error"
+>
+>Da ich mit der englischen Installationsanleitung von java-sun.com nicht so recht klar 
+komme, wäre es mir eine große Hilfe wenn sie mir dies kurz erläutern könnten.  Ich weiß 
+nicht ob sie Zeit haben um sich mit kleinen Problemen wie meinem zu beschäftigen, aber 
+wenn ja bitte ich um Antwort!
+>
+>Mit freundlichen Grüßen
+>F.Manthey
+>______________________________________________________________
+>Verschicken Sie romantische, coole und witzige Bilder per SMS!
+>Jetzt bei WEB.DE FreeMail: http://f.web.de/?mc=021193
+>
+>
+
+
+
+

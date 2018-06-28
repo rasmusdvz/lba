@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Kapitel 12  Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css" />
+</head>
+
+<body>
+<small>erstellt 02.08.99; &uuml;bersetzt 05.03.03; &uuml;berarbeitet 03.11.03, 27.04.04, 29.09.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<center><h1>Kapitel 12  Programmieraufgaben</h1></center>
+<h2>Aufgabe 1 &#8212; Discountpreise</h2>
+<p>
+W&auml;hrend einer Sonderaktion wird ein Rabatt von 10% auf alle Eink&auml;ufe mit einem Gesamtbetrag von mehr als $10.00 gew&auml;hrt.
+Schreiben Sie ein Programm, das nach dem Gesamtbetrag fragt und den Discountpreis berechnet.
+Der Gesamtbetrag wird in Cent (als Ganzzahl) eingegeben.
+<blockquote>
+<pre>
+Geben Sie den Gesamtbetrag ein:
+2000
+Discountpreis: 1800
+</pre>
+</blockquote>
+Verwenden Sie <strong>Ganzzahl-Arithmetik</strong>.
+</p>
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#12">Inhaltsverzeichnis</a>.</p>
+<hr />
+<h2>Aufgabe 2 &#8212; &Uuml;berpr&uuml;fung der Bestellung</h2>
+<p>
+Bobs Schrauben Discount verlangt folgende Preise:
+<UL>
+<LI>5 Cent pro Schraube
+<LI>3 Cent pro Mutter
+<LI>1 Cent pro Unterlegscheibe
+</UL>
+Schreiben Sie ein Programm, das den Anwender nach der
+Anzahl der Schrauben, Muttern und Beilegscheiben fragt und
+dann den Gesamtbetrag berechnet und ausgibt.
+Zus&auml;tzlich &uuml;berpr&uuml;ft das Programm die Bestellung.
+Es ist normalerweise ein Fehler, wenn mehr Schrauben als Muttern
+bestellt werden. In diesem Fall gibt das Programm die Meldung aus "Kontrollieren Sie Ihre Bestellung!". Andernfalls gibt das Programm aus "Die Bestellung ist okay."
+In jedem Fall wird der Gesamtbetrag ausgegeben.
+</p>
+<blockquote>
+<pre>
+
+Anzahl der Schrauben:
+12
+Anzahl der Muttern:
+8
+Anzahl der Unterlegscheiben:
+24
+
+Kontrollieren Sie Ihre Bestellung!
+
+Gesamtbetrag: 108
+</pre>
+</blockquote>
+Verwenden Sie f&uuml;r die Artikelpreise <em>Konstanten</em>.
+Mit anderen Worten, deklarieren Sie in Ihrem Programm etwas wie <code>final int SCHRAUBENPREIS = 5;</code>
+usw..
+</p>
+  <p>Zur&uuml;ck zum <a href="../../java-toc.html#12">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+<h2>Aufgabe 3 &#8212; Letzte Tankm&ouml;glichkeit vor <em>Death Valley</em></h2>
+<p>
+<em>Al's Last Chance Gas Station</em>
+befindet sich an der Stra&szlig;e 190
+am Rande des <em>Death Valley</em>.
+Die n&auml;chsten 200 Meilen gibt es keine weitere Tankstelle.
+Sie sollen ein Programm schreiben, das den Fahrern hilft zu entscheiden,
+ob sie tanken sollen oder nicht.
+Das Programm fragt nach:
+<UL>
+<LI>Der Tankkapazit&auml;t in Gallonen (3,78l)
+<LI>Der Benzinanzeige in Prozent
+    (voll= 100, drei viertel voll = 75 usw.)
+<LI>Dem Benzinverbrauch des Fahrzeuges in Meilen pro Gallone.
+</UL>
+Die Ausgabe des Programms ist "Tanken!", oder
+
+"Weiterfahren...". Je nachdem, ob das Fahrzeug genug
+Benzin f&uuml;r 200 Meilen hat oder nicht.
+</p>
+<blockquote>
+<pre>
+Tankkapazität:
+12
+Benzinanzeige:
+50
+Meilen pro Gallone:
+30
+Tanken!
+</pre>
+</blockquote>
+<form>Verwenden Sie f&uuml;r die Eingabe und die Arithmetik <em>Ganzzahlen</em>.
+&nbsp; &nbsp;  <input type="button" value="Gotcha!"
+onClick="alert('Seien Sie mit den arithmetischen Ausdr&uuml;cken, die Sie f&uuml;r Integerprozente verwenden, vorsichtig. Sie werden wahrscheinlich Klammern brauchen.')" />
+</form>
+<!--Be careful with the arithmetic expressions you use for integer percents.  You will probably need to use parentheses to group operations correctly. -->
+</p>
+
+  <p>Zur&uuml;ck zum <a href="../../java-toc.html#12">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+
+<h2>Aufgabe 4 &#8212; Non-Fett Kalkulator</h2>
+<p>
+Verschiedene Packungen von Rinderhack haben einen unterschiedlichen Anteil von Fett und einen unterschiedlichen Preis pro Pfund.
+Schreiben Sie ein Programm, das den Anwender fragt nach:
+<OL>
+<LI>Dem Preis pro Pfund der Packung "A".
+<LI>Dem Prozentanteil an mageren (nicht-fetten) Fleisch in Packung "A".
+<LI>Dem Preis pro Pfund der Packung "B".
+<LI>Dem Prozentanteil an mageren (nicht-fetten) Fleisch in Packung "B".
+</OL>
+Das Programm berechnet dann den Preis des mageren (nicht-fetten) Rindfleischs
+f&uuml;r jede Packung und gibt den g&uuml;nstigsten Preis aus.
+<blockquote>
+<pre>
+Preis pro Pfund Packung A:
+2.89
+Prozent mageres Fleisch Packung A:
+85
+Preis pro Pfund Packung B:
+3.49
+Prozent mageres Fleisch Packung B:
+93
+
+Packung A kostet pro Pfund mageres Fleisch: 3.4000000000000004
+Packung B kostet pro Pfund mageres Fleisch: 3.752688172043011
+Packung A ist preiswerter
+</pre>
+</blockquote>
+Nehmen Sie an, dass die zwei Packungen unterschiedliche Werte ergeben.
+</p>
+
+  <p>Zur&uuml;ck zum <a href="../../java-toc.html#12">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 5 &#8212; Y2K Problem Detektor</h2>
+<p>
+Schreiben Sie ein Programm, dass den Anwender nach seinem Geburtsjahr fragt,
+kodiert als zwei Ziffern (wie "62"), und nach dem aktuellen Jahr fragt,
+ebenfalls kodiert als zwei Ziffern (wie 99).
+Das Programm soll das richtige Alter des Anwenders in Jahren ausgeben.
+<blockquote>
+<pre>
+Geburtsjahr:
+62
+Aktuelles Jahr:
+99
+Ihr Alter ist: 37
+
+----- ein weiterer Ablauf des Programms --------
+Geburtsjahr:
+62
+Aktuelles Jahr:
+04
+Ihr Alter ist: 42
+
+</pre>
+</blockquote>
+</p>
+  <p>Zur&uuml;ck zum <a href="../../java-toc.html#12">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<p>Ende der Aufgaben</p>
+
+
+</body>
+</html>

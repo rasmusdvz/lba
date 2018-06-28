@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Kapitel 13  Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css" />
+</head>
+
+
+<body>
+<small>erstellt 29.07.99; &uuml;bersetzt 09.03.03; &uuml;berarbeitet 27.04.04, 29.06.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr>
+<center><h1>Kapitel 13  Programmieraufgaben</h1></center>
+<h2>Aufgabe 1 &#8212 Internet Delikatessen</h2>
+<p>
+<em>Sam &amp; Ellas Delikatessen-Versand</em> braucht ein Programm, das Bestellungen &uuml;ber ein Internetformular entgegen nimmt.
+Das Programm fragt welchen Artikel der Kunde m&ouml;chte, den Preis und ob der Artikel per Express verschickt werden soll.
+F&uuml;r Artikel unter $10 betragen die Versandkosten $2.00. Kostet der Artikel $10 oder mehr betragen sie $3.00.
+Der Expresszuschlag betr&auml;gt $5.00.
+<blockquote>
+<pre>
+Geben Sie den Artikel ein:
+Geben Sie den Preis ein:
+Expressversand (0==nein, 1==ja):
+Rechnung
+  Schoko: 12.0
+  Versand: 8.0
+  Gesamt: 20.0
+</pre>
+</blockquote>
+(Ein richtiges Internet Bestellformular w&uuml;rde nat&uuml;rlich andere I/O Methoden verwenden.)
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#13">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 2 &#8212 Effizienz von Dampfmaschinen</h2>
+<p>
+Die maximal m&ouml;gliche Effizienz einer Dampfmaschine
+ist abh&auml;ngig von der Dampftemperatur im Heizkessel
+und von der Au&szlig;entemperatur der Luft:
+<blockquote>
+<pre>
+effizienz = 1 - tLuft / tDampf
+</pre>
+</blockquote>
+wobei <code>tLuft</code> die Lufttemperatur und <code>tDampf</code> die Dampftemperatur ist.
+Die Temperaturen werden in Kelvin angegeben. Die normale Lufttemperatur betr&auml;gt ungef&auml;hr 300 Kelvin. Der Siedepunkt liegt bei 373 Kelvin.
+Schreiben Sie ein Programm, das den Anwender nach der Luft- und Dampftemperatur fragt
+und die maximal m&ouml;gliche Effizienz der Dampfmaschine ausgibt.
+Aber, wenn die Dampftemperatur weniger als 373 Kelvin betr&auml;gt, dann gibt es keinen Dampf und die Effizienz betr&auml;gt 0.
+</p>
+
+<pre>
+Geben Sie die Lufttemperatur ein: 300
+Geben Sie die Dampftemperatur ein: 373
+Die Effizienz betraegt: 0.1957104557640751
+</pre>
+
+<p>
+Verwenden Sie Integer oder Gleitpunkt-Input,
+aber f&uuml;hren Sie die Berechnungen mit Gleitpunkt durch.
+</p>
+
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#13">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+
+<h2>Aufgabe 3 &#8212 Mikrowellenherd</h2>
+<p>
+Der Hersteller eines Mikrowellenherds empfiehlt
+beim Erhitzen von zwei Posten 50% mehr Erhitzungszeit
+und beim Erhitzen von drei Posten, die Erhitzungszeit
+zu verdoppeln.
+Das Erhitzen von mehr als drei Posten wird nicht empfohlen.
+</p>
+<p>
+Schreiben Sie ein Programm, das den Anwender nach der Anzahl der Posten und
+nach der Erhitzungszeit f&uuml;r einen Posten fragt.
+Das Programm gibt dann die empfohlene Erhitzungszeit aus.
+</p>
+
+<p>
+Hinweis: Verwenden Sie vier aufeinanderfolgende Einzweigige <code>if</code>-Anweisungen,
+wobei jede von ihnen einen von vier F&auml;llen testet:
+1 Posten, 2 Posten, 3 Posten, mehr als drei Posten.
+Wenn Sie nicht weiterkommen, werfen Sie einen Blick auf das <a href="ch13_12.html">Sportwagen-Programm</a> in diesem Kapitel.
+</p>
+
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#13">Inhaltsverzeichnis</a>.</p>
+
+
+<hr />
+<h2>Aufgabe 4 &#8212 Fantasy-Spiel</h2>
+<p>
+In einem Fantasy-Rollenspiel k&ouml;nnen die Spieler ihre Spielfiguren entwerfen, indem Sie einen Punktwert f&uuml;r jedes von drei Merkmalen vergeben:
+<UL>
+<LI>St&auml;rke, von 1 bis 10
+<LI>Gesundheit, von 1 bis 10
+<LI>Gl&uuml;ck, von 1 bis 10
+</UL>
+Schreiben Sie ein Programm, das nach dem Namen der Spielfigur und nach den Punktwerten der einzelnen drei Merkmale fragt.
+Aber, <em>die Gesamtpunktzahl muss geringer als 15 sein</em>.
+Wenn die Gesamtpunktzahl 15 &uuml;berschreitet, dann wird jedem Merkmal 5 Punkte zugewiesen.
+<blockquote>
+<pre>
+Willkommen zu Yertle's Schatzsuche
+Geben Sie den Namen der Spielfigur ein:
+Chortle
+Staerke eingeben (1-10):
+8
+Gesundheit eingeben (1-10):
+4
+Glueck eingeben (1-10):
+6
+
+Sie haben Ihrer Spielfigur zu viele Punkte gegeben! Es wurden die Standardwerte zugewiesen:
+Chortle, Staerke: 5, Gesundheit: 5, Glueck: 5
+</pre>
+</blockquote>
+(Diese Benutzerschnittstelle k&ouml;nnte wesentlich komplizierter gestaltet werden.
+Vielleicht m&ouml;chten Sie einige Ihrer eigenen Ideen implementieren.)
+</p>
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#13">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+</body>
+</html>

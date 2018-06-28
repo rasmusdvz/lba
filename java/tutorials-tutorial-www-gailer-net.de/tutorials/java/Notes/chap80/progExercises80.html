@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="translation" content="Copyright 2004 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<small>erstellt 29-04./00; &uuml;bersetzt 27.03.04; &copy; Copyright 2004 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<center><h1>Programmieraufgaben</h1></center>
+
+<h2>Aufgabe 1 --- Anwenderfreundliches Division-&Uuml;bung</h2>
+
+<p>
+Verbessern Sie das <a href="ch80_13.html">Division-Programm</a> aus diesem Kapitel:
+</p>
+
+<OL>
+<LI>Legen Sie eine Schleife herum, so dass der Anwender wiederholt nach dem Dividend
+    und dem Divisor gefragt wird. F&uuml;r jeden Satz Daten gibt das Programm
+    das Ergebnis aus oder eine informative Fehlermeldung,
+    wenn es ein Problem gibt (Division durch Null oder falsche Eingabedaten).</LI>
+
+<LI>Das Programm f&auml;hrt mit der Schleife fort, auch wenn es ein Problem gibt.</LI>
+
+<LI>Beenden Sie die Schleife, wenn die f&uuml;r den Dividend eingegebenen Daten mit
+    den Zeichen  "q" oder "Q" beginnen.
+    Geben Sie in diesem Fall <em>keine</em> Fehlermeldung aus.</LI>
+
+<LI>Fragen Sie nicht nach dem Divisor, wenn der Anwender das Programm beenden will.</li>
+
+</OL>
+
+<p>
+Die Ausgabe des Programms sieht dann ungef&auml;hr wie folgt aus:
+</p>
+
+<blockquote><pre>
+Geben Sie den Dividend ein:
+12
+Geben Sie den Divisor ein:
+4
+12 / 4 ist 3
+
+Geben Sie den Dividend ein:
+12
+Geben Sie den Divisor ein:
+0
+12 kann nicht durch 0 dividiert werden!
+
+Geben Sie den Dividend ein:
+jesses
+Sie haben ungueltige Daten eingegeben.
+Versuchen Sie es bitte noch einmal.
+
+Geben Sie den Dividend ein:
+quit
+</pre></blockquote>
+
+<p>
+Sie werden die Methode <code>charAt()</code> der Klasse <code>String</code> verwenden m&uuml;ssen.
+</p>
+
+<A HREF="../../java-toc.html#80">Zur&uuml;ck</A> zur &Uuml;bersicht.
+
+<hr />
+
+
+</body>
+</html>

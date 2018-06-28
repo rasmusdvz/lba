@@ -1,0 +1,12 @@
+body{background-color:#ffefea;font-family:arial,sans-serif;}
+
+p{margin-left:0.5em;margin-right:0.5em;text-align:justify;}
+ol{margin-left:1.5cm;}
+ul{margin-left:1.5cm;}
+table{margin-left:0.2cm;font-family:arial,sans-serif;font-size:90%;}
+table pre{margin-left:0.4cm;margin-right:0.4cm;}
+
+a:link     {background-color:inherit;color:blue;}
+a:visited  {background-color:inherit;color:brown;}
+a:active   {background-color:inherit;color:red;}
+a:hover    {background-color:inherit;color:red;}

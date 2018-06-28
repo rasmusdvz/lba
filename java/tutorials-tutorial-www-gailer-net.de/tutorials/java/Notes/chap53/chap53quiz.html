@@ -1,0 +1,504 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="copyright" content="2006">
+<meta name="author" content="B. P. Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+
+<title>Quiz &uuml;ber Schnittstellen</title>
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css">
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+</head>
+
+<body>
+<p class="revisions">&uuml;berarbeitet 05.10.03; &uuml;bersetzt 09.03.04; &uuml;berarbeitet 24.02.05, 01.02.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<h1>
+<!-- FILL in the Quiz Name on the next line-->
+Quiz &uuml;ber Schnittstellen
+<!-- end of Quiz Name -->
+</h1>
+
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+ W&auml;hlen Sie f&uuml;r jede Frage die beste Antwort und klicken Sie dann auf das entsprechende Optionsk&auml;stchen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Wenn das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox nach jeder Frage.
+</p>
+
+<hr>
+<form name="question1">
+
+<p>
+1.
+<!-- FILL in Question 1-->
+Was ist eine Schnittstelle?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Eine Schnittstelle ist eine Sammlung von Konstanten und Methodendeklarationen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Eine Schnittstelle ist eine Klasse, die ein Subklasse erweitern kann.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Eine Schnittstelle ist eine Sammlung von GUI-Komponenten.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Eine Schnittstelle ist eine Sammlung von &ouml;ffentlichen Methoden einer Klasse.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+Kann eine Schnittstelle jemals Methodenk&ouml;rper enthalten?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nein.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Ja.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Manchmal.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Immer.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+Wenn eine Klasse eine Schnittstelle implementiert, was muss sie tun?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="B"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Sie muss jede Konstante der Schnittstelle neu definieren.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Sie muss jede Methode der Schnittstelle deklarieren und sie muss f&uuml;r jede Methode einen Methodenk&ouml;rper bereitstellen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Sie muss eine Variable f&uuml;r jede Konstante in der Schnittstelle deklarieren.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Sie muss f&uuml;r jede Methode der Schnittstelle eine private Methode enthalten.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+Welche der folgenden Aussagen ist wahr?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Eine Subklasse kann eine Superklasse erweitern oder eine Schnittstelle implementieren, aber sie kann nicht beides.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Eine Subklasse kann genau eine Superklasse erweitern und kann genau eine
+Schnittstelle implementieren.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Eine Subklasse kann genau eine Superklasse erweitern und kann
+0 oder mehr Schnittstellen implementieren.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Eine Subklasse kann 0 oder mehr Superklassen erweitern, und kann
+0 oder mehr Schnittstellen implementieren.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+Ist das folgende eine korrekte M&ouml;glichkeit eine Klassendefinition zu beginnen:
+<blockquote>
+public class IrgendeineKlasse implements MeineSchnittstelle
+</blockquote>
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nein &#8212; <code>IrgendeineKlasse</code> muss auch eine Basisklase erweitern.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nein &#8212; <code>IrgendeineKlasse</code> kann nicht <code>public</code> sein, wenn sie eine
+Schnittstelle implementiert.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ja &#8212; <code>IrgendeineKlasse</code> ist die Subklasse von <code>MeineSchnittstelle</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ja &#8212; <code>IrgendeineKlasse</code> ist automatisch eine Subklasse der Klasse  <code>Object</code>.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+Betrachten Sie die folgende Schnittstelle
+</p>
+
+<blockquote>
+<pre>
+interface Besteuerbar
+{
+  double steuersatz = 0.06;
+  double berechneSteuer();
+}
+</pre>
+</blockquote>
+
+<p>
+Ist die Schnittstelle korrekt?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nein &#8212; da sie eine Variable enth&auml;lt und Schnittstellen keine Variablen enthalten k&ouml;nnen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nein &#8212; da die Schnittstelle keine Methode enthalten kann, die einen Wert zur&uuml;ckgibt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ja &#8212; <code>steuersatz</code> wird automatisch eine Konstante sein, da sie in einer
+Schnittstelle ist.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ja &#8212; der Methodenk&ouml;rper wird automatisch ausgef&uuml;llt werden.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+Kann der Name einer Schnittstelle als Typ einer Variablen verwendet werden, so wie hier:
+<blockquote>
+public static void main( String[] args )
+{
+  IrgendeineSchnittstelle x;
+
+  ...
+}
+</blockquote>
+
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nein &#8212; eine Variable muss immer vom Typ Objektreferenz sein.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nein &#8212; eine Variable muss immer ein Objektreferenztyp oder ein primitiver Typ sein.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Nein &#8212; eine Variable muss immer ein primitiver Typ sein.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ja &#8212; die Variable kann auf jedes beliebige Objekt verweisen, dessen Klasse die
+Schnittstelle implementiert.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+Ist es OK wenn eine Klassendefinition zwei Schnittstellen implementiert, von denen jede
+die gleiche Definition der Konstanten PI hat?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nein &#8212; wenn eine Klasse mehrere Schnittstellen implementiert, darf jede Konstante nur einmal in einer Schnittstelle definiert sein.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nein &#8212; eine Klasse darf nicht mehr als eine Schnittstelle implementieren.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ja &#8212; da die Definitionen gleich sind, spielt es keine Rolle.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ja &#8212; die pr&auml;zisere Definition der beiden wird die andere &uuml;berschreiben.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+Kann f&uuml;r eine Schnittstelle der Zugriffsmodifizierer <code>private</code> verwendet werden?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nein &#8212; da dann die Schnittstelle niemals verwendet werden k&ouml;nnte.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nein &#8212; da dann nur private Klassen die Schnittstelle verwenden k&ouml;nnten.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ja &#8212; das w&uuml;rde alle ihre Methoden und Konstanten privat machen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ja &#8212; das w&uuml;rde bedeuten, dass nur Klassen in derselben Datei die
+Schnittstelle  verwenden k&ouml;nnten.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+
+<hr>
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+Kann eine Schnittstelle eine andere Schnittstelle erweitern?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nein &#8212; nur Klassen k&ouml;nnen erweitert werden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nein &#8212; Schnittstellen k&ouml;nnen kein Teil einer Hierarchie sein.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ja &#8212; da alle Schnittstellen automatisch <code>Object</code> erweitern.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ja.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+</p>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+
+<p style="margin-top:1em;"><a href="../../index.html#53"><img style="float:left;margin-right:5px;" src="../homeIcon.gif" alt="Inhalt" border="0"></a>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</p>
+
+<p>Um die alten Antworten zu l&ouml;schen, halten Sie die Strg-Taste gedr&uuml;ckt und laden dann die Seite neu (Firefox). Bei anderen Browsern funktioniert das in Verbindung mit der Umschalt- bzw. Strg+Umschalt-Taste. Beim Internet Explorer 8 muss die Seite verlassen und erneut aufgerufen werden.</p>
+
+
+</body>
+</html>

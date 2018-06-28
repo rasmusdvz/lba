@@ -1,0 +1,11 @@
+program ideas:
+
+combined try-blocks
+
+C-style loop
+
+HTML font inserter
+
+GUI version of copyFile
+
+StringTokenizer

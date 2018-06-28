@@ -1,0 +1,7 @@
+<INDEX>Array</INDEX>
+<INDEX>indexierte Variable</INDEX>
+<INDEX>Array, Deklaration</INDEX>
+<INDEX>Array, Grenzen überprüfen</INDEX>
+<INDEX>Grenzen überprüfen</INDEX>
+<INDEX>Array, Initialisierungslisten</INDEX>
+<INDEX>Initialisierungslisten</INDEX>

@@ -1,0 +1,495 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<!-- FILL in the Quiz Name between <title> and </title> -->
+<title>
+Fill in the Blanks
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="translation" content="Copyright 2005 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css" />
+</head>
+
+<body>
+<small>erstellt 12.08.99; &uuml;bersetzt 03.05.05; &uuml;berarbeitet 12.12.05, 03.10.06; &copy; Copyright 2005 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+F&uuml;llen Sie die L&uuml;cken aus
+<!-- end of Quiz Name -->
+</h1></center>
+
+<b>Hinweise:</b> &nbsp;
+Das ist eine unbewertete L&uuml;cken&uuml;bung.
+Jede Frage besteht aus einem Satz, bei dem ein oder zwei W&ouml;rter fehlen.
+Jede Schaltfl&auml;che repr&auml;sentiert das fehlende Wort bzw. die fehlenden W&ouml;rter.
+&Uuml;berlegen Sie welches Wort bzw. welche W&ouml;rter fehlen. Klicken Sie dann auf die Schaltfl&auml;che, um zu sehen ob Sie recht haben. Es wird keine Note f&uuml;r diese &Uuml;bung ermittelt.
+</p>
+<hr />
+
+<!-- ------------------------start of  question ------------------------------ -->
+<p>
+Diese &Uuml;bung beinhaltet das Design eines Computerspiels:
+<blockquote>
+Der erste Spieler gibt ein Word mit drei Buchstaben ein.
+Der zweite Spieler sollte das eingegebene Wort nicht sehen.
+Jetzt hat der zweite Spieler f&uuml;nf Versuche das Wort zu erraten.
+Wenn der zweite Spieler das Wort nicht err&auml;t,
+gewinnt der erste Spieler.
+</blockquote>
+(Das ist kein allzu gutes Spiel. Vielleicht m&ouml;chten Sie es erweitern, wenn Sie die &Uuml;bung beendet haben.)
+</p>
+
+<form>
+<p><b>1.</b> &nbsp; Wenn Sie ein Programm beginnen, ist es
+manchmal sinnvoll Kommentare zu schreiben, um sich selber
+dar&uuml;ber klar zu werden, was zu tun ist.
+&Uuml;berlegen Sie sich f&uuml;r die zwei Hauptabschnitte des Programms zwei Kommentare. Klicken Sie dann auf die Buttons, um zu sehen ob Sie mit mir &uuml;bereinstimmen:
+</p>
+<blockquote>
+<pre>
+class RateSpiel
+{
+  public static void main ( String[] args ) throws IOException
+  {
+
+    <input type="button" value="//                                                               " name="bt1" onClick="value='// Das Wort vom ersten Spieler holen.'" />
+
+    <em>Hier kommt Code für den ersten Abschnitt des Programms.</em>
+
+    <input type="button" value="//                                                              " name="bt2" onClick="value='// Das Spiel mit dem zweiten Spieler spielen.'" />
+
+    <em>Hier kommt Code für den zweiten Abschnitt des Programms.</em>
+
+  }
+}
+</pre>
+</blockquote>
+</form>
+<p>Sie k&ouml;nnten einwenden, dass das Programm viel komplizierter ist als das.
+Und nat&uuml;rlich ist es das.
+Aber auf der &auml;u&szlig;ersten Ebene besteht das Programm aus Code,
+um genau diese Aufgaben durchzuf&uuml;hren.</p>
+<hr />
+
+<!-- ------------------------end of  question --------------------------------- -->
+
+
+<form>
+<p><b>2.</b> &nbsp; Lassen Sie uns &uuml;ber die erste Aufgabe nachdenken
+und die zweite Aufgabe f&uuml;r sp&auml;ter aufheben.
+Der erste Spieler soll ein Wort mit drei Buchstaben eingeben.
+Die L&auml;nge eines Stringobjekts (die Anzahl der Zeichen, die es enth&auml;lt)
+kann mit dessen <code>length()</code> Methode &uuml;berpr&uuml;ft werden.
+Hier ist mehr von dem Programm:
+</p>
+<blockquote>
+<pre>
+class RateSpiel
+{
+  public static void main ( String[] args ) throws IOException
+  {
+    BufferedReader stdin = new BufferedReader( new InputStreamReader( System.in ) );
+
+    <input type="button" value="___________" name="bt1" onClick="value=' String '" /> wort;
+
+    // Das Wort vom ersten Spieler holen
+    System.out.println("Geben Sie das zu erratende Wort ein:");
+    wort = stdin.<input type="button" value="__________" name="bt2" onClick="value=' readLine()'" />
+
+    while ( wort.length() <input type="button" value="__________" name="bt3" onClick="value='   != 3   '" /> )
+    {
+        System.out.println(
+          "Das Wort muss drei Buchstaben haben. Bitte versuchen Sie es noch einmal.");
+        <input type="button" value="___________ =  __________" name="bt4" onClick="value='wort = stdin.readLine()'" />
+    }
+
+    // Das Spiel mit dem zweiten Spieler spielen
+  }
+}
+</pre>
+</blockquote>
+</form>
+<hr />
+<br />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<p><b>3.</b> &nbsp; Wir sind mit dem ersten Teil fast fertig, aber es gibt ein Problem:
+wenn der erste Spieler die Tastatur an den zweiten Spieler &uuml;bergibt,
+ist das zu erratende Wort auf dem Bildschirm zu sehen!
+Was schlagen Sie vor, um dieses Problem zu l&ouml;sen?
+&nbsp; &nbsp &nbsp;
+<input type="button"
+value="  Wie?  "
+name="button1"
+onClick="alert('Geben Sie leere Zeilen auf den Bildschirm aus, bis er gel&ouml;scht ist.')" /></p>
+</form>
+<p>(Es gibt elegantere L&ouml;sungen, aber diese ist gut genug.)</p>
+<hr />
+
+<!-- ------------------------end of  question --------------------------------- -->
+
+<form>
+<p><b>4.</b> &nbsp;
+Hier ist das Programm mit dieser teilweise implementierten Idee.
+Wir gehen davon aus, dass 50 Leerzeilen den Bildschirm l&ouml;schen.
+</p>
+<blockquote>
+<pre>
+class RateSpiel
+{
+  public static void main ( String[] args ) throws IOException
+  {
+    BufferedReader stdin = new BufferedReader( new InputStreamReader( System.in ) );
+
+    String  wort;
+
+    // Das Wort vom ersten Spieler holen
+    System.out.println("Geben Sie das zu erratende Wort ein:");
+    wort = stdin.readLine() ;
+
+    while ( wort.length() != 3 )
+    {
+        System.out.println
+          ("Das Wort muss drei Buchstaben haben. Bitte versuchen Sie es noch einmal.");
+        wort = stdin.readLine() ;
+    }
+
+    // Bildschirm löschen
+    int zaehler = <input type="button" value="__________" name="bt1" onClick="value='  0  '" />
+    <input type="button" value="__________" name="bt2" onClick="value=' while '" /> ( zaehler &lt; 50 )
+    {
+        <input type="button" value="___________________" name="bt3" onClick="value=' System.out.println();'" />
+        zaehler = zaehler + 1;
+    }
+
+    // Das Spiel mit dem zweiten Spieler spielen
+  }
+}
+</pre>
+</blockquote>
+</form>
+<hr />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<p><b>5.</b> &nbsp; Jetzt zur zweiten H&auml;lfte des Programms.
+In diesem Teil des Programms versucht der Spieler
+durch wiederholte Versuche das Wort zu erraten.
+Wie werden (gew&ouml;hnlich) die wiederholten Versuche des Ratens
+im Programm umgesetzt?
+Mit einer <input type="button"
+value="_______________________"
+name="button1"
+onClick="value=' Schleife '" />.</p>
+</form>
+<hr />
+
+<!-- ------------------------end of  question --------------------------------- -->
+
+<form>
+<p><b>6.</b> &nbsp;
+Hier ist das Programm mit etwas getaner Arbeit f&uuml;r die zweite H&auml;lfte.
+Entscheiden Sie zuerst welche Variablen gebraucht werden,
+dann initialisieren Sie sie:
+</p>
+<blockquote>
+<pre>
+class RateSpiel
+{
+  public static void main ( String[] args ) throws IOException
+  {
+    BufferedReader stdin = new BufferedReader( new InputStreamReader( System.in ) );
+    String  wort;
+
+    // Das Wort vom ersten Spieler holen
+    System.out.println("Geben Sie das zu erratende Wort ein:");
+    wort = stdin.readLine() ;
+
+    while ( wort.length() != 3 )
+    {
+        System.out.println(
+          "Das Wort muss drei Buchstaben haben. Bitte versuchen Sie es noch einmal.");
+        wort = stdin.readLine() ;
+    }
+
+    // Bildschirm löschen
+    int zeilenZaehler = 0 ;
+    while ( zeilenZaehler &lt; 50 )
+    {
+        System.out.println();
+        zeilenZaehler = zeilenZaehler + 1;
+    }
+
+    // Das Spiel mit dem zweiten Spieler spielen
+    int zaehler = 1;
+    <input type="button" value="___________" name="bt1" onClick="value=' String '" /> versuch;
+
+    System.out.println("Versuchen Sie Ihr Glück");
+    <input type="button" value="___________ =  __________" name="bt4" onClick="value='versuch = stdin.readLine()'" />
+
+    // solange der zweite Spieler das Wort noch nicht erraten hat und
+    // noch Versuche übrig hat
+    while ( )
+    {
+
+    }
+
+    // überprüfen ob der zweite Spieler gewonnnen hat
+    if ()
+    {
+
+    }
+
+    else
+    {
+
+    }
+
+  }
+}
+</pre>
+</blockquote>
+</form>
+<hr />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<form>
+<b>7.</b> &nbsp;
+Das <code>while</code> in  der zweiten H&auml;lfte wird etwas kompliziert werden.
+Die Schleife muss fortgesetzt werden solange zwei Dinge wahr sind:
+<OL>
+<LI>Der Spieler hat noch Versuche &uuml;brig.
+<LI>Der Spieler hat das Wort noch nicht erraten.
+</OL>
+Verwenden Sie einen relationalen Operator, um den ersten Teil zu testen.
+Verwenden Sie die  <code>equals(  )</code> Methode des Strings <code>versuch</code>,
+um den zweiten Teil zu testen.
+Diese beiden <em>true/false</em>-Werte m&uuml;ssen dann mit einem logischen Operator kombiniert werden.
+<br /><br />
+<blockquote>
+<pre>
+class RateSpiel
+{
+  public static void main ( String[] args ) throws IOException
+  {
+    BufferedReader stdin = new BufferedReader( new InputStreamReader( System.in ) );
+    String  wort;
+
+    // Das Wort vom ersten Spieler holen
+    System.out.println("Geben Sie das zu erratende Wort ein:");
+    wort = stdin.readLine() ;
+
+    while ( wort.length() != 3 )
+    {
+        System.out.println(
+          "Das Wort muss drei Buchstaben haben. Bitte versuchen Sie es noch einmal.");
+        wort = stdin.readLine() ;
+    }
+
+    // Bildschirm löschen
+    int zeilenZaehler = 0 ;
+    while ( zeilenZaehler &lt; 50 )
+    {
+        System.out.println();
+        zeilenZaehler = zeilenZaehler + 1;
+    }
+
+    // Das Spiel mit dem zweiten Spieler spielen
+    int zaehler = 1;
+    String versuch
+
+    System.out.println("Versuchen Sie Ihr Glück");
+    versuch = stdin.readLine();
+
+    // solange der zweite Spieler das Wort noch nicht erraten hat
+    // und noch Versuche übrig hat
+    while ( zaehler &lt; 5 <input type="button" value="________" name="bt2" onClick="value='  &&  '" />!versuch.<input type="button" value=" _____________" name="bt5" onClick="value='equals( wort )'" /> )
+    {
+        System.out.println("Ein weiterer Versuch:");
+        versuch = stdin.readLine();
+        zaehler   = <input type="button" value="___________" name="bt7" onClick="value=' zaehler + 1 ;'" />
+    }
+
+
+    // überprüfen, ob der zweite Spieler gewonnen hat
+    if ()
+    {
+
+    }
+
+    else
+    {
+
+    }
+
+  }
+}
+</pre>
+</blockquote>
+<p>Die Schleifenbedingung kombiniert das Konzept der Z&auml;hlschleife mit dem Konzept
+der &uuml;berwachten Schleife.</p>
+</form>
+<hr />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<form>
+<p><b>8.</b> &nbsp;
+Wenn die Schleife beendet wird, wird eines von zwei Dingen wahr sein:
+Der zweite Spieler hat das Wort erraten und gewonnen,
+oder der zweite Spieler hat alle seine Versuche aufgebraucht und verloren.
+Die letzte <code>if</code>-Anweisung muss ermitteln welches davon wahr ist,
+um eine korrekte Schlussmeldung auszugeben.
+</p>
+<p>Denken Sie dar&uuml;ber nach, was die <code>if</code>-Anweisung testen sollte:</p>
+<blockquote>
+<pre>
+class RateSpiel
+{
+  public static void main ( String[] args ) throws IOException
+  {
+    BufferedReader stdin = new BufferedReader( new InputStreamReader( System.in ) );
+    String  wort;
+
+    // Das Wort vom ersten Spieler holen
+    System.out.println("Geben Sie das zu erratende Wort ein:");
+    wort = stdin.readLine() ;
+
+    while ( wort.length() != 3 )
+    {
+        System.out.println(
+          "Das Wort muss drei Buchstaben haben. Bitte versuchen Sie es noch einmal.");
+        wort = stdin.readLine() ;
+    }
+
+    // Bildschirm löschen
+    int zeilenZaehler = 0 ;
+    while ( zeilenZaehler &lt; 50 )
+    {
+        System.out.println();
+        zeilenZaehler = zeilenZaehler + 1;
+    }
+
+    // Das Spiel mit dem zweiten Spieler spielen
+    int zaehler = 1;
+    String versuch;
+
+    System.out.println("Versuchen Sie Ihr Glück");
+    versuch = stdin.readLine();
+
+    // solange der zweite Spieler das Wort noch nicht erraten hat und
+    // noch Versuche übrig hat
+    while ( zaehler &lt; 5  &&  !versuch.equals( wort ) )
+    {
+        System.out.println("Ein weiterer Versuch:");
+        versuch = stdin.readLine();
+        zaehler = zaehler + 1;
+    }
+
+    // überprüfen, ob der zweite Spieler gewonnen hat
+    if (<input type="button" value="___________________________" name="bt1" onClick="value=' versuch.equals( wort ) '" />)
+        System.out.println("Sie haben gewonnen!");
+    else
+        System.out.println("Sie haben verloren!");
+
+  }
+}
+</pre>
+</blockquote>
+</form>
+<hr />
+
+<!-- ------------------------end of  question --------------------------------- -->
+<form>
+<p><b>9.</b> &nbsp;Hier ist das vollst&auml;ndige Programm (Sie k&ouml;nnen es nach Notepad kopieren).</p>
+<blockquote>
+<pre>
+import java.io.* ;
+class RateSpiel
+{
+  public static void main ( String[] args ) throws IOException
+  {
+    BufferedReader stdin = new BufferedReader( new InputStreamReader( System.in ) );
+    String  wort;
+
+    // Das Wort vom ersten Spieler holen
+    System.out.println("Geben Sie das zu erratende Wort ein:");
+    wort = stdin.readLine() ;
+
+    while ( wort.length() != 3 )
+    {
+        System.out.println(
+          "Das Wort muss drei Buchstaben haben. Bitte versuchen Sie es noch einmal.");
+        wort = stdin.readLine() ;
+    }
+
+    // Bildschirm löschen
+    int zeilenZaehler = 0 ;
+    while ( zeilenZaehler &lt; 50 )
+    {
+        System.out.println();
+        zeilenZaehler = zeilenZaehler + 1;
+    }
+
+    // Das Spiel mit dem zweiten Spieler spielen
+    int zaehler = 1;
+    String versuch;
+    System.out.println("Versuchen Sie Ihr Glück");
+    versuch = stdin.readLine();
+
+    // solange der zweite Spieler das Wort noch nicht erraten hat und
+    // noch Versuche übrig hat
+    while ( zaehler &lt; 5  &&  !versuch.equals( wort ) )
+    {
+        System.out.println("Ein weiterer Versuch:");
+        versuch = stdin.readLine();
+        zaehler   = zaehler + 1;
+    }
+
+    // überprüfen, ob derr zweite Spieler gewonnen hat
+    if ( versuch.equals( wort ) )
+        System.out.println("Sie haben gewonnen!");
+    else
+        System.out.println("Sie haben verloren!");
+
+  }
+}
+</pre>
+</blockquote>
+<p>Ist eine der <code>if</code>- oder <code>while</code>-Anweisungen verschachtelt? <input type="button" value="  ja/nein  " name="bt7" onClick="value='NEIN'" /></p>
+</form>
+<p>Es wird sich f&uuml;r Sie lohnen, wenn Sie die Organisation dieses Programms studieren.
+Betrachten Sie wie es aus einer Sequenz von <code>while</code>-
+und <code>if</code>-Anweisungen zusammengesetzt wurde.</p>
+<hr />
+
+<!-- ------------------------end of  question --------------------------------- -->
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<p><b>10.</b> &nbsp;
+Angenommen Sie m&ouml;chten das Spiel mit DREI versteckten Worten spielen.
+Der erste Spieler gibt ein Wort ein, der zweite Spieler hat f&uuml;nf Versuche es zu erraten,
+dann gibt der erste Spieler ein zweites Wort ein, der zweite Spieler hat f&uuml;nf Versuche es zu erraten und so weiter.
+(Das ist immer noch ein dummes Spiel.)
+</p>
+<p>Wie w&uuml;rden Sie dieses neue Spiel implementieren? &nbsp; &nbsp; <input type="button"
+value="  Wie?  "
+name="button1"
+onClick="alert('Durch die Verwendung einer Z&auml;hlschleife.  Das Meiste der Logik des Ein-Wort-Programms wird innerhalb des K&ouml;rpers der Z&auml;hlschleife sein.')" />
+</p>
+<p>(Ein etwas besseres Programm w&uuml;rde aus drei "Runden" bestehen. Jede Runde w&uuml;rde darin bestehen, dass der erste Spieler ein Wort eingibt, das der zweite Spieler r&auml;t, dann gibt der zweite Spieler ein Wort ein, das der erste Spieler r&auml;t.)
+</p>
+</form>
+<hr />
+<!-- ------------------------end of  question --------------------------------- -->
+
+<p>Ende des Tests.  Wenn Sie ihn wiederholen m&ouml;chten, laden Sie die Seite in Ihrem Browser neu.</p>
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#20">Inhaltsverzeichnis</a>.</p>
+</body>
+</html>

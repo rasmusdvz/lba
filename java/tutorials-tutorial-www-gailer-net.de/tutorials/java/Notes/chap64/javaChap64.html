@@ -1,0 +1,1138 @@
+<!-- Nov 10, 2008 bpk many changes -->
+<!-- Feb 20, 2011 bpk small changes; HTML validation -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2011</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2011, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#64</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+<CAI> Kapitel 64  &#8212; Sliders und Change-Events
+
+<p class="revisions">
+erstellt: 20.01.02; &uuml;berarbeitet: 19.07.06, 10.11.08, 20.02.11; &uuml;bersetzt 06.03.11; Deutsche &Uuml;bersetzung Heinrich Gailer
+</p>
+
+<LESSON>
+
+<img src="sliderTwo.gif"  class="rightimage" alt="vertical slider">
+<div class="left">
+
+<p>
+Dieses Kapitel bespricht die Klasse <code>JSlider</code>.
+Ein <em>Slider</em> ist eine Komponente,
+die die Bedienung eines Schiebereglers nachahmt,
+wie er manchmal bei Audioger&auml;ten gefunden wird.
+</p>
+
+<p>
+Sliders sind eine gute Wahl,
+wenn der Anwender einen Wert anpassen und dabei dessen Auswirkung
+beobachtet m&ouml;chte. Das ist beser als einen bestimmten Wert
+in eine Textbox einzugeben.
+</p>
+
+<h4>Themen:</h4>
+
+<ul>
+<li>Sliders</li>
+<li>Major and minor ticks</li>
+<li>Die <code>setPreferredSize()</code> Methode</li>
+<li>Die <code>setName()</code> Methode</li>
+<li>Die <code>getName()</code> Methode</li>
+<li>Change-Events</li>
+<li>Die <code>getSource()</code> Methode</li>
+</ul>
+
+</div>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Welche Methode f&uuml;gt einen Slider einem Panel hinzu?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die Klasse <code> JSlider </code>
+
+<ANSWER>
+<p>
+Die <code>add()</code> Methode, wie bei jeder Komponente.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>JSlider</INDEX>
+
+<div class="right" style="margin-left:4em;">
+
+<table>
+<tr><td>
+<applet code="SliderThreeApplet.class" width="50" height="250">
+In Ihrem Browser muss Java aktiviert sein, um dieses Applet zu sehen.
+</applet>
+</td>
+
+</tr>
+</table>
+
+</div>
+
+<div class="left">
+<p>
+Die Applets und Bilder zeigen eine Auswahl von Sliders.
+Sliders k&ouml;nnen horizontal oder vertikal ausgerichtet sein.
+Teilstriche (tick marks) sind Teil des Sliders.
+Diese k&ouml;nnen optional angezeigt werden (oder auch nicht).
+</p>
+
+<table>
+<tr><td>
+<applet code="SliderOneApplet.class" width="300" height="50">
+In Ihrem Browser muss Java aktiviert sein, um dieses Applet zu sehen.
+</applet>
+</td></tr>
+</table>
+
+<table>
+<tr><td>
+<applet code="SliderTwoApplet.class" width="300" height="50">
+In Ihrem Browser muss Java aktiviert sein, um dieses Applet zu sehen.
+</applet>
+</td></tr>
+</table>
+
+<p>
+Klicken Sie darauf oder ziehen Sie den Stellknopf,
+um die Werte anzupassen.
+<code>ChangeEvent</code>s werden erzeugt.
+(Aber, die Applets auf dieser Seite tun nichts anders als die Sliders anzuzeigen.)
+</p>
+
+<p>
+Hier sind die Horizontalen Sliders als Abbildung,
+f&uuml;r den Fall, das bei Ihnen Applets nicht aktiviert sind.
+(Diese Seite ist die einzige in diesem Kapitel, die Applets verwendet.)
+</p>
+
+<blockquote>
+<img src="sliderOne.gif" width="240" height="89" alt="horizontal slider">
+&nbsp; &nbsp;
+<img src="sliderThree.gif" width="258" height="86" alt="horizontal slider">
+</blockquote>
+</div>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Raten Sie einmal: ) Sliders erzeugen <code>ChangeEvent</code>s. Welcher Typ
+von Listener antwortet auf <code>ChangeEvent</code>s?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Konstruktor
+<ANSWER>
+<p>
+<code>ChangeListener</code>
+</p>
+</ANSWER>
+
+<LESSON>
+
+
+
+<p>
+Es gibt verschiedene Konstruktoren f&uuml;r Sliders.
+Hier ist der N&uuml;tzlichste:
+</p>
+
+<pre class="code">
+JSlider( int orientation, int min, int max, int init )
+</pre>
+
+<ul>
+<li>orientation: <code>JSlider.HORIZONTAL</code> oder
+    <code>JSlider.VERTICAL</code></li>
+<li>min: der kleinste Wert.
+    Der Wert, wenn der Slider ganz links (oder ganz unten) von seinem Bereich ist.
+</li>
+<li>max: der gr&ouml;&szlig;te Wert.
+    Der Wert, wenn der Slider ganz rechts (oder ganz oben) von seinem Bereich ist.
+</li>
+<li>init: der Initialwert eines Sliders.</li>
+</ul>
+
+
+</LESSON>
+
+<QUESTION>
+
+
+<div align="center">
+<img src="sliderOne.gif" alt="slider">
+</div>
+
+<form action="">
+<p>
+F&uuml;llen Sie die L&uuml;cken aus, um den oben stehenden Slider zu erzeugen:
+</p>
+
+<pre>
+slide = new JSlider( <input type="text" size="16" name="textA"> .<input type="text" size="16" name="textB">, <input type="text" size="8" name="textC">, <input type="text" size="8" name="textD">, <input type="text" size="8" name="textF"> );
+</pre>
+</form>
+
+<p>
+&nbsp;
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Tick Spacing
+<ANSWER>
+
+<pre class="code">
+slide = new JSlider( <span style="color:blue" >JSlider.HORIZONTAL</span>, <span style="color:blue" >0</span>, <span style="color:blue" >100</span>, <span style="color:blue" >50</span> );
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>tick marks (on Sliders)</INDEX>
+<INDEX>tick marks</INDEX>
+
+<center>
+    <img src="bugTickSmall.gif" alt="tick"><img src="bugTickSmall.gif" alt="tick">
+    <img src="bugTickSmall.gif" alt="tick"><img src="bugTickSmall.gif" alt="tick">
+    <img src="bugTickSmall.gif" alt="tick"><img src="bugTickSmall.gif" alt="tick">
+    <img src="bugTickSmall.gif" alt="tick"><img src="bugTickSmall.gif" alt="tick">
+    <img src="bugTickSmall.gif" alt="tick">
+</center>
+
+<p>
+Die kleinen vertikalen Linien,
+die einen Schieberregler kalibrieren,
+werden <b><i>tick marks</i></b> (Teilstriche) genannt.
+Die gr&ouml;&szlig;eren und st&auml;rkeren Teilstriche sind die <i>major ticks</i> und
+die kleineren und d&uuml;nneren Teilsstriche sind die <i>minor ticks</i>.
+Die gro&szlig;en Teilstriche k&ouml;nnen ein Label haben.
+Der Abstand zwischen den gr&ouml;&szlig;eren Teilstrichen wird mit:
+</p>
+
+<pre class="code">
+setMajorTickSpacing(int spacing)
+</pre>
+
+<p>
+und zwischen den kleineren Teilstrichen mit:
+</p>
+
+<pre class="code">
+setMinorTickSpacing(int spacing)
+</pre>
+
+<p>
+gesetzt. Das <code>spacing</code> bezieht sich auf die numerischen Werte des Sliders.
+</p>
+
+<p>
+<img src="bugTickSmallRight.gif" alt="tick"><b>Bug Hinweis:</b>
+Damit die Teilstriche und die Labels agezeigt werden,
+m&uuml;ssen Sie
+<code>setMajorTickSpacing()</code> aufrufen.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+
+<div align="center">
+<img src="sliderOne.gif" alt="Horizontal Slider">
+</div>
+
+<p>
+Setzen Sie das <i>Tick Spacing</i> des oben stehenden Sliders.
+</p>
+
+<form action="">
+<pre class="code">
+slide = new JSlider( JSlider.HORIZONTAL, 0, 100, 50 );
+slide.setMajorTickSpacing( <input type="text" size="20" name="textA">);
+slide.setMinorTickSpacing( <input type="text" size="20" name="textB">);
+</pre>
+</form>
+
+<p>
+&nbsp;
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code><b>setPaintTicks()</b></code> und  <code><b>setPaintLabels()</b></code>
+<ANSWER>
+
+<pre>
+slide = new JSlider( JSlider.HORIZONTAL, 0, 100, 50 );
+slide.setMajorTickSpacing( <span style="color:blue">10</span>);
+slide.setMinorTickSpacing( <span style="color:blue"> 5</span>);
+
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>setPaintTicks</INDEX>
+<INDEX>setPaintLabels</INDEX>
+<INDEX>setSnapToTicks</INDEX>
+
+<p>
+Teilsstriche und ihre Labels
+k&ouml;nnen mit den folgenden Methoden ein- und ausgeschaltet werden:
+</p>
+
+<pre class="code">
+setPaintTicks ( boolean state )
+setPaintLabels( boolean state )
+</pre>
+
+
+<p>
+Manchmal m&ouml;chten Sie,
+dass der Slider nur an den Teilstrichen einrastet,
+so dass der Wert ein Integer multipliziert mit
+dem Wert von <code>setMinorTickSpacing()</code> ist.
+Verwenden Sie dazu diese Methode:
+</p>
+
+<pre class="code">
+setSnapToTicks( boolean state )
+</pre>
+
+</LESSON>
+
+<QUESTION>
+
+<div align="center">
+<img src="sliderOne.gif" alt="Horizontal Slider">
+</div>
+
+
+<p>
+Lassen Sie die Ticks und Labels anzeigen,
+wie in der Abbildung,
+und, dass der Stellknopf an den Ticks einrastet.
+</p>
+
+<form action="">
+<pre class="code">
+slide = new JSlider( JSlider.HORIZONTAL, 0, 100, 79 );
+slide.setMajorTickSpacing( 10 );
+slide.setMinorTickSpacing(  5 );
+slide.setPaintTicks ( <input type="text" size="20" name="textA"> );
+slide.setPaintLabels( <input type="text" size="20" name="textB"> );
+slide.setSnapToTicks( <input type="text" size="20" name="textC"> );
+</pre>
+</form>
+
+<p>
+&nbsp;
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vertikaler Slider
+<ANSWER>
+
+<pre class="code">
+slide = new JSlider( JSlider.HORIZONTAL, 0, 100, 79 );
+slide.setMajorTickSpacing( 10 );
+slide.setMinorTickSpacing(  5 );
+slide.setPaintTicks ( <span style="color:blue" >true</span>);
+slide.setPaintLabels( <span style="color:blue" >true</span>);
+slide.setSnapToTicks( <span style="color:blue" >true</span>);
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<img src="sliderFour.gif" class="rightimage" alt="Vertical Slider">
+
+<p>
+Hier ist der den rechts stehenden Slider betreffende Code:
+</p>
+
+<form action="">
+<pre>
+sliderV = new JSlider( JSlider.<input type="text" size="8" name="textA">,
+    <input type="text" size="8" name="textA">, <input type="text" size="8" name="textB">, 400);
+
+sliderV.setMajorTickSpacing( <input type="text" size="8" name="textC"> );
+
+sliderV.setMinorTickSpacing( <input type="text" size="8" name="textD"> );
+
+sliderV.setPaintTicks ( <input type="text" size="8" name="textE"> );
+
+sliderV.setPaintLabels( <input type="text" size="8" name="textF"> );
+</pre>
+</form>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code> setPreferredSize() </code>
+<ANSWER>
+<img src="sliderFour.gif" class="rightimage"  alt="Vertical Slider">
+
+<pre>
+sliderV = new JSlider( JSlider.<span style="color:blue" >VERTICAL</span>,
+    <span style="color:blue" >0</span>, <span style="color:blue" >1000</span>, 400);
+sliderV.setMajorTickSpacing( <span style="color:blue" >100</span> );
+sliderV.setMinorTickSpacing(  <span style="color:blue" >50</span> );
+sliderV.setPaintTicks ( <span style="color:blue" >true</span> );
+sliderV.setPaintLabels( <span style="color:blue" >true</span> );
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<INDEX>setPreferredSize()</INDEX>
+
+
+<p>
+Layoutmanager kontrollieren die Gr&ouml;&szlig;e der Komponenten,
+aber besser ist es eine bevorzugte Gr&ouml;&szlig;e anzugeben.
+Wenn Sie das nicht tun,
+k&ouml;nnten die Ticks und Labels eines Sliders zu sehr aneinander gedr&auml;ngt
+werden.
+Tun Sie das mit:
+</p>
+
+<pre class="code">
+setPreferredSize( new Dimension( int width, int height ) )
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Schlagen Sie vor, dass ein Slider eine Breite von 50
+und eine H&ouml;he von 300 hat:
+</p>
+<form action="">
+<pre class="code">
+sliderV.setPreferredSize( new Dimension( <input type="text" size="8" name="textB"> , <input type="text" size="8" name="textA">) );
+</pre>
+</form>
+
+<p>&nbsp;</p>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code> ChangeListener </code>
+<ANSWER>
+<pre>
+sliderV.setPreferredSize( new Dimension( <span style="color:blue" >50</span>, <span style="color:blue" >300</span>) );
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>ChangeListener</INDEX>
+<INDEX>stateChanged()</INDEX>
+
+<div align="center">
+<img src="changeListener.gif" alt="Bouncing Change">
+</div>
+
+<p>
+Wenn der Anwender den Stellknopf &uuml;ber den Slider zieht,
+wird ein Change-Event erzeugt.
+Die Anzahl der Ereignisse h&auml;ngt von der Geschwindigkeit ab,
+mit der der Anwender den Stellknopf zieht.
+Langsames Ziehen erzeugt ein Ereignis jedes Mal,
+wenn der Stellknopf einen Integer &uuml;berf&auml;hrt.
+Ein Event-Listener muss m&ouml;glicherweise sehr viele Ereignisse handhaben.
+</p>
+
+<p>
+Ein Listener f&uuml;r einen Slider wird  &uuml;ber die
+<code>ChangeListener</code> Schnittstelle implementiert.
+Die Schnittstelle hat eine einzige Methode:
+</p>
+
+<pre class="code">
+public void stateChanged( ChangeEvent evt )
+</pre>
+
+
+<p>
+Ein Objekt, dass das Interface implementiert,
+muss den Slider registrieren, um Ereignisse zu empfangen:
+</p>
+
+<pre class="code">
+slider.addChangeListener( ChangeListener lstn )
+</pre>
+
+
+<p>
+Oft, besonders bei kleineren Projekten, ist der Frame,
+der den Slider enth&auml;lt, auch sein Listener.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Angenommen Sie haben eine Frame Klasse,
+die einen Slider enth&auml;lt und <code>ChangeListener</code> implementiert.
+Registrieren Sie ein Objekt dieser Klasse mit dessen Slider:
+</p>
+
+<form action="">
+<pre class="code">
+sliderV = new JSlider( JSlider.VERTICAL,  0, 1000, 400);
+sliderV.setMajorTickSpacing( 100 );
+sliderV.setMinorTickSpacing(  50 );
+sliderV.setPaintTicks ( true );
+sliderV.setPaintLabels( true );
+
+sliderV.addChangeListener( <input type="text" size="15" name="textB"> );
+</pre>
+</form>
+
+<p>
+Hint: this is the same as we have been doing with frames that
+implement <code>ActionListener</code>  and their buttons.
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Slider Namen
+<ANSWER>
+<pre class="code">
+sliderV.addChangeListener( <span style="color:blue" >this</span> );
+</pre>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>setName()</INDEX>
+
+<p>
+Ihre Benutzerschnitstelle kann mehrere Sliders haben.
+Diese k&ouml;nnen alle Ereignisse erzeugen,
+die alle zu demselben  Listener geschickt werden.
+Geben Sie jedem Slider einen Namen,
+so dass die Ereignisse richtig sortiert werden k&ouml;nnen.
+(Eine andere M&ouml;glichkeit ist es f&uuml;r jeden Slider einen eigenen Listener zu registrieren.)
+Ein Name ist ein String,
+der jedem Objekt, das von der Klasse <code>Component</code> erbt,
+zugewiesen werden kann.
+Weisen Sie zu mit:
+</p>
+
+<pre class="code">
+component.setName( String name )
+</pre>
+
+
+<p>
+Nat&uuml;rlich m&uuml;ssen Sie sicher stellen,
+dass Komponenten, die denselben Listener teilen,
+eindeutige Namen haben.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Weisen Sie den beiden Sliders Namen zu.
+</p>
+
+<form action="">
+<pre class="code">
+sliderA = new JSlider( JSlider.HORIZONTAL, 0, 1000, 400);
+sliderB = new JSlider( JSlider.HORIZONTAL, 0, 1000, 400);
+ . . .
+sliderA.setName( <input type="text" size="15" name="textA"> );
+sliderb.setName( <input type="text" size="15" name="textB"> );
+
+sliderA.addChangeListener( this );
+sliderB.addChangeListener( this );
+</pre>
+</form>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die <code>getSource() </code> Methode
+<ANSWER>
+
+<pre class="code">
+sliderA = new JSlider( JSlider.HORIZONTAL, 0, 1000, 400);
+sliderB = new JSlider( JSlider.HORIZONTAL, 0, 1000, 400);
+ . . .
+sliderA.setName( <span style="color:blue" >"sliderA"</span> );
+sliderB.setName( <span style="color:blue" >"sliderB"</span> );
+
+sliderA.addChangeListener( this );
+sliderB.addChangeListener( this );
+</pre>
+
+<p>
+Beliebige eindeutige Strings werden funktionieren.
+Es ist OK das gleiche Wort f&uuml;r die Referenzvariable und den Namen
+der Komponente zu verwenden.
+Diese zwei sind vollst&auml;ndig unabh&auml;ngig von einander,
+und Java wird nicht durcheinander kommen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>getSource()</INDEX>
+<p>
+Ein Ereignis-Objekt enth&auml;lt eine Referenz auf die Komponente,
+die das Ereignis erzeugt hat.
+Um Diese Referenz zu erhalten, verwenden Sie:
+</p>
+
+<pre class="code">
+Object getSource()
+</pre>
+
+<p>
+Da der R&uuml;ckgabewert von <code>getSource()</code>
+<code>Object</code> ist,
+verwenden Sie eine Typumwandlung mit:
+</p>
+
+<pre class="code">
+// Listener-Methode
+public void stateChanged( ChangeEvent evt )
+{
+  JSlider source;
+
+  source = <span style="color:blue" >(JSlider)</span>evt.getSource();
+  . . . .
+}
+</pre>
+
+<p>
+Jetzt haben Sie eine Referenz auf den Slider,
+der das Ereignis verursacht hat,
+und Sie k&ouml;nnen jede der Methoden eines Sliders verwenden.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Welches Interface implementiert der Listener eines Sliders?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI> <code> getName() </code> und <code> getValue() </code>
+<ANSWER>
+<p>
+<code>ChangeListener</code>
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>getName()</INDEX>
+<p>
+Angenommen Sie haben einem Slider einen Namen gegeben,
+indem Sie <code>setName()</code> verwendet haben.
+Der <em>Name</em> des Sliders ist ein String,
+der als Teil seiner Daten gespeichert ist.
+Um den Namen des Sliders zu bekommen,
+verwenden Sie:
+</p>
+
+<pre class="code">
+String getName()
+</pre>
+
+<p>
+Um den Wert des Sliders zu bekommen, verwenden Sie:
+</p>
+
+<pre class="code">
+int getValue()
+</pre>
+
+<p>
+Das gibt einen Wert zwischen dem minimalen und
+und maximalen Wert des Sliders zur&uuml;ck.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Hier ist ein Teil eines Programms,
+das zwei Slider, und f&uuml;r jeden ein Textfeld hat.
+F&uuml;llen Sie die L&uuml;cken aus,
+so dass, wenn ein Slider seinen Wert &auml;ndert,
+der Wert in das richtige Textfeld geschrieben wird.
+</p>
+
+<form action="">
+<pre class="code">
+JSlider    sliderA;
+JTextField textA;
+JSlider    sliderB;
+JTextField textB;
+
+public void stateChanged( ChangeEvent evt )
+{
+  JSlider source;
+  source = (JSlider)evt.getSource();
+  if ( source.<input type="text" size="15" name="textA">.equals("sliderA") )
+    textA.setText( source.<input type="text" size="15" name="textB"> + " " );
+  if ( source.<input type="text" size="15" name="textC">.equals("sliderB") )
+    textB.setText( source.<input type="text" size="15" name="textD"> + " " );
+}
+</pre>
+</form>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndiges Programm
+<ANSWER>
+
+<pre class="code">
+if ( source.<span style="color:blue" >getName()</span>.equals("sliderA") )
+  textA.setText( source.<span style="color:blue" >getValue()</span> + " " );
+if ( source.<span style="color:blue" >getName()</span>.equals("sliderB") )
+  textB.setText( source.<span style="color:blue" >getValue()</span> + " " );
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+
+<div align="center">
+<img src="sliderFive.gif"   alt="Sliders and Change Listener">
+</div>
+
+<p>
+Hier ist das vollst&auml;ndige (aber nutzlose) Programm.
+Wenn Sie den Slider bet&auml;tigen, &auml;ndert sich der ausgebenen Wert in seinem Textfeld.
+</p>
+
+<p>
+Einige interessante Punkte sind blau dargestellt.
+Um Change-Events zu verwenden, importieren Sie
+<nobr><code>javax.swing.event.*</code></nobr>.
+Studieren Sie, wie (1) die Sliders, (2) die
+Change-Events, die sie erzeugen, und (3) die
+Listener-Methode zusammenarbeiten,
+um den richtigen Wert in die Textfelder zu setzen.
+</p>
+
+<p>
+Jeder Slider hat eine bevorzugte Gr&ouml;&szlig;e,
+gesetzt mit <code>setPreferredSize()</code>.
+Ein besser ausgearbeites Programm w&uuml;rde
+dasselbe  <code>Dimension</code>-Objekt bei jedem
+Aufruf verwenden und w&uuml;rde eher <nobr><code>final int</code></nobr> als
+Integer Literale verwenden.
+</p>
+
+<p>
+Das Layout h&auml;ngt von der Gr&ouml;&szlig;e des  Frames und der Komponenten ab.
+Das Gruppieren der Komponenten in Panels w&auml;re besser.
+</p>
+
+<pre class="program">
+import java.awt.* ;
+import java.awt.event.*;
+import javax.swing.*;
+import <span style="color:blue" >javax.swing.event.*</span> ;
+
+public class SliderFive extends JFrame <span style="color:blue" >implements ChangeListener</span>
+{
+  JSlider    sliderA, sliderB;
+  JTextField textA,   textB;
+
+  public SliderFive()
+  {
+    setTitle( "Change Listener" );
+    setDefaultCloseOperation( EXIT_ON_CLOSE );
+
+    sliderA = new JSlider( JSlider.HORIZONTAL, 0, 1000, 400);
+    sliderA.setMajorTickSpacing( 100 );
+    sliderA.setMinorTickSpacing(  50 );
+    sliderA.setPaintTicks( true );
+    sliderA.setPaintLabels( true );
+    sliderA.<span style="color:blue" >setPreferredSize</span>( new Dimension(300,50) ) ;
+    sliderA.<span style="color:blue" >addChangeListener( this )</span>;
+    sliderA.<span style="color:blue" >setName("sliderA")</span>;
+    textA   = new JTextField( 4 );
+    textA.setText( sliderA.<span style="color:blue" >getValue()</span> + " " );
+
+    sliderB = new JSlider( JSlider.HORIZONTAL, 0, 1000, 400 );
+    sliderB.setMajorTickSpacing( 100 );
+    sliderB.setMinorTickSpacing(  50 );
+    sliderB.setPaintTicks( true );
+    sliderB.setPaintLabels( true );
+    sliderB.<span style="color:blue" >setPreferredSize</span>( new Dimension(300,50) ) ;
+    sliderB.<span style="color:blue" >addChangeListener( this )</span>;
+    sliderB.<span style="color:blue" >setName("sliderB")</span>;
+    textB   = new JTextField( 4 );
+    textB.setText( sliderB.<span style="color:blue" >getValue()</span> + " " );
+
+    // Frame
+    setLayout( new FlowLayout() );
+    add( textA  );
+    add( sliderA  );
+    add( textB  );
+    add( sliderB  );
+  }
+
+  public void stateChanged( ChangeEvent evt )
+  {
+    JSlider source;
+    source = (JSlider)evt.<span style="color:blue" >getSource()</span>;
+
+    if ( source.<span style="color:blue" >getName()</span>.equals("sliderA") )
+      textA.setText( source.<span style="color:blue" >getValue()</span> + " " );
+
+    if ( source.<span style="color:blue" >getName()</span>.equals("sliderB") )
+      textB.setText( source.<span style="color:blue" >getValue()</span> + " " );
+  }
+
+  public static void main ( String[] args )
+  {
+    SliderFive theApp  = new SliderFive() ;
+    theApp.setSize( 400, 150 );
+    theApp.setResizable( false );
+    theApp.setVisible( true );
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick: ) Wie viele Change-Events werden erzeugt,
+wenn der Anwender den Stellknopf von einem Wert zu
+einem anderen zieht.
+
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code><b>getValueIsAdjusting()</b></code>
+<ANSWER>
+<p>
+Viele; die genaue Anzahl h&auml;ngt davon ab, wie schnell der
+Stellknopf bewegt wird.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>getValueIsAdjusting()</INDEX>
+<p>
+In dem vorherigen Programm &auml;ndert sich die Zahl
+forlaufend w&auml;hrend der Stellknopf bewegt wird.
+&Uuml;blicherweise wollen Sie das.
+Aber manchmal ruft der Change-Listener Code auf,
+der sehr viel Arbeit verrichtet.
+Es k&ouml;nnte hunderte von Change-Events geben,
+und auf jedes zu antworten w&uuml;rde Ihr Programm langsam machen.
+Die folgende Methode kann helfen unn&ouml;tige Arbeit zu vermeiden:
+</p>
+
+<pre>
+boolean getValueIsAdjusting()
+</pre>
+
+
+<p>
+Diese Methode gibt <code>true</code> zur&uuml;ck,
+solange der Stellknopf sich bewegt.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie in dem folgenden Fragment die L&uuml;cken aus,
+so dass sich das Textfeld erst dann &auml;ndert,
+nachdem der Stellknopf angehalten wurde.
+</p>
+
+<form action="">
+<pre>
+source = (JSlider)evt.getSource() ;
+
+if ( <input type="text" size="6" name="textA">source.<input type="text" size="20" name="textB"> )  // consider the boolean return value
+{
+  if ( source.getName()().equals("sliderA") )
+    textA.setText( source.getValue() + " " );
+  if ( source.getName()().equals("sliderB") )
+    textB.setText( source.getValue() + " " );
+
+  // eine sehr aufwendige Arbeit mit den neuen Werten verrichten
+  . . . .
+}
+</pre>
+</form>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Weitere n&uuml;tzliche Slider Methoden
+<ANSWER>
+<pre>
+source = (JSlider)evt.getSource() ;
+
+if ( <span style="color:red;font-weight:bold;font-size:+2">!</span>source.<span style="color:blue" >getValueIsAdjusting()</span> )
+{
+  if ( source.getName()().equals("sliderA") )
+    textA.setText( source.getValue() + " " );
+  if ( source.getName()().equals("sliderB") )
+    textB.setText( source.getValue() + " " );
+}
+</pre>
+
+<p>
+&Auml;ndern Sie spa&szlig;eshalber das vorherige Programm, um das Ergebnis dieses Patches zu sehen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>getMaximum()</INDEX>
+<INDEX>getMinimum()</INDEX>
+<INDEX>setInverted()</INDEX>
+
+<p>
+Hier sind ein paar weitere manchmal n&uuml;tzliche Methoden der
+Klasse <code>JSlider</code>.
+Weitere Informationen
+<a href="http://download.oracle.com/javase/tutorial/uiswing/components/slider.html">
+Sliders zu verwenden</a> finden Sie bei Oracles Online <em>Java Tutorial</em>.
+</p>
+
+<pre>
+int getMaximum()
+    // Gibt den maximalen Wert, der vom Sliders unterstützt wird, zurück.
+</pre>
+
+
+<pre>
+int getMinimum()
+    // Gibt den minimalen Wert, der vom Sliders unterstützt wird, zurück.
+</pre>
+
+
+<p>
+Diese Methoden sind n&uuml;tzlich, wenn die Applikationsmethoden
+ihren Output proportional zum m&ouml;glichen Wertebereich skalieren m&uuml;ssen.
+Hier sind zwei weitere Methoden:
+</p>
+
+<pre>
+void setInverted(boolean b)
+    // Setzen Sie auf <code>true</code>, um die Reihenfolge der Werte des Sliders umzukehren.
+    // Diese Methode läßt bei einem horizontalen Slider die Werte von rechts nach links ansteigen.
+</pre>
+
+<pre>
+public void setValue(int n)
+    // Den aktuellen Wert des Sliders setzen
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist es m&ouml;glich einen Slider zu deaktivieren?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<ANSWER>
+<p>
+Ja. Verwenden Sie <code>enable( booolean )</code>
+(wie bei jeder Komponente).
+</p>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+Sie haben das Ende des Kapitels erreicht.
+Sie m&ouml;chten sicher das Folgende noch einmal durchsehen.
+Klicken Sie auf ein Thema, das Sie interessiert, um dahin zu gleiten, wo es besprochen wurde.
+</p>
+
+<ul>
+<li>
+Die Klasse
+<GOTO>JSlider</GOTO>JSlider.
+</li>
+
+<li>
+<GOTO>tick marks</GOTO>Tick Spacing.
+</li>
+
+<li>
+Bei
+<GOTO>setSnapToTicks</GOTO>Teilstrichen
+einrasten.
+</li>
+
+<li>
+<GOTO>setPreferredSize()</GOTO>Bevorzugte Gr&ouml;&szlig;e
+einer Komponente.
+</li>
+
+<li>
+Das
+<GOTO>ChangeListener</GOTO>ChangeListener.
+Interface.
+</li>
+
+<li>
+<GOTO>setName()</GOTO>setName()
+</li>
+
+<li>
+<GOTO>getSource()</GOTO>getSource()
+</li>
+
+
+<li>
+<GOTO>getName()</GOTO>getName()
+</li>
+
+<li>
+<GOTO>getValueIsAdjusting()</GOTO>getValueIsAdjusting()
+</li>
+
+<li>
+<GOTO>setInverted()</GOTO>setInverted()
+</li>
+
+</ul>
+
+
+</QUESTION>
+
+</CAI>
+
+</CHAPTER>

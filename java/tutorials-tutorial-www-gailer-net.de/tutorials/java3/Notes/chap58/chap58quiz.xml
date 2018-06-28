@@ -1,0 +1,276 @@
+<QUIZ>
+
+<!-- converted to XML: 10/05/03 -->
+<QHEAD>
+<QCREATION>revised: 10/05/03</QCREATION>
+<QAUTHOR>B. P. Kjell</QAUTHOR>
+<QEMAIL>kjell at ieee.org</QEMAIL>
+<QCOPYRIGHT>2003</QCOPYRIGHT>
+<QCSSFILE>../QUIZstyle.css</QCSSFILE>
+<QRETURNTO>../../cs151java.html#58</QRETURNTO>
+<QRETURNIMAGE>../contents.gif</QRETURNIMAGE>
+</QHEAD>
+
+<QTITLE>
+<img src="quizButtons.gif" align="center" hspace="5" vspace="5"/>
+on Buttons
+</QTITLE>
+
+<QTOP>
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br clear="all"/>
+</QTOP>
+
+<QUESTION>
+<QTEXT>
+What three types of software are needed in a complete GUI program
+</QTEXT>
+
+<QRIGHT>
+GUI Components, Event Listeners, Application Code 
+</QRIGHT>
+
+<QWRONG>
+Action Events, Window Objects, Containers
+</QWRONG>
+
+<QWRONG>
+Frames, Windows, Containers 
+</QWRONG>
+
+<QWRONG>
+Libraries, Toolkits, Interfaces 
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+How is a GUI component
+(such as a button) placed into a JFrame? 
+</QTEXT>
+
+<QWRONG>
+insert( Component c ) 
+</QWRONG>
+
+<QRIGHT>
+getContentPane().add( Component c ) 
+
+</QRIGHT>
+
+<QWRONG>
+draw( Component c ) 
+ 
+</QWRONG>
+
+<QWRONG>
+getContentPane().put( Component c ) 
+ 
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+What is the Java software that determines how the components of a
+container are displayed?
+</QTEXT>
+
+<QWRONG>
+Display Manager 
+</QWRONG>
+
+<QWRONG>
+Component Manager
+</QWRONG>
+
+<QWRONG>
+Stage Manager 
+</QWRONG>
+
+<QRIGHT>
+Layout Manager 
+</QRIGHT>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+Which manager displays components row-by-row, in the
+order in which they were added to the Frame? 
+</QTEXT>
+
+<QWRONG>
+CardLayout 
+</QWRONG>
+
+<QRIGHT>
+FlowLayout
+</QRIGHT>
+
+<QWRONG>
+GridLayout 
+</QWRONG>
+
+<QWRONG>
+BorderLayout 
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+What method of a Frame is used to choose the layout manager? 
+</QTEXT>
+
+<QRIGHT>
+setLayout() 
+</QRIGHT>
+
+<QWRONG>
+add()
+</QWRONG>
+
+<QWRONG>
+actionPerformed() 
+</QWRONG>
+
+<QWRONG>
+setVisible() 
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+What interface must a class implement in order to be a listener
+for button <em>ActionEvents</em>? 
+</QTEXT>
+
+<QWRONG>
+TextListener 
+</QWRONG>
+
+<QWRONG>
+Runnable
+</QWRONG>
+
+<QRIGHT>
+ActionListener 
+</QRIGHT>
+
+<QWRONG>
+ImageConsumer 
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+What method must be implemented in a listener for button events? 
+</QTEXT>
+
+<QWRONG>
+paint() 
+</QWRONG>
+
+<QWRONG>
+windowClosing()
+</QWRONG>
+
+<QWRONG>
+addActionListener() 
+</QWRONG>
+
+<QRIGHT>
+actionPerformed() 
+</QRIGHT>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+What method of a content pane changes its color? 
+</QTEXT>
+
+<QRIGHT>
+setBackground( Color c ) 
+</QRIGHT>
+
+<QWRONG>
+setForeground( Color c )
+</QWRONG>
+
+<QWRONG>
+add() 
+</QWRONG>
+
+<QWRONG>
+getBackground() 
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+When should your program call <code>repaint()</code>? 
+</QTEXT>
+
+<QWRONG>
+Never--that is the system's job. 
+</QWRONG>
+
+<QWRONG>
+Only once when the frame is created.
+</QWRONG>
+
+<QRIGHT>
+Whenever  a change has been made that should result in a new picture. 
+</QRIGHT>
+
+<QWRONG>
+Always---whenever any method finishes. 
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+What method will immediately stop a program? 
+</QTEXT>
+
+<QWRONG>
+System.gc() 
+</QWRONG>
+
+<QRIGHT>
+System.exit( 0 )
+</QRIGHT>
+
+<QWRONG>
+System.setErr() 
+</QWRONG>
+
+<QWRONG>
+return() 
+</QWRONG>
+
+</QUESTION>
+
+</QUIZ>
+

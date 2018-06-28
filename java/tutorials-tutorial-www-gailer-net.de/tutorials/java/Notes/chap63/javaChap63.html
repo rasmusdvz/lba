@@ -1,0 +1,1007 @@
+<!-- Jly 25, 2002 bpk css and xml -->
+<!-- Feb 18, 2005 bpk small changes -->
+<!-- Jly 18, 2006 bpk small changes -->
+<!-- Nov 10, 2008 bpk many changes -->
+<!-- Feb 19, 2011 bpk small changes; passed HTML validation -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2011</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2011, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#63</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+<CAI> Kapitel 63  &#8212;  Radio-Buttons, BorderLayout und Kleber
+
+<p class="revisions">
+erstellt: 20.01.02; &uuml;berarbeitet: 23.02.02, 17.02.03, 18.02.05, 18.07.06, 10.11.08, 19.02.11; &uuml;bersetzt 05.03.11; Deutsche &Uuml;bersetzung Heinrich Gailer
+</p>
+
+<LESSON>
+
+<p>
+Dieses Kapitel f&uuml;hrt eine neue grafische Komponente
+&#8212; Radio-Buttons &#8212; und einen neuen
+Layoutmanager  &#8212;  <code>BorderLayout</code> ein.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Radio-Buttons</li>
+<li>Gruppen von Buttons</li>
+<li>Der <code>BorderLayout</code> Layoutmanager</li>
+<li>Die <code>Box</code> Klasse</li>
+<li>Kleber (Glue)</li>
+</ul>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Auf wie viele Sender ist Ihr Radio zu einem beliebigen Zeitpunkt eingestellt?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Radio-Buttons
+
+<ANSWER>
+<p>
+Einen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<script type="text/javascript">
+<!-- hide from browsers
+var currentImage = 0
+var my_images = new Array(3)
+my_images[0] = "carRadio.gif"
+my_images[1] = "carRadio02.gif"
+my_images[2] = "carRadio03.gif"
+
+function loadImage()
+{
+  if      ( currentImage==0 ) currentImage=1
+  else if ( currentImage==1 ) currentImage=2
+  else                        currentImage=0
+  document.images[3].src = my_images[currentImage]
+}
+// stop hiding -->
+</script>
+
+<INDEX>JRadioButton</INDEX>
+<img class="rightimage" src="carRadio.gif" width="300" height="120"
+     align="right" hspace="60" vspace="20" onMouseOver="loadImage()"
+     onClick="loadImage()" alt="Car Radio" >
+
+<div class="left">
+<p>
+Autoradios und manche Tischradios haben Tasten (Buttons)
+f&uuml;r die Senderauswahl.
+Nur ein Sender ist zu einem Zeitpunkt ausgew&auml;hlt.
+Wenn ein Button gedr&uuml;ckt wird,
+springt der vorherige wieder hoch.
+Die Swing Klasse <code>JRadioButton</code>
+funktioniert auf die gleiche Weise.
+Radio-Buttons m&uuml;ssen Mitglieder einer
+<code>ButtonGroup</code> sein.
+Nur ein Button in einer Buttongruppe
+kann  zu einem Zeitpunkt ausgew&auml;hlt sein.
+</p>
+
+<p>
+Hier ist ein Konstruktor f&uuml;r <code>JRadioButton</code>:
+(Es gibt weitere Konstruktoren, die hier nicht besprochen werden; sehen Sie dazu die Java Dokumentation.)
+</p>
+
+<pre class="code">
+JRadioButton( String text, boolean selected )
+</pre>
+
+<p>
+<code>text</code> ist der String, der neben den Button gestellt wird.
+Wenn  <code>selected</code> <code>true</code> ist,
+dann ist dieser Button zu Beginn ausgew&auml;hlt.
+Nur ein Button einer Buttongruppe kann zu Beginn ausgew&auml;hlt werden.
+<code>JRadioButton</code> ist eine Kindklasse von
+<code>JAbstractButton</code>.
+Radio-Buttons und <code>JButtons</code> haben viele Methoden gemeinsam.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage:) Erzeugt das Klicken auf einen Radio-Button einen
+Action-Event?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Beispielprogramm
+
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>ButtonGroup, class</INDEX>
+
+<div align="center">
+<img src="labeledPanels.gif"  alt="Ihr Idealgewicht">
+</div>
+
+<p>
+&Uuml;blicherweise werden Radio-Buttons einem Panel,
+das ihre Anordnung gestimmt, und einer Buttongruppe hinzugef&uuml;gt,
+die kontrolliert, welcher Button der aktive ist.
+Eine Buttongruppe ist ein Objekt und muss daher Konstruiert werden.
+Radio-Buttons werden ihr dann hinzugef&uuml;gt.
+Aber sie entspricht nicht direkt einer visuellen Ausgabe.
+</p>
+
+<p>
+Lassen Sie uns eine Applikation erzeugen,
+die das Idealgewicht einer Person (in Pfund)
+an Hand des Geschlechts und der K&ouml;rpergr&ouml;&szlig;e (Zoll) berechnet.
+Die Formel f&uuml;r diese Berechnung
+finden Sie bei den Programmieraufgaben.
+F&uuml;r jetzt lassen Sie uns die grafische Benutzeroberfl&auml;che betrachten
+Der folgende Code zeigt, wie eine Buttongruppe
+konstruiert wird, und, wie ihr Radio-Buttons hinzugef&uuml;gt werden.
+</p>
+
+<pre class="program">
+public class IdealWeight extends JFrame
+{
+  . . . .
+
+  public IdealWeight()
+  {
+    // konstruiert Radio-Buttons
+    genderM = new JRadioButton("Male", true );
+    genderF = new JRadioButton("Female", false );
+
+    // konstruiert eine Buttongruppe und f&uuml;gt ihr Buttons hinzu
+    genderGroup = <span style="color:blue">new ButtonGroup()</span>;
+    genderGroup.<span style="color:blue">add( genderM )</span>;
+    genderGroup.<span style="color:blue">add( genderF )</span>;
+    . . . . .
+  }
+}
+</pre>
+
+<p>
+Radio-Buttons erzeugen <em>Action-Events</em>
+und erfordern einen registrierten Action-Listener.
+Das ist das Gleiche, wie bei den <code>JButton</code>s.
+</p>
+
+<ol>
+<li>Verwenden Sie <code>setActionCommand()</code>,
+um jedem Button einen Befehlsstring zu zuweisen.</li>
+
+<li>Verwenden Sie <code>addActionListener()</code>,
+um einen Listener f&uuml;r jeden Button zu registrieren,
+gew&ouml;hnlich derselbe Listener f&uuml;r alle Buttons in einer Gruppe.</li>
+
+<li>Verwenden Sie <code>getActionCommand()</code>
+im Action-Listener, um zu bestimmen
+welcher Button gedr&uuml;ckt wurde.</li>
+</ol>
+
+<p>
+Unser Beispielprogramm &uuml;berl&auml;&szlig;t das den Programmieraufgaben.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wie viele Buttongruppen werden in dieser GUI verwendet? (Betrachten Sie die Abbildung.)
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Gender-Buttons
+
+
+<ANSWER>
+<p>
+Zwei.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="labeledPanels.gif"  alt="Ihr Idealgewicht">
+</div>
+
+<p>
+Hier ist der Teil des Programms
+f&uuml;r die Gender-Buttons.
+Die Buttons werden dem <code>genderPanel</code>,
+das ihre grafische Repr&auml;sentation auf dem Bildschirm kontrolliert,
+und der <code>genderGroup</code> hinzugef&uuml;gt,
+die ihre logische Bedienung kontrolliert.
+</p>
+
+<p>
+<code>BoxLayout</code> wird verwendet,
+um das Label und die zwei Radio-Buttons in eine vertikale Spalte zu stellen.
+Das <code>JLabel</code> wird in einer einzelnen Anweisung
+konstruiert und dem Panel hinzugef&uuml;gt.
+Das ist gut so, da es nicht n&ouml;tig ist &uuml;ber eine Variable
+auf das Label zu verweisen.
+</p>
+
+<form action="" >
+<pre class="program">
+public class IdealWeight extends JFrame
+{
+
+  JRadioButton genderM;
+  JRadioButton genderF;
+  ButtonGroup  genderGroup;
+  JPanel       genderPanel;
+  . . . .
+  public IdealWeight()
+  {
+    // Gender Gruppe
+    genderM = new JRadioButton("Male", true );
+    genderF = new JRadioButton("Female", false );
+
+    genderGroup = new ButtonGroup();
+    genderGroup.add( genderM );
+    genderGroup.add( genderF );
+
+    genderPanel = new JPanel();
+    genderPanel.setLayout( new BoxLayout( <input type="text" size="15" name="textA"> , <input type="text" size="15" name="textB"> ));
+
+    genderPanel.add( new JLabel("Your Gender") );
+    genderPanel.add( genderM );
+    genderPanel.add( genderF );
+   . . . . .
+</pre></form>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Entscheiden Sie &uuml;ber die Parameter f&uuml;r <code>BoxLayout</code>
+und f&uuml;llen Sie die L&uuml;cken aus.
+</p>
+
+<p>
+(Denken Sie daran, dass der Konstruktor eine Referenz auf die Komponente braucht,
+die den neuen Layoutmanager verwenden wird.)
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Height-Buttons
+
+<ANSWER>
+<pre class="code">
+genderPanel = new JPanel();
+genderPanel.setLayout( new BoxLayout(<span class="blue">genderPanel</span> , <span class="blue">BoxLayout.Y_AXIS</span>));
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="labeledPanels.gif"  alt="Ihr Idealgewicht">
+</div>
+
+<p>
+Hier ist der Codeabschnitt,
+der die Buttons f&uuml;r die K&ouml;rpergr&ouml;&szlig;e handhabt.
+Die Buttons werden dem
+<code>heightPanel</code> und der
+<code>heightGroup</code> hinzugef&uuml;gt.
+</p>
+
+<p>
+Ein Button der <code>heightGroup</code> wird
+als Default ausgew&auml;hlt.
+So wie bei den Gender-Buttons wird <code>BoxLayout</code>
+f&uuml;r das Panel verwendet,
+um das Label und die Buttons in eine Spalte zu stellen.
+</p>
+
+<br clear="all">
+
+<pre class="program">
+public class IdealWeight extends JFrame
+{
+  JRadioButton heightA;
+  JRadioButton heightB;
+  JRadioButton heightC;
+  JRadioButton heightD;
+  JRadioButton heightE;
+  ButtonGroup  heightGroup;
+  JPanel       heightPanel;
+
+  public IdealWeight()
+  {
+    // height group
+    heightA = new JRadioButton("60 to 64 inches",false);
+    heightB = new JRadioButton("64 to 68 inches",false);
+    heightC = new JRadioButton("68 to 72 inches",false);
+    heightD = new JRadioButton("72 to 76 inches",true );  // Defaultm&auml;&szlig;ig ausgew&auml;hlt
+    heightE = new JRadioButton("76 to 80 inches",false);
+
+    heightGroup = new ButtonGroup();
+    heightGroup.add( <input type="text" size="15" name="textC"> );
+    heightGroup.add( <input type="text" size="15" name="textD"> );
+    heightGroup.add( <input type="text" size="15" name="textE"> );
+    heightGroup.add( <input type="text" size="15" name="textF"> );
+    heightGroup.add( <input type="text" size="15" name="textG"> );
+
+    heightPanel = new JPanel();
+    heightPanel.setLayout( new BoxLayout(heightPanel,BoxLayout.Y_AXIS) );
+    heightPanel.add( new JLabel("Your Height") );
+    heightPanel.add( <input type="text" size="15" name="textH"> );
+    heightPanel.add( <input type="text" size="15" name="textI"> );
+    heightPanel.add( <input type="text" size="15" name="textJ"> );
+    heightPanel.add( <input type="text" size="15" name="textK"> );
+    heightPanel.add( <input type="text" size="15" name="textL"> );
+
+    . . . . .
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;gen Sie die Buttons der Buttongruppe und dem Panel hinzu.
+</p>
+
+<p>
+(Wenn Sie Kopieren und Einf&uuml;gen verwenden,
+ist das gar nicht so m&uuml;hsam, wie Sie vielleicht denken werden.)
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Result-Panel
+<ANSWER>
+<pre class="code">
+    heightGroup = new ButtonGroup();
+    heightGroup.add( <span class="blue">heightA</span> );
+    heightGroup.add( <span class="blue">heightB</span> );
+    heightGroup.add( <span class="blue">heightC</span> );
+    heightGroup.add( <span class="blue">heightD</span> );
+    heightGroup.add( <span class="blue">heightE</span> );
+    . . . . .
+    heightPanel = new JPanel();
+    . . . . .
+    heightPanel.add( <span class="blue">heightA</span> );
+    heightPanel.add( <span class="blue">heightB</span> );
+    heightPanel.add( <span class="blue">heightC</span> );
+    heightPanel.add( <span class="blue">heightD</span> );
+    heightPanel.add( <span class="blue">heightE</span> );
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+
+<div align="center">
+<img src="labeledPanels.gif"  alt="Your Ideal Weight">
+</div>
+
+<p>
+Die verbleibenden Komponenten werden in das
+<code>resultPanel</code> gestellt
+</p>
+
+<pre class="program">
+  JTextField   resultText;
+  JLabel       resultLabl;
+  JPanel       resultPanel;
+  . . .
+
+  public IdealWeight()
+  {
+    . . .
+
+    // Result-Panel
+    resultText  = new JTextField(7);
+    resultText.setEditable( false );
+    resultLabl  = new JLabel("Ideal Weight");
+    resultPanel = new JPanel();
+    resultPanel.add( resultLabl );
+    resultPanel.add( resultText );
+    . . .
+</pre>
+
+</LESSON>
+
+<QUESTION>
+
+<p>
+Was ist mit dem "Do It" Button passiert?
+</p>
+
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>BorderLayout
+<ANSWER>
+
+<p>
+Der "Do It" Button wird nicht ben&ouml;tigt.
+Die Applikation, wenn Sie sie schreiben,
+wird den Wert in der Textbox f&uuml;r das Idealgewicht
+&auml;ndern, sobald der Anwender auf die Radio-Buttons klickt.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+
+<img src="borderPicture.gif"  class="rightimage" alt="Border Layout">
+
+<div class="left">
+
+<INDEX>BorderLayout</INDEX>
+<p>
+<code>BorderLayout</code> ist ein h&auml;ufig verwendeter Layoutmanager.
+Der Container, den er managt, entspricht einem Rechteck auf dem Bildschirm.
+Dieses Rechteck wird in f&uuml;nf Regionen aufgeteilt:
+</p>
+
+<ul>
+<li><code>BorderLayout.NORTH</code>,</li>
+<li><code>BorderLayout.SOUTH</code>,</li>
+<li><code>BorderLayout.EAST</code>,</li>
+<li><code>BorderLayout.WEST</code>,</li>
+<li><code>BorderLayout.CENTER</code>.</li>
+</ul>
+
+<p>
+Jede Region darf nur <b>eine</b> Komponente enthalten,
+auch wenn diese Komponente ein Panel sein kann
+(und gew&ouml;hnlich auch ist).
+Das Panel kann mehrere Komponenten enthalten.
+Der Layoutmanager passt die Gr&ouml;&szlig;e der Regionen an,
+je nachdem, was sie enthalten.
+Sie m&uuml;ssen Komponenten nicht in jede Region stellen.
+Wenn eine Region keine Komponente enth&auml;lt,
+schrumpft sie zu einer kleinen Fl&auml;che.
+</p>
+
+<p>
+<code>BorderLayout</code> ist der Standard Layoutmanager der Klasse <code>JFrame</code>.
+(Vorherige Beispiel haben  <code>FlowLayout</code> verwendet,
+indem <code>setLayout()</code> aufgerufen wurde,
+um den Standard zu &auml;ndern.)
+</p>
+
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;gen Sie die drei Panels, <code>genderPanel</code>,
+<code>heightPanel</code>,
+und <code>resultPanel</code> dem Frame hinzu.
+Setzen Sie voraus, dass <code>BorderLayout</code> verwendet wird.
+</p>
+
+<form action="" >
+<pre class="code">
+// die Panels dem Frame hinzuf&uuml;gen
+setLayout( new BorderLayout() );
+add( genderPanel, BorderLayout.<input type="text" size="15" name="textM"> );
+add( heightPanel, BorderLayout.<input type="text" size="15" name="textN"> );
+add( resultPanel, BorderLayout.<input type="text" size="15" name="textO"> );
+</pre></form>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndige Benutzerschnittstelle
+
+<ANSWER>
+<pre class="code">
+// Add Panels to the Frame
+setLayout( new BorderLayout() );
+add( genderPanel, BorderLayout.<span class="blue">WEST</span> );
+add( heightPanel, BorderLayout.<span class="blue">EAST</span> );
+add( resultPanel, BorderLayout.<span class="blue">SOUTH</span> );
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Die nicht verwendeten Regionen (NORTH und CENTER) schrumpfen,
+um f&uuml;r die Regionen, die Komponenten enthalten, Platz zu schaffen.
+Hier ist die vollst&auml;ndige GUI f&uuml;r das Programm.
+Der Applikationscode, der das Idealgewicht berechnet,
+wurde f&uuml;r die Programmieraufgaben aufgehoben.
+</p>
+
+<INDEX>Layoutmanager, default for JFrame</INDEX>
+
+<pre class="program">
+import java.awt.* ;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class IdealWeight extends JFrame
+{
+  JRadioButton genderM, genderF;
+  ButtonGroup  genderGroup;
+  JPanel       genderPanel;
+
+  JRadioButton heightA, heightB, heightC, heightD, heightE;
+  ButtonGroup  heightGroup;
+  JPanel       heightPanel;
+
+  JTextField   resultText;
+  JLabel       resultLabl;
+  JPanel       resultPanel;
+
+  public IdealWeight()
+  {
+    setTitle( "Your Ideal Weight" );
+    setDefaultCloseOperation( EXIT_ON_CLOSE );
+
+    // Gender-Gruppe
+    genderM = new JRadioButton("Male", true );
+    genderF = new JRadioButton("Female", false );
+    genderGroup = new ButtonGroup();
+    genderGroup.add( genderM );
+    genderGroup.add( genderF );
+    genderPanel = new JPanel();
+    genderPanel.setLayout( new BoxLayout( genderPanel, BoxLayout.Y_AXIS ) );
+    genderPanel.add( new JLabel("Your Gender") );
+    genderPanel.add( genderM );  genderPanel.add( genderF );
+
+    // Height-Gruppe
+    heightA = new JRadioButton("60 to 64 inches", true );
+    heightB = new JRadioButton("64 to 68 inches", false );
+    heightC = new JRadioButton("68 to 72 inches", false );
+    heightD = new JRadioButton("72 to 76 inches", false );
+    heightE = new JRadioButton("76 to 80 inches", false );
+
+    heightGroup = new ButtonGroup();
+    heightGroup.add( heightA ); heightGroup.add( heightB );
+    heightGroup.add( heightC ); heightGroup.add( heightD );
+    heightGroup.add( heightE );
+
+    heightPanel = new JPanel();
+    heightPanel.setLayout( new BoxLayout( heightPanel, BoxLayout.Y_AXIS ) );
+    heightPanel.add( new JLabel("Your Height") );
+    heightPanel.add( heightA ); heightPanel.add( heightB );
+    heightPanel.add( heightC ); heightPanel.add( heightD );
+    heightPanel.add( heightE );
+
+    // Result-Panel
+    resultText  = new JTextField(7);
+    resultText.setEditable( false );
+    resultLabl  = new JLabel("Ideal Weight");
+    resultPanel = new JPanel();
+    resultPanel.add( resultLabl );
+    resultPanel.add( resultText );
+
+    // Frame: verwendet den Standard Layoutmanager
+    add( genderPanel, BorderLayout.WEST );
+    add( heightPanel, BorderLayout.EAST );
+    add( resultPanel, BorderLayout.SOUTH  );
+
+  }
+
+  public static void main ( String[] args )
+  {
+    IdealWeight weightApp  = new IdealWeight() ;
+    weightApp.setSize( 250, 225 );
+    weightApp.setResizable( false );
+    weightApp.setVisible( true );
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+K&ouml;nnten Sie ein &auml;hnliches Layout erzeugen,
+indem Sie <code>BoxLayout</code> f&uuml;r den Frame verwenden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die Klasse <code> Box </code>
+
+<ANSWER>
+<p>
+Ja. Platzieren Sie die zwei Button-Panels in ein Top-Panel.
+Verwenden Sie horizontales Layout f&uuml;r dessen Inhaltsbereich.
+F&uuml;gen Sie dann das Top-Panel und das Result-Panel dem Frame hinzu.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>Box, class</INDEX>
+<INDEX>createRigidArea()</INDEX>
+<INDEX>rigid area</INDEX>
+
+<p>
+Manchmal pressen Layoutmanager Komponenten in einer Art zusammen,
+die das Layout &uuml;berfrachtet aussehen lasssen.
+Die Klasse <code>Box</code> kann in dieser Situation helfen.
+Ein <code>Box</code>-Objekt ist ein &auml;hnlicher Container wie ein Panel,
+aber ihm fehlen manche Merkmale.
+Der Standard Layoutmanager von <code>Box</code> ist <code>BoxLayout</code>.
+Mehrere der vorherigen Beispielprogramm k&ouml;nnten umgeschrieben werden,
+indem sie <code>Box</code> an Stelle von <code>JPanel</code> verwenden.
+Das w&uuml;rde den Code leicht vereinfachen, da er sich eher auf den Standard
+ <code>BoxLayout</code> Manager verlassen w&uuml;rde, als speziell einen zu setzen.
+Konstruktoren f&uuml;r  <code>Box</code> sehen aus wie dieser:
+</p>
+
+
+<pre>
+public Box(int axis)
+
+    -- axis is one of: BoxLayout.X_AXIS, BoxLayout.Y_AXIS, (and a few others)
+</pre>
+
+<p>
+Die Klasse <code>Box</code>
+hat Methoden, die <i>unsichtbare</i> Komponenten erzeugen,
+die einem rechteckigen Bereich auf dem Bildschirm entsprechen.
+Diese k&ouml;nnen als <em>Platzhalter</em> verwendet werden,
+um die sichtbaren Komponenten zu trennen.
+Um eine unsichtbare Komponente mit fester Gr&ouml;&szlig;e zu erzeugen,
+verwenden Sie diese Methode:
+</p>
+
+<pre>
+Box.createRigidArea( new Dimension( int width, int height ) )
+</pre>
+
+<p>
+Der Parameter ist ein <code>Dimension</code>-Objekt,
+das wenig mehr tut als eine Breite und eine H&ouml;he zu halten.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage:) K&ouml;nnten <code>width</code> und <code>height</code>
+arithmetische Ausdr&uuml;cke sein?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Kleber (Glue)
+
+<ANSWER>
+<p>
+Ja ... gew&ouml;hnlich w&uuml;rden Sie arithmetische Ausdr&uuml;cke verwenden,
+die die aktuelle Gr&ouml;&szlig;e des Frames verwenden,
+um eine gef&auml;llige Gr&ouml;&szlig;e des Platzhalters zu berechnen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>glue</INDEX>
+<INDEX>getSize()</INDEX>
+
+
+<img src="glue.gif"  class="rightimage" alt="Glue">
+
+<div class="left">
+<p>
+Sie m&ouml;chten, dass der Leerraum in Ihrem Design w&auml;chst oder schrumpft,
+je nach der Gr&ouml;&szlig;e des Frames.
+Eine Komponente fester Gr&ouml;&szlig;e ist unflexibel.
+Alle GUI Komponenten haben eine <code>getSize()</code> Methode,
+die verwendet wird, um die Dimension einer Komponente zu bestimmen.
+Die Dimensionen k&ouml;nnen sich w&auml;hrend des Programmablaufs &auml;ndern,
+von daher ist das eine n&uuml;tzliche Methode.
+Um die aktuelle Gr&ouml;&szlig;e eines Frames zu bestimmen, verwenden Sie:
+</p>
+
+<pre>
+Dimension JFrame.getSize()
+</pre>
+
+<p>
+Dann betrachten Sie die <code>height</code> und <code>width</code> Felder des
+<code>Dimension</code>-Objekts.
+Verwenden Sie die Daten, um eine festen Bereich (Leerraum) von geeigneter Gr&ouml;&szlig;e zu erzeugen.
+Wenn das zu kompliziert ist, dann verwenden Sie <em>Glue</em>.
+</p>
+
+<p>
+Die <b>Kleber</b> Komponente (Glue) ist eine weitere unsichtbare Komponente,
+die die Klasse <code>Box</code> erzeugt.
+Stellen Sie sich Glue als dehnbare Fugenmasse zwischen Komponenten vor.
+Er h&auml;lt sie getrennt , aber schrumpft oder dehnt sich aus, wenn n&ouml;tig.
+</p>
+
+<p>
+Um Glue zu erzeugen, tun Sie eins der Folgenden:
+</p>
+
+<pre>
+Box.createHorizontalGlue()
+Box.createVerticalGlue()
+</pre>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wie wird eine Glue Komponente einem Container, wie einem Frame, hinzugef&uuml;gt?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Buttons in einer Box
+
+<ANSWER>
+<p>
+Mit der <code>add()</code> Methode, wie bei allen Komponenten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<div align="center">
+<img src="IdealGlue.gif"  alt="Buttons in einer Box">
+</div>
+
+<p>
+Das Beispielprogramm wurde modifiziert,
+so dass <code>Box</code>en verwendet werden anstatt Panels.
+Beide Sets der Radio-Buttons wurde den Boxen hinzugef&uuml;gt,
+dann wurden diese Boxen einer weiteren Box hinzugef&uuml;gt
+(im Code <code>ButtonBox</code> genannt),
+die eine horizontale Ausrichtung verwendet.
+Glue und feste Bereiche schaffen Leerraum zwischen einigen
+der Komponenten.
+</p>
+
+<pre class="program">
+import java.awt.* ;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class IdealGlue extends JFrame
+{
+  JRadioButton genderM, genderF;
+  ButtonGroup  genderGroup;
+  Box          genderBox;
+
+  JRadioButton heightA, heightB, heightC, heightD, heightE;
+  ButtonGroup  heightGroup;
+  Box          heightBox;
+
+  Box          ButtonBox;
+
+  JTextField   resultText;
+  JLabel       resultLabl;
+  JPanel       resultPanel;
+
+  public IdealGlue()
+  {
+    setTitle( "Your Ideal Weight" );
+    setDefaultCloseOperation( EXIT_ON_CLOSE );
+
+    // Gender-Gruppe
+    genderM = new JRadioButton("Male", true );
+    genderF = new JRadioButton("Female", false );
+    genderGroup = new ButtonGroup();
+    genderGroup.add( genderM );
+    genderGroup.add( genderF );
+
+    genderBox = new Box( BoxLayout.Y_AXIS );
+    genderBox.add( new JLabel("Your Gender") );
+    genderBox.add( Box.createRigidArea( new Dimension(1, 8) ) );
+    genderBox.add( genderM );
+    genderBox.add( genderF );
+    genderBox.add( Box.createRigidArea( new Dimension(1, 73) ) );
+
+    // Height-Gruppe
+    heightA = new JRadioButton("60 to 64 inches", true  );
+    heightB = new JRadioButton("64 to 68 inches", false );
+    heightC = new JRadioButton("68 to 72 inches", false );
+    heightD = new JRadioButton("72 to 76 inches", false );
+    heightE = new JRadioButton("76 to 80 inches", false );
+
+    heightGroup = new ButtonGroup();
+    heightGroup.add( heightA ); heightGroup.add( heightB );
+    heightGroup.add( heightC ); heightGroup.add( heightD );
+    heightGroup.add( heightE );
+
+    heightBox = new Box(BoxLayout.Y_AXIS);
+    heightBox.add( new JLabel("Your Height") );
+    heightBox.add( Box.createRigidArea( new Dimension(1, 8) ) );
+    heightBox.add( heightA ); heightBox.add( heightB );
+    heightBox.add( heightC ); heightBox.add( heightD );
+    heightBox.add( heightE );
+
+    // Button-Box
+    ButtonBox = new Box( BoxLayout.X_AXIS );
+    ButtonBox.add( Box.createHorizontalGlue() );
+    ButtonBox.add( genderBox );
+    ButtonBox.add( Box.createHorizontalGlue() );
+    ButtonBox.add( heightBox );
+    ButtonBox.add( Box.createHorizontalGlue() );
+
+    // Result-Panel
+    resultText  = new JTextField(7);
+    resultText.setEditable( false );
+    resultLabl  = new JLabel("Ideal Weight");
+    resultPanel = new JPanel();
+    resultPanel.add( resultLabl );
+    resultPanel.add( resultText );
+
+    // Frame
+    setLayout( new BoxLayout( getContentPane(), BoxLayout.Y_AXIS ) );
+    add( ButtonBox );
+    add( resultPanel );
+  }
+
+  public static void main ( String[] args )
+  {
+    IdealGlue weightApp  = new IdealGlue() ;
+    weightApp.setSize( 250, 225 );
+    weightApp.setResizable( false );
+    weightApp.setVisible( true );
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+K&ouml;nnte zus&auml;tzlicher Kleber verwendet werden,
+um die GUI weiter zu verbessern?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+
+<ANSWER>
+
+<p>
+Etwas Kleber oberhalb der Spalten&uuml;berschriften und zwischen der Button-Box
+und dem Result-Panel k&ouml;nnten das Aussehen verbessern.
+Oder vielleicht auch nicht.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Sie haben das Ende des Kapitels erreicht,
+aber sind am Bildschirm fest geklebt.
+Sie m&ouml;chten sicher das Folgende noch einmal durchsehen.
+Klicken Sie auf ein Thema, das Sie interessiert, um dahin zu gehen, wo es besprochen wurde.
+</p>
+
+<ul>
+<li>
+<GOTO>JRadioButton</GOTO>Radio-Buttons
+</li>
+
+<li>
+<GOTO>ButtonGroup, class</GOTO>Button-Gruppen
+</li>
+
+<li>
+<GOTO>BorderLayout</GOTO>BorderLayout
+</li>
+
+<li>
+Die
+<GOTO>Box, class</GOTO>Box
+Klasse
+</li>
+
+<li>
+<GOTO>createRigidArea()</GOTO>Feste Bereiche (Rigid Area)
+</li>
+
+<li>
+<GOTO>glue</GOTO>Kleber (Glue)
+</li>
+
+</ul>
+
+</LESSON>
+
+</CAI>
+
+</CHAPTER>

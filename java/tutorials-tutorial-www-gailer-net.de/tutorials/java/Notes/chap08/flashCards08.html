@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" >
+
+<!--  INSTRUCTIONS FOR MAKING YOUR OWN FLASH CARDS:
+
+<p>
+1.  Modify this file with a text editor, such as Notepad.
+
+2.  Each card consists of a questions[] answers[] pair.
+
+3.  The cards are numbered from 0 to N-1.
+
+4.  For each questions[] line, enter a question between the quote marks
+      (replacing what is already there.)  Keep everything on one line.
+
+8.  For its answers[] line, enter the answer between the quote marks
+      (replacing what is already there.)  Keep everything on one line.
+
+9.  Delete any extra pairs you don't need, or add extra ones as needed.
+      (Use the editor's cut, copy, and paste to make this easy.)
+      Number added cards following the pattern of the first ones.
+
+10. Change the line var numCards  = N to the number of cards you now have.
+      (Example: if you have 10 cards, they will be numbered 0 to 9 and
+      var NumCards = 10)
+
+11. Save the file.  Use a file name like "flashCards.html"  .
+
+12. Use the flash cards by clicking on the file name, or by opening them in
+    your browser.
+
+-->
+
+<html>
+<head>
+<meta  http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="author" content="kjell at ieee dot org">
+<meta name="copyright" content="2008">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+<meta name="robots" content="index,follow">
+<meta name="robots" content="noindex,nofollow">
+
+<title>Vokabeltraining f&uuml;r Kapitel 8</title>
+
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+  var numCards  = 30                        // change this to the number of cards
+  var questions = new Array(numCards)
+  var answers   = new Array(numCards)
+  var asked     = new Array(numCards)
+  var qNumber
+
+  // The flash cards start here
+  questions[0] = "Wie viele Bits hat ein Byte ?"
+  answers  [0] = "8 "
+
+  questions[1] = "Wie viele Bytes verwendet der Datentyp byte ?"
+  answers  [1] = "1 "
+
+  questions[2] = "Wie viele Bytes verwendet der Datentyp short ?"
+  answers  [2] = "2"
+
+  questions[3] = "Wie viele Bytes verwendet der Datentyp int ?"
+  answers  [3] = "4"
+
+  questions[4] = "Wie viele Bytes verwendet der Datentyp long ?"
+  answers  [4] = "8"
+
+  questions[5] = "Wie viele Bytes verwendet der Datentyp char ?"
+  answers  [5] = "2"
+
+  questions[6] = "Wie viele Bytes verwendet der Datentyp float ?"
+  answers  [6] = "4"
+
+  questions[7] = "Wie viele Bytes verwendet der Datentyp double ?"
+  answers  [7] = "8"
+
+
+  questions[8] = "Welchen Wertebereich kann der Datentyp byte darstellen ?"
+  answers  [8] = "-128 bis +127"
+
+  questions[9] = "Welchen Wertebereich kann der Datentyp short darstellen ?"
+  answers  [9] = "-32,768 bis +32,767 (ungefähr -32K bis +32K)"
+
+  questions[10] = "Welchen Wertebereich kann der Datentyp int darstellen ?"
+  answers  [10] = "etwa -2 Milliarden bis etwa  +2 Milliarden "
+
+  questions[11] = "Welchen Datentyp hat das Literal: 401.23 ?"
+  answers  [11] = "double "
+
+  questions[12] = "Welchen Datentyp hat das Literal: 401.23F ?"
+  answers  [12] = "float "
+
+  questions[13] = "Welchen Datentyp hat das Literal: 8072 ?"
+  answers  [13] = "int "
+
+  questions[14] = "Welchen Datentyp hat das Literal: 8072L ?"
+  answers  [14] = "long "
+
+  questions[15] = "Welchen Datentyp hat das Literal: 12.6E+3 ?"
+  answers  [15] = "double "
+
+  questions[16] = "Welchen Datentyp hat das Literal: 'A' ?"
+  answers  [16] = "char (da einfache Hochkommatas)"
+
+  questions[17] = "Welchen Datentyp hat das Literal: \"reingelegt\" ?"
+  answers  [17] = "String (ist kein primitiver Datentyp) "
+
+  questions[18] = "Welchen Datentyp hat das Literal: \"B\" ?"
+  answers  [18] = "String (kein char, da doppelte Anführungszeichen) "
+
+  questions[19] = "Welchen Datentyp hat das Literal: 32D ?"
+  answers  [19] = "double "
+
+  questions[20] = "Welche zwei Arten von Daten gibt es in Java ?"
+  answers  [20] = "Objekte und primitive Daten "
+
+  questions[21] = "Welcher Datentyp enthält true/false Werte ?"
+  answers  [21] = "boolean "
+
+  questions[22] = "Welchen Datentyp hat das Literal: \"\" ?"
+  answers  [22] = "String (Leerstring)"
+
+  questions[23] = "Wie lautet eine andere Bezeichnung für eine Dezimalzahl ?"
+  answers  [23] = "Gleitpunktzahl (floating point) "
+
+  questions[24] = "Ist das folgende double-Literal korrekt: 92,345.01 ?"
+  answers  [24] = "Nein (das Komma ist nicht erlaubt)"
+
+  questions[25] = "Wie viele Dezimalstellen beträgt ungefähr die Genauigkeit von float ?"
+  answers  [25] = "8 "
+
+  questions[26] = "Wie viele Dezimalstellen beträgt ungefähr die Genauigkeit von double ?"
+  answers  [26] = "15 "
+
+  questions[27] = "Was stellt das folgende Literal dar: '\\n' ?"
+  answers  [27] = "Das Zeichen Newline"
+
+  questions[28] = "Welche Wrapperklasse gehört zu dem Datentyp double?"
+  answers  [28] = "Double "
+
+  questions[29] = "Wie heißt der englische Begriff für eine Sprache, in der Groß- und Kleinschreibung unterschieden wird ?"
+  answers  [29] = "case sensitive "
+
+
+  // If you are making your own flashcards, do not modify anything below this line.
+
+
+
+  // Initialize Variables
+
+  var state    = 0  // state 0 is question, state 1 is answer,
+                    // state 2 is grade,    state 7 is final
+
+  for ( var j=0; j < asked.length; j++ ) asked[j] = 0
+
+function questionClick()
+{
+  var txt
+  var coin
+
+  if ( state == 0 )
+  {
+
+    coin = Math.floor( Math.random()*questions.length )
+    qNumber = coin
+
+    while ( asked[qNumber] == 1 && ((qNumber+1)%questions.length) != coin )
+      qNumber = (qNumber+1)%questions.length
+
+    if ( ((qNumber+1)%questions.length) == coin )
+    {
+      state = 7
+      txt = "Sie haben alle Vokabelkarten durchgearbeitet\n"
+
+      txt +=  "Anzahl der Fragen: " + document.aForm.count.value + "\n"
+      txt +=  "Anzahl der richtigen Fragen: " + document.aForm.numRight.value + "\n"
+      txt +=  "Prozent der richtigen Fragen: " +
+          Math.round((document.aForm.numRight.value*100)/document.aForm.count.value) + "\n"
+      document.aForm.questionArea.value = txt
+    }
+
+    else
+    {
+      state = 1
+      document.aForm.count.value++;
+      document.aForm.Counter.value = " " + document.aForm.count.value
+
+      document.aForm.questionArea.value  =  questions[qNumber] + "\n"
+      document.aForm.answerArea.value = " "
+    }
+
+  }
+}
+
+function answerClick()
+{
+  if ( state == 1 )
+  {
+    state = 2
+    document.aForm.answerArea.value =  answers[qNumber]
+  }
+}
+
+function rightClick()
+{
+  if ( state == 2 )
+  {
+    state = 0
+    document.aForm.numRight.value++
+    document.aForm.Right.value = " " + document.aForm.numRight.value
+    document.aForm.Wrong.value = " " + document.aForm.numWrong.value
+    asked[qNumber] = 1
+  }
+}
+
+function wrongClick()
+{
+  if ( state == 2 )
+  {
+    state = 0
+    document.aForm.numWrong.value++
+    document.aForm.Right.value = " " + document.aForm.numRight.value
+    document.aForm.Wrong.value = " " + document.aForm.numWrong.value
+  }
+}
+//-->
+
+
+</SCRIPT>
+</head>
+
+<body>
+<p class="revisions">&uuml;bersetzt: 27.02.03 &uuml;berarbeitet: 04.07.03, 29.06.06, 11.10.10;  Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<center>
+<h1>Vokabeltraining - Primitive Datentypen</h1>
+</center>
+
+<FORM name="aForm">
+<center>
+<textarea name="questionArea" rows="5" cols="70" wrap="physical">
+Hinweise:
+Schritt 1: Klicken Sie auf den Button &quot;1. Frage stellen&quot;, um die Frage zu sehen.
+Beantworten Sie f&uuml;r sich die Frage.
+</textarea>
+
+<textarea name="answerArea" rows="6" cols="70" wrap="physical">
+Schritt 2: Klicken Sie auf den Button &quot;2. Antwort zeigen&quot;, um die richtige Antwort zu sehen.
+Schritt 3: Bewerten Sie dann Ihre Antwort, indem Sie auf &quot;Richtig&quot; oder &quot;Falsch&quot; klicken. Wiederholen Sie die Schritte 1 bis 3.
+</textarea>
+
+<p>
+Bisher gestellte Fragen
+&nbsp;&nbsp;
+<input type=text name="Counter" size=5 value="">
+&nbsp;&nbsp;
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="Right" size=5 value="">
+&nbsp;&nbsp;
+Falsche Antworten:
+&nbsp;&nbsp;
+<input type=text name="Wrong" size=5 value="">
+</p>
+
+<INPUT TYPE="button"
+  name="questionButton"
+  value="1. Frage stellen"
+  onClick="questionClick()">
+
+&nbsp;
+
+<INPUT TYPE="button" NAME="answerButton"
+  value="2. Antwort zeigen"
+  onClick="answerClick()">
+
+&nbsp;
+
+<INPUT TYPE="button" NAME="rightButton"
+  VALUE="3. Richtig"
+  onClick="rightClick()">
+
+oder
+
+<INPUT TYPE="button" NAME="wrongButton"
+  VALUE="3. Falsch"
+  onClick="wrongClick()">
+
+<input type="hidden" name="numRight" value="0">
+<input type="hidden" name="numWrong" value="0">
+<input type="hidden" name="count" value="0">
+</center>
+</FORM>
+
+<hr>
+<p>
+<b>Hinweise:</b> &nbsp;
+Klicken Sie auf den Button &quot;1. Frage stellen&quot;, um die Frage zu sehen.
+Beantworten Sie f&uuml;r sich die Frage.
+Klicken Sie auf den Button &quot;2. Antwort zeigen&quot;, um die richtige Antwort zu sehen.
+Bewerten Sie dann Ihre Antwort, und klicken Sie auf &quot;Richtig&quot; oder &quot;Falsch&quot;.
+Wiederholen Sie die Schritte 1 bis 3.
+</p>
+
+<p>
+Falsche Antworten werden wieder verwendet. Die richtig beantworteten Fragen werden aus dem Stapel der Karteikarten entfernt. Das Programm endet, wenn alle Fragen richtig beantwortet sind.
+</p>
+
+<hr>
+
+<p>Zur&uuml;ck zum  <a href="../../index.html#08">Inhaltsverzeichnis</a>.</p>
+
+<p>
+<font size=-1>Wenn Sie sich eine eigene Vokabel&uuml;bung erstellen m&ouml;chten, speichern Sie die Datei ab. &Ouml;ffnen Sie dann die Datei mit Ihrem Texteditor (bzw. HTML Editor) und folgen Sie den Anweisungen.</font>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>Kapitel 59  Programmieraufgaben</title>
+<meta name="copyright" content="2010,  Heinrich Gailer">
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css">
+</head>
+
+<body>
+<p class="revisions">erstellt 25.06.99; &uuml;bersetzt 07.02.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+<h1>Kapitel 59 Programmieraufgaben</h1>
+
+<h2>Aufgabe 1 &#8212; Vier Buttons</h2>
+
+<p>
+Passen Sie das Programm <code>ZweiButtons</code> so an,
+dass es vier Buttons hat: einen roten, einen gr&uuml;nen, einen blauen
+und einen grauen.
+Das Anklicken eines Buttons &auml;ndert die Farbe des zugeh&ouml;rigen Frames.
+Das Programm wird wie folgt aussehen, wenn der gr&uuml;ne Button angeklickt wurde:
+</p>
+
+<center>
+<img src="fourButtonsPic.jpg">
+</center>
+
+<p>
+Eine vern&uuml;nftige M&ouml;glichkeit das zu tun ist: Kopieren Sie das Beispielprogramm
+aus diesem Kapitel und modifizieren Sie es.<p>
+
+<p>Eine <i>richtige Herausforderung</i> ist es das Programm von Grund auf zu schreiben.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#59">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+<h2>Aufgabe 2 &#8212; Farbkreis</h2>
+
+<p>
+Schreiben Sie ein Programm, dass nur einen Button in dem Frame hat.
+Das Anklicken des Buttons kreist durch die Farben: rot --&gt; gr&uuml;n --&gt;
+blau --&gt; grau --&gt; rot&nbsp; und so weiter. Je Klick wird eine Farbe
+ge&auml;ndert.
+Zus&auml;tzlich zur <code>setBackground( Color.color )</code> Methode,
+die wir verwendet haben,
+werden Sie die <code>Color getBackground()</code> Methode brauchen,
+um die aktuelle Farbe zu bekommen.
+</p>
+
+<p>
+Eine andere M&ouml;glichkeit das zu tun (ein etwas umst&auml;ndlicherer Weg),
+ist die Verwendung einer Instanzvariablen (vom Typ Color) im Frame,
+um die aktuelle Farbe zu halten.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#59">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 3 &#8212; Drei-Button-Monte</h2>
+
+<p>
+Schreiben Sie ein Programm, dass das folgende Spiel implementiert:
+</p>
+
+<blockquote>
+Es gibt drei Buttons in einem Frame.
+Zwei der Buttons werden das Programm mit der Methode
+<code>System.exit(0)</code> beenden.
+Der verbleibende Button wird die Farbe des Frames auf gr&uuml;n (Gewinn) setzen.
+Der Gewinnbutton wird jedes Mal neu gesetzt, wenn das Spiel gespielt wird.
+</blockquote>
+
+
+<p>
+Der einfache Weg, das zu tun (obwohl es wie Betrug aussieht),
+ist es jeden Button auf die gleiche Weise zu behandeln.
+
+Die <code>actionPerformed()</code> Methode
+wird noch nicht einmal pr&uuml;fen welcher Button angeklickt wurde.
+
+Sie wird eine Zufallszahl, einen Integer zwischen 0 und 2, ermitteln
+und, wenn die 0 kommt, die Gewinn-, andererseits
+die Verlustaktion durchf&uuml;hren.</p>
+
+<p>Das ist &auml;hnlich wie in Casinos manche Gl&uuml;cksspielautomaten funktionieren,
+die dem Spieler suggerieren, das es Gewinnz&uuml;ge gibt.
+Aber tats&auml;chlich ignoriert die Maschine, was der Spieler tut, und weist einen
+Gewinn nur nach vorher festgelegten Wahrscheinlichkeitsquoten hin und wieder
+an.
+
+Sie werden die <code>Random</code>-Klasse brauchen:
+</p>
+
+<blockquote>
+<pre>
+Random rnd = new Random(); // ein Random-Objekt erzeugen
+
+. . .
+
+int zufallszahl = rnd.nextInt( 3 );  // erzeugt eine Zufallszahl zwischen  0 und 2
+</pre>
+</blockquote>
+
+
+<p>Zur&uuml;ck zum <a href="../../index.html#59">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 4 &#8212; Gewinnserie</h2>
+
+<p>
+Ver&auml;ndern Sie das Programm aus Aufgabe 3,
+so dass nur ein Button das Programm beendet.
+Wenn der Anwender einen der anderen Buttons anklickt,
+dann &auml;ndert der Frame nur seine Farbe.
+Der Anwender f&auml;hrt fort zu klicken, bis der Verlustbutton angeklickt wird.
+
+Das Ziel des Anwenders ist es so oft wie m&ouml;glich einen Button anzuklicken.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#59">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 5 &#8212; Zahlenschloss</h2>
+
+<p>
+Erzeugen Sie einen Frame mit 10 Buttons, beschriftet von 0 bis 9.
+Um das Programm zu beenden,
+m&uuml;ssen drei Buttons in der richtigen Reihenfolge angeklickt werden,
+wie z.B. 7-3-5.
+Wenn die falsche Kombination verwendet wird,
+wird der Frame rot.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#59">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 6  &#8212;   Vergr&ouml;&szlig;ern- und Verkleinern-Button</h2>
+
+
+<p>
+Erzeugen Sie einen Frame mit zwei Buttons, beschriftet als
+<em>Vergr&ouml;&szlig;ern</em> und <em>Verkleinern</em>.
+Wenn der <em>Vergr&ouml;&szlig;ern</em>-Button angeklickt wird,
+wird der Frame um 10 Prozent vergr&ouml;&szlig;ert.
+Wenn der <em>Verkleinern</em>-Button angeklickt wird,
+wird der Frame um 10 Prozent verkleinert.
+</p>
+
+<p>Tun Sie das in der <code>actionPerformed()</code> Methode,
+indem Sie <code>setSize()</code> verwenden.
+
+Verfolgen Sie die aktuelle Gr&ouml;&szlig;e des Frames mit zwei
+Instanzvariablen vom Typ <code>int</code>.
+
+Wenn Sie sie um 10 Prozent vergr&ouml;&szlig;ern oder verkleinern,
+m&uuml;ssen Sie Integer-Arithmetik verwenden
+oder eine Typumwandlung vornehmen.
+</p>
+
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#59">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<p>Ende der Aufgaben.</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

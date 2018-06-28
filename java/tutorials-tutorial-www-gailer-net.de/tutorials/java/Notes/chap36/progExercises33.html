@@ -1,0 +1,244 @@
+<html>
+<head>
+<title>Programming Exercises</title>
+</head>
+<body BGCOLOR="#e8e8e8"><hr size=5>
+<font size=-1><b>created 09/24/99</b></font>
+<hr size=5>
+<center><h1><font color=blue> 
+Chapter 33  Programming Exercises</font></h1></center>
+
+<h2>Exercise 1: Immutable Box </h2>
+<p>
+Implement a class <em>Box</em> similar to the class in
+a previous review exercise.
+But the new implementation of <em>Box</em> will have better
+encapsulation.
+Here is the documentation for  <em>Box</em>:
+<blockquote>
+<b>class Box</b>
+<p>
+A class that implements a cardboard box.
+</p>
+<p>
+<b>Constructors</b>
+</p>
+<p>
+Box ( double width, double height, double length )
+</p>
+<p>
+Box ( double side )
+</p>
+<p>
+<b>Methods</b>
+</p>
+<p>
+double volume()
+</p>
+double area()
+<p>
+</blockquote>
+</p>
+<p>
+Look at the previous programming exercise 
+for more discussion and for code which
+easily can be modified for this and the next two exercises.
+</p>
+<p>
+In the current implementation of <em>Box</em> make all the
+instance variables <em>private</em>.
+This means that only methods of a <em>Box</em> object can
+see that object's data.
+The object will be <em>immutable</em>
+if there are no access methods that make changes to this
+data.
+ An <em>immutable</em> object is one whose data does not
+change.
+You may remember that <em>String</em> objects are immutable---once
+the characters of the <em>String</em> are set with a constructor
+they never change (although they can be used to create other <em>String</em> objects.)
+There are many advantages to using immutable objects,
+especially when programming with threads (which is how nearly all big programs
+are written.)
+</p>
+Give <em>public</em> access to the methods of <em>Box</em>.
+<p>
+</p>
+
+<p>
+Test your <em>Box</em> class with several versions of this program:
+
+<blockquote><pre>
+import Box;
+class BoxTester
+{
+
+  public static void main ( String[] args )
+  {
+     Box box = new  Box( 2.5, 5.0, 6.0 ) ;
+
+     System.out.println( "Area: "  + box.area() + " volume: " + box. volume() );
+
+     System.out.println( "length: " + box.length + " height: " + box. height +
+                         "width:  " + box.width )  ;
+
+  }
+}
+</blockquote></pre>
+(The above program will not compile, which is what you want.  
+Reflect on why it does not compile and fix it so that it does.)
+
+<A HREF="../../cs151java.html#part4">Click here </A> to go back to the main menu.
+<hr>
+
+<h2>Exercise 2: Private Methods for <em>Box</em> </h2>
+<p>
+The implementation of <em>area()</em> given in the previous review exercise is
+probably reasonable for the <em>Box</em> class.
+But to practice <em>private</em> methods write it like this:
+<blockquote><pre>
+  double area()
+  {
+    return 2 * faceArea() + 2 * topArea() + 2 * sideArea() ;              
+  }
+</blockquote></pre>
+In this,
+<em>faceArea()</em>,
+<em>topArea() </em>, and
+<em>sideArea()</em>
+are <em>private</em> methods that calculate the area of
+the front face, the top and the side of the box.
+You will have to add them to your class.
+Often private methods are "helping" methods that the public methods use,
+but are not to be used outside the class.
+Test your program with several versions of the following:
+<blockquote><pre>
+import Box;
+class BoxTester
+{
+
+  public static void main ( String[] args )
+  {
+     Box box = new  Box( 2.5, 5.0, 6.0 ) ;
+
+     System.out.println( "Area: "  + box.area() + " volume: " + box. volume() );
+     System.out.println( "topArea: "  + box.topArea() );
+
+  }
+}
+</blockquote></pre>
+(The above program will not compile, as expected.)
+</p>
+<A HREF="../../cs151java.html#part4">Click here </A> to go back to the main menu.
+<hr>
+
+<h2>Exercise 3: Box Constructor and Access Methods</h2>
+<p>
+Add a new constructor to the <em>Box</em> class:
+<blockquote><pre>
+Box( Box oldBox )
+</blockquote></pre>
+This constructor creates a new <em>Box</em> object with identical dimensions as the
+old <em>Box</em> object.
+Of course, the old object is not changed. 
+</p>
+Now add some <em>access methods</em>.
+An <em>access method</em> is a method that can be used to access the
+private variables (and other variables) of an object:
+<blockquote><pre>
+public double length()
+public double height()
+public double width()
+</blockquote></pre>
+Each of these methods merely returns the value of one instance variable.
+Since the object is immutable,
+there will be no access methods that alter the instance variables.
+Test you program with modifications of the previous testing class.
+<p>
+<hr>
+
+<h2>Exercise 4: Bigger Boxes </h2>
+<p>
+It would be nice to create a box that is bigger than a given box.
+Write this method:
+<blockquote><pre>
+public Box biggerBox( Box oldBox )
+</blockquote></pre>
+This is a <em>public</em> method that returns (evalutes to) a
+reference to a new <em>Box</em>.
+The new <em>Box</em> will be 25% larger in each dimension that
+the old box.
+The method will have to use a constructor inside of it to create
+the new box:
+<blockquote><pre>
+public Box biggerBox( Box oldBox )
+{
+
+  return Box( 1.25*oldBox.width(), ...... )
+}
+</blockquote></pre>
+</p>
+<p>
+Now write a method that returns a box that is 25% <em>smaller</em> in
+every dimension than a given box.
+As usual, write a testing program that exercises your class.
+</p>
+<A HREF="../../cs151java.html#part4">Click here </A> to go back to the main menu.
+<hr>
+
+
+<h2>Exercise 5: Nesting Boxes </h2>
+<p>
+Write a method that evaluates to <em>true</em> or <em>false</em>
+depending on whether one box completely fits inside another:
+<blockquote><pre>
+public boolean nests( Box outsideBox, Box insideBox )
+</blockquote></pre>
+This is potentially a difficult method, since the
+inside box may fit or not fit depending on how it
+is rotated.
+To simplify the method,
+write it so that it returns <em>true</em> if the
+two boxes nest without considering rotations
+(so height is compared to height, length compared to length,
+and so on.)
+</p>
+<A HREF="../../cs151java.html#part4">Click here </A> to go back to the main menu.
+<hr>
+
+<h2>What to turn in:</h2>
+<p>
+If this were an assignment in a regular class you might be asked to turn in
+the following:
+<OL>
+<LI>Neatly written documentation of the final version of your class.
+    <UL>
+    <LI>Write the documentation in the style given at the top of this page,
+        similar in style to most Java class documentation.
+    <LI>Short comments describe each method and constructor.
+    <LI>Private instance variables and private methods are not mentioned in
+        this documentation.  The documentation is supposed to describe the
+        <em>interface</em> to users of the class.
+    </UL>
+<LI>The source code for the final implementation of the class.
+    <UL>
+    <LI>Comments at the top of the souce describe what it is, who wrote it,
+        when it was written, and what is debugging status is.
+    <LI>Short comments are used to explain each method and some statements.
+    <LI>Indenting and blank lines must be used to show the structure and
+        organization of the class.
+    </UL>
+<LI>Source code and output for several small programs that test the various
+    features of the class.
+</OL>
+<p>
+Often, putting together the material to turn in is a substantial part of the
+work.
+This is good practice for the "real world."
+</p>
+
+End of the Exercises
+</p>
+<hr>
+</body>
+</html>

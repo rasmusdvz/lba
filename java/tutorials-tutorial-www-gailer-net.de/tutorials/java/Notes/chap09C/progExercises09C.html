@@ -1,0 +1,200 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="copyright" content="2006,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee  dot org ">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+<meta name="robots" content="noindex,nofollow">
+<title>Programmieraufgaben</title>
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css">
+
+</head>
+
+<body>
+
+<p class="revisions">erstellt 28.01.06; &uuml;bersetzt 12.04.10; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+
+<h1 style="text-align:center;">Kapitel 9C  Programmieraufgaben</h1>
+
+<p>
+<strong>Allgemeine Hinweise:</strong>
+Schreiben Sie jedes Programm wie angegeben. Keines dieser Programme erwartet die Eingabe von Daten durch den Anwender. Die Werte, die von den Programmen verwendet werden, sind durch Deklaration und Zuweisungsanweisungen  fest kodiert. Das ist normalerweise eine schlechte Form der Programmierung, aber gut genug f&uuml;r jetzt.
+</p>
+
+<hr>
+
+<h2>Aufgabe 1 &#8212; Objekte, erzeugt zur Laufzeit</h2>
+
+<p>
+Schreiben Sie ein Programm, dass ein <code>String</code>-Objekt erzeugt, das den String
+&quot;Hello World&quot; (oder anderen String enth&auml;lt). Weisen Sie die Referenz auf das Objekt einer Referenzvariablen zu, vielleicht <code>str1</code>. Geben Sie jetzt die Zeichen auf den Bildschirm aus:
+</p>
+
+<pre>
+System.out.println( str1 );
+</pre>
+
+<p>
+F&uuml;hren Sie das Programm aus, um sicher zu gehen, dass es so funktioniert, wie Sie es erwarten. F&uuml;gen Sie jetzt eine zweite Referenzvariable hinzu, aber erzeugen Sie f&uuml;r diese kein Objekt, auf das sie verweist. F&uuml;gen Sie eine Anweisung hinzu, die diese zweite Variable verwendet, als wenn sie eine g&uuml;ltige Objektreferenz enthalten w&uuml;rde.
+F&uuml;hren Sie das Programm aus und sehen Sie was passiert:
+</p>
+
+<pre>
+System.out.println( zweiteVariable );
+</pre>
+
+<p>
+Experimentieren Sie ein bisschen mit dem Programm, um die Vorstellung in Ihrem Kopf zu zementieren, dass ein Objekt und dessen Referenzvariable zwei verschiedene Dinge sind und, dass ein Objekt zur Laufzeit erzeugt wird.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#09C">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 2 &mdash; Stringl&auml;nge</h2>
+
+<p>
+Kompilieren und f&uuml;hren Sie das Programm <code>StringDemo2</code> dieses Kapitels aus.
+</p>
+
+<pre class="program">
+class StringDemo2
+{
+  public static void main ( String[] args )
+  {
+    String str;
+    int    len;
+
+    str = new String( "Elementary, my dear Watson!" );
+
+    len = str.length();
+
+    System.out.println("Die Laenge ist: " + len );
+
+  }
+}
+</pre>
+
+<p>
+&Auml;ndern Sie jetzt den <code>String</code> auf verschiedene Weise und beobachten die Auswirkung auf die berechnete Stringl&auml;nge. F&uuml;gen Sie zus&auml;tzliche Leerzeichen auf beiden Seiten des Strings und innerhalb des Strings hinzu; f&uuml;gen Sie weitere Satzzeichen hinzu; f&uuml;gen Sie ein Tab-Zeichen ein (ein richtiges Tab-Zeichen, nicht einfach Leerzeichen). Beachten Sie, das die L&auml;nge des Strings &quot;MMMMMM&quot; die gleiche ist wie von &quot;iiiiii&quot;.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#09C">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 3 &mdash; Eine <code>String</code>-Methode, die einen neuen <code>String</code> erzeugt</h2>
+
+<p>
+Es ist oft n&uuml;tzlich unn&ouml;tige Leerzeichen auf beiden Seiten des Strings zu entfernen.
+Die <code>trim()</code> Methode des <code>String</code>-Objekts tut das.
+Sie erzeugt ein <em>neues</em> <code>String</code>-Objekt aus einem Bestehenden. Dabei hat das neue <code>String</code>-Objekt alle Zeichen des Originals, bis auf  die Leer- und Tab-Zeichen auf beiden Seiten, die entfernt wurden.
+Der urspr&uuml;ngliche <code>String</code> wird nicht ge&auml;ndert. Zum Beispiel, nachdem die folgenden Anweisungen ausgef&uuml;hrt wurden
+</p>
+
+<pre>
+String erster = new String(&quot;    In einem Loch    in der Erde, da lebte ein Hobbit.   &quot;);
+String zweiter;
+
+zweiter = erster.trim();
+</pre>
+
+<p>
+gibt es ein zweites Objekt auf das <code>zweiter</code> verweist, das die Zeichen
+</p>
+
+<pre>
+&quot;In einem Loch    in der Erde, da lebte ein Hobbit.&quot;
+</pre>
+
+<p>
+enth&auml;lt. Beachten Sie, dass die inneren zus&auml;tzlichen Leerzeichen erhalten bleiben.
+</p>
+
+<p>
+Schreiben Sie ein Programm (oder modifizieren Sie das vorherige), das einen
+<code>String</code> erzeugt, indem es <code>trim()</code> eines urspr&uuml;nglichen Strings aufruft. Geben Sie beide Strings auf den Bildschirm aus.
+Experimentieren Sie mit Leer- und Tab-Zeichen, um festzustellen, was vom Original entfernt wird.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#09C">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 4 &mdash; Experimentieren Sie mit <code>substring()</code> </h2>
+
+<p>
+Kompilieren und f&uuml;hren Sie das Programm aus diesem Kapitel (siehe unten) aus, um zu best&auml;tigen, dass es funktioniert. &Auml;ndern Sie dann die 8 in einen anderen Wert und &uuml;berpr&uuml;fen Sie, ob das Ergebnis das ist, was Sie erwarten.
+</p>
+
+<pre class="program">
+class StringDemo3
+{
+  public static void main ( String[] args )
+  {
+    String str = new String( "Golf is a good walk spoiled." ); // erzeuge das originale Stringobjekt
+
+    String sub = str.substring(8); // erzeuge ein neues Objekt aus dem Original
+
+    System.out.println( sub );
+
+  }
+}
+</pre>
+
+<p>
+<code>String</code>-Objekte haben noch eine andere Version der <code>substring()</code> Methode, die wie folgt aussieht:
+</p>
+
+<pre>
+substring( int startIndex, int endIndex )
+</pre>
+
+<p>
+Diese Methode erzeugt ein neues <code>String</code>-Objekt basierend auf dem urspr&uuml;nglichen Objekt, das aber nur die Zeichen enthalten wird, die
+mit <code>startIndex</code> beginnen und mit <code>endIndex</code> enden. Sie erzeugt ein v&ouml;llig neues Objekt; die Zeichen, die es enth&auml;lt, sind eine Kopie der Zeichen des Originalobjekts. Zum Beispiel:
+</p>
+
+<pre>
+String str = new String( "Golf is a good walk spoiled." ); // erzeuge das Oiginalobjekt
+
+String sub = str.substring(8, 19); // erzeuge ein neues Objekt aus dem Original
+</pre>
+
+<p>
+erzeugt ein neues Objekt (referenziert von <code>sub</code>), das  die Zeichen
+&quot;a good walk&quot; enth&auml;lt.
+</p>
+
+<p>
+Modifizieren Sie Ihr Programm, so dass es diese <code>substring()</code> Methode mit zwei Parameter aufruft. Experimentieren Sie mit den zwei Parameter, um zu sehen, wie sie funktionieren. Versuchen Sie das Folgende:
+</p>
+
+<ol>
+<li>Geben Sie beiden Parameter den gleichen Wert.</li>
+<li>Geben Sie dem ersten Parameter den Wert 0 und dem zweiten Parameter
+    den Index des letzten Zeichens (27 zum Beispiel).</li>
+<li>Anstatt wie oben das Literal 27 zu verwenden, verwenden Sie <code>str.length()-1</code></li>
+<li>Um einen Substring vom <code>startIndex</code> bis zum Ende des Strings zu bekommen, verwenden Sie als zweiten Parameter <code>str.length()</code></li>
+<li>Geben Sie dem ersten Parameter einen negativen Wert.</li>
+<li>Geben Sie dem zweiten Parameter einen Wert der gr&ouml;&szlig;er ist als der String.</li>
+<li>Kehren Sie die Reihenfolge der Parameter um.</li>
+</ol>
+
+<p>
+Gute Programmierer schreiben Methoden, so dass sie vern&uuml;nftig mit allen m&ouml;glichen Eingabewerten umgehen k&ouml;nnen, auch mit denen, die keinen Sinn ergeben. Und aus guten Gr&uuml;nden der Sicherheit m&uuml;ssen Programmierer damit rechnen, dass manche Anwender b&ouml;sartig versuchen werden Parameter zu finden, die Probleme oder ein merkw&uuml;rdiges Verhalten verursachen, das dann irgendwie ausgen&uuml;tzt werden kann.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#09C">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<p>Ende der Aufgaben</p>
+
+</body>
+</html>

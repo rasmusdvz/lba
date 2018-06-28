@@ -1,0 +1,143 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>Kapitel 31  Programmieraufgaben</title>
+<meta name="copyright" content="2010,  Heinrich Gailer">
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css">
+</head>
+
+<body>
+<p class="revisions">erstellt 05.09.99; &uuml;berarbeitet 13.06.00, 07.05.03, 0.07.04; &uuml;bersetzt 20.05.03; &uuml;berarbeitet 27.01.04, 08.07.04, 10.01.05, 11.10.06, 10.01.2011; Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+
+<hr>
+<h1>Kapitel 31  Programmieraufgaben</h1>
+
+<h2>Aufgabe 1</h2>
+
+<p>
+&Auml;ndern Sie die <a href="ch31_11.html"><code>Auto</code>-Klasse</a> des Kapitels, indem Sie zwei Methoden hinzuf&uuml;gen:
+</p>
+
+<UL>
+<LI>boolean benzinschwein()
+    <UL><LI>ergibt <code>true</code>, wenn die Meilen pro Gallone weniger als 15.0 ergeben.
+    </UL>
+<LI>boolean sparauto()
+    <UL><LI>ergibt <code>true</code>, wenn die Meilen pro Gallone mehr als 30.0 ergeben.</UL>
+</UL>
+
+<p>
+Der Konstruktor und die <code>berechneMPG()</code> Methode bleiben unver&auml;ndert.        Jede von diesen neuen Methoden sollte <code>berechneMPG()</code> verwenden, um
+die Meilen pro Gallone zu bekommen, und sie nicht selbst berechnen.
+Eine <code>if-else</code>-Anweisung w&auml;hlt den korrekten booleschen R&uuml;ckgabewert aus.
+</p>
+
+<p>
+Stellen Sie die Benutzer-Interaktionen in die <code>main()</code> Methode, so dass der Benutzer Werte f&uuml;r jedes Auto eingibt.
+Die <code>main()</code> Methode verwendet die zus&auml;tzlichen Methoden, um an den Anwender eine Meldung auszugeben, ob das Auto ein Benzinschwein oder ein  Sparauto ist.
+</p>
+
+<p>
+Sie k&ouml;nnten in Versuchung geraten einen dieser &uuml;blichen Designfehler zu begehen:
+</p>
+
+<ol>
+<li>Meilen pro Gallone in einer Instanzvariablen des Objekts zu speichern, zusammen mit
+     <code>startMeilen, endMeilen </code> und <code>gallonen</code>.
+    <ul><li>Das erscheint fast logisch, aber es ist schlechtes Design.
+            Bewahren Sie keine permanente Kopie eines Wertes auf,
+            der sich mit Leichtigkeit aus den Daten berechnen l&auml;sst.
+            Der Grund daf&uuml;r ist, dass es dem Objekt Komplexit&auml;t hinzuf&uuml;gt,
+            aber nur einen geringen Vorteil bringt.</ul>
+<li>Die Meilen pro Gallone direkt in den neuen Methoden berechnen.
+    <ul><li>Es ist normalerweise am Besten eine bestimmte Berechnung nur in einer
+            Methode durchzuf&uuml;hren und sie immer zu verwenden,
+            wenn die Berechnung gebraucht wird.
+            Wenn jetzt in der Berechnung ein Fehler ist
+            oder die Berechnung ge&auml;ndert werden muss,
+            muss nur an einer Stelle nachgesehen werden.
+            </ul>
+</ol>
+
+
+<pre class="dos">
+D:\JavaNotes\Aufgaben&gt;java MPGTester1
+Geben Sie den Anfangsmeilenstand ein:
+10000
+Geben Sie den Endmeilenstand ein:
+10400
+Geben Sie die Gallonen ein:
+10
+
+Meilen pro Gallone: 40.0
+Sparauto!
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#31">Inhaltsverzeichnis</a>.</p>
+<hr>
+
+<h2>Aufgabe 2</h2>
+
+<p>
+&Auml;ndern Sie den Konstruktor der <code>Auto</code>-Klasse,
+so dass er nur noch einen Parameter f&uuml;r den Meilenanfangsstand hat.
+Die Meilen pro Gallone k&ouml;nnen noch nicht berechnet werden.
+F&uuml;gen Sie jetzt der Klasse eine Methode hinzu:
+</p>
+
+<pre>
+void auftanken( double aktTacho, double gallonen )
+</pre>
+
+<p>
+Das simuliert eine Tankf&uuml;llung an der Tankstelle:
+<code>aktTacho</code> ist der aktuelle Tachometerstand und
+<code>gallonen</code> ist die Anzahl der Gallonen, die den Tank gef&uuml;llt haben.
+Speichern Sie diese Werte in den Instanzvariablen.
+Mit dieser Information k&ouml;nnen die Meilen pro Gallone berechnet werden.
+Schreiben Sie die Methode, so dass sie jedes Mal, wenn sie aufgerufen wird,
+die Instanzvariablen aktualisiert
+(Simulation eines weiteren Tankvorgangs).
+Nach jedem Aufruf wird <code>berechneMPG()</code> die letzten
+Meilen pro Gallone berechnen.
+</p>
+
+<p>
+Schreiben Sie ein Testklasse mit einer <code>main()</code> Methode,
+die ein <code>Auto</code>-Objekt konstruiert und die <code>auftanken()</code> und
+<code>berechneMPG()</code> Methode ein paar Mal aufruft.
+</p>
+
+<pre class="dos">
+D:\JavaNotes\Aufgaben&gt;java MPGTester2
+Neues Auto - Tachometer-Anfangsstand: 0.0
+
++++ Besuch der Tankstelle +++
+Aktuellen Tachometerstand eingeben:
+350
+Anzahl der Gallonen fuer die Tankfuellung:
+10
+Meilen pro Gallone: 35.0 Autotyp: Sparauto
+Programm beenden &lt;j&gt;a &lt;n&gt;ein?
+n
+
++++ Besuch der Tankstelle +++
+Aktuellen Tachometerstand eingeben:
+450
+Anzahl der Gallonen fuer die Tankfuellung:
+10
+Meilen pro Gallone: 10.0 Autotyp: Benzinschwein!
+Programm beenden &lt;j&gt;a &lt;n&gt;ein?
+j
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#31">Inhaltsverzeichnis</a>.</p>
+<hr>
+
+<p>Ende der Aufgaben</p>
+</body>
+</html>

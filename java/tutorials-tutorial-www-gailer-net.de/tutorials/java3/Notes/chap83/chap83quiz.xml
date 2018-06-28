@@ -1,0 +1,262 @@
+<QUIZ>
+
+<QHEAD>
+<QCREATION>Created 07/09/02</QCREATION>
+<QAUTHOR>B. P. Kjell</QAUTHOR>
+<QEMAIL>kjell@ieee.org</QEMAIL>
+<QCOPYRIGHT>2002</QCOPYRIGHT>
+<QCSSFILE>../QUIZstyle.css</QCSSFILE>
+<QRETURNTO>../../cs151java.html#83</QRETURNTO>
+<QRETURNIMAGE>../contents.gif</QRETURNIMAGE>
+</QHEAD>
+
+<QTITLE>
+<img src="quizPencil.gif"/>
+ on Writing Text Files
+</QTITLE>
+
+<QTOP>
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br clear="all"/>
+</QTOP>
+
+<QUESTION>
+<QTEXT>
+What is the ancestor class of streams that do character-oriented output? 
+</QTEXT>
+
+<QRIGHT>
+Writer
+</QRIGHT>   
+
+<QWRONG>
+Reader
+</QWRONG>   
+ 
+<QWRONG>
+Stream
+</QWRONG>   
+ 
+<QWRONG>
+Object
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+How many bits per character does a Java program use?
+</QTEXT>
+
+<QWRONG>
+4
+</QWRONG>   
+ 
+<QWRONG>
+8
+</QWRONG>   
+
+<QRIGHT>
+16
+</QRIGHT>   
+ 
+<QWRONG>
+32
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+What is the class that translates characters from the
+internal form (used by a Java program)
+to the 
+external form (used by a disk file).
+</QTEXT>
+
+<QRIGHT>
+FileWriter
+</QRIGHT>   
+
+<QWRONG>
+BufferedWriter
+</QWRONG>   
+ 
+<QWRONG>
+PrintWriter
+</QWRONG>   
+ 
+<QWRONG>
+Writer
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+What is the disk file format for characters that is
+intended to work for all human languages?
+</QTEXT>
+
+<QRIGHT>
+UTF
+</QRIGHT>   
+
+<QWRONG>
+ASCII
+</QWRONG>   
+ 
+<QWRONG>
+ANSI
+</QWRONG>   
+ 
+<QWRONG>
+QUERTY
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Which of the following opens an <u>existing</u> file <em>myFile.txt</em>
+so that characters may be added to its end?
+</QTEXT>
+
+<QWRONG>
+<code>FileWriter fw = new FileWriter("myFile.txt");</code>
+</QWRONG>   
+ 
+<QRIGHT>
+<code>FileWriter fw = new FileWriter("myFile.txt", true);</code>
+</QRIGHT>   
+
+<QWRONG>
+<code>FileWriter fw = new FileWriter("myFile.txt", false);</code>
+</QWRONG>   
+ 
+<QWRONG>
+<code>FileWriter fw = new FileWriter("myFile.txt", FileWriter.APPEND);</code>
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+What does the <code>flush()</code> method of a stream do?
+</QTEXT>
+
+<QWRONG>
+It erases all the data in the file.
+</QWRONG>   
+ 
+<QWRONG>
+It initializes the output methods.
+</QWRONG>   
+ 
+<QWRONG>
+It summons the garbage collector.
+</QWRONG>   
+
+<QRIGHT>
+It ensures that all pending output operations are completed.
+</QRIGHT>   
+
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+What is a buffer?
+</QTEXT>
+
+<QRIGHT>
+A section of main memory used as a work area for input or output operations.
+</QRIGHT>   
+
+<QWRONG>
+A temporary disk file.
+</QWRONG>   
+ 
+<QWRONG>
+A method that transforms data into an external format.
+</QWRONG>   
+ 
+<QWRONG>
+The character or characters at the end of a line of text.
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+What is an advantage in using the <code>PrintWriter</code> class?
+</QTEXT>
+
+<QWRONG>
+It initializes the printer, and buffers the print file.
+</QWRONG>   
+ 
+<QWRONG>
+It transforms characters to print format.
+</QWRONG>   
+
+<QRIGHT>
+Its methods use the approprate line termination character
+for your operating system.
+</QRIGHT>   
+ 
+<QWRONG>
+It connects directly to a disk file without using any other streams.
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Does the <code>println()</code> method of <code>PrintWriter</code>
+throw exceptions?
+</QTEXT>
+
+<QRIGHT>
+No. No methods of <code>PrintWriter</code> throw exceptions.
+</QRIGHT>   
+
+<QWRONG>
+Yes. It throws an <code>IOException</code>.
+</QWRONG>   
+ 
+<QWRONG>
+Yes. It throws an <code>PrintException</code>.
+</QWRONG>   
+ 
+<QWRONG>
+Yes. It throws a <code>DataFormatException</code>.
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Which operation is usually more reliable: input or output?
+</QTEXT>
+
+<QRIGHT>
+Input.
+</QRIGHT>   
+
+<QWRONG>
+Output.
+</QWRONG>   
+ 
+<QWRONG>
+Neither.
+</QWRONG>   
+</QUESTION>   
+
+</QUIZ> 
+ 

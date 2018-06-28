@@ -1,0 +1,24 @@
+<!-- interface -->
+<li><a href="ch53_2.html#interface">interface</a></li>
+<!-- implement, interface -->
+<li><a href="ch53_3.html#implement, interface">implement, interface</a></li>
+<!-- implement, several interfaces -->
+<li><a href="ch53_4.html#implement, several interfaces">implement, several interfaces</a></li>
+<!-- goodsDiagram -->
+<li><a href="ch53_6.html#goodsDiagram">goodsDiagram</a></li>
+<!-- TaxableInterface -->
+<li><a href="ch53_9.html#TaxableInterface">TaxableInterface</a></li>
+<!-- interface, containing a constant -->
+<li><a href="ch53_9.html#interface, containing a constant">interface, containing a constant</a></li>
+<!-- interface, as a type -->
+<li><a href="ch53_15.html#interface, as a type">interface, as a type</a></li>
+<!-- type cast -->
+<li><a href="ch53_16.html#type cast">type cast</a></li>
+<!-- interface, constants -->
+<li><a href="ch53_21.html#interface, constants">interface, constants</a></li>
+<!-- interface, methods -->
+<li><a href="ch53_21.html#interface, methods">interface, methods</a></li>
+<!-- interface, public -->
+<li><a href="ch53_21.html#interface, public">interface, public</a></li>
+<!-- interface, extending -->
+<li><a href="ch53_22.html#interface, extending">interface, extending</a></li>

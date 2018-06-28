@@ -1,0 +1,1047 @@
+<!-- Jan.   18, 1999  bpk   chapter re-numbering          -->
+<!-- Jan.   17, 2000  bpk   indexing and some new stuff   -->
+<!-- May    20, 2002  bpk   convert to XHTML and CSS -->
+<!-- June   06, 2003  bpk   small format changes -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2008</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org</AUTHORNAME>
+<GERMANTRANSLATION>Heinrich Gailer, heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2010, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#04</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+<CAI>Kapitel 4 &#8212; Der Prozessor
+
+<p class="revisions">&uuml;berarbeitet 18.01.99, 17.01.00; &uuml;bersetzt 11.09.03; &uuml;berarbeitet 06.04.04, 28.08.06; &copy; Deutsche &Uuml;bersetzung Heinrich Gailer
+</p>
+
+
+<LESSON>
+
+<div class="left">
+
+<h4>Themen:</h4>
+<ul>
+<li>Maschinenoperationen und Maschinensprache.</li>
+<li>Beispiel von Maschinensprache.</li>
+<li>Verschiedene Arten von Prozessorchips.</li>
+<li>H&ouml;here Programmiersprachen.</li>
+<li>Sprach&uuml;bersetzer (Compiler).</li>
+<li>Spracheninterpreter.</li>
+</ul>
+</div>
+
+<div class="right">
+<p>
+In den vorherigen Kapiteln haben Sie
+die wichtigsten Hardwarekomponenten eines
+Computersystems kennengelernt:
+</p>
+
+<ul>
+<li>Prozessor.</li>
+<li>Hauptspeicher.</li>
+<li>Sekund&auml;rspeichermedien.</li>
+<li>Eingabe-/Ausgabeger&auml;te.</li>
+</ul>
+
+<p>
+Dieses Kapitel behandelt das &quot;Gehirn&quot;
+des Computersystems &#8212; den Prozessor.
+Dann zeigt es, wie die Programme, die Sie schreiben,
+n Prozessorbefehle &uuml;bersetzt werden.
+</p>
+</div>
+</LESSON>
+
+<QUESTION>
+<p>
+Welche Komponente eines Computersystems ist direkt
+f&uuml;r die Ausf&uuml;hrung eines Programms verantwortlich?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Elektronische Operationen eines Prozessors
+<ANSWER>
+<p>
+Der Prozessor.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>pentium, picture</INDEX>
+
+<div class="left">
+<p>
+Wenn ein Programm in einem Computer l&auml;uft,
+f&uuml;hrt der Prozessor st&auml;ndig
+sehr viele und sehr kleine elektronische Operationen aus.
+Zum Beispiel liest eine solche Operation ein Byte Daten
+vom Hauptspeicher in den Prozessor ein.
+Eine andere Operation &uuml;berpr&uuml;ft ob eines der Bits
+in dem Byte ein  "1"-Bit ist.
+Die meisten Prozessoren sind in der Lage mehrere Hundert Arten
+von Operationen wie diese durchzuf&uuml;hren.
+</p>
+
+<p>
+Das sind die einzigen Dinge, die ein Prozessor tun kann.
+Er verf&uuml;gt &uuml;ber einen kleinen Satz winziger
+elektronischer Operationen, die er durchf&uuml;hren kann,
+und das ist alles.
+Diese kleinen elektronischen Operationen werden eine nach der anderen
+durchgef&uuml;hrt.
+Aber es werden davon Millionen pro Sekunde ausgef&uuml;hrt.
+Millionen kleiner Operationen
+k&ouml;nnen eine gro&szlig;e und n&uuml;tzliche T&auml;tigkeit ergeben.
+
+</p>
+</div>
+
+<div class="right">
+<p>
+Alles, was ein Prozessor tut, entsteht aus diesen winzigen Operationen!
+Gl&uuml;cklicherweise m&uuml;ssen Sie diese Einzelheiten
+nicht wissen, um Programme in Java zu schreiben.
+Der Zweck einer &quot;h&ouml;heren Sprache&quot; wie Java
+ist es die winzigen elektronischen Operationen
+in gro&szlig;e, n&uuml;tzliche Einheiten - den Programmieranweisungen - zu organisieren.
+</p>
+</div>
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage:)
+Wenn Sie auf einen Hyperlink klicken (so wie hier auf die Weiter-Schaltfl&auml;che), dann
+findet Ihr Webbrowser (ein Computerprogramm) eine neue Seite und stellt sie dar.
+Ungef&auml;hr, wie viele einzelne Operationen f&uuml;hrt der
+Prozessor aus, um das zu tun?
+</p>
+
+<ul>
+<li> 1 </li>
+<li> 10 </li>
+<li> 100 </li>
+<li> 100.000 </li>
+</ul>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Maschinenbefehle
+<ANSWER>
+<p>
+Ich sch&auml;tze ungef&auml;hr 100.000 Operationen.
+Sicherlich nicht so wenig wie 100 oder weniger.
+Alle diese kleinen Operationen addieren sich zu einer n&uuml;tzlichen und
+gro&szlig;en Operation: dem Anzeigen einer neuen Webseite.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>machine instruction</INDEX>
+<INDEX>machine operation</INDEX>
+
+<div class="left"><p>
+Computeranwender und Programmierer denken gew&ouml;hnlich nicht
+&uuml;ber die Millionen winziger elektronischer Operationen nach,
+die in jeder Sekunde geschehen.
+Die Situation ist (sehr grob) vergleichbar mit dem Fahren eines Wagens.
+Sie denken an die "gro&szlig;en Operationen", die er ausf&uuml;hren kann, wie
+"beschleunigen", "links fahren", "bremsen" und so weiter.
+Sie denken nicht an die Ventile in Ihrem Motor,
+die sich 24.000 Mal pro Minute &ouml;ffnen und schlie&szlig;en.
+</p>
+
+<p>
+Jede winzige elektronische Operation,
+die ein Prozessor ausf&uuml;hren kann, wird
+<b>Maschinenoperation</b> genannt.
+Ein Prozessor (eine "Maschine") f&uuml;hrt diese nacheinander aus,
+aber Millionen davon pro Sekunde.
+</p>
+</div>
+
+<INDEX>program, executable</INDEX>
+<div class="right"><p>
+Ein <b>Maschinenbefehl</b> besteht aus mehreren Speicherbytes,
+die dem Prozessor mitteilen eine Maschinenoperation auszuf&uuml;hren.
+Der Prozessor betrachtet die Maschinenbefehle im Hauptspeicher
+einen nach dem anderen und f&uuml;hrt f&uuml;r jeden Maschinenbefehl
+eine Maschinenoperation aus.
+Die Sammlung von Maschinenbefehlen im Hauptspeicher wird
+<b>Maschinensprachprogramm</b>
+oder (gebr&auml;uchlicher) ein <b>ausf&uuml;hrbares Programm</b> genannt.
+</p>
+
+<p>
+Keine Panik, wenn Ihnen das oben stehende unverst&auml;ndlich erscheint.
+Es ist gew&ouml;hnungsbed&uuml;rftig.
+(Und, um es <em>wirklich</em> zu verstehen braucht es mehrere Kurse.)
+</p>
+</div>
+</LESSON>
+
+<QUESTION>
+<p>
+Sind Maschinensprachprogramme, wenn Sie ausgef&uuml;hrt werden, gleichzeitig mit den Daten im Hauptspeicher?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Ein Beispiel von Maschinensprache
+<ANSWER>
+<p>
+Ja. Sowohl Programme als auch Daten sind im Hauptspeicher, wenn das Programm abl&auml;uft.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>toothbrush</INDEX>
+
+<div class="left">
+<p>
+Nehmen wir an, dass eine elektrische Zahnb&uuml;rste &uuml;ber
+Prozessor und Hauptspeicher verf&uuml;gt.
+Der Prozessor kann die Borsten links und rechts herum rotieren lassen
+und er kann den Ein/Ausschalter &uuml;berpr&uuml;fen.
+Die Maschinenbefehle sind ein Byte lang
+und entsprechen den folgenden Maschinenoperationen:
+</p>
+
+<blockquote>
+<table>
+<tr class="headings"><th>Maschinenbefehle</th><th>Maschinenoperation</th></tr>
+<tr><td align="center">0000 0000</td><td>Stop.</td></tr>
+<tr><td align="center">0000 0001</td><td>Rotiere die Borsten links herum.</td></tr>
+<tr><td align="center">0000 0010</td><td>Rotiere die Borsten rechts herum.</td></tr>
+<tr><td align="center">0000 0100</td><td>Gehe zur&uuml;ck und starte das Programm neu.</td></tr>
+<tr><td align="center">0000 1000</td><td>Wenn der Schalter aus ist, &uuml;berspringe den n&auml;chsten Befehl.</td></tr>
+</table>
+</blockquote>
+
+</div>
+
+<div class="right">
+<img src="toothbrush.gif" class="rightimage">
+
+
+<p>
+Die Zahnb&uuml;rste ist elektrisch.
+Wenn der Schalter das erste Mal eingeschaltet wird,
+wird der Befehl an der Adresse 0 ausgef&uuml;hrt.
+Die Befehle werden der Reihe nach einer nach dem anderen ausgef&uuml;hrt,
+bis der Befehl "Stop" erreicht wird.
+</p>
+
+<p>
+Der Befehl "&Uuml;berspringe ..." &uuml;berpr&uuml;ft den Ein/Ausschalter und
+&uuml;berspringt einen Befehl, wenn der Schalter "Aus" ist.
+</p>
+
+<p>
+Der Befehl "Gehe zur&uuml;ck" veranlasst den Prozessor
+wieder mit dem Befehl an der Adresse 0 zu beginnen.
+</p>
+
+<p>
+Sie m&ouml;chten ein Programm f&uuml;r die Zahnb&uuml;rste.
+Die Zahnb&uuml;rste soll die B&uuml;rsten links und rechts rotieren lassen, solange der Schalter an ist.
+Wenn der Schalter auf "Aus" gestellt wird, sollen die B&uuml;rsten aufh&ouml;ren sich zu bewegen.
+</p>
+</div>
+
+<div class="clearfloats">  <!-- divs need something inside of them --> </div>
+
+<div align="center">
+<h3 align="center">Hier ist der Hauptspeicher f&uuml;r das Zahnb&uuml;rstensystem:</h3>
+
+
+<form>
+<table>
+<tr class="headings"><th>Adresse</th><th>Maschinenoperation</th></tr>
+
+<tr><td>0</td><td><input type="text" size="70" ></td></tr>
+<tr><td>1</td><td><input type="text" size="70" ></td></tr>
+<tr><td>2</td><td><input type="text" size="70" ></td></tr>
+<tr><td>3</td><td><input type="text" size="70" ></td></tr>
+<tr><td>4</td><td><input type="text" size="70" ></td></tr>
+</table>
+</form>
+</div>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie den Hauptspeicher mit den Maschinenbefehlen, um die Zahnb&uuml;rste zu steuern. Beginnen Sie mit Adresse 0. Kopieren Sie aus der Liste der Maschinenoperationen.
+</p>
+
+<p>
+(Nehmen Sie sich daf&uuml;r bitte die Zeit. Sie k&ouml;nnen dann allen erz&auml;hlen,
+dass Ihr erstes Programm, das Sie geschrieben haben, ein Steuerprogramm f&uuml;r eine elektrische Zahnb&uuml;rste war. Sie m&ouml;chten doch nicht diese Gelegenheit verpassen.)
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Maschinensprachprogramm
+<ANSWER>
+<p>
+Das eingebaute Steuerprogramm f&uuml;r die elektrische Zahnb&uuml;rste steht unten.
+</p>
+</ANSWER>
+
+<LESSON>
+<div class="left"><p>
+Es gibt zumindest zwei vern&uuml;nftige Programme f&uuml;r die Zahnb&uuml;rste.
+Hier ist eines davon:
+</p>
+
+<p>
+Im  elektronischen Speicher der Zahnb&uuml;rste wird das Programm als Bitsequenz gespeichert:
+</p>
+
+<pre>
+0000 0001 0000 0010 0000 1000 0000 0100 0000 0000
+</pre>
+
+<p>
+Der Prozessor beginnt mit dem ersten Befehl und f&uuml;hrt die T&auml;tigkeiten, die durch den jeweiligen Code beschrieben sind, aus.
+Das ist nat&uuml;rlich kein allzu praktisches Beispiel.
+Elektrische Zahnb&uuml;rsten werden nicht durch Computerprozessoren gesteuert.
+Auch sind die Maschinenbefehle eines tats&auml;chlichen Prozessors wesentlich detaillierter.
+Die Grundideen des Beispiels sind diese:
+</p>
+
+<ul>
+<li>Ein Maschinensprachprogramm ist eine Abfolge (Sequenz) von Maschinenbefehlen im Hauptspeicher.
+<li>Ein Maschinenbefehl besteht aus einem oder mehreren Bytes (in diesem Beispiel nur aus einem).
+<li>Der Prozessor f&uuml;hrt ein Programm aus, einen Maschinenbefehl nach dem anderen.
+<li>All die kleinen Maschinenoperationen addieren sich zu etwas N&uuml;tzlichem.
+</ul>
+
+<p>
+Wenn der Schalter der Zahnb&uuml;rste &quot;an&quot; ist,
+wiederholt das Programm die Operationen viele Male.
+So arbeiten die meisten Programme &#8212; viele kleine
+Operationen ergeben eine sinnvolle Funktion, die dann viele Male wiederholt wird.
+</p>
+</div>
+
+
+<div class="right"><table>
+<tr class="headings"><th>Adresse</th><th>Maschinenbefehl</th><th>Maschinenoperation</th></tr>
+<tr><td>0</td><td>&nbsp;0000 0001 </td><td>Rotiere die B&uuml;rsten links herum.</td></tr>
+<tr><td>1</td><td>&nbsp;0000 0010 </td><td>Rotiere die B&uuml;rsten rechts herum.</td></tr>
+<tr><td>2</td><td>&nbsp;0000 1000 </td><td>Wenn der Schalter aus ist, &uuml;berspringe den n&auml;chsten Befehl.</td></tr>
+<tr><td>3</td><td>&nbsp;0000 0100 </td><td>Gehe zur&uuml;ck und starte das Programm neu.</td></tr>
+<tr><td>4</td><td>&nbsp;0000 0000 </td><td>Stop.</td></tr>
+</table>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wird die elektrische Zahnb&uuml;rste sofort stoppen, wenn der Schalter ausgeschaltet wird?
+(Gehen Sie das Programm durch, um zu sehen, ob das passiert.)
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Das Ausf&uuml;hren von Befehlen
+<ANSWER>
+<p>
+Nein. Das Programm k&ouml;nnte noch einige Befehle ausf&uuml;hren, bevor der Schalter getestet wird.
+
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>execution, program</INDEX>
+
+<div class="left"><p>
+Das Wort "ausf&uuml;hren" wird oft in dem Sinn verwendet "eine Maschinenoperation ausf&uuml;hren,
+die ein Befehl verlangt".
+So k&ouml;nnen Sie sagen, dass &quot;das Ausf&uuml;hren des Befehls 0000 0000 die Zahnb&uuml;rste stoppt&quot;
+oder, dass "Milliarden von Befehlen pro Sekunde ausgef&uuml;hrt werden".
+"Ausf&uuml;hren" wird auch f&uuml;r ein gesamtes Programm oder f&uuml;r den Teil eines Programms verwendet:
+"das Programm ausf&uuml;hren, den Schalter einschalten".
+</p>
+
+<p>
+Die meisten Programme haben Befehlsgruppen,
+die wieder und wieder ausgef&uuml;hrt werden.
+Das Zahnb&uuml;rstenprogramm tut das,
+mit einem Befehl, der den Prozessor veranlasst zum Anfang des Programms zur&uuml;ck zu gehen
+und dadurch das zu wiederholen, was es gerade getan hat.
+</p>
+
+<p>
+Eine Gruppe von Maschinenbefehlen, die wiederholt ausgef&uuml;hrt werden kann,
+wird <b>Schleife</b> genannt.
+</p>
+
+
+<p>
+Ein moderner Prozessor f&uuml;hrt Milliarden Befehle pro Sekunde aus.
+Ein Programm ohne Schleifen, w&uuml;rde in ein paar Sekunden ausgef&uuml;hrt sein,
+auch wenn es Milliarden von Befehle h&auml;tte.
+</p>
+</div>
+
+
+<INDEX>integrated circuit</INDEX>
+<INDEX>chip</INDEX>
+<INDEX>transistor</INDEX>
+
+<div class="right"><p>
+Ein typischer Prozessor besteht aus vielen Millionen Transistoren,
+die sich alle auf einer kleinen Halbleiterscheibe aus Silizium,
+<b>IC-Baustein</b> (<em>Integrated Circuit</em>) auch <b>Chip</b> genannt, befinden.
+Der Prozessor der Zahnb&uuml;rste k&ouml;nnte wahrscheinlich mit ein paar Hundert
+Transistoren gebaut werden.
+IC-Bausteine werden auch f&uuml;r andere elektronische Teile eines Computers verwendet.
+Zum Beispiel ist der Hauptspeicher mit Speicherchips implementiert.
+</p>
+
+<p>
+Die meisten modernen Prozessorchips bestehen aus zwei oder mehr Prozessoren. Jeder Prozessor auf dem Chip wird als "Prozessorkern" oder oft auch nur als Kern bezeichnet. Jeder Kern besteht aus dem gleichen Satz an winzigen elektronischen Operationen und l&auml;uft unabh&auml;ngig von den anderen Kernen. Wenn ein Programm l&auml;uft, l&auml;uft es auf einem einzelnen Kern, der die winzigen elektronischen Operationen des Programms der Reihe ausf&uuml;hrt.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Verwenden Apple Computer und IBM kompatible Computer die gleichen Prozessorchips?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Unterschiedliche Prozessoren
+<ANSWER>
+<p>
+Nein.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>processor, differences</INDEX>
+
+<div class="left"><p>
+Es gibt viele Prozessortypen, die in Computersystemen verwendet werden.
+Sie wissen vermutlich etwas &uuml;ber den bekanntesten von ihnen, den
+Intel Prozessor (486, Pentium, Pentium II)
+und die Prozessoren, die in Apple Computern verwendet werden.
+Ein Computersystem wird um seinen Prozessor herum entworfen.
+Die andere Elektronik wird f&uuml;r einen bestimmten Prozessortyp entworfen.
+</p>
+
+<p>
+Der grunds&auml;tzliche Unterschied z.B. zwischen
+einem Apple Power Macintosh und einem
+Dell Corporation Computer ist der Prozessor.
+Unterschiedliche Prozessoren verf&uuml;gen &uuml;ber unterschiedliche Maschinenoperationen.
+Ein Maschinenprogramm f&uuml;r einen Dell Computer (mit einem Pentium Prozessor)
+w&uuml;rde f&uuml;r einen Apple Computer keinen Sinn ergeben.
+Das ist der Grund, warum Sie gew&ouml;hnlich darauf achten m&uuml;ssen,
+dass Sie die korrekte Version einer Applikation f&uuml;r Ihren Computer zu Hause
+erwerben.
+Wenn Sie das Spiel MYST kaufen, brauchen Sie die Version
+f&uuml;r den Prozessor Ihres Homecomputers.
+</p>
+</div>
+
+<div class="right">
+<p>
+Aber es gibt eine Version von MYST sowohl f&uuml;r den Pentium als auch f&uuml;r den Apple Computer.
+Wie kann das gehen,
+wenn die Prozessoren unterschiedliche Maschinenoperationen ausf&uuml;hren?
+Die Antwort ist, dass selbst, wenn die Prozessoren unterschiedlich sind,
+die jeweils verf&uuml;gbaren Maschinenoperationen verwendet werden k&ouml;nnen, um die gleichen Dinge zu tun.
+Beide Prozessortypen besitzen genug Leistung durch ihre kleinen
+Maschinenoperationen, so dass alles was der eine Prozessor mit dem einen Maschinenprogramm tun kann, der andere Prozessor mit dem anderen Maschinenprogramm tun kann.
+</p>
+
+<INDEX>computer architecture</INDEX>
+<p>
+Die <b>Architektur</b> eines Prozessors ist die Art ihrer
+Maschinenoperationen, wie sie organisiert und implementiert sind,
+und wie der Prozessor mit dem Hauptspeicher und anderen Komponenten kommuniziert.
+Architektur befasst sich mit dem allgemeinen Plan und den Funktionen eines
+Prozessors; sie hat nicht allzu viel mit den elektronischen Details zu tun.
+In den meisten Informatikfachbereichen wird ein Kurs &uuml;ber Computerarchitektur verlangt.
+</p>
+</div>
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage:) Angenommen, Sie betrachten zwei verschiedene Prozessorchips.
+Der erste Prozessor besitzt doppelt so viele Maschinenoperationen wie der zweite Chip.
+Ist der erste Prozessor zwangsl&auml;ufig der Bessere?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>H&ouml;here Programmiersprachen
+<ANSWER>
+<p>
+Nein &#8212; der kleinere Chip k&ouml;nnte einen gut ausgew&auml;hlten Satz von
+Operationen haben, der besser und schneller zusammenarbeitet
+als die schlecht gew&auml;hlten Operationen des anderen Prozessors.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>high level language</INDEX>
+
+<div class="left"><p>
+Es ist sehr selten, dass Programmierer Programme in Maschinensprache schreiben,
+so wie wir es f&uuml;r die elektrische Zahnb&uuml;rste getan haben.
+Die ausf&uuml;hrbaren Dateien (die direkt ausf&uuml;hrbaren Maschinensprachprogramme)
+der meisten Applikationen enthalten Hunderttausende (wenn nicht Millionen)
+Instruktionen in Maschinensprache.
+Es w&auml;re sehr schwierig so etwas zu erstellen.
+Durchsuchen Sie versuchsweise Ihre Festplatte mit einem Suchprogramm
+(dem Explorer bei Microsoft Systemen).
+Betrachten Sie die Gr&ouml;&szlig;e einiger .EXE Dateien.
+(Denken Sie daran, dass &uuml;blicherweise mehrere Bytes pro Maschinenbefehl verwendet werden.)
+</p>
+
+<p>
+Die meisten Programme werden mit einer <b>h&ouml;heren Programmiersprache</b>,
+wie Java, C, C++, oder BASIC, erstellt.
+Mit einer h&ouml;heren Sprache kann ein Programmierer Programme erstellen, indem er m&auml;chtige, "gro&szlig;e" Operationen verwendet, die sp&auml;ter in viele kleine Maschinenoperation umgewandelt werden.
+</p>
+
+</div>
+
+<div class="right"><p>
+Hier ist zum Beispiel eine Programmzeile in der Sprache &quot;C&quot;:
+</p>
+
+<pre class="code">
+int sum = 0;
+</pre>
+
+<p>
+Die Maschinenoperationen, die dieser Zeile entsprechen, werden einen kleinen Teil des Hauptspeichers f&uuml;r die Aufnahme einer Zahl einrichten, dort die Zahl 0 speichern und die Dinge so arrangieren, dass andere Teile des Programms sie verwenden k&ouml;nnen.
+Es k&ouml;nnte hundert Maschinenoperationen in Anspruch nehmen all dies zu tun.
+Es ist f&uuml;r einen menschlichen Programmierer offensichtlich leichter
+diese Operationen zu veranlassen, indem er &quot;C&quot; verwendet.
+</p>
+</div>
+</LESSON>
+
+<QUESTION>
+<p>
+Angenommen ein Unternehmen zahlt einem Programmierer $50 die Stunde.
+Wird das Unternehmen wollen, dass der Programmierer in Maschinensprache
+oder in einer h&ouml;heren Sprache programmiert?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Quellprogramme
+<ANSWER>
+<p>
+In einer h&ouml;heren Sprache.
+Programmierer k&ouml;nnen Programme durch die Verwendung einer h&ouml;heren Sprache
+in wesentlich k&uuml;rzerer Zeit (was wesentlich weniger Geld kostet) erstellen.
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>source program</INDEX>
+<INDEX>program, source</INDEX>
+
+<div class="left"><p>
+Programmierer erstellen Programme, indem sie Befehle in einer h&ouml;heren Sprache schreiben.
+Ein h&ouml;heres Sprachprogramm besteht aus Textzeilen,
+die mit einem Texteditor erstellt werden und als Datei auf der Festplatte bereitgehalten werden.
+Zum Beispiel,
+hier ist ein vollst&auml;ndiges Programm in "C" (Java wird sp&auml;ter besprochen):
+</p>
+
+
+<pre class="code">
+#include &lt;stdio.h&gt;
+main()
+{
+  int sum = 0;
+  sum = 2 + 2;
+  printf( "%d\n", sum );
+}
+</pre>
+
+
+<p>
+Dieses Programm k&ouml;nnte auf der Festplatte in einer Datei mit dem Namen
+<code>addup.c</code> gespeichert werden.
+Wie alle Dateien besteht es aus einer Sequenz von Bytes.
+Da es eine Textdatei ist, enthalten diese Bytes <em>Character</em>-Daten.
+Sie k&ouml;nnen die Datei mit einem Texteditor editieren und die Datei ausdrucken.
+Sie enth&auml;lt <em>keine</em> Maschinenbefehle.
+Wenn die Bytes in den Hauptspeicher kopiert werden, k&ouml;nnen Sie nicht ohne etwas
+Zusatzarbeit als Programm laufen.
+</p>
+</div>
+
+
+<div class="right"><blockquote>
+Ein <strong>Quellprogramm</strong> ist eine Textdatei,
+die Befehle enth&auml;lt, die in einer h&ouml;heren Sprache geschrieben wurden.
+Sie kann vom Prozessor nicht ohne Zwischenschritte ausgef&uuml;hrt werden.
+</blockquote>
+
+
+<INDEX>program translation</INDEX>
+<p>
+Ein Quellprogramm wird &uuml;blicherweise in ein Maschinensprachprogramm <strong>&uuml;bersetzt</strong>.
+Ein Applikationsprogramm, <b>&Uuml;bersetzer</b> genannt, nimmt die Quelldatei als Input
+und erstellt ein ausf&uuml;hrbares Programm (Maschinensprachprogramm) als Output.
+Zum Beispiel k&ouml;nnte das
+"C" Programm <code>addup.c</code> in ein ausf&uuml;hrbares Programm &uuml;bersetzt werden.
+Das ausf&uuml;hrbare Programm k&ouml;nnte <code>addup.exe</code> genannt werden und auf der
+Festplatte gespeichert werden.
+Jetzt kann die ausf&uuml;hrbare Version des Programms in den Hauptspeicher kopiert und ausgef&uuml;hrt werden.
+</p>
+
+<INDEX>compile</INDEX>
+<p>
+Das Wort <b>kompilieren</b> bedeutet das gleiche wie <b>&uuml;bersetzen</b>.
+Also kann man sagen, dass ein Quellprogramm in ein ausf&uuml;hrbares Programm kompiliert wurde.
+</p>
+</div>
+</LESSON>
+
+<QUESTION>
+<p>
+Angenommen ein Quellprogramm wurde in ein ausf&uuml;hrbares Programm &uuml;bersetzt.
+Das ausf&uuml;hrbare Programm ist ein paar Mal gelaufen
+und der Programmierer beschlie&szlig;t das Programm zu &auml;ndern.
+Wo wird die &Auml;nderung vorgenommen? Im Quellprogramm oder im ausf&uuml;hrbaren Programm?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Programm&uuml;bersetzung
+<ANSWER>
+<p>
+Im Quellprogramm, wo die &Auml;nderung leicht vorgenommen werden kann.
+Das ge&auml;nderte Quellprogramm wird dann in ein neues ausf&uuml;hrbares Programm &uuml;bersetzt.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist eine Abbildung, die zeigt was &uuml;blicherweise mit Programmen passiert, die in &quot;C&quot; geschrieben sind
+(mit Java ist es anders; das wird in den n&auml;chsten Kapiteln besprochen werden).
+
+</p>
+
+<center>
+<img src="Figure4-1.gif">
+</center>
+
+<p>
+Hier ist ein &Uuml;berblick was vor sich geht:
+</p>
+
+<ol>
+<li>Die Quelldatei wird mit einem Texteditor erstellt.
+    <ul>
+    <li>Sie enth&auml;lt Instruktionen in einer h&ouml;heren Sprache.</li>
+    <li>Sie enth&auml;lt Bytes, die <em>Character</em>-Daten repr&auml;sentieren.</li>
+    </ul></li>
+<li>Die Quelldatei wird auf der Festplatte aufbewahrt.</li>
+<li>Die Quelldatei kann nicht vom Prozessor ausgef&uuml;hrt werden.</li>
+<li>Ein &Uuml;bersetzungsprogramm (Compiler) kann die Quelldatei in eine ausf&uuml;hrbare Datei &uuml;bersetzen.
+    <ul>
+    <li>Die Quelldatei bleibt unver&auml;ndert; eine neue ausf&uuml;hrbare Datei wurde erzeugt.</li>
+    <li>Ein &Uuml;bersetzer wird f&uuml;r Programme verwendet, die
+        in einer bestimmten h&ouml;heren Sprache (wie C) geschrieben wurden,
+        f&uuml;r einen bestimmten Prozessortyp (wie Pentium) bestimmt sind
+        und nur unter einem bestimmten Betriebssystem (wie Windows) laufen.</li>
+    </ul></li>
+<li>Die ausf&uuml;hrbare Datei wird auf der Festplatte aufbewahrt.
+<li>Um das Programm auszuf&uuml;hren, wird dem Betriebssystem mitgeteilt
+    die ausf&uuml;hrbare Datei in den Hauptspeicher zu kopieren und sie zu starten.</li>
+</ol>
+
+
+<p>
+Das oben stehende gilt f&uuml;r die meisten Sprachen wie:
+Ada, Pascal, C, C++, FORTRAN und andere.
+Java f&uuml;gt ein paar mehr Schritte hinzu,
+die in dem n&auml;chsten Kapitel behandelt werden.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Ein Quellprogramm wurde in der Sprache C geschrieben.
+Die Datei wurde auf die Festplatte eines Pentium-basierten Computers und
+auf die Festplatte eines Apple Macintosh kopiert.
+Was muss jetzt getan werden, damit das Programm auf beiden Computern ausgef&uuml;hrt werden kann?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Portabilit&auml;t
+<ANSWER>
+<p>
+Jede Kopie des Quellprogramms muss in eine ausf&uuml;hrbare Datei &uuml;bersetzt werden, die die richtige f&uuml;r jede Maschine ist:
+</p>
+
+<ul>
+<li><b>Beim Pentium:</b> wird ein C-Compiler f&uuml;r Pentium Prozessoren verwendet.</li>
+<li><b>Beim Macintosh:</b> wird ein C-Compiler f&uuml;r Macintosh Prozessoren verwendet.</li>
+</ul>
+</ANSWER>
+
+<LESSON>
+<INDEX>portability</INDEX>
+<div class="left"><p>
+Idealerweise muss nur ein Programm in einer h&ouml;heren Sprache geschrieben werden.
+Diese Quelldatei kann dann in verschiedene ausf&uuml;hrbare Dateien &uuml;bersetzt werden,
+von denen jede die richtigen Maschinenbefehle f&uuml;r den  jeweiligen Prozessor enth&auml;lt.
+Auf diese Weise wurden die zwei Versionen von MYST f&uuml;r den Pentium Computer und Apple Computer erstellt:
+eine Quelldatei wurde erstellt und in zwei verschiedene ausf&uuml;hrbare Dateien &uuml;bersetzt.
+</p>
+
+<p>
+Die Idee der Verwendung einer
+Quelldatei f&uuml;r mehrere ausf&uuml;hrbare Dateien, die in verschiedenen Prozessoren laufen, ist Teil der <b>Software-Portabilit&auml;t</b>.
+Sie w&uuml;rden lieber ein Programm nur einmal schreiben (in einer h&ouml;heren Sprache)
+und in der Lage sein es auf jedem Computersystem laufen zu lassen, indem Sie es
+in die Maschinensprache dieses Systems &uuml;bersetzten.
+</p></div>
+
+
+<div class="right"><p>
+Gew&ouml;hnlich funktionieren die Dinge leider nicht so einfach.
+Es gibt genug kleine Probleme, so dass
+ein betr&auml;chtlicher menschlicher Arbeitsaufwand n&ouml;tig
+ist, um ein Programm auf einem anderen System zum Laufen zu bringen.
+</p>
+
+<p>
+Einer der gro&szlig;en Vorteile von Java ist, dass
+es automatisch zwischen Computersystemen, die Java Unterst&uuml;tzung haben, portabel ist.
+Es bedarf &uuml;berhaupt keiner menschlichen Leistung.
+</p>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Angenommen, dass ein Unternehmen Programmierern $50 pro Stunde zahlt, um Applikationsprogramme zu schreiben, die sowohl auf Apple als auch auf Intel Computern laufen. Wird das Unternehmen wollen, dass Programmierer in Java programmieren oder in einer anderen h&ouml;heren Sprache?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Interpreter
+<ANSWER>
+<p>
+Java.  Die ganze Zeit (und die Kosten), um das Programm auf anderen
+Computern zum Laufen zu bringen wird gespart.
+(Tats&auml;chlich ist die Angelegenheit nicht ganz so eindeutig.)
+</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>interpreter</INDEX>
+
+<div><center>
+<img src="Figure4-2.gif">
+</center></div>
+
+<div class="left">
+<p>
+Programme, die in einer h&ouml;heren Sprache geschrieben sind, werden niemals direkt durch
+den Prozessor ausgef&uuml;hrt.
+Sie haben schon eine M&ouml;glichkeit gesehen so ein Programm auszuf&uuml;hren:
+die Verwendung eines &Uuml;bersetzers, um ein Maschinensprachprogramm zu erzeugen, das
+direkt ausgef&uuml;hrt werden kann.
+</p>
+
+<p>
+Eine andere M&ouml;glichkeit ist die Verwendung eines <b>Interpreters</b> f&uuml;r die Sprache.
+Ein Interpreter ist ein ausf&uuml;hrbares Programm, das direkt auf dem Prozessor l&auml;uft.
+Ein Interpreter liest ein Quellprogramm, das in einer h&ouml;heren Sprache geschrieben wurde
+und f&uuml;hrt die Aktionen durch, die das Quellprogramm verlangt.
+</p>
+
+<p>
+Das ist eine ziemlich komplizierte &Uuml;berlegung.
+Die Abbildung hilft vielleicht:
+</p>
+
+<p>
+In der Abbildung, das Quellprogramm program.bas wurde in BASIC (eine Programmiersprache) von einem Programmierer mit einem Texteditor geschrieben. Das Programm wird vom BASIC Interpreter interpretiert, der ein ausf&uuml;hrbares Programm ist, das auf dem prozessor l&auml;uft.
+</p>
+
+<p>
+Der Basic Interpreter arbeitet, in dem er die Befehle des BASIC Quellprogramms einen nach dem anderen liest.
+Jedes Mal, wenn er einen Befehl liest, tut der Interpreter, was der Befehl verlangt. Ein BASIC Befehl k&ouml;nnte verlangen zwei Zahlen zu addieren. Das ist ausgezeichnet. Der Basic Interpreter ist ein Programm, und Programme k&ouml;nnen leicht zwei Zahlen addieren. Das BASIC Programm k&ouml;nnten dann verlangen die Summe auf den Bildschirm auszugeben. Auch das ist okay. Der BASIC Interpreter kann das leicht tun.
+</p>
+
+
+<p>
+Der Basic Interpreter verwendet die fundamentalen Operationen des Prozessors um die verlangte Aktion des BASIC Quellprogramms  auszuf&uuml;hren. Aber das Quellprogramm wird nicht in Maschinensprache &uuml;bersetzt.
+</p>
+</div>
+
+<INDEX>BASIC</INDEX>
+<div class="right">
+<p>
+Das ist vergleichbar mit einem Koch, der nicht lesen kann, aber einen Assistenten anheuert, der lesen (aber nicht kochen) kann.
+
+</p>
+
+<INDEX>MYST</INDEX>
+<p>
+Sie haben das vermutlich viele Male getan, ohne es zu bemerken.
+Es ist vollkommen pr&auml;zise (wenn auch eine ungebr&auml;uchliche Wortwahl)
+zu sagen, dass z.B. das Computerspiel Solit&auml;r (oder jedes andere Computerspiel)
+ein Interpreter f&uuml;r die Befehle ist,
+die der Anwender mit Maus und Tastatur eingibt.
+
+Die Befehle f&uuml;r das Spiel Solit&auml;r sind nicht die &uuml;bliche Art von Befehlen,
+wie sie in einer Mehrzweck-Programmiersprache verwendet werden,
+aber nichtsdestotrotz sind es Befehle.
+Der Befehlssatz und die Regeln, wie sie korrekt zu verwenden sind,
+bilden die Programmiersprache f&uuml;r den Solit&auml;r-Interpreter.
+</p>
+
+<p>
+Indem Sie ein Computerspiel spielen, schreiben Sie ein Programm, das ein Problem l&ouml;st. (&Uuml;blicherweise besteht das Problem darin das Spiel zu beenden.) Wenn Sie jeden Schritt, den Sie tun, aufzeichnen w&uuml;rden, h&auml;tten Sie ein Programm, dass das Spiel, das als Interpreter handelt, ausf&uuml;hren k&ouml;nnte, um das Problem zu l&ouml;sen.
+</p>
+
+
+<p>
+(Nat&uuml;rlich, jedes Mal, wenn Sie Solit&auml;r spielen ist das Problem ein zuf&auml;llig ausgew&auml;hlte Anordnung von Karten, so dass Sie f&uuml;r jedes Problem ein anderes Programm brauchen.)
+</p>
+
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ein Interpreter l&auml;uft direkt im Prozessor.
+Aus welcher Art von Befehlen muss ein Interpreter bestehen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Virtuelle Maschine
+<ANSWER>
+<p>
+Ein ausf&uuml;hrbarer Interpreter besteht aus Maschinenbefehlen,
+wie alle Programme, die direkt vom Prozessor ausgef&uuml;hrt werden k&ouml;nnen.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Wenn ein Interpreter ein BASIC-Quellprogramm ausf&uuml;hrt, sind sowohl der Interpreter als auch das Quellprogramm im Hauptspeicher. Der Interpreter besteht aus Maschinenbefehlen, die die Hardware direkt ausf&uuml;hren kann. Das BASIC-Quellprogramm besteht aus Befehlen der Sprache BASIC, die der Interpreter kennt. Aus der Perspektive des BASIC-Programms <em>sieht es aus, als ob die BASIC-Befehle von einer Art Maschine direkt ausgef&uuml;hrt werden.</em>
+Hier ist die modifizierte Abbildung, um das zu zeigen:
+</p>
+
+<center>
+<img src="Figure4-3.gif">
+</center>
+
+<INDEX>virtual machine</INDEX>
+<p>
+Das ist genau die gleiche Abbildung wie die vorherige. Aber jetzt wurde ein Kasten um den tats&auml;chlichen (Hardware-) Prozessor und den Interpreter gezogen. Die Kombination "sieht aus" wie eine Maschine, die direkt nach den Anweisungen des BASIC-Quellprogramms verfahren kann. Das Wort <b>virtuell</b> wird in Situationen verwendet,
+wo Software eingesetzt wird, um etwas so aussehen zu lassen als w&auml;re es das reale Ding.
+In diesem Fall sieht es aus, als ob wir eine Maschine haben, die direkt BASIC ausf&uuml;hren kann, also k&ouml;nnen wir sagen, dass wir eine
+Virtuelle BASIC-Maschine haben.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Glauben Sie, dass es auch m&ouml;glich w&auml;re einen &Uuml;bersetzer zu verwenden, um ein
+BASIC-Quellprogramm in eine ausf&uuml;hrbare Datei (die Maschinenbefehle enth&auml;lt) zu &uuml;bersetzen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Geschwindigkeit
+<ANSWER>
+<p>
+Ja. Die meisten h&ouml;heren Sprachen haben einen &Uuml;bersetzer und einen Interpreter.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Die Situation bei Computersprachen ist ein wenig wie
+bei den menschlichen Sprachen:
+</p>
+
+<ul>
+<li><b>&Uuml;bersetzer:</b> &nbsp; nimmt ein vollst&auml;ndiges Dokument in einer Sprache
+    und erstellt ein vollst&auml;ndiges Dokument in einer anderen Sprache,
+    das dann jederzeit verwendet werden kann.</li>
+<li><b>Interpreter (Dolmetscher):</b> &nbsp; agiert als Vermittler zwischen dem Sprecher der
+    einen Sprache und dem Sprecher einer anderen Sprache, um es so aussehen zu lassen,
+    als wenn beide Sprecher direkt miteinander sprechen w&uuml;rden.</li>
+</ul>
+
+
+<p>
+Die Verwendung eines menschlichen Interpreters als Vermittler ist langsamer als
+sich direkt in einer bestimmten Sprache zu unterhalten.
+Das gleiche gilt f&uuml;r Computer Sprachinterpreter.
+Der Interpreter hat ziemlich viel zu tun, um die Sprache zu bew&auml;ltigen, die er interpretiert.
+Die zus&auml;tzliche Arbeit l&auml;sst es so aussehen, als ob der virtuelle Prozessor
+viel langsamer w&auml;re als der reale.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Ist es f&uuml;r ein Programm immer wichtig so schnell wie m&ouml;glich zu laufen?
+(Hinweis: Nehmen Sie sich f&uuml;r die Beantwortung dieser Frage etwas Zeit.)
+
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************* -->
+<!-- ************************************* -->
+<!-- ************************************* -->
+<CAI>Ende des Kapitels!
+<ANSWER>
+<p>
+Nein. Programme sollten ihre Arbeit in angemessener Zeit erledigen,
+aber h&auml;ufig ist m&auml;&szlig;ig schnell, schnell genug.
+Zum Beispiel macht der Webbrowser, den Sie gerade verwenden,
+meistens nichts anderes als auf Ihre Befehle zu warten.
+Es w&auml;re nur eine kleine Verbesserung, wenn man ihn schneller machen w&uuml;rde.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Sie m&ouml;chten vielleicht das Folgende noch einmal durchsehen.
+Klicken Sie auf ein Thema, das Sie interessiert, um dahin zu gehen, wo es besprochen wurde.
+Um hierher zur&uuml;ckzugehen, klicken Sie auf den Zur&uuml;ck-Button Ihres Browsers.
+</p>
+
+<ul>
+<li>
+<GOTO>machine instruction</GOTO> Maschinenoperationen
+und Maschinenbefehle.</li>
+<li>
+<GOTO>execution, program</GOTO> Ein Programm
+ausf&uuml;hren.</li>
+<li>
+<GOTO>processor, differences</GOTO> Unterschiede
+in Arten von Prozessorchips.</li>
+<li>
+<GOTO>high level language</GOTO> H&ouml;here Programmiersprachen.</li>
+<li>
+<GOTO>source program</GOTO> Quellprogramm.</li>
+<li>
+Programm-
+<GOTO>program translation</GOTO> &Uuml;bersetzer.</li>
+<li>
+Programm-
+<GOTO>interpreter</GOTO> Interpreter.</li>
+<li>
+<GOTO>portability</GOTO> Portabilit&auml;t.</li>
+</ul>
+
+<p>
+Das n&auml;chste Kapitel bespricht wie die Sprache Java
+in das Konzept passt, das in diesem Kapitel er&ouml;rtert wurde.
+</p>
+<hr>
+
+
+</LESSON>
+</CAI>
+</CHAPTER>

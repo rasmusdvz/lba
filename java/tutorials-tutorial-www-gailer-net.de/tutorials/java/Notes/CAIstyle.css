@@ -1,0 +1,438 @@
+body
+{
+font-size:100%;
+background-color:#FEFEFE;
+font-family:Arial,Garuda,Helvetica,sans-serif;   /* Garuda: font for Linux */
+padding:0px;
+margin:0px;
+}
+
+p
+{
+text-align: justify;
+font-size:1em;
+line-height:1.25em;
+margin-top:1em;
+margin-right:0em;
+margin-bottom:1em;
+margin-left:0em;
+}
+
+blockquote
+{
+margin-left: 2em;
+line-height:1.5;
+}
+
+
+p.revisions
+{
+font-size:0.66em;
+margin:0.5em 1.5em;
+padding:0em;
+}
+
+ul
+{
+ list-style:square;
+}
+
+ul ul
+{
+ list-style:circle;
+}
+
+.answer
+{
+background-color:#f4f4ff;
+border-style:groove;
+border-width:thin;
+padding:1em;
+margin:1em;
+}
+
+.answer h3
+{
+color:#a030a0;
+}
+
+.lesson
+{
+margin-top:1.5em;
+margin-right:1.5em;
+margin-bottom:1.5em;
+margin-left:1.5em;
+padding:0em;
+}
+
+.lesson p
+{
+text-align: justify;
+}
+
+.lesson ul
+{
+margin-left:4em;
+line-height:1.5;
+}
+
+.lesson ul ul
+{
+margin-left:2em;
+}
+
+.lesson ol
+{
+margin-left:4em;
+line-height:1.5;
+}
+
+.lesson ol ol
+{
+margin-left:2em;
+}
+
+.lesson ol ul
+{
+margin-left:2em;
+}
+
+.lesson table ul
+{
+margin-left:1.0em;
+}
+
+.lesson table ol
+{
+margin-left:1.0em;
+}
+
+.lesson h1
+{
+color:#A02000;
+text-align:center;
+font-size:2.0em;
+}
+
+.lesson h1 code
+{
+/*color:#A02000;*/
+/*color:#005000;*/
+/*font-size:1.4em;*/
+font-family:"Lucida Console","Courier New",courier,FreeMono,monospace;  /*  FreeMono for Linux */
+}
+
+.lesson h4
+{
+color:#A02000;
+margin-left:3em;
+}
+
+.lesson table
+{
+background-color: white;
+margin-left:1em;
+font-family:arial,sans-serif;
+font-size:90%;
+}
+
+
+table
+{
+background-color:white;
+border: 2px;
+border-color:green;
+border-style:solid;
+border-collapse:collapse;
+margin:1.0em 1.0em 1.0em 1.0em;
+}
+
+table caption{
+ margin-bottom:1em;
+}
+
+tr.headings, th.headings
+{
+background-color:#e5e5f0;
+font-weight.bold;
+}
+
+th, td
+{
+border: 1px;
+border-style: dotted;
+border-color: green;
+padding: 0.5em 0.5em 0.5em 0.5em;
+font-size:1.1em;
+/* font-family:"Lucida Console","Courier New",courier,FreeMono,monospace;    FreeMono for Linux */
+}
+
+table.code td
+{
+font-family:"Lucida Console","Courier New",courier,FreeMono,monospace;  /*  FreeMono for Linux */
+}
+
+table.layout
+{
+border: 0px;
+background-color: white;
+}
+
+table.layout th, table.layout td
+{
+border: 0px;
+}
+
+table.center    /* center the table */
+{
+margin: 1em auto 1em auto;
+}
+
+table ul, table ol
+{
+margin-left:0.65em;
+padding-left:0.65em;
+}
+
+table code
+{
+font-size:1.0em;
+}
+
+table pre
+{
+margin-left:0.4em;
+margin-right:0.4em;
+}
+
+
+img.rightimage,img.right
+{
+float:right;
+margin:0em 4em 2em 2em;
+}
+
+
+img.leftimage,img.left
+{
+float:left;
+margin:0px 5px 0px 0px;
+}
+
+
+.clearfloats
+{
+clear:both;
+}
+
+.questionEcho
+{
+padding-bottom: 1em;
+border-width: 1px;
+border-style: none none dotted none;
+}
+
+.question
+{
+background-color:#f4f4ff;
+padding:0.5em;
+border-style:groove;
+border-width:thin;
+margin:1em;
+}
+
+.question h3
+{
+color:#a030a0;
+}
+
+.question img
+{
+border-style:none;
+}
+
+.question table
+{
+background-color:white;
+margin-left:1em;
+font-family:arial,sans-serif;
+font-size:90%;
+}
+
+.navigation, .topnavigation
+{
+padding:0.5em 0.5em 0.5em 0.5em;
+margin:0 0 0 0;
+}
+
+.navigation img, .topnavigation img
+{
+border-style:dotted;
+border-color:transparent;
+padding: 1px;
+}
+
+.navigation img:hover, .topnavigation img:hover
+{
+border-style:dotted;
+border-color:#a030a0;  /* purple */
+}
+
+.topnavigation
+{
+border-width:  0 0  1px  0;
+border-style: none none dotted none;
+}
+
+.navigation
+{
+border-width:1px 0 0 0;
+border-style:dotted none  none  none ;
+}
+
+.big
+{
+ font-weight:bold;
+ font-size:larger;
+}
+
+.xxl
+{
+ font-size:2em;
+ font-weight:bold;
+ font-size:larger;
+}
+
+
+.blue
+{
+ color:blue;
+}
+
+.darkblue{
+ color:#00009F;
+}
+
+.red
+{
+color:red;
+}
+
+.bigred
+{
+ color:red;
+ font-weight:bold;
+ font-size:larger;
+}
+
+.green
+{
+ color:green;
+}
+
+pre
+{
+ margin-left:3em;
+ font-weight:normal;
+ font-family:Lucida Console,Courier New,courier,monospace;
+}
+
+pre.dos, pre.dos3, pre.dos4, pre.dos5, pre.dos6, pre.dos7, pre.dos8, pre.dos9{
+ padding:5px;
+ margin-left:3em;
+ font-family:Lucida Console, Courier New, Courier, monospace;
+ color:white;
+ background-color:black;
+ border:ridge 6px #8F8F8F;
+ font-size:0.8em;
+}
+
+pre.dos3, pre.dos { width:300px; }
+pre.dos4 { width:400px; }
+pre.dos5 { width:500px; }
+pre.dos6 { width:600px; }
+pre.dos7 { width:700px; }
+pre.dos8 { width:800px; }
+pre.dos9 { width:900px; }
+
+textarea.dos
+{
+ font-family:Lucida Console, Courier New, Courier, monospace;
+ color:white;
+ background-color:black;
+ border:ridge 6px #8F8F8F;
+ font-size:10px;
+}
+
+
+pre.program
+{
+width:auto;
+margin-left:3em;
+margin-right:3em;
+padding:1.5em;
+border-style:double;
+border-color:#A02000;
+background-color:white;
+font-family:Lucida Console,Courier New,courier,monospace;
+font-size:0.90em;
+}
+
+code
+{
+font-family:"Lucida Console","Courier New",courier,FreeMono,monospace;   /* FreeMono for Linux */
+/*font-size:1.2em;*/
+/*color:#005000;*/
+white-space:nowrap;   /* to deal with deprecated nobr */
+}
+
+input[type=text], input.in, textarea.in{
+ background-color:#f4f4ff;
+ color:#a030a0;
+ border:1px #A02000 solid;
+ font-family: 'Lucida Console','Courier-New',Courier,monospace;
+ font-weight:normal;
+ font-size:1.1em;
+ margin-bottom:3px;
+ margin-top:3px;
+ padding:2px;
+}
+
+input
+{
+background-color:#f4f4ff;
+color:#a030a0;
+font-size:1.1em;
+margin-top:5px;
+}
+
+
+.fifty, .left
+{
+width:48%;
+float:left;
+}
+
+.right
+{
+width:48%;
+float:right;
+}
+
+.middle
+{
+max-width:60%;
+text-align:center;
+margin: 0 auto 0 auto;
+}
+
+tt
+{
+font-size:1.2em;
+font-family:"Lucida Console","Courier New",courier,FreeMono,monospace;   /* FreeMono for Linux */
+}
+
+a:link,    a:link code     { color:blue; }
+a:visited, a:visited code  { color:#A02000; }
+a:active,  a:active code   { color:red; }
+a:hover,   a:hover code    { color:red; }

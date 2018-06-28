@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises for Chapter 63</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+</head>
+
+<body BGCOLOR="#e8e8e8">
+
+<center><h1><font color=blue> 
+Chapter 63  Programming Exercises</font></h1></center>
+
+<hr>
+
+<h2>Exercise 1 &#8212 Ideal Weight Calculator</h2>
+<p>
+Write the application part of the ideal weight calculator
+that is described in this chapter
+(the first version).
+Use the approximate formula:
+</p>
+
+<blockquote>
+<pre>
+W = H<sup>2</sup> / 30 , for female
+
+W = H<sup>2</sup> / 28 , for male
+</pre>
+
+    where W is the ideal weight in pounds,
+    H is the height in inches
+</blockquote>
+
+<p>
+For the height, use the middle of the range for each of
+the radio button's ranges.
+Set an action command for each radio button using
+<code>setActionCommand(String)</code> just as for push buttons.
+Add an action listener for each button using 
+<code>addActionListener()</code>.
+</p>
+
+<p>
+Pick initial settings of the buttons and when the program starts up
+display the ideal weight for those settings.
+Each time a new button is clicked calculate and display the new
+ideal weight.
+If you are actually interested in your ideal weight, 
+search the Web for more accurate calculators.
+</p>
+<A HREF="../../cs151java.html#63">Click here </A> to go back to the main menu.
+
+<hr>
+
+<h2>Exercise 2 &#8212  Ideal Weight with Glue</h2>
+
+<img src="exercise2Glue.gif" align="right">
+<p>
+Finish the graphical interface code that uses glue to
+separate the two button panels.
+Experiment with adding more glue, 
+perhaps to the left and right of the button panels,
+between the buttons,
+and between the button box and the result panel.
+Resize the display of the frame to see the effect of glue.
+Add the application code from exercise 1.
+</p>
+
+<A HREF="../../cs151java.html#63">Click here </A> to go back to the main menu.
+<hr>
+
+<h2>Exercise 3 &#8212 Small, Medium, and Large Frame</h2>
+
+<p>
+An improved ideal weight calculator takes into account
+the type of (human) frame.
+Add another panel of radio buttons that allow the user
+to choose a small, medium, or large frame.
+Multiply the result of the above ideal weight calculation
+by 0.95 for small frame, 1.0 for medium frame, and 1.05 for
+large frame.
+</p>
+
+<A HREF="../../cs151java.html#63">Click here </A> to go back to the main menu.
+
+</body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+
+<title>
+F&uuml;llen Sie die L&uuml;cken aus
+</title>
+
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+
+</head>
+
+<body>
+<small>erstellt 25.11.99; &uuml;berarbeitet 28.05.03; &uuml;bersetzt 22.06.03; &uuml;berarbeitet 14.02.05; &copy; Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<center><h1>
+Kapitel 48 F&uuml;llen Sie die L&uuml;cken aus
+</h1></center>
+
+<p>
+Mit dieser Aufgabe &uuml;ben das Schreiben
+von Methoden, die Dinge mit Arrays tun.
+</p>
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+1. &nbsp; &nbsp; &nbsp;
+<b>Design der <code>StudentNoten</code>-Klasse</b>. &nbsp; &nbsp;
+Ein Objekt dieser Klasse repr&auml;sentiert die Noten
+eines einzelnen Studenten.
+Aus Gr&uuml;nden der Einfachheit
+nehmen wir an, dass alle Noten gleich z&auml;hlen
+und, dass ein Student bis zu 25 davon haben kann.
+</p>
+
+<p>
+&Uuml;berlegen Sie sich drei Datenelemente, die f&uuml;r
+ein <code>StudentNoten</code>-Objekt ben&ouml;tigt werden.
+</p>
+
+<form>
+<ol>
+<li> <input type="button" value="______________________________" name="button10" onClick="value='Name des Studenten.'" /></li>
+<li> <input type="button" value="______________________________" name="button1" onClick="value='Wie viele Noten es gibt.'" /></li>
+<li> <input type="button" value="______________________________" name="button2" onClick="value='Ein Array f&uuml;r die einzelnen Noten.'" /></li>
+</ol>
+</form>
+
+<p>
+&Uuml;berlegen Sie sich jetzt einige Methoden, die n&uuml;tzlich sind, um sie auf eine Liste von Noten anzuwenden.
+Es ist fast immer eine gute Idee eine M&ouml;glichkeit zu haben sich die Daten eines Objekts ausgeben zu lassen, und es wird notwendig sein eine Note zu der Liste hinzuzuf&uuml;gen.
+</p>
+
+<form>
+<ol>
+<li> <input type="button" value="____________________________________" name="button5" onClick="value='Die Noten ausgeben.'" /></li>
+<li> <input type="button" value="____________________________________" name="button6" onClick="value='Eine Note zur Liste hinzuf&uuml;gen.'" /></li>
+<li> <input type="button" value="____________________________________" name="button7" onClick="value='Den Durchschnitt berechnen.'" /></li>
+<li> <input type="button" value="____________________________________" name="button8" onClick="value='Die beste (maximale) Note finden.'" /></li>
+<li> <input type="button" value="____________________________________" name="button9" onClick="value='Die schlechteste (minimale) Note finden.'" /></li>
+</ol>
+</form>
+<hr />
+
+<p>
+2. &nbsp; &nbsp; &nbsp;<b>Dokumentieren Sie die Klasse</b>. &nbsp; &nbsp;
+F&uuml;llen Sie jetzt die Dokumentation der Klasse aus:
+</p>
+
+<form>
+<pre>
+<big><b>class</big></b> <input type="button" value="___________" name="button1" onClick="value='StudentNoten'" />
+
+Eine Klasse, die die Noten für einen Studenten enthält.
+
+<b><big>Konstruktor</big></b>
+
+// Ein neu konstruiertes Objekt hat den Namen des Studenten, aber enthält keine Noten
+StudentNoten ( <input type="button" value="___________" name="button2" onClick="value='String'" /> studentName )
+
+</pre>
+
+<pre>
+<b><big>Methoden</big></b>
+
+// Daten ausgeben
+public void  <input type="button" value="___________" name="button6" onClick="value=' ausgeben( ) '" />
+
+// eine Note für diesen Studenten hinzufügen
+public void  hinzufuegen <input type="button" value=" ( ____ ________ )  " name="button7" onClick="value=' (int note) '" />
+
+// Durchschnitt berechnen
+public double  durchschnitt()
+
+// Minimum berechnen
+public int <input type="button" value=" ___________ (  )  " name="button8" onClick="value='minimum() '" />
+
+// Maximum berechnen
+public int <input type="button" value=" ___________ (  )  " name="button9" onClick="value='maximum() '" />
+</pre>
+</form>
+
+<hr />
+<br>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+3. &nbsp; &nbsp; &nbsp;<b>Design &uuml;berpr&uuml;fen</b>. &nbsp; &nbsp;Um das Design zu &uuml;berpr&uuml;fen,
+schreiben Sie ein kleines Programm, das die Klasse verwendet.
+Nat&uuml;rlich, das Programm kann nicht kompiliert werden bis die Klasse geschrieben ist,
+aber Sie bekommen ein Gef&uuml;hl daf&uuml;r, ob das Klassendesign vern&uuml;nftig, in dem Sie das tun.
+</p>
+
+<form>
+<pre>
+class StudentTester
+{
+
+  public static void main ( String[] args )
+  {
+     // ein Objekt für einen Studenten erzeugen
+     StudentNoten stud = new <input type="button" value="______________" name="button1" onClick="value=' StudentNoten '" /> ( "Laura Lyons" ) ;
+
+     // ein leeres Objekt ausgeben
+     stud.<input type="button" value="_____________" name="button2" onClick="value=' ausgeben() '" /> ;
+
+     // ein paar Noten hinzufügen: 90, 95, and 88
+     stud.<input type="button" value="____________( _____ ) " name="button3" onClick="value=' hinzufuegen( 90 ) '" /> ;
+     stud.<input type="button" value="____________( _____ ) " name="button4" onClick="value=' hinzufuegen( 95 ) '" /> ;
+     stud.<input type="button" value="____________( _____ ) " name="button5" onClick="value=' hinzufuegen( 88 ) '" /> ;
+
+     // das Objekt mit dessen neuen Daten ausgeben
+     stud.<input type="button" value="_____________" name="button7" onClick="value=' ausgeben() '" /> ;
+
+     // Durchschnitt berechnen und ausgeben
+     System.out.println( "Durchschnittsnote: " + stud.<input type="button" value="_____________" name="button8" onClick="value=' durchschnitt() '" /> ;
+
+     }
+
+  }
+}
+</pre>
+</form>
+
+<p>
+Sie k&ouml;nnten ein paar Zweifel haben, ob das ein vern&uuml;nftiges Programm ist.
+Vielleicht w&auml;re es eine gute Idee die <code>ausgeben()</code> Methode eine Mitteilung ausgeben zu lassen, jedes Mal wenn sie verwendet wird.
+
+</p>
+
+<hr />
+<br>
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+4. &nbsp; &nbsp; &nbsp;<b>F&uuml;llen Sie die Instanzvariablen aus</b>. &nbsp; &nbsp;F&uuml;llen Sie den Datentyp f&uuml;r jede Instanzvariable aus.
+Die Noten werden in einem Integerarray aufbewahrt, das Platz f&uuml;r 25 Zahlen hat.
+Konstruieren Sie das Array noch nicht.
+Es wird ebenfalls eine Instanzvariable geben, die z&auml;hlt wie viele Slots des Arrays Daten enthalten.
+</p>
+
+<p>
+<em>M&ouml;gliche Unklarheit:</em> &nbsp; &nbsp; Die L&auml;nge des Arrays ist die Anzahl seiner Slots. In diesem Programm werden nicht alle Slots mit Noten gef&uuml;llt werden,
+also brauchen wir einen Zahl f&uuml;r die Anzahl der verwendeten Slots.
+Slots werden in ihrer Reihenfolge verwendet und beginnen mit dem Index 0.
+</p>
+
+<form>
+<pre>
+class StudentNoten
+{
+  final int ARRAYLAENGE = 25;
+
+  // Instanzvariablen
+  <input type="button" value="________________" name="button1" onClick="value='String  '" /> name;
+  <input type="button" value="________________" name="button2" onClick="value='int[]  '" /> arrNoten ;
+  <input type="button" value="________________" name="button3" onClick="value='int  '" /> anzahlNoten;
+
+  // Konstruktoren
+
+  // Methoden
+
+}
+</pre>
+</form>
+<hr />
+<br>
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+5. &nbsp; &nbsp; &nbsp;<b>Vervollst&auml;ndigen Sie den Konstruktor</b>. &nbsp; &nbsp;Der Konstruktor wird die Instanzvariablen des zu konstruierenden Objekts initialisieren.
+</p>
+
+<form>
+<pre>
+class StudentNoten
+{
+  final int ARRAYLAENGE = 25;
+
+  // Instanzvariablen
+  String name;          // der Name des Studenten
+  int[]  arrNoten;      // das Array mit den Noten
+  int    anzahlNoten;   // wie viele Slots Daten enthalten
+
+  // Konstruktor
+  StudentNoten( String studentName )
+  {
+    name        = <input type="button" value="_____________" name="button5" onClick="value=' studentName '" />  ;
+    arrNoten    = <input type="button" value="_____________" name="button6" onClick="value=' new '" /> int[ ARRAYLAENGE ] ;
+    anzahlNoten = <input type="button" value="_____________" name="button7" onClick="value=' 0 '" /> ;
+  }
+
+
+  // Methoden
+
+}
+</pre>
+</form>
+
+<hr />
+<br>
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+6. &nbsp; &nbsp; &nbsp;<b>Vervollst&auml;ndigen Sie die <code>ausgeben()</code> Methode</b>. &nbsp; &nbsp;
+Sie m&ouml;chten nicht jeden Slot des Arrays ausgeben
+(das ist nicht wie in der <code>ausgeben()</code> Methode dieses Kapitels), sondern nur die tats&auml;chliche Anzahl der Noten.
+</p>
+
+<form>
+<pre>
+class StudentNoten
+{
+  final int ARRAYLAENGE = 25;
+
+  // Instanzvariablen
+  String name;          // der Name des Studenten
+  int[]  arrNoten;      // das Array mit den Noten
+  int    anzahlNoten;   // wie viele Slots Daten enthalten
+
+  // Konstruktor
+  StudentNoten( String studentName )
+  {
+    name = studentName  ;
+    arrNoten =  new int[ ARRAYLAENGE ] ;
+    anzahlNoten =  0  ;
+  }
+
+  // Methoden
+
+  public void ausgeben ()
+  {
+    System.out.println ( "Name: " + <input type="button" value="____________" name="button1"
+       onClick="value=' name '" /> );
+
+    System.out.println( "Noten:");
+
+    for ( int j=0; j &lt; <input type="button" value="___________" name="button2" onClick="value=' anzahlNoten  '" /> ; j++ )
+      System.out.println ( "  Note " + j + ": " + arrNoten[ <input type="button" value="_______" name="button3"
+       onClick="value=' j '" />] );
+
+  }
+
+}
+</pre>
+</form>
+
+<hr />
+<br>
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+7. &nbsp; &nbsp; &nbsp;<b>Implementieren Sie die <code>hinzufuegen()</code> Methode</b>. &nbsp; &nbsp;
+Diese Methode wird eine Note (Integer) zur Liste der Noten f&uuml;r den Studenten hinzuf&uuml;gen.
+Stellen Sie sicher, dass Sie <code>anzahlNoten</code> erh&ouml;hen.
+</p>
+
+<form>
+<pre>
+class StudentNoten
+{
+  final int ARRAYLAENGE = 25;
+
+  // Instanzvariablen
+  String name;          // der Name des Studenten
+  int[]  arrNoten;        // das Array mit den Noten
+  int    anzahlNoten;    // wie viele Slots Daten enthalten
+
+  // Konstruktor
+  StudentNoten( String studentName )
+  {
+    name = studentName  ;
+    arrNoten =  new int[ ARRAYLAENGE ] ;
+    anzahlNoten =  0  ;
+  }
+
+  // Methoden
+  public void ausgeben () { ..... }
+
+  public void hinzufuegen ( int note )
+  {
+    if ( anzahlNoten &lt; ARRAYLAENGE )
+      arrNoten[ <input type="button" value="__________" name="button1"
+       onClick="value=' anzahlNoten '" /> ] = note ;
+
+    <input type="button" value="__________" name="button2"
+       onClick="value=' anzahlNoten '" /> ++  ;
+
+  }
+
+}
+</pre>
+</form>
+
+<p>
+Studieren Sie sorgf&auml;ltig wie die Variable <code>anzahlNoten</code> arbeitet.
+Sie enth&auml;lt sowohl die Anzahl der Arrayslots, die Daten enthalten, als auch den Index des n&auml;chsten verf&uuml;gbaren Slots.
+Dies ist ein gebr&auml;uchlicher Programmiertrick.
+</p>
+
+<hr />
+<br>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+
+<p>
+8. &nbsp; &nbsp; &nbsp;<b>Implementieren Sie die <code>durchschnitt()</code> Methode</b>. &nbsp; &nbsp;
+Versichern Sie sich, dass <code>summe</code> mit 0 initialisiert wird.
+Addieren Sie dann die Zahlen der Noten und dividieren Sie sie durch <code>anzahlNoten</code>, um den Durchschnitt zu bekommen.
+</p>
+
+<form>
+<pre>
+class StudentNoten
+{
+  final int ARRAYLAENGE = 25;
+
+  // Instanzvariablen
+  String name;          // der Name des Studenten
+  int[]  arrNoten;        // das Array mit den Noten
+  int    anzahlNoten;    // wie viele Slots Daten enthalten
+
+  // Konstruktor
+  StudentNoten( String studentName ) { .... }
+
+  // Methoden
+  public void ausgeben () { ..... }
+  public void hinzufuegen ( int note ) { ..... }
+
+  public double durchschnitt ( )
+  {
+    double summe =  <input type="button" value="__________" name="button1"
+       onClick="value=' 0 '" /> ;
+
+    for ( int j=0; j &lt; <input type="button" value="__________" name="button2" onClick="value=' anzahlNoten '" /> ; j++ )
+      summe +=  <input type="button" value="__________" name="button3"
+       onClick="value=' arrNoten '" />[ j ] ;
+
+    <input type="button" value="__________" name="button4"
+       onClick="value=' return '" />   summe / <input type="button" value="__________" name="button5" onClick="value=' anzahlNoten '" /> ;
+  }
+
+}
+</pre>
+</form>
+
+<hr />
+<br>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+9. &nbsp; &nbsp; &nbsp;<b>Implementieren Sie die <code>minimum()</code> Methode</b>. &nbsp; &nbsp;
+Versichern Sie sich, dass Sie nur die tats&auml;chliche Anzahl der Noten ber&uuml;cksichtigen.
+</p>
+
+<form>
+<pre>
+class StudentNoten
+{
+  final int ARRAYLAENGE = 25;
+
+  // Instanzvariablen
+  String name;          // der Name des Studenten
+  int[]  arrNoten;      // das Array mit den Noten
+  int    anzahlNoten;   // wie viele Slots Daten enthalten
+
+  // Konstruktor
+  StudentNoten( String studentName ) { .... }
+
+  // Methoden
+  public void ausgeben () { ..... }
+  public void hinzufuegen ( int note ) { ..... }
+
+  public double durchschnitt ( )
+  {
+    double summe =  0  ;
+
+    for ( int j=0; j &lt; anzahlNoten; j++ )
+      summe += arrNoten[ j ] ;
+
+    return   summe / anzahlNoten ;
+  }
+
+  public int minimum( )
+  {
+    int min =  <input type="button" value="__________" name="button1"
+       onClick="value='  arrNoten[ 0 ] '" /> ;
+
+    for ( int j=0; j &lt; <input type="button" value="__________" name="button2" onClick="value=' anzahlNoten '" /> ; j++ )
+
+      if (  <input type="button" value="__________" name="button3" onClick="value=' arrNoten[j] '" /> &lt; min )
+          min =  <input type="button" value="__________" name="button5" onClick="value=' arrNoten[j] '" /> ;
+
+    return <input type="button" value="__________" name="button4"
+         onClick="value=' min '" /> ;
+  }
+
+}
+</pre>
+
+</form>
+
+<hr />
+<br>
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+10. &nbsp; &nbsp; &nbsp;<b>Implementieren Sie die <code>maximum()</code> Methode</b>. &nbsp; &nbsp;
+Das wird fast die gleiche wie die <code>minimum()</code> Methode werden.
+</p>
+
+<form>
+<pre>
+class StudentNoten
+{
+  final int ARRAYLAENGE = 25;
+
+  // Instanzvariablen
+  String name;          // der Name des Studenten
+  int[]  arrNoten;      // das Array mit den Noten
+  int    anzahlNoten;   // wie viele Slots Daten enthalten
+
+  // Konstruktor
+  StudentNoten( String studentName ) { .... }
+
+  // Methoden
+  public void ausgeben () { ..... }
+  public void hinzufuegen ( int note ) { ..... }
+
+  public double durchschnitt ( ) { ..... }
+
+  public int maximum( )
+  {
+    int max =  <input type="button" value="__________" name="button1"
+       onClick="value='  arrNoten[ 0 ] '" /> ;
+
+    for ( int j=0; j &lt; <input type="button" value="__________" name="button2" onClick="value=' anzahlNoten '" /> ; j++ )
+
+      if ( arrNoten[j] <input type="button" value="__________" name="button3" onClick="value=' > '" /> max )
+          max =  <input type="button" value="__________" name="button5" onClick="value=' arrNoten[j] '" /> ;
+
+    return <input type="button" value="__________" name="button4"
+         onClick="value=' max '" /> ;
+  }
+
+}
+</pre>
+</form>
+
+<hr />
+<br />
+<!-- ------------------------end of question --------------------------------- -->
+
+<p>
+<b>Das gesamte Programm mit einer Klasse zum Testen:</b> &nbsp; &nbsp;
+Sie haben vielleicht den Wunsch das Programm nach NotePad zu kopieren,
+es zu speichern und damit zu experimentieren.
+</p>
+
+<pre>
+class StudentNoten
+{
+  final int ARRAYLAENGE = 25;
+
+  // Instanzvariablen
+  String name;          // der Name des Studenten
+  int[]  arrNoten;      // das Array mit den Noten
+  int    anzahlNoten;   // wie viele Slots Daten enthalten
+
+  // Konstruktor
+  StudentNoten( String studentName )
+  {
+    name = studentName  ;
+    arrNoten =  new int[ ARRAYLAENGE ] ;
+    anzahlNoten =  0  ;
+  }
+
+  // Methoden
+
+  public void ausgeben ()
+  {
+    System.out.println ( "Name: " + name  );
+
+    System.out.println( "Noten:");
+
+    for ( int j=0; j &lt; anzahlNoten ; j++ )
+      System.out.println ( "  note " + j + ": " + arrNoten[ j ] );
+
+  }
+
+  public void hinzufuegen ( int note )
+  {
+    if ( anzahlNoten &lt; ARRAYLAENGE )
+      arrNoten[anzahlNoten] = note ;
+    anzahlNoten ++ ;
+  }
+
+  public double durchschnitt ( )
+  {
+    double summe =  0  ;
+
+    for ( int j=0; j &lt; anzahlNoten; j++ )
+      summe += arrNoten[ j ] ;
+
+    return   summe / anzahlNoten ;
+  }
+
+  public int minimum( )
+  {
+    int min = arrNoten[ 0 ] ;
+
+    for ( int j=0; j &lt; anzahlNoten; j++ )
+
+      if ( arrNoten[j] &lt; min )
+        min = arrNoten[j] ;
+
+    return min ;
+  }
+
+  public int maximum( )
+  {
+    int max = arrNoten[ 0 ] ;
+
+    for ( int j=0; j &lt; anzahlNoten; j++ )
+
+      if ( arrNoten[j] &gt; max )
+        max = arrNoten[j] ;
+
+    return max ;
+  }
+
+}
+
+class StudentTester
+{
+
+  public static void main ( String[] args )
+  {
+     // ein Objekt Student erzeugen
+     StudentNoten stud = new StudentNoten( "Laura Lyons" ) ;
+
+     // ein paar Noten hinzufügen
+     stud.hinzufuegen( 90 ) ;
+     stud.hinzufuegen( 95 ) ;
+     stud.hinzufuegen( 88 ) ;
+     stud.hinzufuegen( 78 ) ;
+     stud.hinzufuegen( 82 ) ;
+     stud.hinzufuegen( 97 ) ;
+
+     // das Objekt mit den neuen Daten ausgeben
+     stud.ausgeben() ;
+
+     // Durchschnitt, Minimum und Maximum berechnen und ausgeben
+     System.out.println( "Durchschnittsnote: " + stud.durchschnitt() + " Minimum: " + stud.minimum() +
+         " Maximum: " + stud.maximum() );
+     }
+}
+</pre>
+
+<!-- ------------------------end of review --------------------------------- -->
+
+<hr />
+
+<p>
+Ende der &Uuml;bung.  Wenn Sie sie wiederholen m&ouml;chten, klicken Sie in Ihrem Browser auf &quot;Aktualisieren&quot;.</p>
+<p>Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#48">Inhaltsverzeichnis</a>.</p>
+</body>
+</html>

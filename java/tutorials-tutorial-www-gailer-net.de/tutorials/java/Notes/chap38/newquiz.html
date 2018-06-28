@@ -1,0 +1,510 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css" />
+<title>
+Quiz on More Applet Features
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+</head>
+
+<script language="JavaScript">
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+ 
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;   
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value 
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else 
+    reportForm.letter.value = "hmm.."
+    
+}
+</script>
+
+<body>
+<font size=-1> created 01/22/00</font>
+<hr>
+
+<center><h1>
+<!-- FILL in the Quiz Name -->
+Quiz on More Applet Features
+<!-- end of Quiz Name -->
+</h1></center> 
+<!-- img src="quizBalls.gif" align=left vspace=15 hspace=15 -->
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on a button.
+You can change your answers at any time.
+(When the quiz is graded, the correct answers will appear in the box after each question.)
+</p>
+<hr>
+
+<hr/>
+<form name="question1">
+<p>
+<p>
+1.
+<!-- Fill in a Question -->
+What reserved word is used to distinguish the instance variables
+of an object from identically named parameters of a constructor?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+<code>this</code>
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+<code>that</code>
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+<code>mine</code>
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+<code>main</code>
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question2">
+<p>
+2.
+<!-- Fill in a Question -->
+What is the class that all applets are based on?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+<code>applet</code>
+
+<!-- end of answer -->   
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+<code>Applet</code>
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+<code>Apple</code>
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+<code>AWT</code>
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="B"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question3">
+<p>
+3.
+<!-- Fill in a Question -->
+What class creates a random number generator object?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+<code>Applet</code>
+
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+<code>Graphics</code>
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+<code>Math</code>
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+<code>Random</code>
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question4">
+<p>
+4.
+<!-- Fill in a Question -->
+What is an <em>immutable</em> object?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+One that can never be created.
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+One that once created can never be changed.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+One that once created can never be destroyed.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+One that can easily be changed by other objects.
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="B"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question5">
+<p>
+5.
+<!-- Fill in a Question -->
+What is <code>Color.red</code> ?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+A <code>static final</code> object of class <code>Color</code>
+that represents the color red.
+
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+A constructor of class <code>Color</code>.
+
+<!-- end of answer -->   
+</td></tr> 
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+A private method of class <code>Color</code>.
+
+
+<!-- end of answer -->   
+</td></tr> 
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+An  object of class <code>Graphics</code>.
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="A"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question6">
+<p>
+6.
+<!-- Fill in a Question -->
+What reserved word is used when
+an instance variable is declared for a class
+that prevents methods from outside classes
+from seeing it?
+
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+<code>final</code>
+
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+<code>int</code>
+
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+<code>public</code>
+
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+<code>private</code>
+
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question7">
+<p>
+7.
+<!-- Fill in a Question -->
+Does an <em>immutable object</em> have all <code>private</code> methods?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+No---it might or might not.
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+No---if all the methods were private none would ever be called.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+Yes---to prevent any outside use of the object.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Yes---that is what makes it immutable
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="B"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question8">
+<p>
+8.
+<!-- Fill in a Question -->
+What HTML tags are used to show the main, content-containing part of a web page?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+&lt;applet&gt; &nbsp; &lt;/applet&gt;
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+&lt;body&gt; &nbsp; &lt;/body&gt;
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+&lt;h1&gt; &nbsp; &lt;/h1&gt;
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+&lt;html&gt; &nbsp; &lt;/html&gt;
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="B"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question9">
+<p>
+9.
+<!-- Fill in a Question -->
+Which of the following generates an integer in the range 0 to 9 ?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'"><b>a.</b>
+
+<!-- Fill in answer A -->
+<blockquote><pre>
+Random randNum = new Random();
+int someInt = randNum();
+</pre></blockquote>
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+<blockquote><pre>
+Random randNum = new Random();
+int someInt = randNum.nextInt() ;
+</pre></blockquote>
+
+
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+<blockquote><pre>
+Random randNum = new Random();
+int someInt = Math.abs( randNum.nextInt() )%9
+</pre></blockquote>
+
+
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+<blockquote><pre>
+Random randNum = new Random();
+int someInt = Math.abs( randNum.nextInt() )%10
+</pre></blockquote>
+
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question10">
+<p>
+10.
+<!-- Fill in a Question -->
+Can two or more applets appear on the same web page?
+<!-- end of question -->   
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+No, only one per page.
+
+<!-- end of answer -->   
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'"><b>b.</b> 
+<!-- Fill in answer B -->
+No, applets can't appear on web pages.
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+Yes, put them all between &lt;applet&gt; and &lt;/applet&gt;
+<!-- end of answer -->   
+</td></tr> 
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Yes, but there must be &lt;applet&gt; and &lt;/applet&gt; for each one.
+
+<!-- end of answer -->   
+</td></tr> 
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+<hr>
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="grade quiz" onClick="gradeQuiz(this.form)">
+</center>
+<p>
+The number you got right:
+&nbsp;&nbsp;
+<input type=text name="grade" size=5>
+&nbsp;&nbsp;
+Percent Correct:
+&nbsp;&nbsp;
+<input type=text name="percent" size=5>
+&nbsp;&nbsp;
+Letter Grade:
+&nbsp;&nbsp;
+<input type=text name="letter" size=5>
+</form>
+<A HREF="../../cs151java.html#37">Click here </A> to go back to the main menu.
+</p>
+</body>
+</html>

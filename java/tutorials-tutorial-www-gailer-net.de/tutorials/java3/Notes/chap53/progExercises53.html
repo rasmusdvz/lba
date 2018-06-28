@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+
+<head>
+<title>Programmieraufgaben</title>
+<meta name="copyright" content="2004 - 2005 Heinrich Gailer" />
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="index, follow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<hr />
+<small>erstellt 09.03.04; &uuml;berarbeitet 25.03.04, 27.03.04, 24.02.05; &copy; Copyright 2004 - 2005 Heinrich Gailer</small>
+<hr />
+<center><h1><span class="blue">
+Kapitel 53  Programmieraufgaben</span></h1></center>
+
+<h2>Aufgabe 1 &#8212; Array von Haustieren</h2>
+
+<p>
+Die folgenden Aufgaben bauen auf den Aufgaben der beiden vorherigen <a href="../chap52/progExercises52.html">Kapitel</a> auf.
+</p>
+
+<p>Erstellen Sie ein Array vom Typ <code>Haustiere</code>, das f&uuml;nf Elemente aufnehmen kann. Erzeugen Sie dann 5 Objekte vom Typ <code>Hund</code> und <code>Katze</code> und weisen Sie diese den Slots des Arrays zu.</p>
+
+<p>
+Rufen Sie dann in einer <code>for</code>-Schleife die <code>fuettern()</code> und <code>anzeigen()</code> Methode f&uuml;r die Haustiere auf.
+</p>
+
+<p>&Auml;ndern Sie die <code>friss()</code> Methode der Klasse <code>Hund</code>. Kleine Hunde fressen weiterhin 1 Einheit des Futtervorrats, mittelgro&szlig;e Hunde 1.5 Einheiten und gro&szlig;e Hunde fressen 2.0 Einheiten.</p>
+
+<p>Testen Sie das Programm in einer Klasse <code>HaustierFuettern</code>. Die Ausgabe sieht dann ungef&auml;hr wie diese aus:</p>
+
+<blockquote>
+<pre>
+C:\data\java\bsp&gt;java HaustierFuettern
+Miau!
+1.0 0.5
+(Haltung: Wohnungskatze) Der Vorrat fuer Minka reicht 2 Tage.
+Wuff!
+9.0 7.0 5.0 3.0 1.0
+(Kategorie: Grosse Hunde) Der Vorrat fuer Rambo reicht 5 Tage.
+Wuff!
+4.0 2.5 1.0
+(Kategorie: Mittelgrosse Hunde) Der Vorrat fuer Isi reicht 3 Tage.
+Miau!
+1.5 1.0 0.5
+(Haltung: Artgerecht) Der Vorrat fuer Morle reicht 3 Tage.
+Wuff!
+3.0 2.0 1.0
+(Kategorie: Kleinhunde) Der Vorrat fuer Strolchie reicht 3 Tage.
+</pre>
+</blockquote>
+
+<A HREF="../../java-toc.html#53">Zur&uuml;ck</A> zur &Uuml;bersicht.
+</p>
+
+<hr />
+
+<h2>Aufgabe 2 &#8212; Haustiere nach Gewicht sortieren</h2>
+
+<p>
+Das Programm wird um die M&ouml;glichkeit erweitert eine Array von <code>Haustier</code>-Objekten sortiert nach Gewicht auszugeben. F&uuml;gen Sie der abstrakten Klasse <code>Haustiere</code> die private Variable <code>gewicht</code> hinzu und passen Sie die Konstruktoren der drei Klassen entsprechend an.
+</p>
+
+<p>
+&Auml;ndern Sie in der abstrakten Klasse <code>Haustiere</code> die &ouml;ffentliche Methode <code>anzeigen()</code>, so dass sie den Namen und das Gewicht der Haustiere ausgibt.
+</p>
+
+<p>
+<a href="ch53_23.html">Implementieren Sie das Interface</a> <code>Comparable</code> in der abstrakten Klasse <code>Haustiere</code>.
+</p>
+
+<p>Verwenden Sie jetzt f&uuml;r die Ausgabe innerhalb der <code>for</code>-Schleife die <code>anzeigen()</code> Methode. Um die Methode <code>sort()</code> der Klasse <code>Arrays</code> nutzen zu k&ouml;nnen, m&uuml;ssen Sie das Paket <code>java.util</code> importieren.
+</p>
+
+<blockquote>
+<pre>
+import java.util.* ;
+</pre>
+</blockquote>
+
+<p>
+Testen Sie das Programm in einer Klasse <code>HaustierFuettern</code>. Die Ausgabe sieht dann ungef&auml;hr wie diese aus:
+</p>
+
+<blockquote>
+<pre>
+C:\data\java\bsp&gt;java HaustierFuettern
+
+Unsortiertes Array
+ [Gewicht   3.5] Der Vorrat fuer Minka reicht 2 Tage.
+ [Gewicht  75.0] Der Vorrat fuer Rambo reicht 5 Tage.
+ [Gewicht  25.5] Der Vorrat fuer Isi reicht 3 Tage.
+ [Gewicht   4.0] Der Vorrat fuer Morle reicht 3 Tage.
+ [Gewicht   6.5] Der Vorrat fuer Strolchie reicht 3 Tage.
+
+Sortiertes Array (nach Gewicht)
+ [Gewicht   3.5] Der Vorrat fuer Minka reicht 2 Tage.
+ [Gewicht   4.0] Der Vorrat fuer Morle reicht 3 Tage.
+ [Gewicht   6.5] Der Vorrat fuer Strolchie reicht 3 Tage.
+ [Gewicht  25.5] Der Vorrat fuer Isi reicht 3 Tage.
+ [Gewicht  75.0] Der Vorrat fuer Rambo reicht 5 Tage.
+
+</pre>
+</blockquote>
+
+<p>
+<A HREF="../../java-toc.html#52">Zur&uuml;ck</A> zur &Uuml;bersicht.
+</p>
+
+<hr />
+
+<h2>Aufgabe 3 &#8212; Haustiere nach Namen sortieren</h2>
+
+<p>
+Ver&auml;ndern Sie das Programm, so dass es die Haustiere sortiert nach Namen ausgibt.
+Verwenden Sie dazu in der <code>compareTo()</code> Methode die Methode <code>compareTo()</code> der Klasse <code>String</code>.
+
+<p>
+Testen Sie das Programm in einer Klasse <code>HaustierFuettern</code>. Die Ausgabe sieht dann ungef&auml;hr wie diese aus:
+</p>
+
+<blockquote>
+<pre>
+C:\data\java\bsp&gt;java HaustierFuettern
+
+Unsortiertes Array
+ [Gewicht   3.5] Der Vorrat fuer Minka reicht 2 Tage.
+ [Gewicht  75.0] Der Vorrat fuer Rambo reicht 5 Tage.
+ [Gewicht  25.5] Der Vorrat fuer Isi reicht 3 Tage.
+ [Gewicht   4.0] Der Vorrat fuer Morle reicht 3 Tage.
+ [Gewicht   6.5] Der Vorrat fuer Strolchie reicht 3 Tage.
+
+Sortiertes Array (nach Name)
+ [Gewicht  25.5] Der Vorrat fuer Isi reicht 3 Tage.
+ [Gewicht   3.5] Der Vorrat fuer Minka reicht 2 Tage.
+ [Gewicht   4.0] Der Vorrat fuer Morle reicht 3 Tage.
+ [Gewicht  75.0] Der Vorrat fuer Rambo reicht 5 Tage.
+ [Gewicht   6.5] Der Vorrat fuer Strolchie reicht 3 Tage.
+
+</pre>
+</blockquote>
+<p>Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#53">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+
+
+</body>
+</html>

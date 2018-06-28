@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org " />
+<meta name="translation" content="Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+<p>
+<small>erstellt 31.05.03 &uuml;bersetzt 22.06.03; &uuml;berarbeitet 01.02.05; &copy; Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+<hr />
+
+<center><h1><span class="blue">
+Kapitel 47 Programmieraufgaben</span></h1></center>
+
+<hr />
+
+<h2>Aufgabe 1 &#8212; Summe der geraden, ungeraden und aller Elemente</h2>
+
+<p>
+Vervollst&auml;ndigen Sie das folgende Programm,
+so dass es die Summe aller Elemente des Arrays,
+die Summe der geraden Elemente und die
+Summe der ungeraden Elemente errechnet.
+Setzen Sie voraus, dass alle Zahlen null oder positiv sind.
+Gerade Integer sind solche, f&uuml;r die <code>N%2</code> == 0 ist.
+</p>
+
+<pre>
+class DreiSummen
+{
+
+  public static void main ( String[] args )
+  {
+    int[] array = {3, 2, 5, 7, 9, 12, 97, 24, 54};
+
+    // drei Variablen für die Summen deklarieren und initialisieren
+
+
+    // Summen berechnen
+    for ( int index = 0; index &lt; array.length; index++ )
+    {
+    }
+
+    // Summen ausgeben
+    System.out.println(  );
+
+  }
+}
+</pre>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#46">Inhaltsverzeichnis</a>.
+</p>
+
+<hr />
+
+<h2>Aufgabe 2 &#8212; Die zwei gr&ouml;&szlig;ten Elemente</h2>
+
+<p>
+Vervollst&auml;ndigen Sie das folgende Programm, so dass es
+die zwei gr&ouml;&szlig;ten Elemente des Arrays berechnet und ausgibt.
+</p>
+
+<pre>
+class DieZweiGroessten
+{
+
+  public static void main ( String[] args )
+  {
+    int[] array = {3, 1, 5, 7, 4, 12, -3, 8, -2};
+
+    // Variablen für die zwei größten Elemente deklarieren und initialisieren
+
+
+    // die zwei größten Elemente berechnen
+    for ( int index= ; index &lt; array.length; index++)
+    {
+    }
+
+    // die zwei größten Elemente ausgeben
+    System.out.println(  );
+
+  }
+}
+</pre>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#46">Inhaltsverzeichnis</a>.
+</p>
+
+<hr />
+
+
+
+<h2>Aufgabe 3 &#8212; Elemente umkehren</h2>
+
+<p>
+Vervollst&auml;ndigen Sie das folgende Programm, so dass es
+die Reihenfolge der Werte in <code>array</code> umkehrt
+und sie ausgibt.
+</p>
+
+<p>
+In der ersten Version des Programms gibt es nur ein
+Array und seine Werte werden durch eine
+etwas trickreiche Programmierung umgekehrt.
+</p>
+
+<pre>
+class ArrayUmkehren1
+{
+
+  public static void main ( String[] args )
+  {
+    int[] array = {1,2,3,4,5,6,7,8,9,10,11,12,13,14};
+
+    // Daten umkehren
+    for ( int j = 0; j &lt; seien Sie vorsichtig hier; j++)
+    {
+
+    }
+
+    // neuen Daten ausgeben
+    for ( int j = 0; j &lt; array.length; j++)
+    {
+
+    }
+
+  }
+}
+</pre>
+
+<p>
+Schreiben Sie jetzt ein weiteres Programm,
+das zwei Arrays verwendet.
+Das erste Array <code>array</code> wird nicht ge&auml;ndert.
+Das zweite Array <code>ziel</code> bekommt die Elemente
+von <code>array</code> in umgekehrter Reihenfolge.
+</p>
+
+<pre>
+class ArrayUmkehren2
+{
+
+  public static void main ( String[] args )
+  {
+    int[] array = {1,2,3,4,5,6,7,8,9,10,11,12,13,14};
+    int[]  ziel =
+
+    // die Daten von array in umgekehrter Reihenfolge nach ziel kopieren
+    for ( int j = 0; j &lt; be careful here; j++)
+    {
+
+    }
+
+    // Ergebnis ausgeben
+    for ( int j = 0; j &lt; ziel.length; j++)
+    {
+
+    }
+
+  }
+}
+</pre>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#46">Inhaltsverzeichnis</a>.
+</p>
+
+<hr />
+
+<h2>Aufgabe 4 &#8212; Tonfilter</h2>
+
+<p>
+Ein Tonsignal wird manchmal als Liste von <code>int</code>-Werten gespeichert.
+Die Werte repr&auml;sentieren die Intensit&auml;t des Signals
+in aufeinanderfolgenden Zeitintervallen.
+Nat&uuml;rlich wird in einem Programm das Signal
+durch ein Array repr&auml;sentiert.
+</p>
+
+<p>
+Oft ist in dem Signal ein kleiner Anteil von St&ouml;rger&auml;uschen enthalten.
+St&ouml;rger&auml;usche sind &uuml;blicherweise kleine, momentane &Auml;nderungen
+der Tonh&ouml;he.
+Ein Beispiel ist das "Ger&auml;usch", das zus&auml;tzlich
+zum Ton eines AM Radios zu h&ouml;ren ist.
+</p>
+
+<p>
+Das Gl&auml;tten des Tons entfernt das St&ouml;rger&auml;usch
+und verbessert die Wahrnehmung der Tonqualit&auml;t.
+Diese Aufgabe besteht darin, die Werte eines Integerarrays
+zu gl&auml;tten.
+</p>
+
+<p>
+Angenommen, dass die urspr&uuml;nglichen Werte in dem Array "signal" sind.
+Berechnen Sie das gegl&auml;ttete Array, in dem Sie folgendes tun:
+Jeder Wert <code>geglaettet[N]</code> ist der Durchschnitt von
+drei Werten: <code>signal[N-1]</code>,
+<code>signal[N]</code> und <code>signal[N+1]</code>.
+</p>
+
+<p>
+Berechnen Sie f&uuml;r das erste Element von <code>geglaettet</code>
+den Durchschnitt der ersten zwei Elemente von <code>signal</code>.
+Berechnen Sie f&uuml;r das letzte Element von <code>geglaettet</code>
+den Durchschnitt der letzten zwei Elemente von <code>signal</code>.
+</p>
+
+<p>
+Verwenden Sie daf&uuml;r Integerarithmetik ,
+so dass die Werte in <code>geglaettet</code>
+Integer sind.
+</p>
+
+<pre>
+class Glaetten
+{
+
+  public static void main ( String[] args )
+  {
+    int[] signal  = {5, 5, 4, 5, 6, 6, 7, 6, 5, 4, 1, 4};
+    int[] geglaettet
+
+    // berechnen Sie den geglätteten Wert für jeden Slot
+    // von Array geglaettet
+    geglaettet[0]  =
+    geglaettet[ signal.length-1 ] =
+    for (  )
+    {
+
+    }
+
+    // Geben Sie den Input aus
+    for ( int j = 0; j &lt; geglaettet.length; j++)
+    {
+
+    }
+
+    // Geben Sie das Ergebnis aus
+    for ( int j = 0; j &lt; geglaettet.length; j++)
+    {
+
+    }
+
+  }
+}
+</pre>
+
+<p>
+Denken Sie daran, wenn Sie die Ergebnisse interpretieren,
+dass Integerdivision den Rest verwirft.
+Sie berechnet keinen gerundeten Wert.
+Hier ist, was das Programm ausgibt.
+</p>
+
+<pre>
+C:\data\JavaNotes&gt;java Glaetten
+signal: 1 5 4 5 7 6 8 6 5 4 5 4
+geglaettet: 3 3 4 5 6 7 6 6 5 4 4 4
+C:\data\JavaNotes&gt;
+</pre>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#46">Inhaltsverzeichnis</a>.
+</p>
+
+
+<hr />
+
+<h2>Aufgabe 5 &#8212; Daten-Optimierer (double)</h2>
+
+<p>
+Angenommen, dass Sie an der Berechnung
+des durchschnittlichen S&auml;uregehalts von Kaffee intressiert sind,
+wie er in den Caf&eacute;s in Ihrer Heimatstadt serviert wird.
+Sie besuchen viele Caf&eacute;s und tauchen Ihr pH-Messger&auml;t
+in Kaffeeproben.
+Sie zeichnen das Ergebnis in einer Textdatei
+wie der folgenden auf.
+Die erste Zeile zeigt die Anzahl der Werte an, die folgen werden.
+</p>
+
+<pre>
+13
+5.6
+6.2
+6.0
+5.5
+5.7
+6.1
+7.4
+5.5
+5.5
+6.3
+6.4
+4.0
+6.9
+</pre>
+
+<p>
+Allerdings wissen Sie, dass Ihr pH-Messger&auml;t manchmal falsche Ergebnisse liefert.
+Also entschlie&szlig;en Sie sich den Messwert, der am weitesten vom Durchschnitt entfernt ist, nicht zu ber&uuml;cksichtigen.
+</p>
+
+<p>
+Erzeugen Sie eine Textdatei wie die oben stehende oder eine mit
+&auml;hnlichen Daten.
+Schreiben Sie jetzt ein Programm, dass die Daten in ein
+Array einliest (verwenden Sie Input-Umlenkung wie sie im Kapitel 22 erkl&auml;rt wird).
+Berechnen Sie den Durchschnitt aller Daten.
+Durchsuchen Sie jetzt das Array, um den Wert zu finden,
+der am weitesten (in jeder Richtung) vom Durchschnitt entfernt ist.
+Setzen Sie den Wert auf -1, um anzuzeigen, dass der Wert nicht aufgenommen wird.
+Berechnen und geben Sie den neuen Durchschnitt aus.
+</p>
+
+<p>
+Hier ist ein Ablauf des Programms:
+</p>
+
+<pre>
+C:\&gt;java KaffeeDurchschnitt &lt; KaffeeDaten.txt
+array[ 0 ] = 5.6
+array[ 1 ] = 6.2
+array[ 2 ] = 6.0
+array[ 3 ] = 5.5
+array[ 4 ] = 5.7
+array[ 5 ] = 6.1
+array[ 6 ] = 7.4
+array[ 7 ] = 5.5
+array[ 8 ] = 5.5
+array[ 9 ] = 6.3
+array[ 10 ] = 6.4
+array[ 11 ] = 4.0
+array[ 12 ] = 6.9
+Durchschnitt: 5.930769230769231
+entferntester Wert: 4.0
+neuer Durchschnitt: 6.091666666666668
+</pre>
+
+<p>
+Hinweis: dies ist eine schwierigere Aufgabe als Sie denken m&ouml;gen.
+Ich stelle sie manchmal in den Pr&uuml;fungen Mitte des Semesters
+und manche Studenten k&ouml;nnen sie nicht l&ouml;sen.
+</p>
+<p>Zur&uuml;ck zum <a HREF="../../java-toc.html#47">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee  dot org ">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+<meta name="robots" content="noindex,nofollow">
+
+<title>Programmieraufgaben</title>
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css">
+</head>
+
+<body>
+<p class="revisions">erstellt 09.08.99; &uuml;bersetzt 31.03.03, 18.11.03; &uuml;berarbeitet 27.11.03, 11.05.04, 03.10.06; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+
+<h1>Kapitel 18  Programmieraufgaben</h1>
+
+<h2>Aufgabe 1 &#8212; Meilen pro Gallone</h2>
+
+<p>
+Schreiben Sie ein Programm, das die gefahrenen Meilen pro Gallone f&uuml;r eine Reihe von Autos berechnet.
+Die Daten f&uuml;r jedes Auto bestehen aus dem Anfangs- und Endstand in Meilen und der Anzahl der Gallonen.
+Das Programm wird beendet, sobald der Anwender eine negative Zahl als Anfangsstand eingibt.
+</p>
+
+<pre class="dos">
+Programm Meilen pro Gallone
+Anfangsstand Meilen:
+15000
+Endstand Meilen:
+15250
+Gallonen
+10
+Meilen pro Gallone: 25.0
+
+Anfangsstand Meilen:
+107000
+Endstand Meilen:
+107450
+Gallonen
+15
+Meilen pro Gallone: 30.0
+
+Anfangsstand Meilen:
+-1
+bye
+</pre>
+
+
+<p>Zur&uuml;ck zum <a href="../../index.html#18">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 2 &#8212; Bereiche addieren</h2>
+
+<p>
+Schreiben Sie ein Programm, das den Anwender
+nach einer Unter- und Obergrenze f&uuml;r einen Bereich
+von Ganzzahlen fragt.
+Das Programm fragt dann den Anwender nach Ganzzahlen,
+die addiert werden sollen.
+Das Programm berechnet zwei Summen:
+</p>
+
+<ul>
+  <li>Die Summe der Integer, die im Bereich sind (inklusive)
+  <li>und die Summe der Integer, die au&szlig;erhalb des Bereichs sind.
+</ul>
+
+<p>Der Anwender signalisiert das Ende der Eingabe mit einer 0.</p>
+
+<pre class="dos">
+Bereiche addieren
+Untergrenze des Bereichs:
+20
+Obergrenze des Bereichs:
+50
+Daten eingeben:
+21
+Daten eingeben:
+60
+Daten eingeben:
+49
+Daten eingeben:
+30
+Daten eingeben:
+91
+Daten eingeben:
+0
+Summe der Werte innerhalb des Bereichs: 100
+Summe der Werte ausserhalb des Bereichs: 151
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#18">Inhaltsverzeichnis</a>.</p>
+<hr>
+
+<h2>Aufgabe 3 &#8212; Versandkosten-Kalkulator</h2>
+<p>
+Ein Paketdienst berechnet $3.00 Versandkosten
+bis zu einem Gewicht von 10 Pfund (inklusive).
+Dar&uuml;ber sind f&uuml;r jedes Pfund  zus&auml;tzlich $0.25 zu bezahlen.
+Schreiben Sie ein Programm, das den Anwender nach dem Gewicht
+der Sendung fragt und dann die Versandkosten ausgibt.
+Das Programm endet, wenn ein Gewicht von 0 oder weniger eingegeben wird.
+
+<pre class="dos">
+Gewicht der Sendung:
+5
+Versandkosten: $3.0
+
+Gewicht der Sendung:
+20
+Versandkosten: $5.5
+
+Gewicht der Sendung:
+0
+
+bye
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#18">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 4 &#8212; Fl&auml;che von Rechtecken</h2>
+
+
+<p>
+<img src="progEx3.gif" align="right" hspace="20">
+Ein CAD Programm erwartet, das der Anwender die Koordinaten
+von zwei Eckpunkten f&uuml;r jedes von mehreren Rechtecken eingibt (siehe Diagramm).
+Dabei wird vorausgesetzt, dass die Seiten der Rechtecke parallel zur X und Y Achse verlaufen.
+Die Koordinaten eines jeden Eckpunkts werden als Paar von Ganzzahlen eingegeben,
+zuerst die X-Koordinate und dann die Y-Koordinate.
+Der Urprung des Koordinatensystems (0,0) ist die linke obere Ecke, so dass Y
+abw&auml;rts zunimmt und X nach rechts zunimmt.
+</p>
+<p>
+Das Programm berechnet f&uuml;r jedes Rechteck die H&ouml;he, die Breite und die Fl&auml;che.
+Die zwei eingegebenen Eckpunkte m&uuml;ssen sich diagonal gegen&uuml;ber liegen (links oben und rechts unten, oder rechts oben und links unten), aber welche Wahl f&uuml;r jedes Rechteck getroffen wird, ist Sache des Anwenders.
+Der Anwender kann die Eckpunkte in beliebiger Reihenfolge eingeben.
+H&ouml;he und Breite sind immer positive (das Programm wird seine Berechnungen anpassen m&uuml;ssen, damit das wahr ist.)
+</p>
+
+<p>
+Das Programm wird beendet, wenn der Anwender Eckpunkte eingibt, die nicht die eines Rechtecks sein k&ouml;nnen
+(entweder die H&ouml;he ist 0, die Breite ist 0 oder beide.)
+</p>
+
+<pre class="dos">
+CAD Programm
+Erster Eckpunkt X-Koordinate:
+100
+Erster Eckpunkt Y-Koordinate:
+100
+Zweiter Eckpunkt X-Koordinate:
+250
+Zweiter Eckpunkt Y-Koordinate:
+200
+Breite:  150  Hoehe: 100   Flaeche: 15000
+
+Erster Eckpunkt X-Koordinate:
+250
+Erster Eckpunkt Y-Koordinate:
+200
+Zweiter Eckpunkt X-Koordinate:
+100
+Zweiter Eckpunkt Y-Koordinate:
+100
+Breite:  150  Hoehe: 100   Flaeche: 15000
+
+Erster Eckpunkt X-Koordinate:
+100
+Erster Eckpunkt Y-Koordinate:
+100
+Zweiter Eckpunkt X-Koordinate:
+100
+Zweiter Eckpunkt Y-Koordinate:
+100
+Breite:  0  Hoehe: 0   Flaeche: 0
+
+Fertig!
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#18">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<p>Ende der Aufgaben.</p>
+
+</body>
+</html>

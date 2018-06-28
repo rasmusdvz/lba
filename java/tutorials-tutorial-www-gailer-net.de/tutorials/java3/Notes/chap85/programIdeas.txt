@@ -1,0 +1,7 @@
+program ideas:
+
+Text compressor
+
+Text encoder
+
+Integer data file with descriptive header

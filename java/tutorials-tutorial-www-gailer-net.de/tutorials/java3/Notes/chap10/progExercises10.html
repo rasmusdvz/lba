@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css" />
+<meta name="robots" content="noindex,nofollow" />
+<head>
+<title>Programmieraufgaben</title>
+</head>
+<body><hr>
+<small>erstellt 09.07.99; &uuml;bersetzt 03.03.03; &uuml;berarbeitet 12.03.03, 26.04.04, 20.09.2004, 29.09.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr>
+<center><h1><font color=blue>
+Kapitel 10  Programmieraufgaben</font></h1></center>
+<p>
+<b>Allgemeine Hinweise:</b> &nbsp; Jedes der Programme verlangt die
+Eingabe von <code>int</code>-Daten &uuml;ber die Tastatur.
+(Nat&uuml;rlich werden die Daten als <em>Character-Daten</em> eingelesen und dann
+zu <code>int</code> konvertiert. Verwenden Sie dazu die Wrapperklasse <code>Integer</code>.)
+Nachdem Sie einen <code>int</code>-Wert haben, k&ouml;nnen Sie mit ihm arithmetische Operationen mit doppelter Genauigkeit (<em>Gleitpunkt</em>) durchf&uuml;hren.
+Versichern Sie sich, dass Sie nicht zuf&auml;llig eine <em>Ganzzahl-Operation</em> durchf&uuml;hren, wenn Sie keine wollen.
+</p>
+
+<h2>Aufgabe 1 &#8212 Fl&auml;che eines Kreises</h2>
+<p>
+Schreiben Sie ein Programm, das die Fl&auml;che eines Kreises aus dem Radius berechnet.
+<form>
+<input type=button value="Hinweis"
+onClick="alert('Die Formel f&uuml;r die Kreisberechnung lautet: radius * radius * PI.')" />
+</form>
+Der Radius ist ein <code>int</code>-Wert und wird &uuml;ber die Tastatur eingelesen.
+Der Dialog mit dem Anwender sieht folgenderma&szlig;en aus:
+<blockquote>
+<pre>
+D:\users\default>java  KreisFlaeche
+Geben Sie den Radius ein:
+3
+Der Radius ist: 3 Die Flaeche beträgt: 28.274333882308138
+</pre>
+</blockquote>
+Verwenden Sie die Konstante <code>PI</code> der Klasse <code>Math</code> in der Form <strong><code>Math.PI</code></strong>.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#10">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 2 &#8212; Cent zu Dollar</h2>
+<p>
+Schreiben Sie ein Programm, das eine Zahl in Cent einliest.
+Das Programm soll die Anzahl von Dollar und Cent wie folgt ausgeben:
+<blockquote>
+<pre>
+D:\users\default>java  Dollar
+Geben Sie die Cent ein:
+324
+Das ergibt 3 Dollar und 24 Cent.
+</pre>
+</blockquote>
+Verwenden Sie f&uuml;r dieses Programm <em>Ganzzahl-Arithmetik</em> und
+ <strong>vermeiden</strong>
+Sie <em>Gleitpunkt-Arithmetik</em>. Wenn Sie nicht wissen wie Sie vorgehen sollen, arbeiten Sie noch einmal das Kapitel mit dem <a href="../chap09B/ch09B_11.html">Modulo-Operator</a> durch.
+</p>
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#10">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 3 &#8212; Wechselgeld</h2>
+
+<p>
+Wenn Sie in einem Gesch&auml;ft an der Kasse Ihr Wechselgeld bekommen, gibt Ihnen der Kassenmitarbeiter zuerst Dollar, dann Quarter (25 Cent), dann Dime (10 Cent), dann Nickel (5 Cent) und schlie&szlig;lich Cent zur&uuml;ck.
+Zum Beispiel Sie bekommen 163 Cent zur&uuml;ck:
+<UL>
+<LI>Ein Dollar passt in 163, Rest 63 Cent.</li>
+<LI>Zwei Quarter passen in 63 Cent, Rest 13 Cent.</li>
+<LI>Ein Dime passt in 13 Cent, Rest 3 Cent.</li>
+<LI>Es wird kein Nickel gebraucht.</li>
+<LI>Drei Cent bleiben &uuml;brig.</li>
+</UL>
+<p>Die Ausgabe des Programms sieht dann ungef&auml;hr folgenderma&szlig;en aus:
+<pre>
+Geben Sie das Wechselgeld ein:
+Das Wechselgeld ist 1 Dollar, 2 Quarter, 1 Dime, 0 Nickel und 3 Cent.
+</pre>
+</p>
+
+<p>
+Schreiben Sie ein Programm, das Wechselgeld in Cent einliest und die Anzahl der Dollar, Quarter, Dime, Nickel und Cent ausgibt.
+
+Alle Variablen und alle mathematischen Operationen sind vom Typ Ganzzahl.
+Wenn Sie nicht mehr weiterwissen, hilft es das Problem an einem Beispiel mit Papier und Stift zu l&ouml;sen.
+
+</p>
+
+<form>
+<input type=button value="Kommentar"
+onClick="alert('Das ist an diesem Punkt eine meiner Lieblingsaufgaben. Sie ist nicht allzu schwierig, aber Sie hat Ihre Herausforderungen... Manchmal ger&auml;t das Programm zu lang und ist un&uuml;bersichtlich. Versuchen Sie, nachdem Ihr Programm l&auml;uft, es k&uuml;rzer und &uuml;bersichtlicher zu schreiben.')" />
+</form>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#10">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 4 &#8212; Das Ohm'sche Gesetz</h2>
+<p>
+Das Ohm'sche Gesetz beschreibt den Zusammenhang zwischen Stromst&auml;rke und Spannung. Dabei ist die Stromst&auml;rke I in einem Leiter direkt proportional zur Spannung U. Das Gesetz lautet:
+<p>
+<blockquote>
+<pre>
+I = U/R
+</pre>
+</blockquote>
+<p>
+Dabei ist U die Spannung (gemessen in Volt), I die Stromst&auml;rke (gemessen in Ampere)
+und R ist der Widerstand (gemessen in Ohm.) Schreiben Sie ein Programm, das
+den Anwender nach der Spannung und dem Widerstand eines Ger&auml;ts fragt.
+Das Programn wird dann die Stromst&auml;rke, die durch ein Ger&auml;t flie&szlig;t,  ausgeben.
+Verwenden Sie <em>Gleitpunkt-Mathematik</em>.
+</p>
+
+<p>
+Da U und R Ganzzahlen sind (konvertiert vom Input des Anwenders)
+m&uuml;ssen Sie einen Trick anwenden, um Gleitpunkt-Division durchzuf&uuml;hren.
+&Auml;ndern Sie die Gleichung in:
+</p>
+<blockquote>
+<pre>
+i = (u + 0.0)/r
+</pre>
+</blockquote>
+<p>
+Die Berechnung innerhalb der Klammern wird zuerst durchgef&uuml;hrt.
+Also wird u + 0.0 zuerst ausgef&uuml;hrt und, da 0.0 eine Gleitpunktzahl ist, wird es das Ergebnis ebenfalls sein.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#10">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<p>Ende der Aufgaben.</p>

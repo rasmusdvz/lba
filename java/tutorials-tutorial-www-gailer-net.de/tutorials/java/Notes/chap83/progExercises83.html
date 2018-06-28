@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+<p>
+<small>created 05/08/00</small>
+</p>
+
+<hr>
+<center><h1>Programming Exercises</h1></center>
+
+<h2>Exercise 1 --- Random Integer Data</h2>
+
+<p>
+Write a program that creates a file 
+containing <em>TotalCount</em> random integers
+(in character format)
+in the range 0 to <em>HighValue-1</em>.
+Write <em>PerLine</em> integers per line.
+Separate each integer with one space.
+End each line with the correct line
+termination for your computer.
+</p>
+
+<p>
+The user is prompted for and
+enters <em>HighValue</em>,
+which should be an integer larger than zero.
+Then the user is prompted for and
+enters <em>PerLine</em>, which is
+an integer greater than zero,
+and <em>TotalCount</em>, which also is
+an integer greater than zero.
+Finally the user is prompted for and
+enters  the file name.
+</p>
+
+<p>
+Use a <em>BufferedWriter</em> 
+with a <em>FileWriter</em>
+for output.
+Construct a <em>Random</em> object
+and use its
+method <nobr><em>nextInt(int Top)</em>,</nobr>
+which returns an <em>int</em> in the range 0..Top-1.
+</p>
+
+<pre>
+C:\Programs>java  RandomIntData
+Enter HighValue--&gt;100
+Enter how many per line--&gt;10
+Enter how many integers--&gt;100
+Enter Filename--&gt;rdata.dat
+
+C:\Programs&gt;type rdata.dat
+4 12 54 10 38 97 40 11 80 16
+36 41 67 67 93 58 62 12 50 99
+18 42 9 28 45 6 68 72 80 28
+86 63 22 17 68 18 59 50 6 50
+90 8 68 61 9 24 77 34 62 61
+63 8 15 17 67 58 34 56 12 50
+43 85 39 77 30 68 89 88 65 68
+84 29 42 74 48 55 19 82 95 3
+39 27 25 96 41 39 18 84 39 88
+82 58 84 90 74 35 24 89 85 92
+</pre></blockquote>
+
+<A HREF="../../cs151java.html#83">Click here</A> to go back to the main menu.
+
+<hr>
+
+<h2>Exercise 2 --- Buffer test</h2>
+
+<p>
+The previous program used a <em>BufferedWriter</em>
+between the program and the <em>FileWriter</em> stream.
+Using a buffer is supposed to increase the efficiency
+of the program.
+Does it?
+</p>
+
+<p>
+Modify the previous program
+so that it does not use <em>newLine()</em>
+(but still uses <em>BufferedWriter</em>).
+Use it to create a file of 1,000,000 integers.
+Time how long this takes with a watch.
+</p>
+
+<p>
+Now modify the program by removing the <em>BufferedWriter</em>.
+Again create a file of 1,000,000 integers and time how
+long it takes.
+Is there a difference?
+(On my system there was a sizeable difference.)
+Be sure that the two versions use exactly the same logic.
+That is why the <em>newLine()</em> method has to be removed.
+</p>
+
+
+<A HREF="../../cs151java.html#83">Click here</A> to go back to the main menu.
+
+<hr>
+<h2>Exercise 3 --- HTML Power of 2 Table</h2>
+
+<p>
+Write a program that creates a text file that
+contains a power of two table in HTML format.
+The file could be called "twoPowerTable.html".
+When it is viewed with a browser you will see
+something like:
+</p>
+
+
+<table border cellpadding=5>
+<tr><th>Power of 2</th><th>Value</th></tr>
+<tr><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>2</td></tr>
+<tr><td>2</td><td>4</td></tr>
+<tr><td>3</td><td>8</td></tr>
+<tr><td>4</td><td>16</td></tr>
+<tr><td>5</td><td>32</td></tr>
+<tr><td>6</td><td>64</td></tr>
+<tr><td>7</td><td>128</td></tr>
+<tr><td>8</td><td>256</td></tr>
+<tr><td>9</td><td>512</td></tr>
+<tr><td>10</td><td>1024</td></tr>
+</table>
+
+<p>
+The file should start with something like:
+</p>
+<pre>
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;Powers of Two&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table border cellpadding=5&gt;
+&lt;tr&gt;&lt;th&gt;Power of 2&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
+</pre>
+
+<p>
+And end with:
+</p>
+
+<pre>
+&lt;/table&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<p>
+Each line of the table looks like:
+</p>
+
+<pre>
+&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;
+</pre>
+
+<p>
+Look at the HTML tutorial at the end of these notes if
+you are interested.
+</p>
+
+<A HREF="../../cs151java.html#83">Click here</A> to go back to the main menu.
+
+
+<hr>
+<p>
+End of Exercises.
+</p>
+
+</body>
+</html>

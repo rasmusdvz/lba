@@ -1,0 +1,554 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" >
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="copyright" content="2006">
+<meta name="author" content="B. P. Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css">
+<!-- FILL in the Quiz Name between <title> and </title> -->
+<title>
+Quiz &uuml;ber Z&auml;hlschleifen
+</title>
+</head>
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+
+<body>
+<body>
+<small>&uuml;bersetzt 24.03.03; &uuml;berarbeitet 10.11.03, 03.05.04, 03.10.06, 18.05.10; &copy; Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+
+<center><h1>
+<!-- FILL in the Quiz Name -->
+Quiz &uuml;ber Z&auml;hlschleifen
+<!-- end of Quiz Name -->
+</h1></center>
+<img src="spiralQuiz.gif" align=left vspace=15 hspace=15>
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+Entscheiden Sie sich bei jeder Frage f&uuml;r die beste Antwort. Klicken Sie dann auf das entsprechende Optionsk&auml;stchen, um diese Antwort auszuw&auml;hlen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Sobald das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox unterhalb der Frage.
+</p>
+<br clear="all">
+<hr>
+<form name="question1">
+<p>
+1.
+<!-- Fill in a Question -->
+Welche drei Teile einer Z&auml;hlschleife m&uuml;ssen in der richtigen Reihenfolge koordiniert werden, damit die Schleife korrekt arbeitet?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+Z&auml;hler initialisieren, Z&auml;hler testen, Z&auml;hler &auml;ndern
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+Bedingung initialisieren, Bedingung &auml;ndern, Schleife beenden
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+Die <code>while</code>-Anweisung, die Zuweisung, der Schleifenk&ouml;rper
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Die <code>while</code>-Anweisung, die <code>if</code>-Anweisung, die sequentielle Ausf&uuml;hrung
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question2">
+<p>
+2.
+<!-- Fill in a Question -->
+Ein anderes Wort f&uuml;r &#039;Schleife ausf&uuml;hren&#039; ist:
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+Rekapitulation
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+Tintinabulation
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+Iteration
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Reiteration
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question3">
+<p>
+3.
+<!-- Fill in a Question -->
+Was macht eine Z&auml;hlschleife aus?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+Eine Schleifenkontrollvariable wird in der <code>while</code>-Anweisung getestet und wird bei jedem Schleifendurchgang ge&auml;ndert.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+Eine Z&auml;hlvariable wird um den Wert eins hochgez&auml;hlt bis ein bestimmter Wert erreicht ist.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+Eine Z&auml;hlvariable wird um eins runtergez&auml;hlt bis der Wert 0 erreicht ist.
+ <!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Es werden keine Schleifenkontrollvariablen verwendet.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question4">
+<p>
+4.
+<!-- Fill in a Question -->
+Betrachten Sie den folgenden Code:
+</p>
+
+<blockquote>
+<pre>
+    int zaehler = 0;
+    while ( zaehler &lt;= 6 )
+    {
+      System.out.print( zaehler + " " );
+      zaehler = zaehler + 2;
+    }
+    System.out.println(  );
+</pre>
+</blockquote>
+
+<p>
+Was gibt dieser Code auf den Bildschirm aus?
+</p>
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+1 2 3 4 5 6
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+0 2 4 6 8
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+0 2 4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+0 2 4 6
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question5">
+<p>
+5.
+<!-- Fill in a Question -->
+Betrachten Sie den folgenden Code:
+</p>
+
+<blockquote>
+<pre>
+    int zaehler = 7;
+    while ( zaehler &gt;= 4 )
+    {
+      System.out.print( zaehler + " " );
+      zaehler = zaehler - 1;
+    }
+    System.out.println(  );
+</pre>
+</blockquote>
+
+<p>
+Was gibt dieser Code auf den Bildschirm aus?
+</p>
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+1 2 3 4 5 6 7
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+7 6 5 4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+6 5 4 3
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+7 6 5 4 3
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question6">
+<p>
+6.
+<!-- Fill in a Question -->
+Betrachten Sie den folgenden Code:
+</p>
+
+<blockquote>
+<pre>
+    int zaehler = -2 ;
+    while ( zaehler &lt; 3 )
+    {
+      System.out.print( zaehler + " " );
+      zaehler = zaehler + 1;
+    }
+    System.out.println(  );
+</pre>
+</blockquote>
+
+<p>
+Was gibt dieser Code auf den Bildschirm aus?
+</p>
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+-2 -1 1 2 3 4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+-2 -1 1 2 3
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+-3 -4 -5 -6 -7
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+-2 -1 0 1 2
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question7">
+<p>
+7.
+<!-- Fill in a Question -->
+Betrachten Sie den folgenden Code:
+</p>
+
+<blockquote>
+<pre>
+    int zaehler =  1;
+    while ( zaehler &lt; 5 )
+    {
+      System.out.print( zaehler + " " );
+    }
+    System.out.println(  );
+</pre>
+</blockquote>
+<p>
+Was gibt dieser Code auf den Bildschirm aus?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+1 2 3 4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+1 2 3 4 5
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+2 3 4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+1 1 1 1 1 1 1 1 1 1 1 . . . .
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question8">
+<p>
+8.
+<!-- Fill in a Question -->
+Betrachten Sie den folgenden Code:
+</p>
+
+<blockquote>
+<pre>
+    int zaehler =  1;
+    while (  ___________ )
+    {
+      System.out.print( zaehler + " " );
+      zaehler = zaehler + 1;
+    }
+    System.out.println(  );
+</pre>
+</blockquote>
+<p>
+Welche Bedingung sollte verwendet werden, damit der Code folgendes ausgibt:
+</p>
+<blockquote>
+<pre>
+1 2 3 4 5 6 7 8
+</pre>
+</blockquote>
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+zaehler &lt; 8
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+zaehler &lt; 9
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+zaehler+1 &lt;= 8
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+zaehler != 8
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question9">
+<p>
+9.
+<!-- Fill in a Question -->
+Bei welcher der folgenden Situationen wird h&ouml;chstwahrscheinlich <strong>keine</strong> Z&auml;hlschleife eingesetzt werden?
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+Addition der Zahlen zwischen 0 und Hundert.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+Ausgabe einer Tabelle mit Fahrenheit und ihren korrespondierenden Celsiuswerten.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+Eingabeaufforderung an den Anwender, bis eine korrekte Eingabe erfolgt ist.
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Zehnmalige Ausgabe des Computertonsignals.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr/>
+<form name="question10">
+<p>
+10.
+<!-- Fill in a Question -->
+Welches ist der gebr&auml;uchlichste Programmierfehler?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+Das "<em>Falsche-Weg</em>" Problem, wo eine <code>if-else</code>-Anweisung falsch geschrieben wird.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+Das "<em>Falsche-Operator</em>" Problem, wo ein arithmetischer Ausdruck nicht das bedeutet was der Programmierer sich dabei gedacht hat.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+Das "<em>nicht-initialisierte-Variable</em>" Problem, wo eine Variable in einem Ausdruck verwendet wird bevor sie initialisiert wurde.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Das "<em>Off-By-One</em>" Problem, wo eine Z&auml;hlschleife die Anweisungen im Schleifenk&ouml;rper einmal zu viel oder ein mal zu wenig ausf&uuml;hrt.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size=5>
+<input type="hidden" name="response" value="" >
+</form>
+
+
+
+
+<hr>
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size=5>
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size=5>
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size=5>
+</form>
+
+<p style="margin-top:1em;"><a href="../../index.html#16"><img style="float:left;margin-right:5px;" src="../homeIcon.gif" alt="Inhalt" border="0"></a>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</p>
+
+<p>Um die alten Antworten zu l&ouml;schen, halten Sie die Strg-Taste gedr&uuml;ckt und laden dann die Seite neu (Firefox). Bei anderen Browsern funktioniert das in Verbindung mit der Umschalt- bzw. Strg+Umschalt-Taste. Beim Internet Explorer 8 muss die Seite verlassen und erneut aufgerufen werden.</p>
+
+
+</body>
+</html>

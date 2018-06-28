@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell @ ieee . org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<p>
+<small>06/24/00</small>
+</p>
+
+<center><h1>Programming Exercises</h1></center>
+
+<p>
+<b>Note:</b> Make a new directory for these programs, and be prepared
+to loose everything in it.
+</p>
+
+<hr />
+
+<h2>Exercise 1&#8212;File Concatenation Program</h2>
+
+<p>
+Write a program that creates a new file by concatenating several
+files together.
+The command line looks like this:
+</p>
+
+<pre>
+java fileCat source0 source1 source2 ... newFile
+</pre>
+
+<p>
+There can be one or more source files on the command line.
+Each source file must exist 
+(if not, write an error message and exit).
+The last file name on the line, <em>newFile</em>, is the name
+of the file to be created, and must not already exist.
+</p>
+
+<p>
+Create the new file by opening the source files one at a time,
+in order,
+reading each file byte-by-byte and writing each byte to <em>newFile</em>.
+Close each file when it is no longer needed.
+Use buffered input and buffered output.
+</p>
+
+<p>
+Although each source file must exist, it is acceptable for a
+source file to be empty (so the first read encounters end-of-file).
+</p>
+
+<p>
+If you don't like command lines, use interactive user prompts, or
+write a GUI interface.
+A frequent program style is to do it both ways:
+Check the command line;
+if it is OK, proceed.
+If there are no arguments get file names by prompting the user.
+</p>
+
+
+<p>
+<a href="../../cs151java.html#87">Click here</a> to go back to the main menu.
+</p>
+<hr>
+
+<h2>Exercise 2&#8212;File Splitting Program</h2>
+
+<p>
+Sometimes you have a file that you would like to
+put on a floppy disk but it is too big.
+Perhaps you want to copy the file from one computer
+to another and floppy disks are your only means of transfer.
+It would be useful to split the long file into several
+short files that each fit on a floppy.
+After transfer to the other computer the short files
+can be concatenated into a copy of the original.
+</p>
+
+<p>
+The command line for this program is:
+</p>
+
+<pre>
+java fileSplit bigFile baseName chunkSize
+</pre>
+
+<p>
+<b>bigFile</b> is the name of the big, existing file.
+Each small file will be named <b>baseName</b> with
+a number appended to the end. 
+For example, if baseName is "chop" then the small
+files are "chop0", chop1", "chop2", and so on for as
+many as are needed.
+</p>
+
+<p>
+<b>chunkSize</b> is the size in bytes of each
+small file, except for the last one.
+</p>
+
+<p>
+For testing, use any file for bigFile,
+no matter what size, and any size for chunkSize.
+Use the file concatenation program to put the
+file together again.
+See if there are any changes with a file comparison
+program.
+(Such as Unix's dif, MS Win's comp, or the next program).
+</p>
+
+<p>
+For preliminary testing, use text files.
+However, write the program so that it works with any
+file (use byte-oriented IO).
+For advanced testing, split an executable file, then reassemble 
+then run it.
+Or split and reassemble an image file, and view the results.
+</p>
+
+<p>
+<a href="../../cs151java.html#87">Click here</a> to go back to the main menu.
+</p>
+<hr>
+
+<h2>Exercise 3&#8212;Text File Comparison Program</h2>
+
+<p>
+Write a program that compares two text files line by line.
+The command line looks like this:
+</p>
+
+<pre>
+java fileComp file1 file2 [limit]
+</pre>
+
+<p>
+Read in a line from each file.
+Compare the two lines.
+If they are identical, continue with the next two lines.
+Otherwise, write out the line number and the two lines, and continue.
+</p>
+
+<p>
+Frequently when two files differ there are very many lines that are
+different and you don't want to see them all.
+The last argument, limit, is optional (that is what the brackets mean).
+It is an integer that says how many pairs of different lines to write
+before quitting.
+If limit is omitted all differing lines are written.
+Catch the <code>NumberFormatException</code> that may be thrown
+if limit can't be converted.
+</p>
+
+
+<p>
+<A HREF="../../cs151java.html#87">Click here</A> to go back to the main menu.
+</p>
+
+
+<hr>
+
+<h2>Exercise 4&#8212;Backup Utility</h2>
+
+<p>
+Write a program that backs up all the files in a
+directory by creating a new subdirectory (of the current directory) called
+<em>backUp0</em> and by copying all files of the current directory into it.
+The file names of the copies are the same as in the current directory.
+</p>
+
+<p>
+If <em>backUp0</em> already exists, 
+then create <em>backUp1</em>, and so on.
+Use byte-oriented IO so files of all types are backed up.
+Use the <code>list()</code> method of <code>File</code>
+to get a list of files and directories.
+Use the <code>isFile()</code> method to
+determine which of the list are files.
+Use <code>mkdir()</code> to create the new directory.
+</p>
+
+<p>
+If a file cannot be read (check this with <code>canRead()</code>),
+write a warning message and continue.
+The program is invoked from the command line:
+</p>
+
+<pre>
+java backUp
+</pre>
+
+<p>
+This is a useful program (once you have thoroughly tested it).
+It is convenient to quickly backup everything in a directory
+by typing a short command.
+The same backup directory could be created by other means,
+but they take more keystrokes.
+Of course, this does not protect against disk failure, but
+it does protect against accidental deletion.
+</p>
+
+<p>
+This program will take some time to write,
+mostly because of picky details.
+</p>
+
+
+<p>
+<a href="../../cs151java.html#87">Click here</a> to go back to the main menu.
+</p>
+
+<hr>
+
+<h2>Exercise 5&#8212;Purge Utility</h2>
+
+<p>
+Continued use of the Backup Utility  results
+in too many backup directories, which take up disk space.
+Write a <code>Purge</code> utility which deletes
+all backup directories (and the files within them)
+of the current directory,
+<u>except</u> for the highest numbered backup directory.
+</p>
+
+
+<p>
+<a href="../../cs151java.html#87">Click here</a> to go back to the main menu.
+</p>
+
+<hr>
+
+<p>
+End of Exercises.
+</p>
+<hr>
+
+</body>
+</html>

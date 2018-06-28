@@ -1,0 +1,1376 @@
+<!-- Jan. 20, 2000 INDEX       -->
+<!-- July 22, 2002 css and xml -->
+<!-- June 04, 2003 small format changes -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2000</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>Bradley Kjell kjell@ieee.org </AUTHORNAME>
+<GERMANTRANSLATION>Copyright 2004 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de</GERMANTRANSLATION>
+
+<CAI>Kapitel 52 &#8212; Mehr &uuml;ber Polymorphie
+<small>erstellt: 20.02.99; &uuml;berarbeitet: 16.07.99, 24.01.00, 22.07.02, 05.06.03; &uuml;bersetzt 01.03.04; &copy; Copyright 2004 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+
+<LESSON>
+<p>
+Dieses Kapitel setzt die Er&ouml;rterung des vorherigen Kapitels
+&uuml;ber Polymorphie fort.
+Erinnern Sie sich, dass von <em>Polymorphie</em>
+gesprochen wird, wenn eine
+Referenzvariable in einem Programm zu verschiedenen Zeitpunkten
+auf Objekte verschiedener (aber verwandter) Klassen verweist.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Signatur einer Methode.</li>
+<li>Abstrakte Methoden &uuml;berschreiben.</li>
+<li>Arrays verwandter Objekte.</li>
+<li>Die Klasse <code>Object</code>.</li>
+<li>Der <code>instanceof</code>-Operator.</li>
+</ul>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick: ) Was ist die <em>Signatur</em> einer Methode?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Signatur
+<ANSWER>
+
+<p>
+Die <em>Signatur</em> einer Methode ist der Name der Methode
+und die Typen in ihrer Parameterliste, ungef&auml;hr etwas wie dieses:
+</p>
+
+<pre>
+irgendeineMethode( int, double, String )
+</pre>
+
+<p>
+Der R&uuml;ckgabetyp ist <b>kein</b> Bestandteil der Signatur.
+Die Namen der Parameter spielen keine Rolle, nur ihre Typen und ihre Reihenfolge.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Signatur</INDEX>
+<p>
+Der Name einer Methode reicht nicht aus um sie eindeutig zu identifizieren,
+da es mehrere Versionen von dieser Methode geben kann, jede mit verschiedenen Parametern.
+Durch die Verwendung der Typen in der Parameterliste kann die gew&uuml;nschte Methode
+pr&auml;zisiert werden.
+Der R&uuml;ckgabetyp kann wegen der folgenden Situation nicht verwendet werden.
+Angenommen es gibt zwei <code>irgendeineMethode()</code> Methoden:
+eine ist in der <b>Superklasse</b> wie diese:
+</p>
+
+<pre class="code">
+<b>int</b> irgendeineMethode( int x, double y, String z )
+{
+  //Methodenk&ouml;rper
+}
+</pre>
+
+<p>
+und die andere Methode ist in einer <strong>Subklasse</strong> wie dieser definiert:
+</p>
+
+<pre class="code">
+<b>short</b> irgendeineMethode( int a, double b, String c )
+{
+  // vollkommen anderer Methodenk&ouml;rper
+}
+</pre>
+
+<p>
+Irgendwo in dem Programm  wird <code>irgendeineMethode()</code> aufgerufen:
+</p>
+
+<pre class="code">
+<b>long</b> w = subklasseObjekt.irgendeineMethode( 12, 34.9, "Welche Methode?" );
+</pre>
+
+<p>
+Der Wert rechts vom Gleichheitszeichen k&ouml;nnte sowohl
+ein <code>int</code> als auch ein <code>short</code> sein.
+Beide k&ouml;nnen in einen <code>long</code>-Wert konvertiert werden, der
+f&uuml;r die Variable <code>w</code> gebraucht wird.
+Sie k&ouml;nnen nicht sagen
+welche der zwei Methoden <code>irgendeineMethode()</code> mit der Anweisung &uuml;bereinstimmt.
+Mit anderen Worten, die Signaturen der zwei Methoden sind nicht eindeutig.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Haben die folgenden zwei Methoden verschiedene Signaturen?
+</p>
+
+<pre class="code">
+double aMethode( int x, String y){. . .}
+
+short  aMethode( int a, double b){. . .}
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Abstrakte Methoden &uuml;berschreiben
+<ANSWER>
+<p>
+Ja.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Eine abstrakte Klasse wird &uuml;blicherweise
+abstrakte Methoden enthalten.
+Eine abstrakte Methodendefinition besteht aus:
+</p>
+
+<ul>
+<li>einem optionalen Zugriffsmodifizierer (<code>public, private</code> unter anderen),</li>
+<li>dem reservierten Wort <code>abstract</code>,</li>
+<li>dem Typ des R&uuml;ckgabewerts,</li>
+<li>einer Methodensignatur und</li>
+<li>einem Semikolon.</li>
+</ul>
+
+<p>
+Der Signatur folgen weder geschweifte Klammern noch Methodenk&ouml;rper.
+Hier ist die abstrakte Klasse
+<code>AbstrakteSuperklasse</code> mit der abstrakten Methode <code>berechne()</code>:
+</p>
+
+<pre class="code">
+abstract class AbstrakteSuperklasse
+{
+  public abstract int berechne( int x, String s );
+}
+</pre>
+
+
+<INDEX>&Uuml;berschreiben</INDEX>
+<p>
+Wenn eine Klasse eine oder mehrere abstrakte Methoden hat,
+muss sie als <code>abstract</code> deklariert werden.
+Eine abstrakte Klasse kann Methoden haben, die nicht abstrakt sind
+(die &uuml;bliche Art Methode).
+Diese Methoden werden von den Subklassen in der &uuml;blichen Weise geerbt.
+Eine nicht-abstrakte Subklasse einer abstrakten Superklasse
+muss jede der abstrakten Methoden ihrer Superklasse <em>&uuml;berschreiben</em>.
+</p>
+
+<ul>
+<li>Eine nicht-abstrakte Subklasse muss jede der von ihrer Superklasse
+    geerbten abstrakten Methoden <strong>&uuml;berschreiben</strong>,
+    in dem sie eine Methode mit der gleichen Signatur und dem
+    gleichen R&uuml;ckgabewert definiert.
+    <ul><li>Objekte der Subklasse werden diese Methode enthalten.</li></ul></li>
+    <br/>
+<li>Eine Subklasse kann <b>zus&auml;tzliche Methoden</b>
+    mit anderen Signaturen als den der Superklasse definieren.
+    <ul><li>Objekte der Subklasse werden diese Methoden zus&auml;tzlich zu der ersten
+    enthalten.</li></ul></li>
+    <br />
+<li>Es ist ein <b>Fehler</b>, wenn eine Subklasse eine Methode mit der gleichen Signatur
+    wie die der Superklasse, aber mit einem <strong>unterschiedlichen</strong>
+    R&uuml;ckgabewert definiert.</li>
+</ul>
+
+
+<p>
+Diese Regeln sind nicht so schlimm wie sie scheinen.
+Nachdem Sie eine Weile mit Vererbung gearbeitet haben, werden Ihnen die Regeln klar sein.
+Hier ist eine Subklasse von <code>AbstrakteSuperklasse</code>:
+</p>
+
+<pre class="code">
+class Subklasse extends AbstrakteSuperklasse
+{
+    public int berechne( int x, String s )
+    { . . . }
+}
+</pre>
+
+<p>
+Die Methode <code>berechne()</code> der Subklasse &uuml;berschreibt korrekt die abstrakte Methode der Superklasse.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+&Uuml;berschreibt das folgende korrekt die abstrakte Methode der Superklasse?
+</p>
+
+<pre>
+class Subklasse extends AbstrakteSuperklasse
+{
+    public double berechne( int x, String s )
+    { . . . }
+}
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Mehr &Uuml;bung
+<ANSWER>
+<p>
+Nein. Es ist ein <strong>Fehler</strong>, wenn eine Subklasse eine Methode mit der gleichen Signatur wie die der Superklasse, aber mit einem <strong>anderen</strong> R&uuml;ckgabewert definiert.
+</p>
+</ANSWER>
+
+<LESSON>
+<p>
+Nicht-abstrakte Subklassen m&uuml;ssen die abstrakten Methoden ihrer Superklasse &uuml;berschreiben.
+Hier ist unsere Situation:
+</p>
+
+<pre>
+class AbstrakteSuperklasse
+{
+  public abstract int berechne( int x, String s );
+}
+
+class Subklasse extends AbstrakteSuperklasse
+{
+   _____________________________________________  // berechne() Methode der Subklasse
+}
+</pre>
+
+<p>
+Betrachten Sie die folgenden M&ouml;glichkeiten
+um die L&uuml;cke auszuf&uuml;llen.
+Was werden die neuen Definitionen tun?
+Die Methode der Superklasse <strong>&uuml;berschreiben</strong>,
+eine <strong>zus&auml;tzliche</strong> Methode definieren
+oder <strong>fehlerhaft</strong> sein?
+(Wenn die Definition eine zus&auml;tzliche Methode definiert,
+dann setzen Sie voraus, dass die erforderliche Methode ebenfalls definiert ist.)
+</p>
+
+<table align="center" border="border"
+  bordercolor="brown" cellpadding="5" bgcolor="white">
+<tr bgcolor="tan"><th>In der Subklasse definierte Methode</th><th>&Uuml;berschreibt, zus&auml;tzliche Methode oder Fehler?</th></tr>
+
+<tr>
+<td>
+<pre>
+public int berechne( int x, String s ){ . . . }
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('&Uuml;berschreibt.')" /></form></td>
+</tr>
+
+<tr>
+<td>
+<pre>
+public int berechne( int stuff, String str ){ . . . }
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('&Uuml;berschreibt. (Parameternamen spielen keine Rolle, nur ihr Typ.)')" /></form></td>
+</tr>
+
+<tr>
+<td>
+<pre>
+public int Berechne( int x, String s ){ . . . }
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('Zus&auml;tzliche  Methode.')" /></form></td>
+
+<tr>
+<td>
+<pre>
+public int berechne( String s, int x){ . . . }
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('Zus&auml;tzliche Methode--die Reihenfolge der Parameter z&auml;hlt.')" /></form></td>
+</tr>
+
+<tr>
+<td>
+<pre>
+public double berechne( int x, String s){ . . . }
+</pre>
+</td>
+<td align="center"><form><input type="button" value=" ? " onClick="alert('Fehler--wenn die Signatur die gleich ist, muss der R&uuml;ckgabetyp mit dem der Methode in der Superklasse &uuml;bereinstimmen.')" /></form></td>
+</tr>
+
+</table>
+
+<p>
+&nbsp;
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Angenommen eine Subklasse definiert nur <strong>eine</strong> Methode,
+und dass die Methode den gleichen Namen wie die abstrakte Methode
+der Superklasse hat, aber mit einer <strong>anderen</strong> Signatur.
+Muss die Subklasse <em>abstrakt</em> sein?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Karten-Hierarchie
+<ANSWER>
+<p>
+Ja. Da die Subklasse keine Methode mit der gleichen Signatur und
+dem gleichen R&uuml;ckgabetyp definiert, muss sie als abstrakt deklariert werden.
+Es ist OK eine abstrakte Subklasse einer abstrakten Superklasse zu haben.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<img src="cards.gif" align="right"  hspace="50" />
+<p>
+Lassen Sie uns die Klassenhierarchie des vorherigen Kapitels verwenden
+um dieses Konzept zu veranschaulichen.
+Die Abbildung zeigt, dass die Klasse <code>Karte</code> eine abstrakte Klasse ist
+(die deshalb nicht instantiiert werden kann.)
+</p>
+
+<p>
+<code>Karte</code> hat eine einzige abstrakte Methode, <code>gruss()</code>.
+Die anderen drei Klassen sind gew&ouml;hnliche Klassen, die instantiiert werden k&ouml;nnen.
+Sie erben von <code>Karte</code>, also muss jede von ihnen eine <code>gruss()</code>
+Methode definieren, die nicht abstrakt ist.
+</p>
+<br clear="all" />
+<br />
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Angenommen, dass eine Methode wie hier aufgerufen wird:
+</p>
+
+<pre>
+referenzVariable.gruss()
+</pre>
+
+
+<p>
+Was bestimmt welche Methode ausgef&uuml;hrt wird?
+Die Klasse der Referenzvariablen oder die Klasse des Objekts?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Karten-Polymorphie
+<ANSWER>
+<p>
+Die Klasse des Objekts.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Es macht Sinn, dass die Methode des Objekts aufgerufen wird,
+da schlie&szlig;lich die Methode ein Teil des Objekts ist
+und die Methode die Daten des Objekts verwendet.
+Hier ist ein Beispiel aus dem vorherigen Kapitel:
+</p>
+
+<pre class="program">
+ . . . .                           // Klassendefinitionen wie zuvor
+
+public class KarteTester
+{
+  public static void main ( String[] args ) throws IOException
+  {
+
+    Karte karte = new Feiertag( "Amy" );
+    karte.gruss();                      //einen Feiertag gruss() aufrufen
+
+    karte = new Valentin( "Bob", 3 );
+    karte.gruss();                      //einen Valentin gruss() aufrufen
+
+    karte = new Geburtstag "Cindy", 17 );
+    karte.gruss();                      //einen Geburtstag gruss() aufrufen
+
+  }
+}
+</pre>
+
+<p>
+Die Referenzvariable <code>karte</code> wird dreimal verwendet,
+jedes Mal mit einem Objekt einer anderen Klasse.
+Da <code>Karte</code> die Superklasse der drei anderen Klassen ist,
+kann die Variable <code>karte</code> f&uuml;r jedes verwendet werden.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+K&ouml;nnte eine Variable <code>Valentin val</code> f&uuml;r ein
+<code>Feiertag</code>-Objekt verwendet werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Erweiterte Hierarchie
+<ANSWER>
+<p>
+Nein. <code>Valentin val</code> und <code>Feiertag</code> sind Geschwisterklassen.
+Da sie nicht durch Vererbung verwandt sind, kann eine Referenzvariable des einen Typs
+nicht mit einem Objekt des anderen Typs verwendet werden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Geburtstagskarten</INDEX>
+<img src="birthdaycards.gif" align="right" vspace=25 hspace="25" />
+<p>
+Die Kartenhierarchie wird durch das Hinzuf&uuml;gen
+zweier neuer Klassen erweitert:
+</p>
+
+<ul>
+<li><p>Eine <code>KinderGeburtstag</code> Karte f&uuml;r Kinder.</p>
+    <ul><li><p>Diese Karte wird die Zeile "Was bist du gross geworden!" zum
+               gew&ouml;hnlichen Geburtstagsgru&szlig; hinzuf&uuml;gen.</p>
+    </li></ul></li>
+<li><p>Eine <code>ErwachsenenGeburtstag</code> Karte f&uuml;r Erwachsene.</p>
+    <ul><li><p>Diese Karte wird die Zeile "Du siehst so jung aus wie immer!" zum
+               gew&ouml;hnlichen Geburtstagsgru&szlig; hinzuf&uuml;gen.</p>
+    </li></ul></li>
+</ul>
+
+<p>
+Die Klasse <code>Geburtstag</code> ist die Superklasse f&uuml;r diese zwei neuen Klassen.
+Die Abbildung l&auml;sst die zwei anderen Klassen aus, aber nehmen Sie an, dass sie immer noch definiert sind.
+Jede der neuen Klassen w&uuml;rde gew&ouml;hnlich die <code>gruss()</code> Methode von
+<code>Geburtstag</code> erben.
+Aber wir wollen diese Methode mit einer spezielleren Methode in jeder der neuen Klassen &uuml;berschreiben.
+</p>
+
+<p>
+Hier ist die Klassendefinition von <code>Geburtstag</code> aus dem vorherigen Kapitel:
+</p>
+
+<pre class="program">
+class Geburtstag extends Karte
+{
+  int alter;
+
+  public Geburtstag ( String e, int jahre )
+  {
+    empfaenger = e;
+    alter = jahre;
+  }
+
+  public void gruss()
+  {
+    System.out.println("Dear " + empfaenger + ",\n");
+    System.out.println("alles Gute zum " + alter + ". Geburtstag.\n\n");
+  }
+}
+</pre>
+
+<p>
+Hier ist die Klassendefinition von <code>KinderGeburtstag</code>:
+</p>
+
+
+<pre class="program">
+class <span class="blue">___________</span>  extends  <span class="blue">____________</span>
+
+{
+  public  <span class="blue">___________</span> ( String e, int jahre )
+  {
+    <span class="blue">___________</span> ( e, jahre )
+  }
+
+  public void gruss()
+  {
+    <span class="blue">___________</span>();
+    System.out.println("Was bist du gross geworden!!\n");
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus. Machen Sie das nicht zu schnell. &Uuml;berpr&uuml;fen Sie die Anforderungen und das Hierarchiediagramm.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>super()
+<ANSWER>
+<p>
+Die L&uuml;cken wurden ausgef&uuml;llt, siehe unten:
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>super</INDEX>
+<p>
+Rufen Sie den Konstruktor der Superklasse auf,
+in dem Sie <code>super()</code> verwenden.
+In einem Konstruktor muss <code>super()</code> vor allem anderen kommen
+(auch wenn es in diesem Beispiel nichts weiter gibt.)
+Erinnern Sie sich, dass auch wenn Sie es nicht explizit tun,
+der Compiler automatisch <code>super()</code> aufrufen wird, als das erste
+was ein Konstruktor tut.
+</p>
+
+<pre class="program">
+class <span class="blue">KinderGeburtstag</span>  extends  <span class="blue">Geburtstag</span>
+
+{
+  public  <span class="blue">KinderGeburtstag</span> ( String e, int jahre )
+  {
+    <span class="blue">super</span> ( e, jahre );
+  }
+
+  public void gruss()
+  {
+    <span class="blue">super.gruss</span>();
+    System.out.println("Was bist du gross geworden!!\n");
+  }
+}
+</pre>
+
+<p>
+Wenn die <code>gruss()</code> Methode eines <code>KinderGeburtstag</code>-Objekts
+aufgerufen wird,
+wird zuerst die Methode ihrer Superklasse ausgef&uuml;hrt, danach wird der Rest der neuen Methode ausgef&uuml;hrt werden.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was wird das folgende ausgeben:
+</p>
+
+
+<pre>
+KinderGeburtstag kinder = new KinderGeburtstag ( "Valerie", 7 );
+kinder.gruss();
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Polymorphie einsetzen
+
+<ANSWER>
+
+<pre>
+Dear Valerie,
+
+alles Gute zum 7. Geburtstag.
+
+
+Was bist du gross geworden!!
+</pre>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Unterstellt, dass <code>ErwachsenenGeburtstag</code> definiert wurde.
+Sie wird wie <code>KinderGeburtstag</code> aussehen,
+aber mit einem
+<GOTO>Geburtstagskarten</GOTO> etwas unterschiedlichen Geburtstagsgru&szlig;.
+Hier ist ein Programmfragment (Teil einer <code>main()</code> Methode einer anderen Klasse):
+</p>
+
+<pre>
+ErwachsenenGeburtstag erwachsenen = new ErwachsenenGeburtstag ( "Walter", 47 );
+erwachsenen.gruss();
+</pre>
+
+<p>
+Sie wird ausgeben:
+</p>
+
+<pre>
+Dear Walter,
+
+alles Gute zum 47. Geburtstag
+
+Du siehst so jung aus wie immer!
+</pre>
+
+<p>
+Pr&uuml;fen Sie jetzt den folgenden Code:
+</p>
+
+<pre>
+Karte karte = new KinderGeburtstag ( "Valerie", 7 );
+karte.gruss();
+
+karte      = new ErwachsenenGeburtstag ( "Walter", 47 );
+karte.gruss();
+
+karte      = new Geburtstag ( "Zoe", 30 );
+karte.gruss();
+
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist dieser Code korrekt? Kann <code>karte</code> f&uuml;r jedes der
+drei Objekte verwendet werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ausgabe des Beispiels
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<img src="birthdaycards.gif" align="right" />
+<p>
+Das Programm wird ausgeben:
+</p>
+
+<pre>
+Dear Valerie,
+
+alles Gute zum 7. Geburtstag.
+
+
+Was bist du gross geworden!!
+
+Dear Walter,
+
+alles Gute zum 47. Geburtstag.
+
+
+Du siehst so jung aus wie immer!
+
+Dear Zoe,
+
+alles Gute zum 30. Geburtstag.
+</pre>
+
+<p>
+Die abstrakte Klasse <code>Karte</code> ist durch Vererbung mit
+jeder der drei Klassen verwandt.
+Also kann die Variable <code>karte</code> f&uuml;r jede von ihnen verwendet werden.
+Pr&uuml;fen Sie jetzt das folgende:
+</p>
+
+<pre>
+KinderGeburtstag kinder;
+kinder = new Geburtstag ( "Terry", 23 );
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist dieser Code korrekt?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Neue Definition von KinderGeburtstag
+<p>
+Ist dieser Code korrekt?
+</p>
+
+<pre>
+KinderGeburtstag kinder;
+kinder = new Geburtstag ( "Terry", 23 );
+</pre>
+
+
+<ANSWER>
+<p>
+Nein. Eine Referenzvariable einer Subklasse
+(<code>KinderGeburtstag</code>) kann nicht f&uuml;r
+ein Objekt der Superklasse (<code>Geburtstag</code>) verwendet werden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Eltern k&ouml;nnen Kinder aufnehmen, aber Kinder k&ouml;nnen das nicht.
+Wenn Sie sich diese Regel nur schwer merken k&ouml;nnen,
+dann denken Sie einfach an sich und Ihre Eltern:
+</p>
+
+<blockquote>
+Es ist f&uuml;r Sie OK nach Hause zu gehen und f&uuml;r ein paar Tage im Haus Ihrer Eltern zu bleiben, aber es ist nicht OK f&uuml;r Ihre Eltern ein paar Tage in Ihrem Schlafzimmer zu bleiben.
+</blockquote>
+
+<p>
+Lassen Sie uns jetzt <code>KinderGeburtstag</code> umschreiben
+um mehr &uuml;ber Polymorphie zu zeigen.
+Angenommen Sie wollen zwei <code>gruss()</code>  Methoden
+f&uuml;r <code>KinderGeburtstag</code>:
+</p>
+
+<ol>
+<li>Die <code>gruss()</code> Methode der Superklasse.
+    <ul><li>Sie wird durch Vererbung aufgenommen werden.</li></ul></li>
+<li>Eine Methode mit dem Namen des Absenders als Parameter.
+    <ul><li>Das wird eine zus&auml;tzliche Methode sein&#8213;sie wird
+            die Methode der Superklasse nicht &uuml;berschreiben.</li>
+        <li>Zus&auml;tzlich zu dem was die Methode der Superklasse tut
+            wird diese Methode ausgeben "Was bist du gross geworden!!
+           In Liebe, ", gefolgt vom Namen des Absenders.</li></ul></li>
+</ol>
+
+<p>
+Hier ist ein Grundger&uuml;st:
+</p>
+
+<pre class="program">
+// &Uuml;berarbeitete Version
+//
+class KinderGeburtstag  extends Geburtstag
+
+{
+  public  KinderGeburtstag ( String e, int jahre )
+  {
+    super ( e, jahre );
+  }
+
+  // zus&auml;tzliche Methode---&uuml;berschreibt nicht die Methode der Superklasse
+  public void gruss( <span class="blue">___________  ____________</span> )
+  {
+    super.gruss();
+    System.out.println("Was bist du gross geworden!!\n");
+    System.out.println("In Liebe, " + <span class="blue">___________</span> + "\n" );
+  }
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;gen Sie die fehlende Teile ein.
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Wahl der Methoden
+<ANSWER>
+<p>
+Die &uuml;berarbeitete Klasse steht unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Jetzt haben Objekte der Klasse <code>KinderGeburtstag</code> zwei Methoden:
+<code>gruss()</code>
+und <nobr><code>gruss( String )</code></nobr>.
+</p>
+
+
+<pre class="program">
+// &Uuml;berarbeitete Version
+//
+class KinderGeburtstag  extends Geburtstag
+
+{
+  public  KinderGeburtstag ( String e, int jahre )
+  {
+    super ( e, jahre );
+  }
+
+  // zus&auml;tzliche Methode---&uuml;berschreibt nicht die Methode der Superklasse
+  public void gruss( <span class="blue">String absender</span> )
+  {
+    super.gruss();
+    System.out.println("Was bist du gross geworden!!\n");
+    System.out.println("In Liebe, " + <span class="blue">absender</span> +"\n" );
+  }
+}
+</pre>
+
+
+<p>
+Hier ist ein <code>KinderGeburtstag</code>-Objekt, das jede der zwei Methoden verwendet:
+</p>
+
+<pre>
+KinderGeburtstag kinder = new KinderGeburtstag ( "Henry", 12 );
+kinder.gruss();
+kinder.gruss( "Alice" );
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was wird dieses Programmfragment ausgeben?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Top of the Hierarchy
+<ANSWER>
+<pre>
+Dear Henry,
+Alles Gute zum 12. Geburtstag.
+Was bist du gross geworden!!
+
+Dear Henry,
+Alles Gute zum 12. Geburtstag.
+Was bist du gross geworden!!
+In Liebe, Alice
+</pre>
+<p>(Ich habe einige Leerzeilen des aktuellen Outputs entfernt.)</p>
+</ANSWER>
+
+<LESSON>
+<INDEX>Root, einer Hierarchie</INDEX>
+
+<p>
+Die Spitze der Kartenhierarchie ist die Klasse <code>Karte</code>.
+Sie wird manchmal auch die <em>Root</em> der Hierarchie genannt.
+Eine Variable vom Typ der Root,  <code>Karte</code>, kann mit jeder ihrer
+abgeleiteten Klassen verwendet werden:
+</p>
+
+<pre class="program">
+Karte karte      = new KinderGeburtstag ( "Valerie", 7 );
+karte.gruss();             // einen Kinder-Geburtstagsgru&szlig; ausgeben
+
+karte           = new ErwachsenenGeburtstag ( "Walter", 47 );
+karte.gruss();             // einen Erwachsenen-Geburtstagsgru&szlig; ausgeben
+
+karte           = new Geburtstag ( "Zoe", 30 );
+karte.gruss();             // einen allgemeinen Geburtstagsgru&szlig; ausgeben
+
+Feiertag feier = new Feiertag( "Kelly" );
+Valentin val   = new Valentin( "Jill", 42 );
+
+karte           = feier;
+karte.gruss();             // einen Feiertag-Gruss ausgeben
+
+karte           = val;
+karte.gruss();             // einen Valentin-Gruss ausgeben
+</pre>
+
+<p>
+Wenn ein Programm mehrere verwandte Objekte verwendet,
+ist es oft n&uuml;tzlich eine Referenzvariable zu haben,
+die mit jedem von ihnen verwendet werden kann.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage: ) Angenommen Sie haben eine Sammlung von 12 Gru&szlig;karten-Objekten
+und Sie m&ouml;chten sie in einem Array aufbewahren.
+Welchen Typ von Array sollten Sie verwenden?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Array verwandter Objekte
+
+<ANSWER>
+<p>
+Ein Array vom Typ <code>Karte</code>:
+</p>
+
+<pre>
+Karte[] karten = new Karte[12];
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Array, verwandter Objekte</INDEX>
+<p>
+Jetzt kann jedes Objekt, das zu der Hierarchie geh&ouml;rt, in einen Slot des Arrays passen.
+Das ist vergleichbar mit einem Gru&szlig;kartenst&auml;nder in einem Andenkengesch&auml;ft,
+der verschiedene Typen von Karten enth&auml;lt.
+Hier ist ein Programmschnipsel:
+</p>
+
+<pre class="program">
+Karte[] karten = new Karte[12];
+
+karten[0]     = new KinderGeburtstag "Valerie", 7 );
+karten[1]     = new ErwachsenenGeburtstag "Walter", 47 );
+karten[2]     = new Geburtstag "Zoe", 30 );
+karten[3]     = new Feiertag( "Kelly" );
+karten[4]     = new Valentin( "Jill", 42 );
+
+for ( int j = 0; j &lt; = 4; j++ )
+  karten[ j ].gruss();
+</pre>
+
+
+<p>
+Dieser Code wird 5 verschiedene Kartenobjekte erzeugen und sie in das Array stellen.
+Dann wird es jedes Objekt in dem Array auffordern seine eigene Gru&szlig;version auszugeben.
+Das wird ausgezeichnet funktionieren:
+</p>
+
+
+<pre>
+Dear Valerie,
+alles Gute zum 7. Geburtstag.
+Was bist du gross geworden!!
+
+Dear Walter,
+alles Gute zum 47. Geburtstag.
+Du siehst so jung aus wie immer!
+
+Dear Zoe,
+alles Gute zum 30. Geburtstag.
+
+Dear Kelly,
+frohe Feiertage!
+
+Dear Jill,
+herzliche Gruesse und Kuesse,
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+</pre>
+
+
+<p>
+(Ich habe einige Leerzeilen des aktuellen Outputs entfernt.)
+</p>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Jetzt angenommen, dass dieser Code dem oben stehenden folgt:
+</p>
+
+
+<pre>
+Karte temp;
+
+temp      = karten[0];
+karten[0] = karten[1];
+karten[1] = temp;
+</pre>
+
+
+<ul>
+<li>Ist dieser Code korrekt?</li>
+<li>Was macht er?</li>
+</ul>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>&Uuml;berblick &uuml;ber die Klasse Object
+<ANSWER>
+
+<ul>
+<li>Ist dieser Code korrekt?
+    <ul><li>Ja.</li></ul></li>
+<li>Was macht er?
+    <ul><li>Er tauscht die beiden Objekte der ersten zwei Slots des Arrays aus.
+    </li></ul></li>
+</ul>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Object, die Klasse</INDEX>
+<p>
+Diese Art von T&auml;tigkeit ist in der Programmierung sehr gebr&auml;uchlich
+Sie werden das in der Zukunft h&auml;ufig sehen.
+Beachten Sie, dass keine neuen Objekte erzeugt wurden;
+sondern verschiedene Referenzvariablen f&uuml;r bereits
+existierende Objekte verwendet wurden.
+</p>
+
+<p>
+In Java,
+gibt es eine vordefinierte Klasse, die der ultimative Vorfahre aller anderen Klassen ist.
+Diese Klasse wird <code>Object</code> genannt.
+Wenn Sie eine eigene Klasse so wie diese definieren:
+</p>
+
+<pre>
+class MeineNeueKlasse
+{
+
+}
+</pre>
+
+<p>
+definieren Sie tats&auml;chlich eine Subklasse der Klasse <code>Object</code>.
+Das folgende ist mit dem oben stehenden &auml;quivalent:
+</p>
+
+
+<pre>
+class MeineNeueKlasse extends Object
+{
+
+}
+</pre>
+
+
+<p>
+Jede Klasse in Java &#8212; Ihre eigenen und jede Klasse in jeder Bibliothek
+stammt von der Klasse <code>Object</code> ab.
+Das wird wichtig sein zu errinnern, wenn Sie zu grafischen Benutzeroberfl&auml;chen kommen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+
+<ul>
+<li>Ist ein <code>String</code> ein <code>Object</code>?</li>
+<li>Ist eine <code>Karte</code> ein <code>Object</code>?</li>
+<li>Ist ein <code>Applet</code> ein <code>Object</code>?</li>
+</ul>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Arrays von Objekten
+<ANSWER>
+
+<ul>
+<li>Ist ein <code>String</code> ein <code>Object</code>?
+    <ul><li><span class="green">Ja</span></li></ul></li>
+<li>Ist eine <code>Karte</code> ein <code>Object</code>?
+    <ul><li><span class="green">Ja</span></li></ul></li>
+<li>Ist ein <code>Applet</code> ein <code>Object</code>?
+    <ul><li><span class="green">Ja</span></li></ul></li>
+</ul>
+
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Typ Casting</INDEX>
+<p>
+Da jede Klasse ein Nachfahre von <code>Object</code> ist,
+kann eine <code>Object</code>-Referenzvariable f&uuml;r ein Objekt
+jeder Klasse verwendet werden.
+Zum Beispiel:
+</p>
+
+<pre class="code">
+Object obj;
+
+String        str = "Yertle" ;
+Double        dbl = new Double( 32.0 );
+KinderGeburtstag kinder = new KinderGeburtstag "Ian", 4 );
+
+obj = str;
+obj = dbl;
+obj = kinder;
+</pre>
+
+
+<p>
+Jede der drei letzten Anweisungen ist korrekt (auch wenn in diesem Programm nutzlos.)
+Es w&auml;re <strong>nicht</strong> korrekt, wenn das folgende den oben stehenden Anweisungen folgen w&uuml;rde:
+</p>
+
+
+<pre>
+obj.gruss();
+</pre>
+
+
+<p>
+Es ist richtig, dass <code>obj</code> auf ein <code>KinderGeburtstag</code>-Objekt verweist, das eine <code>gruss()</code> Methode besitzt.
+Aber dem Compiler muss das durch ein <b>Typ Casting</b> mitgeteilt werden.
+Das folgende ist OK:
+</p>
+
+<pre>
+( (KinderGeburtstag)obj ).gruss();
+</pre>
+
+<p>
+Ein Typ Casting wird verwendet um dem Compiler mitzuteilen was "wirklich" in einer Variablen ist, die selbst nicht spezifisch genug ist.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist das folgende OK?
+</p>
+
+<pre>
+Object obj;
+String str = "Yertle" ;
+
+obj = str;
+( (KinderGeburtstag)obj ).gruss();
+</pre>
+
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Der  instanceof-Operator
+<p>
+Ist das folgende OK?
+</p>
+
+<pre>
+Object obj;
+String str = "Yertle" ;
+
+obj = str;
+( (KinderGeburtstag)obj ).gruss();
+</pre>
+
+<ANSWER>
+<p>
+Nein.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>instanceof</INDEX>
+<p>
+Ein Typ Casting wird verwendet um dem Compiler mitzuteilen was "wirklich" in einer Variablen ist, die selbst nicht spezifisch genug ist.
+Sie m&uuml;ssen die Wahrheit sagen.
+In einem komplizierten Programm
+k&ouml;nnte eine Referenzvariable als jedes von mehreren verschiedenen Objekten enden,
+je nach Inputdaten oder anderen unvorhersehbaren Gegebenheiten.
+Um damit umzugehen wird der <code>instanceof</code>-Operator verwendet.
+</p>
+
+<pre>
+variable instanceof Class
+</pre>
+
+<p>
+Dieser Operator ergibt <code>true</code> oder <code>false</code>,
+je nach dem ob die Variable auf ein Objekt vom
+Typ <code>Class</code> verweist.
+In dem folgenden Fragment wird zum Beispiel
+<code>instanceof</code> verwendet um sicher zu stellen, dass das
+von <code>obj</code> referenzierte Objekt korrekt verwendet wird:
+</p>
+
+<pre class="program">
+Object obj;
+KinderGeburtstag kinder = new KinderGeburtstag ( "Ian", 4 );
+String           str    = "Yertle" ;
+
+obj = kinder;
+
+if ( obj instanceof KinderGeburtstag )
+  ( (KinderGeburtstag)obj ).gruss();
+
+if ( obj instanceof String )
+  System.out.print( (String)obj );
+</pre>
+
+<p>
+<code>instanceof</code> wird auch <code>true</code> zur&uuml;ckgeben,
+wenn die links stehende Klasse ein Kindklasse
+(oder Enkel- oder Gro&szlig;enkelklasse oder ...)
+von der rechts stehenden Klasse ist.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wird Ihnen <code>instanceof</code> helfen, wenn Sie nicht im voraus wissen welche Klassen eine Variable enthalten k&ouml;nnte?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+
+</p>
+<ANSWER>
+<p>
+Nein. Sie k&ouml;nnen ihn zum Testen mehrerer m&ouml;glicher Klassen verwenden,
+aber nur wenn Sie wissen um was f&uuml;r Klassen es sich dabei handeln k&ouml;nnte.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Sie haben das Ende des Kapitels erreicht.
+Sie m&ouml;chten vielleicht das folgende noch einmal durchsehen.
+Klicken Sie auf ein Thema, das Sie interessiert um dahin zu gehen, wo es
+besprochen wurde.
+Um hierher zur&uuml;ckzukehren klicken Sie auf den "Zur&uuml;ck"-Button Ihres Browsers.
+</p>
+
+<ul>
+<li>
+<GOTO>Signatur</GOTO> Die Signatur einer Methode.
+</li>
+
+<li>
+<GOTO>&Uuml;berschreiben</GOTO> Methoden der Superklasse &uuml;berschreiben.
+</li>
+
+<li>
+<GOTO>super</GOTO> <code>super</code> in der Methode einer Subklasse verwenden.
+</li>
+
+<li>
+<GOTO>Root, einer Hierarchie</GOTO> Die Root einer Hierarchie.
+</li>
+
+<li>
+<GOTO>Array, verwandter Objekte</GOTO> Arrays verwandter Objekte.
+</li>
+
+<li>
+<GOTO>Object, die Klasse</GOTO> Die Klasse <code>Object</code>.
+</li>
+
+<li>
+<GOTO>Typ Casting</GOTO> Typ Casting mit einer Variablen verwenden.
+</li>
+
+<li>
+<GOTO>instanceof</GOTO> Der <code>instanceof</code>-Operator.
+</li>
+
+</ul>
+
+<p>
+Das n&auml;chste Kapitel wird <code>interfaces</code> besprechen&#8212;noch ein weiterer Aspekt von Java, den Sie brauchen werden um (nicht nur) grafische Benutzeroberfl&auml;chen zu programmieren.
+</p>
+
+
+<hr />
+<p><A HREF="../../java-toc.html#52">
+<img src="../contents.gif" alt="&Uuml;bersicht" titel="Zur &Uuml;bersicht gehen." align="center" /></A>
+&#8212;&#8212;Zur&uuml;ck zur <A HREF="../../java-toc.html#52">&Uuml;bersicht</a>.
+</p>
+</LESSON>
+</CAI>
+
+</CHAPTER>

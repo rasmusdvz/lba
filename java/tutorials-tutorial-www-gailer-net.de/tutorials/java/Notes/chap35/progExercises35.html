@@ -1,0 +1,256 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>Kapitel 35  Programmieraufgaben</title>
+<meta name="copyright" content="2010,  Heinrich Gailer">
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css">
+</head>
+
+<body>
+<p class="revisions">erstellt 01.10.99; &uuml;berarbeitet 08.03.00; &uuml;bersetzt 17.06.03; &uuml;berarbeitet 10.02.04, 26.07.04, 18.01.05, 19.10.06, 17.01.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+<h1>Kapitel 35 Programmieraufgaben</h1>
+
+
+<blockquote>
+Diese Aufgaben gehen davon aus, dass Sie die Aufgabe, die im Test dieses Kapitels behandelt wurde, gelesen haben.
+Alle Programmieraufgaben sind Modifikationen dieses Programms.
+Beginnen Sie, indem Sie dieses Programm nach Notepad kopieren.
+</blockquote>
+
+<h2>Aufgabe 1 &#8212 Interaktion mit dem Anwender.</h2>
+<p>
+Modifizieren Sie die <code>VorratskammerTester</code>-Klasse, so dass sie einen Dialog mit dem Anwender durchf&uuml;hrt:
+</p>
+
+<pre class="dos4">
+Willkommen zu Mutter Hubbards Vorratskammer!
+
+Die Vorratskammer enthaelt:
+1: Stachelbeermarmelade   04.07.09 12 Unzen.
+2: Erdbeermarmelade   31.09.10   8 Unzen.
+3: Aprikosenmarmelade   31.10.10   16 Unzen.
+Treffen Sie Ihre Auswahl (1, 2 oder 3). Exit -1:
+1
+Geben Sie die Menge ein, die aufgetragen werden soll:
+2
+Auftragen von 2 Unzen Stachelbeermarmelade.
+
+Die Vorratskammer enthaelt:
+1: Stachelbeermarmelade   04.07.09   10 Unzen.
+2: Erdbeermarmelade   31.09.10   8 Unzen.
+3: Aprikosenmarmelade   31.10.10   16 Unzen.
+Treffen Sie Ihre Auswahl (1, 2 oder 3). Exit -1:
+2
+Geben Sie die Menge ein, die aufgetragen werden soll:
+25
+Auftragen von 8 Unzen Erdbeermarmelade.
+
+Die Vorratskammer enthaelt:
+1: Stachelbeermarmelade   04.07.09   10 Unzen.
+2: Erdbeermarmelade   31.09.10   0 Unzen.
+3: Aprikosenmarmelade   31.10.10   16 Unzen.
+Treffen Sie Ihre Auswahl (1, 2 oder 3). Exit -1:
+2
+Geben Sie die Menge ein, die aufgetragen werden soll:
+9
+Keine Marmelade im Glas!
+
+Die Vorratskammer enthaelt:
+1: Stachelbeermarmelade   04.07.09   10 Unzen.
+2: Erdbeermarmelade   31.09.10   0 Unzen.
+3: Aprikosenmarmelade   31.10.10   16 Unzen.
+Treffen Sie Ihre Auswahl (1, 2 oder 3). Exit -1:
+-1
+Good-bye</pre>
+
+<p>
+Das Programm sollte zuerst die <code>Marmelade</code>-Objekte und die <code>Vorratskammer</code> initialisieren und dann:
+</p>
+
+<ol>
+<li>Alle verf&uuml;gbaren <code>Marmelade</code>-Objekte auflisten.</li>
+<li>Den Anwender zur Eingabe auffordern.</li>
+<li>Die Auswahl einlesen.</li>
+<li>Eine Fehlermeldung f&uuml;r eine ung&uuml;ltige Auswahl ausgeben (und wieder von vorne anfangen).</li>
+<li>Den Anwender auffordern eine Aufstrichmenge f&uuml;r die Marmelade einzugeben.</li>
+<li>Die Menge der ausgew&auml;hlten Marmelade, um die Aufstrichmenge verringern.</li>
+<li>Das Programm beenden, wenn der Anwender bei der Auswahl  -1 eingibt, ansonsten wieder von vorne anfangen.</li>
+</ol>
+
+<p>
+Verwenden Sie die <code>Marmelade</code>-, <code>Vorratskammer</code>-und <code>VorratskammerTester</code>-Klasse aus dem <a href="fillBlankCh35.html#aufgabe">Test</a>. Kopieren Sie das vollst&auml;ndiges Programm mit der Testklasse: nach Notepad, speichern und kompilieren es.</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#35">Inhaltsverzeichnis</a>.</p>
+<hr>
+
+<h2>Aufgabe 2 &#8212 Neue Konstruktoren f&uuml;r die <code><strong>Vorratskammer</strong></code>-Klasse</h2>
+<p>
+F&uuml;gen Sie der <code>Vorratskammer</code>-Klasse neue Konstruktoren hinzu:
+einen Konstruktor, der einen <code>Marmelade</code>-Parameter &uuml;bernimmt
+und einen weiteren, der zwei <code>Marmelade</code>-Parameter &uuml;bernimmt.
+Nicht verwendete Instanzvariablen des <code>Vorratskammer</code>-Objekts werden auf
+<code>null</code> gesetzt.
+</p>
+
+<p>
+Modifizieren Sie jetzt die Methoden der Klasse, so dass sie mit
+<code>null</code> in den Instanzvariablen umgehen k&ouml;nnen:
+<code>ausgeben()</code> &uuml;berpr&uuml;ft auf <code>null</code> bevor die Marmeladen ausgegeben werden.
+<code>auswaehlen()</code> wird einen R&uuml;ckgabetyp <code>boolean</code> haben.
+Geben Sie <code>true</code> zur&uuml;ck, wenn die Auswahl verf&uuml;gbar ist, ansonsten
+<code>false</code>.
+</p>
+
+<p>
+Hier ist die <code>VorratskammerTester2</code>-Klasse, die den neuen Code vorf&uuml;hrt:
+</p>
+
+<pre class="program">
+class VorratskammerTester2
+{
+  public static void main ( String[] args )
+  {
+    Marmelade stachelbeer = new Marmelade( "Stachelbeer", "04.07.09", 12 );
+    Marmelade erdbeer     = new Marmelade( "Erdbeer", "31.09.10", 8 );
+
+    Vorratskammer vorrat = new Vorratskammer( stachelbeer, erdbeer );
+    vorrat.ausgeben();
+
+    if ( vorrat.auswaehlen(1) )
+      vorrat.auftragen(2);
+    else
+      System.out.println("Auswahl nicht verfuegbar");
+    vorrat.ausgeben();
+
+    if ( vorrat.auswaehlen(3) )
+      vorrat.auftragen(2);
+    else
+      System.out.println("Auswahl nicht verfuegbar");
+    vorrat.ausgeben();
+
+  }
+}
+</pre>
+
+<p>
+Wenn das Programm l&auml;uft, gibt es ungef&auml;hr folgendes aus:
+</p>
+
+<pre class="dos">
+Willkommen zu Mutter Hubbards Vorratskammer!
+
+Die Vorratskammer enthaelt:
+1: Stachelbeermarmelade 04.07.09 12 Unzen.
+2: Erdbeermarmelade 30.09.10 8 Unzen.
+
+Treffen Sie Ihre Auswahl (1 oder 2). Exit -1:
+1
+Geben Sie die Menge ein, die aufgetragen werden soll:
+5
+Auftragen von 5 Unzen Stachelbeermarmelade
+
+Die Vorratskammer enthaelt:
+1: Stachelbeermarmelade 04.07.09 7 Unzen.
+2: Erdbeermarmelade 30.09.10 8 Unzen.
+
+Treffen Sie Ihre Auswahl (1 oder 2). Exit -1:
+3
+Ungueltige Auswahl
+
+Treffen Sie Ihre Auswahl (1 oder 2). Exit -1:
+</pre>
+
+<p>Nat&uuml;rlich, ein vollst&auml;ndiges Testen w&uuml;rde eine sehr viel gr&ouml;&szlig;ere <code>VorratskammerTester2</code>-Klasse voraussetzen.</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#35">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 3 &#8212 <code><strong>ersetzen()</strong></code> Methode</h2>
+
+<p>
+Erweitern Sie das Programm aus Aufgabe 2.
+Schreiben Sie eine Methode <code>ersetzen( Marmelade m, int slot )</code> f&uuml;r die  <code>Vorratskammer</code>-Klasse,
+die ein bestimmtes Glas Marmelade aus der Vorratskammer durch das Objekt
+<code>m</code> ersetzt.
+Hier ist das Testprogramm:
+</p>
+
+<pre class="program">
+class VorratskammerTester3
+{
+  public static void main ( String[] args )
+  {
+    Marmelade stachelbeer = new Marmelade( "Stachelbeer", "04.07.09", 12 );
+    Marmelade erdbeer     = new Marmelade( "Erdbeer", "31.09.10", 8 );
+    Marmelade aprikosen   = new Marmelade( "Aprikosen", "31.10.10", 16 );
+
+    Vorratskammer vorrat  = new Vorratskammer( stachelbeer, erdbeer, aprikosen );
+    vorrat.ausgeben();
+
+    Marmelade kirsch      = new Marmelade( "Kirsch", "01.07.09", 11 );
+
+    vorrat.ersetzen( kirsch, 3 );
+    vorrat.ausgeben();
+
+  }
+}
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#35">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 4 &#8212 gemischte Fr&uuml;chte</h2>
+<p>
+F&uuml;gen Sie der <code>Vorratskammer</code>-Klasse eine weitere Methode hinzu:
+</p>
+
+<pre>
+public void gemischteFruechte()
+</pre>
+
+<p>
+Diese Methode &uuml;berpr&uuml;ft, ob jedes Marmeladenglas in der Vorratskammer 2 Unzen oder weniger hat und ersetzt, wenn dem so ist das erste Marmeladenglas durch ein Glas gemischter Fr&uuml;chte.
+Die Menge ergibt sich aus der kombinierten Menge aller urspr&uuml;nglicher Gl&auml;ser.
+Die letzten zwei Gl&auml;ser werden auf  <code>null</code> gesetzt.
+(Mit anderen Worten, diese Methode mischt die Marmelade aller drei Gl&auml;ser, um ein neues Glas zu erzeugen, das die alten ersetzt.)
+Modifizieren Sie das Testprogramm, um diese neue Methode zu verwenden.
+Hier ist die beispielhafte Ausgabe eines Testprogramms:
+</p>
+
+<pre class="dos">
+Willkommen zu Mutter Hubbards Vorratskammer!
+
+Die Vorratskammer enthaelt:
+1: Stachelbeer   04.07.09   4 Unzen.
+2: Erdbeer   30.09.10   1 Unzen.
+3: Aprikosen   31.10.10   2 Unzen.
+
+Treffen Sie Ihre Auswahl (1, 2 oder 3). Exit -1:
+1
+Geben Sie die Menge ein, die aufgetragen werden soll:
+2
+Auftragen von 2 Unzen Stachelbeermarmelade
+
+Die Vorratskammer enthaelt:
+1: Stachelbeer   04.07.09   2 Unzen.
+2: Erdbeer   30.09.10   1 Unzen.
+3: Aprikosen   31.10.10   2 Unzen.
+
+Die Vorratskammer enthaelt:
+1: Gemischte Fruechte   19.01.11   5 Unzen.
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#35">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<p>Ende der Aufgaben.</p>
+&nbsp;</body>
+</html>

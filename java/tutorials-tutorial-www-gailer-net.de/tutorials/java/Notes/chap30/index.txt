@@ -1,0 +1,16 @@
+F&uuml;r Index chap 30
+Original					German
+<INDEX>object oriented programming</INDEX>	Objektorientierte Programmierung
+<INDEX>Runtime</INDEX>				Runtime
+<INDEX>pizza</INDEX>				Pizza
+<INDEX>design, object oriented</INDEX>		Objektorientiertes Design
+<INDEX>running program</INDEX>			Programme zur Laufzeit
+<INDEX>class definition, syntax</INDEX>		Klassendefinition, Syntax
+<INDEX>program, object oriented Hello World</INDEX>	objektorientiertes Programm, Hello World
+<GOTO>method definition, syntax</GOTO>		Methodendefinition, Syntax
+<INDEX>return statement</INDEX>			Return-Anweisung
+<INDEX>testing class</INDEX>			Klassen testen
+<INDEX>inherited constructor</INDEX>		geerbte Konstruktoren
+<INDEX>Standard-Konstruktor</INDEX>		Standard-Konstruktor
+<INDEX>Konstruktor, Standard</INDEX>		Konstruktor, Standard-
+<INDEX>constructor definition, syntax</INDEX>	Konstrukturdefinition, Syntax

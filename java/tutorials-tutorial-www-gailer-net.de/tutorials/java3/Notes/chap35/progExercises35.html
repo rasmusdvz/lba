@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<!-- 05/11/03 small changes in formatting -->
+
+<html>
+
+<head>
+
+<title>
+Kapitel 35 Programmieraufgaben
+</title>
+
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body><hr />
+<p>
+<small>erstellt 01.10.99; &uuml;berarbeitet 08.03.00; &uuml;bersetzt 17.06.03; &uuml;berarbeitet 10.02.04, 26.07.04, 18.01.05, 19.10.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+
+<hr />
+<center><h1><span class="blue">Kapitel 35 Programmieraufgaben</span></h1></center>
+
+
+<blockquote>
+Diese Aufgaben gehen davon aus, dass Sie die Aufgabe, die im <a href="fillBlankCh35.html">Test</a> dieses Kapitels behandelt wurde, gelesen haben.
+Alle Programmieraufgaben sind Modifikationen dieses Programms.
+Beginnen Sie, indem Sie dieses Programm nach Notepad kopieren.
+</blockquote>
+
+<h2>Aufgabe 1 &#8212 Interaktion mit dem Anwender.</h2>
+<p>
+Modifizieren Sie die <code>VorratskammerTester</code>-Klasse, so dass sie einen Dialog mit dem Anwender durchf&uuml;hrt:
+</p>
+
+<pre>
+Willkommen zu Mutter Hubbards Vorratskammer!
+
+Die Vorratskammer enthaelt:
+1: Stachelbeermarmelade   04.07.01 12 Unzen.
+2: Erdbeermarmelade   31.09.03   8 Unzen.
+3: Aprikosenmarmelade   31.10.03   16 Unzen.
+Treffen Sie Ihre Auswahl (1, 2 oder 3). Exit -1:
+1
+Geben Sie die Menge ein, die aufgetragen werden soll:
+2
+Auftragen von 2 Unzen Stachelbeermarmelade.
+
+Die Vorratskammer enthaelt:
+1: Stachelbeermarmelade   04.07.01   10 Unzen.
+2: Erdbeermarmelade   31.09.03   8 Unzen.
+3: Aprikosenmarmelade   31.10.03   16 Unzen.
+Treffen Sie Ihre Auswahl (1, 2 oder 3). Exit -1:
+2
+Geben Sie die Menge ein, die aufgetragen werden soll:
+25
+Auftragen von 8 Unzen Erdbeermarmelade.
+
+Die Vorratskammer enthaelt:
+1: Stachelbeermarmelade   04.07.01   10 Unzen.
+2: Erdbeermarmelade   31.09.03   0 Unzen.
+3: Aprikosenmarmelade   31.10.03   16 Unzen.
+Treffen Sie Ihre Auswahl (1, 2 oder 3). Exit -1:
+2
+Geben Sie die Menge ein, die aufgetragen werden soll:
+9
+Keine Marmelade im Glas!
+
+Die Vorratskammer enthaelt:
+1: Stachelbeermarmelade   04.07.01   10 Unzen.
+2: Erdbeermarmelade   31.09.03   0 Unzen.
+3: Aprikosenmarmelade   31.10.03   16 Unzen.
+Treffen Sie Ihre Auswahl (1, 2 oder 3). Exit -1:
+-1
+Good-bye</pre>
+
+<p>
+Das Programm sollte zuerst die <code>Marmelade</code>-Objekte und die <code>Vorratskammer</code> initialisieren und dann...
+</p>
+
+<ol>
+<li>Alle verf&uuml;gbaren <code>Marmelade</code>-Objekte auflisten.</li>
+<li>Den Anwender zur Eingabe auffordern.</li>
+<li>Die Auswahl einlesen.</li>
+<li>Eine Fehlermeldung f&uuml;r eine ung&uuml;ltige Auswahl ausgeben (und wieder von vorne anfangen).</li>
+<li>Den Anwender auffordern eine Aufstrichmenge f&uuml;r die Marmelade einzugeben.</li>
+<li>Die Menge der ausgew&auml;hlten Marmelade, um die Aufstrichmenge verringern.</li>
+<li>Das Programm beenden, wenn der Anwender bei der Auswahl  -1 eingibt, ansonsten wieder von vorne anfangen.</li>
+</ol>
+
+<p>
+Verwenden Sie die <code>Marmelade</code>- und <code>Vorratskammer</code>-Klasse aus der Aufgabe im <a href="fillBlankCh35.html#aufgabe">Test</a> .
+Um dies zu tun:
+</p>
+
+<ol>
+<li>Kopieren Sie den Code am Ende der Aufgabe nach Notepad, speichern und kompilieren ihn.</li>
+<li>Sie werden jetzt eine <code>Marmelade.class</code>, eine <code>Vorratskammer.class</code> und eine <code>VorratskammerTester.class</code>
+    in Ihren Verzeichnis haben.</li>
+<li>Erzeugen Sie eine neue Datei, <code>Aufgabe1.java</code>, die den Anwenderdialog implementiert.</li>
+<li>Kompilieren und starten Sie <code>Aufgabe1.java</code>.
+</ol>
+
+<p>
+<code>Aufgabe1.java</code> wird folgenderma&szlig;en aussehen:
+</p>
+
+<pre>
+
+import java.io.*;
+
+class Aufgabe1
+{
+  public static void main ( String[] args ) throws IOException
+  {
+    BufferedReader stdin = new BufferedReader( new InputStreamReader( System.in ) );
+    String inChars;
+
+    Marmelade stachelbeer = new Marmelade( "Stachelbeer", "04.07.01", 12 );
+    Marmelade erdbeer     = new Marmelade( "Erdbeer", "31.09.03", 8 );
+    Marmelade aprikosen   = new Marmelade( "Aprikosen", "31.10.03", 16 );
+
+    . . . . . . . . . .
+
+  }
+}
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#35">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+<h2>Aufgabe 2 &#8212 Neue Konstruktoren f&uuml;r die <code><strong>Vorratskammer</strong></code>-Klasse</h2>
+<p>
+F&uuml;gen Sie der <code>Vorratskammer</code>-Klasse neue Konstruktoren hinzu:
+einen Konstruktor, der einen <code>Marmelade</code>-Parameter &uuml;bernimmt
+und einen weiteren, der zwei <code>Marmelade</code>-Parameter &uuml;bernimmt.
+Nicht verwendete Instanzvariablen des <code>Vorratskammer</code>-Objekts werden auf
+<code>null</code> gesetzt.
+</p>
+
+<p>
+Modifizieren Sie jetzt die Methoden der Klasse, so dass sie mit
+<code>null</code> in den Instanzvariablen umgehen k&ouml;nnen:
+<code>ausgeben()</code> &uuml;berpr&uuml;ft auf <code>null</code> bevor die Marmeladen ausgegeben werden.
+<code>auswaehlen()</code> wird einen R&uuml;ckgabetyp <code>boolean</code> haben.
+Geben Sie <code>true</code> zur&uuml;ck, wenn die Auswahl verf&uuml;gbar ist, ansonsten
+<code>false</code>.
+</p>
+
+<p>
+Hier ist die <code>VorratskammerTester2</code>-Klasse, die den neuen Code vorf&uuml;hrt:
+</p>
+
+<pre>
+class VorratskammerTester2
+{
+  public static void main ( String[] args )
+  {
+    Marmelade stachelbeer = new Marmelade( "Stachelbeer", "04.07.01", 12 );
+    Marmelade erdbeer     = new Marmelade( "Erdbeer", "31.09.03", 8 );
+
+    Vorratskammer vorrat = new Vorratskammer( stachelbeer, erdbeer );
+    vorrat.ausgeben();
+
+    if ( vorrat.auswaehlen(1) )
+      vorrat.auftragen(2);
+    else
+      System.out.println("Auswahl nicht verfuegbar");
+    vorrat.ausgeben();
+
+    if ( vorrat.auswaehlen(3) )
+      vorrat.auftragen(2);
+    else
+      System.out.println("Auswahl nicht verfuegbar");
+    vorrat.ausgeben();
+
+  }
+}
+</pre>
+
+<p>
+Wenn das Programm l&auml;uft, gibt es folgendes aus:
+</p>
+
+<pre>
+1: Stachelbeer   04.07.01   12 Unzen.
+2: Erdbeer   31.09.03   8 Unzen.
+Auftragen von 2 Unzen Stachelbeere
+
+1: Stachelbeer   04.07.01   10 Unzen.
+2: Erdbeer   31.09.03   8 Unzen.
+Auswahl nicht verfuegbar!
+
+1: Stachelbeer   04.07.01   10 Unzen.
+2: Erdbeer   31.09.03   8 Unzen.
+</pre>
+
+<p>Nat&uuml;rlich, ein vollst&auml;ndiges Testen w&uuml;rde eine sehr viel gr&ouml;&szlig;ere <code>VorratskammerTester2</code>-Klasse voraussetzen.</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#35">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+
+<h2>Aufgabe 3 &#8212 <code><strong>ersetzen()</strong></code> Methode</h2>
+
+<p>
+Erweitern Sie das Programm aus Aufgabe 2.
+Schreiben Sie eine Methode <code>ersetzen( Marmelade m, int slot )</code> f&uuml;r die  <code>Vorratskammer</code>-Klasse,
+die ein bestimmtes Glas Marmelade aus der Vorratskammer durch das Objekt
+<code>m</code> ersetzt.
+Hier ist das Testprogramm:
+</p>
+
+<pre>
+class VorratskammerTester3
+{
+  public static void main ( String[] args )
+  {
+    Marmelade stachelbeer = new Marmelade( "Stachelbeer", "04.07.01", 12 );
+    Marmelade erdbeer     = new Marmelade( "Erdbeer", "31.09.03", 8 );
+    Marmelade aprikosen   = new Marmelade( "Aprikosen", "31.10.03", 16 );
+
+    Vorratskammer vorrat  = new Vorratskammer( stachelbeer, erdbeer, aprikosen );
+    vorrat.ausgeben();
+
+    Marmelade kirsch      = new Marmelade( "Kirsch", "01.07.04", 11 );
+
+    vorrat.ersetzen( kirsch, 3 );
+    vorrat.ausgeben();
+
+  }
+}
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#35">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+
+<h2>Aufgabe 4 &#8212 gemischte Fr&uuml;chte</h2>
+<p>
+F&uuml;gen Sie der <code>Vorratskammer</code>-Klasse eine weitere Methode hinzu:
+</p>
+
+<pre>
+public void gemischteFruechte()
+</pre>
+
+<p>
+Diese Methode &uuml;berpr&uuml;ft, ob jedes Marmeladenglas in der Vorratskammer 2 Unzen oder weniger hat und ersetzt, wenn dem so ist das erste Marmeladenglas durch ein Glas gemischter Fr&uuml;chte.
+Die Menge ergibt sich aus der kombinierten Menge aller urspr&uuml;nglicher Gl&auml;ser.
+Die letzten zwei Gl&auml;ser werden auf  <code>null</code> gesetzt.
+(Mit anderen Worten, diese Methode mischt die Marmelade aller drei Gl&auml;ser, um ein neues Glas zu erzeugen, das die alten ersetzt.)
+Modifizieren Sie das Testprogramm, um diese neue Methode zu verwenden.
+Hier ist ein beispielhafte Ausgabe eines Testprogramms:
+</p>
+
+<pre>
+1: Stachelbeermarmelade   04.07.01   4 Unzen.
+2: Erdbeermarmelade   30.09.03   1 Unzen.
+3: Aprikosenmarmelade   31.10.03   2 Unzen.
+Auftragen von 2 Unzen von Stachelbeermarmelade
+
+1: Stachelbeermarmelade   04.07.01   2 Unzen.
+2: Erdbeermarmelade   30.09.03   1 Unzen.
+3: Aprikosenmarmelade   31.10.03   2 Unzen.
+
+1: Gemischte Fruechte   27.07.04   5 Unzen.
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#35">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+
+<p>Ende der Aufgaben.</p>
+&nbsp;</body>
+</html>

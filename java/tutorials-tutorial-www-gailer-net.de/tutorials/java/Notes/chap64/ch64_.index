@@ -1,0 +1,32 @@
+<!-- JSlider -->
+<li><a href="ch64_2.html#JSlider">JSlider</a></li>
+<!-- tick marks (on Sliders) -->
+<li><a href="ch64_4.html#tick marks (on Sliders)">tick marks (on Sliders)</a></li>
+<!-- tick marks -->
+<li><a href="ch64_4.html#tick marks">tick marks</a></li>
+<!-- setPaintTicks -->
+<li><a href="ch64_5.html#setPaintTicks">setPaintTicks</a></li>
+<!-- setPaintLabels -->
+<li><a href="ch64_5.html#setPaintLabels">setPaintLabels</a></li>
+<!-- setSnapToTicks -->
+<li><a href="ch64_5.html#setSnapToTicks">setSnapToTicks</a></li>
+<!-- setPreferredSize() -->
+<li><a href="ch64_7.html#setPreferredSize()">setPreferredSize()</a></li>
+<!-- ChangeListener -->
+<li><a href="ch64_8.html#ChangeListener">ChangeListener</a></li>
+<!-- stateChanged() -->
+<li><a href="ch64_8.html#stateChanged()">stateChanged()</a></li>
+<!-- setName() -->
+<li><a href="ch64_9.html#setName()">setName()</a></li>
+<!-- getSource() -->
+<li><a href="ch64_10.html#getSource()">getSource()</a></li>
+<!-- getName() -->
+<li><a href="ch64_11.html#getName()">getName()</a></li>
+<!-- getValueIsAdjusting() -->
+<li><a href="ch64_13.html#getValueIsAdjusting()">getValueIsAdjusting()</a></li>
+<!-- getMaximum() -->
+<li><a href="ch64_14.html#getMaximum()">getMaximum()</a></li>
+<!-- getMinimum() -->
+<li><a href="ch64_14.html#getMinimum()">getMinimum()</a></li>
+<!-- setInverted() -->
+<li><a href="ch64_14.html#setInverted()">setInverted()</a></li>

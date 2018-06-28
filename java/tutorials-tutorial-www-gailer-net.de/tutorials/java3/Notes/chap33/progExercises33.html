@@ -1,0 +1,268 @@
+<!doctype html public "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body><hr />
+<small>erstellt 24.09.99; kleinere &Auml;nderung 04.05.00; &uuml;bersetzt 21.05.03; &uuml;berarbeitet 15.12.03, 26.01.04, 19.07.04, 10.01.05, 19.10.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<center><h1>Kapitel 33  Programmieraufgaben</h1></center>
+
+<h2>Aufgabe 1: Unver&auml;nderbare Box </h2>
+<p>
+Implementieren Sie eine Klasse <code>Box</code>, &auml;hnlich wie in der <a href="../chap32/fillBlankCh32.html">vorherigen Testaufgabe</a>.
+Aber die neue Implementierung von <code>Box</code> wird eine bessere Kapselung
+haben.
+Hier ist die Dokumentation f&uuml;r <code>Box</code>:
+<blockquote>
+<b>class Box</b>
+<p>
+Eine Klasse, die eine Box implementiert.
+</p>
+<p>
+<b>Konstruktoren</b>
+</p>
+<p>
+Box ( double breite, double hoehe, double laenge )
+</p>
+<p>
+Box ( double seite )
+</p>
+<p>
+<b>Methoden</b>
+</p>
+<p>
+double berechneVolumen( )
+</p>
+<p>
+double berechneFlaeche( )
+</p>
+</blockquote>
+<p>
+Verwenden Sie als Ausgangsbasis das Beispiel des vorherigen <a href="../chap32/fillBlankCh32.html">Tests</a>, das f&uuml;r diese und die n&auml;chsten  &Uuml;bungen leicht modifiziert werden kann.
+</p>
+<p>
+Deklarieren Sie in der jetzigen Implementierung von <code>Box</code> alle
+Instanzvariablen als <code>private</code>.
+Das bedeutet, dass nur die Methoden eines <code>Box</code>-Objekts dessen Objektdaten sehen k&ouml;nnen.
+Das Objekt wird <em>unver&auml;nderbar</em> sein, wenn es keine Zugriffsmethoden gibt, die die Daten &auml;ndern.
+Ein unver&auml;nderbares Objekt ist ein Objekt, dessen Daten sich nicht &auml;ndern.
+Sie erinnern sich vielleicht, dass Stringobjekte unver&auml;nderbar sind &#8212 sobald die Zeichen des Strings mit dem Konstruktor gesetzt worden sind, werden sie sich niemals &auml;ndern (obwohl sie f&uuml;r die Erzeugung anderer Stringobjekte verwendet werden k&ouml;nnen.)
+Es gibt viele Vorteile in der Verwendung unver&auml;nderbarer Objekte, besonders in der Programmierung mit <em>Threads</em> (mit Threads werden fast alle umfangreichen Programme geschrieben).
+</p>
+<p>Geben Sie auf die Methoden von <code>Box</code> &ouml;ffentlichen (<code>public</code>) Zugriff.
+</p>
+
+<p>Testen Sie Ihre <code>Box</code>-Klasse mit verschiedenen Versionen dieses Programms:</p>
+
+<blockquote><pre>
+class BoxTester
+{
+
+  public static void main ( String[] args )
+  {
+     Box box = new  Box( 2.5, 5.0, 6.0 ) ;
+
+     System.out.println( "Flaeche: "  + box.berechneFlaeche( ) +
+                         " Volumen: " + box. berechneVolumen( ) );
+
+     System.out.println( "Laenge: " + box.laenge +
+                         " Hoehe: " + box. hoehe +
+                         "Breite: " + box.breite )  ;
+  }
+}
+</blockquote></pre>
+
+<p>(Das obenstehende Programm wird, so wie wir es wollten, nicht kompilieren.
+&Uuml;berlegen Sie warum es nicht kompiliert und bessern Sie es aus, so dass es sich kompilieren l&auml;sst.)</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#33">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+<h2>Aufgabe 2: Private Methoden f&uuml;r <code><b>Box</b></code> </h2>
+<p>
+Die Implementierung von <code>berechneFlaeche( )</code> , wie sie in der vorherigen Testaufgabe gegeben wurde, ist wahrscheinlich vern&uuml;nftig f&uuml;r die <code>Box</code>-Klasse.
+Aber, um private Methoden zu &uuml;ben schreiben Sie wie folgt:</p>
+
+<blockquote><pre>
+  double berechneFlaeche( )
+  {
+    return 2 * berechneFlaecheVorn() +
+           2 * berechneFlaecheOben() +
+           2 * berechneFlaecheSeitlich() ;
+  }
+</blockquote></pre>
+
+<p>
+Dabei sind
+<code>berechneFlaecheVorn()</code>,
+<code>berechneFlaecheOben() </code> und
+<code>berechneFlaecheSeitlich()</code>
+private Methoden, um die Fl&auml;che der vorderen, der oberen und der seitlichen Seite der Box zu berechnen.
+Sie m&uuml;ssen sie Ihrer Klasse hinzuf&uuml;gen.
+Private Methoden sind oft &quot;Hilfsmethoden&quot;, die von den &ouml;ffentlichen Methoden
+verwendet werden, aber nicht von au&szlig;erhalb der Klasse verwendet werden k&ouml;nnen.
+Testen Sie Ihr Programm mit verschiedenen Versionen des folgenden:</p>
+
+<blockquote><pre>
+class BoxTester
+{
+
+  public static void main ( String[] args )
+  {
+     Box box = new  Box( 2.5, 5.0, 6.0 ) ;
+
+     System.out.println(
+       "Flaeche: "  + box.berechneFlaeche( ) + " volumen: " + box. berechneVolumen( ) );
+     System.out.println( "Flaeche oben: "  + box.berechneFlaecheOben() );
+
+  }
+}
+</blockquote></pre>
+
+<p>(Das obenstehende Programm wird, wie erwartet, nicht kompilieren.)</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#33">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+
+<h2>Aufgabe 3: Box-Konstruktor und -Zugriffsmethoden</h2>
+
+<p>
+F&uuml;gen Sie der <code>Box</code>-Klasse einen neuen Konstruktor hinzu:
+</p>
+
+<blockquote><pre>
+Box( Box alteBox )
+</blockquote></pre>
+
+<p>
+Der Konstruktor erzeugt ein neues <code>Box</code>-Objekt mit genau den gleichen Dimensionen des &uuml;bergebenen <code>Box</code>-Objekts <code>alteBox</code>.
+Nat&uuml;rlich wird das alte Objekt nicht ver&auml;ndert.
+</p>
+
+<p>
+F&uuml;gen Sie jetzt einige <em>Zugriffsmethoden</em> hinzu.
+Eine Zugriffsmethode ist eine Methode, die verwendet werden kann, um auf private Variablen (und andere Variablen) eines Objekts zuzugreifen:
+</p>
+
+<blockquote><pre>
+public double getLaenge()
+public double getHoehe()
+public double getBreite()
+</blockquote></pre>
+
+<p>
+Jede dieser Methoden gibt blo&szlig; den Wert einer Instanzvariablen zur&uuml;ck.
+Da das Objekt unver&auml;nderbar ist,
+gibt es keine Zugriffsmethode, um die Instanzvariablen zu &auml;ndern.
+Testen Sie Ihr Programm mit der ge&auml;nderten Testklasse der vorherigen Aufgabe.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#33">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+
+<h2>Aufgabe 4: Gr&ouml;&szlig;ere Boxen </h2>
+
+<p>
+Es w&auml;re sch&ouml;n eine Box zu erzeugen, die gr&ouml;&szlig;er ist als eine gegebene Box.
+Schreiben Sie diese Methode:
+</p>
+
+<blockquote><pre>
+public Box groessereBox()
+</blockquote></pre>
+
+<p>
+Das ist eine &ouml;ffentliche Methode, die eine Referenz auf ein neues <code>Box</code>-Objekt zur&uuml;ckgibt.
+Die neue <code>Box</code> wird in jeder Dimension 25% gr&ouml;&szlig;er sein als die alte Box.
+Die Methode wird einen Konstruktor verwenden m&uuml;ssen, um die neue Box zu erzeugen:
+</p>
+
+<blockquote><pre>
+public Box groessereBox()
+{
+
+  return new Box( 1.25 * this.breite, ...... )
+}
+</blockquote></pre>
+
+<p>
+Das Schl&uuml;sselwort <code>this</code> bezieht sich auf das Objekt, das diese Methode aufruft. Es muss nicht mit angegeben werden und dient nur der besseren Verst&auml;ndlichkeit. Schreiben Sie jetzt eine Methode, die eine Box zur&uuml;ckgibt, die in jeder Dimension 25% <em>kleiner</em> ist als eine gegebene Box.
+Schreiben Sie wie &uuml;blich ein Testprogramm, um Ihre Klasse zu testen.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#33">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+
+
+<h2>Aufgabe 5: Verschachtelte Boxen </h2>
+
+<p>
+Schreiben Sie eine Methode, die <code>true</code> oder <code>false</code> ergibt,
+je nach dem ob eine Box vollst&auml;ndig in eine andere Box passt:
+</p>
+
+<blockquote><pre>
+public boolean passtIn( Box aeussereBox )
+</blockquote></pre>
+
+<p>Dies ist m&ouml;glicherweise eine schwierige Methode, da
+die innere Box hineinpassen oder nicht hineinpassen kann,
+je nach dem wie sie gedreht wird.
+Um die Methode zu vereinfachen, schreiben Sie sie so, dass
+sie <code>true</code> zur&uuml;ckgibt, wenn zwei Boxen ohne Rotation ineinander geschachtelt
+werden k&ouml;nnen (H&ouml;he wird mit H&ouml;he verglichen, L&auml;nge mit L&auml;nge usw.).
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#33">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+
+<h2>Was abzuliefern ist:</h2>
+
+<p>
+Wenn das ein Auftrag f&uuml;r eine regelgerechte Klasse w&auml;re, w&uuml;rden Sie
+aufgefordert werden das folgende abzuliefern:
+</p>
+
+<ol>
+<li>Eine sauber geschriebene Dokumentation der letzten Version Ihrer Klasse.
+    <ul>
+    <li>Schreiben Sie die Dokumentation in dem Stil, wie er am Anfang der Seite gegeben ist,
+        &auml;hnlich dem Stil der meisten Java Klassendokumentationen.
+    <li>Kurze Kommentare beschreiben jede Methode und jeden Konstruktor.
+    <li>Private Instanzvariablen und private Methoden werden in dieser Dokumentation nicht
+        erw&auml;hnt. Die Dokumentation  soll dem Anwender der Klasse das
+        <em>Interface</em> erkl&auml;ren.
+    </ul>
+<li>Den Quellcode der endg&uuml;ltigen Implementierung der Klasse.
+    <ul>
+    <li>Kommentare am Anfang des Quelltextes beschreiben f&uuml;r was die Klasse ist,
+        wer sie geschrieben hat, wann sie geschrieben wurde
+        und was ihr Debugging-Status ist.
+    <li>Kurze Kommentare werden verwendet, um jede Methode und einige Anweisungen zu
+        erkl&auml;ren.
+    <li>Einr&uuml;ckungen und leere Zeilen m&uuml;ssen verwendet werden, um die Struktur
+        und die Organisation der Klasse zu zeigen.
+    </ul>
+<li>Quellcode und Output f&uuml;r mehrere kleine Programme,
+    die die verschiedenen Eigenschaften der Klasse testen.
+</ol>
+
+<p>Die Zusammenstellung des abzuliefernden Materials ist h&auml;ufig ein substantieller Teil der Arbeit. Das ist gute Praxis f&uuml;r die "realen Aufgaben".</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#33">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<p>Ende der Aufgaben.</p>
+</body>
+</html>

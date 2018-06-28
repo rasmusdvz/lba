@@ -1,0 +1,166 @@
+<html>
+
+<head>
+<title>Programmieraufgaben</title>
+<meta name="copyright" content="2003,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+
+<small>erstellt 03.12.99; &uuml;bersetzt 24.06.03; &uuml;berarbeitet 08.03.05; &copy; Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+
+<hr>
+<center><h1>
+Programmieraufgaben
+</h1></center>
+
+<blockquote>
+Die Aufgaben setzen voraus, dass Sie das <a href="ch49B_26.html">Telefonbuchbeispiel</a> in diesem Kapitel gelesen haben.
+Alle Programmieraufgaben sind Modifikationen dieses Programms.
+Beginnen Sie damit, in dem Sie dieses Programm nach Notepad kopieren.
+</blockquote>
+
+<hr />
+
+<h2>Aufgabe 1 &#8212; Interaktion mit dem Anwender</h2>
+<p>
+Modifizieren  Sie das Programm, so dass es
+den Anwender nach der Person fragt, die gesucht werden soll:
+</p>
+
+<pre>
+Name?  Violet Smith
+Die Telefonnummer ist: (312) 223-1937
+
+Name?  James Barclay
+Die Telefonnummer ist: (418) 665-1223
+
+Name?  Scott Eccles
+Namen nicht gefunden
+
+Name?  quit
+Good-bye
+</pre>
+
+<p>
+Nat&uuml;rlich, der Anwender muss den Namen exakt eingeben, damit
+eine &Uuml;bereinstimmung gefunden werden kann.
+Vereinfachen Sie die Dinge etwas, in dem Sie die <code>toUpperCase()</code> Methode der Klasse <code>String</code> verwenden, um den zu findenden Namen und
+jeden Namen des Arrays in Gro&szlig;buchstaben zu konvertieren, bevor auf Gleichheit getestet wird.
+Jetzt muss der von Anwender eingegebene Name nicht mehr exakt
+mit der Gro&szlig;- und Kleinschreibung &uuml;bereinstimmen.
+</p>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#49B">Inhaltsverzeichnis</a>.
+</p>
+
+<hr>
+<h2>Aufgabe 2 &#8212; Verbesserte Interaktion</h2>
+<p>
+Es ist umst&auml;ndlich, dass der Anwender den vollst&auml;ndigen Namen eingeben muss.
+Modifizieren Sie die <code>TelefonEintrag</code>-Klasse, so dass sie
+<code>vorname</code>,
+<code>name</code>,
+und <code>telefon</code> enth&auml;lt.
+Jetzt fragt das Programm sowohl nach dem Namen als auch nach dem Vornamen.
+Wenn der Anwender nur den Namen eingibt,
+geht das Programm durch das gesamte Array und gibt jede
+&Uuml;bereinstimmung aus.
+Wenn der Anwender sowohl den Namen als auch den Vornamen eingibt,
+wird das Programm die erste &Uuml;bereinstimmung ausgeben,
+dann stoppen.
+</p>
+
+<pre>
+Name?  Smith
+Vorname? Violet
+Die Telefonnummer ist: (312) 223-1937
+
+Name?  Smith
+Vorname?
+John Smith: (812) 339-4916
+Violet Smith: (312) 223-1937
+Willoughby Smith (312) 992-8761
+
+Name?  quit
+Good-bye
+</pre>
+
+<p>
+Um Ihr Programm voll zeigen zu k&ouml;nnen, sollten Sie die Gr&ouml;&szlig;e des Arrays erweitern und mehr Namen und Telefonnummern hinzuf&uuml;gen.
+</p>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#49B">Inhaltsverzeichnis</a>.
+</p>
+<hr />
+
+<h2>Aufgabe 3 &#8212; Namen hinzuf&uuml;gen und l&ouml;schen</h2>
+<p>
+Modifizieren Sie das Programm, so dass es mit einem
+Array umgehen kann, das <code>null</code> in einigen Slots hat.
+&Auml;ndern Sie jetzt das Programm, so dass der Anwender die Wahl
+zwischen drei Aktionen hat:
+</p>
+
+
+<ol>
+<li><b>Suche</b> nach einem Namen (wie oben).</li>
+<li><b>Hinzuf&uuml;gen</b> eines neuen Namens und Telefonnummer zum Array.</li>
+<li><b>L&ouml;schen</b> eines Namens (und der Telefonnummer) aus dem Array.</li>
+</ol>
+
+<p>
+Um dem Array einen neuen Namen und eine neue Telefonnummer hinzuf&uuml;gen,
+suchen Sie zuerst nach einem Slot der <code>null</code> enth&auml;lt.
+Konstruieren Sie dann ein neues <code>TelefonEintrag</code>-Objekt
+und weisen Sie dessen Referenz diesem Slot zu.
+Wenn kein Slot <code>null</code> enth&auml;lt,
+melden Sie einen Fehler
+(aber das Programm wird nicht verlassen).
+</p>
+
+<p>
+(Einfache Methode:) Um einen Namen zu l&ouml;schen,
+suchen Sie zuerst dessen Slot, weisen Sie dann
+diesem Slot <code>null</code> zu.
+(Das vorher durch diesen Slot referenzierte <code>TelefonEintrag</code>-Objekt
+wird vom <em>Garbage Collector</em> eingesammelt werden.)
+Wenn der zu l&ouml;schende Name sich nicht im Array befindet,
+melden Sie einen Fehler.
+</p>
+
+<p>
+(Bessere Methode:)
+So wie es jetzt steht muss das Programm mit einem Array umgehen,
+das &uuml;berall <code>null</code>-Werte in seinen Slots verstreut haben kann.
+Das ist ung&uuml;nstig und f&uuml;r ein gro&szlig;es Array ineffizient.
+Es ist eine bessere Idee das Array organisiert zu halten,
+so dass alle <code>null</code>-Werte zusammen am Ende sind.
+Wenn jetzt das Array durchsucht wird, signalisiert der erste
+<code>null</code>-Wert das Ende brauchbarer Daten und die Suche stoppt.
+</p>
+
+<p>
+Um einen Namen und die Telefonnummer von einem solchen Array
+zu l&ouml;schen, suchen Sie zuerst den Slot des Namens.
+Wenn der zu l&ouml;schende Namen sich nicht im Array befindet,
+melden Sie einen Fehler.
+Kopieren Sie die Referenz des letzen Slots, der nicht <code>null</code> ist,
+in den Slot des zu l&ouml;schenden Namens.
+Setzen Sie dann den letzten Slot, der nicht <code>null</code> ist, auf <code>null</code>.
+Jetzt ist das gel&ouml;schte <code>TelefonEintrag</code>-Objekt <em>Garbage</em>
+und das ganze Array hat immer noch alle <code>null</code>-Werte am Ende.
+</p>
+
+<p>Zur&uuml;ck zum <a HREF="../../java-toc.html#49B">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="copyright" content="2006">
+<meta name="author" content="B. P. Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+
+<title>Quiz &uuml;ber Veerbung</title>
+
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css">
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+</head>
+
+<body>
+<p class="revisions">&uuml;bersetzt 15.07.2003; &uuml;berarbeitet 02.02.04, 06.03.04, 21.02.05, 07.07.06, 25.01.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+
+<h1>
+<!-- FILL in the Quiz Name on the next line-->
+Quiz &uuml;ber Vererbung
+<!-- end of Quiz Name -->
+</h1>
+
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+Entscheiden Sie sich bei jeder Frage f&uuml;r die beste Antwort. Klicken Sie dann auf das entsprechende Optionsk&auml;stchen, um diese Antwort auszuw&auml;hlen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Sobald das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox unterhalb der Frage.
+<br clear="all">
+</p>
+
+<hr>
+<form name="question1">
+<p>
+1.
+<!-- FILL in Question 1-->
+Welche Art von Vererbung hat Java?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'"><b>a.</b>
+<!-- FILL in answer A -->
+Einfachvererbung
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'"><b>b.</b>
+<!-- FILL in answer B -->
+Doppelvererbung
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'"><b>c.</b>
+<!-- FILL in answer C -->
+Mehrfachvererbung
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'"><b>d.</b>
+<!-- FILL in answer D -->
+Klassenvererbung
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+Angenommen es gibt drei Klassen:
+<code>Computer</code>, <code>AppleComputer</code> und <code>IBMComputer</code>.
+Wie sieht wahrscheinlich die Beziehung zwischen diesen Klassen aus?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'"><b>a.</b>
+<!-- FILL in answer A -->
+<code>Computer</code> ist die Superklasse, <code>AppleComputer</code> und <code>IBMComputer</code> sind Subklassen von <code>Computer</code>.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'"><b>b.</b>
+<!-- FILL in answer B -->
+<code>IBMComputer</code> ist die Superklasse, <code>AppleComputer</code> und <code>Computer</code> sind Subklassen von <code>IBMComputer</code>.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'"><b>c.</b>
+<!-- FILL in answer C -->
+<code>Computer</code>, <code>AppleComputer</code> und <code>IBMComputer</code> sind Geschwisterklassen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'"><b>d.</b>
+<!-- FILL in answer D -->
+<code>Computer</code> ist eine Superklasse, <code>AppleComputer</code> ist eine Subklasse von <code>Computer</code> und <code>IBMComputer</code> ist eine Subklasse von <code>AppleComputer</code>.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+Kann ein Objekt die Subklasse eines anderen Objekts sein?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="B"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'"><b>a.</b>
+<!-- FILL in answer A -->
+Ja &#8212; solange die Einfachvererbung beachtet wird.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'"><b>b.</b>
+<!-- FILL in answer B -->
+Nein &#8212; Vererbung gibt es nur zwischen Klassen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'"><b>c.</b>
+<!-- FILL in answer C -->
+Nur wenn das eine in den Begriffen des anderen definiert wurde.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'"><b>d.</b>
+<!-- FILL in answer D -->
+Ja &#8212; wenn ein Objekt im Konstruktor des anderen verwendet wird.
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+Wie viele Objekte einer gegebenen Klasse kann es in einem Programm geben?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'"><b>a.</b>
+<!-- FILL in answer A -->
+Eines pro definierter Klasse.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'"><b>b.</b>
+<!-- FILL in answer B -->
+Eines pro Konstruktordefinition.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'"><b>c.</b>
+<!-- FILL in answer C -->
+So viele, wie das Programm ben&ouml;tigt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'"><b>d.</b>
+<!-- FILL in answer D -->
+Eines pro <code>main()</code> Methode.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+Welche Beschr&auml;nkung gibt es bei der Verwendung des Schl&uuml;sselwortes <code>super</code> in einem Konstruktor?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'"><b>a.</b>
+<!-- FILL in answer A -->
+Es kann nur im Konstruktor der Superklasse verwendet werden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'"><b>b.</b>
+<!-- FILL in answer B -->
+Es kann nur von einer Subklasse verwenden werden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'"><b>c.</b>
+<!-- FILL in answer C -->
+Es muss als letzte Anweisung des Konstruktors verwendet werden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'"><b>d.</b>
+<!-- FILL in answer D -->
+Es muss als erste Anweisung des Konstruktors verwendet werden.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+
+Eine neue Klasse <code>GingerAle</code> soll basierend auf der Superklasse <code>SoftDrink</code> abgeleitet werden. Welche der folgenden Anweisungen ist syntaktisch korrekt?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'"><b>a.</b>
+<!-- FILL in answer A -->
+<code>class GingerAle isa SoftDrink <span class="small">{ //weitere Definitionen kommen hier }</span></code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'"><b>b.</b>
+<!-- FILL in answer B -->
+<code>class GingerAle implements SoftDrink <span class="small">{ //weitere Definitionen kommen hier }</span></code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'"><b>c.</b>
+<!-- FILL in answer C -->
+<code>class GingerAle defines SoftDrink <span class="small">{ //weitere Definitionen kommen hier }</span></code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'"><b>d.</b>
+<!-- FILL in answer D -->
+<code>class GingerAle extends SoftDrink <span class="small">{ //weitere Definitionen kommen hier }</span></code>
+ <!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+Sowohl die Klasse <code>Auto</code> als auch ihre Subklasse <code>Polo</code> haben eine Methode
+<code>anzeigen()</code>, die vom Programmierer als Teil der Klassendefinition geschrieben wurde.
+Wenn die Referenzvariable <code>rostlaube</code> auf ein Objekt vom Typ <code>Polo</code> verweist,
+was wird dann der folgende Code tun?
+</p>
+
+<blockquote>
+<pre>
+rostlaube.anzeigen();
+</pre>
+</blockquote>
+<!-- end of question -->
+
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'"><b>a.</b>
+<!-- FILL in answer A -->
+Die anzeigen() Methode, die in <code>Polo</code> definiert ist, wird aufgerufen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'"><b>b.</b>
+<!-- FILL in answer B -->
+Die anzeigen() Methode, die in <code>Auto</code> definiert ist, wird aufgerufen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'"><b>c.</b>
+<!-- FILL in answer C -->
+Der Compiler wird sich beschweren, dass <code>anzeigen()</code> zweimal definiert wurde.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'"><b>d.</b>
+<!-- FILL in answer D -->
+&Uuml;berladen wird verwendet, um zu bestimmen, welche <code>anzeigen()</code> Methode aufgerufen wurde.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+Eine Klasse <code>Tier</code> hat eine Subklasse <code>Saeugetier</code>.
+Welche der folgenden Aussagen ist wahr:
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="B"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'"><b>a.</b>
+<!-- FILL in answer A -->
+Auf Grund der Einfachvererbung kann
+<code>Saeugetier</code> keine Subklassen haben.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'"><b>b.</b>
+<!-- FILL in answer B -->
+Auf Grund der Einfachvererbung kann
+<code>Saeugetier</code> keine andere Superklasse haben als <code>Tier</code>.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'"><b>c.</b>
+<!-- FILL in answer C -->
+Auf Grund der Einfachvererbung kann
+<code>Tier</code> nur eine Subklasse haben.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'"><b>d.</b>
+<!-- FILL in answer D -->
+Auf Grund der Einfachvererbung kann
+<code>Saeugetier</code> keine Geschwisterklassen haben.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+Erbt eine Subklasse sowohl Variablen als auch Methoden?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'"><b>a.</b>
+<!-- FILL in answer A -->
+Nein &#8212; nur die Variablen werden geerbt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'"><b>b.</b>
+<!-- FILL in answer B -->
+Nein &#8212; nur Methoden werden geerbt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'"><b>c.</b>
+<!-- FILL in answer C -->
+Ja &#8212; sowohl Variablen als auch Methoden werden geerbt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'"><b>d.</b>
+<!-- FILL in answer D -->
+Ja &#8212; aber es wird entweder nur das Eine oder das Andere geerbt.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+
+<hr>
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+Welches der folgenden ist KEIN Vorteil bei der Verwendung von Vererbung?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+
+<input type="hidden" name="response" value="">
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'"><b>a.</b>
+<!-- FILL in answer A -->
+Code, der von Klassen geteilt wird, muss nur einmal geschrieben werden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'"><b>b.</b>
+<!-- FILL in answer B -->
+&Auml;hnliche Klassen k&ouml;nnen so erstellt werden, dass sie sich konsistent verhalten.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'"><b>c.</b>
+<!-- FILL in answer C -->
+Verbesserung der Basisklasse wird automatisch in den abgeleiteten Klassen wirksam.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'"><b>d.</b>
+<!-- FILL in answer D -->
+Eine gro&szlig;e Superklasse kann verwendet werden, anstelle vieler kleiner Klassen.
+<!-- end of answer -->
+</td></tr>
+</table>
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+</form>
+
+<hr>
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+</p>
+<p>Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+
+<p style="margin-top:1em;"><a href="../../index.html#50"><img style="float:left;margin-right:5px;" src="../homeIcon.gif" alt="Inhalt" border="0"></a>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</p>
+
+<p>Um die alten Antworten zu l&ouml;schen, halten Sie die Strg-Taste gedr&uuml;ckt und laden dann die Seite neu (Firefox). Bei anderen Browsern funktioniert das in Verbindung mit der Umschalt- bzw. Strg+Umschalt-Taste. Beim Internet Explorer 8 muss die Seite verlassen und erneut aufgerufen werden.</p>
+
+</body>
+</html>

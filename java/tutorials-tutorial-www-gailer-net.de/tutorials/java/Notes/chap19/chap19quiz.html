@@ -1,0 +1,491 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="copyright" content="2006">
+<meta name="author" content="B. P. Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css">
+<!-- FILL in the Quiz Name between title and /title -->
+<title>
+Quiz - Ergebnisgesteuerte Schleifen
+</title>
+</head>
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+
+<body>
+<p class="revisions">&uuml;bersetzt 01.04.03; &uuml;berarbeitet 03.12.03, 08.06.04, 03.10.06, 29.11.10; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<center><h1>
+<!-- FILL in the Quiz Name -->
+Quiz - Ergebnisgesteuerte Schleifen
+<!-- end of Quiz Name -->
+</h1></center>
+
+<image src="QuizOil.gif" align="left" hspace=10 vspace=10>
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+Entscheiden Sie sich bei jeder Frage f&uuml;r die beste Antwort. Klicken Sie dann auf das entsprechende Optionsk&auml;stchen, um diese Antwort auszuw&auml;hlen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Sobald das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox unterhalb der Frage.
+</p>
+
+<hr>
+<form name="question1">
+<p>
+<p>
+1.
+<!-- Fill in a Question -->
+Welche drei Typen von Schleifen k&ouml;nnen mit der <code>while</code>-Anweisung und anderen Anweisungen gebildet werden?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+Z&auml;hlschleifen, &uuml;berwachungsgesteuerte Schleifen, ergebnisgesteuerte Schleifen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+Zunehmende Schleifen, abnehmende Schleifen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+<code>if</code>-Schleifen, <code>while</code>-Schleifen, Z&auml;hlschleifen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Kopfgesteuerte Schleifen, ergebnisgesteuerte Schleifen, fu&szlig;gesteuerte Schleifen.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question2">
+<p>
+2.
+<!-- Fill in a Question -->
+F&uuml;r welche der folgenden Aufgaben wird h&ouml;chstwahrscheinlich eine Z&auml;hlschleife verwendet?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+&Uuml;berpr&uuml;fen, ob sich in einer Artikelliste Artikel mit einem Preis unter 125$ befinden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+Den Anwender beim Ende eines Spieles fragen, ob er weiter spielen m&ouml;chte.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+&Uuml;berpr&uuml;fen, ob ein Integer gerade oder ungerade ist.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Das Testen verschiedener Buchstabenkombinationen bis eine verschl&uuml;sselte Nachricht gelesen werden kann.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question3">
+<p>
+3.
+<!-- Fill in a Question -->
+F&uuml;r welche der folgenden Aufgaben wird h&ouml;chstwahrscheinlich eine &uuml;berwachungsgesteuerte Schleife verwendet?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+&Uuml;berpr&uuml;fen, ob sich in einer Artikelliste Artikel mit einem Preis unter 125$ befinden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+Den Anwender beim Ende eines Spieles fragen, ob er weiter spielen m&ouml;chte.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+&Uuml;berpr&uuml;fen, ob ein Integer gerade oder ungerade ist.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Das Testen verschiedener Buchstabenkombinationen bis eine verschl&uuml;sselte Nachricht gelesen werden kann.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question4">
+<p>
+4.
+<!-- Fill in a Question -->
+F&uuml;r welche der folgenden Aufgaben wird h&ouml;chstwahrscheinlich eine ergebnisgesteuerte Schleife verwendet?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+&Uuml;berpr&uuml;fen, ob sich in einer Artikelliste Artikel mit einem Preis unter 125$ befinden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+Den Anwender beim Ende eines Spieles fragen, ob er weiter spielen m&ouml;chte.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+&Uuml;berpr&uuml;fen, ob ein Integer gerade oder ungerade ist.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Das Testen verschiedener Buchstabenkombinationen bis eine verschl&uuml;sselte Nachricht gelesen werden kann.
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question5">
+<p>
+5.
+<!-- Fill in a Question -->
+Hier ist ein  Teil eines Grafikprogramms, das das Verblassen von Farben in der Sonne simuliert.
+Der Rotanteil beginnt mit einem Maximum von 1.0 und  verringert sich bei jedem Schleifendurchlauf so lange um 1% bis er fast 0 erreicht hat.
+<blockquote>
+<pre>
+      float rotanteil = 1.0;
+      while (  __________________  )
+      {
+         rotanteil = rotanteil * 0.99 ;
+
+         // der neue rotanteil wird von einigen Grafikmethoden verwendet
+      }
+
+ </pre>
+</blockquote>
+W&auml;hlen Sie eine Bedingung f&uuml;r die <code>while</code>-Anweisung.
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+rotanteil == 0.0
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+rotanteil &gt; 0.001
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+Math.abs( rotanteil ) &lt; 0.0
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+rotanteil * rotanteil &lt; 1.0
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question6">
+<p>
+6.
+<!-- Fill in a Question -->
+Es ist (ungl&uuml;cklicherweise) sehr leicht eine ergebniskontrollierte Schleife zu schreiben, die versucht ein Ziel zu erreichen, das zu perfekt ist, um es je erreichen zu k&ouml;nnen.
+Was passiert in diesem Fall?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+Das Programm kann nicht kompiliert werden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+Das Programm kann kompiliert werden, aber es l&auml;uft nicht.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+Das Programm kompiliert und l&auml;uft f&uuml;r immer.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Das Programm kompiliert, aber berechnet ein v&ouml;llig falsches Ergebnis.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question7">
+<p>
+7.
+<!-- Fill in a Question -->
+Wenn das Betriebssystem Daten auf die Festplatte schreibt, ist die Festplatte oft nicht bereit und akzeptiert keine Daten. Das Betriebssystem muss es darum wiederholt versuchen, bis die Daten akzeptiert werden.
+Welcher Typ von Schleife ist das?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+&Uuml;berwachungsgesteuert.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+Z&auml;hlschleife.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+Festplattengesteuert.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Ergebnisgesteuert.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question8">
+<p>
+8.
+<!-- Fill in a Question -->
+Eine Kaninchenkolonie verdoppelt seine Population alle 28 Tage.
+Die Population beginnt mit 2 und vermehrt sich bis sie 100.000 erreicht hat.
+Sagen wir, dass dieser Prozess durch ein Programm simuliert wird.
+Welche der folgenden <code>while</code>-Anweisungen wird daf&uuml;r h&ouml;chstwahrscheinlich verwendet?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+while ( population = 100000 )
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+while ( population &lt; 100000 )
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+while ( population != 100000 )
+ <!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+while ( population &lt; 1.0E+6 )
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question9">
+<p>
+9.
+<!-- Fill in a Question -->
+Um sicher zu gehen, dass eine Zahl positiv ist, stellen wir welchen Wert fest:
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+aktuellen Wert
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+reellen Wert
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+absoluten Wert
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+Mega Wert
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question10">
+<p>
+10.
+<!-- Fill in a Question -->
+Betrachten Sie das folgende Codefragment:
+<blockquote>
+<pre>
+      int j = 1;
+      while (  j &lt; 10  )
+      {
+          System.out.print( j + " " );
+          j = j + j%3;
+      }
+
+</pre>
+</blockquote>
+Was wird auf den Bildschirm ausgegeben?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'"><b>a.</b>
+<!-- Fill in answer A -->
+1 4 7
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'"><b>b.</b>
+<!-- Fill in answer B -->
+1 4 7 10
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'"><b>c.</b>
+<!-- Fill in answer C -->
+1 2 5 8
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'"><b>d.</b>
+<!-- Fill in answer D -->
+1 2 4 5 7 8
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- Replace X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="">
+</form>
+
+
+<hr>
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</form>
+
+<p style="margin-top:1em;"><a href="../../index.html#19"><img style="float:left;margin-right:5px;" src="../homeIcon.gif" alt="Inhalt" border="0"></a>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</p>
+
+<p>Um die alten Antworten zu l&ouml;schen, halten Sie die Strg-Taste gedr&uuml;ckt und laden dann die Seite neu (Firefox). Bei anderen Browsern funktioniert das in Verbindung mit der Umschalt- bzw. Strg+Umschalt-Taste. Beim Internet Explorer 8 muss die Seite verlassen und erneut aufgerufen werden.</p>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<QUIZ>
+
+<QHEAD>
+<QCREATION>Created 01/07/03 </QCREATION>
+<QAUTHOR>B. P. Kjell</QAUTHOR>
+<QEMAIL>kjell@ieee.org</QEMAIL>
+<QCOPYRIGHT>2003</QCOPYRIGHT>
+<QCSSFILE>../QUIZstyle.css</QCSSFILE>
+<QRETURNTO>../../cs151java.html#70</QRETURNTO>
+<QRETURNIMAGE>../contents.gif</QRETURNIMAGE>
+</QHEAD>
+
+<QTITLE>
+<img src="quizPencil.gif"/>
+ on Examples of Recursion
+</QTITLE>
+
+<QTOP>
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br clear="all"/>
+</QTOP>
+
+<QUESTION>
+<QTEXT>
+Consider a definition of <code>mystery()</code>:
+<blockquote>
+<pre>
+mystery(0,N) = N
+mystery(P,Q) = mystery(P-1, Q+1)
+</pre>
+</blockquote>
+<p>
+According to this definition, what is <code>mystery(2,4)</code>?
+</QTEXT>
+
+<QWRONG>
+0
+</QWRONG>   
+ 
+<QWRONG>
+2
+</QWRONG>   
+ 
+<QWRONG>
+4
+</QWRONG>   
+
+<QRIGHT>
+6
+</QRIGHT>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Look at <code>mystery()</code> again:
+<blockquote>
+<pre>
+mystery(0,N) = N
+mystery(P,Q) = mystery(P-1, Q+1)
+</pre>
+</blockquote>
+<p>
+Which of the following Java methods correctly implements it?
+</p>
+</QTEXT>
+
+<QWRONG>
+<pre>
+int mystery( int P, int Q )
+{
+  if ( Q==0 )
+  {
+    return Q;
+  }
+  else
+  {
+    return mystery(P-1, Q-1);  
+  }
+}
+</pre>
+</QWRONG>   
+ 
+<QWRONG>
+<pre>
+int mystery( int P, int Q )
+{
+  if ( P==Q )
+  {
+    return Q;
+  }
+  else
+  {
+    return mystery(P-1, Q);  
+  }
+}
+</pre>
+</QWRONG>   
+ 
+<QWRONG>
+<pre>
+int mystery( int P, int Q )
+{
+  if ( P==0 &amp;&amp; Q==0)
+  {
+    return 1;
+  }
+  else
+  {
+    return mystery(P-1, Q+1);  
+  }
+}
+</pre>
+</QWRONG>   
+
+<QRIGHT>
+<pre>
+int mystery( int P, int Q )
+{
+  if ( P==0 )
+  {
+    return Q;
+  }
+  else
+  {
+    return mystery(P-1, Q+1);  
+  }
+}
+</pre>
+</QRIGHT> 
+  
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Say that you have a recursive Java method,
+<nobr><code>funct()</code></nobr>.
+Is it always possible to write an iterative version 
+of <nobr><code>funct()</code></nobr>?
+</QTEXT>
+
+<QRIGHT>
+Yes.
+</QRIGHT>   
+
+<QWRONG>
+Usually, but not always.
+</QWRONG>   
+ 
+<QWRONG>
+Almost never.
+</QWRONG>   
+ 
+<QWRONG>
+No.
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Say that you have an iterative Java method,
+<nobr><code>foo()</code></nobr>.
+Is it always possible to write a recursive version 
+of <nobr><code>foo()</code></nobr>?
+</QTEXT>
+
+<QRIGHT>
+Yes.
+</QRIGHT>   
+
+<QWRONG>
+Usually, but not always.
+</QWRONG>   
+ 
+<QWRONG>
+Almost never.
+</QWRONG>   
+ 
+<QWRONG>
+No.
+</QWRONG>   
+</QUESTION>   
+
+<QUESTION>
+<QTEXT>
+Say that you have an recursive Java method,
+<nobr><code>compute().</code></nobr>
+Is it always possible to write a method 
+that implements <nobr><code>compute()</code></nobr>
+with a one line formula?
+</QTEXT>
+
+
+<QWRONG>
+Yes.
+</QWRONG>   
+ 
+<QWRONG>
+Usually, but not always.
+</QWRONG>   
+
+<QRIGHT>
+Almost never.
+</QRIGHT>   
+ 
+<QWRONG>
+Never.
+</QWRONG>   
+
+</QUESTION>   
+
+</QUIZ> 
+ 

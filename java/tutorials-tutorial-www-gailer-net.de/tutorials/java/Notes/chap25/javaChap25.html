@@ -1,0 +1,1393 @@
+<!-- Jan. 19, 1998  revised chapter numbering; previously chapter 17 -->
+<!-- Jan.   20, 2000    INDEX   -->
+<!-- July 13, 2002  XML and CSS  -->
+<!-- May 02, 2003   small changes, mostly replacing font tag -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2002</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>Bradley Kjell kjell@ieee.org </AUTHORNAME>
+<GERMANTRANSLATION>Copyright 2003 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de</GERMANTRANSLATION>
+
+<CAI> Kapitel 25 &#8212; Objekte
+<!--Übersetzung Korrektur: 06.06.03; -->
+<p>
+<small>&uuml;berarbeitet 30.08.99, 20.01.00, 13.07.02; &uuml;bersetzt: 02.05.03; &uuml;berarbeitet 15.12.03, 14.06.04; &copy; Copyright 2003 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+
+<LESSON>
+<p>
+Bis jetzt haben wir noch nicht allzu viel mit Objekten zu tun gehabt.
+Dieses Kapitel behandelt <strong>Objekte</strong> und <strong>Klassen</strong> und wie sich eine objektorientierte Sprache wie Java von anderen Sprachen unterscheidet.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Was ist ein Objekt?</li>
+<li>Was ist eine Klasse?</li>
+<li>Charakteristische Merkmale von Objekten</li>
+<li>Klassenmethoden (static)</li>
+<li>Konstruktoren</li>
+<li>Pl&auml;tzchen-Backformen</li>
+<li>Punktnotation</li>
+</ul>
+
+<p>
+Vergessen Sie f&uuml;r eine Weile das Programmieren.
+Denken Sie an die Dinge in der Welt, die Objekte sind und an Dinge,
+die keine Objekte sind.
+Das ist ein wirklich tiefgreifendes Problem, das
+Philosophen mehrere tausend Jahre besch&auml;ftigt hat.
+Machen Sie sich keine allzu gro&szlig;en Sorgen, wenn Ihnen dieses Problem nicht klar ist.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Nennen Sie vier Objekte und vier Nicht-Objekte.
+</p>
+
+<p>
+<center>
+<table border cellpadding="5" bgcolor="#ffffff" bordercolor="blue">
+<tr bgcolor="lightblue"><th>&nbsp;</th><th>Objekte</th><th>Nicht-Objekte</th></tr>
+<tr><th>&nbsp;1&nbsp;</th><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><th>&nbsp;2&nbsp;</th><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><th>&nbsp;3&nbsp;</th><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><th>&nbsp;4&nbsp;</th><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</center>
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Was macht ein Objekt aus?
+
+<ANSWER>
+
+<center>
+<table border cellpadding="5" bgcolor="#ffffff" bordercolor="blue">
+<tr bgcolor="lightblue"><th>&nbsp;</th><th>Objekte</th><th>Nicht-Objekte</th></tr>
+<tr><th>&nbsp;1&nbsp;</th><td>&nbsp;Ein Stift.</td><td>&nbsp;Die oberen 37% eines Stiftes. </td> </tr>
+<tr><th>&nbsp;2&nbsp;</th><td>&nbsp;Eine Computertastatur.</td><td>&nbsp;Die Luft &uuml;ber der Tastatur.</td> </tr>
+<tr><th>&nbsp;3&nbsp;</th><td>&nbsp;Ein Schuh.</td><td>&nbsp;Die Farbe Blau.</td> </tr>
+<tr><th>&nbsp;4&nbsp;</th><td>&nbsp;Ein Schreibtisch.</td><td>&nbsp;Alle Schreibtische der Welt.</td></tr>
+</table>
+</center>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Es ist leichter Dinge aufzulisten, die Objekte sind, als solche, die keine Objekte sind.
+Alleine das Reden &uuml;ber etwas, scheint es schon irgendwie zu einem Objekt zu machen.
+Descartes (Philosoph aus dem 17. Jahrhundert) beobachtete, dass Menschen die Welt in objektorientierten Begriffen wahrnehmen.
+Das menschliche Gehirn m&ouml;chte &uuml;ber Objekte nachdenken und unsere Gedanken und unser Ged&auml;chtnis werden durch Objekte und deren Beziehungen organisiert. Vielleicht sind nicht-menschliche Gehirne anders organisiert.
+</p>
+
+<p>
+Ein <b>Konzept der objektorientierten Software</b> ist es, Software in einer Weise zu organisieren, die dem Denkstil unseres objektorientierten Gehirns entspricht.
+An Stelle von Maschineninstruktionen, die Bitmuster im Arbeitsspeicher &auml;ndern, wollen wir &quot;<em>Dinge, die etwas tun</em>&quot;.
+Nat&uuml;rlich, auf der Maschinenebene hat sich nichts ge&auml;ndert
+---Bitmuster werden durch Maschineninstruktionen ge&auml;ndert.
+Aber wir m&uuml;ssen nicht mehr auf diese Art denken.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Schauen Sie sich meine und Ihre eigene Liste an und versuchen
+Sie zu beschreiben, was alle Objekte gemeinsam haben.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Charakteristische Merkmale von Objekten
+<p>
+Was ist ein Objekt?
+</p>
+<ANSWER>
+<p>
+Hier ist meine inoffizielle Liste:
+</p>
+
+<ul>
+<li>Ein Objekt besteht aus f&uuml;hlbarem Material (der Stift ist aus Plastik, Metal, Tinte).
+</li>
+<li>Ein Objekt h&auml;lt ein einziges Ganzes zusammen (der ganze Stift, nicht ein Nebel.)</li>
+<li>Ein Objekt hat Eigenschaften (die Farbe des Stifts, wo er sich befindet, wie dick er schreibt...).</li>
+<li>Ein Objekt kann Dinge tun und Dinge k&ouml;nnen etwas mit ihm tun.</li>
+</ul>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Der erste Punkt in der Liste ist zu restriktiv.
+Sie k&ouml;nnen z. B. an Ihr Bankkonto als ein Objekt denken, aber es besteht aus keinem Material
+(obwohl Sie und die Bank Material benutzen m&ouml;gen, um Ihre Kontobewegungen aufzuzeichnen, existiert das Konto unabh&auml;ngig von diesem Material).
+Obwohl es nicht materiell ist, besitzt Ihr Konto Eigenschaften (Kontostand, Zinssatz, Besitzer), Sie k&ouml;nnen Dinge mit ihm tun (Geld einzahlen, &Uuml;berweisungen stornieren) und es kann Dinge tun (Buchungen belasten, Zinsen gutschreiben).
+</p>
+
+
+<INDEX>object, characteristics</INDEX>
+<p>
+Die letzten drei Punkte auf der Liste scheinen klar genug zu sein.
+Sie haben in der Tat Namen:
+</p>
+
+<ul>
+<li>Ein Objekt hat eine <strong>Identit&auml;t</strong> (es handelt als ein einzelnes Ganzes).</li>
+<li>Ein Objekt hat einen <strong>Zustand</strong> (es besitzt verschiedene Eigenschaften, die sich &auml;ndern k&ouml;nnen).</li>
+<li>Ein Objekt hat ein <strong>Verhalten</strong> (es kann Dinge tun und Dinge k&ouml;nnen etwas mit ihm tun).</li>
+</ul>
+
+<p>
+Das ist eine etwas alltagssprachliche Beschreibung von dem, was ein Objekt ist.
+Seien Sie nicht &uuml;berrascht, wenn Sie in anderen Aufzeichnungen oder B&uuml;chern eine andere Liste sehen.
+Wenn Sie damit beginnen objektorientierte Software zu schreiben werden Sie herausfinden, dass es schwierig ist exakt festzustellen, welches Ihre Objekte sind.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<img src="tennis.gif" align="left" hspace="10" vspace="10" />
+<p>
+Betrachten Sie eine R&ouml;hre mit vier Tennisb&auml;llen.
+</p>
+
+<ul>
+<li>Ist die R&ouml;hre mit den Tennisb&auml;llen ein Objekt?</li>
+<li>Ist jeder Tennisball ein Objekt?</li>
+<li>K&ouml;nnen die beiden oberen B&auml;lle als ein einzelnes Objekt betrachtet werden?</li>
+<li>Ist die Farbe der B&auml;lle ein Objekt?</li>
+<li>Ist Ihr Verst&auml;ndnis von Tennisb&auml;llen ein Objekt?</li>
+</ul>
+
+<br clear="all" />
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Software-Objekte
+
+<ANSWER>
+
+<ul>
+<li>Ist die R&ouml;hre mit den Tennisb&auml;llen ein Objekt?
+    <ul><li><span class="blue">Ja. Sie hat Identit&auml;t
+    (meine R&ouml;hre mit B&auml;llen unterscheidet sich von Ihrer),
+    sie hat einen Zustand (offen, geschlossen, Markenname, Lage)
+    und sie hat ein Verhalten (wenn auch nicht viel).</span></li></ul></li>
+<li>Ist jeder Tennisball ein Objekt?
+    <ul><li><span class="blue">Ja. Es ist f&uuml;r Objekte o.k.
+    ein Teil eines anderen Objekts zu sein. Obwohl jeder Ball fast den gleichen
+    Zustand und das gleiche Verhalten wie die anderen hat, hat jeder seine eigene
+    Identit&auml;t.</span></li></ul></li>
+<li>K&ouml;nnen die beiden oberen B&auml;lle als ein einzelnes Objekt betrachtet werden?
+    <ul><li><span class="blue">
+    Normalerweise nicht. Jeder hat seine eigene Identit&auml;t, unabh&auml;ngig von den Anderen.
+    Wenn Sie mit einem Stock verbunden w&auml;ren, k&ouml;nnten sie als ein Objekt
+    betrachtet werden.</span></li></ul></li>
+<li>Ist die Farbe der B&auml;lle ein Objekt?
+    <ul><li><span class="blue">Nein.  Sie ist eine Eigenschaft
+    eines jeden Balles.</span></li></ul></li>
+<li>Ist Ihr Verst&auml;ndnis von Tennisb&auml;llen ein Objekt?
+    <ul><li><span class="blue">Wahrscheinlich nicht,
+    auch wenn es nicht klar ist, was es ist. Vielleicht ist es eine Eigenschaft des Objekts,
+    das &quot;Ihr Gehirn&quot; genannt wird.</span></li></ul></li>
+</ul>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Viele Programme sind geschrieben worden um Dinge zu tun,
+die die reale Welt betreffen.
+Es ist zweckm&auml;&szlig;ig &quot;Software-Objekte&quot; zu haben, die
+&quot;real existierenden Objekten&quot; gleichen.
+Das macht es leichter &uuml;ber das Programm und die Umsetzung nachzudenken.
+Software-Objekte werden <em>Identit&auml;t</em>, <em>Zustand</em> und <em>Verhalten</em> haben,
+genauso wie real existierende Objekte.
+Nat&uuml;rlich existieren Software-Objekte g&auml;nzlich innerhalb eines Computersystems
+und haben keine direkte Auswirkung auf real existierende Objekte.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Woraus bestehen Software-Objekte?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Software-Objekte als Speicher
+<p>
+Woraus bestehen Software-Objekte?
+</p>
+<ANSWER>
+<p>
+Computerspeicher.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>objects, as memory</INDEX>
+
+<p>
+Es ist nur eine leichte &Uuml;bertreibung zu sagen, dass Speicher
+(sowohl Haupt- als auch Sekund&auml;rspeicher)
+alles ist, was in einem Computer ist.
+Die anderen Elektronikteile - Prozessor, Bussystem, Videokarte usw. -
+existieren nur um mit dem Speicher zu arbeiten und seinen Inhalt anzuzeigen.
+Was k&ouml;nnte also ein Software-Objekt anderes sein, als ein St&uuml;ck Speicher?
+</p>
+
+<p>
+(Tats&auml;chlich ist es nicht ganz korrekt zu behaupten, dass ein Software-Objekt
+ein &quot;St&uuml;ck&quot; Speicher ist.
+Ein Software-Objekt ist ungef&auml;hr etwas wie ein Bankkonto ---
+seine Existenz ist vielf&auml;ltig und entspricht nicht eins-zu-eins einem
+bestimmtem St&uuml;ck Material.
+Aber f&uuml;r jetzt ist es zweckm&auml;&szlig;ig und einigerma&szlig;en zutreffend
+ein Software-Objekt als ein St&uuml;ck Speicher zu betrachten.)
+</p>
+
+<p>
+Objekte (real existierende und Software-Objekte)
+haben <em>Identit&auml;t</em>, <em>Zustand</em> und <em>Verhalten</em>.
+</p>
+
+<blockquote>
+<p>
+Software-Objekte haben eine <strong>Identit&auml;t</strong>,  weil jedes ein einzelnes St&uuml;ck Speicher ist
+(ebenso wie ein gelber Tennisball, ist ein Software-Objekt ein eindeutiges
+Einzelnes, auch wenn es nahezu genauso wie andere Objekte aussieht).
+</p>
+
+<p>
+Software-Objekt haben einen <strong>Zustand</strong>.
+Ein Teil des Speichers, der ein Software-Objekt ausmacht, wird f&uuml;r Variable verwendet, die Werte enthalten.
+</p>
+
+<p>
+Software-Objekt haben ein <strong>Verhalten</strong>.
+Ein Teil des Speichers, der ein Software-Objekt ausmacht, wird f&uuml;r Programme
+<em>(Methoden</em> genannt) verwendet, die das Objekt bef&auml;higen &quot;Dinge zu tun&quot;.
+Das Objekt tut etwas, wenn eine der Methoden ausgef&uuml;hrt wird.
+</p>
+</blockquote>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick) Was ist das bestimmende Merkmal eines Computertyps,
+der &quot;<em>von Neumann Computer</em>&quot; genannt wird?
+(der Typ von fast allen gegenw&auml;rtigen Computern?)
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Abbildung eines Objekts
+
+</p>
+<ANSWER>
+<p>
+Ein <a class="linkout" href="http://de.wikipedia.org/wiki/Von-Neumann-Architektur" title="Weitere Informationen &uuml;ber den von Neumann Computer gibt es bei wikipedia.org.">von Neumann Computer</a> verwendet Mehrzweckspeicher um Programme und Daten zu speichern.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>von Neumann</INDEX>
+<img src="objectPicture.gif" align="left" hspace="10" vspace="10"/>
+
+<p>
+In Begriffen der objektorientierten Programmierung verwendet ein
+&quot;<em>von Neumann Computer</em>&quot;
+Mehrzweckspeicher um sowohl Zustand als auch das Verhalten von Objekten zu speichern.
+Es ist interessant, dass eine Idee von 1940 immer noch von Bedeutung ist.
+</p>
+
+<p>
+Ein Software-Objekt besteht aus beidem, Variablen (Zustandsinformationen)
+und Methoden (Anleitungen f&uuml;r das Verhalten).
+In der Abbildung
+wird angenommen, dass die gelben Ziegel die Speicherbytes darstellen,
+aus denen das Objekt erstellt wurde.
+Das Objekt hat einige Variablen, <code>position</code>, <code>farbe</code> und <code>groesse</code>,
+und es hat einige Methoden, die sein Verhalten steuern.
+</p>
+
+<p>
+In der objektorientierten Programmierung
+verwendet der Programmierer eine Programmiersprache (wie Java)
+um mannigfaltige Objekte zu beschreiben.
+Zur Laufzeit des Programms (nachdem es kompiliert wurde)
+werden die Objekte erzeugt (aus dem Arbeitsspeicher heraus)
+und beginnen &quot;Dinge zu tun&quot;, indem sie ihre
+Methoden ausf&uuml;hren.
+</p>
+
+<p>
+Die Methoden m&uuml;ssen in der richtigen Reihenfolge ausgef&uuml;hrt werden.
+F&uuml;r eine Applikation (nicht f&uuml;r ein Applet) ist die erste
+Methode, die ausgef&uuml;hrt wird, die Methode <code>main()</code>.
+In einer Applikation darf nur eine Methode den Namen <code>main()</code> haben.
+In einer kleinen Applikation k&ouml;nnte <code>main()</code> alle notwendigen Anweisungen durchf&uuml;hren.
+In einer gr&ouml;&szlig;eren Applikation wird <code>main()</code>
+Objekte erzeugen und deren Methoden verwenden.
+<br clear="all" />
+</p>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Haben Sie schon eine <code>main()</code> Methode gesehen?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Klasse
+
+<ANSWER>
+<p>
+Bis jetzt hat jede Applikation in diesen Aufzeichnungen eine Zeile enthalten mit:
+</p>
+
+<pre>
+public static void main ( String[] args )
+</pre>
+
+<p>
+Das ist der Methodenkopf der <code>main()</code> Methode in der Klasse, die beschrieben wird.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>class, definition</INDEX>
+
+<p>
+Wenn eine Java-Applikation ausgef&uuml;hrt wird,
+werden Objekte erzeugt und deren Methoden aufgerufen (sie werden ausgef&uuml;hrt).
+<em>Um ein Objekt zu erzeugen, muss es eine Beschreibung von ihm geben.</em>
+</p>
+
+<blockquote>
+Eine <strong>Klasse</strong> ist eine Beschreibung einer Art von Objekten.
+Ein Programmierer kann eine Klasse definieren, in dem er Java verwendet, oder
+er kann eine vordefinierte Klasse aus den Klassenbibliotheken verwenden.
+</blockquote>
+
+<p>
+<em>Eine Klasse ist lediglich ein Plan f&uuml;r ein m&ouml;gliches Objekt</em>
+(oder Objekte).
+Sie erzeugt nicht von sich aus irgendwelche Objekte.
+Wenn ein Programmierer ein Objekt erzeugen will,
+wird der <code>new</code>-Operator zusammen mit dem
+Namen der Klasse verwendet.
+Die Erzeugung eines Objekts, wird <strong>Instantiierung</strong> genannt.
+</p>
+
+<p>
+Hier ist eine sehr kleine Applikationen, die ein Objekt
+<em>instantiiert</em> (erzeugt), in dem sie dem Plan der
+<strong>Klasse</strong> <code>String</code> folgt:
+</p>
+
+<table align="center" border="border" bordercolor="brown" cellpadding="5">
+<tr>
+<td bgcolor="#ffffff">
+<pre>
+
+class StringTester
+{
+
+  public static void main ( String[] args )
+  {
+    String str;    // str ist eine Variable, die ein Objekt bezeichnet,
+                   // aber das Objekt existiert noch nicht.
+    int laenge;    // laenge ist eine primitive Variable vom Typ int
+
+    str = new String("Zufaellige Notizen");  // erzeugt ein Objekt vom Typ String
+
+    laenge  = str.length();  // Ruft die length() Methode des Objekts str auf
+
+    System.out.println("Der String str ist " + laenge + " Zeichen lang");
+  }
+}
+</pre>
+</td>
+</tr>
+</table>
+
+
+<p>
+Wenn die Programmzeile
+</p>
+
+<pre>
+str = new String("Zufaellige Notizen");
+</pre>
+zur Laufzeit ausgef&uuml;hrt wird,
+<p>
+erzeugt sie ein Objekt, in dem sie der Beschreibung der Klasse <code>String</code> folgt.
+Die Klasse <code>String</code> ist in der Klassenbibliothek <code>java.lang</code>
+beschrieben, die zum Java-Sprachumfang geh&ouml;rt.
+Das Computersystem findet ein St&uuml;ck Speicher f&uuml;r das Objekt,
+legt den Speicher entsprechend dem Plan (der Definition von <code>String</code>) an
+und stellt Daten und Methoden hinein.
+</p>
+
+<p>
+Die Daten in diesem Stringobjekt sind die Zeichen &quot;Zufaellige Notizen&quot;
+und die Methoden sind die vielen Methoden, die Stringobjekte haben.
+
+Eine dieser Methoden ist die Methode <code>length()</code>.
+</p>
+
+<p>
+Die Variable <code>str</code> wird verwendet um auf das Objekt zu verweisen.
+Mit anderen Worten, <code>str</code> gibt dem Objekt einen Namen.
+</p>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wenn ein Programm einen Namen f&uuml;r ein Objekt hat, hei&szlig;t das bereits, dass das Objekt schon wirklich existiert?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Objekte und Namen f&uuml;r Objekte
+
+<ANSWER>
+<p>
+Nein.  Nur weil es einen Namen f&uuml;r ein Objekt gibt, bedeutet das noch nicht, dass das Objekt existiert.
+</p>
+
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Eine Variable, die auf ein Objekt verweisen <em>kann</em>, <em>hat</em> nicht immer ein Objekt, auf das sie verweist.
+Zum Beispiel, in unserem Programm verweist die Variable <code>str</code> erst dann auf ein Objekt, nachdem es durch den <span class="red"><code>new</code></span>-Operator erzeugt wurde.
+</p>
+
+<table align="center" border="border" bordercolor="brown" cellpadding="5">
+<tr>
+<td bgcolor="#ffffff">
+
+<pre>
+class StringTester
+{
+
+  public static void main ( String[] args )
+  {
+    String str;             // str ist eine Variable, die ein Objekt bezeichnet,
+                            // aber das Objekt existiert noch nicht.
+    int  laenge;            // laenge ist eine primitive Variable vom Typ <code>int</code>
+
+    str = <span class="red">new</span> String("Zufaellige Notizen");  // ein Objekt vom Typ <code>String</code> erzeugen
+
+    laenge  = str.length();  // Ruft die length() Methode des Objekts str auf
+
+    System.out.println("Der String ist " + laenge + " Zeichen lang");
+  }
+}
+</pre>
+
+</td>
+</tr>
+</table>
+
+<p>
+Bevor der <span class="red"><code>new</code></span>-Operator seine Arbeit getan hat,          war <code>str</code> ein &quot;Platzhalter&quot;,  der aber noch nicht wirklich auf ein Objekt verwiesen hat.
+Nachdem der <span class="red"><code>new</code></span>-Operator das Objekt erzeugt hat,
+kann <code>str</code> verwendet werden um auf das Objekt zu verweisen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Auf welches Objekt wird in dieser Anweisung verwiesen:
+</p>
+
+<pre>
+laenge  = str.length();  // Aufruf der Methode length() des Objekts str
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Eine Referenz auf ein Objekt verwenden
+
+<p>
+Auf welches Objekt wird in dieser Anweisung verwiesen:
+</p>
+
+<pre>
+laenge  = str.length();  // Aufruf der Methode length() des Objekts str
+</pre>
+
+<ANSWER>
+
+<p>
+Die Anweisung erfolgt in dem Programm, <em>nachdem</em> das Objekt erzeugt wurde,
+also verweist <code>str</code> auf dieses Objekt.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Sobald das Objekt erzeugt wurde (mit dem <code>new</code>-Operator),
+verweist die Variable <code>str</code> auf ein existierendes Objekt.
+Das Objekt hat mehrere Methoden, eine davon ist die <code>length()</code> Methode .
+Die <code>length()</code> Methode eines Stringobjekts z&auml;hlt die Anzahl der Zeichen des Strings.
+</p>
+
+<table align="center" border="border" bordercolor="brown" cellpadding="5">
+<tr>
+<td bgcolor="#ffffff">
+<pre>
+
+class StringTester
+{
+
+  public static void main ( String[] args )
+  {
+    String str;             // str ist eine Variable, die ein Objekt bezeichnet,
+                            // aber das Objekt existiert noch nicht.
+    int  laenge;            // laenge ist eine primitive Variable vom Typ <code>int</code>
+
+    str = <span class="red">new</span> String("Zufaellige Notizen");  // ein Objekt vom Typ <code>String</code> erzeugen
+
+    laenge  = str.length();  // Aufruf der Methode length() des Objekts str
+
+    System.out.println("Der String ist " + laenge + " Zeichen lang");
+  }
+}
+</pre>
+</td>
+</tr>
+</table>
+<br clear="all" />
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was wird durch das obenstehende Programm auf den Bildschirm ausgegeben?
+(Sie m&ouml;chten vielleicht das Programm kopieren-einf&uuml;gen-und-starten, um Ihre Antwort zu &uuml;berpr&uuml;fen.)
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Aufruf einer Objektmethode
+
+<ANSWER>
+
+<pre>
+Der String ist 18 Zeichen lang.
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Denken Sie daran, dass
+ein Objekt sowohl Variablen (Zustandsinformationen) als auch
+Methoden (Anweisungen f&uuml;r das Verhalten) enth&auml;lt.
+Beide werden Mitglieder (<em>Member</em>) des Objekts genannt.
+Java verwendet f&uuml;r beide die &quot;Punktnotation&quot;:
+</p>
+
+<pre>
+referenzAufEinObjekt.memberDesObjekts
+</pre>
+
+<p>
+Zum Beispiel um die <code>length()</code> Methode des Objekts
+mit dem Namen <code>str</code> aufzurufen, wird folgendes verwendet:
+</p>
+
+<pre class="code">
+laenge  = str.length();
+</pre>
+
+
+<p>
+Methodennamen haben &quot;()&quot; an ihrem Ende.
+Oft gibt es zus&auml;tzliche Information innerhalb der Klammern,
+aber sie sind selbst dann erforderlich, wenn sie nichts enthalten.
+Die oben stehende Methode ergibt einen Integer 18, der dann der <code>int</code>-Variablen <code>laenge</code> zugewiesen wird.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage:) Ist es einem Programm m&ouml;glich,
+mehrere Objekte derselben Klasse zu haben?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Eine Klasse zum Erzeugen vieler Objekte verwenden
+
+<ANSWER>
+<p>
+Ja. Eine Klasse ist eine Beschreibung von m&ouml;glichen Objekten und kann
+&ouml;fters verwendet werden um viele Objekte desselben Typs zu erzeugen.
+Die Objekte m&uuml;ssen nicht die gleichen Daten enthalten, nur denselben Bauplan.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>cookie cutters</INDEX>
+<INDEX>Cookie Monster</INDEX>
+
+<img src="cookieDough.gif" align="right" hspace="20" vspace="40" />
+
+<p>
+Eine Klasse ist wie eine Backform, die viele Male verwendet werden kann
+um Pl&auml;tzchen herzustellen.
+Es gibt nur eine Backform, aber sie kann f&uuml;r viele Pl&auml;tzchen verwendet werden.</p>
+<p>Pl&auml;tzchen sind Objekte und jedes von ihnen
+hat eine eigene Individualit&auml;t,
+da jedes Einzelne aus einem anderen St&uuml;ck Teig gemacht wurde.
+Verschiedene Pl&auml;tzchen k&ouml;nnen verschiedene Merkmale haben,
+obgleich sie die gleiche Grundstruktur haben.
+Zum Beispiel k&ouml;nnen verschiedene Pl&auml;tzchen einen unterschiedlichen Zuckerguss oder -verzierung erhalten.
+</p>
+
+<A NAME="Cookie Monster"></A>
+<p>
+Pl&auml;tzchen k&ouml;nnen hergestellt werden.
+Und Pl&auml;tzchen k&ouml;nnen zerst&ouml;rt werden (fragen Sie nur das &quot;Cookie Monster&quot;).
+Aber das Zerst&ouml;ren von Pl&auml;tzchen hat keine Auswirkung auf die Backform.
+Sie kann wieder verwendet werden, wenn noch Teig &uuml;brig ist.
+</p>
+
+<p>
+Eine gro&szlig;e Pl&auml;tzchendose k&ouml;nnte viele Pl&auml;tzchen aufnehmen, mit vielen
+unterschiedlichen Verzierungen (Sterne, Herzen, Vierecke...)
+Ein gro&szlig;es Pl&auml;tzchen (wie ein Honigkuchenhaus)
+k&ouml;nnte aus vielen kleinen Pl&auml;tzchen mit unterschiedlichen Verzierungen
+hergestellt werden.
+<br clear="all">
+</p>
+
+<INDEX>Cookie Monster</INDEX>
+
+</LESSON>
+
+<QUESTION>
+
+<p>
+(Denkfrage:)
+In der wirklichen Welt sind Pl&auml;tzchen nat&uuml;rlich Objekte.
+Aber wirkliche Backformen sind ebenfalls Objekte.
+Glauben Sie, dass eine Klasse in Java eine objekt&auml;hnliche Natur hat,
+so wie eine Backform?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Static
+
+<ANSWER>
+<p>
+Ja. Um einen Plan folgen zu k&ouml;nnen, muss er irgendwie existieren.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>static</INDEX>
+
+<p>
+Klassen werden haupts&auml;chlich verwendet um Objekte zu erzeugen,
+so wie Backformen meistens verwendet werden um Pl&auml;tzchen herzustellen.
+Aber eine Klasse hat eine Existenz,
+genauso wie eine Backform eine Existenz hat.
+Eine Klasse und ihre Objekte sind verschiedene Arten von Dingen,
+genauso wie eine Backform und ihre Pl&auml;tzchen verschiedene Arten von Dingen sind.
+</p>
+
+<p>
+Eine Backform hat Merkmale, die nicht mit den Pl&auml;tzchen geteilt werden.
+Zum Beispiel besteht eine Backform aus Stahl und besitzt scharfe Kanten.
+Nachdem eine Backform f&uuml;r eine Zeitlang benutzt wurde, gibt es
+viele Pl&auml;tzchen (weiche, runde, teigige Dinge), aber immer noch nur ein
+einziges Ding aus Stahl mit scharfen Kanten.
+</p>
+
+<p>
+In der Sprache Java werden Merkmale der Klassendefinition,
+die nicht von ihren Objekten geteilt werden, <code>static</code> genannt.
+Es gibt nur genau eine Klassendefinition f&uuml;r eine bestimmte Klasse.
+Daher wenn ein Programm l&auml;uft und etwas <code>static</code> ist, dann kann es nur eines davon geben.
+</p>
+
+<p>
+Sie k&ouml;nnen sich die Bedeutung des Wortes <code>static</code> so vorstellen
+&quot;egal wie viele Objekte erzeugt wurden, es gibt immer nur eines davon&quot;.
+</p>
+
+</LESSON>
+
+<QUESTION>
+
+<p>
+Erinnern Sie sich an die drei Eigenschaften von Objekten:
+<em>Identit&auml;t</em>,<em> Zustand</em> und <em>Verhalten</em>.
+Glauben Sie, dass eine Klassendefinition einen eigenen Zustand und ein eigenes Verhalten hat?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Statische Methoden
+
+<ANSWER>
+
+<p>
+Ja.  Eine Klassendefinition wird <em>ihre eigenen</em> Variablen (Zustand),
+und <em>ihre eigenen</em> Methoden (Verhalten) haben.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>static method</INDEX>
+<INDEX>class method</INDEX>
+
+<p>
+Die Methoden, die eine Klassendefinition hat, werden <em>statische Methoden</em> genannt.
+(Sie werden manchmal auch <em>Klassenmethoden</em> genannt<!--, aber das ist verwirrend-->).
+Eine statische Methode ist ein Merkmal der Klasse, nicht der Objekte, die sie erzeugt hat.
+</p>
+
+<blockquote>
+<strong>Wichtig:</strong>
+<em>
+Ein Programm kann eine statische Methode ausf&uuml;hren, ohne zuerst ein Objekt zu erzeugen!
+</em>
+Alle anderen Methoden (die, welche nicht statisch sind) m&uuml;ssen ein Teil eines Objektes sein.
+Ein Objekt muss existieren, bevor sie ausgef&uuml;hrt werden k&ouml;nnen.
+</blockquote>
+
+
+<p>
+Hier ist noch  mal das Beispielprogramm:
+</p>
+
+<table align="center" border="border" bordercolor="brown" cellpadding="5">
+<tr>
+<td bgcolor="#ffffff">
+<pre>
+
+// Die Datei StringTester.java
+//
+class StringTester
+{
+
+  public <span class="red">static</span> void main ( String[] args )
+  {
+    String str;             // str ist eine Variable, die ein Objekt bezeichnet,
+                            // aber das Objekt existiert noch nicht.
+    int  laenge;            // laenge ist eine primitive Variable vom Typ int
+
+    str = new String("Zufaellige Notizen");  // ein Objekt vom Typ String erzeugen
+
+    laenge  = str.length();  // Aufruf der Methode length() des Objekts str
+
+    System.out.println("Der String ist " + laenge + " Zeichen lang");
+  }
+}
+</pre>
+</td>
+</tr>
+</table>
+
+<INDEX>virtual machine, startup</INDEX>
+
+<p>
+Die Applikation ist vergleichbar mit vielen, die Sie bis jetzt gesehen haben.
+Aber jetzt k&ouml;nnen Sie mehr Details verstehen, von dem was vor sich geht.
+Angenommen, dass eine Datei mit dem Namen <code>StringTester.java</code> den  oben stehenden Quelltext enth&auml;lt.
+</p>
+
+<ul>
+<li>Die Datei definiert eine Klasse mit dem Namen <code>StringTester</code>.</li>
+<li>Die Klasse hat eine statische Methode, die <code>main()</code> genannt wird.</li>
+<li>Da <code>main()</code> eine statische Methode ist, ist sie ein Merkmal der Klasse.
+Objekte der Klasse haben keine <code>main()</code> Methode.
+    <ul><li>
+    Da <code>main()</code> eine statische Methode ist,
+    gibt es nur eine <code>main()</code> Methode.</li></ul>
+    </li>
+<li>Nachdem die Datei kompiliert wurde, wird der erzeugte Bytecode durch die <em>Virtuelle Maschine</em> (VM) von Java ausgef&uuml;hrt.
+    <ul><li>
+    Der Anwender f&uuml;hrt das Programm aus, in dem er <code>java StringTester</code> eingibt.</li></ul>
+    </li>
+<li>Die <em>Virtuelle Maschine</em> von Java sucht in der Bytecodeversion der Klassendefinition von <code>stringTester</code> nach der Methode <code>main()</code>.
+<ul><li>
+Zu diesem Zeitpunkt existieren keine Objekte.
+    </li></ul>
+<li>Die <code>main()</code> Methode beginnt zu starten, erzeugt ein Objekt, in dem sie <code>new</code> verwendet, ruft die <code>length()</code> Methode auf und sorgt daf&uuml;r, dass das Zeug erledigt wird.</li>
+</ul>
+
+<p>
+Denken Sie an die Idee der objektorientierten Programmierung: Eine Applikation besteht aus einer Sammlung kooperativer Software-Objekte, deren Methoden in einer bestimmten Reihenfolge ausgef&uuml;hrt werden um etwas n&uuml;tzliches zu tun.
+Die obengenannten Schritte beschreiben wie die Sammlung der Objekte zum Laufen gebracht wird. (In diesem Fall wurde nur ein Objekt erzeugt.)
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+
+<p>
+Angenommen, Sie erstellen eine Datei, die
+eine Klassendefinition enth&auml;lt,
+aber die Klasse enth&auml;lt keine <code>main()</code> Methode .
+K&ouml;nnen die Methoden dieser Klasse jemals ausgef&uuml;hrt werden?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Konstruktoren
+<ANSWER>
+
+<p>
+Nicht direkt. Aber eine andere Klasse, die eine <code>main()</code> Methode hat, kann diese Klasse verwenden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>constructor</INDEX>
+
+<p>
+<em>Ein Objekt ist ein Speicherabschnitt</em>, der Variablen und Methoden enth&auml;lt.
+<em>Eine Klasse ist eine Beschreibung eines m&ouml;glichen Objekts</em>.
+Wenn ein Objekt erzeugt wird, wird nach der Beschreibung verfahren.
+Ein Weg Objekte zu erzeugen ist die Verwendung des <code>new</code>-Operators
+zusammen mit einem <em>Konstruktor</em>.
+Hier ist wieder das Beispielprogramm:
+</p>
+
+<table align="center" border="border" bordercolor="brown" cellpadding="5">
+<tr>
+<td bgcolor="#ffffff">
+<pre>
+class StringTester
+{
+
+  public static void main ( String[] args )
+  {
+    String str;            // str ist eine Variable, die ein Objekt bezeichnet,
+    int  laenge;
+
+    <span class="red">str = new String("Zufaellige Notizen");</span>  // ein Objekt vom Typ String erzeugen
+
+    laenge  = str.length();  // Aufruf der Methode length() des Objekts
+
+    System.out.println("Der String ist " + laenge + " Zeichen lang");
+  }
+}
+</pre>
+
+</td>
+</tr>
+</table>
+
+<p>
+Ein <em>Konstruktor</em> hat den gleichen Namen wie die Klasse.
+Die Zeile des obenstehenden Programms
+</p>
+
+<pre class="code">
+<span class="red">str = new String("Zufaellige Notizen");</span>  // ein Objekt vom Typ String erzeugen
+</pre>
+
+<p>
+erzeugt ein neues Objekt vom Typ <code>String</code>.
+Der <code>new</code>-Operator sagt, erzeuge ein neues Objekt.
+Ihm folgt der Name des Konstruktors.
+Der Konstruktor <code>String()</code> ist Teil der Klassendefinition der Kasse <code>String</code>.
+</p>
+
+<INDEX>parameter</INDEX>
+
+<p>
+Konstruktoren werden oft mit Werten verwendet (<em>Parameter</em> genannt),
+die im Datenteil des Objekts, das erzeugt wird, gespeichert werden.
+In dem obenstehenden Programm
+werden die Zeichen &quot;Zufaellige Notizen&quot; (ohne die Anf&uuml;hrungszeichen)
+im Datenteil des neuen Objekts gespeichert.
+</p>
+
+<p>
+Es gibt &uuml;blicherweise verschiedene Konstruktoren in einer Klasse,
+jeder mit verschiedenen Parametern.
+Manchmal ist es geeigneter den einen zu verwenden, als den anderen,
+je nachdem in welcher Weise die Objektdaten initialisiert werden sollen.
+Dennoch folgen alle Konstruktoren einer Klasse dem gleichen Plan in der Erzeugung eines Objekts.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage:) Kann ein Konstruktor ein zweites Mal verwendet werden
+um die Werte eines erzeugten Objekts zu &auml;ndern?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Punktnotation
+
+<ANSWER>
+<p>
+Nein.  Ein Konstruktor wird nur einmal pro Objekt verwendet.
+Sobald das Objekt erzeugt wurde, ist der Konstruktor fertig.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<p>
+Nachdem ein Objekt konstruiert wurde, kann es (gew&ouml;hnlich)
+durch seine eigenen Methoden ge&auml;ndert werden (<strong>nicht</strong>
+durch seine Konstruktoren).
+Manche Objekte sind so entworfen worden, dass sie, sobald sie einmal konstruiert wurden,
+nicht mehr ge&auml;ndert werden k&ouml;nnen.
+</p>
+
+<INDEX>dot notation</INDEX>
+
+<p>
+Die beiden Arten von Dingen innerhalb eines Objekts &#8212; Variablen und Methoden &#8212;
+werden manchmal <strong><em>Member</em></strong> dieses Objekts genannt.
+Auf die <em>Member</em> eines Objekts kann durch die Verwendung der
+ <strong>Punktnotation</strong> zugegriffen werden.
+Das Beispielprogramm erzeugt ein Stringobjekt,
+referenziert durch die Variable <code>str</code>.
+</p>
+
+<table align="center" border="border" bordercolor="brown" cellpadding="5">
+<tr>
+<td bgcolor="#ffffff">
+
+<pre>
+    String str;            // str ist eine Variable, die ein Objekt bezeichnet,
+    int  laenge;
+    str = new String("Zufaellige Notizen");  // ein Objekt vom Typ String erzeugen
+
+    <span class="red">str.length()</span>;  // Aufruf des Objekts length() Methode
+</pre>
+
+</td>
+</tr>
+</table>
+
+<p>
+Die <code>length()</code> Methode ist ein <em>Member</em> von <code>str</code>.
+Um auf diese Methode des Objekts <code>str</code> zu verweisen, werden die beiden mit einem Punkt verbunden:
+</p>
+
+<pre>
+laenge  = <span class="red">str.length()</span>;
+</pre>
+
+<p>
+Das obenstehende ist ein Zuweisungsausdruck und funktioniert wie immer
+in zwei Schritten:
+</p>
+
+<ol>
+<li>Der Ausdruck rechts des "="-Zeichens wird ausgewertet.</li>
+<li>Der sich ergebende Wert wird in der Variablen links des "="-Zeichens gespeichert.</li>
+</ol>
+
+<p>
+Der auf der rechten Seite stehende Zuweisungsausdruck f&uuml;hrt die Methode
+<code>length()</code> aus, die ein <em>Member</em> von <code>str</code> ist.
+Das Ausf&uuml;hren der <em>Member</em>-Methode liefert die Anzahl der Zeichen des Objekts zur&uuml;ck.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Denken Sie, dass das folgende korrekt ist?
+</p>
+
+<pre>
+str.length() = 12 ;  // Länge von str ändern
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>&Uuml;bungsprogramm
+<p>
+Denken Sie, dass das folgende korrekt ist?
+</p>
+
+<pre>
+str.length() = 12 ;  // Länge von str ändern
+</pre>
+
+
+<ANSWER>
+<p>
+Nein. Der linksstehende Teil eines Zuweisungsausdrucks muss eine Variable sein.
+</p>
+
+<p>
+Wenn Sie diese Frage falsch beantwortet haben, wiederholen Sie die zwei
+Schritte des Zuweisungsausdrucks (auf der vorherigen Seite).
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Es ist lange her, dass Sie blaue L&uuml;cken zum Ausf&uuml;llen hatten.
+Ich bin sicher, dass Sie sie vermisst haben.
+Hier ist ein Programm, das:
+</p>
+
+<ol>
+<li>Zwei Stringobjekte erzeugt.</li>
+<li>Der erste String bekommt die Zeichen "Rohe Eier"</li>
+<li>Der zweite String bekommt die Zeichen " und Schinken." </li>
+<li>Das Programm berechnet die L&auml;nge eines jeden Strings und</li>
+<li>gibt dann die L&auml;nge beider Strings (die Summe der einzelnen L&auml;ngen) aus.</li>
+</ol>
+
+
+
+<table align="center" border="border" bordercolor="brown" cellpadding="5">
+<tr>
+<td bgcolor="#ffffff">
+
+<pre>
+class StringTester
+{
+
+  public static void main ( String[] args )
+  {
+    String str1;   // str1 ist eine Variable, die ein String-Objekt bezeichnet.
+    <span class="blue">______ ____</span>;   // str2 ist eine Variable, die ein zweites String-Objekt bezeichnet.
+
+    int    <span class="blue">______</span> , <span class="blue">______</span> ;    // die Länge von str1 und von str2
+
+    <span class="blue">____</span>   = <span class="blue">_________________________</span> ; // den ersten String erzeugen
+
+    <span class="blue">____</span>   = <span class="blue">_________________________</span> ; // den zweiten String erzeugen
+
+
+    <span class="blue">_____</span>  = str1.length();    // die Länge des ersten Strings ermitteln
+
+    <span class="blue">_____</span>  = <span class="blue">____</span>.<span class="blue">________</span>;    // die Länge des zweiten Strings ermitteln
+
+    System.out.println("Die Gesamtlänge beider Strings ist " +
+        <span class="blue">_________________</span> + " Zeichen" );
+  }
+}
+</pre>
+</td>
+</tr>
+</table>
+<p><br clear="all" /></p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie gedanklich die L&uuml;cken aus.
+F&uuml;r einige Variablen werden Sie Namen vergeben m&uuml;ssen.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Einen Konstruktor in einer Deklaration verwenden
+<ANSWER>
+<p>
+Das vervollst&auml;ndigte Programm finden Sie unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist das vollst&auml;ndige Programm mit den ausgef&uuml;llten L&uuml;cken.
+</p>
+
+<table align="center" border="border" bordercolor="brown" cellpadding="5">
+<tr>
+<td bgcolor="#ffffff">
+<pre>
+
+class StringTester
+{
+
+  public static void main ( String[] args )
+  {
+    String str1;   // str1 ist eine Variable, die ein String-Objekt bezeichnet.
+    <span class="blue">String str2</span>;   // str2 ist eine Variable, die ein zweites String-Objekt bezeichnet.
+    int    <span class="blue">laenge1</span> , <span class="blue">laenge2</span> ;    // die Länge von str1 und von str2
+
+    <span class="blue">str1</span>   = <span class="blue">new String( "Rohe Eier")</span> ; // den ersten String erzeugen
+
+    <span class="blue">str2</span>   = <span class="blue">new String( " und Schinken.") </span> ; // den zweiten String erzeugen
+
+
+    <span class="blue">laenge1</span>  = str1.length();    // die Länge des ersten Strings ermitteln
+
+    <span class="blue">laenge2</span>  = <span class="blue">str2</span>.<span class="blue">length()</span>;    // die Länge des zweiten Strings ermitteln
+
+    System.out.println("Die Gesamtlänge beider Strings ist " +
+        <span class="blue">(laenge1 + laenge2)</span> + " Zeichen" );
+  }
+}
+</pre>
+</pre>
+</td>
+</tr>
+</table>
+
+<p>
+Dies ist eine &quot;wortreiche&quot; Version des Programms.
+<INDEX>constructor, in declaration</INDEX>
+Ein Objekt kann in einer Variablendeklaration erzeugt werden.
+Zum Beispiel geht das folgende:
+</p>
+
+<pre class="code">
+String str1 = new String("Rohe Eier");
+String str2 = new String(" und Schinken.");
+</pre>
+
+<p>
+Es gibt sogar noch einen k&uuml;rzeren Weg daf&uuml;r,
+aber das funktioniert nur mit Stringobjekten.
+</p>
+
+
+<pre class="code">
+String str1 =  "Rohe Eier";
+String str2 =  " und Schinken.";
+</pre>
+
+<p>
+Die <code>new</code>-Operation wird immer noch hinter der B&uuml;hne durchgef&uuml;hrt.
+Diese Form ist nur eine &quot;Abk&uuml;rzung&quot; f&uuml;r den l&auml;ngeren Weg.
+F&uuml;r andere Klassen muss die Objekterzeugung &uuml;ber den <code>new</code>-Konstruktor erfolgen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Welche der folgenden Anweisungen ist richtig?
+</p>
+
+
+<pre class="code">
+String ameise      =  "Es war eine dunkle und stuermische Nacht."
+String fledermaus  =  new( "Ein Schuss kam aus dem Dunklen." );
+int    katze       =  "123";
+double hund        =  45.69;
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<ANSWER>
+
+<pre>
+String ameise = "Es war eine dunkle und stuermische Nacht."
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">Richtig &#8212 das ist eine Abkürzung um einen String zu erzeugen.</span>
+String fledermaus = new( "Ein Schuss kam aus dem Dunklen." );
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">Falsch &#8212 <code>new</code> braucht den Namen eines Konstruktors.</span>
+int    katze = "123";
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">Falsch &#8212 ein <code>int</code> kann nicht zum Initialisieren eines Strings verwendet werden.</span>
+double hund = 45.69;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">Richtig.</span>
+</pre>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Sie m&ouml;chten vielleicht das folgende noch einmal durchsehen.
+Klicken Sie auf ein blaues Thema, das Sie interessiert, um dahin zu gehen wo es besprochen wurde.
+Um hierher zur&uuml;ckzukehren klicken Sie auf den &quot;Zur&uuml;ck&quot;-Button Ihres Browsers.
+</p>
+
+<ul>
+<li>
+<GOTO>object, characteristics</GOTO> Drei Merkmale eines Objekts.
+</li>
+<li>
+<GOTO>objects, as memory</GOTO> Woraus Software-Objekte gemacht sind.
+</li>
+<li>
+<GOTO>von Neumann</GOTO> von Neumann Computer.
+</li>
+<li>
+<GOTO>class, definition</GOTO> Was eine Klasse ist.
+</li>
+<li>
+<GOTO>cookie cutters</GOTO> Backformen und Pl&auml;tzchen.
+</li>
+<li>
+<GOTO>static</GOTO> Der Zugriffsmodifizierer <code>static</code>.
+</li>
+<li>
+<GOTO>static method</GOTO> statische Methoden.
+</li>
+<li>
+<GOTO>virtual machine, startup</GOTO> Wie die virtuelle Maschine
+von Java ein Programm startet.
+</li>
+<li>
+<GOTO>constructor</GOTO> Konstruktoren.
+</li>
+<li>
+<GOTO>parameter</GOTO> Parameter.
+</li>
+<li>
+<GOTO>dot notation</GOTO> Punktnotation.
+</li>
+<li>
+<GOTO>constructor, in declaration</GOTO> Einen Konstruktor
+in einer Variablendeklaration verwenden.
+</li>
+</ul>
+
+<p>
+Das n&auml;chste Kapitel wird Objektreferenzen besprechen.
+</p>
+
+<hr/>
+<br/>
+<A HREF="../../java-toc.html#25">
+<img src="../contents.gif" alt="Hier klicken" align="center"></A>
+&#8212;&#8212;Zur&uuml;ck zur <A HREF="../../java-toc.html#25">&Uuml;bersicht</a>.
+<br/>
+<br/>
+</LESSON>
+
+</CAI>
+</CHAPTER>

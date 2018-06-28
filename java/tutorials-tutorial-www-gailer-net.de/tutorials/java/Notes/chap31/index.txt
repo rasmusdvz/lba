@@ -1,0 +1,4 @@
+<INDEX>Car, class</INDEX>	Car, Klasse
+<INDEX>instance variable</INDEX>	Instanzvariable
+<INDEX>Konstruktor, parameters</INDEX>	Konstruktor, Parameter
+<INDEX>Programm, Car class</INDEX>	Programm, Car

@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<title>
+F&uuml;llen Sie die L&uuml;cken aus
+</title>
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+<small>erstellt: 03.08.99; &uuml;bersetzt: 24.03.03; &uuml;berarbeitet 20.10.03, 03.05.04, 29.09.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+F&uuml;llen Sie die L&uuml;cken aus
+<!-- end of Quiz Name -->
+</h1></center>
+
+<p>
+<b>Hinweise:</b> &nbsp;
+Das ist eine unbewertete L&uuml;cken&uuml;bung.
+Jede Frage besteht aus einem Satz, bei dem ein oder zwei W&ouml;rter fehlen.
+Jede Schaltfl&auml;che repr&auml;sentiert das fehlende Wort bzw. die fehlenden W&ouml;rter.
+&Uuml;berlegen Sie welches Wort bzw. welche W&ouml;rter fehlen. Klicken Sie dann auf die Schaltfl&auml;che, um zu sehen ob Sie recht haben. Es wird keine Note f&uuml;r diese &Uuml;bung ermittelt.
+</p>
+<hr />
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form name="f">
+<input type="hidden" name="firstVal" value="false" />
+<input type="hidden" name="secondVal" value="false" />
+<p>
+<b>1.</b>W&auml;hlen Sie <code>true</code> oder <code>false</code> f&uuml;r jedes Paar der Optionsk&auml;stchen. Klicken Sie dann auf den &quot;?&quot;-Button, um das Ergebnis der AND-Verkn&uuml;pfung zu sehen.
+</p>
+
+<table align="center">
+<tr>
+<td>
+<input type="radio" value="true" name="radio1"
+onClick="f.firstVal.value='true'; f.button3.value='   ?   '" /><code>true</code><br />
+<input type="radio" value="false" name="radio1" checked="checked"
+onClick="f.firstVal.value='false'; f.button3.value='   ?   '" /><code>false</code>
+</td>
+<td>&nbsp; AND &nbsp;</td>
+<td>
+<input type="radio" value="true" name="radio2"
+onClick="f.secondVal.value='true'; f.button3.value='   ?   '" /><code>true</code><br />
+<input type="radio" value="false" name="radio2" checked="checked"
+onClick="f.secondVal.value='false'; f.button3.value='   ?   '" /><code>false</code>
+</td>
+<td> &nbsp; &nbsp; ergibt  &nbsp; &nbsp; </td>
+<td>
+<input type="button" value="    ?    " name="button3"
+onClick="if ( f.firstVal.value == 'true' &&  f.secondVal.value == 'true') f.button3.value ='true'; else f.button3.value ='false'" />
+</td></tr>
+</table>
+</form>
+
+<!--  ------------------------end of  question --------------------------------- -->
+
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form name="f2">
+<input type="hidden" name="firstVal" value="false" />
+<input type="hidden" name="secondVal" value="false" />
+<p>
+<b>2.</b>W&auml;hlen Sie <code>true</code> oder <code>false</code> f&uuml;r jedes Paar der Optionsk&auml;stchen. Klicken Sie dann auf den &quot;?&quot;-Button, um das Ergebnis der OR-Verkn&uuml;pfung zu sehen.
+</p>
+
+<table align="center">
+<tr>
+<td>
+<input type="radio" value="true" name="radio3"
+onClick="f2.firstVal.value='true'; f2.button3.value='   ?   '" /><code>true</code><br />
+<input type="radio" value="false" name="radio3" checked="checked"
+onClick="f2.firstVal.value='false'; f2.button3.value='   ?   '" /><code>false</code>
+</td>
+<td>&nbsp; OR &nbsp;</td>
+<td>
+<input type="radio" value="true" name="radio4"
+onClick="f2.secondVal.value='true'; f2.button3.value='   ?   '" /><code>true</code><br />
+<input type="radio" value="false" name="radio4" checked="checked"
+onClick="f2.secondVal.value='false'; f2.button3.value='   ?   '" /><code>false</code>
+</td>
+<td> &nbsp; &nbsp; ergibt  &nbsp; &nbsp; </td>
+<td>
+<input type="button" value="    ?    " name="button3"
+onClick="if ( f2.firstVal.value == 'true' ||  f2.secondVal.value == 'true') f2.button3.value ='true'; else f2.button3.value ='false'" />
+</td></tr>
+</table>
+</form>
+<!--  ------------------------end of  question --------------------------------- -->
+<hr />
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form name="f3">
+<p>
+<b>3.</b> &nbsp;F&uuml;r die AND-Verkn&uuml;pfung wird in Java der
+<input type="button"
+value="_____"
+name="button1"
+onClick="f3.button1.value=' &amp;&amp; '" />-Operator verwendet.
+</p>
+</form>
+
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form name="f4">
+<p>
+<b>4.</b> &nbsp;F&uuml;r die OR-Verkn&uuml;pfung wird in Java der
+<input type="button"
+value="_____"
+name="button1"
+onClick="f4.button1.value='  ||  '" />-Operator verwendet.
+</p>
+</form>
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form name="f5">
+<p>
+<b>5.</b> &nbsp;Arithmetische Operatoren (wie *, +, -, /) haben eine
+<input type="button"
+value="_________"
+name="button1"
+onClick="f5.button1.value='h&ouml;here'" />
+Pr&auml;zedenz als die folgenden Operatoren (wie &lt; , &gt;, &gt;=, &&, || ),
+so dass Arithmetik
+<input type="button"
+value=" _______ "
+name="button2"
+onClick="f5.button2.value='zuerst'" /> ausgef&uuml;hrt wird.
+</p>
+</form>
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form name="f6">
+<p>
+<b>6.</b> &nbsp; Relationale Operatoren (wie &lt;, &gt;, &lt;=) haben eine
+<input type="button"
+value="_________"
+name="button1"
+onClick="f6.button1.value='h&ouml;here'" /> Pr&auml;zedenz als logische Operatoren (wie &&, || ), so dass
+der Vergleich von Zahlen als
+<input type="button"
+value=" __________ "
+name="button2"
+onClick="f6.button2.value='n&auml;chstes'" /> ausgef&uuml;hrt wird.
+Da die logischen Operatoren die geringste Pr&auml;zedenz haben, werden sie
+<input type="button"
+value=" _______ "
+name="button3"
+onClick="f6.button3.value='zuletzt'" /> ausgef&uuml;hrt.
+</p>
+</form>
+<!-- ------------------------end of  question --------------------------------- -->
+<hr />
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form name="f7">
+<p>
+<b>7.</b> &nbsp; <font size=+1><code>1+2 &gt; 4-2 && 12 &lt; 23</code></font>&nbsp;&nbsp;ergibt&nbsp;
+<input type="button"
+value="  true/ false  "
+name="button1"
+onClick="f7.button1.value='  true  '" /> .
+</p>
+</form>
+<!-- ------------------------end of  question --------------------------------- -->
+
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form name="f8">
+<p>
+<b>8.</b> &nbsp; <font size=+1><code>1+2 &gt; 4-2 || 12 &lt; 23</code></font>&nbsp;&nbsp;ergibt&nbsp;
+<input type="button"
+value="  true/ false  "
+name="button1"
+onClick="f8.button1.value='  true  '" /> .
+</p>
+</form>
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form name="f9">
+<p>
+<b>9.</b> &nbsp; <font size=+1><code>1+2 &gt; 4-2 && 12 &gt; 23</code></font>&nbsp;&nbsp;ergibt&nbsp;
+<input type="button"
+value="  true/ false  "
+name="button1"
+onClick="f9.button1.value='  false  '" /> .
+</p>
+</form>
+<!-- ------------------------end of  question --------------------------------- -->
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form name="f10">
+<p>
+<b>10.</b>&nbsp;<font size=+1><code>1+2 &gt; 4-2 || 12 &gt; 23</code></font>&nbsp;&nbsp;ergibt&nbsp;
+<input type="button"
+value="  true/ false  "
+name="button1"
+onClick="f10.button1.value='  true '" /> .
+</p>
+</form>
+<!-- ------------------------end of  question --------------------------------- -->
+
+<hr />
+<p>Ende des Tests.  Wenn Sie ihn wiederholen m&ouml;chten, laden Sie die Seite in Ihrem Browser neu.</p>
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#14">Inhaltsverzeichnis</a>.
+</p>
+
+</body>
+</html>

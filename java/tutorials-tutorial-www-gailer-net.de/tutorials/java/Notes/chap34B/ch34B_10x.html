@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org " />
+<meta name="robots" content="index,follow" />
+<title>Immutable Strings</title>
+<link rel="stylesheet" type="text/css" href="CAIstyle.css" />
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+</head>
+
+<body>
+<div class="lesson">
+<table align="right">
+<tr><td>
+<pre class="program">
+class MyPoint
+{
+  public int x=3, y=5;
+
+  public void print()
+  {
+    System.out.println("x = " + x + "; y = " + y );
+  }
+}
+
+class PointTester
+{
+  public static void main ( String[] args )
+  {
+    MyPoint pt = new MyPoint();
+
+    pt.print();
+
+    pt.x = 45;  pt.y = 83;
+
+    pt.print();
+  }
+}
+</pre>
+</td></tr>
+</table>
+
+</div>
+
+</body>
+</html>
+
+<!-- This document saved from http://chortle.ccsu.edu/cs151/Notes/chap34B/ch34B_10.html -->

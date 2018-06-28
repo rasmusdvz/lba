@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+
+<hr />
+<p>
+<small>erstellt 27.05.03; &uuml;bersetzt 20.06.03; &uuml;berarbeitet 17.02.04, 24.01.05; &copy; Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+<hr />
+
+<center><h1><span class="blue">
+Kapitel 46 Programmieraufgaben</span></h1></center>
+
+<p>
+Arrays k&ouml;nnen verwirrend sein.
+Studenten kommen manchmal bis zu Arrays und machen von da an nicht weiter.
+Das hat sich f&uuml;r alle Programmiersprachen &#8212; BASIC, FORTRAN, Pascal und Java &#8212; als wahr erwiesen.
+Das Problem mit Arrays ist, dass jetzt in den Anweisungen
+zus&auml;tzlich indexiert werden muss, damit sie ihre &uuml;bliche
+Arbeit tun.
+Zuweisungsanweisungen waren gewohnt einfach:
+</p>
+
+<pre>
+summe = ergebnis + wert;
+</pre>
+
+<p>
+Jetzt k&ouml;nnen Sie kompliziert sein:
+</p>
+
+<pre>
+summe = ergebnis[j] + wert[k];
+</pre>
+
+<p>
+Tats&auml;chlich sind Arrays nicht schwierig,
+sobald Sie sich mit der Notation vertraut gemacht haben,
+und das braucht einige &Uuml;bung.
+Diese Aufgaben geben Ihnen &Uuml;bung in der Verwendung von Indizes.
+</p>
+
+<p>
+Kopieren Sie jedes Programmgrundger&uuml;st in
+Ihren Editor und vervollst&auml;ndigen Sie es dort
+wie vorgegeben.
+Kompilieren und starten Sie dann das Programm.
+</p>
+
+<hr />
+
+<h2>Aufgabe 1 &#8212;  Array Summe </h2>
+
+<p>
+Begutachten Sie das folgende Programm:
+</p>
+
+<pre>
+class Uebung1
+{
+  public static void main ( String[] args )
+  {
+    int[] arr = {0, 1, 2, 3};
+
+    int summe  =
+
+    System.out.println( "Summe aller Zahlen = " + summe );
+
+   }
+}
+</pre>
+
+<p>
+Vervollst&auml;ndigen Sie die Zuweisungsanweisung,
+so dass sie die Summe der Zahlen im Array berechnet.
+</p>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#46">Inhaltsverzeichnis</a>.
+</p>
+
+<hr />
+
+
+<h2>Aufgabe 2 &#8212; Zwei Arrays</h2>
+
+<p>
+Begutachten Sie das folgende Programm:
+</p>
+
+<pre>
+class Uebung2
+{
+  public static void main ( String[] args )
+  {
+    int[] arr = {13, -4, 82, 17};
+    int[] doppelt;
+
+    System.out.println( "Urspruengliches Array: "
+        + arr[0] + " " + arr[1] + " " + arr[2] + " " + arr[3] );
+
+    // Konstruieren Sie ein Arrayobjekt für doppelt.
+
+
+    // Stellen Sie Werte in doppelt, die zweimal so groß sind
+    // als ihre entsprechenden Werte in arr
+
+
+
+    System.out.println( "Neues Array: "
+        + doppelt[0] + " " + doppelt[1] + " " + doppelt[2] + " " + doppelt[3] );
+   }
+}
+</pre>
+
+<p>
+Vervollst&auml;ndigen Sie das Programm, so dass
+ein neues Array <code>doppelt</code> konstruiert wird.
+Kopieren Sie jetzt die Werte von <code>arr</code> nach <code>doppelt</code>,
+aber machen Sie die Werte in <code>doppelt</code> zweimal so gro&szlig; als wie
+sie in <code>arr</code> sind.
+</p>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#46">Inhaltsverzeichnis</a>.
+</p>
+
+<hr />
+
+<h2>Aufgabe 3 &#8212; Drei Arrays</h2>
+
+<p>
+Begutachten Sie das folgende Programm:
+</p>
+
+<pre>
+class Uebung3
+{
+  public static void main ( String[] args )
+  {
+    int[] arrA   = { 13, -22,  82,  17};
+    int[] arrB   = {-12,  24, -79, -13};
+    int[] summe    = {  0,   0,   0,   0};
+
+    // Addieren Sie die Werte der entsprechenden Slots von arrA und arrB,
+    // und stellen Sie das Ergebnis in den entsprechenden Slot von summe.
+
+
+
+
+    System.out.println( "Summe: "
+        + summe[0] + " " + summe[1] + " " + summe[2] + " " + summe[3] );
+   }
+}
+</pre>
+
+<p>
+Vervollst&auml;ndigen Sie das Programm
+mit vier Zuweisungsanweisungen,
+so dass jeder Slot von <code>summe</code>
+die Summe der entsprechenden Slots von
+<code>arrA</code> und <code>arrB</code> enth&auml;lt.
+D.h., addieren Sie Slot 0 von <code>arrA</code>
+mit Slot 0 von <code>arrB</code> und stellen Sie das
+Ergebnis in den Slot 0 von <code>summe</code> und so weiter.
+</p>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#46">Inhaltsverzeichnis</a>.
+</p>
+
+<hr />
+
+
+<h2>Aufgabe 4 &#8212; Die gleiche Summe</h2>
+
+<p>
+Begutachten Sie das folgende Programm:
+</p>
+
+<pre>
+class Uebung4
+{
+  public static void main ( String[] args )
+  {
+    int[] arrA   = { 13, -22,  82,  17};
+    int[] arrB   = {  0,   0,   0,   0};
+
+    // Stellen Sie Werte in arrB, so dass die Summe der Werte
+    // der entsprechenden Slots von arrA und arrB 25 ist.
+
+
+
+
+
+    System.out.println( "arrA: "
+        + arrA[0] + " " + arrA[1] + " " + arrA[2] + " " + arrA[3] );
+
+    System.out.println( "arrB: "
+        + arrB[0] + " " + arrB[1] + " " + arrB[2] + " " + arrB[3] );
+
+    System.out.println( "Summe:  "
+        + (arrA[0]+arrB[0]) + " " + (arrA[1]+arrB[1]) + " "
+        + (arrA[2]+arrB[2]) + " " + (arrA[3]+arrB[3]) );
+   }
+}
+</pre>
+
+<p>
+Vervollst&auml;ndigen Sie das Programm
+mit vier Zuweisungsanweisungen,
+die Werte in <code>arrB</code> stellen,
+so dass die Summe der entsprechenden Slots
+von <code>arrA</code> und <code>arrB</code> 25 ist.
+</p>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#46">Inhaltsverzeichnis</a>.
+</p>
+<hr />
+
+
+<h2>Aufgabe 5 &#8212;  Umgekehrte Reihenfolge</h2>
+
+<p>
+Begutachten Sie das folgende Programm:
+</p>
+
+<pre>
+class Uebung5
+{
+  public static void main ( String[] args )
+  {
+    int[] arr = {0, 1, 2, 3};
+    int temp;
+
+    System.out.println( "Urspruengliches Array: "
+        + arr[0] + " " + arr[1] + " " + arr[2] + " " + arr[3] );
+
+    // Kehren Sie die Reihenfolge der Zahlen in dem Array um
+
+
+
+
+    System.out.println( "Umgekehrtes Array: "
+        + arr[0] + " " + arr[1] + " " + arr[2] + " " + arr[3] );
+   }
+}
+</pre>
+
+
+<p>
+Vervollst&auml;ndigen Sie das Programm, so dass
+die Zahlen in dem Array in umgekehrter Reihenfolge erscheinen.
+Sie werden eine Variable <code>temp</code> brauchen, um das zu tun.
+</p>
+
+<p>
+Hinweis: dies ist eine schwierigere Aufgabe als Sie denken m&ouml;gen.
+Ich stelle sie manchmal in den Pr&uuml;fungen Mitte des Semesters
+und manche Studenten k&ouml;nnen sie nicht l&ouml;sen.
+</p>
+<p>Zur&uuml;ck zum <a HREF="../../java-toc.html#46">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+</body>
+</html>

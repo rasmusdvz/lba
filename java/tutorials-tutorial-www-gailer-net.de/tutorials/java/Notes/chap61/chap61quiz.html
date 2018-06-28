@@ -1,0 +1,554 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="copyright" content="2006">
+<meta name="author" content="B. P. Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+
+<title>Quiz &uuml;ber Komponenten und Layout</title>
+
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css">
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+</head>
+
+<body>
+<p class="revisions">&uuml;berarbeitet 05.10.03, 18.02.11; &uuml;bersetzt 26.02.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+
+<div align="center">
+<h1>
+Quiz &uuml;ber Komponenten und Layout
+</h1>
+</div>
+
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+W&auml;hlen Sie f&uuml;r jede Frage die beste Antwort und klicken Sie dann auf das entsprechende Optionsk&auml;stchen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Wenn das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox nach jeder Frage.
+</p>
+
+
+<br clear="all">
+
+
+<hr>
+<form action=""name="question1">
+<p>
+1.
+
+Wie k&ouml;nnen Zahlen &uuml;ber ein grafisches Interface eingegeben werden?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onclick="question1.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Der Anwender gibt Text in ein Textfeld ein.
+Das Programm muss den Text in einen
+primitiven numerischen Typ konvertieren.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question1.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Der Anwender muss die "Numlock"-Taste auf der Tastatur dr&uuml;cken,
+so dass Zahlen und nicht Text eingegeben wird.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question1.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Der Anwender gibt Text in eine Textbox ein.
+Die Textbox gibt an das Programm numerische Daten zur&uuml;ck.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question1.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Wenn die Ziffern nicht von Anf&uuml;hrungszeichen umgeben sind,
+sind sie automatisch numerische Daten.
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form action=""name="question2">
+<p>
+2.
+
+Welcher Typ von Objekt bestimmt, wo GUI-Komponenten
+in einem Inhaltsbereich gestellt werden?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onclick="question2.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Der Layer-Organisator.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question2.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Der GUI-Manager.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question2.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Der Layoutmanager.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question2.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Der Framemanager.
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form action=""name="question3">
+<p>
+3.
+
+Welches ist die Klasse f&uuml;r Swing Labels?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onclick="question3.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+JLabel
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question3.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Label
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question3.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+SLable
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question3.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+label
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form action=""name="question4">
+<p>
+4.
+
+Wie stellt <code>FlowLayout()</code> Komponenten
+in den Frame?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Er beginnt oben, dann von links nach rechts f&uuml;r jede Zeile.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Er beginnt unten, dann von rechts nach links f&uuml;r jede Zeile.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Er beginnt in der Mitte und geht dann spiralenf&ouml;rmig nach au&szlig;en.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Er stellt die erste Komponente in die Mitte und quetscht den Rest darum herum.
+
+</tr></td>
+
+</table>
+
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form action=""name="question5">
+<p>
+5.
+Wann erzeugt ein Textfeld einen Action-Event?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Wenn das Feld den Fokus hat und die Eingabetaste gedr&uuml;ckt wird.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'">
+
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+F&uuml;r jedes Zeichen, dass in das Feld eingegeben wird.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Immer wenn der Frame den Fokus hat und die Eingabetaste gedr&uuml;ckt wird.
+
+</tr></td>
+
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'">
+
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+Wenn das Textfeld den Fokus verliert.
+
+</tr></td>
+
+</table>
+
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form action=""name="question6">
+<p>
+6.
+
+Welches Interface muss eine Klasse implementieren,
+um einen Listener f&uuml;r Action-Events zu bekommen?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onclick="question6.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+TextListener
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question6.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Runnable
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question6.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+ActionListener
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question6.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+ImageConsumer
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="C">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form action=""name="question7">
+<p>
+7.
+
+Welche Methode wird verwendet, um Text aus einem <code>JTextField</code> zu lesen?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onclick="question7.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<code>readText()</code>
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question7.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+<code>getText()</code>
+
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question7.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+<code>getString()</code>
+
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question7.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+<code>putText()</code>
+
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form action=""name="question8">
+<p>
+8.
+
+Welchen Eventtyp erzeugt ein Buttonklick?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onclick="question8.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+ActionEvent
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question8.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+ButtonEvent
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question8.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+ClickEvent
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question8.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+DoItEvent
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="A">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form action=""name="question9">
+<p>
+9.
+
+Eine grafische Benutzeroberfl&auml;che enth&auml;lt mehrere Komponenten,
+die Ereignisse erzeugen.
+Was sollte getan werden, damit die verschiedenen Ereignisse erkannt werden k&ouml;nnen?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onclick="question9.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+<code>setEditable( true )</code> f&uuml;r jede Komponente verwenden.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question9.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+<code>setActionCommand()</code> f&uuml;r jede Komponente verwenden.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question9.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Jede Komponente zu einem verschiedenen Typ machen.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question9.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+Der Listener betrachtet die Werte in den Variablen,
+um zu bestimmen von welcher Komponente ein Ereignis kommt.
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+
+<hr>
+<form action=""name="question10">
+<p>
+10.
+
+Wenn der Anwender die Gr&ouml;&szlig;e des Frames &auml;ndert,
+was passiert mit den grafischen Komponenten?
+
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onclick="question10.response.value='A'">
+<b>A.&nbsp;&nbsp;&nbsp;</b>
+
+Sie bleiben wo sie sind, nur der Frame wird gr&ouml;&szlig;er.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question10.response.value='B'">
+<b>B.&nbsp;&nbsp;&nbsp;</b>
+
+Der Layoutmanager &auml;ndert das  Layout und
+verteilt die Komponenten neu.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question10.response.value='C'">
+<b>C.&nbsp;&nbsp;&nbsp;</b>
+
+Der Anwender kann die Gr&ouml;&szlig;e eines Frames nicht &auml;ndern,
+wenn das Programm <code>setSize</code> verwendet hat.
+
+</td></tr>
+
+<tr><td><input type="radio" name="questradio" value="" onclick="question10.response.value='D'">
+<b>D.&nbsp;&nbsp;&nbsp;</b>
+
+<code>repaint()</code> ruft den Konstruktor des Frames,
+der alles wieder dahin zur&uuml;cksetzt, wie es vorher war.
+
+</td></tr>
+
+</table>
+<input type="hidden" name="answer" value="B">
+<input type="text" name="correct" value="  " size="5">
+<input type="hidden" name="response" value="" >
+</form>
+<hr>
+
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+</p>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+
+<p><a href="../../index.html#61"><img class="left" src="../homeIcon.gif" alt="Inhalt" border="0"></a>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</p>
+
+<p>Um die alten Antworten zu l&ouml;schen, halten Sie die Strg-Taste gedr&uuml;ckt und laden dann die Seite neu (Firefox). Bei anderen Browsern funktioniert das in Verbindung mit der Umschalt- bzw. Strg+Umschalt-Taste. Beim Internet Explorer 8 muss die Seite verlassen und erneut aufgerufen werden.</p>
+
+</body>
+</html>

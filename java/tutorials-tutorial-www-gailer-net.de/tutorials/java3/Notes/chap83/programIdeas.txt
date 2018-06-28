@@ -1,0 +1,3 @@
+Write out the power of two table
+with html tags so that it becomes
+a web page:

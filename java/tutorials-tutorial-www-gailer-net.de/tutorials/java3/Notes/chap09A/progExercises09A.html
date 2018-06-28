@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Kapitel 9A Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css" />
+</head>
+
+<body><hr />
+<small>erstellt 30.07.99; &uuml;berarbeitet 24.04.00; &uuml;bersetzt 03.03.03; &uuml;berarbeitet 12.11.03, 20.04.04, 07.04.05, 29.09.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<!--korrigiert 04.07.03-->
+<!--04.07.03 XHTML-Style-->
+<center>
+<h1>Kapitel 9A  Programmieraufgaben</h1>
+</center>
+<p>
+<b>Allgemeine Hinweise:</b>
+Schreiben Sie jedes Programm wie angegeben.
+Keines dieser Programme erwartet die Eingabe von Daten durch den Anwender.
+Die Werte, die von den Programmen verwendet werden, sind durch Deklaration und Zuweisungsanweisungen  fest kodiert.
+Das ist normalerweise eine schlechte Form der Programmierung.
+Die Eingabe von Daten wird in den n&auml;chsten zwei Kapiteln behandelt.
+Sobald Sie diese Kapitel gelesen haben, k&ouml;nnen Sie zur&uuml;ckkommen und eine bessere Version dieser Programme schreiben.
+</p>
+
+<p>
+<b>Hinweis:</b>
+Jede Aufgabe verlangt, dass Sie das Programm mehrmals mit verschiedenen Werten ausf&uuml;hren.
+Das ist ein wichtiger Bestandteil der Aufgabe!
+Experimentieren Sie mit Ihren Programmen. Nur so bekommen Sie ein grundlegendes  Verst&auml;ndnis f&uuml;r Ihr Programm und ein Gef&uuml;hl f&uuml;r das Programmieren.
+</p>
+
+<hr />
+<h2>Aufgabe 1 &#8212 Lohn Programm</h2>
+<p>
+Betrachten Sie das folgende Programm:
+<blockquote>
+<pre>
+class Lohn
+{
+  public static void main ( String[] args )
+  {
+    long   gearbeiteteStunden = 40;
+    double stundenLohn     = 10.0, steuerSatz = 0.10;
+    System.out.println("Arbeitszeit: " + gearbeiteteStunden );
+    System.out.println("Bruttolohn: " + (gearbeiteteStunden * stundenLohn) );
+    System.out.println("Steuerbetrag: " + (gearbeiteteStunden * stundenLohn * steuerSatz) );
+  }
+}
+</pre>
+</blockquote>
+<p>
+Modifizieren Sie das Programm, so dass jede Variable f&uuml;r sich deklariert, aber nicht initialisiert wird.
+Schreiben Sie dann drei Zuweisungsanweisungen, um den Variablen Werte zu zuweisen.
+F&uuml;hren Sie das Programm aus und betrachten Sie die Ausgabe.
+</p>
+
+<p>
+Nun wollen wir einen Fehler produzieren.
+Entfernen Sie eine der Deklarationen.
+Kann das Programm noch kompiliert werden?
+</p>
+<p>
+Jetzt entfernen wir eine der Initialisierungen von unserem korrekten Programm, z.B. die Zeichen "=40" f&uuml;r die Variable gearbeiteteStunden.
+Versuchen Sie das Programm zu kompilieren und auszuf&uuml;hren.
+Wann wird das Problem entdeckt?
+</p>
+<p>
+Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#09A">Inhaltsverzeichnis</a>.
+</p>
+<hr />
+<h2>Aufgabe 2  &#8212  Wert einer Quadratgleichung</h2>
+<p>
+Angenommen Sie sind an den Werten der Quadratgleichung
+</p>
+<blockquote>
+<pre>
+3x<sup>2</sup> -8x + 4
+</pre>
+</blockquote>
+<form>
+<p>f&uuml;r verschiedene Werte von x interessiert.
+<input type="button" value="Huh?"
+onClick="alert('In Java sieht die Berechnung f&uuml;r die Gleichung so aus: 3 * x * x - 8 * x + 4')" />
+</p>
+</form>
+<p>Schreiben Sie ein Programm mit einer Variablen <code>x</code> vom Typ <code>double</code>.
+Weisen Sie der Variablen einen Wert zu.
+Schreiben Sie eine Anweisung, die den Wert der Quadratgleichung berechnet und das Ergebnis in eine andere Variable vom Typ <code>double</code> schreibt.
+Lassen Sie das Ergebnis ausgeben, ungef&auml;hr in der Form:
+</p>
+<blockquote>
+<pre>
+Bei x = 4.0 ergibt die Quadratgleichung den Wert 20.0
+</pre>
+</blockquote>
+
+<p>
+F&uuml;hren Sie das Programm f&uuml;r verschiedene Werte von x aus und betrachten Sie das Ergebnis.
+Verwenden Sie Dezimalwerte, gro&szlig;e und kleine Werte, negative Werte und  Nullwerte.
+Die Quadratgleichung <em>sollte</em> bei <code>x = 2.0</code>  und bei <code>x = 2/3</code> Null ergeben.
+Testen Sie diese Werte f&uuml;r <code>x</code>.
+Ist das Ergebnis richtig?
+</p>
+
+<form>
+<input type="button" value="Hinweis"
+onClick="alert('Es ist leicht m&ouml;glich, dass Ihnen ein h&auml;ufiger Fehler unterl&auml;uft. &Uuml;berpr&uuml;fen Sie Ihr Programm, ob es die richtigen Werte berechnet. Wenn nicht, versuchen Sie den Fehler zu finden.')">
+</form>
+<p>
+Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#09A">Inhaltsverzeichnis</a>.
+</p>
+<hr />
+<h2>Aufgabe 3 &#8212 Erneute Wertzuweisung an Variable</h2>
+<p>
+Ver&auml;ndern Sie das Programm aus Aufgabe 2, so dass es die verschiedenen
+Ergebnisse f&uuml;r x: 0.0, 2.0 und 4.0 nacheinander berechnet und ausgibt.
+</p>
+
+<p>
+Verwenden Sie f&uuml;r dieses Programm NUR zwei Variable mit den Namen <code>x</code> und <code>ergebnis</code>.
+
+Das hei&szlig;t nat&uuml;rlich, dass Sie den Variablen verschiedene Werte an verschiedenen Stellen des Programms zuweisen m&uuml;ssen.
+</p>
+
+<p>
+Nutzen Sie beim Schreiben des Programms die Kopieren- und Einf&uuml;gen-Funktionen des Editors.
+</p>
+
+<p>
+Zur&uuml;ck zum <a href="../../java-toc.html#09A">Inhaltsverzeichnis</a>.
+</p>
+
+<hr />
+<p>Ende der Aufgaben</p>
+
+</body>
+</html>

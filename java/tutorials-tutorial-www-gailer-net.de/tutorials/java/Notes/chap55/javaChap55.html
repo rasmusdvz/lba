@@ -1,0 +1,699 @@
+<?xml version="1.0" standalone="yes" ?>
+
+<!-- Jan. 26, 2000  bpk   INDEX  -->
+<!-- Jan. 06, 2002  bpk   Conversion to Swing  -->
+<!-- July 24, 2002  bpk   xml and css -->
+<!-- Feb. 03, 2004  bpk   small changes, smoother gif images -->
+
+<COPYRIGHTDATE>2008</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2010, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#55</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+
+<CAI> CHAPTER 55 &#8212; Einf&uuml;hrung in GUI Programmierung
+<p class="revisions">erstellt: 24.3.99 (mit AWT); &uuml;berarbeitet: 06.01.02 (mit Swing), 03.02.04, 12.02.05, 17.07.06, 20.09.08; &uuml;bersetzt 03.02.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+
+<LESSON>
+
+<INDEX>Swing</INDEX>
+
+<p>
+Dieses Kapitel f&uuml;hrt in die Programmierung grafischer Benutzeroberfl&auml;chen (GUI) ein. Anwender kommunizieren mit modernen Applikationsprogrammen mit Hilfe grafischer Komponenten wie Fenstern, Befehlsschaltfl&auml;chen, Eingabefeldern und Men&uuml;s. Es w&auml;re schwierig eine GUI Applikation von Grund auf zu schreiben. Gl&uuml;cklicherweise wurde schon das meiste der Arbeit f&uuml;r Sie getan, in einer Gruppe von Klassen mit dem Namen <b>Swing</b>.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Ereignsigesteuerte Programmierung</li>
+<li>Grafische Benutzeroberfl&auml;chen</li>
+<li>Die drei Teile eines GUI</li>
+<li>GUI Komponenten</li>
+<li>Container</li>
+<li>Das Abstract Windowing Toolkit (AWT) </li>
+<li>Wie das AWT mit Swing zusammenh&auml;ngt </li>
+<li>Swing Klassenhierarchie</li>
+</ul>
+
+
+<p>
+Swing ist ein gro&szlig;es Paket. Diese Aufzeichnungen beprechen nur die wichtigsten Grundlagen. Weitere Informationen finden Sie in der Dokumention von Sun.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was meinen Sie wie &quot;GUI&quot; ausgesprochen wird?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Swing und das AWT
+<ANSWER>
+<p>
+In den USA wird "GUI" wie "gooey" ausgesprochen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Application Windowing Toolkit</INDEX>
+<INDEX>AWT</INDEX>
+<INDEX>component</INDEX>
+
+<p>
+Eine grafische Benutzoberfl&auml;che besteht aus grafischen Komponenten, wie:
+</p>
+
+<ul>
+<li>Fenster</li>
+
+<li>Befehlsschaltfl&auml;chen</li>
+<li>Men&uuml;s</li>
+<li>Textfeldern</li>
+</ul>
+
+<p>
+<b>Swing</b>-Komponenten basieren auf den fundamentalen Klassen des
+<em>Application Windowing Toolkit</em> (AWT). Das AWT enth&auml;lt auch einige &auml;ltere Komponenten, die nicht mehr verwendet werden. Swing-Komponenten sind Bestandteil von Java. Wenn Sie die neueste Java Version heruntrerladen, dann ist Swing ein Teil davon.
+</p>
+
+<p>
+Die &auml;lteren AWT-Komponenten sind &auml;hnlich wie die Swing-Komponenten, aber Swing-Komponenten sind  vielseitiger.
+Auch ist Swing nahtlos in die <b>Java Foundation Klassen</b> integriert.
+Die Java  Foundation Klassen stellen viele Klassen zur Verf&uuml;gung, die f&uuml;r moderne Softwareentwicklung notwendig sind.
+Verwenden Sie Swing f&uuml;r alle neuen Programmcodes.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Ist eine Befehlsschaltfl&auml;che eine GUI Komponente?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ereignisse
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Ein GUI Programm zeigt ein Interface, das grafische Komponenten enth&auml;lt.
+Der Anwender kontrolliert die Applikation, indem er mit den grafischen Komponenten
+kommuniziert und dabei solche Dinge tut wie:
+</p>
+
+<ul>
+<li>Auf eine Befehlsschaltfl&auml;che zu klicken, um eine Programmoption zu w&auml;hlen.</li>
+<li>Aus einem Men&uuml; auszuw&auml;hlen.</li>
+<li>Text in ein Textfeld einzugeben.</li>
+<li>Eine Bildlaufleiste zu scrollen.</li>
+
+</ul>
+
+<p>
+Eine Aktion, wie auf eine Befehlsschaltfl&auml;che zu klicken, wird ein <b>Ereignis</b> genannt.
+W&auml;hrend Sie diese Aufzeichnungen lesen erzeugen Sie Ereignisse, indem Sie die grafische Benutzeroberfl&auml;che Ihres Browsers verwenden.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Erzeugen Sie ein Ereignis.
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+
+<CAI>Ereignisgesteuerte Programmierung
+<ANSWER>
+<p>
+Klick!
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>event</INDEX>
+<INDEX>event-driven programming</INDEX>
+
+<p>
+Wenn Sie mit einer grafischen Komponente eine Aktion ausf&uuml;hren,
+erzeugen Sie ein <b>Ereignis</b>.
+In der <b>ereignisgesteuerten Programmierung</b> antwortet das Programm auf diese Ereignisse.
+Die Reihenfolge der Ereignisse wird vom Anwender bestimmt, nicht vom Programm.
+</p>
+
+<p>
+Das unterscheidet sich von Programmen, bei denen die Interaktion mit dem Benutzer &uuml;ber die Konsole stattfindet.
+Bei diesen Programmen werden Eingabeaufforderungen auf die Konsole ausgegeben, und der Anwender antwortet auf diese Eingabeaufforderungen.
+Die Reihenfolge dieser Eingabeaufforderungen wird durch das Programm bestimmt.
+</p>
+
+<form>
+<p>
+Sie k&ouml;nnen z.B. ein Ereignis erzeugen, indem Sie auf diese Befehlsschaltl&auml;che klicken: &nbsp;
+<input value="Erzeugen Sie ein Ereignis" onclick="alert('Der Browser hat Ihr Ereignis gehandhabt.')" type="button">&nbsp;
+Oder klicken Sie auf diese Schaltfl&auml;che: &nbsp;
+<input value="Erzeugen Sie ein weiteres Ereignis" onclick="alert('Der Browser hat gerade auf ein weiteres Ereignis reagiert.')" type="button"> &nbsp;
+
+Klicken Sie noch ein paar Mal in beliebiger Reihenfolge auf die Buttons.
+Das Programm (Ihr Webbrowser, in diesem Fall) ist ereignisgesteuert und antwortet auf die Ereignisse in der Reihenfolge wie Sie von Ihnen erzeugt wurden.
+</p>
+</form>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wie glauben Sie, wie habe ich diese Webseite erstellt:
+</p>
+
+<ul>
+<li>Indem ich tausende von Codezeilen von Grund auf geschrieben habe <b>oder</b></li>
+<li>indem ich HTML verwendet habe, um die Schaltfl&auml;chen-Objekte auf die Seite zu platzieren?</li>
+</ul>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Java GUI Programmierung
+<ANSWER>
+<p>
+Ich habe nur die Schaltfl&auml;chen Objekte genommen, die ich wollte.
+Jemand anderes hat die Programmierung erledigt.
+Die Befehlsschaltfl&auml;chen sind <b>Komponenten</b>, die mit einem Minimum an Aufwand hinzugef&uuml;gt werden k&ouml;nnen.
+</p>
+
+<p>
+Das ist vergleichbar mit dem Einkaufen in einem M&ouml;belgesch&auml;ft,
+um Komponenten zur Verbesserung Ihrer Wohnung einzukaufen.
+Die meisten Teile, die Sie brauchen, gibt es schon.
+Sie m&uuml;ssen sie nur noch zusammenbauen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<img src="guiUser.gif"  class="rightimage" title="Mouseover Event" alt="GUI und Mensch">
+
+<p>
+Beim Programmieren mit Java bekommen Sie die GUI Komponenten,
+die Sie m&ouml;chten, indem Sie sie anfordern.
+Das meiste der Arbeit wurde schon erledigt und ist im Paket Swing enthalten.
+Swing enth&auml;lt Fenster, Fra windows, frames, Befehlsschaltfl&auml;ches,
+menus and other Komponenten.
+</p>
+
+<p>
+Ein Anwender kommuniziert mit einer GUI Applikation, indem er Ereignisse ausl&ouml;st.
+Die Applikation muss auf die Ereignisse in der Reihenfolge in der sie eintreffen reagieren.
+Die Abblidung zeigt das. Jedes Mal wenn der Anwender mit einer Komponente etwas tut, wird ein Ereignis an
+die Applikation gesendet.
+Unterschiedliche Ereignisse werden an unterschiedliche Teile der Applikation gesendet.
+Die Applikation muss korrekt arbeiten, was auch immer der Anwender tut.
+(&Uuml;blicherweise ignoriert eine Applikation Ereignisse, die f&uuml;r sie nicht wichtig sind.)
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+
+<p>
+Bewegen Sie den Mauszeiger &uuml;ber die Abbildung.
+Das ist ein <code>mouseOver</code> Ereignis.
+Wird das Ereignis ignoriert?
+</p>
+
+<p>
+Bewegen Sie jetzt die Maus &uuml;ber die "next" Befehlsschaltfl&auml;che.
+Wird dieses Ereignis ignoriert?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die drei Teile eines GUI Programms.
+<ANSWER>
+<p>
+Bewegen Sie den Mauszeiger &uuml;ber das Abbildung.
+Ignoriert Ihr Browser dieses Ereignis?
+
+</p>
+
+<blockquote><span class="blue">
+Vielleicht. Manche Browser ignorieren dieses <code>mouseOver</code> Ergeignis.
+Die meisten Browser zeigen den Inhalt des title-Attributs an.</span>
+</blockquote>
+
+<p>
+Bewegen Sie jetzt die Maus &uuml;ber die "next" Befehlsschaltfl&auml;che.
+Wird dieses Ereignis ignoriert?
+</p>
+
+<blockquote><span class="blue">
+Normalerweise nicht. Die meisten Browser &auml;ndern den Mauszeiger und zeigen als <code>mouseOver</code> Ereignis eine Hand an.
+</span>
+</blockquote>
+
+<p>
+Nat&uuml;rlich, wenn Sie auf den Button klicken ist das ein anderes Ereignis
+und wird nicht ignoriert.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>GUI program, three tasks</INDEX>
+
+<p>
+Ein GUI Programm besteht aus drei Arten von Software:
+</p>
+
+<ol>
+<li><b>Grafische Komponenten</b>, die die grafische Benutzeroberfl&auml;che ausmachen.</li>
+<li><b>Listener-Methoden</b>, die die Ereignisse empfangen und auf sie reagieren.</li>
+<li><b>Applikationsmethoden</b>, die f&uuml;r den Anwender die n&uuml;tzliche Arbeit tun.</li>
+</ol>
+
+<p>
+Die grafischen Komponenten sind Swing-Objekte.
+Gew&ouml;hnlich erweitern Sie sie, damit sie zu Ihrer Applikation passen.
+</p>
+
+<p>
+Listener-Methoden sind Java Methoden, die Sie schreiben.
+Listener-Methoden antworten auf Ereignisse, indem sie Applikationsmethoden aufrufen.
+</p>
+
+<p>
+
+Applikationsmethoden sind normale Java Methoden, die n&uuml;tzliche Dinge tun.
+Sie empfangen Daten von der grafische Benutzeroberfl&auml;che und senden Daten an die grafische Benutzeroberfl&auml;che,
+aber sind gew&ouml;hnlich nicht mit der grafische Benutzeroberfl&auml;che befasst.
+</p>
+
+<p>
+Ihr Webbrowser hat Komponenten, wie den "zur&uuml;ck" und "vor" Button.
+Listener-Methoden empfangen diese Ereignisse  und
+Applikationsmethoden tun die n&uuml;tzlichen Dinge, wie eine Seite zur&uuml;ck oder vorgehen.
+</p>
+
+<p>
+Um eine GUI Applikation zu schreiben,
+halten Sie diese drei Teile eines Programms getrennt.
+Bei einem gro&szlig;en Softwareprojekt arbeiten komplette Teams von
+Programmierern an jedem dieser Teile.
+</p>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Stellen Sie ein Radio mit seinem Benutzerschnittstelle vor.
+Welches Teil eines Radios entspricht sinngem&auml;&szlig; welchem Teil einer GUI Applikation.
+</p>
+
+<form>
+<table>
+<tr class="headings"><th>Radio </th> <th>Vergleichbare GUI Teile</th> </tr>
+<tr><td>Lautsprecher und Kontrollkn&ouml;pfe.</td> <td> <input name="butt1" value=". . . . . . ? . . . . . ." onclick="butt1.value ='Grafische Komponenten'" type="button"> </td> </tr>
+<tr><td>Elektronische Steuerung, Schaltelemente und  Widerst&auml;nde.</td> <td>  <input name="butt2" value=". . . . . . ? . . . . . ." onclick="butt2.value ='Listener-Methoden'" type="button"> </td> </tr>
+<tr><td>Empf&auml;ngerelektronik und Audio-Verst&auml;rker.</td> <td>  <input name="butt3" value=". . . . . . ? . . . . . ." onclick="butt3.value ='Applikationsmethoden'" type="button"> </td> </tr>
+</table>
+</form>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Real-World Interfaces
+<ANSWER>
+
+
+<table>
+<tr class="headings"><th>Radio </th> <th>Vergleichbare GUI Teile</th> </tr>
+<tr><td>Lautsprecher und Kontrollkn&ouml;pfe.</td> <td>Grafische Komponenten</td> </tr>
+<tr><td>Elektronische Steuerung, Schaltelemente und  Widerst&auml;nde.</td> <td> Listener-Methoden</td> </tr>
+<tr><td>Empf&auml;ngerelektronik und Audio-Verst&auml;rke.</td> <td>Applikationsmethoden</td> </tr>
+</table>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+Nicht-Software Ger&auml;te haben normalerweise ebenfalls eine Benutzerschnittstelle.
+Sie haben:
+</p>
+
+<ol>
+<li>Komponenten, die die Benutzerschnittstelle ausmachen.
+    <ul><li>Kn&ouml;pfe, Befehlsschaltfl&auml;chen, Schalter, Kipphebel u.a.</li></ul></li>
+<li>Teile, die mit den Komponenten der Benutzerschnittstelle verbunden sind.
+    <ul><li>Diese "&uuml;bersetzen" die Aktion des Anwenders in etwas, womit der Rest des Ger&auml;ts
+    etwas tun kann.</li></ul></li>
+<li>Der Teil des Ger&auml;ts, das die tats&auml;chliche Arbeit tut.</li>
+</ol>
+
+</LESSON>
+
+<QUESTION>
+<form>
+<p>
+Denkfrage: Welches ist die eine grafische Komponente, die (fast) jedes
+GUI Programm haben muss?
+Klicken Sie hier f&uuml;r einen &nbsp;
+<input type="button" value="Hinweis"
+onClick="alert('Entfernen Sie gedanklich alle grafischen Komponenten aus dem Browserfenster bis fast nichts mehr &uuml;brig ist.')">
+</p>
+</form>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Containerklassen
+<ANSWER>
+<p>
+Ein Fenster.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>container class</INDEX>
+<p>
+Ein GUI Programm besteht aus einer Sammlung grafischer Komponenten, die
+alle innerhalb eines oder mehrerer Fenster platziert sind.
+Die Komponenten sind in einem Fenster enthalten.
+Ein <b>Container</b> ist ein
+Objekt, das andere GUI Komponenten enthalten kann.
+Visuell gesehen ist ein Container ein Fl&auml;che auf dem Bildschirm und die
+Objekte, die er enth&auml;lt, werden in ihm als kleinere Fl&auml;chen angezeigt.
+</p>
+
+<p>
+In der Java Terminologie ist ein Fenster
+(wie das Browserfenster, das Sie betrachten)
+ein Container.
+Buttons, Schieberegler, Icons und andere GUI Komponenten werden immer
+in einen Container gestellt.
+</p>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage: ) Glauben Sie, dass ein Container
+andere Container enthalten kann?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Javaklassen (R&uuml;ckblick)
+<p>
+Kann ein Container andere Container enthalten?
+</p>
+<ANSWER>
+<p>
+Ja. Sie sehen das, wenn das Hauptfenster eines Browsers Frames enth&auml;lt,
+die wiederum andere Komponenten enthalten.
+</p>
+
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Die Component-Klassen, die das AWT und Swing ausmachen, sind miteinander &uuml;ber Vererbung verwandt.
+Die Klasse, die der ultimative Vorfahre aller anderen Klassen ist, wird <code>Object</code> genannt.
+Die Klasse <code>Object</code> definiert die grunds&auml;tzliche Natur aller Java Objekte.
+Vieles, was im Hintergrund passiert, wenn ein Java Programm l&auml;uft, wird durch <code>Object</code> definiert.
+Ein Teil der Javaklassen Hierarchie sieht aus wie dies:
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Object class</INDEX>
+
+<div align="center">
+<img src="javaHierarchyA.gif">
+</div>
+
+<p>
+Die "Wolken"  dr&uuml;cken die Idee aus,
+dass es sich um Klassendefinitionen und nicht um Objekte handelt.
+Die Abbildung zeigt, dass die Klassen <code>Boolean</code>, <code>Character</code>,
+<code>Component</code>, <code>String</code> und viele andere
+<code>Object</code> als direkten Vorfahren haben.
+Die Wolke f&uuml;r die <code>Component</code>-Klasse ist gepunktet,
+um zu zeigen, dass sie eine <em>abstrakte</em> Klasse ist.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick: ) Kann eine Kindklasse, zus&auml;tzlich zu den geerbten, eigene Methoden und Variablen haben?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>AWT Hierarchie
+<ANSWER>
+<p>
+Ja. Kindklassen der gleichen Elternklasse haben die Merkmale ihrer Elternklassen gemeinsam,
+aber jede Kindklasse hat zus&auml;tzliche Methoden und Variablen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>AWT Hierarchy</INDEX>
+
+<p>
+Das Java AWT (Abstract Windowing Toolkit) enth&auml;lt die fundamentalen
+Klassen, die f&uuml;r die Konstruktion von GUIs verwendet werden.
+Die abstrakte Klasse <code>Component</code> ist die Basisklasse des AWTs.
+Viele AWT Klassen sind von ihr abgeleitet.
+Das sind die alten AWT Komponenten, die nicht mehr verwendet werden.
+</p>
+
+<p>
+Einige der AWT Klassen, die von <code>Component</code> abgeleitet sind,
+sind <code>Button</code>, <code>Canvas</code> und <code>Container</code>.
+
+</p>
+
+<p>
+Die Abbildung zeigt wie die Klassen des AWT und
+Swing zusammenpassen.
+Betrachten Sie die Abbildung, um einen &Uuml;berblick zubekommen.
+Kehren Sie, w&auml;hrend Sie diese Aufzeichnungen lesen, gelegentlich zur&uuml;ck.
+</p>
+
+
+<div align="center">
+<img src="javaHierarchyB.gif">
+</div>
+
+<p>
+Die <b><code>JComponent</code></b>-Klasse
+ist von <code>Container</code> abgeleitet
+und ist eine der <strong>Basisklassen</strong> von Swing.
+
+Die <b><code>JFrame</code></b>-Klasse
+ist von der <code>Frame</code>-Klasse abgeleitet.
+Sie ist gew&ouml;hnlicherweise der Hauptcontainer einer GUI Applikation.
+</p>
+
+<p>
+Die <b><code>JApplet</code></b>-Klasse ist von der  AWT <code>Applet</code>-Klasse
+abgeleitet und wird f&uuml;r moderne Applets verwendet.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick:) Was ist eine <b>Containerklasse</b>?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code>JComponent</code>-Klasse
+<ANSWER>
+<p>
+Eine GUI Komponente, die von einer Containerklasse konstruiert wurde
+und die wieder andere GUI Komponenten enthalten kann.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>JComponent class</INDEX>
+<p>
+Objekte der <code>Container</code>-Klasse
+oder Klassen, die auf <code>Container</code> basieren,
+haben gemeinsame Merkmale:
+
+<ul>
+<li>Sie k&ouml;nnen Komponenten enthalten.</li>
+<li>Sie k&ouml;nnen selbst in Container gestellt werden.</li>
+<li>Sie k&ouml;nnen auf dem Bildschirm angezeigt werden.</li>
+<li>Sie erzeugen Ereignisse.</li>
+<li>Sie registrieren Ereignisempf&auml;nger (Eventlisteners) usw.</li>
+</ul>
+
+<p>
+Da alle Swingklassen <code>Container</code> als Vorfahren haben,
+haben alle Swingobjekte diese Merkmale.
+</p>
+
+<div align="center">
+<img src="javaHierarchyC.gif">
+</div>
+
+<p>
+Es gibt mehr Swingklassen als hier in der Abbildung gezeigt werden.
+Zum Beispiel gibt es mehrere Button Typen (wie JButton), die von
+<code>AbstractButton</code> abgeleitet sind.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Mit welchem Buchstaben beginnen viele Swingklassen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<p>
+Mit welchem Buchstaben beginnen viele Swingklassen?
+</p>
+<ANSWER>
+<p>
+Viele Swingklassen beginnen mit <code><b>J</b></code>
+(zum Beispiel <code>JButton</code>).
+Vergleichbare AWT Klassen beginnen nicht mit <code><b>J</b></code>
+(zum Beispiel <code>Button</code>).
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Sie haben das Ende des Kapitels erreicht.
+Sie m&ouml;chten vielleicht Ihr Wissen erweitern, in dem Sie das Folgende nochmals pr&uuml;fen.
+</p>
+
+<ul>
+<li>
+<GOTO>event</GOTO> Ereignisgesteuerte Programmierung.
+</li>
+
+<li>
+<GOTO>AWT</GOTO> Abstract Windowing Toolkit
+</li>
+
+<li>
+<GOTO>GUI program, three tasks</GOTO> Drei Teile eines GUI Programms.
+</li>
+
+<li>
+<GOTO>container class</GOTO> Was eine Containerklasse ist.
+</li>
+
+<li>
+<GOTO>AWT Hierarchy</GOTO> Die  AWT Klassenhierarchie
+</li>
+
+<li>
+<GOTO>JComponent class</GOTO> Die <code>JComponent</code>-Klasse.
+</li>
+
+</ul>
+
+<p>
+Das n&auml;chste Kapitel bespricht, wie man einen Ereignisempf&auml;nger einem Frame hinzuf&uuml;gt.
+</p>
+
+</LESSON>
+</CAI>
+</CHAPTER>

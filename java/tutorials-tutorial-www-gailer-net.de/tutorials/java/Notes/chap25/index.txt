@@ -1,0 +1,14 @@
+<INDEX>Objekt, Merkmale</INDEX>
+<INDEX>Objekte, als Speicher</INDEX>
+<INDEX>von Neumann</INDEX>
+<INDEX>Klasse, Definition</INDEX>
+<INDEX>Plätzchen, Ausstechform</INDEX>
+<INDEX>Cookie Monster</INDEX>
+<INDEX>statisch</INDEX>
+<INDEX>statische Methoden</INDEX>
+<INDEX>Klassenmethoden</INDEX>
+<INDEX>Virtuelle Maschine, Start</INDEX>
+<INDEX>Konstruktor</INDEX>
+<INDEX>Parameter</INDEX>
+<INDEX>Punkt-Notation</INDEX>
+

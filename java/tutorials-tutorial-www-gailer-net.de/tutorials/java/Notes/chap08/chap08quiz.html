@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" >                      
+<html>
+<head>
+
+<meta  http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="author" content="kjell at ieee dot org">
+<meta name="copyright" content="2008">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+<meta name="robots" content="index,follow">
+<meta name="robots" content="noindex,nofollow">
+
+<title>
+Quiz &uuml;ber primitive Datentypen
+</title>
+
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css">
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+-->
+</script>
+
+
+</head>
+
+
+<body>
+<p class="revisions">&uuml;bersetzt: 01.03.03; &uuml;berarbeitet 20.04.04, 29.09.06, 11.10.10; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+<!--04.07.03 XHTML-Style-->
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+Quiz &uuml;ber primitive Datentypen
+<!-- end of Quiz Name -->
+</h1></center>
+<img src="quizPart1.gif" align=left hspace=5 vspace=5 />
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+Entscheiden Sie sich bei jeder Frage f&uuml;r die beste Antwort. Klicken Sie dann auf das entsprechende Optionsk&auml;stchen, um diese Antwort auszuw&auml;hlen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Sobald das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox unterhalb der Frage.
+</p>
+<br clear="all" />
+
+<hr />
+<form name="question1">
+<p>
+1.
+<!-- FILL in Question 1-->
+Was ist ein <em>Datentyp</em>?
+
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+Das Rechenwerk der CPU.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+Ein Teil des Hauptspeichers, der f&uuml;r die Speicherung von Daten verwendet wird.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Ein besonderes Schema, um Werte in Bitmustern abbilden zu k&ouml;nnen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+Die Sammlung von Variablen, die ein Programm verwendet.
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+
+<hr />
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+Wie viele Bitmuster kann ein einzelnes Bit darstellen?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+1
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+2
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+8
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+
+<hr />
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+Was ist in Java ein <em>primitiver Datentyp</em>?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+Eine Methode um Werte zu repr&auml;sentieren, die so n&uuml;tzlich ist, dass sie ein wesentlicher Teil der Sprache ist.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+Eine einfache Art Zahlen darzustellen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Der Teil von Java, der mit dem &auml;lterer Programmiersprachen &uuml;bereinstimmt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+Ein Datentyp, der nicht als Teil eines Objekts verwendet werden kann.
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+
+<hr />
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+Braucht <em>jede</em> Variable in Java einen Datentyp?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+Nein &#8212; nur numerische Variablen brauchen einen Datentyp.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+Nein &#8212; ein Datentyp ist optional.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Ja &#8212; alle Variablen sind von dem gleichen Datentyp.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+Ja &#8212; jede Variable muss mit ihrem Datentyp deklariert werden.
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+
+
+<hr />
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+Was ist KEIN Name eines primitiven Datentyps in Java?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+int
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+float
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+double
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+String
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+
+<hr />
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+Wird der Wert <em>EINS</em> immer durch die gleiche Bitfolge dargestellt?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+Ja &#8212; es gibt nur eine "Eins", so dass es auch nur eine Bitfolge gibt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+Nein &#8212; "Eins" kann durch verschiedene Ganzzahl- oder Gleitpunkt-Datentypen dargestellt werden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Ja &#8212; sie wird immer in einem Bit gespeichert.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+Nein &#8212; das Bitmuster &auml;ndert sich bei jedem Programmstart.
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+
+<hr />
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+Angenommen, ein bestimmtes Datenelement verwendet keinen primitiven Datentyp. Was muss es sein?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+Ein Objekt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+Eine Zahl.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Ein Literal.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+Ein boolesches Element.
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+
+<hr />
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+Wie viele Stellen betr&auml;gt die dezimale Genauigkeit der folgenden Zahl:
++1200004.5
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+5
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+8
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+&Uuml;ber eine Million
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+
+<hr />
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+K&ouml;nnen <code>char</code>-Daten im Hauptspeicher des Computers gespeichert werden?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+Nein &#8212; Computer k&ouml;nnen nur Zahlen speichern.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+Nein &#8212;; der Computer kann nur Muster speichern.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Ja &#8212; <code>char</code>-Daten werden in einem speziellen Speicher gespeichert.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+Ja &#8212; um sie zu speichern wird ein primitiver Datentyp verwendet.
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+
+
+<hr />
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+Bei welcher der folgenden Antworten erh&ouml;ht sich die Anzahl der Bits von den wenigsten (links) zu den meisten (rechts)?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<input type="text" name="correct" value="  " size="5" />
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+byte&nbsp;&nbsp;long&nbsp;&nbsp;short&nbsp;&nbsp;int
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+int&nbsp;&nbsp;byte&nbsp;&nbsp;short&nbsp;&nbsp;long
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+byte&nbsp;&nbsp;short&nbsp;&nbsp;int&nbsp;&nbsp;long
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+short&nbsp;&nbsp;byte&nbsp;&nbsp;long&nbsp;&nbsp;int
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+
+<hr>
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)" />
+</center>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5" />
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5" />
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5" />
+</form>
+
+<p style="margin-top:1em;"><a href="../../index.html#09A"><img style="float:left;margin-right:5px;" src="../homeIcon.gif" alt="Inhalt" border="0"></a>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</p>
+
+<p>Um die alten Antworten zu l&ouml;schen, halten Sie die Strg-Taste gedr&uuml;ckt und laden dann die Seite neu (Firefox). Bei anderen Browsern funktioniert das in Verbindung mit der Umschalt- bzw. Strg+Umschalt-Taste. Beim Internet Explorer 8 muss die Seite verlassen und erneut aufgerufen werden.</p>
+
+
+
+</body>
+</html>

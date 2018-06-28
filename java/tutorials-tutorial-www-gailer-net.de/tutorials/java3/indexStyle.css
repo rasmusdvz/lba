@@ -1,0 +1,13 @@
+body{background-color:#ffefea;font-family:arial,sans-serif;}
+h1,h2,h3,h4{font-family:arial,sans-serif;color:black}
+table{font-family:arial,sans-serif;}
+p{margin-left:2pt;margin-right: 2pt;}
+table{margin-left:2pt;margin-right:2pt;}
+.blue{background-color:inherit;color:blue;text-color:#000;}
+.red{background-color:inherit;color:red;text-color:#000;}
+.green{background-color:inherit;color:green;}
+
+a:link     {background-color:inherit;color:blue;}
+a:visited  {background-color:inherit;color:brown;}
+a:active   {background-color:inherit;color:red;}
+a:hover    {background-color:inherit;color:red;}

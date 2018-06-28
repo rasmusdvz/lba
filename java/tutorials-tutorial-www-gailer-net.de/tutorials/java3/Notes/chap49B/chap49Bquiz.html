@@ -1,0 +1,627 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- revised 7/17/99    answer boxes moved to end of form -->
+
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css" />
+
+<title>
+Quiz &uuml;ber Arrays von Objekten
+</title>
+
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org " />
+<meta name="translation" content="Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+</head>
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+
+<body>
+<small>erstellt 03.12.99; &uuml;bersetzt 24.06.03; &uuml;berarbeitet 08.03.2005; &copy; Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<img src="quizArray.gif" align="left" hspace="15" vspace="15" />
+
+<center><h1>
+Quiz &uuml;ber Arrays von Objekten
+</h1></center>
+
+<p>
+Das ist ein &Uuml;bungsquiz.
+Die Ergebnisse werden nirgendwo erfasst und haben  keine Auswirkung auf Ihre Note.
+Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen,
+der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+W&auml;hlen Sie f&uuml;r jede Frage die beste Antwort und klicken Sie auf das entsprechende Optionsk&auml;stchen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern.
+Wenn das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox nach jeder Frage.
+</p>
+<br clear=all />
+
+<hr />
+<form name="question1">
+
+<p>
+1.
+<!-- FILL in Question 1-->
+Was macht die folgende Anweisung? &nbsp; &nbsp; <code>String mixtur;</code>
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Sie deklariert eine Referenzvariable <code>mixtur</code>,
+welche mit <code>null</code> initialisiert wird.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Sie konstruiert ein <code>String</code>-Objekt mit dem Namen <code>mixtur</code>.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Sie konstruiert ein <code>String</code>-Objekt, das die Zeichen "mixtur" enth&auml;lt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Sie deklariert ein Array von <code>String</code>-Objekten</em> mit dem Namen <code>mixtur</code>.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+Was ist die Bedeutung von <code>null</code>?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Es ist ein anderer Name f&uuml;r null.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Es ist ein <code>String</code>-Objekt, das keine Zeichen enth&auml;lt.
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Eine Referenzvariable, die <code>null</code> enth&auml;lt verweist auf kein Objekt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Es ist ein spezieller Wert, um eine fehlerhafe Bedingung anzuzeigen.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+Was macht die folgende Anweisung? &nbsp; &nbsp; <code>String[] geraete;</code>
+ <!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Sie deklariert ein Array von <code>geraete</code>-Objektreferenzen mit dem Namen <code>String</code>.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Sie erzeugt ein <code>String</code>-Objekt mit dem Namen <code>geraete</code>.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Sie erzeugt ein Array mit der L&auml;nge null und dem Namen <code>geraete</code>.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Sie deklariert eine Variable <code>geraete</code>, die in der Zukunft eine Referenz
+auf ein <nobr>Array von <code>String</code>-Objektreferenzen</nobr> enthalten kann, aber mit <code>null</code> initialisiert ist.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+Was ist der Unterschied zwischen
+</p>
+
+<blockquote>
+String unsinn;
+</blockquote>
+
+<p>
+und
+</p>
+
+<blockquote>
+String[] unsinn; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ?
+</blockquote>
+<!-- end of question -->
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Es gibt keinen Unterschied; beide deklarieren <code>unsinn</code> als Referenzvariable.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Die erste deklariert <code>unsinn</code> als eine Referenz auf ein <code>String</code>-Objekt,
+die zweite deklariert <code>unsinn</code> als eine Referenz auf ein Array von Stringreferenzen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Die erste konstruiert ein einzelnes <code>String</code>-Objekt;
+die zweite konstruiert ein Array von <code>String</code>-Objekten.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Die erste initialisiert <code>unsinn</code> mit null;
+die zweite initialisiert <code>unsinn</code> mit einem Array von Nullen.
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+Was macht die folgende Anweisung?
+<blockquote><code>
+int[] werte = new int[10] ;
+</code></blockquote>
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Sie deklariert &nbsp; <code>werte</code> &nbsp; als eine Referenz auf ein Arrayobjekt
+und konstruiert ein Arrayobjekt mit 10 Integern, die mit 0 initialisiert sind.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Sie deklariert &nbsp; <code>werte</code> &nbsp; als eine Referenz auf ein Arrayobjekt,
+aber initialisiert sie mit 0.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Sie deklariert &nbsp; <code>werte</code> &nbsp; als eine Referenz auf ein Arrayobjekt, das noch nicht existiert,
+<br>aber das 10 Nullen enthalten wird, sobald es das tut.
+ <!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Sie deklariert &nbsp; <code>werte</code> &nbsp; als eine Referenz auf ein Array,
+das 10 Referenzen auf <code>int</code>-Variablen enth&auml;lt.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+Was macht die folgende Anweisung?
+<blockquote><code>
+String[] namen = new String[10] ;
+</code></blockquote>
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Sie deklariert &nbsp; <code>namen</code> &nbsp; als 10 <code>String</code>-Objekte.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Sie deklariert &nbsp; <code>namen</code> &nbsp; als Referenz auf ein Array
+von Stringreferenzen und konstruiert ein Arrayobjekt, das
+die Referenzen auf 10 <code>String</code>-Objekte enth&auml;lt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Sie deklariert &nbsp; <code>namen</code> &nbsp; als eine Referenz auf ein Array
+von Stringrreferenzen und konstruiert ein Arrayobjekt,
+das 10 Referenzen auf <code>String</code>-Objekte enth&auml;lt, die sie ebenfalls
+konstruiert.
+ <!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Sie deklariert &nbsp; <code>namen</code> &nbsp; als Referenz auf ein Array
+von Stringreferenzen und konstruiert ein Arrayobjekt,
+das &quot;10&quot; in seinem ersten <em>Slot</em> enth&auml;lt.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+Gegeben ist die folgende Deklaration
+</p>
+
+<blockquote><code>
+String[] namen = new String[10] ;
+</code></blockquote>
+
+<p>
+Welche der folgendenden Anweisungen stellt
+eine Referenz auf den String "Hello" in den letzten Slot
+des Arrays?
+</p>
+ <!-- end of question -->
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<code>
+namen[0] = "Hello" ;
+</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<code>
+namen[10] = "Hello" ;
+</code>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<code>
+namen[9] = "Hello" ;
+</code>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<code>String[ namen.length-1 ] = "Hello" ; </code>
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+Angenommen &nbsp; <code>namen</code> &nbsp; wurde deklariert mit
+</p>
+
+<blockquote><code>
+String[] namen = new String[10] ;
+</code></blockquote>
+
+<p>
+und die weiteren Anweisungen (nicht gezeigt) haben
+Stringreferenzen in einige der Slots gestellt.
+</p>
+<p>
+Welches der folgenden Fragmente gibt jeden String aus,
+aber l&auml;&szlig;t die <code>null</code>-Referenzen aus?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<blockquote><pre>
+for ( int j = 0; namen[j] != null; j++ )
+    System.out.println( namen[j] );
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<blockquote><pre>
+for ( int j = 0; j &lt; namen.length; j++ )
+    System.out.println( namen[j] );
+</pre></blockquote>
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<blockquote><pre>
+for ( int j = 0; j &lt; namen.length && namen[j] != null ; j++ )
+    System.out.println( namen[j] );
+</pre></blockquote>
+ <!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<blockquote><pre>
+for ( int j = 0; j &lt; namen.length; j++ )
+    if ( namen[j] != null )
+        System.out.println( namen[j] );
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+<hr />
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+Angenommen, dass &nbsp; <code>namen</code> &nbsp; deklariert wurde
+</p>
+
+<blockquote><code>
+String[] namen = new String[10] ;
+</code></blockquote>
+<p>
+und, dass weitere Anweisungen (nicht gezeigt)
+Stringreferenzen in einige der Slots gestellt haben.
+</p>
+<p>
+Welches der folgenden Fragmente z&auml;hlt die Anzahl
+der Slots in dem Array, die nicht <code>null</code> sind?
+</p>
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<blockquote><pre>
+int zaehler = 0;
+for ( int j = 0; j &lt; namen.length; j++ )
+    if ( namen[j] != null )
+        zaehler++ ;
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<blockquote><pre>
+int j = 0;
+int zaehler = 0;
+while ( namen[ ++j ] != null )
+  zaehler++ ;
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<blockquote><pre>
+int zaehler = 0;
+while ( namen[ zaehler ] != null )
+{
+  zaehler++ ;
+}
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<blockquote><pre>
+int j = 0;
+for ( int zaehler = 0; zaehler &lt; namen.length; zaehler++ )
+    if ( namen[j] != null )
+        j++ ;
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+Angenommen, dass &nbsp; <code>namen</code> &nbsp; deklariert wurde
+</p>
+
+<blockquote><code>
+String[] namen = new String[10] ;
+</code></blockquote>
+<p>
+und, dass weitere Anweisungen (nicht gezeigt)
+Stringreferenzen in einige der Slots gestellt haben.
+</p>
+<p>
+Welches der folgenden Fragmente
+gibt die Slots des Arrays <em>vom letzten bis zum ersten</em> aus
+und l&auml;&szlig;t die Slots, die <code>null</code> enthalten, aus?
+</p>
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'" /><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+<blockquote><pre>
+for ( int j = 0; j &lt; namen.length; j++ )
+    if ( namen[j] != null )
+        System.out.println( namen[j] );
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'" /><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+<blockquote><pre>
+for ( int j = namen.length; j &lt; namen.length; j-- )
+    if ( namen[j] != null )
+        System.out.println( namen[j] );
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'" /><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+<blockquote><pre>
+for ( int j = namen.length-1; j &gt;= 0; j-- )
+    if ( namen[j] != null )
+        System.out.println( namen[j] );
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'" /><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+<blockquote><pre>
+for ( int j = namen.length; j &gt;= 0; j-- )
+    if ( namen[j] != null )
+        System.out.println( namen[j] );
+</pre></blockquote>
+
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size=5></p>
+<input type="hidden" name="response" value="" />
+</form>
+
+
+<hr />
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size=5>
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size=5>
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size=5>
+</form>
+<table>
+<tr>
+<td style="white-space:nowrap">
+<A HREF="../../java-toc.html#49B">
+<img src="../contents.gif" alt="Inhaltsverzeichnis" align="center"></A>
+&#8212;&#8212; Zur&uuml;ck zum <a HREF="../../java-toc.html#49B">Inhaltsverzeichnis</a>.
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+<hr />
+
+
+</body>
+</html>

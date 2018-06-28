@@ -1,0 +1,994 @@
+<!-- Jan.   20, 2000  bpk   INDEX  -->
+<!-- July   13, 2002  bpk   Valid XML -->
+<!-- May    21, 2003  bpk   small changes -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2000</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>Bradley Kjell kjell@ieee.org </AUTHORNAME>
+
+
+<CAI> KAPITEL 20 &#8212; Beispielprogramm
+
+<p>
+<small>erstellt 20.01.99; &uuml;berarbeitet 20.01.00, 13.07.02; &uuml;bersetzt 14.12.04; &uuml;berarbeitet 17.01.05  &copy; Copyright 2004 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+
+</p>
+
+<LESSON>
+<p>
+Dieses Kapitel f&uuml;hrt Sie durch die Erstellung eines
+kleinen Programmes, das die Arbeitsweise eines
+Zahlenschlosses simuliert. Der Nutzen f&uuml;r Sie besteht darin
+weitere Erfahrung in der Programmierung zu sammeln
+und einige Themen noch einmal zu wiederholen.
+</p>
+
+<h4>Dieses Kapitel wiederholt:</h4>
+<ul>
+<li>Wie Sie einen Integer von einem Anwender bekommen.</li>
+<li>Die <code>if</code>-Anweisung.</li>
+<li>Der <code>boolean</code>-Datentyp.</li>
+<li>Die <code>while</code>-Anweisung.</li>
+</ul>
+
+<p>
+In diesem Kapitel gibt es keine neuen Themen.
+Wenn Sie glauben, keine zus&auml;tzlichen
+&Uuml;bungen zu brauchen, k&ouml;nnen Sie es &uuml;berspringen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+
+<ul>
+<li>Wie viele Zahlen verwendet das Zahlenschloss Ihres Turnhallen-Spinds?</li>
+<li>Ist die Reihenfolge der Auswahl Ihrer Zahlen wichtig?</li>
+<li>Wie ist Ihre Zahlenkombination?</li>
+<li>Gibt es etwas in dem Spind, das ich brauchen k&ouml;nnte?</li>
+</ul>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Funktion des Schlosses
+<ANSWER>
+
+<ul>
+<li>Wie viele Zahlen verwendet das Zahlenschloss Ihres Turnhallen-Spinds?
+    <span class="blue"><ul><li>Drei.</li></ul></span></li>
+<li>Ist die Reihenfolge der Auswahl Ihrer Zahlen wichtig?
+    <span class="blue"><ul><li>Ja.</li></ul></span></li>
+<li>Wie ist Ihre Zahlenkombination?
+    <span class="blue"><ul><li>6-12-30</li></ul></span></li>
+<li>Gibt es etwas in dem Spind, das ich brauchen k&ouml;nnte?
+    <span class="blue"><ul><li>Was soll ein Computerfreak schon mit Sportger&auml;ten anfangen k&ouml;nnen?</li></ul></span></li>
+</ul>
+
+</ANSWER>
+
+<LESSON>
+<img src="comboLock.gif" align="left" hspace="15" />
+
+<p>
+Ein typisches Zahlenschloss wird sich erst dann &ouml;ffnen, wenn die W&auml;hlscheibe
+in der richtigen Reihenfolge auf alle 3 Kombinationen gedreht wurde.
+Zum Beispiel w&uuml;rde Die Kombination "6-12-30" so verwendet werden:
+</p>
+
+<ol>
+<li>Drehen Sie die W&auml;hlscheibe zweimal im Uhrzeigersinn ganz herum.</li>
+<li>Drehen Sie die W&auml;hlscheibe im Uhrzeigersinn auf "6"</li>
+<li>Drehen Sie die W&auml;hlscheibe im Uhrzeigersinn auf "12"</li>
+<li>Drehen Sie die W&auml;hlscheibe im Uhrzeigersinn auf "30"</li>
+<li>Ziehen Sie das Schloss auf.</li>
+</ol>
+
+<p>
+In unserem Programm vernachl&auml;ssigen wir die Drehrichtung.
+Das Schloss wird sich &ouml;ffnen lassen, wenn der Anwender die richtigen
+drei Zahlen in der richtigen Reihenfolge eingegeben hat.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Bekommen Sie unmittelbar nach der Eingabe einen Hinweis auf eine falsche Zahl?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ablaufplan des Zahlenschloss-Programmes
+<ANSWER>
+<p>
+Nein. Das w&uuml;rde es Unbefugten zu leicht machen,
+die Kombination herauszufinden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>program, combination lock</INDEX>
+
+<center>
+<img src="lockFlowchart.gif" />
+</center>
+
+<p>
+Erst wenn Sie alle drei Zahlen eingegeben haben,
+erfahren Sie, ob sie korrekt waren.
+Wenn das Schloss sich nicht &ouml;ffnet,
+m&uuml;ssen Sie es noch einmal ganz von vorne probieren.
+Der Ablaufplan zeigt, wie das Schloss funktioniert.
+</p>
+
+<p>
+Der Ablaufplan verwendet eine Variable <code>korrekt</code>,
+die zu Beginn mit <code>true</code> initialisiert wird,
+aber auf <code>false</code> gesetzt wird, sobald
+eine falsche Zahl eingegeben wird.
+Diese Variable wird nach jeder der drei Eingaben gepr&uuml;ft,
+um herauszufinden, ob das Schloss
+aufgehen soll oder nicht.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+&Uuml;berpr&uuml;fen Sie den Ablaufplan. Kann der Benutzer herausfinden,
+welche seiner Zahlen falsch war, wenn sich das Schloss nicht &ouml;ffnet?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Grundger&uuml;st des Programmes
+<ANSWER>
+<p>
+Nein. Alles was der Anwender weiss, ist das etwas falsch ist.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<table align="right" border="border" bordercolor="brown" cellpadding="5">
+<tr>
+<td bgcolor="#ffffff">
+<pre style="margin-left:0.5cm">
+class Zahlenschloss
+{
+  public static void main ( String[] args )
+  {
+    boolean <span class="blue">korrekt</span> = true;
+
+    //Erste Zahl
+       ... gegebenenfalls <span class="blue">korrekt</span> &auml;ndern
+
+    //Zweite
+       ... gegebenenfalls <span class="blue">korrekt</span> &auml;ndern
+
+    //Dritte Zahl
+       ... gegebenenfalls <span class="blue">korrekt</span> &auml;ndern
+
+    //Ergebnis
+    if ( korrekt )
+      System.out.println("Das Schloss oeffnet sich.");
+    else
+      System.out.println("Das Schloss bleibt zu.");
+  }
+}
+</pre>
+</td>
+</tr>
+</table>
+
+<p>
+Betrachten Sie noch einmal den Ablaufplan und sehen
+Sie sich an, wie die boolsche
+Variable <code>korrekt</code> arbeitet.
+Die <code>if</code>-Anweisung im Programm ist korrekt geschrieben.
+Die boolsche Variable <code>korrekt</code> wird entweder
+<code>true</code> oder <code>false</code> sein.
+Das ist alles, was eine <code>if</code>-Anweisung braucht.
+Sie brauchen folgendes nicht zu tun:
+</p>
+
+<pre class="code">
+if ( <span class="blue">korrekt</span> == true )
+</pre>
+
+<p>
+denn die Ausf&uuml;hrung der booleschen Anweisung wird lediglich den Wert ergeben,
+den die Variable <code>korrekt</code> bereits hat.
+</p>
+
+<br clear="all" />
+<br />
+</LESSON>
+
+<QUESTION>
+<p>
+Wird <code>korrekt</code> jemals auf <code>true</code>
+zur&uuml;ckgesetzt werden, wenn es einmal auf
+<code>false</code> gesetzt wurde?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Benutzereingaben
+
+<ANSWER>
+<p>
+Nein, bei keinem Durchlauf des Programms.
+Wie bei einem Zahlenschloss wird eine falsche Zahl
+die &Ouml;ffnung des Schlosses verhindern.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist das Programm mit weiteren Details.
+Einige davon sind von Ihnen auszuf&uuml;llen:
+</p>
+
+<pre class="program" style="margin-left:0.5cm">
+<span class="blue">_______________</span>
+class Zahlenschloss
+{
+  public static void main ( String[] args ) <span class="blue">_______________</span>
+  {
+    int ersteZahl  =  6,
+        zweiteZahl = 12,
+        dritteZahl = 30;  // Die Kombination
+    int zahl;             // Benutzer-Eingabe
+
+    BufferedReader stdin = new BufferedReader(
+        new InputStreamReader( System.in ) );
+    String input;
+
+    boolean korrekt = true;
+
+    //Erste Zahl
+    System.out.println("Geben Sie die erste Zahl ein: ");
+    input = stdin.readLine();
+    zahl  = Integer.parseInt( input );
+
+    if ( <span class="blue">_______________</span> )
+
+      korrekt = <span class="blue">_______________</span> ;
+
+    //Zweite Zahl
+
+    //Dritte Zahl
+
+    //Ergebnis
+    if ( korrekt )
+      System.out.println("Das Schloss oeffnet sich.");
+    else
+      System.out.println("Das Schloss bleibt zu.");
+  }
+}
+</pre>
+
+<br clear="all" />
+<br />
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus, damit das Programm
+f&uuml;r die erste Zahl korrekt funktioniert.
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Fast fertiges Programm
+<ANSWER>
+<p>
+Im untenstehenden Programm sind die L&uuml;cken ausgef&uuml;llt.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Das Programm verwendet die Variablen <code>ersteZahl</code>, <code>zweiteZahl</code>,
+und <code>dritteZahl</code> an Stelle der literalen Integer.
+So kann der Programmierer die Kombination leicht &auml;ndern.
+</p>
+
+<pre class="program" style="margin-left:0.5cm">
+import <span class="blue">java.io.*;</span>
+
+class Zahlenschloss
+{
+  public static void main ( String[] args ) <span class="blue">throws IOException</span>
+  {
+    int ersteZahl  =  6,
+        zweiteZahl = 12,
+        dritteZahl = 30;  // Die Kombination
+    int zahl;             // Benutzer-Eingabe
+
+    BufferedReader stdin = new BufferedReader(
+        new InputStreamReader( System.in ) );
+    String input;
+
+    boolean korrekt = true;
+
+    //Erste Zahl
+    System.out.println("Geben Sie die erste Zahl ein: ");
+    input = stdin.readLine();
+    zahl  = Integer.parseInt( input );
+
+    if ( <span class="blue">zahl != ersteZahl</span> )<span class="blue"> // Eingabe NICHT IDENTISCH mit ersteZahl</span>
+
+      korrekt = <span class="blue">false</span> ;
+
+    //Zweite Zahl
+
+
+
+    //Dritte Zahl
+
+
+
+    //Ergebnis
+    if ( korrekt )
+      System.out.println("Das Schloss &ouml;ffnet sich.");
+    else
+      System.out.println("Das Schloss bleibt zu.");
+  }
+}
+</pre>
+
+<p>
+Das Programm muss jetzt mit den n&auml;chsten zwei Zahlen weiterarbeiten.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Entscheiden Sie sich f&uuml;r eine grunds&auml;tzliche Strategie zur Vervollst&auml;ndigung des Programms.
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndiges Programm
+<ANSWER>
+<p>
+Das vollst&auml;ndige Programm verwendet f&uuml;r die n&auml;chsten zwei
+Kombinationen fast genau den gleichen Code wie f&uuml;r die
+erste Kombination.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist das vollst&auml;ndige Programm.
+Die Unterschiede im Code sind f&uuml;r jede der drei
+Kombinationen farbig markiert.
+Das Erkennen von Gemeinsamkeiten wie diesen
+zwischen Programmteilen f&uuml;hrt oft zu besseren Programmen.
+</p>
+
+<pre class="program" style="margin-left:0.5cm">
+import java.io.*;
+
+class Zahlenschloss
+{
+  public static void main ( String[] args ) throws IOException
+  {
+    int <span class="blue">ersteZahl</span>  =  6,
+        <span style="color:green">zweiteZahl</span> = 12,
+        <span style="color:red">dritteZahl</span> = 30;  // Die Kombination
+    int zahl;             // Benutzer-Eingabe
+
+    BufferedReader stdin = new BufferedReader(
+        new InputStreamReader( System.in ) );
+    String input;
+
+    boolean korrekt = true;
+
+    //<span class="blue">Erste</span> Zahl
+    System.out.println("Geben Sie die <span class="blue">erste</span> Zahl ein: ");
+    input = stdin.readLine();
+    zahl  = Integer.parseInt( input );
+
+    if ( zahl != <span class="blue">ersteZahl</span> )
+      korrekt = false ;
+
+    //<span style="color:green">Zweite</span> Zahl
+    System.out.println("Geben Sie die <span style="color:green">zweite</span> Zahl ein: ");
+    input = stdin.readLine();
+    zahl  = Integer.parseInt( input );
+
+    if ( zahl != <span style="color:green">zweiteZahl</span> )
+      korrekt = false  ;
+
+    //<span style="color:red">Dritte</span> Zahl
+    System.out.println("Geben Sie die <span style="color:red">dritte</span> Zahl ein: ");
+    input = stdin.readLine();
+    zahl  = Integer.parseInt( input );
+
+    if ( zahl != <span style="color:red">dritteZahl</span> )
+      korrekt = false  ;
+
+    //Ergebnis
+    if ( korrekt )
+      System.out.println("Das Schloss &ouml;ffnet sich.");
+    else
+      System.out.println("Das Schloss bleibt zu.");
+  }
+}
+</pre>
+<br clear="all"/>
+<br/>
+</LESSON>
+
+<QUESTION>
+<p>
+Es gibt 4 <code>if</code>-Anweisungen in diesem Programm.
+Sind diese <code>if</code>-Anweisungen verschachtelt?
+(Das bedeutet: ist irgendeine <code>if</code>-Anweisung Teil eines
+<code>true</code>-Zweiges oder des <code>false</code>-Zweiges einer anderen?)
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Beispieldurchlauf des Programmes
+
+<ANSWER>
+<p>
+Nein.  Die <code>if</code>-Anweisungen laufen nacheinander ab.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier sehen Sie ein Beispiel:
+(Sicherlich hilft es Ihnen, wenn Sie das Programm
+kopieren-einf&uuml;gen-speichern-kompilieren und mit Notepad und dem JDK ausf&uuml;hren.)
+</p>
+
+<pre>
+C:\daten\java\Notes\chap20&gt;java Zahlenschloss
+
+Geben Sie die erste Zahl ein:
+6
+Geben Sie die zweite Zahl ein:
+12
+Geben Sie die dritte Zahl ein:
+30
+Das Schloss &ouml;ffnet sich.
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Gibt das Programm dem Anwender eine zweite Chance, wenn er eine falsche Kombination eingegeben hat?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Drei M&ouml;glichkeiten
+<ANSWER>
+<p>
+Nein.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<img src="threeTries.gif" align="left" hspace="40" vspace="5" />
+<p>
+Sagen wir, wir wollen das Programm dahingehend &auml;ndern,
+dass der Anwender bis zu drei M&ouml;glichkeiten erh&auml;lt, die richtige
+Kombination einzugeben.
+Der Ablaufplan zeigt Ihnen, wie das Programm jetzt funktionieren soll.
+</p>
+
+<p>
+Wenn Sie sich den Ablaufplan ansehen, erkennen Sie, dass der Anwender
+eine weitere M&ouml;glichkeit bekommt:
+</p>
+
+<ul>
+<li>Wenn die vorherige Kombination falsch war <big>UND</big></li>
+<li>Wenn die drei M&ouml;glichkeiten noch nicht verbraucht sind.</li>
+</ul>
+
+<br clear="all" />
+
+</LESSON>
+
+<QUESTION>
+<p>
+
+Sehen Sie sich den ersten Kasten im Schleifen-K&ouml;rper an
+(der, in dem steht "user tries a combination...").
+Ist das Programm daf&uuml;r bereits geschrieben?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Hauptschleife
+<ANSWER>
+<p>
+Ja.  Die <code>main()</code>-Methode der vorherigen Version
+des Programmes tut genau das
+(nach ein paar kleinen &Auml;nderungen).
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier sehen Sie den Hauptteil des neuen Programmes.
+Pr&uuml;fen Sie, ob es mit dem Ablaufplan &uuml;bereinstimmt.
+Denken Sie daran, dass <code>!offen</code> bedeutet <em>NOT offen</em>,
+dass <code>!true</code> gleich <code>false</code>
+und <code>!false</code> gleich <code>true</code> ist.
+</p>
+
+<pre class="program" style="margin-left:0.5cm">
+class ZahlenschlossSchleife
+{
+  public static void main( String[] args )
+  {
+    int     versuch  = 0;
+    boolean offen    = false;
+
+    while ( versuch &lt; 3 &amp;&amp; !offen )
+    {
+      // Testen einer Kombination, wenn richtig: Variable offen auf "true" setzen
+
+      versuch = versuch + 1;
+    }
+
+  }
+}
+</pre>
+
+<br clear="all" />
+</LESSON>
+
+<QUESTION>
+<p>
+Tut
+</p>
+
+<pre>
+while ( versuch &lt; 3 &amp;&amp; !offen )
+</pre>
+
+<p>
+das was wir wollen?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Boolscher Ausdruck
+<p>
+Tut
+</p>
+
+<pre>
+while ( versuch &lt; 3 &amp;&amp; !offen )
+</pre>
+
+<p>
+das was wir wollen?
+</p>
+
+<ANSWER>
+<p>
+Ja, denn der boolesche Ausdruck bedeutet:
+</p>
+
+
+<pre>
+while ( der Benutzer hat weniger als 3 Versuche gemacht UND das Schloss ist NICHT offen )
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+Der Boolsche Ausdruck
+</p>
+
+
+<pre>
+ versuch &lt; 3 &amp;&amp; !offen
+</pre>
+
+<p>
+wird <code>true</code> ergeben, wenn der Benutzer die erste
+oder eine weitere M&ouml;glichkeit bekommt, und er wird <code>false</code>
+ergeben, wenn der Benutzer keine weitere M&ouml;glichkeit mehr bekommt.
+Die Tabelle zeigt die Funktionsweise:
+</p>
+
+<center>
+<table border="border" bordercolor="brown" bgcolor="white" cellpadding="4">
+<tr align="center" bgcolor="#CCCCFF"><th>Anzahl der Versuche</th> <th>offen </th> <th> versuch &lt; 3 </th> <th>!offen</th> <th>versuch &lt; 3 &amp;&amp; !offen</th> <th>Weiterer Versuch?</th></tr>
+<tr align="center"><td>       0       </td> <td>false</td> <td> true       </td> <td> true</td> <td> true &amp;&amp; true     </td> <td> true </td></tr>
+<tr align="center"><td>       1       </td> <td>false</td> <td> true       </td> <td> true</td> <td> true &amp;&amp; true     </td> <td> true </td></tr>
+<tr align="center"><td>       1       </td> <td>true </td> <td> true       </td> <td> false</td> <td> true &amp;&amp; false    </td> <td> false </td></tr>
+<tr align="center"><td>       2       </td> <td>false</td> <td> true       </td> <td> true</td> <td> true &amp;&amp; true     </td> <td> true </td></tr>
+<tr align="center"><td>       2       </td> <td>true </td> <td> true       </td> <td> false</td> <td> true &amp;&amp; false    </td> <td> false </td></tr>
+<tr align="center"><td>       3       </td> <td>false</td> <td>   ?        </td> <td>   ?  </td> <td>   ?  &amp;&amp;   ?      </td> <td> ???? </td></tr>
+<tr align="center"><td>       3       </td> <td>true </td> <td>   ?        </td> <td>   ?  </td> <td>   ? &amp;&amp;   ?    </td> <td> ???? </td></tr>
+</table>
+</center>
+
+<p>
+Die Logik in einem Computer Programm ist h&auml;ufig so
+kompliziert (oder noch komplizierter!) wie diese.
+Es k&ouml;nnte notwendig sein, solch eine &Uuml;bersicht
+zu erstellen, um zu pr&uuml;fen, ob die Logik korrekt ist.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Fast vollst&auml;ndiges Programm
+<ANSWER>
+
+<center>
+<table border="border" bgcolor="white" bordercolor="blue"  cellpadding="4">
+<tr align="center" bgcolor="#CCCCFF"><th>Anzahl der Versuche</th> <th>offen </th> <th> versuch &lt; 3 </th> <th>!offen</th> <th>versuch &lt; 3 &amp;&amp; !offen</th> <th>Weiterer Versuch?</th></tr>
+<tr align="center"><td>       3       </td> <td>false</td> <td> false      </td> <td> true</td> <td> false &amp;&amp; true     </td> <td> false </td></tr>
+<tr align="center"><td>       3       </td> <td>true </td> <td> false      </td> <td> false</td> <td> false &amp;&amp; false    </td> <td> false </td></tr>
+</table>
+</center>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist das fast vollst&auml;ndige Programm.
+Es wurde erstellt, indem grosse Teile der
+<code>main()</code>-Methode des vorherigen Programmes
+in den vorhin besprochenen Schleifenk&ouml;rper kopiert und eingef&uuml;gt wurden.
+Die Einr&uuml;ckungen wurden entsprechend angepasst
+und es wurden ein paar kleinere &Auml;nderungen vorgenommen.
+</p>
+
+<pre class="program" style="margin-left:0.5cm">
+import java.io.*;
+
+class ZahlenschlossSchleife
+{
+  public static void main( String[] args ) throws IOException
+  {
+    int ersteZahl  =  6,
+        zweiteZahl = 12,
+        dritteZahl = 30;
+    int zahl;
+
+    BufferedReader stdin = new BufferedReader(
+        new InputStreamReader( System.in ) );
+    String input;
+
+    int     versuch  = 0;
+    boolean offen    = false;
+
+    while ( versuch &lt; 3 &amp;&amp; !offen )
+    {
+      // Testen einer Kombination, wenn richtig Variable offen auf "true" setzen
+
+      boolean korrekt =  <span class="blue">_____________</span>;
+
+      //Erste Zahl
+      System.out.println("Geben Sie die erste Zahl ein: ");
+      input = stdin.readLine();
+      zahl  = Integer.parseInt( input );
+
+      if ( zahl != ersteZahl )
+        korrekt = false ;
+
+      //Zweite Zahl
+      System.out.println("Geben Sie die zweite Zahl ein: ");
+      input = stdin.readLine();
+      zahl  = Integer.parseInt( input );
+
+      if ( zahl != zweiteZahl )
+        korrekt = false  ;
+
+      //Dritte Zahl
+      System.out.println("Geben Sie die dritte Zahl ein: ");
+      input = stdin.readLine();
+      zahl  = Integer.parseInt( input );
+
+      if ( zahl != dritteZahl )
+        korrekt = false  ;
+
+      //Ergebnis
+      if ( korrekt )
+      {
+        System.out.println("Das Schloss &ouml;ffnet sich");
+        offen = <span class="blue">_____________</span>
+      }
+      else
+        System.out.println("Das Schloss bleibt zu.");
+
+      versuch = versuch + 1;
+    }
+
+  }
+}
+</pre>
+
+<p>
+Ein paar Dinge m&uuml;ssen noch angepasst werden.
+Gl&uuml;cklicherweise k&ouml;nnen Sie das  leicht tun.
+Beachten Sie, wie die Variablen <code>offen</code> und
+<code>korrekt</code> mit der Schleife arbeiten.
+Man kann solche Dinge leicht durcheinander bringen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+K&ouml;nnen Sie die L&uuml;cken ausf&uuml;llen, ohne durcheinander zu kommen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Komplettes Programm
+<ANSWER>
+<p>
+Sicherlich.
+Das komplette Durcheinander steht unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Das Programm ist zwischenzeitlich ganz
+sch&ouml;n lang geworden (60 Zeilen!).
+Aber wenn Sie diese Aufzeichnungen Schritt f&uuml;r Schritt
+durchgearbeitet haben, verstehen Sie die Struktur, und
+die L&auml;nge ist kein Problem f&uuml;r Sie.
+Lange Programme versteht man, indem man die einzelnen Teile
+versteht und wie sie zusammenpassen.
+</p>
+
+<pre class="program" style="margin-left:0.5cm">
+import java.io.*;
+
+class ZahlenschlossSchleife
+{
+  public static void main( String[] args ) throws IOException
+  {
+    int ersteZahl  =  6,
+        zweiteZahl = 12,
+        dritteZahl = 30;
+    int zahl;
+
+    BufferedReader stdin = new BufferedReader(
+        new InputStreamReader( System.in ) );
+    String input;
+
+    int     versuch  = 0;
+    boolean offen    = false;
+
+    while ( versuch &lt; 3 &amp;&amp; !offen )
+    {
+      // Versuch einer Kombination, wenn richtig: setzen der Variable offen auf "true".
+
+      boolean korrekt =  <span class="blue">true</span>;
+
+      //Erste Zahl
+      System.out.println("\nGeben Sie die erste Zahl ein: ");
+      input = stdin.readLine();
+      zahl  = Integer.parseInt( input );
+
+      if ( zahl != ersteZahl )
+        korrekt = false ;
+
+      //Zweite Zahl
+      System.out.println("Geben Sie die zweite Zahl ein: ");
+      input = stdin.readLine();
+      zahl  = Integer.parseInt( input );
+
+      if ( zahl != zweiteZahl )
+        korrekt = false  ;
+
+      //Dritte Zahl
+      System.out.println("Geben Sie die dritte Zahl ein: ");
+      input = stdin.readLine();
+      zahl  = Integer.parseInt( input );
+
+      if ( zahl != dritteZahl )
+        korrekt = false  ;
+
+      //Ergebnis
+      if ( korrekt )
+      {
+        System.out.println("Das Schloss &ouml;ffnet sich.");
+        offen = <span class="blue">true;</span>
+      }
+      else
+        System.out.println("Das Schloss bleibt zu.");
+
+      versuch = versuch + 1;
+    }
+
+  }
+}
+</pre>
+
+<br clear="all"/>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkaufgabe: ) K&ouml;nnte dieses Programm auch k&uuml;rzer sein?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Beispiel
+<ANSWER>
+<p>
+Ja.
+Das Programm k&ouml;nnte ohne <code>if</code>-Anweisungen geschrieben werden.
+Es k&ouml;nnte nur eine einzige <code>while</code>-Anweisung benutzen,
+die einen ziemlich komplizierten booleschen Ausdruck &uuml;berpr&uuml;ft.
+Der Benutzer w&uuml;rde alle drei Zahlen eingeben, bevor sie &uuml;berpr&uuml;ft werden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Es w&uuml;rde eine n&uuml;tzliche &Uuml;bung f&uuml;r Sie sein, wenn Sie das Programm
+wie vorgeschlagen verk&uuml;rzen w&uuml;rden.
+Programmierer arbeiten &uuml;blicherweiser an einem Programm weiter, wenn es
+zum ersten Mal die Anforderungen erf&uuml;llt hat.
+Oft schrumpft ein Programm in seiner Gr&ouml;sse und arbeitet trotzdem wie gew&uuml;nscht weiter!
+(Aber ein Programm sollte nicht auf Kosten von Einfachheit und
+Klarheit verk&uuml;rzt werden.)
+</p>
+
+<p>
+Hier ist ein Beispiel von unserem einfachen und klaren Programm:
+</p>
+
+<pre>
+Geben Sie die erste Zahl ein:
+6
+Geben Sie die zweite Zahl ein:
+15
+Geben Sie die dritte Zahl ein:
+30
+Das Schloss bleibt zu.
+
+Geben Sie die erste Zahl ein:
+6
+Geben Sie die zweite Zahl ein:
+12
+Geben Sie die dritte Zahl ein:
+30
+Das Schloss &ouml;ffnet sich.
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Muss bei tats&auml;chlichen Zahlenschl&ouml;ssern wirklich jede Zahl <em>exakt</em> richtig eingestellt wird?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<ANSWER>
+<p>
+Nein &#8212; Sie m&ouml;chten vielleicht das Programm &auml;ndern,
+so dass jede Zahl in einem Bereich von plus/minus zwei g&uuml;ltig ist.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Damit ist dieses Kapitel abgeschlossen.
+Da keine neuen Themen behandelt wurden,
+k&ouml;nnen Sie direkt zum n&auml;chsten Kapitel gehen.
+</p>
+
+
+<hr/>
+<p>
+<p>Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#20">Inhaltsverzeichnis</a>.</p>
+</p>
+
+</LESSON>
+</CAI>
+</CHAPTER>

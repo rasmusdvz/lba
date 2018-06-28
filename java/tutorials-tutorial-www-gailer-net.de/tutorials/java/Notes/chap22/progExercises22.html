@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Kapitel 22  Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+<small>erstellt 13.08.99; &uuml;bersetzt 07.04.03; &uuml;berarbeitet 08.12.03, 08.06.04, 06.06.05, 03.10.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+<hr />
+<center><h1>Kapitel 22  Programmieraufgaben</h1></center>
+<blockquote>
+Viele der Programme aus den vorherigen Kapiteln mit Datei-Input und -Output k&ouml;nnen ohne &Auml;nderung verwendet werden.
+Nehmen Sie welche und spielen Sie damit.
+Vielleicht nehmen Sie ein paar &Auml;nderung vor, wie z.B. die Eingabeaufforderung zu entfernen.
+</blockquote>
+<h2>Aufgabe 1 &#8212; Maximum</h2>
+<form>
+<p>
+Schreiben Sie ein Programm, das 5 Integer aus einer Datei einliest,
+die gr&ouml;&szlig;te Zahl ermittelt und das Ergebnis auf den Bildschirm ausgibt.
+&Auml;ndern Sie daf&uuml;r das <a href="ch22_13.html"><code>AddiereAusDatei</code>-Programm</a> aus diesem Kapitel.
+F&uuml;gen Sie eine neue <code>int</code>-Variable mit dem Namen
+<code>max</code> hinzu, die Sie mit dem ersten Wert aus der Datei initialisieren sollten.
+Daf&uuml;r brauchen Sie eine zus&auml;tzliche Input-Anweisung bevor die Schleife beginnt.
+Um das Maximum zu berechnen, brauchen Sie in der Schleife eine <code>if</code>-Anweisung. <input type="button" value="Gotcha!" onClick="alert('Es ist ein h&auml;ufiger Fehler die Maximum-Variable mit Null zu initialisieren. Aber was passiert, wenn die Input-Daten nur negative Werte enthalten?')" />
+</p>
+</form>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#22">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+
+<h2>Aufgabe 2 &#8212; Gleitpunkt-Input</h2>
+<p>
+Schreiben Sie ein Programm, das f&uuml;nf Gleitpunktzahlen aus einer Datei bzw. von der Tastatur einliest und addiert.
+Verwenden Sie, wie immer beim Input von Textdateien,
+die <code>readLine()</code> Methode, um einen String von Zeichen einzulesen.
+Dieser String darf nur Zeichen f&uuml;r g&uuml;ltige Gleitpunkt-Literale enthalten, wie z.B.  -0.184 or 1.23E+12.
+Zeichen, die eine Ganzzahl bezeichnen wie 412 funktionieren auch f&uuml;r Gleitpunkt-Input.
+Erinnern Sie sich, wie Sie einen String in eine Gleitpunktzahl konvertieren k&ouml;nnen:
+<blockquote><pre>
+String zeile;
+double zahl;
+. . .
+zahl = Double.parseDouble( zeile.trim() );
+</blockquote></pre>
+
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#22">Inhaltsverzeichnis</a>.</p>
+<hr />
+
+<h2>Aufgabe 3 &#8212; Optionale Programmhinweise</h2>
+<p>
+&Auml;ndern Sie das Programm aus Aufgabe 2, so dass es zuerst fragt, ob weitere Hinweise ausgegeben werden sollen.
+Der Anwender gibt &quot;ja&quot; oder &quot;nein&quot; ein (nur einmal am Anfang).
+Je nachdem gibt die Schleife Hinweise aus oder nicht aus.
+</p>
+<p>
+Verwenden Sie daf&uuml;r die <a href="../chap18/ch18_15.html"><code>equals()</code> Methode</a> des Stringobjekts.
+Setzen Sie eine boolesche Variable auf <code>true</code> oder <code>false</code>, je nachdem was der Anwender eingibt.
+Eine <code>if</code>-Anweisung innerhalb der Schleife bestimmt dann, ob Hinweise ausgegeben werden oder nicht.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#22">Inhaltsverzeichnis</a>.</p>
+<hr />
+</body>
+</html>

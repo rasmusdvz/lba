@@ -1,0 +1,1046 @@
+<!-- Jan. 19, 1998  revised chapter numbering; previously chapter 18b -->
+<!-- Jan.   20, 2000  bpk   INDEX  -->
+<!-- July 14, 2002 bpk CSS and XML -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2002</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>Bradley Kjell kjell@ieee.org </AUTHORNAME>
+<GERMANTRANSLATION>Copyright 2003 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de</GERMANTRANSLATION>
+
+<CAI> Kapitel 33 &#8212; Kapselung (Verbergen von Daten)
+
+<p>
+<small>erstellt 13.12.98; &uuml;berarbeitet 23.09.99, 21.01.00, 14.07.02; &uuml;bersetzt 21.05.03; &uuml;berarbeitet 15.12.03; &copy; Copyright 2003 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+
+<LESSON>
+<p>
+Bis jetzt waren alle Methoden und Variablen der Objekte, die wir entworfen haben,
+in jedem Programmteil, das eine Referenz auf das Objekt hat, sichtbar.
+Dadurch konnte auch anderer Code als der einer Objektmethode die Instanzvariablen des Objekts &auml;ndern.
+Das ist in der Regel unklug.
+</p>
+
+<p>
+Ein besseres Design erzwingt <b>Kapselung</b>.
+Einige (oder alle) Instanzvariablen eines Objekts sind
+nur f&uuml;r die eigenen Methoden des Objekts sichtbar.
+Code au&szlig;erhalb des Objekts kann auf diese Variablen nicht direkt
+zugreifen.
+Dieses Kapitel bespricht wie daf&uuml;r der Zugriffsmodifizierer  <code><b>private</b></code> verwendet werden kann.
+</p>
+
+<h4>Themen:</h4>
+<ul>
+<li>Die Zugriffsmodifizierer <code><strong>private</strong></code> und <code><strong>public</strong></code>.</li>
+<li>Standardsichtbarkeit.</li>
+<li>Kapselung.</li>
+<li>Zugriffsmethoden.</li>
+<li>Weitere Verbesserung der CheckingAccount-Klasse.</li>
+</ul>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Sollte eine Bank-Kontrollsoftware Zugang zu Ihrem Bankkonto haben?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Der Zugriffsmodifizierer private
+<p>
+M&ouml;chten Sie Hacker von Ihrem Bankkonto fernhalten?
+</p>
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>private, Sichtbarkeit</INDEX>
+<p>
+Wenn ein Klassenmitglied als <code>private</code> deklariert ist,
+kann es nur von den Methoden dieser Klasse verwendet werden.
+Hier ist die Klassendefinition f&uuml;r <code>CheckingAccount</code> aus dem letzten Kapitel,
+wobei jetzt jede ihrer Variablen als <code>private</code> deklariert ist.
+</p>
+
+<pre class="program">
+class CheckingAccount
+{
+  // Daten-Deklaration
+  <span class="red">private</span> String accountNumber;
+  <span class="red">private</span> String accountHolder;
+  <span class="red">private</span> int    balance;
+
+  //Konstruktor
+  CheckingAccount( String accNumber, String holder, int start )
+  {
+    accountNumber = accNumber ;
+    accountHolder = holder ;
+    balance       = start ;
+  }
+
+  // Methoden
+  int currentBalance()
+  {
+    return balance ;
+  }
+
+  void  processDeposit( int amount )
+  {
+    balance = balance + amount ;
+  }
+
+  void processCheck( int amount )
+  {
+    int charge;
+    if ( balance &lt; 100000 )
+      charge = 15;
+    else
+      charge = 0;
+
+    balance =  balance - amount - charge  ;
+  }
+
+}
+</pre>
+
+
+<p>
+Jetzt k&ouml;nnen nur die Methoden eines <code>CheckingAccount</code>-Objekts
+die Werte in <code>accountNumber, accountHolder</code> und
+<code>balance</code> sehen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Es ist nutzlos ein Bankkonto zu haben, wenn der Kontostand
+nicht ge&auml;ndert werden kann.
+Wie kann eine Applikation (Programm), wie <code>main()</code>,
+den Kontostand eines <code>CheckingAccount</code>-Objekts &auml;ndern?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Zugriffsmethoden
+<p>
+Wie kann eine Applikation (Programm), wie <code>main()</code>,
+den Kontostand eines <code>CheckingAccount</code>-Objekts &auml;ndern?
+</p>
+<ANSWER>
+<p>
+Indem sie die Methoden wie <code>processDeposit() </code>
+und <code>processCheck() </code> verwendet, die f&uuml;r diesen Zweck geschrieben
+wurden.
+
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Zugriffsmethoden</INDEX>
+<p>
+Eine Klasse mit privaten Daten kontrolliert den Zugang zu diesen
+Daten, in dem sie <b>Zugriffsmethoden</b> verwendet.
+Eine Zugriffsmethode ist eine Methode, die die privaten Daten ihrer Klasse verwendet
+und f&uuml;r andere Klassen sichtbar ist.
+Einige Zugriffsmethoden &auml;ndern Daten; andere liefern einen Wert zur&uuml;ck, ohne
+die Daten zu &auml;ndern,
+Hier ist eine <code>main()</code> Methode,
+die die Zugriffsmethoden des <code>CheckingAccount</code>-Objekts
+<code>bobsAccount</code> verwendet.
+</p>
+
+<pre class="program">
+class CheckingAccount
+{
+  <span class="red">private</span> String accountNumber;
+  <span class="red">private</span> String accountHolder;
+  <span class="red">private</span> int    balance;
+  . . . .
+}
+
+class CheckingAccountTester
+{
+  public static void main( String[] args )
+  {
+    CheckingAccount bobsAccount = new CheckingAccount( "999", "Bob", 100 );
+
+    System.out.println( bobsAccount.currentBalance() );
+    bobsAccount.processDeposit( 200 );
+    System.out.println( bobsAccount.currentBalance() );
+
+  }
+}
+</pre>
+
+<p>
+(Wenn Sie das Programm ausf&uuml;hren m&ouml;chten, kopieren Sie es von der vorherigen und dieser Seite nach Notepad.)
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Welche Zugriffsmethoden werden in <code>main()</code> verwendet?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>main() Kann die privaten Daten nicht sehen
+<ANSWER>
+<p>
+<code>currentBalance()</code> und <code>processDeposit()</code>
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Die <code>main()</code> Methode war in der Lage das <code>CheckingAccount</code>-Objekt
+zu verwenden, indem sie die Zugriffsmethoden des Objekts nutzte.
+Hier ist eine andere <code>main()</code> Methode,
+die keine Zugriffsmethoden verwendet.
+</p>
+
+<pre class="program">
+class CheckingAccount
+{
+  <span class="red">private</span> String accountNumber;
+  <span class="red">private</span> String accountHolder;
+  <span class="red">private</span> int    balance;
+  . . . .
+}
+
+class CheckingAccountTester
+{
+  public static void main( String[] args )
+  {
+    CheckingAccount bobsAccount = new CheckingAccount( "999", "Bob", 100 );
+
+    System.out.println( bobsAccount.balance );
+    bobsAccount.balance = bobsAccount.balance + 200;
+    System.out.println( bobsAccount.balance );
+
+  }
+}
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was passiert, wenn Sie dieses Programm kompilieren?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Sorgf&auml;ltige Zugangskontrolle
+
+<ANSWER>
+<p>
+Der Compiler sieht, dass Sie versucht haben von au&szlig;erhalb des Objekts auf private Daten
+zuzugreifen.
+Er l&auml;sst Sie wissen, was er <em>dar&uuml;ber</em> denkt:
+</p>
+
+<pre style="margin-left:0cm">
+compiling: CheckingAccountTester.java
+CheckingAccountTester.java:46:
+Variable balance in class CheckingAccount not accessible from class CheckingAccountTester.
+         System.out.println( bobsAccount.balance );
+                                        ^
+CheckingAccountTester.java:47:
+Variable balance in class CheckingAccount not accessible from class CheckingAccountTester.
+         bobsAccount.balance = bobsAccount.balance + 200;
+                    ^
+CheckingAccountTester.java:47:
+Variable balance in class CheckingAccount not accessible from class CheckingAccountTester.
+         bobsAccount.balance = bobsAccount.balance + 200;
+                                          ^
+CheckingAccountTester.java:48:
+Variable balance in class CheckingAccount not accessible from class CheckingAccountTester.
+         System.out.println( bobsAccount.balance );
+                                        ^
+4 errors
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+Es mag ein bi&szlig;chen t&ouml;richt erscheinen, dass die
+<code>CheckingAccount</code>-Klasse <code>private</code> verwendet,
+um die <code>main()</code> Methode davon abzuhalten ihre Variablen zu sehen
+und dann einige Methoden zur Verf&uuml;gung stellt, so dass <code>main()</code>
+sie dann doch bekommt.
+Aber die Idee dabei ist, dass die Zugriffsmethoden jeden Zugang
+zu den privaten Daten &uuml;berpr&uuml;fen k&ouml;nnen.
+Zum Beispiel kann ein  Programmierer den Kontostand eines Bankkontos nicht erh&ouml;hen,
+in dem er schreibt:
+</p>
+
+
+<pre>
+bobsAccount.balance = bobsAccount.balance + 200;
+</pre>
+
+
+<p>
+Um den Kontostand zu erh&ouml;hen, muss die <code>processDeposit()</code> Methode
+verwendet werden,
+in der in einem besser ausgearbeiteten Programm
+&uuml;berpr&uuml;ft werden k&ouml;nnte, ob das Konto nicht gesperrt ist,
+ein Kennwort &uuml;bergeben werden muss, bevor sie irgend etwas &auml;ndert
+und jede &Auml;nderung in eine Log-Datei schreiben k&ouml;nnte.
+</p>
+
+<p>
+Dadurch, dass Daten als <code>private</code> deklariert werden
+und die Verwendung von Zugriffsmethoden erzwungen wird,
+ist es leichter Objekte konsistent und Bug-frei zu halten.
+Das ist in etwa wie das Hineinstecken der gesamten TV-Elektronik
+in eine Box, wobei dem Benutzer nur erlaubt wird Dinge
+&uuml;ber Kontrolltasten von au&szlig;erhalb der Box zu &auml;ndern.
+TV-Ger&auml;te w&uuml;rden nicht lange halten, wenn Benutzer
+gewohnheitsm&auml;&szlig;ig Kan&auml;le &auml;ndern, indem sie die
+Elektronik des Ger&auml;ts mit einem Schraubenzieher bearbeiten.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Ged&auml;chtnistest: ) Welchen Geldbetrag muss ein Kunde auf seinem Bankkonto haben,
+damit die Scheckgeb&uuml;hr entf&auml;llt?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Konsistente Anwendung einer Regel
+<ANSWER>
+<p>
+Daran erinnere ich mich nicht mehr.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Der Betrag liegt derzeit bei $1000.
+Wenn Sie Schwierigkeiten hatten sich daran zu erinnern,
+h&auml;tten Sie auch jedes Mal dann Probleme das Programm korrekt zu programmieren, wenn ein Check verarbeitet werden m&uuml;sste.
+Gl&uuml;cklicherweise wurde diese &quot;Regel&quot; schon in die Zugriffsmethode
+<code>processCheck()</code> programmiert.
+Dadurch, dass bei der Handhabung von Schecks immer diese Methode
+verwendet wird, ist die korrekte Anwendung dieser Regel immer gew&auml;hrleistet:
+</p>
+
+
+<pre>
+    bobsAccount.processCheck( 1400 );
+</pre>
+
+<p>
+Wenn es einen Fehler in der Anwendung der Regel gibt,
+gibt es nur eine Stelle um nach dem Problem zu sehen:
+in der Zugriffsmethode.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Eine andere Bank berechnet 10 Cent pro Scheck f&uuml;r Kontos
+mit einem Kontostand von mehr als $500.
+Unsere Bank muss das gleiche tun, um ihre Kunden zu halten.
+Wie schwer wird es sein diese &Auml;nderung vorzunehmen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Kapselung (Verbergen von Daten)
+<ANSWER>
+<p>
+Nicht allzu schwer.
+Gerade eine Methode muss ge&auml;ndert werden --- die Zugriffsmethode,
+die diese Regel implementiert.
+Wenn die Variablen nicht als <code>private</code> gekennzeichnet w&auml;ren und
+keine Zugriffsmethode verwendet w&uuml;rde,
+w&uuml;rde diese kleine &Auml;nderung dazu f&uuml;hren, jede Zeile des gesamten Programms nach Stellen
+durchzusehen, an denen auf die Variablen zugegriffen wird.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Kapselung, Definition</INDEX>
+
+<img src="blackBox.gif" align="left" vspace=1 hspace="15" />
+
+<p>
+Die Programmiertechnik, &uuml;ber die wir gerade gesprochen haben,
+hei&szlig;t Kapselung</em>.
+</p>
+
+<blockquote>
+<b>Kapselung</b> bedeutet das Verbergen von Details eines Objekts vor
+anderen Teilen des Programms.
+Das Objekt kann nur &uuml;ber seine Zugriffsmethoden verwendet werden,
+die sorgf&auml;ltig geschrieben wurden um das
+Objekt konsistent und gesch&uuml;tzt zu halten.
+</blockquote>
+
+<p>
+Kapselung l&auml;sst ein Objekt wie eine <em>Blackbox</em> aussehen:
+Das Innere einer Box ist vor Blicken gesch&uuml;tzt.
+Von au&szlig;en gibt es einige Steuerelemente, die f&uuml;r den Anwender die einzige M&ouml;glichkeit darstellen die Box zu verwenden.
+</p>
+
+<p>
+Das &uuml;bliche Beispiel daf&uuml;r ist ein Fernsehger&auml;t,
+wo dem Benutzer der Zugang zu den meisten inneren Abl&auml;ufen
+versperrt bleibt.
+Der Benutzer kommuniziert mit dem Ger&auml;t &uuml;ber
+wohl definierte Steuerelemente.
+Die Steuerelemente werden manchmal als <b>Interface</b> bezeichnet.
+In der objektorientierten Programmierung sollte der Programmierer
+versuchen, das Interface eines Objekts einfach und zweckm&auml;&szlig;ig zu gestalten.
+Die inneren Abl&auml;ufe des Objekts sollten <code>private</code> sein.
+<br clear="all" />
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage: ) Denken Sie, dass es m&ouml;glich ist
+eine private Methode zu haben?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Private Methoden
+<ANSWER>
+<p>
+Ja.  Die Idee der Kapselung ist es,
+Details eines Objekts vor anderen Bereichen der
+Software zu verbergen.
+Einige der Details k&ouml;nnen Methoden sein.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<pre class="program">
+class CheckingAccount
+{
+  // Daten-Deklaration
+  private String accountNumber;
+  private String accountHolder;
+  private int    balance;
+  <span class="red">private</span> int    useCount = 0;
+
+  <span class="red">private</span> void incrementUse()
+  {
+    <span class="blue">___________________</span>
+  }
+
+  void  processDeposit( int amount )
+  {
+    <span class="red">incrementUse();</span>
+    balance = balance + amount ;
+  }
+
+  void processCheck( int amount )
+  {
+    int charge;
+    <span class="red">incrementUse();</span>
+    if ( balance &lt; 100000 )
+      charge = 15;
+    else
+      charge = 0;
+
+    balance =  balance - amount - charge  ;
+  }
+}
+</pre>
+
+
+<INDEX>private Methoden</INDEX>
+<p>
+Eine <b>private Methode</b> ist eine Methode, die nur
+von anderen Methoden des Objekts verwendet werden kann.
+Teile eines Programms au&szlig;erhalb des Objekts k&ouml;nnen
+private Methoden des Objekts nicht direkt aufrufen (verwenden).
+</p>
+
+<p>
+Angenommen die Bank m&ouml;chte aufzeichnen wie oft ein
+Bankkonto verwendet wird.
+(Das k&ouml;nnte als Sicherheitsma&szlig;nahme geschehen.)
+Die &quot;Verwendung&quot; eines Bankkontos ist
+die Verarbeitung eines Guthabens oder eines Schecks.
+Um das zu erreichen wird den Daten der <code>CheckingAccount</code>-Klasse  ein "<em>use count</em>" hinzugef&uuml;gt.
+(Teile der Klasse wurden vor&uuml;bergehend ausgelassen.)
+</p>
+
+<p>
+Die Methoden <code>processDeposit()</code> und
+<code>processCheck()</code> rufen
+<code>incrementUse()</code> auf, um jedes Mal <code>useCount</code>
+zu erh&ouml;hen, wenn sie verwendet wurden.
+Wir wollen <code>useCount</code> nur aus diesen zwei Gr&uuml;nden
+&auml;ndern, also wird die <code>incrementUse()</code> Methode <code>private</code> deklariert
+(und die Variable <code>useCount</code> wird ebenfalls <code>private</code> deklariert.)
+<br clear="all" />
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus, so dass die neue private Methode <code>useCount</code>
+inkrementiert.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>main() Kann keine private Methode verwenden
+<ANSWER>
+
+<pre>
+  <span class="red">private</span> void incrementUse()
+  {
+    <span class="blue">useCount = useCount + 1;</span>
+  }
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist eine <code>main()</code> Methode, die irrt&uuml;mlicherweise
+versucht <code>useCount</code> zu &auml;ndern:
+</p>
+
+<pre class="program">
+class CheckingAccount
+{
+  private String accountNumber;
+  private String accountHolder;
+  private int    balance;
+  <span class="red">private</span> int    useCount = 0;
+  . . . .
+
+  <span class="red">private</span> void incrementUse()
+  . . . .
+}
+
+class CheckingAccountTester
+{
+  public static void main( String[] args )
+  {
+    CheckingAccount bobsAccount = new CheckingAccount( "999", "Bob", 100 );
+
+    bobsAccount.processCheck( 50 );
+    bobsAccount.incrementUse();
+    bobsAccount.<span class="red">useCount</span> = 15;
+  }
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wird dieses Programm kompilieren und sich ausf&uuml;hren lassen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Neue display() Methode
+<ANSWER>
+<p>
+Nein. Das Programm wird nicht kompilieren.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist der Output des Compilers f&uuml;r das fehlerhafte Programm:
+</p>
+
+
+<pre>
+compiling: CheckingAccountTester.java
+
+CheckingAccountTester.java:55:
+No Methode matching incrementUse() found in class CheckingAccount.
+    bobsAccount.incrementUse();
+                            ^
+CheckingAccountTester.java:56:
+Variable useCount in class CheckingAccount not accessible from class CheckingAccountTester.
+    bobsAccount.useCount = 15;
+               ^
+2 errors
+</pre>
+
+
+<p>
+Die <code>main()</code> Methode kann weder die <code>private</code> Variable <code>useCount</code> verwenden,
+noch kann sie die <code>private</code> Methode <code>incrementUse()</code> verwenden.
+Diese k&ouml;nnen nur von anderen Methoden des Objekts verwendet werden.
+Die <code>main()</code> Methode <strong>kann</strong> die Methode  <code>bobsAccount.processCheck( )</code> verwenden, die nicht privat ist.
+Diese  wiederum kann die private Methode <code>incrementUse()</code> verwenden.
+Das ist OK.
+</p>
+
+<p>
+Es w&auml;re sch&ouml;n, eine <code>display()</code> Methode in dieser Klasse zu haben,
+die <code>useCount</code> zeigt, genauso wie die anderen Daten.
+Hier ist die <code>display()</code> Methode des vorherigen Kapitels:
+</p>
+
+<pre class="program">
+class CheckingAccount
+{
+  private String accountNumber;
+  private String accountHolder;
+  private int    balance;
+  private int    useCount = 0;
+  . . . .
+
+  void display()
+  {
+    System.out.println(  accountNumber + "\t" + accountHolder + "\t" +  balance );
+  }
+
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+&Auml;ndern Sie die Methode, so dass sie auch <code>useCount</code> ausgibt.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndige Klasse
+<ANSWER>
+<p>
+Die ge&auml;nderte Methode ist unten zu sehen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist die vollst&auml;ndige Klasse mit der modifizierten <code>display()</code> Methode.
+Betrachten Sie sie aufmerksam um zu sehen wie die Dinge, die wir getan haben, zusammenpassen.
+</p>
+
+<pre class="program">
+class CheckingAccount
+{
+  // Daten-Deklaration
+  private String accountNumber;
+  private String accountHolder;
+  private int    balance;
+  private int    useCount = 0;
+
+  //Konstruktor
+  CheckingAccount( String accNumber, String holder, int start )
+  {
+    accountNumber = accNumber ;
+    accountHolder = holder ;
+    balance       = start ;
+  }
+
+  // Methoden
+  private void incrementUse()
+  {
+    useCount = useCount + 1;
+  }
+
+  int currentBalance()
+  {
+    return balance ;
+  }
+
+  void  processDeposit( int amount )
+  {
+    incrementUse();
+    balance = balance + amount ;
+  }
+
+  void processCheck( int amount )
+  {
+    int charge;
+
+    incrementUse();
+    if ( balance &lt; 100000 )
+      charge = 15;
+    else
+      charge = 0;
+
+    balance =  balance - amount - charge  ;
+  }
+
+  void display()
+  {
+    System.out.println(  accountNumber + "\t" + accountHolder + "\t" +
+                         balance <span class="blue">+ "\t" + useCount</span> );
+  }
+
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was beh&auml;lt <code>useCount</code> im Auge:
+</p>
+
+<ul>
+<li>Die Anzahl, wie oft ein einzelnes <strong>Objekt</strong> verwendet wurde, oder</li>
+<li>Die Anzahl, wie oft die gesamte <strong>Klasse</strong> verwendet wurde?</li>
+</ul>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Beispiel main()
+<ANSWER>
+<p>
+Die Anzahl, wie oft ein einzelnes Objekt verwendet wurde.
+(Wenn das nicht klar ist, betrachten Sie noch mal die Klassendefinition
+um zu sehen, dass die Variable <code>useCount</code> Teil eines jeden Objekts ist
+und, dass jedes Objekt seine eigene Methode <code>incrementUse()</code> hat,
+die ihre eigene Variable inkrementiert.)
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist die <code>main()</code> Methode, die dieses Konzept zeigt:
+</p>
+
+<pre class="program">
+class CheckingAccount
+{
+  private String accountNumber;
+  private String accountHolder;
+  private int    balance;
+  private int    useCount = 0;
+
+  CheckingAccount( String accNumber, String holder, int start ) { . . . . }
+  private void incrementUse() { . . . . }
+  int currentBalance() { . . . . }
+  void  processDeposit( int amount ) { . . . . }
+  void processCheck( int amount ) { . . . . }
+  void display() { . . . . }
+
+}
+
+class CheckingAccountTester
+{
+  public static void main( String[] args )
+  {
+    CheckingAccount bobsAccount = new CheckingAccount( "999", "Bob", 100 );
+    CheckingAccount jillsAccount = new CheckingAccount( "111", "Jill", 500 );
+
+    bobsAccount.processCheck( 50 );
+    bobsAccount.processDeposit( 150 );
+    bobsAccount.processCheck( 50 );
+
+    jillsAccount.processDeposit( 500 );
+    jillsAccount.processCheck( 100 );
+    jillsAccount.processCheck( 100 );
+    jillsAccount.processDeposit( 100 );
+
+    bobsAccount.display();
+    jillsAccount.display();
+  }
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was wird das Programm ausgeben?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Der Zugriffsmodifizierer public
+
+<ANSWER>
+
+
+<pre>
+999     Bob     120     3
+111     Jill    870     4
+</pre>
+
+<p>
+(Erinnern Sie sich an jene 15 Cent Servicegeb&uuml;hren pro Scheck.)
+</p>
+
+</ANSWER>
+
+<LESSON>
+<INDEX>public, Sichtbarkeit</INDEX>
+<p>
+Der Zugriffsmodifizierer <code>private</code>  h&auml;lt Au&szlig;enstehende davon ab hinein zu sehen.
+Aber die Zugriffsmethoden sind f&uuml;r Au&szlig;enstehende gedacht
+und m&uuml;ssen, um n&uuml;tzlich zu sein, f&uuml;r Au&szlig;enstehende sichtbar sein.
+Der Zugriffsmodifizierer <b>public</b> sagt explizit,
+dass auf eine Methode oder Variable eines Objekts durch Code von au&szlig;erhalb
+des Objekts zugegriffen werden kann.
+</p>
+
+<p>
+Der Zugriffsmodifizierer <code>public</code> wird &uuml;blicherweise
+f&uuml;r alle Zugriffsmethoden und Konstruktoren in einer Klassendefinition verwendet.
+Die meisten Variablen werden als <code>private</code> deklariert.
+Hier ist das Grundger&uuml;st der <code>CheckingAccount</code> Klasse:
+</p>
+
+<pre class="program">
+class CheckingAccount
+{
+  private String accountNumber;
+  private String accountHolder;
+  private int    balance;
+  private int    useCount = 0;
+
+  <span class="blue">___________</span> CheckingAccount( String accNumber, String holder, int start )
+      { . . . . }
+  private void incrementUse() { . . . . }
+  <span class="blue">___________</span> int currentBalance() { . . . . }
+  <span class="blue">___________</span> void  processDeposit( int amount ) { . . . . }
+  <span class="blue">___________</span> void processCheck( int amount ) { . . . . }
+  <span class="blue">___________</span> void display() { . . . . }
+
+}
+</pre>
+
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie in Gedanken die L&uuml;cken f&uuml;r die Zugriffsmodifizierer f&uuml;r den Konstruktor
+und f&uuml;r jede der Methoden aus.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Standardsichtbarkeit
+<ANSWER>
+
+<pre>
+class CheckingAccount
+{
+  private String accountNumber;
+  private String accountHolder;
+  private int    balance;
+  private int    useCount = 0;
+
+  <span class="blue">public</span> CheckingAccount( String accNumber, String holder, int start )
+      { . . . . }
+  private void incrementUse() { . . . . }
+  <span class="blue">public</span> int currentBalance() { . . . . }
+  <span class="blue">public</span> void  processDeposit( int amount ) { . . . . }
+  <span class="blue">public</span> void processCheck( int amount ) { . . . . }
+  <span class="blue">public</span> void display() { . . . . }
+
+}
+</pre>
+
+
+</ANSWER>
+
+<LESSON>
+<INDEX>Standardsichtbarkeit</INDEX>
+<p>
+Wenn Sie weder <code>public</code> noch <code>private</code> f&uuml;r
+eine Variable oder Methode angeben,
+dann werden sie eine Standardsichtbarkeit haben.
+Die Standardsichtbarkeit erlaubt es einer Variablen oder Methode von
+allen anderen Methoden einer Klasse oder anderen Klassen, die Teil desselben Pakets
+sind, gesehen zu werden.
+Diese Aufzeichnungen haben Pakete noch nicht besprochen.
+Ein Paket ist eine Gruppe von &auml;hnlichen Klassen.
+Ein sp&auml;teres Kapitel wird die Erstellung von Paketen behandeln.
+</p>
+
+<p>
+F&uuml;r jetzt bedeutet Standardsichtbarkeit das gleiche wie
+die Sichtbarkeit <code>public</code>.
+Aber es ist das Beste, Klassenmitglieder explizit
+als <code>public</code> zu deklarieren, wenn es das ist, was Sie tats&auml;chlich wollen.
+Sie k&ouml;nnen ein Klassenmitglied explizit keine Standardsichtbarkeit zuweisen
+(zum Beispiel, Sie k&ouml;nnen nicht sagen <code>default int monthlyCharge; </code>.)
+</p>
+
+<p>
+Sp&auml;ter, nachdem diese Aufzeichnungen Vererbung besprochen haben,
+wird es andere Zugriffsmodifizierer geben und
+zus&auml;tzliche Regeln f&uuml;r die Zugriffsmodifizierer <code>public</code> und <code>private</code>.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Sollte ein Konstruktor <code>public</code> oder <code>private</code> sein?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<ANSWER>
+<p>
+Ein Konstruktor wird fast immer <code>public</code> sein,
+so dass Objekte der Klasse von &quot;Au&szlig;enstehenden&quot;, so wie von <code>main()</code> einer Testklasse, konstruiert werden k&ouml;nnen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Sie haben das Ende des Kapitels erreicht.
+Vielleicht m&ouml;chten Sie das folgende noch einmal Revue passieren lassen.
+Klicken Sie auf ein blaues Thema, um dahin zu kommen wo es er&ouml;rtert wird.
+Um hierher zur&uuml;ck zu gehen, klicken Sie auf den &quot;Zur&uuml;ck&quot;-Button Ihres Browsers.
+
+</p>
+
+<ul>
+<li>
+<GOTO>private, Sichtbarkeit</GOTO> private Sichtbarkeit.
+</li>
+<li>
+<GOTO>Zugriffsmethoden</GOTO> Zugriffsmethoden.
+</li>
+<li>
+<GOTO>Kapselung, Definition</GOTO> Kapselung.
+</li>
+<li>
+<GOTO>private Methoden</GOTO> private Methoden.
+</li>
+<li>
+<GOTO>public, Sichtbarkeit</GOTO> &ouml;ffentlich Sichtbarkeit (<code>public</code>).
+</li>
+<li>
+<GOTO>Standardsichtbarkeit</GOTO> Standardsichtbarkeit.
+</li>
+</ul>
+
+
+<hr />
+<br />
+<A HREF="../../java-toc.html#33">
+<img src="../contents.gif" alt="Click here" align="center"></A>
+&#8212;&#8212;Zur&uuml;ck zur <A HREF="../../java-toc.html#33">&Uuml;bersicht</a>.
+<br />
+<br />
+</LESSON>
+</CAI>
+
+</CHAPTER>

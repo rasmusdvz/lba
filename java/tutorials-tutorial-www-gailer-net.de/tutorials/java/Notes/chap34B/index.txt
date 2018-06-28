@@ -1,0 +1,7 @@
+<INDEX>Call-By-Value</INDEX>
+<INDEX>primitive Daten</INDEX>
+<INDEX>Parameter übergeben</INDEX>
+<INDEX>Rückgabe-Anweisung/INDEX>
+<INDEX>Parameter, Objektreferenzen</INDEX>
+<INDEX>Parameter, veränderbare Objektreferenz</INDEX>
+<INDEX>Call-By-Value, Objektreferenz</INDEX>

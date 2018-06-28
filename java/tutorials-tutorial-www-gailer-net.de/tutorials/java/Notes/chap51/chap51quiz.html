@@ -1,0 +1,489 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="copyright" content="2006">
+<meta name="author" content="B. P. Kjell">
+<meta name="email" content="kjell at ieee dot org">
+<meta name="robots" content="noindex,nofollow">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer">
+
+<title>Quiz &uuml;ber abstrakte Klassen und Polymorphismus</title>
+<link rel="stylesheet" href="../QUIZstyle.css" type="text/css">
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+</head>
+
+<body>
+<p class="revisions">erstellt 17.07.99; &uuml;bersetzt 15.07.03; &uuml;berarbeitet 25.02.03, 02.03.04, 22.02.05, 25.01.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+<hr>
+
+<h1>
+<!-- FILL in the Quiz Name on the next line-->
+Quiz &uuml;ber abstrakte Klassen und Polymorphie
+<!-- end of Quiz Name -->
+</h1>
+<img src="quizentine.gif" align="left" hspace="5" vspace="5">
+<p>
+Das ist ein &Uuml;bungsquiz. Die Ergebnisse werden nirgendwo erfasst und haben keine Auswirkung auf Ihre Note. Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen, der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+Entscheiden Sie sich bei jeder Frage f&uuml;r die beste Antwort. Klicken Sie dann auf das entsprechende Optionsk&auml;stchen, um diese Antwort auszuw&auml;hlen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern. Sobald das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox unterhalb der Frage.
+<br clear="all">
+</p>
+
+<hr>
+<form name="question1">
+<p>
+1.
+<!-- FILL in Question 1-->
+Was ist eine abstrakte Klasse?
+</p>
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Eine abstrakte Klasse ist eine Klasse ohne Subklassen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Eine abstrakte Klasse ist jede Superklasse mit mehr als einer Subklasse.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Eine abstrakte Klasse ist eine Klasse, die nicht instanziiert werden kann.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Eine abstrakte Klasse ist ein anderer Name f&uuml;r eine Basisklasse.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+Was ist eine abstrakte Methode?
+</p>
+<!-- end of question -->
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Eine abstrakte Methode ist eine beliebige Methode in einer abstrakten Klasse.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Eine abstrakte  Methode ist eine Methode, die nicht geerbt werden kann.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Eine abstrakte Methode ist eine Methode ohne K&ouml;rper, die mit dem reservierten Wort
+<code>abstract</code> deklariert ist.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Eine abstrakte Methode ist eine Methode in der Subklasse, die die Methode einer
+Superklasse &uuml;berschreibt.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+Kann eine abstrakte Klasse sowohl abstrakte Methoden als auch nicht-abstrakte Methoden definieren?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nein &#8212; sie muss entweder das eine oder das andere haben.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nein &#8212; sie darf nur abstrakte Methoden haben.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ja &#8212; aber die abstrakten Methoden werden nicht von der Subklasse geerbt.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ja &#8212; die Subklasse erbt beide.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+Kann eine abstrakte Superklasse nicht-abstrakte Subklassen haben?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nein &#8212; eine abstrakte Superklasse darf nur abstrakte Subklassen haben.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nein &#8212; eine abstrakte Superklasse darf &uuml;berhaupt keine Subklasse haben.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ja &#8212; alle Subklassen einer abstrakten Superklasse m&uuml;ssen nicht-abstrakt sein.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ja &#8212; eine abstrakte Superklasse kann sowohl abstrakte als auch nicht-abstrakte Subklassen haben.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+Kann eine abstrakte Methode in einer nicht-abstrakten Klasse definiert sein?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nein &#8212; wenn eine Klasse eine abstrakte Methode definiert, muss die Klasse selbst abstrakt sein.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nein &#8212; nur Klassen sind abstrakt, nicht Methoden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ja &#8212; eine Methode kann in einer beliebigen Superklasse als abstrakt deklariert sein,
+solange sie die Subklassen ebenfalls als abstrakt deklarieren.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ja &#8212; es gibt keine Beschr&auml;nkungen wo abstrakte Methoden definiert werden k&ouml;nnen.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+Kann eine Objektreferenz einer Subklasse einer Variablen vom Typ der Superklasse zugewiesen werden? Zum Beispiel,
+<blockquote>
+<pre>
+Karte karte;
+Geburtstag geb = new Geburtstag("Lucinda", 42);
+
+karte = geb;   //  ist das korrekt?
+</pre>
+</blockquote>
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Nein &#8212; es muss immer eine genaue &Uuml;bereinstimmung zwischen dem Typ der Variablen und dem Typ des Objekts bestehen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Nein &#8212; aber eine Objektreferenz vom Typ der Superklasse kann einer Variablen vom Typ der Subklasse zugewiesen werden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Ja &#8212; eine Objektreferenz kann einer Variablen vom Typ Superklasse zugewiesen werden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Ja &#8212; jede Objektreferenz kann jeder Referenzvariablen zugewiesen werden.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="C"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+Was bedeutet in Java Polymorphie?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Wenn eine einzelne Variable f&uuml;r mehrere verschiedene, aber
+verwandte Objekttypen an verschiedenen Stellen des Programms verwendet wird.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Wenn ein Programm mehrere verschiedene Objekttypen verwendet,
+jeden mit seiner eigenen Variablen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Wenn eine einzelne Superklasse mehrere Subklassen hat.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Wenn eine Klasse verschiedene Methoden mit dem gleichen Namen aber unterschiedlichen Parametertypen hat.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+Was bestimmt in dem folgenden, welche Methode ausgef&uuml;hrt wird:
+</p>
+<blockquote>
+<pre>
+Karte karte = new Geburtstag("Lucinda", 42);
+
+karte.gruss();
+</pre>
+</blockquote>
+<p>
+Der Typ des Objekts oder der Typ der Referenzvariablen?
+</p>
+<!-- end of question -->
+
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Der Typ des Objekts.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Der Typ der Referenzvariablen?
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+Damit der folgende Code korrekt ist,
+von welchem Typ muss die Referenzvariable
+<code>karte</code> sein?
+<blockquote>
+<pre>
+_________ karte;
+
+karte = new Valentin( "Joe", 14 ) ;
+karte.gruss();
+
+karte = new Feiertag( "Bob" ) ;
+karte.gruss();
+
+karte = new Geburtstag( "Emily", 12 ) ;
+karte.gruss();
+</pre>
+</blockquote>
+
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Valentin
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Feiertag
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Geburtstag
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Karte<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="D"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>  <input type="text" name="correct" value="  " size="5"></p>
+<input type="hidden" name="response" value="">
+</form>
+
+
+<hr>
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+Was ist der Vorteil von Polymorphie?
+<!-- end of question -->
+</p>
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'"><b>a.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer A -->
+Die gleiche Programmierlogik kann auf mehrere verwandte Objekttypen angewandt werden.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'"><b>b.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer B -->
+Variablen k&ouml;nnen wiederverwendet werden, um Speicher zu sparen.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'"><b>c.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer C -->
+Das Konstruieren neuer Objekte aus alten Objekten eines &auml;hnlichen Typs spart Zeit.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'"><b>d.&nbsp;&nbsp;&nbsp;</b>
+<!-- FILL in answer D -->
+Polymorphie ist ein gef&auml;hrlicher Aspekt der Vererbung und sollte vermieden werden.
+<!-- end of answer -->
+</td></tr>
+</table>
+<input type="hidden" name="answer" value="A"> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p> <input type="text" name="correct" value="  " size="5"></p>
+<input type="hidden" name="response" value="">
+</form>
+
+<hr>
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+</p>
+<p>Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size="5">
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size="5">
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size="5">
+</p>
+</form>
+
+<hr>
+
+<p style="margin-top:1em;"><a href="../../index.html#51"><img style="float:left;margin-right:5px;" src="../homeIcon.gif" alt="Inhalt" border="0"></a>
+(Sollten Sie gerade von einer anderen Seite hierher zur&uuml;ckgekommen sein oder diese Seite neu geladen haben, kann es sein, dass Sie erneut auf jede Ihrer ausgew&auml;hlten Antworten klicken m&uuml;ssen, damit das Bewertungsprogramm korrekt arbeitet.)
+</p>
+
+<p>Um die alten Antworten zu l&ouml;schen, halten Sie die Strg-Taste gedr&uuml;ckt und laden dann die Seite neu (Firefox). Bei anderen Browsern funktioniert das in Verbindung mit der Umschalt- bzw. Strg+Umschalt-Taste. Beim Internet Explorer 8 muss die Seite verlassen und erneut aufgerufen werden.</p>
+
+</body>
+</html>

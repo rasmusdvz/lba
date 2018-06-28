@@ -1,0 +1,627 @@
+<HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+
+<meta  http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>F&uuml;llen Sie die L&uuml;cken aus</title>
+
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2003, Heinrich Gailer">
+
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css">
+
+</head>
+
+<body>
+
+<p class="revisions">erstellt: 30.09.99; &uuml;berarbeitet: 07.03.00; &uuml;bersetzt: 15.06.03; &uuml;berarbeitet 03.02.04, 10.02.04, 26.07.04, 18.01.05, 11.07.06, 19.10.06, 19.01.11; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+<h1>
+<!-- FILL in the Quiz Name on the next line-->
+F&uuml;llen Sie die L&uuml;cken aus
+<!-- end of Quiz Name -->
+</h1>
+
+<p>
+In dieser Aufgabe werden Sie das Entwerfen von Objekten aus anderen Objekten &uuml;ben.
+Zuerst werden Sie die Klasse <code>Marmelade</code> definieren.
+Objekte dieser Klasse repr&auml;sentieren  Gl&auml;ser von eingemachten Fr&uuml;chten.
+Dann werden einige dieser Gl&auml;ser in eine <code>Vorratskammer</code> gestellt.
+</p>
+
+<!-- ------------------------start of question ------------------------------ -->
+<p><img src="jelly.gif" align="left" hspace="15" vspace="15">
+1. &nbsp; &nbsp; &nbsp;
+<b>Entwurf der Klasse <code>Marmelade</code></b>. &nbsp; &nbsp;
+Objekte dieser Klasse werden ein Glas von eingemachten Fr&uuml;chten repr&auml;sentieren,
+so wie sie Ihre Gro&szlig;mutter in jedem Herbst gemacht hat.
+&Uuml;berlegen Sie sich drei Werte, die Sie &uuml;ber ein Marmeladenglas wissen m&ouml;chten.
+</p>
+
+<form>
+<ol>
+<li> <input type="button" value="_________________________" name="button1" onClick="value='Was f&uuml;r eine Art Frucht es ist.'"></li>
+<li> <input type="button" value="_________________________" name="button2" onClick="value='Wie viel im Glas ist.'"></li>
+<li> <input type="button" value="_________________________" name="button3" onClick="value='Wann sie eingemacht wurde.'"></li>
+</ol>
+</form>
+
+<p>
+Denken Sie jetzt an ein paar Methoden, die auf ein <code>Marmelade</code>-Objekt angewendet werden k&ouml;nnen.
+Es ist fast immer eine gute Idee eine M&ouml;glichkeit zu haben die Daten eines Objekts auszugeben:
+</p>
+
+<form>
+<ol>
+<li> <input type="button" value="________________________" name="button5" onClick="value='Pr&uuml;fen, ob das Glas leer ist.'"></li>
+<li> <input type="button" value="________________________" name="button6" onClick="value='Marmelade entnehmen.'"></li>
+<li> <input type="button" value="________________________" name="button7" onClick="value='Daten ausgeben.'"></li>
+</ol>
+</form>
+
+<p>
+Das ist ein etwas dummes Beispiel und es w&auml;re nicht ungew&ouml;hnlich,
+wenn Sie an etwas anderes gedacht haben, um die L&uuml;cken auszuf&uuml;llen.
+</p>
+<hr>
+
+<P>
+2. &nbsp; &nbsp; &nbsp;<b>Klasse dokumentieren</b>. &nbsp; &nbsp;
+F&uuml;llen Sie jetzt die L&uuml;cken f&uuml;r die Klassendefinition aus:
+</P>
+
+<form>
+<pre class="program">
+<big><b>class</big></b> <input type="button" value="___________" name="button1" onClick="value='Marmelade'">
+
+// Eine Klasse, die ein Marmeladenglas modelliert.
+
+// <b><big>Konstruktor</big></b>
+
+public Marmelade ( String <input type="button" value="___________" name="button2" onClick="value='inhalt'">,      // &uuml;berlegen Sie sich sinnvolle Parameternamen
+            String <input type="button" value="___________" name="button3" onClick="value='datum'">,      // f&uuml;r jeden der drei Werte
+            int    <input type="button" value="___________" name="button4" onClick="value='menge'">  )
+
+// <b><big>Methoden</big></b>
+
+// &uuml;berpr&uuml;fen, ob das Glas leer ist
+public boolean  <input type="button" value="___________" name="button6" onClick="value=' istLeer() '">
+
+// etwas Marmelade entnehmen --- eine bestimmte Menge davon
+// auf den Toast auftragen
+public void  auftragen <input type="button" value=" ( ____ ________ )  " name="button7" onClick="value=' (int unzen ) '">
+
+// Informationen &uuml;ber das Glas ausgeben
+public void ausgeben()
+</pre>
+</form>
+
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+3. &nbsp; &nbsp; &nbsp;<b>Das Design &uuml;berpr&uuml;fen</b>. &nbsp; &nbsp;Um das Design zu &uuml;berpr&uuml;fen, schreiben Sie ein kleines Programm, das die Klasse verwendet.
+Nat&uuml;rlich kann das Programm nicht kompiliert werden bis die Klasse geschrieben ist,
+aber Sie k&ouml;nnen dadurch ein Gef&uuml;hl daf&uuml;r bekommen ob das Klassendesign vern&uuml;nftig ist.
+
+</p>
+
+<form>
+<pre class="program">
+class MarmeladeTester
+{
+
+  public static void main ( String[] args )
+  {
+     <input type="button" value="___________" name="button1" onClick="value=' Marmelade  '">  glas = new  <input type="button" value="___________" name="button2" onClick="value=' Marmelade  '"> ( "Erdbeer", "30.09.03", 12 );
+
+     glas.ausgeben();
+
+     if ( glas.<input type="button" value="_____________" name="button8" onClick="value=' istLeer() '"> )
+       System.out.println("Es kann keine Marmelade aufgetragen werden: Das Glas ist leer.");
+     else
+     {
+       glas.<input type="button" value="________( _____) " name="button7" onClick="value=' auftragen( 1 ) '">;
+       System.out.println("Auftragen von 1 Unze Marmelade.");
+       glas.ausgeben();
+     }
+
+  }
+}
+</pre>
+</form>
+
+<p>
+Sie k&ouml;nnten einige Zweifel haben ob dies ein vern&uuml;nftiges Programm ist.
+Vielleicht w&auml;re es eine gute Idee die <code>auftragen()</code> Methode eine Mitteilung aus geben zu lassen, jedes Mal wenn sie verwendet wird.
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+4. &nbsp; &nbsp; &nbsp;<b>F&uuml;llen Sie die Instanzvariablen aus</b>. &nbsp; &nbsp;F&uuml;llen Sie den Datentyp f&uuml;r jede Instanzvariable aus.
+</p>
+
+<form>
+<pre class="program">
+class Marmelade
+{
+  // Instanzvariablen
+  <input type="button" value="_____________________" name="button1" onClick="value='private String  '"> inhalt;
+  <input type="button" value="_____________________" name="button2" onClick="value='private String  '"> datum;
+  <input type="button" value="_____________________" name="button3" onClick="value='private int  '"> menge;
+
+  // Konstruktor
+
+  // Methoden
+
+}
+</pre>
+</form>
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+5. &nbsp; &nbsp; &nbsp;<b>Vervollst&auml;ndigen Sie den Konstruktor</b>. &nbsp; &nbsp;Der Konstruktor wird die Instanzvariablen des zu konstruierenden Objekts initialisieren.
+</p>
+
+<form>
+<pre class="program">
+class Marmelade
+{
+  // Instanzvariablen
+  private String inhalt; // Art der Frucht im Glas
+  private String datum;  // Datum des Abf&uuml;llens
+  private int    menge;  // Menge der Marmelade im Glas
+
+  // Konstruktor
+  public Marmelade(String inhalt, String datum, int menge)
+  {
+    <input type="button" value="_________" name="button5" onClick="value=' this '"> . inhalt = inhalt;
+    <input type="button" value="_________" name="button6" onClick="value=' this '"> . datum = datum;
+    <input type="button" value="_________" name="button7" onClick="value=' this '"> . menge = menge;
+  }
+
+  // Methoden
+
+}
+</pre>
+</form>
+
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+6. &nbsp; &nbsp; &nbsp;<b>Vervollst&auml;ndigen Sie die Methoden</b>. &nbsp; &nbsp; Wenn der Anwender mehr Marmelade auftragen m&ouml;chte als verf&uuml;gbar ist,
+tragen Sie nur die Menge auf, die im Glas &uuml;brig ist.
+</p>
+
+<form>
+<pre class="program">
+class Marmelade
+{
+  // Instanzvariablen
+  private String inhalt; // Art der Frucht im Glas
+  private String datum;  // Datum des Abf&uuml;llens
+  private int    menge;  // Menge der Marmelade im Glas
+
+
+  // Konstruktor
+  public Marmelade(String inhalt, String datum, int menge)
+  {
+    this . inhalt = inhalt;
+    this . datum  = datum;
+    this . menge  = menge;
+  }
+
+  // Methoden
+  public boolean istLeer()
+  {
+     return ( <input type="button" value="____________" name="button1" onClick="value='menge'"> == <input type="button" value="_____________" name="button3" onClick="value='  0   '"> );
+  }
+
+  public void ausgeben()
+  {
+     System.out.println ( <input type="button" value="____________" onClick="value='inhalt'">  + "   " + <input type="button" value="_____________" onClick="value=' datum  '"> + "   " + <input type="button" value="_____________"  onClick="value=' menge  '"> + " Unzen" );
+  }
+
+  public void auftragen(int unzen)
+  {
+     if ( !istLeer() )
+     {
+         if ( unzen &lt;= menge )
+         {
+             System.out.println("Auftragen von  " + <input type="button" value="____________" onClick="value='unzen'"> + " Unzen von " + inhalt );
+
+             menge = menge - <input type="button" value="____________" onClick="value='unzen'">;
+
+         }
+         else
+         {
+             System.out.println("Auftragen von " + <input type="button" value="____________" onClick="value='menge'"> + " Unzen von " + inhalt );
+
+             menge = <input type="button" value="____________" onClick="value='   0   '">;
+         }
+     }
+     else
+         System.out.println("Keine Marmelade im Glas!");
+  }
+
+}
+</pre>
+</form>
+
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<img src="pantry.gif" style="float:left;margin:15px;padding:10px">
+<p>
+7. &nbsp; &nbsp; &nbsp;<b>Design der Klasse <code>Vorratskammer</code></b>. &nbsp; &nbsp;
+Sagen wir, dass eine Vorratskammer aus drei Marmeladengl&auml;sern beliebigen Typs und beliebiger Gr&ouml;&szlig;e besteht.
+</p>
+
+<ol>
+<li>Den Inhalt der Vorratskammer auflisten.</li>
+<li>Ein Glas durch eine Zahl ausw&auml;hlen
+    <ul type="disc">
+    <li>Gl&auml;ser werden durch eine Ganzzahl 1, 2, oder 3 ausgew&auml;hlt.</li>
+    </ul></li>
+<li>Marmelade des ausgew&auml;hlten Glases auftragen.</li>
+</ol>
+
+<p>
+Um ein Glas Marmelade zu verwenden, muss man erst zur Vorratskammer gehen und eines ausw&auml;hlen.
+</p>
+
+<form>
+<p>
+Hier ist die Dokumentation:
+</p>
+
+<pre class="program">
+<big><b>class</big></b> <input type="button" value="______________" name="button1" onClick="value='Vorratskammer'">
+
+// Eine Klasse, die eine Vorratskammer mit Marmelade modelliert.
+
+// <b><big>Konstruktor</big></b>
+
+public Vorratskammer ( <input type="button" value="______________" name="button2" onClick="value='  Marmelade  '">  glas1,
+         <input type="button" value="______________" name="button3" onClick="value='  Marmelade  '">  glas2,
+         <input type="button" value="______________" name="button4" onClick="value='  Marmelade  '">  glas3 )
+
+
+// <b>Hinweis:</b> dieser Konstruktor wird drei <em>Objektreferenzen</em> als Parameter aufnehmen.
+// Die drei Objekte werden die drei Gl&auml;ser sein, die in der Vorratskammer aufbewahrt werden.
+// Die Objekte m&uuml;ssen schon existieren, bevor der Konstruktor verwendet wird.
+
+// <b><big>Methoden</big></b>
+
+// den Inhalt der Vorratskammer ausgeben
+<input type="button" value="___________" name="button6" onClick="value=' public '">  void ausgeben()
+
+// ein Glas durch eine Zahl ausw&auml;hlen
+public void  auswaehlen <input type="button" value=" ( ____ __________ )  " name="button7" onClick="value=' ( int glasNummer ) '">
+
+// eine bestimmte Menge Marmelade von dem ausgew&auml;hlten Glas auftragen
+public void  auftragen <input type="button" value=" ( ____ __________ )  " name="button8" onClick="value='  ( int unzen )  '">
+
+</pre>
+</form>
+
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+8. &nbsp; &nbsp; &nbsp;<b>Instanzvariablen und Konstruktor</b>. &nbsp; &nbsp;
+Entscheiden Sie &uuml;ber die Instanzvariablen.
+Es wird eine Variable geben, die auf das gegenw&auml;rtig ausgew&auml;hlte Marmeladenglas verweist.
+Wenn kein Glas ausgew&auml;hlt ist,
+sollte sie auf kein Objekt verweisen.
+Au&szlig;enstehende sollten nicht in der Lage sein die Variablen direkt zu &auml;ndern.
+</p>
+<form>
+<pre class="program">
+class Vorratskammer
+{
+  // Instanzvariablen
+  private <input type="button" value="____________" name="button5" onClick="value=' Marmelade '"> glas1;
+  private <input type="button" value="____________" name="button6" onClick="value=' Marmelade '"> glas2;
+  private <input type="button" value="____________" name="button7" onClick="value=' Marmelade '"> glas3;
+  private <input type="button" value="____________" name="button8" onClick="value=' Marmelade '"> glasAusgewaehlt;
+
+  // Konstruktor
+  public Vorratskammer( Marmelade glas1, Marmelade glas2, Marmelade glas3 )
+  {
+    <input type="button" value="_________" name="button1" onClick="value=' this '"> . glas1 = glas1;
+    <input type="button" value="_________" name="button2" onClick="value=' this '"> . glas2 = glas2;
+    <input type="button" value="_________" name="button3" onClick="value=' this '"> . glas3 = glas3;
+    glasAusgewaehlt = <input type="button" value="_________" name="button4" onClick="value=' null '">;
+  }
+
+  // Methoden
+
+}
+</pre>
+</form>
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+9. &nbsp; &nbsp; &nbsp;<b>Implementieren Sie die <code>ausgeben()</code> Methode</b>. &nbsp; &nbsp;
+Die <code>ausgeben()</code> Methode wird jedes der Gl&auml;ser in der Vorratskammer ausgeben.
+</p>
+
+<form>
+<pre class="program">
+class Vorratskammer
+{
+  // Instanzvariablen
+  private Marmelade  glas1;
+  private Marmelade  glas2;
+  private Marmelade  glas3;
+
+  // Konstruktor
+  public Vorratskammer(Marmelade glas1, Marmelade glas2, Marmelade glas3)
+  {
+    this . glas1    = glas1;
+    this . glas2    = glas2;
+    this . glas3    = glas3;
+    glasAusgewaehlt = null;
+  }
+
+  // Methoden
+  public void ausgeben()
+  {
+    System.out.print("1: "); <input type="button" value="_________" name="button1" onClick="value=' glas1  '">  . ausgeben();
+    System.out.print("2: "); <input type="button" value="_________" name="button2" onClick="value=' glas2  '">  . ausgeben();
+    System.out.print("3: "); <input type="button" value="_________" name="button3" onClick="value=' glas3  '">  . ausgeben();
+  }
+}
+</pre>
+
+<p>
+Versichern Sie sich, dass Sie verstehen
+<input type="button" value=" was hier getan wird. " name="button4"
+onClick="alert('Die ausgeben() Methode der Vorratskammer-Klasse ist so geschrieben, dass sie die  ausgeben() Methoden der Marmelade-Objekte verwendet.')">
+</p>
+
+</form>
+
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+10. &nbsp; &nbsp; &nbsp;<b>Implementieren Sie die <code>auswaehlen()</code> und <code>auftragen()</code> Methoden</b>.
+</p>
+
+<form>
+<pre class="program">
+class Vorratskammer
+{
+  // Instanzvariablen
+  private Marmelade  glas1;
+  private Marmelade  glas2;
+  private Marmelade  glas3;
+  private Marmelade  glasAusgewaehlt;
+
+  // Konstruktor
+  public Vorratskammer( Marmelade glas1, Marmelade glas2, Marmelade glas3 )
+  {
+    this . glas1    = glas1;
+    this . glas2    = glas2;
+    this . glas3    = glas3;
+    glasAusgewaehlt = null;
+  }
+
+  // Methoden
+  public void ausgeben()
+  {
+    System.out.print("1: "); glas1 . ausgeben();
+    System.out.print("2: "); glas2 . ausgeben();
+    System.out.print("3: "); glas3 . ausgeben();
+  }
+
+  // wir setzen voraus, dass der Anwender eine richtige Auswahl trifft, 1, 2, oder 3
+  public void auswaehlen( int glasNummer )
+  {
+    if ( glasNummer <input type="button" value="_________" name="button1" onClick="value=' == '">  1 )
+
+      glasAusgewaehlt = <input type="button" value="_________" name="button2" onClick="value=' glas1  '">;
+
+    else if ( glasNummer <input type="button" value="_________" name="button3" onClick="value=' == '">  2 )
+
+      glasAusgewaehlt = <input type="button" value="_________" name="button4" onClick="value=' glas2  '">;
+
+    else
+
+      glasAusgewaehlt = <input type="button" value="_________" name="button5" onClick="value=' glas3  '">;
+  }
+
+  // die ausgew&auml;hlte Marmelade auftragen
+  public void auftragen( int unzen )
+  {
+    <input type="button" value="________________" name="button6" onClick="value=' glasAusgewaehlt  '"> . auftragen( unzen );
+  }
+}
+</pre>
+</form>
+
+<hr>
+<br>
+<!-- ------------------------end of question --------------------------------- -->
+
+<p><b>Vollst&auml;ndiges Programm mit einer Testklasse:</b> &nbsp; &nbsp; Sie m&ouml;chten vielleicht dieses Programm nach NotePad kopieren, es als Datei speichern und es ausprobieren.
+</p>
+<a name="aufgabe"></a>
+
+<pre class="program">
+class Marmelade
+{
+  // Instanzvariablen
+  private String inhalt;   // Art der Frucht im Glas
+  private String datum;   // Datum des Abf&uuml;llens
+  private int menge;       // Menge der Marmelade im Glas
+
+
+  // Konstruktor
+  public Marmelade( String inhalt, String datum, int menge )
+  {
+    this . inhalt = inhalt;
+    this . datum  = datum;
+    this . menge  = menge;
+  }
+
+  // Methoden
+  public boolean istLeer()
+  {
+    return ( menge == 0 );
+  }
+
+  public void ausgeben()
+  {
+    System.out.println ( inhalt + "   " +  datum + "   " +  menge + " Unzen." );
+  }
+
+  public void auftragen ( int unzen)
+  {
+    if ( !istLeer() )
+    {
+      if ( unzen &lt;= menge )
+      {
+        System.out.println("Auftragen von " + unzen + " Unzen "
+            + inhalt );
+        menge = menge - unzen;
+      }
+      else
+      {
+        System.out.println("Auftragen von  " + menge + " Unzen "
+            + inhalt );
+        menge =  0;
+      }
+     }
+     else
+       System.out.println("Keine Marmelade im Glas!");
+  }
+
+}
+
+class Vorratskammer
+{
+  // Instanzvariablen
+  private Marmelade  glas1;
+  private Marmelade  glas2;
+  private Marmelade  glas3;
+  private Marmelade  glasAusgewaehlt;
+
+  // Konstruktor
+  public Vorratskammer( Marmelade glas1, Marmelade glas2, Marmelade glas3 )
+  {
+    this . glas1    = glas1;
+    this . glas2    = glas2;
+    this . glas3    = glas3;
+    glasAusgewaehlt = null;
+  }
+
+  // Methoden
+  public void ausgeben()
+  {
+    System.out.print("1: "); glas1 . ausgeben();
+    System.out.print("2: "); glas2 . ausgeben();
+    System.out.print("3: "); glas3 . ausgeben();
+  }
+
+  // wir setzen voraus, dass der Anwender eine richtige Auswahl trifft, 1, 2, oder 3
+  public void auswaehlen( int glasNummer )
+  {
+    if ( glasNummer == 1 )
+      glasAusgewaehlt =  glas1;
+
+    else if ( glasNummer == 2 )
+      glasAusgewaehlt = glas2;
+
+    else
+      glasAusgewaehlt = glas3;
+  }
+
+  // Auftragen der ausgew&auml;hlten Marmelade
+  public void auftragen( int unzen  )
+  {
+    glasAusgewaehlt . auftragen( unzen  );
+  }
+}
+
+class VorratskammerTester
+{
+  public static void main ( String[] args )
+  {
+    Marmelade stachelbeer = new Marmelade( "Stachelbeer", "04.07.09", 12 );
+    Marmelade erdbeer     = new Marmelade( "Erdbeer", "30.09.10", 8 );
+    Marmelade aprikosen   = new Marmelade( "Aprikosen", "31.10.10", 3 );
+
+    Vorratskammer vorrat = new Vorratskammer( stachelbeer, erdbeer, aprikosen );
+    vorrat.ausgeben();
+
+    vorrat.auswaehlen(1);
+    vorrat.auftragen(2);
+    vorrat.ausgeben();
+
+    vorrat.auswaehlen(3);
+    vorrat.auftragen(4);
+    vorrat.ausgeben();
+  }
+}
+</pre>
+
+</p>
+Wenn Sie das Programm starten, werden Sie mit der Ausgabe belohnt:
+</p>
+
+<pre class="dos">
+1: Stachelbeer   04.07.09   12 Unzen.
+2: Erdbeer   30.09.10   8 Unzen.
+3: Aprikosen   31.10.10   3 Unzen.
+Auftragen von 2 Unzen Stachelbeer
+1: Stachelbeer   04.07.09   10 Unzen.
+2: Erdbeer   30.09.10   8 Unzen.
+3: Aprikosen   31.10.10   3 Unzen.
+Auftragen von 3 Unzen Aprikosen
+1: Stachelbeer   04.07.09   10 Unzen.
+2: Erdbeer   30.09.10   8 Unzen.
+3: Aprikosen   31.10.10   0 Unzen.
+</pre>
+
+
+<hr>
+
+<p>
+Ende der &Uuml;bung.  Wenn Sie sie wiederholen m&ouml;chten, klicken Sie in Ihrem Browser auf &quot;Aktualisieren&quot;.</p>
+<p> Zur&uuml;ck zum <a href="../../index.html#35">Inhaltsverzeichnis</a>.
+</p>
+
+</body>
+</html>

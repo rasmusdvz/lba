@@ -1,0 +1,615 @@
+<HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+
+<meta  http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>F&uuml;llen Sie die L&uuml;cken aus</title>
+
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee dot org ">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2003, Heinrich Gailer">
+
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css">
+
+</head>
+
+<body>
+<p class="revisions">erstellt 13.08.99; &uuml;berarbeitet 24.4.06; &uuml;bersetzt 26.05.03; &uuml;berarbeitet 03.02.04, 19.07.04, 18.01.05, 19.10.06, 17.01.10; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+<hr>
+
+<h1>
+<!-- FILL in Die Quiz Name on Die next line-->
+F&uuml;llen Sie die L&uuml;cken aus.
+<!-- end of Quiz Name -->
+</h1>
+
+<p>
+<b>Hinweise:</b> &nbsp;
+Das ist eine unbewertete L&uuml;cken&uuml;bung.
+Jede Frage besteht aus einem Satz, bei dem ein oder zwei W&ouml;rter fehlen.
+Jede Schaltfl&auml;che repr&auml;sentiert das fehlende Wort bzw. die fehlenden W&ouml;rter.
+&Uuml;berlegen Sie welches Wort bzw. welche W&ouml;rter fehlen. Klicken Sie dann auf die Schaltfl&auml;che, um zu sehen ob Sie recht haben. Es wird keine Note f&uuml;r diese &Uuml;bung ermittelt.
+</p>
+<hr>
+
+<blockquote>
+Dieser Test &uuml;berpr&uuml;ft die &quot;Sichtbarkeit&quot; von Variablen und Parametern.
+Die <em>Sichtbarkeit</em> einer Variable oder eines formalen Parameter
+ist der Codeabschnitt, der den Parameter &quot;sehen&quot; (verwenden) kann.
+</blockquote>
+<hr>
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+<b>Die Sichtbarkeit einer Instanzvariable
+umfasst jeden Methodenk&ouml;rper (Liste der Anweisungen)
+und jeden Konstruktork&ouml;rper.</b></p>
+
+<form>
+<p>
+1. &nbsp; &nbsp; &nbsp; Klicken Sie in dem folgenden Programmger&uuml;st auf jede Schaltfl&auml;che,
+wo es OK w&auml;re diese Anweisung zu haben:
+<blockquote>
+<code>zahl = 25;</code>
+</blockquote>
+<p>Mit anderen Worten, klicken Sie auf jede Schaltfl&auml;che, wo die
+Variable <code>zahl</code> sichtbar ist.</p>
+<pre class="program">
+class SichtbarkeitBsp1
+{
+  int zahl;
+
+  SichtbarkeitBsp1()
+  {
+    <input type="button" value="________________" name="button1" onClick="value=' zahl = 25; '">
+    . . . .
+  }
+
+  void methodeA()
+  {
+    <input type="button" value="________________" name="button2" onClick="value=' zahl = 25; '">
+      . . . .
+  }
+
+  void methodeB()
+  {
+    <input type="button" value="________________" name="button3" onClick="value=' zahl = 25; '">
+       . . . .
+  }
+
+}
+
+class EineAndereKlasse
+{
+  int summe;
+  EineAndereKlasse()
+  {
+    <input type="button" value="_____________________" name="button4" onClick="value=' Au&szlig;erhalb der Sichtbarkeit '">
+    . . . .
+  }
+
+  void eineAndereMethode()
+  {
+    <input type="button" value="____________________" name="button5" onClick="value=' Au&szlig;erhalb der Sichtbarkeit '">
+      . . . .
+  }
+
+  void irgendeineMethode()
+  {
+    <input type="button" value="____________________" name="button6" onClick="value=' Au&szlig;erhalb der Sichtbarkeit '">
+       . . . .
+  }
+}
+
+class TestKlasse
+{
+  public static void main (String[] args )
+  {
+    <input type="button" value="____________________" name="button7" onClick="value=' Au&szlig;erhalb der Sichtbarkeit '">
+  }
+
+}
+
+
+</pre>
+</form>
+<hr>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+"Au&szlig;enstehende" k&ouml;nnen auf die Instanzvariablen eines Objekt zugreifen,
+indem sie die "Punkt-Notation" verwenden, au&szlig;er wenn die
+ Instanzvariable <code>private</code> ist
+(oder Standardzugriff hat und sich in einem anderen Paket befinden...aber ignorieren Sie das f&uuml;r jetzt.)
+</b>
+</p>
+
+<form>
+<p>2. &nbsp; &nbsp; &nbsp; Klicken Sie in dem folgenden Programmger&uuml;st auf jede Schaltfl&auml;che, wo es OK w&auml;re diese Anweisung zu haben:</p>
+<blockquote>
+<code>zahl = 25;</code>
+</blockquote>
+<pre class="program">
+class SichtbarkeitBsp2
+{
+  int zahl;
+
+  . . . .
+
+}
+
+class EineAndereKlasse
+{
+  int summe;
+  SichtbarkeitBsp2 erstes = new SichtbarkeitBsp2() ;
+
+  void eineAndereMethode()
+  {
+    erstes . <input type="button" value="________________" name="button1" onClick="value=' zahl = 25; '">
+
+    . . . .
+  }
+
+  void irgendeineMethode()
+  {
+    erstes . <input type="button" value="________________" name="button2" onClick="value=' zahl = 25; '">
+
+    . . . .
+  }
+}
+
+class Testklasse
+{
+  public static void main (String[] args )
+  {
+    erstes . <input type="button" value="______________________________" name="button3" onClick="value='erstes ist au&szlig;erhalb der Sichtbarkeit '">
+  }
+
+}
+
+
+</pre>
+</form>
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+
+<form>
+<p>3. &nbsp; &nbsp; &nbsp; Klicken Sie in dem folgenden Programmger&uuml;st auf jede Schaltfl&auml;che, wo es OK w&auml;re diese Anweisung zu haben:</p>
+<blockquote>
+<code>zahl = 25;</code>
+</blockquote>
+
+<pre class="program">
+class SichtbarkeitBsp3
+{
+  private int zahl;
+
+  SichtbarkeitBsp3()
+  {
+    <input type="button" value="________________" name="button1" onClick="value=' zahl = 25; '">
+    . . . .
+  }
+
+  void methodeA()
+  {
+    <input type="button" value="________________" name="button2" onClick="value=' zahl = 25; '">
+      . . . .
+  }
+
+  void methodeB()
+  {
+    <input type="button" value="________________" name="button3" onClick="value=' zahl = 25; '">
+       . . . .
+  }
+  . . . .
+
+}
+
+class EineAndereKlasse
+{
+  int summe;
+  SichtbarkeitBsp3 erstes = new SichtbarkeitBsp3() ;
+
+  void eineAndereMethode()
+  {
+    erstes . <input type="button" value="_____________________" name="button4" onClick="value=' NICHT SICHTBAR '">
+
+    . . . .
+  }
+
+  void irgendeineMethode()
+  {
+    erstes . <input type="button" value="_____________________" name="button5" onClick="value=' NICHT SICHTBAR '">
+
+    . . . .
+  }
+}
+
+class Testklasse
+{
+  public static void main (String[] args )
+  {
+    SichtbarkeitBsp3 zweites = new SichtbarkeitBsp3() ;
+
+    zweites . <input type="button" value="_____________________" name="button6" onClick="value=' NICHT SICHTBAR '">
+  }
+
+}
+
+
+</pre>
+</form>
+<hr>
+<br>
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+<b>
+Formale Parameter  k&ouml;nnen nur vom K&ouml;rper ihrer eigenen Methode gesehen werden.
+</b>
+</p>
+
+<form>
+<p>4. &nbsp; &nbsp; &nbsp; Klicken Sie in dem folgenden Programmger&uuml;st auf jede Schaltfl&auml;che, wo es OK w&auml;re diese Anweisung zu haben:</p>
+<blockquote>
+<code>System.out.println( daten );</code>
+</blockquote>
+
+<pre class="program">
+class IrgendeineKlasse
+{
+  int summe;
+
+  void methodeA( int daten )
+  {
+    <input type="button" value="______________________" name="button1" onClick="value='System.out.println( daten ); '">
+
+    . . . .
+  }
+
+  void methodeB()
+  {
+    <input type="button" value="______________________" name="button2" onClick="value=' Au&szlig;erhalb der Sichtbarkeit '">
+
+    . . . .
+  }
+}
+
+class Testklasse
+{
+  IrgendeineKlasse i;
+
+  public static void main (String[] args )
+  {
+    i = new IrgendeineKlasse();
+    i.methodeA( 99 );
+
+    <input type="button" value="____________________" name="button3" onClick="value=' Au&szlig;erhalb der Sichtbarkeit '">
+
+  }
+
+}
+
+</pre>
+</form>
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+<b>
+Es ist f&uuml;r formale Parameter in zwei verschiedenen Methoden OK den gleichen Bezeichner zu verwenden.
+</b>
+</p>
+
+<form>
+<p>5. &nbsp; &nbsp; &nbsp; Klicken Sie in dem folgenden Programmger&uuml;st auf jede Schaltfl&auml;che, wo es OK w&auml;re diese Anweisung zu haben:</p>
+<blockquote>
+<code>summe = daten ;</code>
+</blockquote>
+
+<pre class="program">
+class IrgendeineKlasse
+{
+  int summe;
+
+  void methodeA( int daten )
+  {
+    <input type="button" value="______________________" name="button1" onClick="value=' summe = daten; '">
+
+    . . . .
+  }
+
+  void methodeB( int daten )
+  {
+    <input type="button" value="______________________" name="button2" onClick="value=' summe = daten; '">
+
+    . . . .
+  }
+
+  void methodeC( int zahl )
+  {
+    <input type="button" value="______________________" name="button3" onClick="value=' Au&szlig;erhalb der Sichtbarkeit '">
+
+    . . . .
+  }
+
+}
+</pre>
+</form>
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+<b>
+Eine lokale Variable kann nur im K&ouml;rper ihrer Methode
+von den Anweisungen gesehen werden, die ihrer Deklaration <b>folgen</b>.
+Es ist f&uuml;r lokale Variablen in verschiedenen Methoden OK den gleichen Namen zu verwenden.
+</b>
+</p>
+
+<form>
+6. &nbsp; &nbsp; &nbsp; Klicken Sie in dem folgenden Programmger&uuml;st auf jede Schaltfl&auml;che, wo es OK w&auml;re diese Anweisung zu haben:
+<blockquote>
+<code>zahl = 5;</code>
+</blockquote>
+
+<pre class="program">
+class EineAndereKlasse
+{
+  int summe;
+
+  void methodeA( int daten )
+  {
+    int zahl;
+
+    <input type="button" value="______________________" name="button1" onClick="value=' zahl = 5; '">
+
+    . . . .
+  }
+
+  void methodeB( int daten )
+  {
+    <input type="button" value="______________________" name="button2" onClick="value=' Au&szlig;erhalb der Sichtbarkeit '">
+
+    . . . .
+  }
+
+  void cMethode( )
+  {
+    . . . .
+
+    <input type="button" value="______________________" name="button3" onClick="value=' Au&szlig;erhalb der Sichtbarkeit '">
+
+    int zahl;
+
+    . . . .
+  }
+
+
+  void methodeD( )
+  {
+    double zahl;
+
+    <input type="button" value="______________________" name="button4" onClick="value=' zahl = 5; '">
+
+    . . . .
+  }
+}
+
+</pre>
+</form>
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+<b>
+Wenn eine lokale Variable den gleichen Namen wie eine Instanzvariable hat,
+wird es die lokale Variable sein, die von den Anweisungen ihrer Methode gesehen
+wird, die ihrer Deklaration folgen.
+</b>
+(Obwohl es  korrekte Syntax ist, dass sowohl lokale als auch Instanzvariablen
+den gleichen Namen verwenden, ist es vermutlich eine schlechte Idee, da es Menschen
+verwirrt.)
+</p>
+
+<form>
+<p>7. &nbsp; &nbsp; &nbsp; Entscheiden Sie in dem folgenden Programmger&uuml;st,
+ob die Anweisungen die <b>Instanzvariable</b> <code>summe</code> oder die <b>lokale Variable</b> <code>summe</code> setzen.</p>
+
+<pre class="program">
+class NochEineAndereKlasse
+{
+  int summe;
+
+  void methodeA( int daten )
+  {
+
+    summe = daten ; <input type="button" value="  // ________________________  " name="button1" onClick="value=' // Instanzvariable gesetzt'">
+
+    . . . .
+  }
+
+  void methodeB( int daten )
+  {
+    int summe;
+
+    summe = daten ; <input type="button" value="  // ________________________  " name="button2" onClick="value=' // lokale Variable gesetzt'">
+
+    . . . .
+  }
+
+  void methodeC( )
+  {
+    . . . .
+
+    summe = 23 ; <input type="button" value="  // ________________________  " name="button3" onClick="value=' // Instanzvariable gesetzt'">
+
+    int summe;
+
+    . . . .
+  }
+
+}
+</pre>
+</form>
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+<b>
+Wenn eine lokale Variable den gleichen Namen wie eine Instanzvariable hat
+und Sie die Instanzvariable angeben m&ouml;chten, verwenden Sie <code><strong>this</strong></code>.
+</b>
+</p>
+
+<form>
+<p>8. &nbsp; &nbsp; &nbsp; Entscheiden Sie in dem folgenden Programmger&uuml;st,
+ob die Anweisungen die <b>Instanzvariable</b> <code>summe</code> oder die <b>lokale Variable</b> <code>summe</code> setzen.</p>
+
+<pre class="program">
+class NochmalEineAndereKlasse
+{
+  int summe;
+
+  void methodeA( int daten )
+  {
+    int summe;
+
+    this.summe = daten ; <input type="button" value="  // ________________________  " name="button1" onClick="value=' // Instanzvariable gesetzt'">
+
+    . . . .
+  }
+
+  void methodeB( int daten )
+  {
+    int summe;
+
+    summe = daten ; <input type="button" value="  // ________________________  " name="button2" onClick="value=' // lokale Variable gesetzt'">
+
+    . . . .
+  }
+
+}
+</pre>
+</form>
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+<b>
+Wenn ein <I>Parameter</I> den gleichen Namen wie eine Instanzvariable hat und
+Sie die Instanzvariable angeben m&ouml;chten, verwenden Sie <code><strong>this</strong></code>.
+</b>
+Das wird h&auml;ufig in Konstruktoren getan, wo es vermutlich
+<em>weniger</em> verwirrend ist den gleichen Namen f&uuml;r beide zu verwenden.
+</p>
+
+<form>
+<p>9. &nbsp; &nbsp; &nbsp; Entscheiden Sie in dem folgenden Programmger&uuml;st,
+ob die Anweisungen die <b>Instanzvariable</b> <code>summe</code> oder die <b>lokale Variable</b> <code>summe</code> setzen.</p>
+
+<pre class="program">
+class WiederEineAndereKlasse
+{
+  int summe;
+
+  WiederEineAndereKlasse( int summe )  // Konstruktor
+  {
+    this.summe = summe ; <input type="button" value="  // ________________________  " name="button1" onClick="value=' // Instanzvariable gesetzt'">
+
+    . . . .
+  }
+
+  void methodeB( int summe )
+  {
+
+    summe = 32 ; <input type="button" value="  // ________________________  " name="button2" onClick="value=' // Parameter gesetzt'">
+
+    . . . .
+  }
+
+}
+</pre>
+</form>
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+<!-- ------------------------start of question ------------------------------ -->
+<p>
+<b>
+Ein "Au&szlig;enstehender" kann eine <code><strong>private</strong></code> Instanzvariable eines Objekts &auml;ndern, indem er die Zugriffsmethode des Objekts verwendet (wenn es eine gibt).
+</b>
+</p>
+
+<form>
+<p>10. &nbsp; &nbsp; &nbsp; Klicken Sie in dem folgenden Programmger&uuml;st
+auf die Schaltfl&auml;chen neben den Anweisungen, die <code><strong>summe</strong></code> &auml;ndern.</p>
+
+<pre class="program">
+class EinfacheKlasse
+{
+  private int summe;
+
+  EinfacheKlasse( int s )
+  {
+    summe = s ; <input type="button" value="  // ___________________  " name="button1" onClick="value=' // summe initialisieren'">
+
+    . . . .
+  }
+
+  void setSumme ( int s )
+  {
+
+    summe = s ; <input type="button" value="  // ___________________  " name="button2" onClick="value=' // summe &auml;ndern'">
+
+    . . . .
+  }
+
+}
+
+class Testklasse
+{
+  public static void main ( String[] args )
+  {
+    EinfacheKlasse e = new EinfacheKlasse( 34 );  <input type="button" value="  // ___________________  " name="button3" onClick="value=' // summe initialisieren'">
+
+    e.summe = 77 ;  <input type="button" value="  // ___________________  " name="button4" onClick="value=' // Au&szlig;erhalb der Sichtbarkeit'">
+
+    e.setSumme( 14 ) ;  <input type="button" value="  // ___________________  " name="button5" onClick="value=' // summe &auml;ndern'">
+  }
+}
+</pre>
+</form>
+<hr>
+
+<!-- ------------------------end of question --------------------------------- -->
+
+<p>
+Ende des Tests.  Wenn Sie ihn wiederholen m&ouml;chten, klicken Sie in Ihrem Browser auf
+&quot;Aktualisieren&quot;.</p>
+<p>Zur&uuml;ck zum <a href="../../index.html#34A">Inhaltsverzeichnis</a>.</p>
+</body>
+</html>

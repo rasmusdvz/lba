@@ -1,0 +1,139 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>Kapitel 29  Programmieraufgaben</title>
+<meta name="copyright" content="2010,  Heinrich Gailer">
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css">
+</head>
+
+<body>
+<p class="revisions">erstellt 05.09.99; &uuml;berarbeitet 12.06.00, 02.06/02.03, 15.06.08; &uuml;bersetzt 31.07.03, 13.01.04; &uuml;berarbeitet 19.01.04, 29.06.04, 06.07.04, 11.10.06, 08.06.11;  Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+
+<h1>Kapitel 29  Programmieraufgaben</h1>
+
+
+<h2>Aufgabe 1 &#8212 <code>charAt()</code></h2>
+<p>
+Schreiben Sie ein Programm in dem der Anwender einen String eingibt
+und das Programm ihn ein Zeichen pro Zeile auf den Bildschirm ausgibt:
+</p>
+
+<pre class="dos">
+
+D:\JavaNotes&gt;java EinZeichenProZeile
+Geben Sie einen String ein:
+Octopus
+
+O
+c
+t
+o
+p
+u
+s
+</pre>
+
+
+<p>
+Sie werden daf&uuml;r die folgende Methode der Klasse <code>String</code> brauchen:
+<blockquote><pre>
+public char charAt( int index )
+</blockquote></pre>
+Diese Methode gibt das Zeichen zur&uuml;ck, das sich an der Stelle <code>index</code> des Strings befindet.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#29">Inhaltsverzeichnis</a>.</p>
+
+
+<h2>Aufgabe 2 &#8212 Anrede vergeben</h2>
+
+<p>
+Schreiben Sie ein Programm, das den Anwender nach seinem Namen fragt und dann den Namen zusammen entweder mit
+"Ms." oder "Mr." ausgibt, je nachdem ob der Name weiblich oder m&auml;nnlich ist.
+Angenommen, dass die einzigen weiblichen Namen
+</p>
+
+<ul>
+<li>Amy</li>
+<li>Buffy</li>
+<li>Cathy</li>
+</ul>
+
+<p>
+und, dass die einzigen m&auml;nnlichen Namen
+</p>
+
+<ul>
+<li>Elroy</li>
+<li>Fred</li>
+<li>Graham</li>
+</ul>
+
+<p>
+sind. Alle anderen Namen werden ohne Anrede ausgegeben.
+Das Programm setzt seine Schleifendurchl&auml;ufe solange fort,
+bis der Anwender die Eingabe-Taste dr&uuml;ckt, ohne zuerst etwas einzugeben.
+</p>
+
+<pre class="dos">
+D:\JavaNotes&gt;java Anrede
+Geben Sie einen Namen ein:
+Amy Johnson
+Ms. Amy Johnson
+
+Geben Sie einen Namen ein:
+Fred Smith
+Mr. Fred Smith
+
+Geben Sie einen Namen ein:
+Zoltan Jones
+Zoltan Jones
+
+Geben Sie einen Namen ein:
+
+D:\JavaNotes&gt;
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#29">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 3 &#8212 Echo Namen</h2>
+<p>
+Schreiben Sie ein Programm, das den Anwender nach dem Vornamen und Nachnamen fragt. Dann den Vornamen, so wie er eingegeben wurde, ausgibt und den Nachnamen in
+Gro&szlig;buchstaben ausgibt.
+</p>
+
+<pre class="dos">
+D:\JavaNotes&gt;java NameEcho
+Geben Sie Ihren Namen ein:
+Sherlock Holmes
+
+Sherlock HOLMES
+
+D:\JavaNotes&gt;
+</pre>
+
+<p>
+Dazu m&uuml;ssen Sie die Dokumentation der Stringklasse betrachten und Methoden verwenden, die in diesen Aufzeichnungen nicht behandelt wurden:
+</p>
+
+<ul>
+<li><code>public char charAt(int index)</code></li>
+<li><code>public String substring( int startIndex )</code> bzw. </li>
+<li><code>public String substring( int startIndex, int endIndex )</code></li>
+</ul>
+
+
+<p>Zur&uuml;ck zum <a href="../../index.html#29">Inhaltsverzeichnis</a>.</p>
+
+
+<hr>
+<p>Ende der Aufgaben</p>
+</body>
+</html>

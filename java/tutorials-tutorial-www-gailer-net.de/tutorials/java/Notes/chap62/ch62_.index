@@ -1,0 +1,16 @@
+<!-- setResizable() -->
+<li><a href="ch62_2.html#setResizable()">setResizable()</a></li>
+<!-- JPanel -->
+<li><a href="ch62_3.html#JPanel">JPanel</a></li>
+<!-- panel -->
+<li><a href="ch62_3.html#panel">panel</a></li>
+<!-- adding components to a JPanel -->
+<li><a href="ch62_5.html#adding components to a JPanel">adding components to a JPanel</a></li>
+<!-- add(), for JPanel -->
+<li><a href="ch62_5.html#add(), for JPanel">add(), for JPanel</a></li>
+<!-- nested panels -->
+<li><a href="ch62_10.html#nested panels">nested panels</a></li>
+<!-- BoxLayout -->
+<li><a href="ch62_12.html#BoxLayout">BoxLayout</a></li>
+<!-- BoxLayout for a frame -->
+<li><a href="ch62_18.html#BoxLayout for a frame">BoxLayout for a frame</a></li>

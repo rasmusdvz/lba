@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta  http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<meta name="author" content="kjell at ieee dot org">
+<meta name="copyright" content="2008">
+<meta name="germantranslation" content="Dr. Matthias Riege dr.riege at gmx dot de">
+<meta name="germancopyright" content="2010, Heinrich Gailer/Dr. Matthias Riege">
+
+<meta name="robots" content="index,follow">
+<meta name="robots" content="noindex,nofollow">
+
+<title>
+F&uuml;llen Sie die L&uuml;cken aus
+</title>
+
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css">
+
+</head>
+
+<body>
+
+<p class="revisions">erstellt: 11.12.99; &uuml;berarbeitet: 16.04.2010; &uuml;bersetzt von Dr. Matthias Riege 18.02.10; &uuml;berarbeitet 11.10.10;
+</p>
+
+<hr>
+<center><h1>
+F&uuml;llen Sie die L&uuml;cken aus
+</h1></center>
+
+<p>
+<b>Hinweise:</b> &nbsp;
+Das ist eine unbewertete L&uuml;cken&uuml;bung. Jede Frage besteht aus einem Satz, bei dem ein oder zwei W&ouml;rter fehlen. Ein Button repr&auml;sentiert das fehlende Wort bzw. die fehlenden W&ouml;rter. &Uuml;berlegen Sie welches Wort bzw. welche W&ouml;rter fehlen. Klicken Sie dann auf die Schaltfl&auml;che, um zu sehen ob Sie recht haben. Es wird keine Note f&uuml;r diese &Uuml;bung ermittelt.</p>
+
+<hr>
+
+<form>
+<input type="hidden" name="firstVal" value="false">
+<input type="hidden" name="secondVal" value="false">
+
+<p><b>1.</b> Probieren Sie alle M&ouml;glichkeiten f&uuml;r die Operanden der
+folgenden Operation aus, indem Sie die Radio-Buttons
+auf <code>true</code> oder <code>false</code> setzen.
+&Uuml;berlegen Sie welches Ergebnis der gesamte Ausdruck liefert.
+Ein Klick auf das ? zeigt die L&ouml;sung.
+</p>
+
+<center>
+<table>
+<tr>
+<td>
+<input type="radio"
+value="true"
+name="radio1"
+onClick="firstVal.value='true'; button3.value='   ?   '"> true<br>
+<input type="radio"
+value="false"
+name="radio1"
+checked
+onClick="firstVal.value='false'; button3.value='   ?   '"> false
+</td>
+<td>&nbsp; AND &nbsp;</td>
+<td>
+<input type="radio"
+value="true"
+name="radio2"
+onClick="secondVal.value='true'; button3.value='   ?   '"> true<br>
+<input type="radio"
+value="false"
+name="radio2"
+checked
+onClick="secondVal.value='false'; button3.value='   ?   '"> false
+</td>
+<td> &nbsp; &nbsp; ergibt  &nbsp; &nbsp; </td>
+<td>
+<input type="button"
+value="    ?    "
+name="button3"
+onClick="if ( firstVal.value == 'true' &&  secondVal.value == 'true') button3.value ='true'; else button3.value ='false'">
+</td></tr>
+</table>
+</center>
+
+<br>
+<input type="hidden" name="firstValb" value="false">
+<input type="hidden" name="secondValb" value="false">
+Probieren Sie alle M&ouml;glichkeiten f&uuml;r die Operanden der
+folgenden Operation aus, indem Sie die Radio-Buttons
+auf <code>true</code> oder <code>false</code> setzen.
+&Uuml;berlegen Sie welches Ergebnis der gesamte Ausdruck liefert.
+Ein Klick auf das ? zeigt die L&ouml;sung.
+<br>
+<center>
+<table>
+<tr>
+<td>
+<input type="radio"
+value="true"
+name="radio1b"
+onClick="firstValb.value='true'; button3b.value='   ?   '"> true<br>
+<input type="radio"
+value="false"
+name="radio1b"
+checked
+onClick="firstValb.value='false'; button3b.value='   ?   '"> false
+</td>
+
+<td>&nbsp; OR &nbsp;</td>
+<td>
+<input type="radio"
+value="true"
+name="radio2b"
+onClick="secondValb.value='true'; button3b.value='   ?   '"> true<br>
+<input type="radio"
+value="false"
+name="radio2b"
+checked
+onClick="secondValb.value='false'; button3b.value='   ?   '"> false
+</td>
+<td> &nbsp; &nbsp; ergibt  &nbsp; &nbsp; </td>
+<td>
+<input type="button"
+value="    ?    "
+name="button3b"
+onClick="if ( firstValb.value == 'true' ||  secondValb.value == 'true') button3b.value ='true'; else button3b.value ='false'">
+</td></tr>
+</table>
+</center>
+
+<br>
+<input type="hidden" name="firstValc" value="false">
+Probieren Sie alle M&ouml;glichkeiten f&uuml;r die Operanden der
+folgenden Operation aus, indem Sie die Radio-Buttons
+auf <code>true</code> oder <code>false</code> setzen.
+&Uuml;berlegen Sie welches Ergebnis der gesamte Ausdruck liefert.
+Ein Klick auf das ? zeigt die L&ouml;sung.
+<br>
+
+<center>
+<table>
+<tr>
+<td>&nbsp; NOT &nbsp;</td>
+
+<td>
+<input type="radio"
+value="true"
+name="radio1c"
+onClick="firstValc.value='true'; button3c.value='   ?   '"> true<br>
+<input type="radio"
+value="false"
+name="radio1c"
+checked
+onClick="firstValc.value='false'; button3c.value='   ?   '"> false
+</td>
+
+<td> &nbsp; &nbsp; ergibt  &nbsp; &nbsp; </td>
+
+<td>
+<input type="button"
+value="    ?    "
+name="button3c"
+onClick="if ( firstValc.value == 'true' ) button3c.value ='false'; else button3c.value ='true'">
+</td></tr>
+
+</table>
+</center>
+</form>
+<br>
+
+<hr>
+<!-- start of  question -->
+
+<form>
+<b>2.</b> &nbsp;Das Symbol des Short-Circuit AND-Operators in Java ist
+<input type="button"
+value="_____"
+name="button1"
+onClick="button1.value=' && '">
+</form>
+<br>
+
+<!-- start of  question -->
+<form>
+Das Symbol des Non-Short-Circuit AND-Operators in Java ist
+<input type="button"
+value="_____"
+name="button1"
+onClick="button1.value='  &  '">
+</form>
+<br>
+
+<!-- start of  question -->
+<form>
+Das Symbol des Short-Circuit OR-Operators in Java ist
+<input type="button"
+value="_____"
+name="button1"
+onClick="button1.value='  ||  '">
+</form>
+<br>
+
+<!-- start of  question -->
+<form>
+Das Symbol des Non-Short-Circuit OR-Operators in Java ist
+<input type="button"
+value="_____"
+name="button1"
+onClick="button1.value='  |  '">
+</form>
+<br>
+
+<!-- start of  question -->
+<form>
+Der NOT-Operator ist
+<input type="button"
+value="_____"
+name="button1"
+onClick="button1.value='  !  '">
+</form>
+<hr>
+<br>
+
+<!-- start of  question -->
+<form>
+<b>3.</b> &nbsp;Betrachten Sie die folgenden Operatoren:
+<code>
+<UL>
+<LI> !</LI>
+<LI> * &nbsp; /</LI>
+<LI> +&nbsp; -</LI>
+<LI> &lt; &nbsp; &lt;=&nbsp; &gt;&nbsp; &gt;=&nbsp;</LI>
+<LI> == &nbsp;!=</LI>
+<LI>&& &nbsp; ||</LI>
+</UL>
+</code>
+Welcher Operator hat die h&ouml;chste Priorit&auml;t?
+<input type="button"
+value="_____________"
+name="button1"
+onClick="button1.value=' ! '">
+<br>
+<br>
+Welcher Operator hat die niedrigste Priorit&auml;t?
+<input type="button"
+value=" _____________"
+name="button2"
+onClick="button2.value=' &&  ||'"> .
+<br>
+<br>
+Welcher Operator wird im folgenden Ausdruck zuerst angewendet:
+<code> 4+7*3 &lt; 12</code>
+<input type="button"
+value=" _______"
+name="button3"
+onClick="button3.value=' * '"> .
+</form>
+<hr>
+<br>
+
+<!-- start of  question -->
+<form>
+<b>4.</b> &nbsp; <font size=+1><code>1+5/2 &gt; 5-2 && 12 &lt; 23 </code></font>&nbsp; &nbsp; ergibt  &nbsp;
+<input type="button"
+value="  true / false  "
+name="button1"
+onClick="button1.value='  false  '"> .
+</form>
+<br>
+
+<!-- start of  question -->
+<form>
+<b>5.</b> &nbsp; <font size=+1><code>1+2 &gt; 4-2 || Math.sin(1.5) &gt;= Math.cos(0.34) </code></font> &nbsp; &nbsp; ergibt  &nbsp;
+<input type="button"
+value="  true / false  "
+name="button1"
+onClick="button1.value='  true  '"> .
+</form>
+<br>
+
+<!-- start of  question -->
+<form>
+<b>6.</b> &nbsp; <font size=+1><code>1+1 &gt; 4-2 && 12 &lt; 23 && 'a' == 'a'</code></font> &nbsp; &nbsp; ergibt  &nbsp;
+<input type="button"
+value="  true / false  "
+name="button1"
+onClick="button1.value='  false  '"> .
+</form>
+<br>
+
+<!-- start of  question -->
+<form>
+<b>7.</b> &nbsp; <font size=+1><code>1 &gt; 4-2 || 23 &gt; 13 && 8 &lt; 10</code></font> &nbsp; &nbsp; ergibt  &nbsp;
+<input type="button"
+value="  true / false  "
+name="button1"
+onClick="button1.value='  true  '"> .
+</form>
+<br>
+
+<!-- start of  question -->
+<form>
+<b>8.</b> &nbsp; <font size=+1><code>(9 &lt;= 34 || 5 &gt; 25 ) && 7 &lt; 20</code></font> &nbsp; &nbsp; ergibt  &nbsp;
+<input type="button"
+value="  true / false  "
+name="button1"
+onClick="button1.value='  true  '"> .
+</form>
+<br>
+
+<!-- start of  question -->
+<form>
+<b>9.</b> &nbsp; <font size=+1><code>9 &lt;= 34 || 5 &gt; 25  && 7 &lt; 20</code></font> &nbsp; &nbsp; ergibt  &nbsp;
+<input type="button"
+value="  true / false  "
+name="button1"
+onClick="button1.value='  true  '"> .
+</form>
+<br>
+
+<!-- start of  question -->
+<form>
+<b>10.</b> &nbsp; <font size=+1><code>9 &lt;= 34 && 5 &gt; 25  || 7 &lt; 20</code></font> &nbsp; &nbsp; ergibt  &nbsp;
+<input type="button"
+value="  true / false  "
+name="button1"
+onClick="button1.value='  true  '"> .
+</form>
+<br>
+
+
+<hr>
+<p>Ende des Tests.  Wenn Sie ihn wiederholen m&ouml;chten, laden Sie die Seite in Ihrem Browser neu.</p>
+<p>Zur&uuml;ck zum <a href="../../index.html#40">Inhaltsverzeichnis</a>.
+</p>
+
+</body>
+</html>

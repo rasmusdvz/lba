@@ -1,0 +1,903 @@
+<COPYRIGHTDATE>2003</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER> 
+<AUTHORNAME>Bradley Kjell kjell@ieee.org </AUTHORNAME>
+
+<CHAPTER>
+<CAI> CHAPTER 73 &#8212;  More Recursion
+<p>
+<small>created: 01/01/2003</small>
+</p>
+<LESSON>
+<p>
+This chapter contains additional examples of recursion.
+Most of this chapter is advanced material that may be
+safely deferred until later.
+But going through it now will reenforce your understanding of recursion.
+</p>
+
+<h4>Chapter Topics:</h4>
+<ul>
+<li>Pyramidal Numbers.</li>
+<li>More on Activation Chains</li>
+<li>Recursive String Equality.</li>
+</ul>
+</LESSON>
+
+<QUESTION>
+<p>
+How many sides does the base of a pyramid have?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Pyramidal Numbers
+<p>
+</p>
+<ANSWER>
+<p>
+Three or four.
+</p>
+</ANSWER>
+
+<LESSON>
+<script language="JavaScript">
+<!-- hide from browsers
+var currentImage = 1
+var up = 1
+var my_images = new Array(6)
+my_images[0] = "pyramid00.jpg"
+my_images[1] = "pyramid01.jpg"
+my_images[2] = "pyramid02.jpg"
+my_images[3] = "pyramid03.jpg"
+my_images[4] = "pyramid04.jpg"
+my_images[5] = "pyramid05.jpg"
+
+function loadImage()
+{
+  currentImage=currentImage+up
+  document.images[0].src = my_images[currentImage]
+  if ( currentImage==5 )  up = -up
+  if ( currentImage==0 )  up = -up
+}
+// stop hiding -->
+</script>
+
+<img src="pyramid01.jpg" hspace="15"  onClick="loadImage()" align="right" />
+
+
+<INDEX>pyramidal numbers</INDEX>
+<p>
+Let us use three-sided pyramids
+(sometimes called tetrahedrons).
+To make the pyramid, 
+start with a triangular arrangement of tennis balls
+for the bottom layer.
+Next stack up tennis balls layer at
+a time, as at right.
+</p>
+
+<p>
+If the base of the pyramid has 5 balls along a side,
+how many balls does the entire pyramid have in it?
+Let us call this a <b>pyramidal number</b>.
+</p>
+
+<p>
+Here is a chart that shows the number of balls in the side of a base,
+<b>N</b>,
+and the corresponding pyramidal numbers.
+</p>
+
+<table border="border" bgcolor="white" bordercolor="green" cellpadding="8">
+<tr><th>N</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+<tr><th>Pyramid(N)</th><th>1</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>
+</table>
+
+<br clear="all"/>
+<p>
+&#160;
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Unfortunately, the chart is not filled in.
+Click on the image a few times and fill in some of the chart.
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Pyramid Scheme
+<p>
+</p>
+<ANSWER>
+<p>
+The completed, and expanded, chart is below.
+</p>
+</ANSWER>
+
+<LESSON>
+<script language="JavaScript">
+<!-- hide from browsers
+var currentImage = 1
+var up = 1
+var my_images = new Array(6)
+my_images[0] = "pyramid00.jpg"
+my_images[1] = "pyramid01.jpg"
+my_images[2] = "pyramid02.jpg"
+my_images[3] = "pyramid03.jpg"
+my_images[4] = "pyramid04.jpg"
+my_images[5] = "pyramid05.jpg"
+
+function loadImage()
+{
+  currentImage=currentImage+up
+  document.images[0].src = my_images[currentImage]
+  if ( currentImage==5 )  up = -up
+  if ( currentImage==0 )  up = -up
+}
+// stop hiding -->
+</script>
+
+<img src="pyramid01.jpg" hspace="15"  onClick="loadImage()" align="right" />
+
+
+<p>
+In filling out the chart you might have noticed that it would be useful to
+know how many balls are in each layer of the pyramid.
+Of course, the number of the balls in the pyramid is the sum
+of the number of balls in each layer.
+But, the number of balls in layer N is <code>Triangle(N)</code>,
+the number of balls in a triangle with a base of N balls.
+</p>
+
+
+<table border="border" bgcolor="white" bordercolor="green" cellpadding="8">
+<tr><th>N</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+<tr><th>Triangle(N)</th><th>1</th><th>3</th><th>6</th><th>10</th><th>15</th><th>21</th><th>28</th></tr>
+<tr><th>Pyramid(N)</th><th>1</th><th>4</th><th>10</th><th>20</th><th>35</th><th>56</th><th>84</th></tr>
+</table>
+
+
+<p>
+Say that you know that there are <code>Pyramid(N-1)</code> balls in the first
+N-1 layers (counting from the top of the pyramid).
+Then the following scheme looks tempting:
+</p>
+
+<pre>
+Pyramid(N) = Pyramid(N-1) + Triangle(N)
+</pre>
+
+<br clear="all" />
+<p>
+&#160;
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+This looks suspiciously like a recursive definition.
+But what is missing?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Base Case of the Pyramid
+
+<ANSWER>
+<p>
+The base case of the definition.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>pyramidal numbers, math-like definition</INDEX>
+<p>
+A recursive definition (or a recursive algorithm) needs two parts:
+</p>
+<!-- parts to recursion -->
+
+<ol>
+<li>If the problem is easy, solve it immediately.</li>
+<li>If the problem can't be solved immediately,
+    divide it into smaller problems, then:
+    <ul>
+    <li>Solve the smaller problems by applying this procedure to each of them.</li>
+    </ul>
+    </li>
+</ol>
+
+<p>
+In terms of pyramidal numbers, this is:
+</p>
+
+<pre>
+Pyramid(1) = 1
+Pyramid(N) = Pyramid(N-1) + Triangle(N)
+</pre>
+
+<p>
+Oddly, the base case for pyramidal numbers is the peak of the pyramid.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Oh, oh... this definition uses <code>Triangle(N)</code> without saying anything
+about it.  Is this wrong?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Definition that uses another Function
+
+<ANSWER>
+<p>
+No.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<p>
+As long as everything in the definition for <code>Pyramid()</code> is
+defined someplace, everything is fine.
+Here (for reference) is <code>Pyramid()</code>:
+</p>
+
+<pre>
+Pyramid(1) = 1
+Pyramid(N) = Pyramid(N-1) + Triangle(N)
+</pre>
+
+<p>
+And here (for review) is <code>Triangle()</code>:
+</p>
+
+<pre>
+Triangle( 1 ) = 1
+Triangle( N ) = N + Triangle( N-1 )
+</pre>
+
+<p>
+Given these two definitions (and, if you are picky, the definitions of
+addition and subtraction), <code>Pyramid()</code> is completely defined.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Of course, given a definition, creating a Java method is just a matter
+of translation:
+</p>
+
+<pre>
+public int Pyramid( int N )
+{
+  if ( <span class="blue">________</span> == <span class="blue">________</span> ) 
+  
+    return <span class="blue">_______</span>;
+     
+  else
+  
+    return <span class="blue">________</span> ( <span class="blue">________</span> ) + <span class="blue">________</span> ( <span class="blue">________</span> );
+}
+</pre>
+
+<p>
+Fill in the blanks.
+</p>
+
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Pyramid Program
+
+<ANSWER>
+<pre>
+public int Pyramid( int N )
+{
+  if ( <span class="blue">N</span> == <span class="blue">1</span> ) 
+  
+    return <span class="blue">1</span>;
+     
+  else
+  
+    return <span class="blue">Pyramid</span> ( <span class="blue">N-1</span> ) + <span class="blue">Triangle</span> ( <span class="blue">N</span> );
+}
+</pre>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>pyramidal numbers, Java method</INDEX>
+<p>
+Here is a complete program that computes Pyramidal numbers.
+The user specifies N, the number of balls in a side of the base, in the 
+command line.
+</p>
+
+<pre class="program">
+class Calculate
+{
+  public int Triangle( int N )
+  {
+    if ( N == 1 )
+      return 1;
+    else
+      return N + Triangle( N-1 );
+  }
+
+  public int Pyramid( int N )
+  {
+    if ( N == 1 ) 
+      return 1;
+    else
+      return Pyramid ( N-1 ) + Triangle ( N );
+  }
+}
+
+public class PyramidTester
+{
+  public static void main ( String[] args)
+  {
+    int argument = Integer.parseInt( args[0] );
+
+    Calculate calc = new Calculate();
+    int result = calc.Pyramid( argument );
+    System.out.println("Pyramid(" + argument + ") is " + result );
+  }
+}
+</pre>
+
+<p>
+In terms of programming,
+the requirement that "everything in the definition for <code>Pyramid()</code> is
+defined someplace" means that the program must include a method
+for <code>Triangle()</code>.
+</p>
+
+<p>
+Here is a run of the program:
+</p>
+
+<pre>
+C:\&gt;java PyramidTester 12
+Pyramid(12) is 364
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Could the program (above) use an iterative method for <code>Triangle()</code>
+and a recursive method for <code>Pyramid()</code>?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Dynamic Pyramids
+<p>
+</p>
+<ANSWER>
+<p>
+Sure.  Either or both methods could be iterative or recursive.
+</p>
+</ANSWER>
+
+<LESSON>
+<script language="JavaScript">
+<!-- hide from browsers
+var currentImage = 0
+var my_images = new Array(6)
+my_images[0] = "pyramidCalls00.jpg"
+my_images[1] = "pyramidCalls01.jpg"
+my_images[2] = "pyramidCalls02.jpg"
+my_images[3] = "pyramidCalls03.jpg"
+my_images[4] = "pyramidCalls04.jpg"
+my_images[5] = "pyramidCalls05.jpg"
+my_images[6] = "pyramidCalls06.jpg"
+my_images[7] = "pyramidCalls07.jpg"
+my_images[8] = "pyramidCalls08.jpg"
+my_images[9] = "pyramidCalls09.jpg"
+my_images[10] = "pyramidCalls10.jpg"
+my_images[11] = "pyramidCalls11.jpg"
+my_images[12] = "pyramidCalls12.jpg"
+my_images[13] = "pyramidCalls13.jpg"
+my_images[14] = "pyramidCalls14.jpg"
+my_images[15] = "pyramidCalls15.jpg"
+my_images[16] = "pyramidCalls16.jpg"
+
+function loadImage()
+{
+  currentImage=currentImage+1
+  if (currentImage==17) currentImage=0
+  document.images[0].src = my_images[currentImage]
+}
+// stop hiding -->
+</script>
+
+<img src="pyramidCalls00.jpg" hspace=15  onClick="loadImage()" align="right">
+
+<INDEX>pyramidal numbers, activation chain</INDEX>
+<p>
+Here, for reference, are the two (recursive) methods:
+</p>
+
+<pre>
+public int Triangle( int N )
+{
+  if ( N == 1 )
+    return 1;
+  else
+    return N + Triangle( N-1 );
+}
+
+public int Pyramid( int N )
+{
+  if ( N == 1 ) 
+    return 1;
+  else
+    return Pyramid ( N-1 ) 
+      + Triangle ( N );
+}
+</pre>
+
+<p>
+The diagram (at right) shows the activation chain when
+the <code>main()</code> method has called <code>Pyramid(3)</code>.
+This results in three activations of the  <code>Pyramid()</code> method.
+Click on the diagram to see these activations.
+</p>
+
+<p>
+When the base case  <code>Pyramid(1)</code> is reached, it immediately
+returns a value of 1.
+Now the second activation, <code>Pyramid(2)</code>, calls
+ <code>Triangle(2)</code> which results in activations of <code>Triangle()</code>
+ added to the chain.
+</p>
+
+<p>
+After two activations, <code>Triangle(2)</code>, returns a 3 to its caller.
+<nobr><code>Pyramid(2)</code></nobr> now has all the values it needs and returns a
+4 to its caller.
+</p>
+
+<p>
+<code>Pyramid(3)</code> now calls <nobr><code>Triangle(3)</code></nobr> which eventually
+returns a 6.
+The value 10 is returned to <nobr><code>main()</code></nobr>.
+</p>
+
+<br clear="all"/>
+<br clear="all"/>
+
+</LESSON>
+
+<QUESTION>
+<p>
+It is equally valid to write <code>Pyramid()</code> with the
+methods in the last line reversed:
+</p>
+
+<pre>
+public int Pyramid( int N )
+{
+  if ( N == 1 ) 
+    return 1;
+  else
+    return Triangle ( N ) + Pyramid ( N-1 ) ;  // Reversed Order
+}
+</pre>
+
+<p>
+Will the sequence of activations in the activation chain be the same
+for this method?
+</p>
+
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Single Chain of Activations
+<p>
+</p>
+<ANSWER>
+<p>
+No.  Now each activation of <nobr><code>Pyramid()</code></nobr> will first activate
+<nobr><code>Triangle()</code></nobr> 
+before it activates another <nobr><code>Pyramid()</code></nobr>.
+</p>
+
+<p>
+The complete diagram (showing all activations) will be the same, but the
+order will be different.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<script language="JavaScript">
+<!-- hide from browsers
+var currentImage = 0
+var my_images = new Array(6)
+my_images[0] = "pyramidCalls00.jpg"
+my_images[1] = "pyramidCalls01.jpg"
+my_images[2] = "pyramidCalls02.jpg"
+my_images[3] = "pyramidCalls03.jpg"
+my_images[4] = "pyramidCalls04.jpg"
+my_images[5] = "pyramidCalls05.jpg"
+my_images[6] = "pyramidCalls06.jpg"
+my_images[7] = "pyramidCalls07.jpg"
+my_images[8] = "pyramidCalls08.jpg"
+my_images[9] = "pyramidCalls09.jpg"
+my_images[10] = "pyramidCalls10.jpg"
+my_images[11] = "pyramidCalls11.jpg"
+my_images[12] = "pyramidCalls12.jpg"
+my_images[13] = "pyramidCalls13.jpg"
+my_images[14] = "pyramidCalls14.jpg"
+my_images[15] = "pyramidCalls15.jpg"
+my_images[16] = "pyramidCalls16.jpg"
+
+function loadImage()
+{
+  currentImage=currentImage+1
+  if (currentImage==17) currentImage=0
+  document.images[0].src = my_images[currentImage]
+}
+// stop hiding -->
+</script>
+
+<img src="pyramidCalls00.jpg" hspace=15  onClick="loadImage()" align="right">
+
+<INDEX>stack</INDEX>
+
+<INDEX>activation chain, as a stack</INDEX>
+
+<p>
+Play with the activation diagram again and pay attention
+to what circles are active and inactive.
+</p>
+
+<p>
+Although the complete diagram shows several branches,
+there is never more than a single chain of activations.  Where there is
+a branch in the complete diagram, only one branch or the other is active
+at any point in time.
+</p>
+
+<p>
+The activation chain is always a singly-linked chain.  In the diagram the
+active circles have a solid color.  The formerly active circles are dotted.
+The solid colored circles form a singly-linked chain.
+</p>
+
+<p>
+The activation chain behaves like the type of data structure known as
+a <b>stack</b>.
+A stack is a linear arrangement of data that grows and shrinks, always at the end.
+Stacks are an important topic in Computer Science and in the course
+<em>Data Structures</em>.
+</p>
+
+<p>
+</p>
+
+<p>
+</p>
+
+<br clear="all"/>
+<br clear="all"/>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Most computers have only one processor in them.
+Say that your program is running and that there are several activations
+on the activation chain.
+</p>
+
+<p>
+Which activation on the chain represents the code that the processor
+is actively executing?
+</p>
+
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>String Equality
+
+<ANSWER>
+<p>
+The last one on the chain.
+</p>
+
+<p>
+The other activations on the chain are awaiting results before proceeding.
+(The inactive circles have already returned results and will never again
+represent executing code.)
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>string equality, math-like definition</INDEX>
+<p>
+Here are some equal strings:
+</p>
+
+<pre>
+"abc"    <em>equals</em>  "abc"
+
+"abc de" <em>equals</em> "abc de"
+</pre>
+
+<p>
+And here are some unequal strings:
+</p>
+
+<pre>
+"ab"     <em>!equals</em>   "abc"
+"abC"    <em>!equals</em>   "abc"
+"abc"    <em>!equals</em>   "aBc"
+</pre>
+
+<p>
+Here are the rules for string equality.
+The symbol <code>x</code> stands for a <u>single</u> character,
+as does  <code>y</code>. 
+The symbol <code>X</code> stands for a <u>string</u> of characters,
+as does  <code>Y</code>. 
+The symbol <code>+</code> stands for concatenation.
+</p>
+
+<pre>
+1. equals( "", "" )   = true
+
+2. equals( "", X )    = false if X is not the empty string
+
+3. equals( X, "" )    = false if X is not the empty string
+
+4. equals( x+X, y+Y ) = false if x != y
+
+5. equals( x+X, y+Y ) = true  if x == y and equals( X, Y )
+</pre>
+
+<p>
+Rule 4 means that if you see two strings that start with
+different characters, they the strings are not equal.
+For example,
+</p>
+
+<pre>
+equals( "bat", "radio" ) = false
+</pre>
+
+<p>
+In the above example, <code>x</code> is the character 'b',
+<code>X</code> is the string "at",
+<code>y</code> is the character 'r',
+<code>Y</code> is the string "adio".
+</p>
+
+<p>
+Here is another example:
+</p>
+
+<pre>
+equals( "rat", "rat" ) = equals( "at", "at")   // rule 5
+equals(  "at",  "at" ) = equals(  "t",  "t")   // rule 5
+equals(   "t",   "t" ) = equals(   "",   "")   // rule 5
+equals(    "",    "" ) = true                  // rule 1
+</pre>
+
+<p>
+For another example,
+</p>
+
+<pre>
+equals( "rat", "ra"  ) = equals( "at", "a")    // rule 5
+equals(  "at",  "a"  ) = equals(  "t",  "")    // rule 5
+equals(   "t",   ""  ) = false                 // rule 3
+</pre>
+
+
+<p>
+And yet another example,
+</p>
+
+<pre>
+equals( "rAt", "rat"  ) = equals( "At", "at")   // rule 5
+equals(  "At",  "at"  ) = false                 // rule 4
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+In the rules for string equality, which rules are the base cases?
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>Translation into Java
+<p>
+</p>
+<ANSWER>
+<p>
+The base cases are:
+</p>
+
+<pre>
+1. equals( "", "" )     = true
+2. equals( "", X )      = false if X is not the empty string
+3. equals( X, "" )      = false if X is not the empty string
+4. equals( x+X, y+Y )   = false if x != y
+</pre>
+
+<p>
+These are base cases because the result can be computed immediately.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<!--INDEX></INDEX-->
+<p>
+Of course there is an <code>equals()</code> method that is part of the
+class <code>String</code>.
+Let us forget this and write our own method.
+This should be merely a matter of translation:
+</p>
+
+<pre>
+  boolean equals( String strA, String strB )
+  {
+    <span style="color:green">// 1. equals( "", "" ) = true</span>
+    if       ( strA.length() <span class="blue">________</span> 0 &amp;&amp; strB.length() <span class="blue">________</span> 0 )  
+      return true;
+      
+    <span style="color:green">// 2. equals( "", X ) = false if X is not the empty string</span>
+    else if  ( strA.length() <span class="blue">________</span> 0 &amp;&amp; strB.length() <span class="blue">________</span> 0 )  
+      return false;
+      
+    <span style="color:green">// 3. equals( X, "" ) = false if X is not the empty string</span>
+    else if  ( strA.length() <span class="blue">________</span> 0 &amp;&amp; strB.length() <span class="blue">________</span> 0 )  
+      return false;
+      
+    <span style="color:green">// 4. equals( x+X, y+Y ) = false if x != y</span>
+    else if  ( strA.charAt(0) <span class="blue">________</span> strB.charAt(0) )         
+      return false;
+      
+    <span style="color:green">// 5. equals( x+X, y+Y ) = true  if x == y and equals( X, Y )</span>
+    else
+      return <span class="blue">________</span>( strA.substring(1), strB.substring(1) ); 
+  }
+</pre>
+
+<p>
+To detect an empty string, check if the length is zero.
+Remember that an empty string is a string that contains no characters.
+The value <code>null</code> is something different.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Those blanks are made for filling.
+</p>
+</QUESTION>
+</CAI>
+
+<!-- ----------------- -->
+<!-- ----------------- -->
+<!-- ----------------- -->
+<CAI>End of Chapter
+<p>
+</p>
+<ANSWER>
+
+<pre>
+  boolean equals( String strA, String strB )
+  {
+    if       ( strA.length() <span class="blue">==</span> 0 && strB.length() <span class="blue">==</span> 0 )
+      return true;
+      
+    else if  ( strA.length() <span class="blue">==</span> 0 && strB.length() <span class="blue">!=</span> 0 )
+      return false;
+      
+    else if  ( strA.length() <span class="blue">!=</span> 0 && strB.length() <span class="blue">==</span> 0 )
+      return false;
+      
+    else if  ( strA.charAt(0) <span class="blue">!=</span> strB.charAt(0) )
+      return false;
+      
+    else
+      return <span class="blue">equals</span>( strA.substring(1), strB.substring(1) );
+  }
+</pre>
+</ANSWER>
+
+<LESSON>
+<p>
+You have reached the end this chapter.
+You may wish to review the following.
+Click on a subject that interests you to go to where it was discussed.
+</p>
+
+<ul>
+<li>
+<GOTO>pyramidal numbers</GOTO> Pyramidal numbers.
+</li>
+
+<li>
+<GOTO>pyramidal numbers, math-like definition</GOTO> Recursive definition 
+of Pyramidal numbers.
+</li>
+
+<li>
+<GOTO>pyramidal numbers, Java method</GOTO> Java method
+for Pyramidal numbers.
+</li>
+
+<li>
+<GOTO>pyramidal numbers, activation chain</GOTO>Activation chain
+for Pyramidal numbers.
+</li>
+
+<li>
+<GOTO>stack</GOTO>Stack
+</li>
+
+<li>
+<GOTO>string equality, math-like definition</GOTO>String equality.
+</li>
+
+</ul>
+
+<hr>
+
+<p>
+<a href="../../cs151java.html#73">
+<img src="../contents.gif" alt="Click here" align="center"> </a> 
+&nbsp; &nbsp; Back to the main menu.
+</p>
+
+</LESSON>
+
+</CAI>
+</CHAPTER>

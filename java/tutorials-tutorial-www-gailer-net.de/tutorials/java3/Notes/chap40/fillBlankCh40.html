@@ -1,0 +1,354 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+
+<head>
+
+<title>
+Fill in the Blanks
+</title>
+
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+
+</head>
+
+<body>
+
+<p>
+<small>creation: 12/11/99</small>
+</p>
+
+<hr>
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+Fill in the Blanks 
+<!-- end of Quiz Name -->
+</h1></center> 
+
+<p>
+<b>Instructions:</b> &nbsp;
+This is an ungraded fill-in-the-blank exercise.
+Each question consists of a sentence with one or two words left out.
+A button represents the missing word(s).
+For each question,
+think of the word or phrase that should fill each blank,
+then click on the buttons to see if you are correct.
+No grade is calculated for this exercise. 
+</p>
+<hr>
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<input type="hidden" name="firstVal" value="false">
+<input type="hidden" name="secondVal" value="false">
+<b>1.</b> Select a True or False for each set of radio buttons, then click on the "?"
+button to see what the AND of the two boolean values is.
+<br>
+<center> 
+<table>
+<tr>
+<td>
+<input type="radio" 
+value="true"                    
+name="radio1" 
+onClick="firstVal.value='true'; button3.value='   ?   '"> True<br>
+<input type="radio" 
+value="false"                    
+name="radio1" 
+checked
+onClick="firstVal.value='false'; button3.value='   ?   '"> False
+</td>
+<td>&nbsp; AND &nbsp;</td>
+<td>
+<input type="radio" 
+value="true"                    
+name="radio2" 
+onClick="secondVal.value='true'; button3.value='   ?   '"> True<br>
+<input type="radio" 
+value="false"                    
+name="radio2" 
+checked
+onClick="secondVal.value='false'; button3.value='   ?   '"> False
+</td>
+<td> &nbsp; &nbsp; equals  &nbsp; &nbsp; </td>
+<td>
+<input type="button" 
+value="    ?    "                    
+name="button3" 
+onClick="if ( firstVal.value == 'true' &&  secondVal.value == 'true') button3.value ='true'; else button3.value ='false'"> 
+</td></tr>
+</table>
+</center> 
+
+<br>
+<input type="hidden" name="firstValb" value="false">
+<input type="hidden" name="secondValb" value="false">
+Select a True or False for each set of radio buttons, then click on the "?"
+button to see what the OR of the two boolean values is.
+<br> 
+<center> 
+<table>
+<tr>
+<td>
+<input type="radio" 
+value="true"                    
+name="radio1b" 
+onClick="firstValb.value='true'; button3b.value='   ?   '"> True<br>
+<input type="radio" 
+value="false"                    
+name="radio1b" 
+checked
+onClick="firstValb.value='false'; button3b.value='   ?   '"> False
+</td>
+
+<td>&nbsp; OR &nbsp;</td>
+<td>
+<input type="radio" 
+value="true"                    
+name="radio2b" 
+onClick="secondValb.value='true'; button3b.value='   ?   '"> True<br>
+<input type="radio" 
+value="false"                    
+name="radio2b" 
+checked
+onClick="secondValb.value='false'; button3b.value='   ?   '"> False
+</td>
+<td> &nbsp; &nbsp; equals  &nbsp; &nbsp; </td>
+<td>
+<input type="button" 
+value="    ?    "                    
+name="button3b" 
+onClick="if ( firstValb.value == 'true' ||  secondValb.value == 'true') button3b.value ='true'; else button3b.value ='false'"> 
+</td></tr>
+</table>
+</center>
+
+<br>
+<input type="hidden" name="firstValc" value="false">
+Select a True or False value, then click on the "?"
+button to see what the NOT of the boolean value is.
+<br> 
+
+<center> 
+<table>
+<tr>
+<td>&nbsp; NOT &nbsp;</td>
+
+<td>
+<input type="radio" 
+value="true"                    
+name="radio1c" 
+onClick="firstValc.value='true'; button3c.value='   ?   '"> True<br>
+<input type="radio" 
+value="false"                    
+name="radio1c" 
+checked
+onClick="firstValc.value='false'; button3c.value='   ?   '"> False
+</td>
+
+<td> &nbsp; &nbsp; equals  &nbsp; &nbsp; </td>
+
+<td>
+<input type="button" 
+value="    ?    "                    
+name="button3c" 
+onClick="if ( firstValc.value == 'true' ) button3c.value ='false'; else button3c.value ='true'"> 
+</td></tr>
+
+</table>
+</center> 
+</form>
+<br>
+
+<!--  ------------------------end of  question --------------------------------- -->   
+<hr>
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>2.</b> &nbsp;In Java, the short-circuit AND operator is
+<input type="button" 
+value="_____"                    
+name="button1" 
+onClick="button1.value=' && '"> 
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+The non-short-circuit AND  operator is
+<input type="button" 
+value="_____"                    
+name="button1" 
+onClick="button1.value='  &  '"> 
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+The short-circuit OR   operator is
+<input type="button" 
+value="_____"                    
+name="button1" 
+onClick="button1.value='  ||  '"> 
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+The non-short-circuit OR   operator is
+<input type="button" 
+value="_____"                    
+name="button1" 
+onClick="button1.value='  |  '"> 
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+The NOT   operator is 
+<input type="button" 
+value="_____"                    
+name="button1" 
+onClick="button1.value='  !  '"> 
+</form>
+<hr>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>3.</b> &nbsp;Examine the following sets of operators:
+<code>
+<UL>
+<LI> (unary)- &nbsp;!</LI>
+<LI> * &nbsp; /</LI>
+<LI> +&nbsp; -</LI>
+<LI> &lt; &nbsp; &lt;=&nbsp; &gt;&nbsp; &gt;=&nbsp;</LI>
+<LI> == &nbsp;!=</LI>
+<LI>&& &nbsp; ||</LI>
+</UL>
+</code>
+Which operators have the HIGHEST precedence?
+<input type="button" 
+value="_____________"                    
+name="button1" 
+onClick="button1.value='(unary)-  !'"> 
+<br>
+<br>
+Which operators have the LOWEST precedence?
+<input type="button" 
+value=" _____________"                    
+name="button2" 
+onClick="button2.value=' &&  ||'"> .
+<br>
+<br>
+In the following expression, which operator is done first:
+<code> 4+7*3 &lt; 12</code>
+<input type="button" 
+value=" _______"                    
+name="button3" 
+onClick="button3.value=' * '"> .
+</form>
+<hr>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>4.</b> &nbsp; <font size=+1><code>1+5/2 &gt; 5-2 && 12 &lt; 23 </code></font>&nbsp; &nbsp; evaluates to  &nbsp;
+<input type="button" 
+value="  true/ false  "                    
+name="button1" 
+onClick="button1.value='  false  '"> .
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>5.</b> &nbsp; <font size=+1><code>1+2 &gt; 4-2 || Math.sin(1.5) &gt;= Math.cos(0.34) </code></font> &nbsp; &nbsp; evaluates to  &nbsp;
+<input type="button" 
+value="  true/ false  "                    
+name="button1" 
+onClick="button1.value='  true  '"> .
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>6.</b> &nbsp; <font size=+1><code>1+1 &gt; 4-2 && 12 &lt; 23 && 'a' == 'a'</code></font> &nbsp; &nbsp; evaluates to  &nbsp;
+<input type="button" 
+value="  true/ false  "                    
+name="button1" 
+onClick="button1.value='  false  '"> .
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>7.</b> &nbsp; <font size=+1><code>1 &gt; 4-2 || 23 &gt; 13 && 8 &lt; 10</code></font> &nbsp; &nbsp; evaluates to  &nbsp;
+<input type="button" 
+value="  true/ false  "                    
+name="button1" 
+onClick="button1.value='  true '"> .
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>8.</b> &nbsp; <font size=+1><code>(9 &lt;= 34 || 5 &gt; 25 ) && 7 &lt; 20</code></font> &nbsp; &nbsp; evaluates to  &nbsp;
+<input type="button" 
+value="  true/ false  "                    
+name="button1" 
+onClick="button1.value='  true '"> .
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>9.</b> &nbsp; <font size=+1><code>9 &lt;= 34 || 5 &gt; 25  && 7 &lt; 20</code></font> &nbsp; &nbsp; evaluates to  &nbsp;
+<input type="button" 
+value="  true/ false  "                    
+name="button1" 
+onClick="button1.value='  false '"> .
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<!-- ------------------------start of  question ------------------------------ -->
+<form>
+<b>10.</b> &nbsp; <font size=+1><code>9 &lt;= 34 && 5 &gt; 25  || 7 &lt; 20</code></font> &nbsp; &nbsp; evaluates to  &nbsp;
+<input type="button" 
+value="  true/ false  "                    
+name="button1" 
+onClick="button1.value='  true '"> .
+</form>
+<br>
+<!-- ------------------------end of  question --------------------------------- -->   
+
+<hr>
+<p>
+End of the Exercise.  If you want to do it again, click on "Refresh" in your
+browser window.
+</p>
+<hr>
+
+<p>
+<A HREF="../../cs151java.html#40">Click here </A> to go back to the main menu.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<head>
+<title>Kapitel 53 Programmieraufgaben</title>
+<meta name="copyright" content="2013 Heinrich Gailer">
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css">
+</head>
+
+<body>
+
+<p class="revisions">erstellt 13.03.2009; &uuml;bersetzt 03.01.2013; Heinrich Gailer</p>
+
+<hr>
+
+<h1>Kapitel 53  Programmieraufgaben</h1>
+
+<h2>Aufgabe 1 &#8212; Bessere Kapselung</h2>
+
+<p>
+Eine bessere Kapselung der Klasse <code>Waren</code> und ihrer Subklassen w&uuml;rde alle Instanzvariablen als <code>private</code> deklarieren und get- und set-Methoden verwenden, um auf sie zu zugreifen.
+</p>
+
+<p>Hier ist eine &uuml;berarbeitete Version der Klasse <code>Waren</code> mit einer weiteren Instanzvariablen <code>anzahl</code></p>
+
+
+<pre>
+class Waren
+{
+  private String beschreibung;
+  private double preis;
+  private int anzahl;
+
+  public Waren( String beschreibung, double preis, int anzahl )
+  {
+    this.beschreibung = beschreibung;
+    this.preis        = preis;
+    this.anzahl       = anzahl;
+  }
+
+  public void anzeigen()
+  {
+    System.out.println( "Artikel: " + beschreibung +
+        " Preis: " + preis + " Anzahl: " + anzahl);
+  }
+
+
+  // fehlende Methoden
+  // getPreis(), setPreis(), getAnzahl(), setAnzahl()
+
+}
+</pre>
+
+
+<p>
+&Uuml;berarbeiten Sie den Code f&uuml;r die Klassen <code>Waren</code>, <code>Lebensmittel</code>, <code>Spielwaren</code> und <code>Buecher</code>.
+Erzeugen Sie eine neue Testklasse, um Ihre &uuml;berarbeiteten Klassen zu testen.
+</p>
+
+<p><b>Hinweis:</b> Die Subklassen werden die <code>get</code>- und <code>set</code>-Methoden verwenden m&uuml;ssen, um auf die privaten Instanzvariablen zu greifen zu k&ouml;nnen.</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#53">Inhaltsverzeichnis</a>.</p>
+<hr>
+<p>Ende der Aufgaben</p>
+
+</body>
+</html>

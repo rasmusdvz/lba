@@ -1,0 +1,277 @@
+<QUIZ>
+
+<!-- converted to XML: 10/05/03 -->
+<QHEAD>
+<QCREATION>revised: 10/05/03</QCREATION>
+<QAUTHOR>B. P. Kjell</QAUTHOR>
+<QEMAIL>kjell at ieee.org</QEMAIL>
+<QCOPYRIGHT>2003</QCOPYRIGHT>
+<QCSSFILE>../QUIZstyle.css</QCSSFILE>
+<QRETURNTO>../../cs151java.html#55</QRETURNTO>
+<QRETURNIMAGE>../contents.gif</QRETURNIMAGE>
+</QHEAD>
+
+<QTITLE>
+<img src="quizFrame.gif" align="center" hspace="5" vspace="5"/>
+on on Basic GUI  
+</QTITLE>
+
+<QTOP>
+<p>
+This is a practice quiz.
+The results are not recorded anywhere and do not affect your grade.
+The questions on this quiz might not appear 
+in any quiz or test that does count toward your grade.
+</p>
+
+<p>
+<b>Instructions:</b> 
+For each question,
+choose the single best answer.
+Make your choice by clicking on its button.
+You can change your answers at any time.
+When the quiz is graded, the correct answers will appear in the box after each question.
+</p>
+<br clear="all"/>
+</QTOP>
+
+<QUESTION>
+<QTEXT>
+What is it called when a program is written to respond to the
+button clicks, menu selections, and other actions of the
+user in whatever order the user does them? 
+</QTEXT>
+
+<QRIGHT>
+Event-driven programming. 
+</QRIGHT>
+
+<QWRONG>
+Action-driven programming.
+</QWRONG>
+
+<QWRONG>
+User-driven programming. 
+</QWRONG>
+
+<QWRONG>
+Mouse-driven programming 
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+The <b>fundamental</b> classes for GUI programming
+are contained in the:
+</QTEXT>
+
+<QWRONG>
+GUI toolkit 
+</QWRONG>
+
+<QRIGHT>
+Abstract Windowing Toolkit
+</QRIGHT>
+
+<QWRONG>
+Graphics Event Toolkit 
+</QWRONG>
+
+<QWRONG>
+Java Enhancement Toolkit 
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+The three software parts of a GUI program are: 
+</QTEXT>
+
+<QWRONG>
+Windows, Buttons, Mice 
+</QWRONG>
+
+<QWRONG>
+GUI Components, Graphics, Code
+</QWRONG>
+
+<QRIGHT>
+GUI Components, Event Listeners, Application Code 
+</QRIGHT>
+
+<QWRONG>
+Frames, Code, Events 
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+What is the one component that nearly all GUI programs will have?
+</QTEXT>
+
+<QRIGHT>
+Window 
+</QRIGHT>
+
+<QWRONG>
+Mouse
+</QWRONG>
+
+<QWRONG>
+Monitor 
+</QWRONG>
+
+<QWRONG>
+Button 
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+What is a <em>container</em> object in GUI programming? 
+</QTEXT>
+
+<QWRONG>
+A  <em>container</em> is
+another name for an array or vector.
+</QWRONG>
+
+<QWRONG>
+A  <em>container</em> is
+any class that is made up of other classes.
+</QWRONG>
+
+<QWRONG>
+A  <em>container</em> is
+a primitive variable that contains the actual data. 
+</QWRONG>
+
+<QRIGHT>
+A  <em>container</em> is a GUI
+component that has other 
+GUI components placed inside of it.  
+</QRIGHT>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+When the user clicks on a button, what is generated?
+</QTEXT>
+
+<QRIGHT>
+An Event.
+</QRIGHT>
+
+<QWRONG>
+A Button object.
+</QWRONG>
+
+<QWRONG>
+A Container
+</QWRONG>
+
+<QWRONG>
+A Listener.
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+What is the name for a method that responds to events?
+</QTEXT>
+
+<QWRONG>
+A container method.
+</QWRONG>
+
+<QWRONG>
+A snoop method.
+</QWRONG>
+
+<QRIGHT>
+A listener method.
+</QRIGHT>
+
+<QWRONG>
+An application method.
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+What is the parent class of the AWT <code>Component</code> class? 
+</QTEXT>
+
+<QWRONG>
+GUI
+</QWRONG>
+
+<QWRONG>
+AWT
+</QWRONG>
+
+<QRIGHT>
+Object
+</QRIGHT>
+
+<QWRONG>
+Container
+</QWRONG>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+What is the base class of all Swing classes?
+</QTEXT>
+
+<QWRONG>
+Object
+</QWRONG>
+
+<QWRONG>
+Component
+</QWRONG>
+
+<QWRONG>
+Swing
+</QWRONG>
+
+<QRIGHT>
+JComponent
+</QRIGHT>
+
+</QUESTION>
+
+<QUESTION>
+<QTEXT>
+ What letter do many Swing class names start with?
+</QTEXT>
+
+<QWRONG>
+A
+</QWRONG>
+
+<QWRONG>
+B
+</QWRONG>
+
+<QRIGHT>
+J
+</QRIGHT>
+
+<QWRONG>
+S
+</QWRONG>
+
+</QUESTION>
+
+</QUIZ>
+

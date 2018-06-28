@@ -1,0 +1,122 @@
+<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+
+<hr />
+<p>
+<small>created 01/01/03</small>
+</p>
+<hr />
+
+<center><h1>  
+Chapter 72 Programming Exercises </h1></center>
+
+<hr />
+
+
+<h2>Exercise 1</h2>
+<p>
+A <b>prime number</b> is an integer that cannot be divided by any
+integer other than one and itself.
+For example, 7 is prime because its only divisors are 1 and 7.
+The integer 8 is not prime because its divisors are 1, 2, 4, and 8.
+</p>
+
+<p>
+Another way to define prime is:
+</p>
+
+<blockquote>
+<pre>
+prime(N)    = prime(N, N-1)
+
+prime(N, 1) = true
+
+prime(N, D) = if D divides N, false
+              else prime(N, D-1)           
+</pre>
+</blockquote>
+
+<p>
+For example,
+</p>
+
+<blockquote>
+<pre>
+prime(4)   = prime(4,3)
+prime(4,3) = prime(4,2)
+prime(4,2) = false
+</pre>
+</blockquote>
+
+<p>
+Another example,
+</p>
+
+<blockquote>
+<pre>
+prime(7)   = prime(7,6)
+prime(7,6) = prime(7,5)
+prime(7,5) = prime(7,4)
+prime(7,4) = prime(7,3)
+prime(7,3) = prime(7,2)
+prime(7,1) = true
+</pre>
+</blockquote>
+
+<p>
+Translate the math-like definition of prime into two Java methods that
+return <code>boolean</code>.
+Use the <b><code>%</code></b> operator to test divisibility.
+Put your method into a class, write a testing class, and test your
+program.
+(Look at <code>FactorialTester.java</code> in this chapter.)
+</p>
+
+<p>
+If you run your program for integers larger than about 12,000 (on a Windows system)
+you will run out of memory.
+Your program will stop running and report a <em>StackOverflowError</em>.
+This is because each activation in the activation chain requires some memory,
+and 12,000 activations uses up all the memory that has been reserved for this use.
+</p>
+           
+<p>           
+<a href="../../cs151java.html#72">Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<h2>Exercise 2</h2>
+<p>
+Assume that female rabbits live for only 4 months.
+Modify the math-like definition of the Fibonacci series to
+account for dying rabbits.
+Implement the new series as a Java method.
+</p>
+
+<p>
+First draw a chart showing the population of rabbits by month.
+Then deduce the new rules for the series.
+You will have more base cases than in the original series.
+</p>
+
+<p>           
+<a href="../../cs151java.html#72">Click here </a> to go back to the main menu.
+</p>
+<hr />
+
+<b>End of Exercises</b>
+</body>
+</html>
+

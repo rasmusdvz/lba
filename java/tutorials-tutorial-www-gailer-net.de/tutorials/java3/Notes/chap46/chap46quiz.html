@@ -1,0 +1,544 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../QUIZstyle.css" />
+<!-- FILL in the Quiz Name between <title> and </title> -->
+<title>
+Quiz &uuml;ber Arrays
+</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+</head>
+
+<script language="JavaScript">
+<!--
+function gradeQuiz( reportForm )
+{
+  var totalRight = 0;
+
+  for ( var count=0; count < document.forms.length-1; count++ )
+  {
+    if ( document.forms[ count ].response.value == document.forms[ count ].answer.value  )
+      totalRight++ ;
+    document.forms[ count ].correct.value=document.forms[ count ].answer.value
+  }
+
+  reportForm.grade.value   = " " + totalRight
+  percent                  = (100*totalRight)/(document.forms.length-1)
+  reportForm.percent.value = " " + percent
+  if ( percent > 90 )
+    reportForm.letter.value = "A"
+  else if ( percent > 80 )
+    reportForm.letter.value = "B"
+  else if ( percent > 70 )
+    reportForm.letter.value = "C"
+  else if ( percent > 60 )
+    reportForm.letter.value = "D"
+  else
+    reportForm.letter.value = "hmm.."
+
+}
+//-->
+</script>
+
+<body>
+<p>
+<small>erstellt 27.05.03; &uuml;bersetzt 20.06.03; &uuml;berarbeitet 17.02.04, 24.01.05; &copy; Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+<hr />
+<center><h1>
+<!-- FILL in the Quiz Name on the next line-->
+Quiz &uuml;ber Arrays
+<!-- end of Quiz Name -->
+</h1></center>
+<p>
+Das ist ein &Uuml;bungsquiz.
+Die Ergebnisse werden nirgendwo erfasst und haben  keine Auswirkung auf Ihre Note.
+Die Fragen in diesem Quiz d&uuml;rfen in keinem Quiz oder Test erscheinen,
+der f&uuml;r Ihre Benotung z&auml;hlt.
+</p>
+
+<p>
+<b>Hinweise:</b>
+W&auml;hlen Sie f&uuml;r jede Frage die beste Antwort und klicken Sie dann auf das entsprechende Optionsk&auml;stchen. Sie k&ouml;nnen Ihre Antwort jederzeit &auml;ndern.
+Wenn das Quiz bewertet wird, erscheint die richtige Antwort in der Textbox nach jeder Frage.
+</p>
+<hr />
+<form name="question1">
+
+<p>
+1.
+<!-- FILL in Question 1-->
+Welche der folgenden Anweisungen deklariert ein Array von <code>int</code> mit dem Namen <code>img</code>?
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+int img;
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+int[] img;
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+new int img[];
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question1.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+int img = int[];
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question2">
+<p>
+2.
+<!-- FILL in Question 2-->
+Welches sind legale Indizes f&uuml;r das Array <code>ar</code> in der folgenden Deklaration:
+<blockquote>
+<pre>
+int[] ar = {2, 4, 6, 8 }
+</pre>
+</blockquote>
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+0, 1, 2, 3
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+1, 2, 3, 4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+2, 4, 6, 8
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question2.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+0, 2, 4. 6
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question3">
+<p>
+3.
+<!-- FILL in Question 3 -->
+Was ist die Ausgabe des folgenden Codefragment:
+<blockquote>
+<pre>
+int[] ar = {2, 4, 6, 8 };
+System.out.println( ar[0] + " " + ar[1] );
+</pre>
+</blockquote>
+
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+2  6
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+8
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+2  4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question3.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+6  8
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+<hr />
+<form name="question4">
+<p>
+4.
+<!-- FILL in Question 4-->
+Was ist die Ausgabe des folgenden Codefragment:
+<blockquote>
+<pre>
+int[] ar = {2, 4, 6, 8 };
+
+ar[0] = 23;
+ar[3] = ar[1];
+
+System.out.println( ar[0] + " " + ar[3] );
+</pre>
+</blockquote>
+
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+23 2
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+2 8
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+31
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question4.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+23  4
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question5">
+<p>
+5.
+<!-- FILL in Question 5-->
+Was ist die Ausgabe des folgenden Codefragment:
+<blockquote>
+<pre>
+int[] y = new int[5];
+
+y[0] = 34;
+y[1] = 88;
+
+System.out.println( y[0] + " " + y[1] + " " + y[5] );
+</pre>
+</blockquote>
+
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+34 88 0
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+34 88 88
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Das Programm ist fehlerhaft und wird nicht kompilieren.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question5.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+0 34 88
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question6">
+<p>
+6.
+<!-- FILL in Question 6-->
+Was ist die Ausgabe des folgenden Codefragment:
+<blockquote>
+<pre>
+int[] z = new int[9];
+
+z[0] = 7;
+z[1] = 3;
+z[2] = 4;
+
+System.out.println( z[0] + z[1] + " " + z[5] );
+</pre>
+</blockquote>
+
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="A" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+10 0
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+7 3 0
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Das Programm ist fehlerhaft und wird nicht kompilieren.
+
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question6.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+7 3 4
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question7">
+<p>
+7.
+<!-- FILL in Question 7-->
+Was ist die Ausgabe des folgenden Codefragment:
+<blockquote>
+<pre>
+int[] zip = new int[5];
+
+zip[0] = 7;
+zip[1] = 3;
+zip[2] = 4;
+zip[3] = 1;
+zip[4] = 9;
+
+System.out.println( zip[ 2 + 1 ] );
+</pre>
+</blockquote>
+
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+4  3
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+3  7
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question7.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+1
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question8">
+<p>
+8.
+<!-- FILL in Question 8-->
+Was ist die Ausgabe des folgenden Codefragment:
+<blockquote>
+<pre>
+int[] zip = new int[5];
+
+zip[0] = 7;
+zip[1] = 3;
+zip[2] = 4;
+zip[3] = 1;
+zip[4] = 9;
+
+int j = 3;
+
+System.out.println( zip[ j-1 ] );
+</pre>
+</blockquote>
+
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="C" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+7
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+3
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+4
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question8.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+1
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question9">
+<p>
+9.
+<!-- FILL in Question 9-->
+Wie viele Objekte gibt es, nachdem das folgende Codefragment ausgef&uuml;hrt wurde?
+<blockquote>
+<pre>
+double[] ann = new double[ 7 ];
+double[] bob;
+
+bob = ann;
+</pre>
+</blockquote>
+
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="D" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+2
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+7
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+14
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question9.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+1
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+<hr/>
+<form name="question10">
+<p>
+10.
+<!-- FILL in Question 10-->
+F&uuml;r welche der folgenden Applikationen ist ein Array nicht geeignet:
+<!-- end of question -->
+</p>
+<input type="hidden" name="answer" value="B" /> <!-- REPLACE X with the capital letter of the correct answer -->
+                                              <!-- No spaces between the quotes. Eg.: value="A" -->
+<p>Die korrekte Antwort ist:  <input type="text" name="correct" value="  " size="5" /></p>
+<input type="hidden" name="response" value="" />
+<table>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='A'" /><b>a.</b>
+<!-- FILL in answer A -->
+Festhalten der Punkte von zw&ouml;lf Pr&uuml;fungen einer Klasse Mitte des Semesters.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='B'" /><b>b.</b>
+<!-- FILL in answer B -->
+Festhalten von Namen, Sozialversicherungsnummer, Alter und Einkommen einer Person.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='C'" /><b>c.</b>
+<!-- FILL in answer C -->
+Festhalten der st&uuml;ndlichen Temperaturst&auml;nde eines Tages.
+<!-- end of answer -->
+</td></tr>
+<tr><td><input type="radio" name="questradio" value="" onClick="question10.response.value='D'" /><b>d.</b>
+<!-- FILL in answer D -->
+Festhalten der Verkaufsummen eines Ladens f&uuml;r jedes der zw&ouml;lf Monate.
+<!-- end of answer -->
+</td></tr>
+</table>
+</form>
+
+
+
+
+<hr />
+<form name="evaluateQuest">
+<p>
+<center>
+<input type="button" value="Quiz bewerten" onClick="gradeQuiz(this.form)">
+</center>
+<p>
+Richtige Antworten:
+&nbsp;&nbsp;
+<input type=text name="grade" size=5>
+&nbsp;&nbsp;
+in Prozent:
+&nbsp;&nbsp;
+<input type=text name="percent" size=5>
+&nbsp;&nbsp;
+Bewertung:
+&nbsp;&nbsp;
+<input type=text name="letter" size=5>
+</form>
+
+<table>
+<tr>
+<td style="white-space:nowrap">
+<A HREF="../../java-toc.html#46">
+<img src="../contents.gif" alt="Inhaltsverzeichnis" align="center"></A>
+&#8212;&#8212; Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#46">Inhaltsverzeichnis</a>.
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+<hr />
+</body>
+</html>

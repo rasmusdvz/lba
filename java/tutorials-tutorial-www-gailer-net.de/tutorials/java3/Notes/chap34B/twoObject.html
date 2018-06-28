@@ -1,0 +1,50 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 //EN">
+<html>
+<head>
+<title></title>
+<meta name="author" content="">
+<meta name="generator" content="Ulli Meybohms HTML EDITOR">
+<link rel="stylesheet" type="text/css" href="../CAIstyle.css"
+</head>
+<body >
+<div style="width:82%;">
+<pre class="program" style="font-size:8pt;">
+class ObjektPrinter2
+{
+  public void ausgeben( String st )
+  {
+    <span class="blue">//st beginnt mit einer Kopie der Referenz
+    // auf das Originalobjekt.</span>
+
+   System.out.println("Erster Wert des Parameters: " + st );
+
+    st = "Hah! Ein zweites Objekt!" ;
+     <span class="blue"> // st wird ge&auml;ndert um auf ein neues Objekt zu verweisen.</span>
+
+    System.out.println("Zweiter Wert des Parameter: " + st );
+
+  }
+}
+
+class OPTester2
+{
+  public static void main ( String[] args )
+  {
+    String mitteilung = "Originalobjekt" ;
+      <span class="blue">// mitteilung beh&auml;lt ihren Anfangswert
+      // &uuml;ber die gesamte Laufzeit des Programms.</span>
+
+    ObjektPrinter op = new ObjektPrinter();
+
+    System.out.println("Erster  Wert von mitteilung: " + mitteilung );
+
+    op.ausgeben( mitteilung );
+
+    System.out.println("Zweiter Wert von mitteilung: " + mitteilung );
+  }
+}
+</pre>
+
+</div>
+</body>
+</html>

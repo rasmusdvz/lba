@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+
+<head>
+<title>Programmieraufgaben</title>
+<meta name="copyright" content="2004 -2006 Heinrich Gailer" />
+<meta name="author" content="Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="index, follow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+<small>erstellt 07.03.04; &uuml;berarbeitet 25.03.04, 24.02.05, 07.03.05, 17.07.06; &copy; Copyright 2004 - 2006 Heinrich Gailer</small>
+<hr />
+<center><h1><span class="blue">
+Kapitel 52  Programmieraufgaben</span></h1></center>
+
+
+<h2>Aufgabe &#8212; Erweiterte Subklassen</h2>
+
+<p>Die Subklassen der Programmieraufgabe <a href="../chap51/progExercises51.html#haustiere">Haustiere</a> des vorherigen Kapitels sollen erweitert werden.</p>
+
+
+<p>Die Klasse <code>Hund</code> bekommt zus&auml;tzlich eine Instanzvariable <code>kategorie</code>(Typ String). Es wird 3 Kategorien geben:</p>
+<ul>
+<li>1 - Kleinhunde</li>
+<li>2 - Mittelgrosse Hunde</li>
+<li>3 - Gro&szlig;e Hunde</li>
+</ul>
+<p>Die Klasse <code>Katze</code> bekommt eine Instanzvariable <code>haltung</code> (Typ String). Es wird zwei Typen geben:</p>
+<ul>
+<li>1 - Wohnung</li>
+<li>2 - Artgerecht</li>
+</ul>
+
+<p>Erweitern Sie die Konstruktoren der Subklassen um eine <code>int</code>-Variable, &uuml;ber die die Instanzvariablen <code>kategorie</code> bzw. <code>haltung</code> entsprechend initialisiert werden.</p>
+
+<p>&Uuml;berschreiben Sie in den Subklassen die Methode <code>anzeigen()</code> der Superklasse. Sie soll zus&auml;tzlich die Kategorie bzw. den Typ der Haltung ausgeben.</p>
+
+<p>Testen Sie das Programm in einer Klasse <code>HaustierFuettern</code>. Die Ausgabe sieht dann ungef&auml;hr wie diese aus:</p>
+
+<blockquote>
+<pre>
+C:\data\java\bsp&gt;java HaustierFuettern
+Miau!
+Minka: 3.0
+Minka: 2.5
+Minka: 2.0
+Minka: 1.5
+Minka: 1.0
+Minka: 0.5
+(Haltung: Wohnung) Der Vorrat fuer Minka reicht 6 Tage.
+
+Wuff!
+Strolchie: 5.0
+Strolchie: 4.0
+Strolchie: 3.0
+Strolchie: 2.0
+Strolchie: 1.0
+(Kategorie: Kleinhunde) Der Vorrat fuer Strolchie reicht 5 Tage.
+
+</pre>
+</blockquote>
+
+<p>Zur&uuml;ck zum <a title="Zum Inhaltsverzeichnis gehen." HREF="../../java-toc.html#52">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+
+
+</body>
+</html>

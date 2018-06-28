@@ -1,0 +1,1431 @@
+<!-- Jan.   18, 1999  bpk   chapter re-numbering. previously chapter 08       -->
+<!-- July   31, 1999  bpk   spelling errors, a few other small changes        -->
+<!-- Jan.   17, 2000  bpk   INDEX  -->
+<!-- Jun.   01, 2000  bpk   parseDouble()  -->
+
+<!-- May    11, 2003  bpk   revised. Math class discussed  -->
+<!-- Jan    13, 2006  bpk   revision for java 1.5  -->
+<!-- Feb    27, 2010  bpk   small changes  -->
+
+
+<!--
+Note to HG: Extensive changes on nearly every page.
+-->
+
+<CHAPTER>
+<COPYRIGHTDATE>2008</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2010, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#11</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+<CAI> Kapitel 11 &#8212; Gleitpunkt
+
+<p class="revisions">erstellt 15.02.98; &uuml;berarbeitet 31.07.99, 18.01.00, 01.06.00, 11.05.03, 13.01.06; &uuml;bersetzt 20.10.03; &uuml;berarbeitet 04.11.03, 26.04.04, 19.04.05, 29.09.06, 21.04.10; Deutsche &Uuml;bersetzung Heinrich Gailer
+</p>
+
+
+<LESSON>
+
+<p>
+Java enth&auml;lt die primitiven Typen <code>float</code> und <code>double</code>, die Gleitpunktzahlen  aufnehmen. Wenn sie in Character konvertiert werden, enthalten Gleitpunktzahlen einen Dezimalpunkt, gefolgt von einem Dezimalteil. Zum Beispiel:
+<code>3.14159</code> und <code>-0.718802</code>.
+</p>
+
+<h4>Themen:</h4>
+
+<ul>
+<li>Strings in <code>double</code> konvertieren</li>
+<li>Tastatureingabe von Gleitpunktzahlen</li>
+<li>Die Klasse <code>Math</code></li>
+<li>Quadratwurzel</li>
+<li>Trigonometrische Funktionen</li>
+<li><code>PI</code></li>
+<li>Not a Number (NaN)</li>
+</ul>
+
+<p>
+Alle die bekannten mathematischen Funktionen, wie <em>Sinus</em>, <em>Logarithmus</em> und <em>Qudratwurzel</em> sind in Ihrem Programm &uuml;ber die Java Klasse <code>Math</code> verf&uuml;gbar. Diese Funktionen geben &uuml;blicherweise Werte vom Typ <code>double</code> zur&uuml;ck.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Welcher verwendet mehr Bit: ein Java <code>float</code> oder ein Java <code>double</code>?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- **********      new page  ************ -->
+<!-- ************************************** -->
+<CAI>Gr&ouml;&szlig;e von Gleitpunkttypen
+
+<ANSWER>
+<p>
+<code>double</code>. Wie Sie erwartet haben werden, es verwendet zweimal soviel Bit als ein <code>float</code>.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<table border="1" bordercolor="brown" cellpadding="5" align="right" bgcolor="white" hspace="10" width="50%">
+<tr><th colspan=3 bgcolor="tan">Primitive Gleitpunktdatentypen</th></tr>
+<tr><td><b>Typ</b></td><td><b>Gr&ouml;&szlig;e</b></td><td ><b>Bereich</b></td></tr>
+<tr><td>float</td><td>32 Bit</td><td>-3.4E+38 bis +3.4E+38</td></tr>
+<tr><td>double</td><td>64 Bit</td><td>-1.7E+308 bis 1.7E+308</td></tr>
+</table>
+
+<INDEX>floating point, sizes</INDEX>
+<INDEX>double</INDEX>
+<INDEX>float</INDEX>
+<INDEX>accuracy of double</INDEX>
+
+<p>
+Im Haupt- und auf dem Plattenspeicher wird ein <code>float</code> durch ein 32-Bitmuster und ein <code>double</code> durch ein 64-Bitmuster repr&auml;sentiert. Beim Input &uuml;ber die Tastatur m&uuml;ssen die Character-Daten in Gleitpunktdaten konvertiert werden. Beim Output auf den Bildschirm oder in eine Textdatei, werden die Gleitpunktdaten in Character konvertiert.
+</p>
+
+<p>
+Sie m&uuml;ssen sich fast niemals Gedanken &uuml;ber den Zahlenbereich machen, der durch eine Gleitpunktvariable dargestellt werden kann. Gew&ouml;hnlich verwenden Sie ein <code>double</code>, wenn Sie einen Gleitpunkttyp brauchen. Sowohl der Bereich als auch die Genauigkeit sind viel besser als bei einem <code>float</code>, und der zus&auml;tzliche Speicherbedarf f&uuml;r ein <code>double</code> ist unwesentlich, es sei denn Sie konstruieren sehr gro&szlig;e Datenstrukturen.
+</p>
+
+
+<QUESTION>
+<p>
+Sowohl der Datentyp <code>int</code> als auch der Datentyp <code>float</code> verwenden 32 Bit.
+</p>
+
+<p>
+Ist das Muster der 32 Bit f&uuml;r den <code>int</code>-Wert 221 das gleiche, wie das Muster f&uuml;r den <code>float</code>-Wert 221.0?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ein <code>double</code> von der Tastatur einlesen
+
+<ANSWER>
+<p>
+Nein. Ganzzahl- und Gleitpunkttypen verwenden verschiedene Bitmuster, um Werte darzustellen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>floating point, reading</INDEX>
+
+<p>
+Das Schema , das verwendet wird, um Ganzzahlen darzustellen ist v&ouml;llig anders, als das Schema, das verwendet wird, um Gleitpunktzahlen darzustellen. Auch wenn Sie 221 und 221.0 als &auml;quivalent ansehen k&ouml;nnten, sind die Bitmuster, die sie verwenden vollst&auml;ndig verschieden.
+</p>
+
+<p>
+<code>Scanner</code> f&uuml;hrt einen Gleitpunkt-Input auf eine &auml;hnliche Weise durch, wie einen Ganzzahl-Input. Verwenden Sie ein <code>Scanner</code>-Objekt, um einen Input-Zeichenstrom zu scannen und die Zeichen in ein <code>float</code> oder ein <code>double</code> zu konvertieren. Die Methoden, die das tun, sind  <nobr><code>nextFloat()</code></nobr> und <nobr><code>nextDouble()</code></nobr>.
+</p>
+
+<p>
+Hier ist ein Programm, das einen String von Input-Zeichen in den primitiven Typ <code>double</code> konvertiert und dann diesen Wert und das Doppelte dieses Werts ausgibt:
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class DoubleDouble
+{
+  public static void main (String[] args)
+  {
+    double zahl;
+    Scanner scan = new Scanner( System.in );
+
+    System.out.print(&quot;Geben Sie ein double ein:&quot;);
+    zahl = scan.nextDouble();
+
+    System.out.println(&quot;zahl: &quot; + zahl + &quot; zahl * 2: &quot; + 2.0*zahl );
+  }
+}
+</pre>
+
+<p>
+Das Programm gibt aus:
+</p>
+
+<pre class="dos4">
+D:\daten\JavaNotes\kap11>java DoubleDouble
+Geben Sie ein double ein: 3.14
+zahl: 3.14 zahl * 2: 6.28
+</pre>
+
+<p>
+Es w&auml;re Ihre M&uuml;he wert dieses Programm in eine Datei zu kopieren, es zu kompilieren und auszuf&uuml;hren.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was glauben Sie passiert, wenn der Anwender eine Ganzzahl eingibt, wie <code>211</code>?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- *********** new page ************* -->
+<!-- ************************************** -->
+<CAI>Ausnahmen (<em>Exceptions</em>)
+<p>
+Was glauben Sie passiert, wenn der Anwender eine Ganzzahl eingibt, wie <code>211</code>?
+</p>
+
+
+<ANSWER>
+<p>
+Die Zeichen werden in ein <code>double</code> konvertiert.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>InputMismatchException</INDEX>
+
+<p>
+Die eingegebenen Zeichen werden in ein <code>double</code> konvertiert, wenn das m&ouml;glich ist, auch wenn die Input-Zeichen keinen Dezimalpunkt haben.
+</p>
+
+<p>
+Wenn die eingegebenen Zeichen NICHT in ein <code>double</code> konvertiert werden k&ouml;nnen, l&ouml;st Java eine Ausnahme aus und h&auml;lt das Programm an. (Ein sp&auml;teres Kapitel bespricht die Behandlung von Ausnahmen.)
+Zum Beispiel:
+</p>
+
+<pre class="dos5">
+D:\daten\JavaNotes\kap11>java DoubleDouble
+Geben Sie ein double ein : unsinn
+Exception in thread "main" java.util.InputMismatchException
+        at java.util.Scanner.throwFor(Unknown Source)
+        at java.util.Scanner.next(Unknown Source)
+        at java.util.Scanner.nextDouble(Unknown Source)
+        at DoubleDouble.main(DoubleDouble.java:14)
+</pre>
+
+<p>
+Der Input k&ouml;nnte mit Zeichen beginnen, die konvertiert werden k&ouml;nnen, gefolgt von einem oder mehreren Leerzeichen und vielleicht zus&auml;tzlichen Zeichen. Wenn das passiert, scannt <code>nextDouble()</code>  nur die Zeichen, die konvertiert werden k&ouml;nnen.
+</p>
+
+
+<pre class="dos5">
+D:\daten\JavaNotes\kap11>java DoubleDouble
+Geben Sie ein double ein: 3.14 und weitere Zeichen
+zahl: 3.14 zahl * 2: 6.28
+</pre>
+
+<p>
+Wenn das Programm die <code>nextDouble()</code> Methode noch einmal aufruft, wird sie da weitermachen, wo der vorherige Aufruf aufgeh&ouml;rt hat, wird keine Zeichen finden, die konvertiert werden k&ouml;nnen und wird eine Ausnahme ausl&ouml;sen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wird der folgende Input mit dem oben stehenden Programm funktionieren?
+</p>
+
+<pre class="code">
+D:\daten\JavaNotes\kap11>java DoubleDouble
+Geben Sie ein double ein: -97.65
+
+?????
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Exponentialschreibweise
+
+<ANSWER>
+<p>
+Ja, das Minuszeichen ist zul&auml;ssig:
+</p>
+
+<pre class="code">
+D:\daten\JavaNotes\kap11>java DoubleDouble
+Geben Sie ein double ein: -97.65
+zahl: -97.65 zahl * 2: -195.3
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>scientific notation</INDEX>
+
+<p>
+Die Exponentialschreibweise ist eine andere M&ouml;glichkeit Zahlen zu schreiben. In der wissenschaftlichen Notation bedeutet die Verwendung des Buchstaben <code>E</code>
+&quot;10 hoch&quot;. Zum Beispiel bedeutet <code>1.314E+1</code> nichts anderes als  <code>1.314 * 10<sup>1</sup></code>&nbsp;, was <code>13.14</code> ergibt.
+</p>
+
+<p>
+Die Exponentialschreibweise ist nur ein Format, das f&uuml;r Input und Output verwendet wird.
+Das 64-Bitmuster, das im Computer f&uuml;r ein <code>double</code> verwendet wird, ist das gleiche ganz egal welches Format f&uuml;r den Input verwendet wurde. Hier ist ein Beispiel:
+</p>
+
+
+<pre class="dos4">
+D:\daten\JavaNotes\kap11>java DoubleDouble
+Geben Sie ein double ein: 1.234E+9
+zahl: 1.234E9 zahl * 2: 2.468E9
+</pre>
+
+<p>
+Hier gibt der Anwender Daten in der wissenschaftlichen Notation ein, und
+<code>nextDouble()</code> konvertiert diese Zeichen in ein <code>double</code>.
+Wenn der Anwender <code>1234000000</code> eingegeben h&auml;tte, dann w&auml;ren diese Zeichen in das gleiche <code>double</code> konvertiert worden. Wenn ein <code>double</code> in Zeichen konvertiert wird, wird die wisenschaftliche Notation f&uuml;r sehr gro&szlig;e und sehr kleine Werte verwendet.
+</p>
+
+<p>
+Als Input-Zeichen kann das gro&szlig;e oder kleine &quot;e&quot; verwendet werden.:
+</p>
+
+
+<pre class="dos4">
+D:\daten\JavaNotes\kap11>java DoubleDouble
+Geben Sie ein double ein: -7.001e-2
+zahl: -0.07001 zahl * 2: -0.14002
+</pre>
+
+<p>
+In diesem Beispiel verwendet der Anwender die wissenschaftliche Notation f&uuml;r den Input. F&uuml;r den Output waren die Werte im normalen Bereich und das gew&ouml;hnliche Zahlenformat wurde verwendet.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was bedeutet <code>7.0E-2</code> ?
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Zwei <code>double</code> addieren
+<ANSWER>
+<p>
+Was bedeutet <code>7.0E-2</code> ?
+</p>
+
+<p>
+der Teil &quot;E-2&quot; bedeutet <code>10<sup>-2</sup></code>, was <code>0.01</code> ist, also bedeutet der ganze Ausdruck <code>0.07</code>
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist der Anfang des Programms, das den Anwender nach zwei <code>double</code> fragt, sie addiert und das Ergebnis ausgibt.
+</p>
+
+<pre class="program">
+<form>
+import java.util.Scanner;
+
+class AddiereDouble
+{
+  public static void main (String[] args)
+  {
+    double erster, zweiter summe;
+    Scanner scan = new Scanner( System.in );
+
+    // erstes double einlesen
+    System.out.print(&quot;Geben Sie das erste double ein:&quot;);
+    erster = scan.nextDouble();
+
+    // zweites double einlesen
+    <input class="in" type="text" name="textA" value="" size="55">
+    <input class="in" type="text" name="textB" value="" size="55">
+
+    // Summe berechnen und ausgeben
+    <input class="in" type="text" name="textC" value="summe = " size="55">
+    <input class="in" type="text" name="textD" value="System.out.println()" size="55">
+  }
+}
+</form>
+</pre>
+
+<p>
+F&uuml;llen Sie die L&uuml;cken aus, um das Programm zu vervollst&auml;ndigen.
+(Tun Sie das, indem Sie in eine L&uuml;cke klicken und schreiben. Es passiert nichts Besonderes, wenn Sie die L&uuml;cken ausf&uuml;llen. Sie sind nur da, um Ihnen eine Stelle zum Eingeben zu geben.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>L&uuml;cken ausgef&uuml;llt
+
+<ANSWER>
+<p>
+Siehe unten
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Die L&uuml;cken k&ouml;nnen mit ein bisschen Schreiben leicht gef&uuml;llt werden. Kopieren und Einf&uuml;gen von anderen Teilen des Programms wird Ihnen dabei helfen.
+</p>
+
+
+<pre class="program">
+import java.util.Scanner;
+
+class AddiereDouble
+{
+  public static void main (String[] args)
+  {
+    double erster, zweiter summe;
+    Scanner scan = new Scanner( System.in );
+
+    // erstes double einlesen
+    System.out.print(&quot;Geben Sie das erste double ein: &quot;);
+    erster = scan.nextDouble();
+
+    // zweites double einlesen
+    <span class="blue">System.out.print(&quot;Geben Sie das zweite double ein: &quot;);</span>
+    <span class="blue">zweiter = scan.nextDouble();</span>
+
+    // Summe berechnen und ausgeben
+    <span class="blue">summe = erster + zweiter;</span>
+    <span class="blue">System.out.print(&quot;Summe: &quot; + summe );</span>
+  }
+}
+</pre>
+
+<p>
+Hier ist ein Ablauf des Programms:
+</p>
+
+
+<pre class="dos4">
+D:\daten\JavaNotes\kap11>java AddiereDouble
+Geben Sie das erste double ein: 10.59
+Geben Sie das zweite double ein: 8.02
+Summe: 18.61
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage: ) K&ouml;nnte die Variable <code>summe</code> aus diesem Programm gestrichen werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ein Programmproblem
+
+<ANSWER>
+<p>
+Ja. Die letzte Zeile k&ouml;nnte wie folgt geschrieben werden.
+</p>
+
+<pre>
+    System.out.print(&quot;Summe: &quot; + (erster + zweiter) );
+</pre>
+
+<p>
+Jetzt kann die Deklaration von <code>summe</code> und die Anweisung, die sie berechnet, entfernt werden. Die Klammern um <code>(erster + zweiter)</code> sind notwendig, um anzuzeigen, dass die Addition von <code>erster + zweiter</code> zuerst getan werden soll, gefolgt von der Konvertierung in Zeichen und der Verkettung mit <code>&quot;Summe: &quot;</code>
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>program, tip calculator</INDEX>
+
+<p>
+Angenommen Sie brauchen ein Programm, das den Gesamtbetrag eines Restaurantessens berechnet. Der Input des Programms wird der Grundbetrag des Essens sein. Darauf werden 20% Trinkgeld und 6% Verkaufssteuer aufgeschlagen. Verwenden Sie <code>double</code> f&uuml;r die Arithmetik. Hier ist das Programm:
+</p>
+
+<form>
+<pre class="program">
+import java.util.Scanner;
+
+class RestaurantRechnung
+{
+  public static void main (String[] args)
+
+  {
+    <input class="in" type="text" name="textE" value="" size="55">
+    double grundbetrag;
+
+    <input class="in" type="text" name="textF" value="" size="55">
+    <input class="in" type="text" name="textG" value="" size="55">
+
+    System.out.println(&quot;Grundbetrag &quot; +  grundbetrag + &quot; Gesamtbetrag: &quot; +
+    <input class="in" type="text" name="textJ" value="" size="55"> );
+  }
+}
+</pre>
+</form>
+
+<p>
+Hier sind die fehlenden Teile, aber nicht in der richtigen Reihenfolge:
+</p>
+
+<pre class="code">
+(grundbetrag + grundbetrag*0.06 + grundbetrag*0.20)
+
+System.out.print("Geben Sie den Grundbetrag ein: ");
+
+Scanner scan = new Scanner( System.in );
+
+grundbetrag = scan.nextDouble();
+</pre>
+
+<p>
+Kopieren Sie die fehlenden Teile und f&uuml;gen Sie sie in die L&uuml;cken ein, um das Programm zu vervollst&auml;ndigen. (Kopieren Sie, indem Sie einen Teil mit der Maus markieren und auf der Tastatur Str+C dr&uuml;cken. Um einzuf&uuml;gen, klicken Sie in eine Textbox und dr&uuml;cken Strg+V.)
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cken aus.
+</p>
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndiges Restaurantprogramm
+<ANSWER>
+<p>
+Das vollst&auml;ndige Programm steht  unten:
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist das vollst&auml;ndige Programm. Ich hoffe, dass Sie die richtige Reihenfolge herausbekommen haben. Sie sollten in der Lage sein das Programm Zeile f&uuml;r Zeile zu lesen, fast so wie eine Geschichte.
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class RestaurantRechnung
+{
+  public static void main (String[] args)
+
+  {
+    <span class="blue">Scanner scan = new Scanner( System.in );</span>
+    double grundbetrag;
+
+    <span class="blue">System.out.print(&quot;Geben Sie den Grundbetrag ein: &quot;);</span>
+    <span class="blue">grundbetrag = scan.nextDouble();</span>
+
+    System.out.println(&quot;Grundbetrag &quot; +  grundbetrag + &quot; Gesamtbetrag: &quot; +
+         <span class="blue">(grundbetrag + grundbetrag*0.06 + grundbetrag*0.20)</span> );
+  }
+}
+</pre>
+
+
+<p>
+W&auml;hrend Sie die Geschichte (das Programm) lesen, sollte sie einen Sinn ergeben. Die Aktionen sollten in einer logischen Reihenfolge aufeinanderfolgen. Die Logik ist der wichtige Teil, nicht die pingeligen syntaktischen Details.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Einige gro&szlig;e, milliardenschwere Programmierprojekte sind schwer gescheitert.
+Was glauben Sie ist wahr:
+</p>
+
+<ul>
+<li>Die Projekte schlugen fehl, weil die Programmierer die Syntax nicht kannten, oder</li>
+<li>Die Projekte schlugen fehl, weil die Logik falsch war.</li>
+</ul>
+
+</QUESTION>
+
+</CAI>
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Neues, verbessertes Restaurantprogramm
+
+<ANSWER>
+
+<ul>
+<li>Die Projekte schlugen fehl, weil die Logik falsch war.</li>
+</ul>
+
+<p>
+Nat&uuml;rlich.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Vielleicht sollten wir Programmierlogik ein bisschen &uuml;ben. Ver&auml;ndern Sie das Programm, so dass der Anwender die Kosten f&uuml;r das Essen und den Prozentsatz des Trinkgelds eingibt. (Der Steuersatz bleibt der gleiche.) Das Programm berechnet dann die Gesamtkosten und gibt sie aus.
+</p>
+
+<blockquote>
+<textarea class="in" name="myProgram" rows="25" cols="80">
+import java.util.Scanner;
+
+class RestaurantRechnung
+{
+  public static void main (String[] args)
+
+  {
+    Scanner scan = new Scanner( System.in );
+    double grundbetrag;
+
+    System.out.print(&quot;Geben Sie den Grundbetrag ein: &quot;);
+    grundbetrag = scan.nextDouble();
+
+    System.out.println(&quot;Grundbetrag &quot; +  grundbetrag + &quot; Gesamtkosten: &quot; +
+         (grundbetrag + grundbetrag*0.06 + grundbetrag*0.20) );
+  }
+}
+</textarea>
+</blockquote>
+
+<p>
+Dieses Mal gibt es keine L&uuml;cken zum Ausf&uuml;llen. Ihr Job ist es herauszubekommen wie das Programm zu &auml;ndern ist, indem Sie die folgenden Anweisungen und Teilanweisungen (die nicht in der richtigen Reihenfolge gegeben sind) einf&uuml;gen. Tun Sie das, indem Sie Kopieren und einf&uuml;gen.
+</p>
+
+<pre class="code">
+grundbetrag*trinkgeldProzent
+
+System.out.print(&quot;Geben Sie den Prozentsatz fuer das Trinkgeld ein: &quot;);
+
+double trinkgeldProzent;
+
+trinkgeldProzent = scan.nextDouble();
+</pre>
+
+<p>
+Wenn Sie wollen, k&ouml;nnen Sie das Programm kopieren und in einen Texteditor einf&uuml;gen, es in einer Datei speichern, kompilieren und ausf&uuml;hren.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Kopieren (Strg+C) Sie die vorgeschlagenen Anweisungen, f&uuml;gen Sie sie in das Programm ein (Strg+V) und bearbeiten Sie einige der anderen Anweisungen.
+</p>
+</QUESTION>
+
+</CAI>
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Neues, verbessertes Restaurantprogramm
+<ANSWER>
+<p>
+Das verbesserte Programm steht unten.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Ihr Programm sollte so ziemlich wie das folgende aussehen:
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class RestaurantRechnung
+{
+  public static void main (String[] args)
+  {
+    Scanner scan = new Scanner( System.in );
+    double grundbetrag;
+    <span class="blue">double tipPercent;</span>
+
+    System.out.print(&quot;Geben Sie den Grundbetrag ein: &quot;);
+    grundbetrag = scan.nextDouble();
+    <span class="blue">System.out.print(&quot;Geben Sie den Prozentsatz fuer das Trinkgeld ein: &quot;);</span>
+    <span class="blue">tipPercent = scan.nextDouble();</span>
+
+    System.out.println(&quot;Grundbetrag &quot; +  grundbetrag + &quot; Gesamtkosten: &quot; +
+         (grundbetrag + grundbetrag*0.06 + <span class="blue">grundbetrag*tipPercent</span>) );
+  }
+}
+</pre>
+
+<p>
+Die <code>println</code> Anweisung verwendet jetzt die Variable <code>trinkgeldProzent</code>, die den Prozentsatz enth&auml;lt, den der Anwender geben m&ouml;chte.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wenn die <code>println</code> Anweisung nicht g&auml;ndert worden w&auml;re, w&uuml;rde dann der Pr&uuml;fer von der Gesundheitsbeh&ouml;rde Ihr Programm abnehmen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Java als Taschenrechner
+<ANSWER>
+<p>
+Nein &#8212; Bugs sind weder in Restaurants noch in Programmen erlaubt.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>Math class</INDEX>
+<INDEX>square root</INDEX>
+<INDEX>Math.sqrt()</INDEX>
+
+<p>Alle gebr&auml;uchlichen mathematischen Funktionen, die ein elektronischer Taschenrechner besitzt wie <em>sin</em>, <em>log</em> und <em>Quadratwurzel</em> sind in der Klasse <code>Math</code> verf&uuml;gbar. &Uuml;blicherweise erwarten diese Funktionen den Datentyp <code>double</code> als Parameter und geben einen <code>double</code>-Wert zur&uuml;ck.
+</p>
+
+<p>
+Hier ist ein Programm, das eine Gleitpunktzahl von der Tastatur einliest und deren Quadratwurzel ausgibt:
+</p>
+
+<pre class="program">
+import java.util.Scanner;
+
+class QuadratWurzel
+{
+  public static void main (String[] args)
+  {
+    Scanner scan = new Scanner( System.in );
+    double zahl;
+
+    // ein double einlesen
+    System.out.print  (&quot;Geben Sie ein double ein:&quot;);
+    zahl = scan.nextDouble();
+
+    // Quadratwurzel berechnen
+    <span class="blue">double ergebnis = Math.sqrt( zahl );</span>
+
+    // Ergebnis ausgeben
+    System.out.println(&quot;square root: &quot; + ergebnis );
+  }
+}
+</pre>
+
+<INDEX>static method</INDEX>
+
+<p>
+Die Zuweisungsanweisung (in Blau) verwendet die <code>sqrt()</code> Methode der Klasse
+<code>Math</code>. Das ist eine <strong>Klassenmethode</strong> und bedeutet, dass Sie sie aufrufen, indem Sie den Namen der Klasse und einen Punktoperator verwenden, so wie hier:
+</p>
+
+<pre class="code">
+Class . method ( parameter )
+</pre>
+
+<p>
+Das sieht genauso aus wie der Aufruf einer Objektmethode, aber hier wird der Name einer Klasse verwendet und nicht ein Objektname.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Die Klasse <code>Math</code> verf&uuml;gt auch &uuml;ber eine <code>log</code> Methode, die den nat&uuml;rlichen Logarithmus ihres Arguments zur&uuml;ckgibt. Modifizieren Sie gedanklich das Programm, so dass es den Logarithmus des eingegebenen Werts zur&uuml;ckgibt.                 </p>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI><code> sqrt() </code> Methode
+<ANSWER>
+<p>
+Nur zwei Zeilen m&uuml;ssen ge&auml;ndert werden:
+</p>
+
+<pre class="code"
+<span class="blue">double ergebnis = Math.log( zahl );</span>
+
+System.out.println(&quot;Logarithmus: &quot; + ergebnis );
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist der Output eines Probelaufs des (unver&auml;nderten) Programms:
+</p>
+
+<pre class="dos5">
+d:\daten\JavaNotes\chap11&gt;java SquareRoot
+Geben Sie ein double ein: 3
+Quadratwurzel: 1.7320508075688772
+</pre>
+
+<p>Es ist OK f&uuml;r Gleitpunkt I/O eine Zahl ohne Dezimalpunkt einzugeben (wie die &quot;3&quot; oben). Java konvertiert sie in den korrekten Typ. Hier ist ein (&uuml;bersetzter) Auszug  der Dokumentation &uuml;ber die Methode <code>sqrt()</code>:
+</p>
+
+<pre class="code">
+static double sqrt(double a)
+       Gibt die korrekt gerundete positive Quadratwurzel eines double-Werts zur&uuml;ck.
+</pre>
+
+<p>
+Das wurde aus der Java Dokumentation bei <a href="http://java.sun.com/javase/6/docs/api/"  target="_blank">http://java.sun.com/javase/6/docs/api/</a> kopiert. Suchen Sie nach &quot;sqrt Java&quot; mit einem Suchdienst (wie Google), wenn Sie sie brauchen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Pr&uuml;fen Sie die Dokumentation. Welchen Typ von Argument wird von der <code>sqrt()</code> Methode erwartet?
+</p>
+
+<p>
+Was ist der Typ des R&uuml;ckgabewerts von <code>sqrt()</code>?
+</p>
+
+<p>
+Ist die <code>sqrt()</code> Methode <strong>static</strong>?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>NaN
+
+<ANSWER>
+<p>
+Pr&uuml;fen Sie die Dokumentation. Welchen Typ von Argument wird von der <code>sqrt()</code> Methode erwartet?
+</p>
+
+<blockquote>
+<code>double</code>
+</blockquote>
+
+<p>
+Was ist der Typ des R&uuml;ckgabewerts von <code>sqrt()</code>?
+</p>
+
+<blockquote>
+<code>double</code>
+</blockquote>
+
+<p>
+Ist die <code>sqrt()</code> Methode <strong>static</strong>?
+</p>
+
+<blockquote>
+Ja.
+</blockquote>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>NaN</INDEX>
+
+<p>
+Bei einer weiteren Betrachtung der Dokumentation von Sun &uuml;ber <code>sqrt()</code> finden Sie weitere Details:
+</p>
+
+<blockquote>
+Gibt die korrekt gerundete, positive Quadratwurzel eines double-Werts zur&uuml;ck.
+Wenn das Argument keine Zahl oder kleiner als 0 ist, ist das Ergebnis NaN.
+</blockquote>
+
+<p>
+<b>NaN</b> steht f&uuml;r "Not a Number" (Ist keine Zahl).
+Das ist ein 64-Bit Muster, das von <code>sqrt()</code> zur&uuml;ckgegeben wird,
+wenn das Argument nicht korrekt ist.
+Hier ist ein Probelauf des Programms:
+</p>
+
+<pre class="dos4">
+d:\daten\JavaNotes\chap11&gt;java QuadratWurzel
+Geben Sie ein double ein: -3
+Quadratwurzel             : NaN
+</pre>
+
+
+<p>
+<code>println()</code> konvertiert das 64-Bitmuster in die Zeichen &quot;NaN&quot;.
+(Das tats&auml;chliche Bitmuster besteht nicht aus Character-Daten.)
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was gibt dieses Fragment aus:
+</p>
+
+<pre type="code">
+int x = 9;
+System.out.println( Math.sqrt( x ) );
+</pre>
+
+</QUESTION>
+
+</CAI>
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Automatische Konvertierung
+
+<pre type="code">
+int x = 9;
+System.out.println( Math.sqrt( x ) );
+</pre>
+
+<ANSWER>
+<p>
+3.0
+</p>
+</ANSWER>
+
+<LESSON>
+<p>Auch wenn <code>sqrt()</code> ein <code>double</code> als Argument erwartet, haben wir hier ein <code>int</code> &uuml;bergeben. Das ist OK. Der Compiler wei&szlig;, was <code>sqrt()</code> erwartet und f&uuml;gt automatisch Code ein, um das Argument in den korrekten Typ zu konvertieren. Wenn <code>sqrt()</code> aufgerufen wird, hat sie ein Gleitpunktargument von doppelter Genauigkeit, das sie erwartet.
+</p>
+
+<p>Programmierer verwenden oft eine Typumwandlung, um explizit zu zeigen wo die Konvertierung stattfindet:
+</p>
+
+<pre class="code">
+int x = 9;
+System.out.println( Math.sqrt( <b>(double)</b>x ) );
+</pre>
+
+<p>In dem oben stehenden Code ist die Typkonvertierung nicht erforderlich, aber sie wird verwendet, um klar zu zeigen was die Berechnung tut. Manchmal ist eine Typkonvertierung erforderlich.
+</p>
+
+</LESSON>
+
+<QUESTION>
+
+<p>
+Was gibt das folgende Fragment aus?
+</p>
+
+<pre class="code">
+int x = 1;
+int y = 9;
+System.out.println( Math.sqrt( x/y ) );
+</pre>
+
+<p>
+Warnung: das ist eine Fangfrage!
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Verborgene Integer Division
+
+<pre type="code">
+int x = 1;
+int y = 9;
+System.out.println( Math.sqrt( x/y ) );
+</pre>
+
+<ANSWER>
+<p>
+0.0
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>Der &quot;Trick&quot; bei dieser Frage ist, dass die Division von <code>x</code> durch <code>y</code> bei der Auswertung der Anweisung zuerst erfolgt. Da sowohl <code>x</code> als auch <code>y</code> Integer sind, wird eine Ganzzahldivision durchgef&uuml;hrt und das Ergebnis ist der Integer 0.
+</p>
+
+<p>Als n&auml;chstes wird der Integer 0 in 0.0 mit doppelter Genauigkeit konvertiert und es ist dieser Wert, der an <code>sqrt()</code> geschickt wird, die 0.0 als Ergebnis berechnet.
+</p>
+
+<p>Obwohl es eine Fangfrage war, tritt diese Situation naturgem&auml;&szlig; h&auml;ufig in Programmen auf und Sie sollten nach ihr Ausschau halten.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Korrigiert das Folgende das Problem?
+</p>
+
+<pre type="code">
+int x = 1;
+int y = 9;
+System.out.println( Math.sqrt( (double)x/y ) );
+</pre>
+
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Typumwandlung
+
+<pre type="code">
+int x = 1;
+int y = 9;
+System.out.println( Math.sqrt( (double)x/y ) );
+</pre>
+
+<ANSWER>
+
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>In dem oben stehenden wird der Integer <code>x</code>, bevor die Division durchgef&uuml;hrt wird, in ein <code>double</code> konvertiert. Jetzt muss <code>y</code> ebenfalls in ein <code>double</code> konvertiert werden und es wird eine Gleitpunktdivision mit doppelter Genauigkeit durchgef&uuml;hrt.
+</p>
+
+<p>Dann wird das Ergebnis (0.111111111) als Argument an <code>sqrt()</code> geschickt. Das erwartete Ergebnis (0.33333333) wird zur&uuml;ckgegeben.
+</p>
+
+</LESSON>
+
+<QUESTION>
+
+<p>
+Sind diese Details ein bisschen zu viel?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>PI
+<ANSWER>
+Ja.
+</ANSWER>
+
+<LESSON>
+
+<p>Lassen Sie sich nicht entmutigen. &Uuml;blicherweise funktionieren die Dinge so, wie Sie es erwarten. Wenn Sie mit einem elektronischen Taschenrechner rechnen k&ouml;nnen, dann k&ouml;nnen Sie es auch mit Java. Es gibt gelegentlich l&auml;stige Details, aber die gibt es auch bei Taschenrechnern.
+</p>
+
+<INDEX>pi</INDEX>
+<INDEX>Math.pi</INDEX>
+
+<p>
+Hier ist ein weiterer Auszug aus der Java Dokumentation:
+</p>
+
+<pre class="program">
+<big><b>PI</b></big>
+
+public static final double <b>PI</b>
+
+Der double-Wert, der <em>pi</em> (Verh&auml;ltnis Kreisumfang zu Durchmesser) n&auml;her kommt als alle anderen.
+</pre>
+
+<p>
+Das reservierte Wort <code>final</code> bedeutet hier, dass der Wert von  <code>PI</code> sich nicht &auml;ndern wird.
+</p>
+
+<p>
+Um <code>PI</code> in einem Programm zu verwenden, geben Sie <code>Math.PI</code> an. (PI muss in Gro&szlig;buchstaben angegeben werden.) Hier ist ein Beispiel:
+</p>
+
+<pre type="code">
+double x = Math.PI;
+</pre>
+
+</LESSON>
+
+<QUESTION>
+
+<p>Java hat trigonometrische Funktionen, genau wie ein Taschenrechner. Zum Beispiel besitzt es die Funktion <code>Math.cos()</code>.
+</p>
+
+<p>Erwarten Sie, dass das Argument von <code>Math.cos()</code> in Bogenma&szlig; oder in Grad ist?
+</p>
+
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Bogenma&szlig;
+<ANSWER>
+<p>
+Bogenma&szlig;
+</p>
+</ANSWER>
+
+<LESSON>
+
+<p>Wie es f&uuml;r die meisten Taschenrechner (und andere Programmiersprachen) normal ist, sind die Argumente f&uuml;r Javas trigonometrische Funktionen in Bogenma&szlig;. Im Gegensatz zu den meisten Taschenrechnern k&ouml;nnen Sie nicht auf eine Schaltfl&auml;che klicken und auf Grad wechseln. Hier ist ein Beispielprogramm:
+</p>
+
+<INDEX>radians</INDEX>
+
+<pre class="program">
+import java.util.*;
+
+class CosinusBerechnung
+{
+  public static void main (String[] args)
+  {
+    double zahl;
+    Scanner scan = new Scanner( System.in );
+
+    System.out.print(&quot;Bogenmass eingeben: &quot;);
+    zahl = scan.nextDouble();
+
+    // Cosinus berechnen
+    double ergebnis = <span class="blue">Math.cos</span>( zahl );
+
+    // Ergebnis ausgeben
+    System.out.println(&quot;Cosinus: &quot; + ergebnis );
+  }
+}
+</pre>
+
+<p>
+Hier ist ein Probelauf:
+</p>
+
+<pre class="dos4">
+d:\daten\JavaNotes\chap11&gt;java CosinusBerechnung
+Bogenmass eingeben: 1.5
+Cosinus: 0.0707372016677029
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was vermuten Sie ist der Typ des Arguments und des R&uuml;ckgabewerts von <code>Math.cos()</code>?
+</p>
+
+</QUESTION>
+</CAI>
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Cosinus Dokumentation
+<ANSWER>
+<p>
+Beide sind <code>double</code>.
+</p>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>Math.cos()</INDEX>
+<INDEX>cosine</INDEX>
+
+<p>
+Hier ist ein Auszug aus der Dokumentation:
+</p>
+
+<pre class="program">
+java.lang
+Class Math
+
+...
+
+<big><b>cos</b></big>
+
+public static double <b>cos</b>(double a)
+
+Gibt den trigonometrischen Cosinus eines Winkels zur&uuml;ck.
+</pre>
+
+<p>
+<code>cos</code> ist eine <code>static</code> Funktion der Klasse <code>Math</code>, die sich in dem Paket <code>java.lang</code> befindet. Klassen aus diesem Paket sind so gebr&auml;uchlich (so wie <code>String</code> und <code>Math</code>), dass Sie das Paket nicht importieren m&uuml;ssen. Der Winkel <code>a</code> ist ein <code>double</code> und muss in Bogenma&szlig; angeben werden. Der R&uuml;ckgabewert ist ebenfalls ein <code>double</code>.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(R&uuml;ckblick Mathe: ) K&ouml;nnen Winkel gemessen in Bogenma&szlig; in Grad konvertiert werden?
+</p>
+
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Spass mit einfacher Trigo!
+
+<ANSWER>
+<p>
+Nat&uuml;rlich. Es ist diese einfache Formel, die Sie in der Highschool auswendig gelernt  (und sich f&uuml;r ungef&auml;hr f&uuml;nf Minuten gemerkt haben).
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Tats&auml;chlich ist die Formel nicht so schlecht:
+</p>
+
+<pre class="code">
+bogenmass = (Math.PI/180.0)*grad;
+</pre>
+
+<INDEX>Math.toRadians()</INDEX>
+<INDEX>Math.toDegrees()</INDEX>
+<INDEX>conversion, degrees to radians</INDEX>
+
+<p>
+Da es so gebr&auml;uchlich ist, besitzt die Java <code>Math</code>-Klasse
+geeignete Methoden daf&uuml;r:
+</p>
+
+<pre class="code">
+public static double <b>toRadians</b>(double angdeg)
+    Konvertiert einen Winkel gemessen in Gradma&szlig; in das entsprechende Bogenma&szlig;
+
+public static double <b>toDegrees</b>(double angrad)
+    Konvertiert einen Winkel gemessen in Bogenma&szlig; in das entsprechende Gradma&szlig;
+</pre>
+
+<p>
+Hier ist unser Beispielprogramm:
+</p>
+
+
+<form>
+<pre class="program">
+import java.util.*;
+class CosinusBerechnung
+{
+  public static void main (String[] args)
+  {
+    Scanner scan = new Scanner( System.in );
+    double grad;
+
+    // Grad einlesen
+    System.out.print  (&quot;Geben Sie <span class="blue">Grad:</span> ein&quot;);
+    grad = scan.nextDouble();
+
+    // calculate its cosine
+    double ergebnis = <span class="blue">Math.cos</span>(<input class="in" type="text" name="textA" zahl="" size="30">);
+
+    // Ergebnis ausgeben
+    System.out.println("Cosinus: " + ergebnis );
+  }
+}
+</pre>
+</form>
+
+</LESSON>
+
+<QUESTION>
+<p>
+F&uuml;llen Sie die L&uuml;cke aus, so dass das Programm funktioniert.
+</p>
+</QUESTION>
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Funktionsergebnisse als Argumente
+<ANSWER>
+<pre class="program">
+    // Cosinus berechnen
+
+    double ergebnis = Math.cos( <span class="blue">Math.toRadians(grad)</span> );
+</pre>
+</ANSWER>
+
+<LESSON>
+
+<INDEX>nesting functions</INDEX>
+
+<p>
+Eine Funktion ist in einer anderen geschachtelt:
+</p>
+
+<pre class="code">
+double ergebnis = <span class="red">Math.cos(</span> <span class="blue">Math.toRadians(grad)</span><span class="red"> )</span>;
+</pre>
+
+<p>
+Das ist absolut in Ordnung und eine vern&uuml;nftige M&ouml;glichkeit Code zu schreiben, so lange wie die innere Funktion einen Wert zur&uuml;ckliefert, der f&uuml;r die &auml;u&szlig;ere Funktion korrekt ist. Tats&auml;chlich k&ouml;nnten Sie die Funktionsaufrufe innerhalb von <code>println()</code> schachteln:
+</p>
+
+<pre class="code">
+// Cosinus berechnen und das Ergebnis ausgeben
+System.out.println(&quot;cosinus: &quot; + <span class="red">Math.cos(</span>  <span class="blue">Math.toRadians(grad)</span> <span class="red">)</span> );
+</pre>
+
+<p>
+Es ist manchmal eine Frage des Geschmacks, wie viel in eine Anweisung gestellt wird. Ihr Ziel sollte sein die Logik klar zu machen und nicht Tipparbeit zu sparen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Welche Seite ist in diesem Kapitel Ihre Lieblingsseite?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die letzte Seite
+<ANSWER>
+<p>
+Die letzte Seite.
+</p>
+</ANSWER>
+
+<LESSON>
+
+
+<p>
+Sie m&ouml;chten vielleicht das Folgende noch einmal durchsehen.
+</p>
+
+
+<ul>
+<li>
+<GOTO>floating point, sizes</GOTO> Gr&ouml;&szlig;e von Gleitpunkttypen
+</li>
+
+<li>
+<GOTO>floating point, reading</GOTO> Einen Gleitpunktwert einlesen
+</li>
+
+<li>
+<GOTO>InputMismatchException</GOTO> Fehlerhafte Gleitpunktdaten
+</li>
+
+
+
+<li>
+<GOTO>scientific notation</GOTO> Wissenschaftliche Notation
+</li>
+
+<li>
+<GOTO>Math.sqrt()</GOTO> Die Quadratwurzelfunktion
+</li>
+
+<li>
+<GOTO>static method</GOTO> Klassenmethoden
+</li>
+
+
+<li>
+<GOTO>NaN</GOTO>Not an number, NaN
+</li>
+
+<li>
+<GOTO>Math.pi</GOTO> PI
+</li>
+
+<li>
+<GOTO>Math.cos()</GOTO> Cosinus
+</li>
+
+<li>
+<GOTO>Math.toRadians()</GOTO> Grad und Bogenma&szlig; umrechnen
+</li>
+</ul>
+
+<p>
+Das n&auml;chste Kapitel zeigt, wie ein Programm Entscheidungen treffen kann.
+</p>
+
+
+</CAI>
+
+</CHAPTER>

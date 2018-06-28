@@ -1,0 +1,26 @@
+body{background-color:#ffefea;font-family:arial,sans-serif;}
+p{margin-left:0.5em;margin-right:0.5em;text-align:justify;}
+ol{margin-left:1.5cm;}
+ul{margin-left:1.5cm;}
+.answer{background-color:#e5e5ff;
+ padding:0.5em;border-style:groove;border-width:thin;width:98%}
+.blue{color:blue;}
+.red{color:red;}
+.green{color:green;}
+.question{background-color:#e5e5ff;padding:0.5em;border-style:groove;
+ border-width:thin;width:98%}
+.answer h3{color:blue;}
+.lesson h1{color:brown;text-align:center}
+.question h3{color:blue;}
+pre{margin-left:1cm;font-family:courier-new,monospace;font-size:90%}
+pre.code{margin-left:1cm;font-family:courier-new,monospace;font-size:90%;}
+pre.program{width:auto;margin-left:1cm;margin-right:1cm;padding:0.5cm;
+ border-style:double;border-color:brown;background-color:white;
+ font-family:courier-new,monospace;font-size:90%;}
+code{font-family:courier-new;font-size:110%}
+table{margin-left:0.5cm;font-family:arial,sans-serif;font-size:90%;}
+table pre{margin-left:0.4cm;margin-right:0.4cm;}
+a:link     { color:blue }
+a:visited  { color:brown }
+a:active   { color:red }
+a:hover    { color:red }

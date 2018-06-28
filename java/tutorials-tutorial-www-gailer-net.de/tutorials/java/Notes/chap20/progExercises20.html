@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee  dot org">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2012, Heinrich Gailer">
+<meta name="robots" content="noindex,nofollow">
+
+<title>Programmieraufgaben</title>
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css">
+</head>
+
+<body>
+<p class="revisions">erstellt 24.01.99; &uuml;berarbeitet 31.07.07, 20.0.08; &uuml;bersetzt 13.11.12; &Uuml;bersetzung Heinrich Gailer</p>
+</p>
+
+<hr>
+<h1>Kapitel 20  Programmieraufgaben</h1>
+
+<p>
+Schreiben Sie ein Programm, dass ein Ratespiel implementiert.
+Dies ist ein "klassisches" Programm, das h&auml;ufig in den Anfangsklassen der Informatik gestellt wird.
+</p>
+
+<blockquote>
+Das Programm ermittelt eine Zufallszahl zwischen 1 und 10.
+Der Anwender bekommt jetzt 3 Versuche die Zahl zu erraten.
+Sobald der Anwender die richtige Zahl eingibt, gibt das Programm
+eine Gewinnmeldung aus und endet.
+
+Wenn der Anwender nach 3 Versuchen die richtige Zahl nicht erraten hat,
+gibt das Programm eine entsprechende Meldung aus und endet.
+</blockquote>
+
+<p>
+Verwenden Sie die Methoden der Klasse <code>Random</code>.
+Hier sind zwei Probel&auml;ufe des Programms:
+</p>
+
+<pre class="dos5">
+D:\&gt;java Ratespiel
+
+Ich denke an eine Zahl von 1 bis 10.
+Sie haben 3 Versuche diese Zahl zu erraten.
+Raten Sie!
+Versuch: 1
+2
+Falsch
+Versuch: 2
+4
+Falsch
+Versuch: 3
+7
+Falsch
+Die richtige Zahl war 9.
+Sie haben das Spiel verloren.
+
+D:\&gt;java Ratespiel
+
+Ich denke an eine Zahl von 1 bis 10.
+Sie haben 3 Versuche diese Zahl zu erraten.
+Raten Sie!
+Versuch: 1
+3
+Falsch
+Versuch: 2
+5
+RICHTIG!
+Sie haben das Spiel gewonnen.
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#20">Inhaltsverzeichnis</a>.</p>
+
+<!--
+<hr>
+<h2>Exercise 2  &#8212; Improved Guessing Game</h2>
+<p>
+Write a more complicated guessing game, similar to the one in Exercise 1, but
+now the program is to write
+"cold" when the guess is 3 or more away from the correct answer,
+"warm" when the guess is 2 away, and
+"hot" when the guess is 1 away.
+As soon as the user enters the correct number the program
+writes a winning message and exits.
+For example:
+</p>
+
+
+<pre>
+C:\&gt;java GuessingGame
+
+I am thinking of a number from 1 to 10.
+You must guess what it is in three tries.
+Enter a guess:
+1
+cold
+5
+RIGHT!
+You have won the game.
+
+C:\&gt;java GuessingGame
+
+I am thinking of a number from 1 to 10.
+You must guess what it is in three tries.
+Enter a guess:
+4
+cold
+5
+cold
+8
+wrong.
+The correct number was 9.
+You have lost the game.
+
+C:\&gt;java GuessingGame
+I am thinking of a number from 1 to 10.
+You must guess what it is in three tries.
+Enter a guess:
+4
+hot
+5
+warm
+3
+RIGHT!
+You have won the game.
+</pre>
+
+<p>
+<a href="../../index.html#20">Click here </a> to go back to the main menu.
+</p>
+
+<hr>
+<h2>Exercise 3 &#8212; Further Improved Guessing Game</h2>
+<p>
+Write an even more complicated guessing game.
+In this version,
+the full game consists of 10 "rounds,"
+where each round is a game like exercise 2.
+After the 10 rounds,
+the program prints out how many of the 10 rounds were won and how many were lost.
+</p>
+
+<ul>
+<li>players who win 7 or fewer rounds are rated as "amateurs,"</li>
+<li>players who win 8 rounds are rated as "advanced,"</li>
+<li>players who win 9 rounds are rated as "professionals," and</li>
+<li>players who win all 10 rounds are rated as "hackers."</li>
+</ul>
+
+<p>
+Here is an example run:
+</p>
+
+
+<pre>
+C:\&gt;java GuessingGame
+
+round 1:
+
+I am thinking of a number from 1 to 10.
+You must guess what it is in three tries.
+Enter a guess:
+4
+hot
+5
+RIGHT!
+You have won 1 out of 1 rounds.
+
+round 2:
+
+I am thinking of a number from 1 to 10.
+You must guess what it is in three tries.
+Enter a guess:
+10
+cold
+5
+cold
+3
+wrong
+The correct number was 1
+You have won 1 out of 2 rounds.
+
+. . .
+
+round 10:
+
+I am thinking of a number from 1 to 10.
+You must guess what it is in three tries.
+Enter a guess:
+1
+cold
+6
+warm
+8
+RIGHT!
+You have won 7 out of 10 rounds.
+
+Your rating: amateur.
+
+C:\&gt;
+</pre>
+
+<p>
+<a href="../../index.html#20">Click here </a> to go back to the main menu.
+</p>
+
+<hr>
+<h2>Exercise 4 &#8212; Password Generator</h2>
+
+<p>
+This exercise is based on the PasswordGenerator program in the chapter.
+</p>
+
+<p>
+To improve the password, edit the string of characters <code>choices</code>
+so that it contains more digits, increasing the chances that digits will be picked.
+Do this by appending "1234567890" several more times on to the end of <code>choices</code>.
+There is no need for <code>choices</code> to contain only one of each character.
+If you want punctuation your passwords, append those characters to the string, as well.
+</p>
+
+<p>
+Another improvement is to require that
+a password have at least one digit.
+There are several ways in which this can be done.
+Don't assume that the required digit in a password will be in a
+fixed location.
+</p>
+
+<p>
+A further improvement is  the rule
+that every consonant must be followed by a vowel of the same case.
+This will make passwords easier to memorize.
+Of course, it also makes them easier to guess, especially if a cracker
+knows that this rule is being used.
+</p>
+
+<p>
+<a href="../../index.html#20">Click here </a> to go back to the main menu.
+</p>
+
+<hr>
+<h2>Exercise 5 &#8212; Password Cracker</h2>
+
+<p>
+A password generator can also be used as a password cracker.
+Essentially, the generator keeps creating passwords until it
+finds one that works.
+(It is for this reason that most applications reject a logon attempt if
+the password fails three times.)
+</p>
+
+<p>
+Write a program that asks the user for a password.
+The user enters a password (which must be short).
+Now pretend that this password is a secret from the rest of the program, which
+must try to guess it.
+The program then uses the password generator repeatedly until
+a randomly generated password matches the password the user entered.
+Assume that the user's password is five characters or less
+(otherwise this program will never end).
+Write out the number attempts it took to find the password.
+Here are some example runs:
+</p>
+
+<pre>
+K:\cai\&gt;java PasswordCracker
+Enter a "secret" password--&gt;ant
+Here is your password: ant
+It took 2181892 tries to guess it
+
+K:\cai\&gt;java PasswordCracker
+Enter a "secret" password--&gt;rats
+Here is your password: rats
+It took 10956100 tries to guess it
+
+K:\cai\&gt;java PasswordCracker
+Enter a "secret" password--&gt;frog
+Here is your password: frog
+It took 91555945 tries to guess it
+
+K:\cai\&gt;java PasswordCracker
+Enter a "secret" password--&gt;moose
+Here is your password: moose
+It took 279530402 tries to guess it
+</pre>
+
+<p>
+A better cracker program would systematically generate all possible
+one-letter passwords, then all possible two-letter passwords, then all possible three-letter passwords,...,
+and so on, comparing each one to the secret password.
+This program is hard to write without arrays (a subject of a future chapter).
+</p>
+
+<p>
+<a href="../../index.html#20">Click here </a> to go back to the main menu.
+</p>
+
+<hr>
+<h2>Exercise 6 &#8212; 1D Random Walk</h2>
+
+<p>
+A one dimensional random walk is where a particle starts out at X=0.0, then
+moves right or left along the X axis by random  amounts.
+Note that X can be negative or positive (or zero).
+Think of it as a bead an a string, randomly being shaken back and forth.
+</p>
+
+<p>
+Write a program that initializes to zero a variable <code>X</code>,
+representing the position of the bead, then
+repeatedly adds random amounts in the range (-1.0, +1.0) to <code>X</code>.
+The program stops  after  a specified number of iterations.
+You will need to use the <code>nextDouble()</code> method of <code>Random</code>
+and transform it to match the specified range.
+</p>
+
+<p>
+How distant from its starting position is  <code>X</code> after 100 iterations?
+1000?
+What is the maximum distance it coule be?  How likely is <u>that</u>?
+</p>
+
+<pre>
+
+K:\cai\&gt;java RandomWalkOneDim
+How many iterations?
+100
+After 100 moves X is now at 1.1190381131949723
+
+K:\cai\&gt;java RandomWalkOneDim
+How many iterations?
+1000
+After 1000 moves X is now at -0.4633309201402265
+</pre>
+
+<p>
+Change the program so that it keeps iterating until the bead reaches a particular
+distance (positive or negative) from the origin.
+Use <code>Math.abs()</code> to determine the distance.
+If you pick a large distance, you may have to kill the running program, since
+the distance may never be reached.
+(On Windows systems, do this with control-D in the DOS window.)
+</p>
+
+<p>
+<a href="../../index.html#20">Click here </a> to go back to the main menu.
+</p>
+
+
+<hr>
+<h2>Exercise 7 &#8212; 2D Random Walk</h2>
+
+<p>
+A two dimensional random walk is where a particle starts out at X=0.0, Y=0.0 then
+moves by small random increments in both X and Y.
+Think of it as a confused ant, randomly walking on the 2D plane.
+</p>
+
+<p>
+Write a program that initializes to zero two variables <code>X</code> and  <code>Y</code>,
+representing the position of the ant, then
+repeatedly adds random amounts in the range (-1.0, +1.0) to each of them.
+Pick two random amounts, one for <code>X</code> and one for <code>Y</code>.
+The program stops  after  a specified number of iterations
+and prints out the values of the coordinates and the final distance of the ant from the origin.
+Use the Pythagorean formula to calculate the distance:
+</p>
+
+<pre>
+             _______
+distance = \/X<sup>2</sup> + Y<sup>2</sup>
+</pre>
+
+<p>
+There are plenty of variations on this program,
+for instance, counting the iterations it takes to reach a certain distance.
+Or, implement <u>two</u> ants, each with its own coordinates, which both
+start out at (0, 0) and wander for 1000 steps.
+How far apart are the ants?
+If one ant does not move, will they be closer or further apart than when
+they both move?
+</p>
+
+<p>
+Of course, another variation is to implement a 3D random walk,
+with independent variables <code>X</code>, <code>Y</code>,  and <code>Z</code>.
+Think of this as a confused firefly, fluttering randomly through the night.
+</p>
+
+<p>
+<a href="../../index.html#20">Click here </a> to go back to the main menu.
+</p>
+
+<hr>
+
+
+<h2>Exercise 8 &#8212; Square Root Game</h2>
+
+<p>
+Write a program that implements a two player game.
+The computer is the score keeper and the two players are humans.
+Each round of the game starts with the computer randomly picking a double precision
+number from 1.0 to slightly less than 100.0.
+Each player estimates the square root of the number and enters the estimate.
+The player who's estimate is closest to correct wins the round.
+Players alternate who goes first in each round.
+Play ends after a specified number of rounds.
+</p>
+
+
+<pre>
+How many rounds? 4
+First Player, sign in--&gt; Dweezle
+Secnd Player, sign in--&gt; Moon Unit
+
+What is the square root of 83.29097831183603   ?
+Dweezle, your guess: 9.1
+Moon Unit, your guess: 9.2
+The correct square root: 9.126389116832353
+Dweezle is 0.026389116832353565 away
+Moon Unit is 0.07361088316764608 away
+Dweezle wins!
+
+What is the square root of 87.79346957866132   ?
+Moon Unit, your guess: 8.8
+Dweezle, your guess: 8.9
+The correct square root: 9.36981694477866
+Dweezle is 0.46981694477866043 away
+Moon Unit is 0.5698169447786601 away
+Dweezle wins!
+
+What is the square root of 67.44682032701256   ?
+Dweezle, your guess: 8.2
+Moon Unit, your guess: 8.1
+The correct square root: 8.212601313044033
+Dweezle is 0.012601313044033446 away
+Moon Unit is 0.11260131304403309 away
+Dweezle wins!
+
+What is the square root of 71.64725527288849   ?
+Moon Unit, your guess: 8.4
+Dweezle, your guess: 8.45
+The correct square root: 8.464470170831042
+Dweezle is 0.01447017083104285 away
+Moon Unit is 0.06447017083104178 away
+Dweezle wins!
+
+---- Final Score ----
+Dweezle:  4   Moon Unit:  0
+</pre>
+
+<p>
+Call <code>Scanner.nextLine()</code> to read in the end of line characters after
+the number of iterations.
+Then read in the player names using <code>Scanner.nextLine()</code>.
+Use <code>nextDouble()</code> for the estimates.
+<code>Math.abs()</code> and <code>Math.sqrt()</code>  will be useful.
+</p>
+
+
+<p>
+<a href="../../index.html#20">Click here </a> to go back to the main menu.
+</p>
+
+<hr>
+
+<h2>Exercise 9 &#8212; Pig-like Dice Game</h2>
+
+<p>
+This is a dice game similar to the game <em>Pig</em>, but easier to  implement.
+The player plays against the computer.
+</p>
+
+<ol>
+<li>Player and Computer start out with zero points.</li>
+<li>The winner is the first player to reach 100 points or more.</li>
+<li>In each round, the computer rolls first, followed by the player.</li>
+<li>The computer rolls three dice and the sum of spots is added to its score.</li>
+<li>At the start of the player's turn, a working sum is initialized to zero.</li>
+<li>The player then rolls a single die as many times as desired.
+  <ul>
+  <li>If the die shows a 1 (on the first roll or any roll),
+      then the player's turn is over and nothing is added to the player's score.</li>
+  <li>For rolls other than 1, the roll is added to the working sum.</li>
+  <li>If the player stops rolling before a 1 occurs, then the working sum is added to the player's score.</li>
+  </ul>
+</li>
+</ol>
+
+<p>
+In a genuine Pig game, the computer would repeatedly throw a single die (just like the player)
+and use strategy to determine when to stop.
+</p>
+-->
+
+<!--<p>Zur&uuml;ck zum <a href="../../index.html#19">Inhaltsverzeichnis</a>.</p>-->
+
+
+
+
+</body>
+</html>

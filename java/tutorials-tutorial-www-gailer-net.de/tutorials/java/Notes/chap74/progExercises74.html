@@ -1,0 +1,115 @@
+<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+<body>
+
+<hr />
+<p>
+<small>created 01/01/03</small>
+</p>
+<hr />
+
+<center><h1>  
+Chapter 74 Programming Exercises </h1></center>
+
+<hr />
+
+<p>
+<b>Note:</b> You may find that <em>appletviewer</em> is a
+better tool to use with applet graphics than your Web browser.
+</p>
+
+
+<h2>Exercise 1</h2>
+<p>
+Modify the snowflake method so that different levels of
+stars are drawn with different colors.
+Use colors that are all close to pastel blue.
+Do this by changing the pen color based on the size of the star.
+</p>
+
+<p>
+<a href="../../cs151java.html#73">Click here </a> to go back to the main menu.
+</p>
+<hr/>
+
+<h2>Exercise 2</h2>
+<p>
+Implement the <em>blizzard</em> program:
+draw a few dozen randomly positioned snowflakes of a few random sizes
+and a few random colors.
+</p>
+
+<p>
+<a href="../../cs151java.html#73">Click here </a> to go back to the main menu.
+</p>
+<hr/>
+
+<h2>Exercise 3</h2>
+
+<p>
+Write a java applet that creates the following figure:
+</p>
+
+<center>
+<applet code="NestedTriangles.class"  width="400" height="400">
+</applet>
+</center>
+
+<p>
+The only drawing method this figure uses is
+<nobr><code>drawLine()</code></nobr>.
+The basic figure is a triangle.
+But rather than draw the full sized triangle,
+draw three half-sized triangles:
+</p>
+
+<ul>
+
+<li>
+The left vertex of the lower left triangle is the same as the
+left vertex of the big triangle.
+Its other two vertices are halfway along the bottom and left sides
+of the big triangle.
+</li>
+
+<li>
+The right vertex of the lower right triangle is the same as the
+right vertex of the big triangle.
+Its other two vertices are halfway along the bottom and right sides
+of the big triangle.
+</li>
+
+<li>
+The top vertex of the top triangle is the same as the
+top vertex of the big triangle.
+Its other two vertices are halfway along the right and left sides
+of the big triangle.
+</li>
+</ul>
+
+<p>
+Write a method <nobr><code>drawTriangle( int CenterX, int CenterY, int side )</code></nobr>
+that draws a triangle centered at  <nobr><code>(CenterX, CenterY)</code></nobr>
+if <code>side</code> is small.
+Otherwise, it draws three triangles.
+</p>
+
+<p>
+<a href="../../cs151java.html#73">Click here </a> to go back to the main menu.
+</p>
+
+<hr>
+<b>End of Exercises</b>
+</body>
+</html>
+

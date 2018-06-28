@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<meta name="translation" content="Copyright 2003 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+</head>
+
+<body BGCOLOR="#e8e8e8">
+<small>&copy; Copyright 2003 Deutsche &Uuml;bersetzung Heinrich Gailer</small>                               
+<hr size=5>
+<font size=-1><b>created 09/03/99</b></font>
+<hr size=5>
+<center><h1><font color=blue>
+Chapter 26  Programming Exercises</font></h1></center>
+
+<h2>Exercise 1 --- Garbage Collection</h2>
+<p>
+Whenever the last reference to an object is lost the object
+becomes <em>garbage</em>---a section of memory that is no longer
+in use.
+A part of the Java system called the <em>garbage collector</em>
+periodically looks through memory for garbage, which it the
+makes ready for use with new objects.
+</p>
+
+<p>
+Write a program that has a loop that iterates 1000 times.
+The loop body will use a constructor to create a String object.
+
+<A HREF="../../cs151java.html#part4">Click here </A> to go back to the main menu.
+<hr>
+
+
+<h2>Exercise 2 --- Floating Point Input</h2>
+<p>
+Write a program that adds up five floating point numbers input from
+a file (or from the keyboard.)
+As always with input from text files,
+use <em>readLine()</em> to get a string of characters.
+This string must contain only characters that designate a floating
+point number, like -0.184 or 1.23E+12.
+Characters that designate an integer, like 412 will also work for
+floating point input.
+Recall how to convert a string into a floating point number:
+<blockquote><pre>
+String lineIn;
+double val;
+. . .
+val  = ( Double.valueOf( lineIn  ) ).doubleValue();
+</blockquote></pre>
+
+</p>
+<A HREF="../../cs151java.html#part3">Click here </A> to go back to the main menu.
+<hr>
+
+<h2>Exercise 3 --- Optional Prompts</h2>
+<p>
+Modify the program that adds five integers so that
+it first asks if further prompts are desired.
+The user enters "yes" or "no" (just once, at the beginning).
+Now the loop either prompts or does not prompt for
+each of the integers to be input.
+</p>
+<p>
+You will need to use the <em>equals()</em> method of <em>String</em>.
+Set a <em>boolean</em> variable to <em>true</em> or <em>false</em>
+depending on the user's first input string.
+There will be an <em>if</em> statement inside the loop that determines
+if a prompt is written.
+</p>
+<A HREF="../../cs151java.html#part3">Click here </A> to go back to the main menu.
+<hr>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+<title>Programmieraufgaben</title>
+<meta name="copyright" content="2002,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+
+<hr />
+<p>
+<small>erstellt 04.06.03; &uuml;bersetzt 24.06.03; &uuml;berarbeitet 14.02.05; &copy; Copyright 2003 - 2005 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+</p>
+<hr />
+
+<center><h1>
+Kapitel 48 Programmieraufgaben</h1></center>
+
+<hr />
+
+<blockquote>
+Diese Aufgaben erzeugen eine Klasse <code>Gewicht</code>,
+die ein Array der Gewichtsmessungen einer Person enth&auml;lt,
+aufgenommen an aufeinanderfolgenden Tagen eines Monats.
+</blockquote>
+
+<h2>Aufgabe 1 &#8212; Konstruktor und Ausgabe</h2>
+
+<p>
+Vervollst&auml;ndigen Sie den Konstruktor in dem folgenden Programm,
+so dass er ein Array <code>daten</code> konstruiert,
+und dann die Werte des Parameters <code>init</code> nach <code>daten</code> kopiert.
+</p>
+
+<p>
+Vervollst&auml;ndigen Sie dann die <code>ausgeben()</code> Methode.
+Wenn Sie m&ouml;chten, schreiben Sie sie so, dass sie sieben Werte in einer Zeile ausgibt
+mit Ausnahme der letzten Zeile.
+</p>
+
+<pre>
+class Gewicht
+{
+  int[] daten;
+
+  // Konstruktor
+  Gewicht(int[] init)
+  {
+    // konstruiert ein Array mit der gleichen Länge
+    // wie das durch init referenzierte.
+    daten = new ....
+
+    // kopiert die übergebenen Werte
+    // nach daten.
+    for (int j.....)
+    {
+      daten[j] =
+    }
+  }
+
+  //Ausgabe
+  void ausgeben()
+  {
+    for (int j.....)
+    {
+      System.out.println();
+    }
+  }
+
+  public static void main ( String[] args )
+  {
+    int[] werte = { 98,  99,  98,  99, 100, 101, 102, 100, 104, 105,
+                    105, 106, 105, 103, 104, 103, 105, 106, 107, 106,
+                    105, 105, 104, 104, 103, 102, 102, 101, 100, 102};
+    Gewicht juni = new Gewicht( werte );
+    juni.ausgeben();
+  }
+}
+</pre>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#48">Inhaltsverzeichnis</a>.
+</p>
+
+<hr />
+
+<h2>Aufgabe 2 &#8212; Durchschnitt</h2>
+
+<p>
+F&uuml;gen Sie jetzt der Klasse eine <code>durchschnitt()</code> Methode hinzu.
+Verwenden Sie Integerarithmetik.
+</p>
+
+<pre>
+class Gewicht
+{
+  . . .
+
+  int durchschnitt()
+  {
+    . . .
+  }
+
+  public static void main ( String[] args )
+  {
+    int[] werte = { 98,  99,  98,  99, 100, 101, 102, 100, 104, 105,
+                    105, 106, 105, 103, 104, 103, 105, 106, 107, 106,
+                    105, 105, 104, 104, 103, 102, 102, 101, 100, 102};
+
+    Gewicht juni     = new Gewicht( werte );
+    int durchschnitt = juni.durchschnitt();
+    System.out.println("Durschnitt = " + durchschnitt );
+  }
+}
+</pre>
+
+<p>
+Um Ihre Methode zu &uuml;berpr&uuml;fen,
+initialisieren Sie das Array mit 10 Werten, die
+einen leicht zu berechnenden Durchschnitt ergeben.
+</p>
+
+<p>
+Zur&uuml;ck zum <a HREF="../../java-toc.html#48">Inhaltsverzeichnis</a>.
+</p>
+
+<hr />
+
+<h2>Aufgabe 3 &#8212; Teilbereich von Tagen</h2>
+
+<p>
+F&uuml;gen Sie jetzt eine weitere Methode hinzu,
+die den Durchschnitt f&uuml;r einen Teilbereich von Tagen
+berechnet.
+Die Signatur der Methode sieht so aus:
+</p>
+
+<pre>
+int subDurchschnitt( int start, int ende );
+</pre>
+
+<p>
+Machen Sie den Bereich <em>inklusive</em>,
+das hei&szlig;t, addieren Sie alle Tage von
+<code>start</code> bis inklusive <code>ende</code>.
+Sie werden das wahrscheinlich falsch verstehen.
+&Uuml;berpr&uuml;fen Sie Ihre Ergebnisse,
+debuggen Sie dann Ihre Methode.
+</p>
+
+<p>
+Verwenden Sie diese Methode in <code>main()</code>,
+um den Durchschnitt der ersten H&auml;lfte des Monats
+und dann den der zweiten H&auml;lfte des Monats zu berechnen.
+Geben Sie sowohl die beiden Durchschnittswerte als auch die
+Differenz zwischen ihnen aus.
+Wenn der Monat eine ungerade Zahl an Tagen hat,
+&uuml;bernehmen Sie den mittleren Tag in beide Durchschnittswerte.
+</p>
+
+<p>Zur&uuml;ck zum <a HREF="../../java-toc.html#48">Inhaltsverzeichnis</a>.</p>
+<hr />
+<p>Ende der Aufgaben</p>
+
+
+</body>
+</html>

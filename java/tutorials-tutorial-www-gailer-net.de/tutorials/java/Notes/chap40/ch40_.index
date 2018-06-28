@@ -1,0 +1,24 @@
+<!-- and operator, short-circuit -->
+<li><a href="ch40_2.html#and operator, short-circuit">and operator, short-circuit</a></li>
+<!-- short-circuit evaluation -->
+<li><a href="ch40_2.html#short-circuit evaluation">short-circuit evaluation</a></li>
+<!-- side effect -->
+<li><a href="ch40_3.html#side effect">side effect</a></li>
+<!-- and operator, not short-circuit -->
+<li><a href="ch40_5.html#and operator, not short-circuit">and operator, not short-circuit</a></li>
+<!-- pure function -->
+<li><a href="ch40_5.html#pure function">pure function</a></li>
+<!-- or operator, short-circuit -->
+<li><a href="ch40_8.html#or operator, short-circuit">or operator, short-circuit</a></li>
+<!-- or operator, not short-circuit -->
+<li><a href="ch40_8.html#or operator, not short-circuit">or operator, not short-circuit</a></li>
+<!-- and operator, several per expression -->
+<li><a href="ch40_10.html#and operator, several per expression">and operator, several per expression</a></li>
+<!-- associativity -->
+<li><a href="ch40_10.html#associativity">associativity</a></li>
+<!-- Boolean expression, mixed operators -->
+<li><a href="ch40_14.html#Boolean expression, mixed operators">Boolean expression, mixed operators</a></li>
+<!-- precedence, logical operators -->
+<li><a href="ch40_16.html#precedence, logical operators">precedence, logical operators</a></li>
+<!-- subexpressions -->
+<li><a href="ch40_17.html#subexpressions">subexpressions</a></li>

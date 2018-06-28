@@ -1,0 +1,1672 @@
+<!-- July  31, 2007 bpk   creation -->
+<!-- March 26, 2010 bpk   some small changes -->
+
+<CHAPTER>
+<COPYRIGHTDATE>2007</COPYRIGHTDATE>
+<COPYRIGHTHOLDER>Bradley Kjell</COPYRIGHTHOLDER>
+<AUTHORNAME>Bradley Kjell kjell at ieee dot org </AUTHORNAME>
+<GERMANTRANSLATION>heinrich at gailer-net dot de</GERMANTRANSLATION>
+<GERMANCOPYRIGHT>2010, Heinrich Gailer</GERMANCOPYRIGHT>
+
+<HOMEFILE>../../index.html#20</HOMEFILE>
+<STYLESHEET>../CAIstyle.css</STYLESHEET>
+
+<CAI> Kapitel 20 &#8212; Die Klasse <code>Random</code>
+
+<p class="revisions">
+erstellt 31.07.2007; &uuml;berarbeitet 22.10.2008, 26.03.2010; &uuml;bersetzt 19.04.2011; Deutsche &Uuml;bersetzung Heinrich Gailer
+</p>
+
+<LESSON>
+
+<p>
+<img src="die1.gif" class="rightimage" alt="die" title="die">
+<img src="die2.gif" class="rightimage" alt="die" title="die">
+<img src="die3.gif" class="rightimage" alt="die" title="die">
+<img src="die4.gif" class="rightimage" alt="die" title="die">
+</p>
+
+<br class="clearfloats">
+
+<div class="right">
+
+<p>
+Programme brauchen h&auml;ufig Zufallszahlen.
+Ein Kartenspiel verwendet Zufallszahlen, um einen gemischten Kartenstapel zu erzeugen.
+Ein W&uuml;rfelspiel verwendet Zufallszahlen, um einen W&uuml;rfelwurf zu simulieren.
+Viele Aktivit&auml;ten in der realen Welt (wie Verkehr auf einem Autobahnnetz)
+haben den Anschein des Zuf&auml;lligen und ein Programm, das diese modelliert, muss Zufallszahlen verwenden.
+Dieses Kapitel bespricht die Klasse <code>Random</code>, die ein Bestandteil von Java ist.
+</p>
+
+<p>
+Zufallszahlen, Wahrscheinlichkeit und Statistik sind wichtig
+zum Testen, Modellieren der Welt und zum allgemeinen Verst&auml;ndnis
+des Universums.
+Informatik Studieng&auml;nge erfordern &uuml;blicherweise
+einen Kurs zu diesen Themen.
+</p>
+
+</div>
+<div class="left">
+
+<h4>Themen</h4>
+<ul>
+<li>Zufallszahlen</li>
+<li>Zufallszahlengeneratoren</li>
+<li>Gleich- und Ungleichverteilung</li>
+<li>Die Klasse <code>Random</code></li>
+
+<li>Startwert f&uuml;r <code>Random()</code></li>
+<li>W&uuml;rfel werfen</li>
+<li>Kennw&ouml;rter w&auml;hlen</li>
+</ul>
+</div>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Welche Zahl ist das wahrscheinlichste Ergebnis beim Werfen eines W&uuml;rfels?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Zufallszahlen
+<ANSWER>
+<p>
+Jede Zahl von 1 bis 6 ist gleicherma&szlig;en wahrscheinlich.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>random numbers</INDEX>
+
+<p>
+<img src="gamespinner.gif" class="rightimage" alt="game spinner" class="right">
+Ein einzelner W&uuml;rfel kann als ein <b>Zufallszahlengenerator</b> betrachtet werden,
+der eine Zahl von 1 bis 6 ausw&auml;hlt,
+und jede Zahl ist gleich wahrscheinlich.
+Das Gleiche ist wahr bei einem zweiten Wurf der W&uuml;rfel.
+Der Ausgang des ersten Wurfs hat keine Auswirkung auf den Ausgang des zweiten Wurfs
+(oder irgendeines anderen Wurfs).
+</p>
+
+<p>
+Wenn Sie einen W&uuml;rfel viele Male werfen, bekommen Sie eine Abfolge von Zufallszahlen.
+Da jede Zahl gleicherma&szlig;en wahrscheinlich ist, w&uuml;rden Sie erwarten,
+dass jede Zahl genauso oft erscheint, wie jede der anderen Zahlen.
+Wenn Sie zum Beispiel den W&uuml;rfel 60 werfen, w&uuml;rden Sie erwarten
+jede Zahl 10 Mal zu sehen.
+Aber es w&auml;re selten, dass Sie jede Zahl exakt 10 Mal sehen w&uuml;rden.
+Der W&uuml;rfel merkt sich die vorherigen Ergebnisse nicht und tut nichts,
+um die Zahlen, die zu wenig gefallen sind, auszugleichen.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Sagen wir eine Gl&uuml;cksscheibe hat 12 Unterteilungen, nummeriert von 1 bis 12.
+Welche Zahl ist am wahrscheinlichsten?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI> Gleichverteilung
+<ANSWER>
+<p>
+Wieder sind alle Zahlen gleich wahrscheinlich.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>uniform distribution</INDEX>
+
+<div class="left">
+
+<p>
+Wenn jede Zahl in einem Zahlenbereich gleich wahrscheinlich ist,
+sind die Zahlen <b>gleichverteilt</b>.
+Viele Zufallszahlengeneratoren,
+wie ein einzelner W&uuml;rfel oder eine Gl&uuml;cksscheibe
+erzeugen eine Gleichverteilung.
+</p>
+
+<p>
+Aber, manche Zufallszahlengeneratoren erzeugen eine ungleiche Verteilung.
+Wenn zum Beispiel zwei W&uuml;rfel geworfen werden und
+das Ergebnis die Summe der W&uuml;rfelpunkte ist,
+ist der Bereich der m&ouml;glichen Ergebnisse 2 bis 12.
+Aber 7 ist das wahrscheinlichste Ergebnis,
+da es 6 Kombinationen gibt, die als Summe 7 ergeben,
+mehr als jede andere Zahl.
+6 und 8 sind die am zweitwahrscheinlichsten Ergebnisse,
+da es 5 jeweils Kombinationen gibt, die diese Zahlen ergeben.
+</p>
+</div>
+
+<div class="right">
+
+<table width="95%">
+<caption>Summe der W&uuml;rfelpunkte mit zwei W&uuml;rfeln</caption>
+
+<tr><th colspan="2" rowspan="2" style="background-color:#F0F0FF">&nbsp;</th><th class="headings" colspan="6">W&uuml;rfel 1</th></tr>
+<tr><th class="headings">1</th><th class="headings">2</th><th class="headings">3</th><th class="headings">4</th><th class="headings">5</th><th class="headings">6</th></tr>
+<tr><th class="headings" rowspan="6">W&uuml;rfel 2</th>     <th class="headings">1</th><td align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td></tr>
+
+<tr><th class="headings">2</th><td align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td></tr>
+<tr><th class="headings">3</th><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td></tr>
+<tr><th class="headings">4</th><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td></tr>
+
+<tr><th class="headings">5</th><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td></tr>
+<tr><th class="headings">6</th><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td align="center">12</td></tr>
+</table>
+</div>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Welches sind die am wenigsten wahrscheinlichen Ergebnisse bei zwei W&uuml;rfeln?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI> Die Klasse <code>Random</code>
+
+<ANSWER>
+<p>
+2 und 12, da es nur eine M&ouml;glichkeit gibt jede dieser Summen zu bekommen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>Random class</INDEX>
+<INDEX>seed, for Random()</INDEX>
+
+<p>
+Die Klasse <code>Random</code> kann in Programmen verwendet werden,
+die Zufallszahlen ben&ouml;tigen.
+<code>Random</code> ist Teil des Pakets <code>java.util</code>.
+Die Zahlen, die <code>Random</code> erzeugt, sind tats&auml;chlich <b>pseudo-zuf&auml;llig</b>,
+da sie auf Grund einer Formel berechnet werden.
+Aber sie scheinen zuf&auml;llig zu sein und k&ouml;nnen f&uuml;r die meisten Situationen verwendet werden,
+die Zufallszahlen brauchen.
+Ein <code>Random</code>-Objekt beginnt mit einem Startwert,
+der die Abfolge der Zahlen bestimmt, die erzeugt werden.
+Jedes <code>Random</code>-Objekt, das mit dem gleichen Startwert beginnt,
+wird die gleiche Abfolge von Zahlen produzieren.
+es gibt zwei Konstruktoren f&uuml;r <code>Random</code>-Objekte:
+</p>
+
+<blockquote>
+<code>
+Random()
+</code>
+
+&#8212; Erzeugt einen neuen Zufallszahlengenerator unter Verwendung eines Startwerts,
+der auf der aktuellen Zeit basiert.
+</blockquote>
+
+<blockquote>
+<code>
+Random(long seed)
+</code>
+
+&#8212; Erzeugt einen neuen Zufallszahlengenerator, der auf einem bestimmten Startwert basiert.
+</blockquote>
+
+<p>
+Der erste Konstruktor verwendet einen Startwert, der auf der aktuellen Zeit in Millisekunden basiert.
+Verwenden Sie ihn, wenn Sie einen unterschiedlichen Strom von Zufallszahlen je Ablauf des Programms brauchen.
+Zum Beispiel braucht ein Spielprogramm, um das Mischen eines Kartenstapels zu simulieren,
+bei jedem neuen Spiel einen unterschiedlichen Strom von Zufallszahlen.
+</p>
+
+<p>
+Der zweite Konstruktor gibt Ihnen die M&ouml;glichkeit eine Abfolge von Pseudo-Zufallszahlen zu wiederholen.
+Verwenden Sie ihn, um verschiedene Strategien im Hinblick auf den gleichen Strom von Zufallsereignsissen zu testen.
+Hier ist ein Beispiel, wie ein Zufallszahlengenerator erzeugt wird:
+</p>
+
+<pre>
+Random rand = new Random();
+</pre>
+
+<p>
+Jetzt k&ouml;nnen die Methoden der <code>Random</code> Klasse  f&uuml;r <code>rand</code> verwendet werden.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Gibt es Situationen in denen Sie genau die gleiche Abfolge von Zufallszahlen
+f&uuml;r mehrere Programml&auml;ufe verwenden wollen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI> <code>nextInt()</code>
+<ANSWER>
+<p>
+Ja. Zum Beispiel m&ouml;chte ein Solit&auml;rspieler, der gerade ein Spiel verloren hat,
+das Spiel mit den gleichen Karten wiederholen, um zu sehen, ob er mit einer besseren Strategie gewinnen kann.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>nextInt(), method of Random</INDEX>
+
+<p>
+Hier sind zwei Methoden (von mehreren), &uuml;ber die <code>Random</code>-Objekte verf&uuml;gen:
+</p>
+
+<blockquote>
+<code>
+int nextInt()
+</code>
+
+&#8212; Gibt den n&auml;chsten pseudo-zuf&auml;lligen, gleich verteilten Integer zur&uuml;ck.
+Alle m&ouml;glichen <code>int</code>-Werte, sowohl positive als auch negative, sind in dem Bereich der Werte, die zur&uuml;ckgegeben werden.
+</blockquote>
+
+<blockquote>
+<code>
+int nextInt( int num )
+</code>
+&#8212; Gibt einen pseudo-zuf&auml;lligen, gleich verteilten Integer zwischen 0 (inklusive) und <code>num</code> (exklusive) zur&uuml;ck.
+</blockquote>
+
+<p>
+Die zweite Methode wird am meisten verwendet.
+<code>num</code> muss ein positiver Integer sein.
+Die Zufallsinteger werden aus einem Bereich von 0 bis einschlie&szlig;lich <code>num-1</code>
+ausgew&auml;hlt.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Angenommen, Sie m&ouml;chten Pseudo-Zufallszahlen aus einem Bereich von 1 bis 6 ausw&auml;hlen.
+</p>
+
+<p>
+Wie kann <code>nextInt( int num )</code> daf&uuml;r verwendet werden?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>W&uuml;rfel-Programm
+<ANSWER>
+<p>
+Verwenden Sie <code>nextInt(int num)</code>, um Zahlen aus dem Bereich von 0 bis 5 auszuw&auml;hlen, dann addieren Sie 1:
+</p>
+
+<pre>
+wuerfel = rand.nextInt(6)+1;
+</pre>
+
+<p>
+Der Trick besteht darin die Anzahl der Integer zu bestimmen, die Sie f&uuml;r den Ergebnisbereich brauchen,
+und diese Anzahl als Parameter f&uuml;r <code>nextInt()</code> zu verwenden.
+Addieren Sie dann den Minimalwert des von Ihnen gew&uuml;nschten Bereichs.
+In diesem Beispiel wollen wir 1, 2, 3, 4, 5, 6, also ist die Anzahl der Integer des Ergebnisbereichs 6.
+<nobr><code>nextInt(6)</code></nobr> gibt Zahlen von 0, 1, 2, 3, 4, 5 zur&uuml;ck, also addieren Sie 1,
+um den gew&uuml;nschten Bereich zu bekommen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>die toss program</INDEX>
+<p>
+Hier ist ein Programm, das das Werfen eines W&uuml;rfels simuliert.
+</p>
+
+<pre class="program">
+import java.util.Random;
+import java.util.Scanner;
+
+public class Wuerfeln
+{
+
+  public static void main ( String[] args )
+  {
+    Scanner scan = new Scanner( System.in );
+    Random  rand = new Random();
+
+    while ( true )
+    {
+      System.out.print("Ihr Wurf ist eine " + (rand.nextInt(6)+1) );
+      String zeile = scan.nextLine();
+    }
+  }
+}
+</pre>
+
+<p>
+Die Anweisung:
+</p>
+
+<pre>
+Random rand = new Random();
+</pre>
+
+<p>
+erzeugt einen Zufallszahlengenerator unter Verwendung eines Startwerts, der auf der aktuellen Zeit basiert.
+Das Programm wird bei jeder Ausf&uuml;hrung eine unterschiedliche Zahlensequenz erzeugen.
+</p>
+
+<p>
+Die <code>while</code>-Schleife l&auml;uft, bis der Anwender Strg+C eingibt (oder das Programm auf andere Weise beendet).
+Der Schleifenk&ouml;rper w&auml;hlt eine Zufallszahl aus dem Bereich von 1 bis 6:
+</p>
+
+<pre>
+System.out.print("Ihr Wurf ist eine " + (rand.nextInt(6)+1) );
+</pre>
+
+<p>
+Dann wartet die Schleife bis der Anwender die Eingabetaste bet&auml;tigt.
+(Tats&auml;chlich wird jede Eingabe, die mit der Eingabetaste abgeschlossen wird, funktionieren.)
+</p>
+
+<pre>
+String zeile = scan.nextLine();
+</pre>
+
+<p>
+Mit der Zeile, die der Anwender eingibt, wird nichts getan. Sie wird
+nur verwendet, um den Output anzuhalten.
+(Sie k&ouml;nnten das Programm verbessern, indem Sie das Programm taktvoll beenden,
+wenn der Anwender "Q" oder "q" eingibt.)
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Angenommen Sie wollen Zufallszahlen im Bereich von -5 bis +5 (inklusive).
+Wie k&ouml;nnen Sie daf&uuml;r <code>nextInt()</code> verwenden? (Hinweis: Betrachten Sie das vorherige Beispiel.)
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI> Beispiel Output
+<ANSWER>
+<p>
+Die Gr&ouml;&szlig;e des gew&uuml;nschten Bereichs ist 11 (-5 bis +5), also ist der Parameter f&uuml;r <code>nextInt()</code>
+11.
+Der Minimalwert des gew&uuml;nschten Bereichs ist -5, also addieren Sie das zu dem Ausdruck:
+</p>
+
+<pre>
+zzahl = rand.nextInt(11)-5;
+</pre>
+
+<p>
+Der kleinste Wert, den  <code>nextInt(11)</code> zur&uuml;ckgibt, ist 0;
+das Addieren von -5 dazu ergibt den Minimalwert des Bereichs, den wir wollen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist ein Ablauf des W&uuml;rfel-Programms:
+</p>
+
+<pre class="dos8">
+
+D:\daten\&gt;java Wuerfeln
+Ihr Wurf ist eine 2
+Ihr Wurf ist eine 1
+Ihr Wurf ist eine 4
+Ihr Wurf ist eine 4
+Ihr Wurf ist eine 6
+Ihr Wurf ist eine 5
+Ihr Wurf ist eine 3
+Ihr Wurf ist eine 2Exception in thread "main" java.util.NoSuchElementException: No line found
+        at java.util.Scanner.nextLine(Unknown Source)
+        at Wuerfeln.main(Wuerfeln.java:15)
+</pre>
+
+Der Anwender gibt Strg+C ein, um das Programm zu beenden.<p>
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+(Denkfrage: ) Sie m&ouml;chten das Werfen von zwei W&uuml;rfeln simulieren.
+Brauchen Sie zwei Zufallszahlengeneratoren?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Zwei-W&uuml;rfel Gotcha!
+<ANSWER>
+<p>
+Nein. Sie k&ouml;nnen einen Zufallszahlengenerator verwenden, um beide W&uuml;rfel zu simulieren.
+Verwenden Sie ihn einmal f&uuml;r den einen W&uuml;rfel und dann wieder f&uuml;r den anderen W&uuml;rfel.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Tats&auml;chlich m&uuml;ssen Sie vorsichtig sein, wenn Sie zwei Zufallszahlengeneratoren verwenden.
+Der folgende Code:
+</p>
+
+<pre>
+Random rand1 = new Random();
+Random rand2 = new Random();
+</pre>
+
+<p>
+wird h&ouml;chstwahrscheinlich zwei Zufallszahlengeneratoren erzeugen, die mit dem gleichen
+Startwert initialisiert sind.
+Jeder Generator wird dann die gleiche Abfolge von Pseudo-Zufallszahlen erzeugen.
+Das ist nicht das, was Sie wollen.
+Der Grund, warum das passiert, ist, dass <code>Random()</code> einen Startwert verwendet,
+der auf der aktuellen Zeit in Millisekunden basiert.
+Aber die aktuelle Zeit &auml;ndert sich kaum zwischen der Ausf&uuml;hrung der beiden Anweisungen.
+Sie k&ouml;nnten den zweiten Zufallszahlengenerator initialisieren,
+indem Sie eine Zufallszahl des ersten verwenden,
+aber es ist zweckm&auml;&szlig;iger nur einen Zufallszahlengenerator zu verwenden.
+</p>
+
+<p>
+Das zweimalige Werfen eines W&uuml;rfels und die Addition der Ergebnisse
+ist &auml;quivalent zum Werfen zweier W&uuml;rfel und der Addition der beiden W&uuml;rfel.
+Aber, das Werfen eines 12-seitigen W&uuml;rfels ist <b>nicht</b> &auml;quivalent
+zum Werfen von zwei 6-seitigen W&uuml;rfeln.
+</p>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Werden Sie jemals mehr als einen Zufallszahlengenerator brauchen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Zwei-W&uuml;rfel-Programm
+<ANSWER>
+
+<p>
+Logisch gesehen, nein.
+Aber es ist oft zweckm&auml;&szlig;ig.
+Jedes Objekt einer Simulation k&ouml;nnte ihren eigenen Zufallszahlengenerator enthalten.
+Wenn Sie Kaulquappen simulieren w&uuml;rden, die in einem Teich zuf&auml;llig herumschwimmen,
+w&uuml;rden Sie wahrscheinlich einen Zufallszahlengenerator als Teil eines jeden Kaulquappen-Objekts haben.
+
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<img src="dice12.gif" class="rightimage" alt="two dice">
+<p>
+Hier ist ein Programm, dass das Werfen von W&uuml;rfeln simuliert:
+</p>
+
+<pre class="program">
+import java.util.*;
+
+public class ZweiWuerfel
+{
+
+  public static void main ( String[] args )
+  {
+    Scanner scan = new Scanner( System.in );
+    Random  rand = new Random();
+
+    while ( true )
+    {
+      System.out.print("Ihr Wurf ist eine " + (rand.nextInt(6)+1 + rand.nextInt(6)+1) );
+      String input = scan.nextLine();
+    }
+  }
+
+}
+</pre>
+
+<p>
+Die zwei W&uuml;rfe und die Summe der Punkte ist in dem Ausdruck
+</p>
+
+<pre>
+(rand.nextInt(6)+1 + rand.nextInt(6)+1)
+</pre>
+
+<p>
+implementiert. Jeder Aufruf von <code>nextInt(6)</code> ist v&ouml;llig unabh&auml;ngig vom vorherigen Aufruf,
+also ist das das gleiche wie das Werfen von zwei unabh&auml;ngigen W&uuml;rfeln.
+
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+W&uuml;rde das Folgende funktionieren, um zwei W&uuml;rfel zu simulieren:
+</p>
+
+<pre>
+(rand.nextInt(11)+2)
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Beispiel Output
+
+<pre>
+(rand.nextInt(11)+2)
+</pre>
+
+<ANSWER>
+<p>
+Nein. Der Bereich ist der gleiche wie der von zwei W&uuml;rfeln, 2 bis 12.
+Aber jede dieser Zahlen ist gleich wahrscheinlich,
+was bei zwei W&uuml;rfeln nicht der Fall ist.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<p>
+Hier ist ein Testlauf des oben stehenden (korrekten) Programms:
+</p>
+
+<pre class="dos4">
+Ihr Wurf ist eine 11
+Ihr Wurf ist eine 8
+Ihr Wurf ist eine 6
+Ihr Wurf ist eine 5
+Ihr Wurf ist eine 5
+Ihr Wurf ist eine 5
+Ihr Wurf ist eine 6
+Ihr Wurf ist eine 6
+Ihr Wurf ist eine 6
+Ihr Wurf ist eine 12
+Ihr Wurf ist eine 4
+Ihr Wurf ist eine 5 Exception in thread "main" . . .
+</pre>
+
+<p>
+Hier ist ein Testlauf eines Programms, das (f&auml;lschlicherweise) <code>(rand.nextInt(11)+2)</code> verwendet:
+</p>
+
+<pre class="dos4">
+Ihr Wurf ist eine 6
+Ihr Wurf ist eine 10
+Ihr Wurf ist eine 11
+Ihr Wurf ist eine 4
+Ihr Wurf ist eine 6
+Ihr Wurf ist eine 5
+Ihr Wurf ist eine 11
+Ihr Wurf ist eine 9
+Ihr Wurf ist eine 7
+Ihr Wurf ist eine 2
+Ihr Wurf ist eine 4
+Ihr Wurf ist eine 3 Exception in thread "main" . . .
+</pre>
+
+<p>
+Bei einer solch kleinen Probe k&ouml;nnen Sie nicht mit Sicherheit sagen,
+dass etwas flasch ist, aber Sie k&ouml;nnten einen Verdacht sch&ouml;pfen.
+Sammlen Sie mehr Daten, um Ihren Verdacht zu best&auml;tigen.
+Z&auml;hlen Sie dann, wie oft jedes Ergebnis erscheint und &uuml;berpr&uuml;fen Sie,
+ob die Ergebnisse dem entsprechen, was Sie erwarten.
+Das ist ein Teil dessen, was Sie in einem Wahrscheinlichkeits- und Statistikkurs studieren.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Werden Sie jemals Gleitpunktwerte als Zufallszahlen brauchen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Gleitpunkt <code>Random</code>-Methoden
+
+<ANSWER>
+<p>
+Ja. Zuf&auml;llige Gleitpunktzahlen sind f&uuml;r Simulationen und
+mathematische und wissenschaftliche Programmierung notwendig.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>nextDouble(), method of Random</INDEX>
+<p>
+Hier sind ein paar weitere Methoden der Klasse <code>Random</code>:
+</p>
+
+
+<blockquote>
+<code>
+float nextFloat()
+</code>
+&#8212; Gibt eine Pseudo-Zufallszahl als Gleitpunktwert mit einfacher Genauigkeit im Bereich von 0.0 bis aber nicht inklusive 1.0 zur&uuml;ck.
+</blockquote>
+
+<blockquote>
+<code>
+double nextDouble()
+</code>
+&#8212; Gibt eine Pseudo-Zufallszahl als Gleitpunktwert mit doppelter Genauigkeit im Bereich von 0.0 bis aber nicht inklusive 1.0 zur&uuml;ck.
+</blockquote>
+
+
+<blockquote>
+<code>
+double nextGaussian()
+</code>
+&#8212; Gibt eine Pseudo-Zufallszahl als Gleitpunktwert mit doppelter Genauigkeit aus einer Gau&szlig;-Verteilung (auch Normalverteilung genannt) zur&uuml;ck. Der Mittelwert der Verteilung ist 1.0 und die Standardabweichung ist 1.0.
+</blockquote>
+
+
+<img src="floatSpinner.gif" class="rightimage" alt="floating point spinner">
+<p>
+Beachten Sie, dass <code>nextFloat()</code> und <code>nextDouble()</code>
+Gleitpunktwerte im Bereich von <nobr><code>[0.0 bis 1.0)</code></nobr> zur&uuml;ckgeben.
+Alle Werte starten mit 0 bis <b>aber exklusive</b> 1.0.
+
+Sie k&ouml;nnten denken, dass es merkw&uuml;rdig ist 1.0  nicht mit einzuschlie&szlig;en.
+Aber das ist tats&auml;chlich zweckm&auml;&szlig;ig, und ist das, was fast alle Gleitpunkt-Zufallszahlengeneratoren tun.
+</p>
+
+<p>
+Um sich einen Gleitpunkt-Zufallszahlengenerator bildlich vorzustellen, denken Sie an einen Drehpfeil,
+der in der Mitte einer Scheibe mit einem Umfang von 12 Zoll angebracht ist.
+Um eine zuf&auml;llige Gleitpunktzahl zu erzeugen, beschleunigen Sie den Drehpfeil und messen dann
+die Entfernung entlang der Scheibe ausgehend von der Nullmarke.
+</p>
+
+<p>
+Wenn der Umfang exakt 12 Zoll ist, dann ist die "0.0"- und "1.0"-Marke auf der Scheibe dieselbe.
+Das veranschaulicht die Sache nicht zwar nicht exakt, aber die 1.0 ist aus dem Bereich ausgeschlossen,
+so dass dieses Problem vermieden wird.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Angenommen Sie wollen eine <code>double</code> Zufallszahl im Bereich von 1.0 bis (aber nicht einschlie&szlig;lich) 10.0.
+Wie k&ouml;nnen Sie diesen Bereich mit <code>nextDouble()</code> bekommen?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Kalkulator-Tester
+<ANSWER>
+<pre>
+<code>10.0*rand.nextDouble()</code>
+</pre>
+
+<p>
+Wenn Sie ein anderes Minimum als 0 brauchen, addieren Sie dieses Minimum zum Ausdruck.
+Um zum Beispiel Pseudo-Zufallszahlen im Bereich von 10.0 bis (aber nicht einschlie&szlig;lich) 25.9
+zu bekommen, tun Sie das:
+</p>
+
+<pre>
+<code>(25.9-10.0)*rand.nextDouble()+10.0</code>
+</pre>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>calculator testor</INDEX>
+<p>
+Angenommen Sie sind nicht davon &uuml;berzeugt, dass Java und Ihr elektronischer
+Taschenrechner die gleichen Werte f&uuml;r <code>sin(x)</code> berechnen.
+Sie k&ouml;nnten das testen, indem Sie die Werte, die beide f&uuml;r
+einige Standardwinkel erzielen, wie <code>0.0</code>, <code>pi/2</code> und so weiter,
+&uuml;berpr&uuml;fen.
+Aber Sie sollten auch verschiedene, zuf&auml;llig ausgew&auml;hlte Winkel testen.
+Hier ist ein Programm, das <code>sin(x)</code> f&uuml;r zuf&auml;llige Winkel (in Bogenmass)
+zwischen <code>-10*pi</code> und <code>+10*pi</code> berechnet.
+</p>
+
+<pre class="program">
+import java.util.Random;
+
+class SinusTester
+{
+  public static void main ( String[] args )
+  {
+    int j = 0;
+    Random rand = new Random();
+
+    System.out.println(" x " + "\t\t\t sin(x)");
+    while ( j &lt; 10 )
+    {
+      double x = rand.nextDouble()*(20*Math.PI) - 10*Math.PI;
+      System.out.println("" + x + "\t" + Math.sin(x));
+      j = j + 1;
+    }
+  }
+}</pre>
+
+<p>
+Zufallswerte werden oft zum Testen verwendet. Manchmal funktionieren die Dinge
+perfekt f&uuml;r Standardwerte, aber nicht f&uuml;r Zufallswerte.
+Zum Beispiel haben einige Tankstellen in Kalifornien ihre Zapfpumpen so abgestimmt,
+das sie f&uuml;r ein Vielfaches einer halben Gallone exakt die korrekte Menge,
+aber f&uuml;r alle anderen Mengen weniger Kraftstoff abgeben haben.
+Das Eichamt hat die Pumpen mit Standardmengen (eine halbe Gallone, eine Gallone, zehn Gallonen und weitere) getestet,
+also haben die Pumpen die Inspektion bestanden.
+Ein Test mit zuf&auml;lligen Mengen h&auml;tte den Betrug aufgedeckt.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+K&ouml;nnten Sie es jemals brauchen einen M&uuml;nzwurf zu simulieren?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Weitere <code>Random</code>-Methoden
+<ANSWER>
+<p>
+Ja. Verwenden Sie die unten beschriebene Methode <code>nextBoolean()</code>
+oder <code>nextInt(2)</code>.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>setSeed(), method of Random</INDEX>
+<p>
+Hier sind einige weitere Methoden der <code>Random</code> Klasse:
+</p>
+
+<blockquote>
+<code>
+long nextLong()
+</code>
+
+&#8212; Gibt eine gleichverteilte Pseudo-Zufallszahl als <code>long</code>-Wert zur&uuml;ck.
+Alle m&ouml;glichen <code>long</code>-Werte, sowohl positiv als auch negativ sind im Bereich der zur&uuml;ckgebenen Werte.
+</blockquote>
+
+<blockquote>
+<code>
+boolean nextBoolean()
+</code>
+&#8212; Gibt einen pseudo-zuf&auml;lligen <code>boolean</code>-Wert zur&uuml;ck.
+</blockquote>
+
+<blockquote>
+<code>
+void setSeed(long seed)
+</code>
+&#8212;  Setzt den Startwert des Zufallszahlengenerator.
+Das k&ouml;nnte an verschiedenen Stellen in einem Programmm getan werden,
+so dass verschiedene Objekte gegen das gleiche Zufallsereignis
+getestet werden.
+</blockquote>
+
+<p>
+Es gibt weitere Methoden der Klasse <code>Random</code>, die hier nicht beschrieben werden.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Denken Sie sich ein wirklich geheimes Kennwort f&uuml;r Ihren Computer aus.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Passwort-Programm
+<ANSWER>
+<p>
+geheim
+</p>
+
+<p>
+Nein... das ist nicht wirklich ein gutes Passwort.
+
+Ein Passworthacker-Programm w&uuml;rde es in ungef&auml;hr zwei Sekunden knacken.
+</p>
+
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>password picking program</INDEX>
+
+<p>
+Sieht so aus als w&auml;re eine Anfrage an die
+<em>Nigerian Security Services, Ltd.</em> notwendig.
+Hier ist deren Programm, um zuf&auml;llige Passw&ouml;rter zu erzeugen:
+</p>
+
+<pre class="program">
+import java.util.*;
+
+class PasswortGenerator
+{
+  public static void main ( String[] args )
+  {
+    Scanner scan = new Scanner( System.in );
+    Random rand = new Random();
+    int ziffern = 0;
+
+    while ( ziffern &lt; 5 )
+    {
+      System.out.println("Ihr Passwort muss mindestens aus 5 Zeichen bestehen.");
+      System.out.print("Aus wie vielen Zeichen soll Ihr Passwort bestehen? ");
+      ziffern = scan.nextInt();
+    }
+
+    String auswahl = "abcdefghijklmnopqrstuvwxyz" ;
+    auswahl = auswahl + auswahl.toUpperCase() ;
+    auswahl = auswahl + "1234567890" ;
+
+    String passwort = "";
+    int j = 0;
+    while ( j &lt; ziffern )
+    {
+      passwort = passwort + auswahl.charAt( rand.nextInt( auswahl.length() ) );
+      j = j + 1;
+    }
+
+    System.out.println("Hier ist Ihr Passwort: " + passwort );
+  }
+}
+</pre>
+
+<p>
+Hier sind einige Abl&auml;ufe des Programms:
+</p>
+
+<pre class="dos5">
+D:\daten&gt;java passwortGenerator
+Ihr Passwort muss mindestens aus 5 Zeichen bestehen.
+Aus wie vielen Zeichen soll Ihr Passwort bestehen? 4
+Ihr Passwort muss mindestens aus 5 Zeichen bestehen.
+Aus wie vielen Zeichen soll Ihr Passwort bestehen? 3
+Ihr Passwort muss mindestens aus 5 Zeichen bestehen.
+Aus wie vielen Zeichen soll Ihr Passwort bestehen? 8
+Hier ist Ihr Passwort: BaXpmUsA
+
+D:\daten&gt;java passwortGenerator
+Your passwort must have at leas 5 characters.
+Aus wie vielen Zeichen soll Ihr Passwort bestehen? 12
+Hier ist Ihr Passwort: ly3YFAhM8HDH
+</pre>
+
+<p>
+Die Details dieses Programms werden auf den n&auml;chsten Seiten erkl&auml;rt.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Was ist der Grund der folgenden Schleife des Programms:
+</p>
+
+<pre>
+while ( ziffern &lt; 5 )
+{
+  System.out.println("Ihr Passwort muss mindestens aus 5 Zeichen bestehen.");
+  System.out.print("Aus wie vielen Zeichen soll Ihr Passwort bestehen? ");
+  ziffern = scan.nextInt();
+}
+</pre>
+
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>String von Zeichen
+<ANSWER>
+<p>
+Die Schleife fordert den Anwender solange auf ein Passwort einzugeben,
+bis ein Integer gr&ouml;&szlig;er oder gleich 5 eingeben wird.
+(Tats&auml;chlich ist 5 gef&auml;hrlich klein f&uuml;r ein Passwort.)
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>toUpperCase() method of String</INDEX>
+<p>
+Als n&auml;chstes stellt das Programm alle Zeichen in einem String zusammen,
+die f&uuml;r ein Passwort zul&auml;ssig sind:
+</p>
+
+<pre>
+    String auswahl = "abcdefghijklmnopqrstuvwxyz" ;
+    auswahl = auswahl + auswahl.toUpperCase() ;
+    auswahl = auswahl + "1234567890" ;
+</pre>
+
+<p>
+Die erste der drei Anweisungen erzeugt ein Stringliteral,
+das alle Kleinbuchstaben des Alphabets enth&auml;lt.
+Der Ausdruck <code>auswahl.toUpperCase()</code> erzeugt,
+basierend auf den String, der aktuell durch <code>auswahl</code> referenziert wird,
+einen String aus Gro&szlig;buchstaben.
+Dieser String wird dann mit dem urspr&uuml;nglichen String <code>auswahl</code> verkettet:
+</p>
+
+<pre>
+auswahl = auswahl + auswahl.toUpperCase();
+</pre>
+
+<p>
+Denken Sie daran, dass <code>+</code> Stringverkettung bedeutet.
+Schlie&szlig;lich wird noch der String <code>"1234567890"</code> angeh&auml;ngt,
+um den endg&uuml;ltigen String, wie unten gezeigt, anzulegen:
+</p>
+
+
+<pre>
+"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+</pre>
+
+</LESSON>
+
+<QUESTION>
+<p>
+W&uuml;rde die Anweisung
+</p>
+
+<pre>
+auswahl = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+</pre>
+
+<p>
+genauso gut funktioniert haben?
+</p>
+
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Das Passwort erstellen
+
+<ANSWER>
+<p>
+Ja. Aber ich glaube, das es einfacher ist den String in drei Schritten anzulegen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>charAt() method of String</INDEX>
+<p>
+Als n&auml;chstes erstellt das Programm das Passwort:
+
+</p>
+
+<pre>
+    String passwort = "";
+    int j = 0;
+
+    while ( j &lt; ziffern )
+    {
+      passwort = passwort + auswahl.charAt( rand.nextInt( auswahl.length() ) );
+      j = j + 1;
+    }
+</pre>
+
+<p>
+Zuerst wird das Passwort mit einem Leerstring initialisiert.
+Dann werden zuf&auml;llige Zeichen, ausgew&auml;hlt aus <code>auswahl</code>,
+eines nach dem anderen angeh&auml;ngt.
+Der Ausdruck
+</p>
+
+<pre>
+rand.nextInt( auswahl.length() )
+</pre>
+
+<p>
+w&auml;hlt zuf&auml;llig einen Integer von 0 bis (aber nicht einschlie&szlig;lich) der L&auml;nge des Strings von <code>auswahl</code>.
+Dann wird dieser Integer verwendet, um ein Zeichen aus dem String <code>auswahl</code> zu w&auml;hlen.
+Angenommen die Zufallszahl ist 7. Dann ist
+</p>
+
+<pre>
+auswahl.charAt( 7 )
+</pre>
+
+<p>
+das Zeichen Nummer 7 in dem String <code>auswahl</code>, wobei das Z&auml;hlen mit 0 beginnt.
+Dieses Zeichen wird an das Passwort angeh&auml;ngt und die Schleife wird wiederholt.
+(Mehr &uuml;ber Stringmethoden finden Sie im Kapitel 29.)
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+In dem oben stehenden passieren ungef&auml;hr 4 Dinge in einer Anweisung.
+Das k&ouml;nnte schwer nachzuvollziehen sein.
+Ist das Folgende &auml;quivalent?
+</p>
+
+<pre>
+String passwort = "";
+int j = 0;
+while ( j &lt; ziffern )
+{
+  int bereich = auswahl.length();
+  int index = rand.nextInt( bereich );
+  char ch = auswahl.charAt( index );
+  passwort = passwort + ch;
+  j = j + 1;
+}
+</pre>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI> W&uuml;rfelspiel
+<ANSWER>
+<p>
+Ja.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>dice game, example program</INDEX>
+<p>
+Hier sind die Regeln f&uuml;r das W&uuml;rfelspiel:
+</p>
+
+<ol>
+<li>Das Spiel besteht aus mehreren "Runden".</li>
+<li>In jeder Runde spielt der Computer zuerst, indem er zwei 6-seitige W&uuml;rfel wirft und die Punkte addiert.</li>
+<li>Der Spieler muss jetzt versuchen diese Summe zu &uuml;bertreffen.</li>
+<li>Der Spieler kann zwischen zwei 6-seitigen oder einem 11-seitigen W&uuml;rfel, dessen Seiten von 2 bis 12 nummeriert sind, w&auml;hlen.</li>
+<li>Wenn der Wurf des Spielers den Computer schl&auml;gt, dann hat der Spieler die Runde gewonnen. Ansonsten gewinnt der Computer die Runde.</li>
+<li>Das Spiel wird fortgesetzt, bis entweder der Spieler oder der Computer zehn Runden gewonnen hat.</li>
+</ol>
+
+<p>
+Hier sind die ersten vier Runden des Spiels:
+</p>
+
+<pre class="dos6">
+Der Computer wirft: 10
+1 -> 11-seitiger Wuerfel | 2 -> 6-seitiger Wuerfel (1 oder 2)? 1
+Sie werfen 1 Wuerfel und haben: 7
+Sie haben die Runde verloren!
+Score: Computer 1, Sie 0
+
+Der Computer wirft: 4
+1 -> 11-seitiger Wuerfel | 2 -> 6-seitiger Wuerfel (1 oder 2)? 2
+Sie werfen 2 Wuerfel und haben: 9
+Sie haben die Runde gewonnen!
+Score: Computer 1, Sie 1
+
+Der Computer wirft: 10
+1 -> 11-seitiger Wuerfel | 2 -> 6-seitiger Wuerfel (1 oder 2)? 1
+Sie werfen 1 Wuerfel und haben: 3
+Sie haben die Runde verloren!
+Score: Computer 2, Sie 1
+
+Der Computer wirft: 5
+1 -> 11-seitiger Wuerfel | 2 -> 6-seitiger Wuerfel (1 oder 2)? 2
+Sie werfen 2 Wuerfel und haben: 5
+Sie haben die Runde verloren!
+Score: Computer 3, Sie 1
+</pre>
+
+<p>
+11-seitige W&uuml;rfel sind in der realen Welt schwer zu finden.
+Wenn Sie dieses Spiel mit richtigen W&uuml;rfeln spielen m&ouml;chten, dann verwenden Sie einen 12- oder 16-seitigen W&uuml;rfel (die gibt es, fragen Sie Ihren Dungeon Master) und verwerfen Sie alle W&uuml;rfe anders als 2 bis 12.
+</p>
+</LESSON>
+
+<QUESTION>
+<p>
+Welchen Vorteil hat der Computer in diesem Spiel?
+</p>
+<p>
+Welchen Vorteil hat der Spieler in diesem Spiel?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI> Flussdiagramm
+<ANSWER>
+<p>
+Welchen Vorteil hat der Computer in diesem Spiel?
+</p>
+
+<blockquote><BLU>
+Der Wurf des Computers muss vom Spieler &uuml;bertroffen werden.
+Bei Punktegleichstand gewinnt der Computer die Runde.
+</BLU></blockquote>
+
+<p>
+Welchen Vorteil hat der Spieler in diesem Spiel?
+</p>
+
+<blockquote><BLU>
+Der Spieler kann zwischen einer Gleichverteilung ( ein 11-seitiger W&uuml;rfel )
+und einer Nicht-Gleichverteilung (zwei normale W&uuml;rfel) mit 6-7-8 als h&auml;ufigstes Ergebnis w&auml;hlen.
+Verwenden Sie die Gleichverteilung, wenn ein hohe Zahl gebraucht wird;
+verwenden Sie die Nicht-gleichverteilung, wenn 6-7-8 gen&uuml;gen, um eine Runde zu gewinnen.
+</p>
+
+<p>
+Gen&uuml;gt das, um den Vorteil des Computers zu schlagen?
+Spielen Sie das Spiel, um das festzustellen!
+</BLU></blockquote>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX></INDEX>
+<p>
+Hier ist die Hauptlogik des Programms.
+Studieren Sie, wie es die Regeln f&uuml;r das Spiel implementiert.
+Einige zus&auml;tzliche Details werden noch f&uuml;r manche der Schritte ben&ouml;tigt.
+
+Die "Spieler wirft" Box muss z.B. die Details implementieren,
+wie dem Spieler die Wahl zwischen einem und zwei W&uuml;rfeln zu geben
+und dann entsprechend der Auswahl zu werfen.
+</p>
+
+<center>
+<img src="mainLogic.gif" alt="main logic">
+</center>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wie viele Zufallszahlengeneratoren werden f&uuml;r dieses Programm ben&ouml;tigt?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Vollst&auml;ndiges Programm
+<ANSWER>
+<p>
+Nur einer, wie gew&ouml;hnlich. Der eine Zufallszahlengenerator
+wird verwendet, um ein W&uuml;rfelpaar oder einen elf-seitigen W&uuml;rfel
+zu simulieren.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX>die choice game</INDEX>
+<p>
+Hier ist das vollst&auml;ndige Programm.
+Seine Teile werden kurz erkl&auml;rt.
+Sie k&ouml;nnen, wenn Sie m&ouml;chten, dieses Programm kopieren, in eine Datei einf&uuml;gen und damit experimentieren,
+</p>
+
+<pre class="program">
+import java.util.*;
+
+class WuerfelWahlProgramm
+{
+  public static void main ( String[] args )
+  {
+    <GRN>// Deklarieren und Initialisieren</GRN>
+    final int ENDSTAND = 10;
+    Scanner scan = new Scanner( System.in );
+    Random rand = new Random();
+    int spielerscore = 0, computerscore = 0;
+    int spielerwurf, computerwurf;
+
+    <GRN>// Runden spielen, bis einer der Spieler den ENDSTAND erreicht hat</GRN>
+    while ( spielerscore &lt; ENDSTAND &amp;&amp; computerscore &lt; ENDSTAND )
+    {
+      <GRN>// Computer wirft</GRN>
+      computerwurf = rand.nextInt(6)+1 + rand.nextInt(6)+1 ;
+      System.out.println("Der Computer wirft: " + computerwurf);
+
+      <GRN>// Spieler wirft</GRN>
+      System.out.print("1 -> 11-seitiger Wuerfel | 2 -> 6-seitiger Wuerfel (1 oder 2)? ");
+      String wuerfeltyp = scan.nextLine();
+
+      if ( wuerfeltyp.equals("1") )
+      {
+        spielerwurf = rand.nextInt(11)+2 ;
+        System.out.println("Sie werfen 1 Wuerfel und haben: " + spielerwurf );
+      }
+      else
+      {
+        spielerwurf = rand.nextInt(6)+1 + rand.nextInt(6)+1 ;
+        System.out.println("Sie werfen 2 Wuerfel und haben: " + spielerwurf );
+      }
+
+      <GRN>// Gewinner der Runde bestimmen und den Score anpassen</GRN>
+      if ( spielerwurf &gt; computerwurf )
+      {
+        spielerscore = spielerscore + 1;
+        System.out.println("Sie haben die Runde gewonnen!");
+      }
+      else
+      {
+        computerscore = computerscore + 1;
+        System.out.println("Sie haben die Runde verloren!");
+      }
+      System.out.println("Score: Computer " + computerscore + ", Sie " + spielerscore + "\n");
+    }
+
+    <GRN>// Gewinner des Spiels bestimmen</GRN>
+    System.out.println("Endstand: Computer " + computerscore + ", Sie " + spielerscore);
+
+    if ( computerscore &gt; spielerscore )
+      System.out.println("Der Computer hat das Spiel gewonnen!");
+    else
+      System.out.println("Sie haben das Spiel gewonnen!");
+
+  }
+}</pre>
+
+<p>
+Die Abschnitte des Programms entsprechen dem Flu&szlig;diagramm.
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Wird letztendlich einer der Spieler gewinnen? Oder ist ein Unentschieden m&ouml;glich?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die Hauptschleife
+
+<ANSWER>
+<p>
+Nur einer der Spieler wird gewinnen.
+Jede Runde addiert immer einen Punkt genau f&uuml;r einen Spieler,
+also kann nur ein Spieler die 10 Punkte zuerst erreichen.
+</p>
+
+</ANSWER>
+
+<LESSON>
+<p>
+Hier ist die Logik, die die Hauptschleife implementiert:
+</p>
+
+<pre class="program">
+  <GRN>// Deklarieren und Initialisieren</GRN>
+  final int ENDSTAND = 10;
+
+  int spielerscore = 0, computerscore = 0;
+
+  <GRN>// Runden spielen, bis einer der Spieler den ENDSTAND erreicht hat</GRN>
+  while ( spielerscore &lt; ENDSTAND &amp;&amp; computerscore &lt; ENDSTAND )
+  {
+    . . . .
+  }
+
+</pre>
+
+<p>
+Der Schleifenk&ouml;rper entspricht einer Spielrunde.
+</p>
+
+</LESSON>
+
+
+<QUESTION>
+<p>
+(R&uuml;ckblick: ) Was bedeutet <code>final int ENDSTAND = 10;</code> ?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Die W&uuml;rfe
+
+<ANSWER>
+<p>
+Die Variable <code>ENDSTAND</code> wird mit 10 initialisiert und kann,
+da sie als <code>final</code> deklariert ist, nicht ge&auml;ndert werden.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX></INDEX>
+<p>
+Der Wurf des Computers ist unkompliziert.
+Es muss nur der Wurf zweier sechs-seitiger W&uuml;rfel addiert werden.
+</p>
+
+<pre class="program">
+<GRN>// Computer wirft</GRN>
+computerwurf = rand.nextInt(6)+1 + rand.nextInt(6)+1 ;
+System.out.println("Der Computer wirft: " + computerwurf);
+</pre>
+
+<p>
+F&uuml;r den Wurf des Spielers fragt das Programm zuerst welche W&uuml;rfel verwendet werden sollen:
+</p>
+
+<pre class="program">
+<GRN>// Spieler wirft</GRN>
+System.out.print("1 -> 11-seitiger Wuerfel | 2 -> 6-seitiger Wuerfel (1 oder 2)? ");
+String wuerfeltyp = scan.nextLine();
+</pre>
+
+<p>
+Da die Ziffern, die der Anwender eingibt, nicht numerisch verwendet werden,
+werden sie am besten als String eingelesen.
+Falls der Anwender aus Versehen etwas anderes als eine Ziffer eingibt, wird das
+Programm nicht zusammenbrechen.
+Stringvergleich wird dann verwendet, um zu bestimmen, welche Option verwendet wird.
+Alles andere als die Ziffer "1" wird den Zweig mit den zwei W&uuml;rfeln w&auml;hlen.
+</p>
+
+<pre class="program">
+if ( wuerfeltyp.equals("1") )
+{
+  spielerwurf = rand.nextInt(11)+2 ;
+  System.out.println("Sie werfen 1 Wuerfel und haben: " + spielerwurf );
+}
+else
+{
+  spielerwurf = rand.nextInt(6)+1 + rand.nextInt(6)+1 ;
+  System.out.println("Sie werfen 2 Wuerfel und haben: " + spielerwurf );
+}
+</pre>
+
+
+</LESSON>
+
+<QUESTION>
+<p>
+W&auml;re es nicht besser zu testen, ob der Anwender genau die angegebene Auswahl eingibt?
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Den Gewinner der Runde bestimmen
+
+<ANSWER>
+<p>
+Ja, aber das w&uuml;rde dem Programm mehr Logik hinzuf&uuml;gen.
+Wenn Sie m&ouml;chten k&ouml;nnen Sie das als Aufgabe tun.
+</p>
+
+</ANSWER>
+
+<LESSON>
+
+<INDEX></INDEX>
+<p>
+Der letzte Code im Schleifenk&ouml;rper bestimmt den Gewinner der Runde:
+</p>
+
+<pre class="program">
+<GRN>// Gewinner der Runde bestimmen und den Score anpassen</GRN>
+if ( spielerwurf &gt; computerwurf )
+{
+  spielerscore = spielerscore + 1;
+  System.out.println("Sie haben die Runde gewonnen!");
+}
+else
+{
+  computerscore = computerscore+1;
+  System.out.println("Sie haben die Runde verloren!");
+}
+System.out.println("Score: Computer " + computerscore + ", Sie " + spielerscore + "\n");
+</pre>
+
+<p>
+Es gibt nichts Schwieriges hier, aber beachten Sie, dass der Code so geschrieben ist,
+das der Computer bei Punktgleichstand gewinnt.
+
+</p>
+
+</LESSON>
+
+<QUESTION>
+<p>
+Als eine weitere &Uuml;bung k&ouml;nnten Sie Code hinzuf&uuml;gen,
+um etwas anderes zu tun, wenn die W&uuml;rfe gleich sind.
+</p>
+</QUESTION>
+
+</CAI>
+
+
+
+
+<!-- ************************************** -->
+<!-- ************************************** -->
+<!-- ************************************** -->
+<CAI>Ende des Kapitels
+<ANSWER>
+<p>
+Aber lassen wir es.
+</p>
+
+</ANSWER>
+
+
+<LESSON>
+<p>
+Sie haben das Ende des Kapitels erreicht.
+Sie m&ouml;chten vielleicht eines der zuf&auml;lligen Themen noch einmal durchsehen:
+</p>
+
+<ul>
+<li>
+<GOTO>random numbers</GOTO> Zufallszahlen.
+</li>
+<li>
+<GOTO>uniform distribution</GOTO> Gleich- und Ungleichverteilung.
+</li>
+<li>
+<GOTO>Random class</GOTO> Die Klasse <code>Random</code>.
+</li>
+<li>
+<GOTO>nextInt(), method of Random</GOTO> Die <code>nextInt()</code> Methode.
+</li>
+<li>
+<GOTO>die toss program</GOTO> Beispielprogramm: Einen W&uuml;rfel werfen.
+</li>
+<li>
+<GOTO>nextDouble(), method of Random</GOTO> Die <code>nextDouble()</code> Methode.
+</li>
+<li>
+<GOTO>password picking program</GOTO> Beispielprogramm:: Passwort w&auml;hlen.
+</li>
+<li>
+<GOTO>charAt() method of String</GOTO> Die <code>charAt()</code> Methode eines Strings.
+</li>
+<li>
+<GOTO>die choice game</GOTO>Das W&uuml;rfelwahl-Programm.
+</li>
+
+</ul>
+
+<p>
+<!--For more game programs, check out the programming exercises.-->
+</p>
+
+</LESSON>
+</CAI>
+</CHAPTER>
+
+
+
+

@@ -1,0 +1,14 @@
+<INDEX>Point, Klasse</INDEX>
+<INDEX>Feld</INDEX>
+<INDEX>Konstruktor, überladener</INDEX>
+<INDEX>Objektreferenz, Abbildung</INDEX>
+<INDEX>toString()</INDEX>
+<INDEX>Methode, parameterlose</INDEX>
+<INDEX>temporäres Objekt</INDEX>
+<INDEX>Objekt, Methode ändert Zustand</INDEX>
+<INDEX>Objekt, Zuweisung ersetzt alte</INDEX>
+<INDEX>equals()</INDEX>
+<INDEX>Alias</INDEX>
+<INDEX>== -Operator</INDEX>
+<INDEX>Alias-Detektor</INDEX>
+

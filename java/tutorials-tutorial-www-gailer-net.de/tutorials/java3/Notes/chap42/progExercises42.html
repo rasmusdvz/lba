@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+<p>
+<small>created 05/26/03</small>
+</p>
+<hr />
+
+<center><h1> 
+Chapter 42  Programming Exercises </h1></center>
+<hr />
+
+
+<h2>Exercise 1 --- Log Table</h2>
+
+<p>
+Modify the program that prints out a table of <code>x</code>
+and <code>ln(x)</code> so that the table is formatted using HTML.
+Do this by first printing:
+</p>
+
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;table&gt;
+&lt;tr&gt;&lt;th&gt;x&lt;/th&gt;&lt;th&gt;ln(x)&lt;/th&gt;&lt;/tr&gt;
+</pre>
+
+<p>
+Next, for each iteration of the loop,
+calculate <code>x</code> and <code>logx</code> 
+and print the line:
+</p>
+
+<pre>
+System.out.println("&lt;tr&gt;&lt;td&gt;" + x + "&lt;/td&gt;&lt;td&gt;" + logx + "&lt;/td&gt;&lt;/tr&gt;" );
+</pre>
+
+<p>
+Finally, print:
+</p>
+
+<pre>
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+Run your program and redirect the output to
+a disk file (see Chapter 21).
+</p>
+
+<pre>
+C:\&gt;java LogTable &gt; myLogs.html
+</pre>
+
+<p>
+You should now be able to view your output file
+with a Web browser.
+(Find it in your subdirectory and double click on it,
+  or use "File/Open" in your browser's menu.)
+</p>
+
+<p>
+<A HREF="../../cs151java.html#42">Click here </A> to go back to the main menu.
+</p>
+
+<hr />
+
+<h2>Exercise 2 --- Cosine Applet</h2>
+
+<p>
+Add to the <code>sineWave</code> applet so that it graphs the
+sine function in red and the cosine function in blue, both
+in the same drawing area.
+</p>
+
+<p>
+<A HREF="../../cs151java.html#42">Click here </A> to go back to the main menu.
+</p>
+
+<hr />
+
+<h2>Exercise 3 --- Improved Graphics</h2>
+
+<p>
+Add to the <code>sineWave</code> applet so that it 
+draws the x and y axis.
+Also, draw "tick" marks along the x axis at
+PI/4, PI/2, 3*PI/4, and 2*PI.
+Draw axes and tick marks in black.
+Draw the sine in red.
+</p>
+
+<p>
+<A HREF="../../cs151java.html#42">Click here </A> to go back to the main menu.
+</p>
+
+<hr>
+</body>
+</html>

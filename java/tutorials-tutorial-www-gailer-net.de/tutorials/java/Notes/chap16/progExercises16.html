@@ -1,0 +1,139 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" >
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell at ieee  dot org ">
+<meta name="germantranslation" content="heinrich at gailer-net dot de">
+<meta name="germancopyright" content="2003, Heinrich Gailer">
+<meta name="robots" content="noindex,nofollow">
+
+<title>Programmieraufgaben</title>
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css">
+</head>
+
+<body>
+<p class="revisions">erstellt 04.08.99; &uuml;bersetzt 24.03.03; &uuml;berarbeitet 03.05.04, 03.10.06, 18.05.10, 22.11.10; Deutsche &Uuml;bersetzung Heinrich Gailer</p>
+
+<hr>
+
+<h1>Kapitel 16  Programmieraufgaben</h1>
+
+
+<h2>Aufgabe 1 &#8212; Integer addieren</h2>
+
+<p>Schreiben Sie ein Programm, das Integer addiert, die vom Benutzer eingegeben werden.
+Das Programm fragt zuerst wie viele Zahlen addiert werden sollen.
+Danach fordert das Programm den Benutzer auf die Zahlen nacheinander einzugeben.
+Schlie&szlig;lich gibt es das Ergebnis auf den Bildschirm aus.
+</p>
+
+<pre class="dos">
+Wie viele Integer sollen addiert werden:
+5
+Geben Sie einen Integer ein:
+3
+Geben Sie einen Integer ein:
+4
+Geben Sie einen Integer ein:
+-4
+Geben Sie einen Integer ein:
+-3
+Geben Sie einen Integer ein:
+7
+
+Die Summe ist 7
+</pre>
+
+<p>Achten Sie darauf, nicht die Anzahl der zu addierenden Integer (im Beispiel 5) zur Summe zu addieren.
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#16">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 2</h2>
+
+<p>Schreiben Sie ein Programm, das die folgende Summe berechnet:</p>
+
+<pre>
+summe = 1.0/1 + 1.0/2 + 1.0/3 + 1.0/4 + 1.0/5 + .... + 1.0/n
+</pre>
+
+
+<p>Die Variable <code><em>n</em></code> ist ein Integer, bis zu dem die Reihe berechnet werden soll. Sie wird vom Anwender eingegeben.</p>
+
+<pre class="dos">
+Geben Sie n ein:
+4
+
+Die Summe ist: 2.083333333333333
+</pre>
+
+<p>Zur&uuml;ck zum <a href="../../index.html#16">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+
+<h2>Aufgabe 3</h2>
+
+<p>Schreiben Sie ein Programm, das die Standardabweichung
+f&uuml;r eine Reihe von Gleitpunktzahlen berechnet, die vom
+Anwender eingegeben werden.
+Zuerst teilt der Anwender mit wie viele Zahlen N folgen werden.
+Dann wird das Programm die Gleitpunktzahlen anfordern und nacheinander einlesen.
+Schlie&szlig;lich wird es die Standardabweichung ausgeben.
+Die Standardabweichung f&uuml;r einen Satz Zahlen X<sub>i</sub> ist:
+</p>
+
+<pre>
+SD = Math.sqrt( durchschnittQ - durchschnitt<sup>2</sup> )
+</pre>
+
+<p>Dabei ist <code>durchschnitt</code> der Durchschnitt der Zahlen N und
+<code>durchschnitt<sup>2</sup></code> ist das Quadrat des Durchschnitts.</p>
+
+
+<p>
+<code>durchschnittQ</code> ist der Durchschnitt von X<sub>i</sub> * X<sub>i</sub>.
+Mit anderen Worten,
+es ist der Durchschnitt der quadrierten Werte aller Gleitpunktzahlen.
+</p>
+
+<p>Zum Beispiel, wenn N = 4 und, angenommen die Zahlen w&auml;ren:</p>
+
+
+<table border="1">
+<tr><th>&nbsp; &nbsp; &nbsp;</th><th>X<sub>i</sub></th> <th>X<sub>i</sub> * X<sub>i</sub></th></tr>
+<tr><td>&nbsp; &nbsp; &nbsp;</td><td> 2.0 </td> <td> 4.0</td></tr>
+<tr><td>&nbsp; &nbsp; &nbsp;</td><td> 3.0 </td> <td> 9.0</td></tr>
+<tr><td>&nbsp; &nbsp; &nbsp;</td><td> 1.0 </td> <td> 1.0</td></tr>
+<tr><td>&nbsp; &nbsp; &nbsp;</td><td> 2.0 </td> <td> 4.0</td></tr>
+<tr><td>&nbsp; &nbsp; &nbsp;</td><td>-----</td> <td>------</td></tr>
+<tr><td>&nbsp;  summe   &nbsp;</td><td> 8.0 </td> <td> 18.0</td></tr>
+</table>
+
+<p>dann ist</p>
+
+<pre>
+durchschnitt = 8.0/4 = 2.0
+durchschnitt<sup>2</sup> = 4.0
+
+durchschnittQ = 18.0/4 = 4.5
+
+SD = Math.sqrt( 4.5 - 4.0 ) = Math.sqrt( .5 ) = 0.7071067811865476
+</pre>
+
+<p>Um das zu tun, werden Sie mehrere Dinge innerhalb des Schleifenk&ouml;rpers
+f&uuml;r jeden Gleitpunktwert tun m&uuml;ssen. Die Gleitpunktwerte m&uuml;ssen
+addiert werden und die Quadrate der Gleitpunktwerte m&uuml;ssen addiert werden.
+Dann, nachdem die Schleife fertig ist, wenden Sie die Formel an.</p>
+
+
+<p>Zur&uuml;ck zum <a href="../../index.html#16">Inhaltsverzeichnis</a>.</p>
+
+<hr>
+<p>Ende der Aufgaben.</p>
+</body>
+</html>

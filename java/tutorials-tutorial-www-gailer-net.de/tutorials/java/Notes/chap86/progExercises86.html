@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Programming Exercises</title>
+<meta name="copyright" content="2002,  Bradley Kjell">
+<meta name="author" content="Bradley Kjell kjell@ieee.org ">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../ExerciseStyle.css" />
+</head>
+
+
+<body>
+<small>created 06/23/00</small>
+
+<center>
+<h1>Programming Exercises</h1>
+</center>
+
+<hr />
+
+<h2>Exercise 1&#8212;Finally</h2>
+
+<p>
+Rewrite the <code>ReadIntEOF</code> program
+to use a <code>finally</code> block to ensure that
+a file that has been opened is told to close.
+Of course, the <code>close()</code> might fail.
+</p>
+
+<p>
+<a href="../../cs151java.html#86">Click here</a> to go back to the main menu.
+</p>
+<hr>
+
+<h2>Exercise 2&#8212;Testing the File Copy Program</h2>
+
+<p>
+Copy the file copy program to Notepad, compile it, and run it.
+Use  the program to copy its own source file to a temporary file.
+Look at the copy to see if it is OK.
+Rename the copy to the name of the original file (thus deleting the original).
+Compile the copy to see if there are problems.
+</p>
+
+<p>
+Now use the program to copy its own bytecode file (the *.class file)
+to a temporary file.
+Rename the copy to the name of the original bytecode file.
+Run the new bytcode file.
+It should work.
+(On Unix systems you may have to use the chmod command to make the
+copy executable.)
+</p>
+
+<p>
+<a href="../../cs151java.html#86">Click here</a> to go back to the main menu.
+</p>
+<hr>
+
+<h2>Exercise  3&#8212;Data Compressor</h2>
+
+<p>
+Write a program that reads in a binary file of 4-byte <code>int</code> data.
+All the data is expected to be in the range -32768 to 32767,
+which will fit into a 2-byte <code>short</code>.
+The program writes a binary file that contains the same
+integers as the input file (in the same order),
+but each integer is now a <code>short</code>.
+Write an error message whenever an input value is outside the
+expected range,
+and write a 0 to output.
+</p>
+
+<p>
+For data in the expected format,
+this program will compress the file to 50 percent of its
+original size.
+Of course, any file not in this format will be turned
+into complete garbage.
+It might be interesting to try.
+</p>
+
+<p>
+The <em>Data Translator</em> program from the previous chapter
+can be used to create data to test this program.
+</p>
+
+
+<p>
+<a href="../../cs151java.html#86">Click here</a> to go back to the main menu.
+</p>
+<hr>
+
+<h2>Exercise  4&#8212;Input File with Header</h2>
+
+<p>
+Say that you have several files of integer data using various 
+formats: <code>byte, short, </code> and <code>int</code>.
+Each file starts out with a header  like this:
+</p>
+
+<pre>
+First four bytes:    an int that says how many bytes there are per
+                     integer in this file: 1, 2, or 4.
+</pre>
+
+<p>
+The data in the designated format immediately follow the header.
+</p>
+
+<p>
+Write a program that uses  a file like that as input.
+The program checks the header to determine how to
+read in the rest of the data.
+Then it reads in each integer and writes it
+(in character form)
+on the monitor screen.
+</p>
+
+<p>
+Modify the <em>Data Translator</em> program from the previous chapter
+so that it creates files suitable for testing this program.
+It is OK to make several versions of the <em>Data Translator</em>
+program, one for each type of testing file.
+</p>
+
+<p>
+<a href="../../cs151java.html#86">Click here</a> to go back to the main menu.
+</p>
+<hr>
+
+<h2>Exercise  5&#8212;Encryption and Decryption Program</h2>
+
+<p>
+Modify the file copy program so that the copy is
+<em>encrypted</em> (encoded).
+Each byte of the source file is altered by
+reversing each bit.
+For example,
+</p>
+
+<center>
+<table border="1" bgcolor="white" bordercolor="blue" cellpadding=10>
+<tr><th>input byte</th><th>output byte</th></tr>
+<tr><td>00110101</td><td>11001010</td></tr>
+<tr><td>00000000</td><td>11111111</td></tr>
+<tr><td>10000000</td><td>01111111</td></tr>
+</table>
+</center>
+
+
+<p>
+This operation is sometimes called a <em>bit-wise complement</em>.
+"Bit-wise" means that each bit is treated independently
+of all the others.
+"Complement" is just another word for reversal.
+</p>
+
+<p>
+All the bits in an integer can be reversed as follows:
+</p>
+
+<pre>
+int value;
+
+value = ~value;
+</pre>
+
+<p>
+The "~" (tilde) is the <em>bit-wise complement operator</em>.
+Visually it looks like a reversal of up and down.
+It reverses all the bits in <code>value</code>, even
+though you may be interested in only the low-order byte.
+But since the operation is bit-wise, the result for
+the low-order byte is the same no matter how many others
+are affected.
+</p>
+
+<p>
+Encrypt a text file using your program.
+For amusement purposes, look at the result with Notepad.
+Now use the program again to encrypt the encrypted file.
+Look at the result with Notepad.
+Will you need to write a program to decrypt (decode) files?
+</p>
+
+<p>
+This is not a very secure method of encryping a file.
+Java has other bit-wise operators that can be used
+to scramble bit patterns in other ways.
+</p>
+
+<p>
+<a href="../../cs151java.html#86">Click here</a> to go back to the main menu.
+</p>
+<hr>
+
+<h2>Exercise  6&#8212;Hex Dump</h2>
+
+<p>
+Write a program that reads in any file byte-by-byte and writes each
+byte to the monitor using two characters per byte.
+The eight bits of each byte are divided into two 4-bit groups,
+for example:
+</p>
+
+<pre>
+01011101 ==&gt; 0101 1101
+</pre>
+
+<p>
+Each 4-bit group is represented with one character according to
+the following table:
+</p>
+
+<center>
+<table border="1" bgcolor="white" bordercolor="blue" cellpadding=10>
+<tr><th>pattern</th> <th>character</th><th>pattern</th> <th>character</th></tr>
+<tr><td>0000</td><td>0</td> <td>1000</td><td>8</td></tr>
+<tr><td>0001</td><td>1</td> <td>1001</td><td>9</td></tr>
+<tr><td>0010</td><td>2</td> <td>1010</td><td>A</td></tr>
+<tr><td>0011</td><td>3</td> <td>1011</td><td>B</td></tr>
+<tr><td>0100</td><td>4</td> <td>1100</td><td>C</td></tr>
+<tr><td>0101</td><td>5</td> <td>1101</td><td>D</td></tr>
+<tr><td>0110</td><td>6</td> <td>1110</td><td>E</td></tr>
+<tr><td>0111</td><td>7</td> <td>1111</td><td>F</td></tr>
+</table>
+</center>
+
+<p>
+Even though you are only interested in bytes,
+it is convenient to do all your bit manipulation
+using <code>int</code> variables.
+To make all bits in the <code>int</code> zero
+except for the low-order 4 bits, do this:
+</p>
+
+<pre>
+int data, lowFour;
+
+lowFour = data & 0X0000000F ;
+</pre>
+
+<p>
+The "&" is the bit-wise AND operator.
+Now <code>lowFour</code> will contain one
+of the 16 possible patterns in its low-order 4 bits.
+To make all bits in the <code>int</code> zero
+except for the other 4 bits of the low-order byte, do this:
+</p>
+
+<pre>
+int data, highFour;
+
+highFour = data & 0X000000F0 ;
+</pre>
+
+<p>
+To shift those four bits right so that they
+occupy the low-order 4 bit positions, do this:
+</p>
+
+<pre>
+highFour = highFour&gt;&gt;&gt;4 ;
+</pre>
+
+<p>
+Display each byte of the input file using two characters followed by a space.
+Display 16 bytes per line (fewer on the last line).
+Here is an example of the program working:
+</p>
+
+<pre>
+C:\Programs&gt;DIR
+06/23/00  10:52p                 1,859 HexDump.class
+06/23/00  10:52p                 2,855 HexDump.java
+06/23/00  08:23p                    60 ints.dat
+
+C:\Programs&gt;java HexDump ints.dat
+00 00 00 0C 00 00 03 FF FF FF FF C8 00 01 4B 2D
+00 00 00 00 FF FF DB 65 00 00 00 22 00 00 02 8E
+FF FF FF E9 FF FF FE DA 00 00 00 12 FF FF FF E7
+00 00 00 AD 00 00 00 2D FF FF FF FE
+C:\Programs&gt;
+</pre>
+
+<p>
+<a href="../../cs151java.html#86">Click here</a> to go back to the main menu.
+</p>
+
+<hr>
+<p>
+End of Exercises.
+</p>
+<hr>
+
+</body>
+</html>

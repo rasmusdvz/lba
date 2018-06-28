@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<!-- revision 03/06/00 add meta -->
+<meta name="copyright" content="2000,  Bradley Kjell" />
+<meta name="author" content="Bradley Kjell kjell@ieee.org" />
+<meta name="translation" content="Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer heinrich@gailer-net.de" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Kapitel 11  Programmieraufgaben</title>
+<link rel="stylesheet" href="../ExerciseStyle.css" type="text/css" />
+</head>
+
+<body>
+<hr />
+<small>erstellt 01.08.99; &uuml;bersetzt 05.03.03; &uuml;berarbeitet 03.11.03, 26.04.04, 03.05.04, 03.09.04, 18.04.05, 29.09.06; &copy; Copyright 2003 - 2006 Deutsche &Uuml;bersetzung Heinrich Gailer</small>
+
+<hr />
+<center><h1>Kapitel 11  Programmieraufgaben</h1></center>
+
+<h2>Aufgabe 1</h2>
+<p>
+Schreiben Sie ein Programm, das die j&auml;hrlichen Stromkosten eines elektrischen Ger&auml;tes berechnet.
+Das Programm fragt den Anwender nach den Kosten je Kilowattstunde und nach der Anzahl der Kilowattstunden pro Jahr:
+<blockquote>
+<pre>
+Geben Sie den Preis pro Kilowattstunde in Cent ein:
+8.51
+Geben Sie die Anzahl der Kilowattstunden pro Jahr ein:
+653
+Jahreskosten: 55.570299999999996
+</pre>
+</blockquote>
+</p>
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#11">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 2</h2>
+<p>
+Wenn ein Stein zur Erde f&auml;llt, nimmt er an Geschwindigkeit zu, bis er die Erde erreicht hat. Dabei legt er in Abh&auml;ngigkeit zur Zeit, in der er sich im freien Fall befindet, eine bestimmte Strecke zur&uuml;ck.
+Die Strecke <code>s</code> ist gegeben durch:
+<blockquote>
+<pre><font size=+1>
+s = 1/2 G t<sup>2</sup></font>
+</pre>
+</blockquote>
+Hierbei ist <code>s</code> die Strecke, die im freien Fall zur&uuml;ckgelegt wird, <code>t</code> ist die Zeit in Sekunden
+und <code>G</code> ist die Konstante der Erdbeschleunigung 9.81.
+Schreiben Sie ein Programm, das den Anwender nach der Zahl der Sekunden fragt
+und die zur&uuml;ckgelegte Strecke ausgibt.
+<blockquote>
+<pre>
+Geben Sie die Sekunden ein:
+5.4
+Die Strecke s betraegt: 143.02980000000002 Meter
+</pre>
+</blockquote>
+Wie lange braucht der Stein, um <strong>ungef&auml;hr</strong> eine
+Strecke von 1000 Meter zur&uuml;ckzulegen?
+<form><input type="button" value="Hinweis" onClick="alert('In Java muss die Formel an den Stellen, wo zwischen zwei Operanden kein Operator steht, um den Multiplikations-Operator erg&auml;nzt werden; und aus t hoch 2 wird t * t.')" /></form>
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#11">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 3</h2>
+<p>
+Das Harmonische Mittel von zwei Zahlen wird wie folgt berechnet:
+<blockquote>
+<pre><font size=+1>
+H = 2 / ( 1/X + 1/Y )</font>
+</pre>
+</blockquote>
+Das ist manchmal sinnvoller als der &uuml;bliche Durchschnitt von zwei Zahlen.<br /><br />
+
+Schreiben Sie ein Programm, das zwei Zahlen (Gleitpunkt) einliest und den &uuml;blichen Durchschnitt (das arithmetische Mittel) und das harmonische Mittel ausgibt:
+<blockquote>
+<pre>
+Geben Sie X ein:
+12
+Geben Sie Y ein:
+16
+Arithmetisches Mittel: 14.0
+Harmonisches Mittel  : 13.714285714285715
+</pre>
+</blockquote>
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#11">Inhaltsverzeichnis</a>.</p>
+
+<hr />
+<h2>Aufgabe 4</h2>
+<p>
+Der Zweier-Logarithmus einer Zahl ist definiert durch:
+<blockquote>
+<pre><font size=+1>
+log<sub>2</sub> X = n  wenn 2<sup>n</sup> = X</font>
+</pre>
+</blockquote>
+Zum Beispiel
+<blockquote>
+<table width=75%>
+<tr><td>
+<pre><font size=+1>
+2<sup>5</sup> = 32, also ist
+log<sub>2</sub> 32 = 5
+</font>
+</pre>
+</td>
+<td>
+<pre><font size=+1>
+2<sup>10</sup> = 1024, also ist
+log<sub>2</sub> 1024 = 10.
+</font>
+</pre>
+</td>
+</tr>
+</table>
+</blockquote>
+Schreiben Sie ein Programm, das eine Zahl einliest und deren Zweier-Logarithmus ausgibt.
+Verwenden Sie Gleitpunkt-Input.
+Dieses Problem w&auml;re einfach, aber das Paket <code>Math</code> hat keine Methode f&uuml;r den Zweier-Logarithmus.
+Stattdessen m&uuml;sen Sie das tun:
+<blockquote>
+<pre><font size=+1>
+log<sub>2</sub> X = (log<sub>e</sub> X) / (log<sub>e</sub> 2)</font>
+</pre>
+</blockquote>
+Hier ist <font size=+1>log<sub>e</sub> X</font> der nat&uuml;rliche Logarithmus von X.
+Diese Funktion haben Sie im Paket <code>Math</code>:
+<blockquote>
+<pre><font size=+1>
+Math.log( X )</font>
+</pre>
+</blockquote>
+Wenn Sie das verwenden, muss X ein <code>double</code> sein.
+Schreiben Sie ein Programm, so dass der Anwender Gleitpunktzahlen eingeben kann.
+<blockquote>
+<pre>
+Geben Sie ein double ein:
+998.65
+Der Zweierlogarithmus von 998.65 ist 9.963835330516641
+</pre>
+</blockquote>
+</p>
+
+<p>Zur&uuml;ck zum <a href="../../java-toc.html#11">Inhaltsverzeichnis</a>.</p>
+<hr />
